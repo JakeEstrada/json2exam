@@ -230,7 +230,7 @@ export default function App() {
   if (screen === 'done') {
     const brain = findBrain(quiz, BRAINS);
     return (
-      <div className="shell">
+      <div className="shell shell-wide">
         <Masthead onHome={goHome} />
         <Summary
           quiz={quiz}
@@ -249,7 +249,7 @@ export default function App() {
   const brain = findBrain(quiz, BRAINS);
 
   return (
-    <div className="shell">
+    <div className="shell shell-wide">
       <Masthead onHome={goHome} />
 
       <div className="bar">
@@ -301,13 +301,6 @@ export default function App() {
           <button className="btn primary" onClick={advance}>Next question</button>
         </div>
       )}
-
-      <div className="footer-keys">
-        <span>
-          <kbd>1</kbd>–<kbd>9</kbd> or <kbd>a</kbd>–<kbd>d</kbd> to pick, <kbd>enter</kbd> to {phase === 'review' ? 'continue' : 'check'}
-        </span>
-        <span><kbd>esc</kbd> to finish</span>
-      </div>
 
       <AskGPT
           brain={brain}
