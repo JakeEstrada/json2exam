@@ -936,66 +936,105 @@ function clearSession() {
    ===================================================================== */
 
 const SAMPLE = {
-  title: 'Network security sampler',
+  title: 'Requirements Engineering sampler',
   questions: [
-    { question: 'Which protocol is built for moving files between hosts?',
-      options: ['a) HTTP', 'b) FTP', 'c) SMTP', 'd) IPX'], answer: 'b' },
-    { question: 'A SQL injection attack works by manipulating the queries an application sends to its database.',
-      type: 'boolean', answer: true,
-      explanation: 'Unsanitized input becomes part of the query text, so the attacker writes SQL the app never intended to run.' },
-    { question: 'Which of these are symmetric ciphers?',
-      type: 'multi', options: ['AES', 'RSA', 'ChaCha20', 'ECDSA'], answer: ['a', 'c'],
-      explanation: 'RSA and ECDSA are public-key algorithms: one key encrypts or signs, a different key reverses it.' },
-    { question: 'What does a TLS certificate actually prove to a browser?',
-      options: ['That the site is safe to use', 'That the server holds the private key for a name a trusted CA vouched for', 'That the connection is faster', 'That the site stores passwords hashed'],
-      answer: 'b' },
-    { question: 'Hashing is reversible if you know the algorithm.',
+    { question: 'What is a business requirement?',
+      options: [
+        'A restriction on the design or implementation choices open to the developer',
+        'A high-level objective explaining why the organization wants the product',
+        'A policy, guideline, standard, or regulation that constrains the business',
+        'A nonfunctional requirement describing a service characteristic such as speed',
+      ],
+      answer: 'b',
+      explanation: 'A business requirement states the objective the organization is trying to reach by having the product built.' },
+    { question: 'A feature and a functional requirement mean the same thing.',
       type: 'boolean', answer: false,
-      explanation: 'A hash throws information away. Cracking works by guessing inputs, not by running the function backwards.' },
-    { question: 'Which practices reduce the damage of a stolen password database?',
+      explanation: 'A feature bundles related capabilities and is usually described by several functional requirements.' },
+    { question: 'Which of these are functional requirements for Discord? Select all that apply.',
       type: 'multi',
-      options: ['Salting each password', 'Using a slow KDF such as bcrypt or Argon2', 'Storing passwords with MD5', 'Encoding passwords in base64'],
-      answer: ['a', 'b'],
-      explanation: 'Base64 is encoding, not protection, and MD5 is far too fast to slow a cracker down.' },
-    { question: 'Port 22 is the default for which service?',
-      options: ['Telnet', 'SSH', 'DNS', 'RDP'], answer: 2 },
-    { question: 'What separates a worm from a virus?',
-      options: ['A worm spreads without a host file or user action', 'A worm only targets Linux', 'A worm cannot encrypt files', 'A worm needs a boot sector'],
-      answer: 'a' },
-    { question: 'Which belong to the CIA triad?',
-      type: 'multi', options: ['Confidentiality', 'Integrity', 'Authorization', 'Availability'],
-      answer: ['a', 'b', 'd'],
-      explanation: 'Authorization matters, but the triad names confidentiality, integrity, and availability.' },
-    { question: 'A firewall rule set that ends in "deny all" follows which principle?',
-      options: ['Fail open', 'Default deny', 'Least astonishment', 'Defense in depth'], answer: 'b' },
-    { question: 'DNS queries over plain UDP port 53 are encrypted end to end.',
-      type: 'boolean', answer: false },
-    { question: 'Which signals point to a phishing email?',
+      options: [
+        'Discord shall serve one hundred thousand concurrent users without slowdown',
+        'Discord shall remove a message when a moderator with permission deletes it',
+        'Discord wants to raise the number of servers a typical user stays active in',
+        'Discord shall notify a member when someone mentions them inside a channel',
+      ],
+      answer: ['b', 'd'],
+      explanation: 'Those two name behavior the software performs. The others are a quality attribute and a business requirement.' },
+    { question: 'What is a constraint?',
+      options: [
+        'A high-level objective explaining why the organization wants the product',
+        'A restriction on the design or implementation choices open to the developer',
+        'A policy, guideline, standard, or regulation that constrains the business',
+        'A goal a defined class of users must be able to accomplish with the system',
+      ],
+      answer: 'b',
+      explanation: 'A constraint narrows the set of design or implementation choices the developer is allowed to make.' },
+    { question: 'A business rule can exist even if no software ever enforces it.',
+      type: 'boolean', answer: true,
+      explanation: 'Business rules come from policy, regulation, or standards. Software requirements may be written to enforce them.' },
+    { question: 'Which of these are nonfunctional requirements for Netflix? Select all that apply.',
       type: 'multi',
-      options: ['A reply-to address on a lookalike domain', 'Urgency about an account closing today', 'A digitally signed message from a known sender', 'A link whose text and destination differ'],
-      answer: ['a', 'b', 'd'] },
+      options: [
+        "Netflix must keep a profile's viewing history readable only to that account",
+        'Netflix shall let a subscriber add a title to the My List collection',
+        'Netflix must begin playback within two seconds of a viewer pressing play',
+        'Netflix shall show the ten most relevant results for a search query',
+      ],
+      answer: ['a', 'c'],
+      explanation: 'Security and performance describe characteristics of the service. The other two describe behavior.' },
+    { question: 'What is a feature?',
+      options: [
+        'A policy, guideline, standard, or regulation that constrains the business',
+        'A statement of the behavior the system performs under a specific condition',
+        'A set of logically related capabilities that together deliver value to a user',
+        'A description of a connection between the system and an outside device or program',
+      ],
+      answer: 'c',
+      explanation: 'A feature groups related capabilities and is normally described by several functional requirements.' },
+    { question: 'Every nonfunctional requirement is a quality attribute.',
+      type: 'boolean', answer: false,
+      explanation: 'Constraints and external interface requirements are also nonfunctional but are not quality attributes.' },
+    { question: 'What is an external interface requirement?',
+      options: [
+        'A statement of the behavior the system performs under a specific condition',
+        'A policy, guideline, standard, or regulation that constrains the business',
+        'A restriction on the design or implementation choices open to the developer',
+        'A description of a connection between the system and an outside device or program',
+      ],
+      answer: 'd',
+      explanation: 'External interface requirements cover connections to users, other software systems, and hardware devices.' },
   ],
 };
 
 const SAMPLE_SNIPPET = `{
-  "title": "Network security sampler",
+  "title": "Requirements Engineering sampler",
   "questions": [
     {
-      "question": "Which protocol is built for moving files between hosts?",
-      "options": ["HTTP", "FTP", "SMTP", "IPX"],
+      "question": "What is a business requirement?",
+      "options": [
+        "A restriction on the design or implementation choices open to the developer",
+        "A high-level objective explaining why the organization wants the product",
+        "A policy, guideline, standard, or regulation that constrains the business",
+        "A nonfunctional requirement describing a service characteristic such as speed"
+      ],
       "answer": "b"
     },
     {
-      "question": "Hashing is reversible if you know the algorithm.",
+      "question": "A feature and a functional requirement mean the same thing.",
       "type": "boolean",
       "answer": false,
-      "explanation": "A hash throws information away."
+      "explanation": "A feature bundles related capabilities and is usually described by several functional requirements."
     },
     {
-      "question": "Which of these are symmetric ciphers?",
+      "question": "Which of these are functional requirements for Discord? Select all that apply.",
       "type": "multi",
-      "options": ["AES", "RSA", "ChaCha20", "ECDSA"],
-      "answer": ["a", "c"]
+      "options": [
+        "Discord shall serve one hundred thousand concurrent users without slowdown",
+        "Discord shall remove a message when a moderator with permission deletes it",
+        "Discord wants to raise the number of servers a typical user stays active in",
+        "Discord shall notify a member when someone mentions them inside a channel"
+      ],
+      "answer": ["b", "d"]
     }
   ]
 }`;
@@ -1082,7 +1121,7 @@ function Loader({ onStart, resumable, onResume, onForget }) {
       />
 
       <div className="row">
-        <button className="btn" onClick={() => accept(JSON.stringify(SAMPLE), 'Network security sampler')}>
+        <button className="btn" onClick={() => accept(JSON.stringify(SAMPLE), 'Requirements Engineering sampler')}>
           Try the sample deck
         </button>
         <button className="btn quiet" onClick={() => setPasting((p) => !p)}>
@@ -1150,7 +1189,7 @@ function Loader({ onStart, resumable, onResume, onForget }) {
         <div className="spec-body">
           <p>
             A top-level array of questions works too, so a Python <code>questions = [...]</code> list can be
-            pasted straight in once the outer brackets are valid JSON. Option labels like <code>"a) HTTP"</code> are
+            pasted straight in once the outer brackets are valid JSON. Option labels like <code>"a) A restriction..."</code> are
             trimmed automatically.
           </p>
           <p>

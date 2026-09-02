@@ -198,7 +198,7 @@ export default function App() {
 
   if (screen === 'load') {
     return (
-      <div className="shell">
+      <div className="shell shell-wide">
         <Masthead />
         <Loader
           onStart={startFresh}
@@ -214,7 +214,7 @@ export default function App() {
   if (screen === 'course') {
     const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
     return (
-      <div className="shell">
+      <div className="shell shell-wide">
         <Masthead onHome={goHome} />
         <Course
           course={course}

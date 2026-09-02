@@ -25,24 +25,34 @@ A JSON file, either a top-level array of questions or an object with a `question
 
 ```json
 {
-  "title": "Network security sampler",
+  "title": "Requirements Engineering sampler",
   "questions": [
     {
-      "question": "Which protocol is built for moving files between hosts?",
-      "options": ["HTTP", "FTP", "SMTP", "IPX"],
+      "question": "What is a business requirement?",
+      "options": [
+        "A restriction on the design or implementation choices open to the developer",
+        "A high-level objective explaining why the organization wants the product",
+        "A policy, guideline, standard, or regulation that constrains the business",
+        "A nonfunctional requirement describing a service characteristic such as speed"
+      ],
       "answer": "b"
     },
     {
-      "question": "Hashing is reversible if you know the algorithm.",
+      "question": "A feature and a functional requirement mean the same thing.",
       "type": "boolean",
       "answer": false,
-      "explanation": "A hash throws information away."
+      "explanation": "A feature bundles related capabilities and is usually described by several functional requirements."
     },
     {
-      "question": "Which of these are symmetric ciphers?",
+      "question": "Which of these are functional requirements for Discord? Select all that apply.",
       "type": "multi",
-      "options": ["AES", "RSA", "ChaCha20", "ECDSA"],
-      "answer": ["a", "c"]
+      "options": [
+        "Discord shall serve one hundred thousand concurrent users without slowdown",
+        "Discord shall remove a message when a moderator with permission deletes it",
+        "Discord wants to raise the number of servers a typical user stays active in",
+        "Discord shall notify a member when someone mentions them inside a channel"
+      ],
+      "answer": ["b", "d"]
     }
   ]
 }

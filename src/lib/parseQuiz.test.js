@@ -56,6 +56,14 @@ test('reads letter-keyed choice objects and letter answers', () => {
   assert.deepEqual(q.answers, [1]);
 });
 
+test('loads the Requirements Engineering sampler with nothing skipped', async () => {
+  const { SAMPLE } = await import('../data/sample.js');
+  const bank = normalizeQuiz(SAMPLE);
+  assert.equal(bank.title, 'Requirements Engineering sampler');
+  assert.equal(bank.questions.length, SAMPLE.questions.length);
+  assert.equal(bank.skipped.length, 0);
+});
+
 test('loads the Chapter 1 bank with nothing skipped', async () => {
   const { readFile } = await import('node:fs/promises');
   const { fileURLToPath } = await import('node:url');

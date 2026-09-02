@@ -1,19 +1,22 @@
 import { useState, useRef } from 'react';
 import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
-import { SAMPLE_SNIPPET, PASTE_PLACEHOLDER } from '../data/sample.js';
+import { SAMPLE, PASTE_PLACEHOLDER } from '../data/sample.js';
+import { COURSES } from '../data/catalog.js';
+import { openJson } from '../lib/openJson.js';
 
 function openExample() {
-  const blob = new Blob([SAMPLE_SNIPPET], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const tab = window.open(url, '_blank', 'noopener');
-  if (!tab) {
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'example.json';
-    a.click();
-  }
-  window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  openJson(SAMPLE, 'example.json');
+}
+
+function courseBlurb(course) {
+  if (!course.decks.length) return 'No chapters yet.';
+  const questions = course.decks.reduce(
+    (n, deck) => n + ((deck.data && deck.data.questions && deck.data.questions.length) || 0),
+    0
+  );
+  const labels = course.decks.map((d) => d.label).join(', ');
+  return `${questions} question${questions === 1 ? '' : 's'} · ${labels}`;
 }
 
 export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget }) {
@@ -54,43 +57,69 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
   }
 
   return (
-    <div>
+    <div className="landing">
       <ResumeBar resumable={resumable} onResume={onResume} onForget={onForget} />
 
-      <div className="welcome">
-        <p>Hey everyone! It looks like a lot of us are going to be part of the CSUF 2028 cohort together. I put together a small study website and shared the <a href="https://github.com/JakeEstrada/json2exam" target="_blank" rel="noreferrer">GitHub repo</a> in the Discord.</p>
-        <p>I’m hoping we can use it throughout the program to share resources, create study material, and help each other out. I built the tool mainly because I wanted something useful for studying myself, but I figured it could be helpful for everyone else too.</p>
-        <p>The project is completely open source, so if anyone wants to contribute, add features, fix something, or just mess around with the code, feel free to join the repo.</p>
-        <p>Hopefully we can build it up together over the next couple of years. Thanks, guys!</p>
+      <div className="sheet welcome">
+        <p>
+          Hey everyone — this is a study / exam prep tool for the CSUF 2028 cohort.
+          I built it so we can drill questions for <strong>CPSC 541</strong> and <strong>CPSC 544</strong>,
+          and I want a deck for each chapter as we go through the program.
+        </p>
+        <p>
+          It uses a Leitner system: a right answer moves a card up a box, a miss sends it back to box 1,
+          and the next question is always taken from the lowest box still in play. There is also a small
+          LLM helper on a deck (AskGPT) so you can ask why something is wrong without leaving the page.
+          I would like that for both classes, chapter by chapter.
+        </p>
+        <p>
+          The project is open source. I shared the{' '}
+          <a href="https://github.com/JakeEstrada/json2exam" target="_blank" rel="noreferrer">GitHub repo</a>
+          {' '}in Discord — add a chapter, fix something, or just mess around with the code. Thanks, guys!
+        </p>
       </div>
 
-      <div className="stack">
-        <div className="leaf one" aria-hidden="true"></div>
-        <div className="leaf two" aria-hidden="true"></div>
-        <div
-          className={'drop' + (over ? ' is-over' : '')}
-          role="button"
-          tabIndex={0}
-          onClick={() => fileRef.current && fileRef.current.click()}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              fileRef.current && fileRef.current.click();
-            }
-          }}
-          onDragOver={(e) => { e.preventDefault(); setOver(true); }}
-          onDragLeave={() => setOver(false)}
-          onDrop={(e) => {
+      <div className="start-grid">
+        {COURSES.map((course) => (
+          <button
+            key={course.id}
+            type="button"
+            className="course-card sheet"
+            onClick={() => onOpenCourse(course.id)}
+          >
+            <strong>CPSC {course.code}</strong>
+            {course.title && <span className="subtitle">{course.title}</span>}
+            <p>{courseBlurb(course)}</p>
+            <span className="go">Open course</span>
+          </button>
+        ))}
+      </div>
+
+      <div
+        className={'upload-panel sheet' + (over ? ' is-over' : '')}
+        role="button"
+        tabIndex={0}
+        onClick={() => fileRef.current && fileRef.current.click()}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            setOver(false);
-            readFile(e.dataTransfer.files && e.dataTransfer.files[0]);
-          }}
-        >
-          <h2>Upload your own question file</h2>
+            fileRef.current && fileRef.current.click();
+          }
+        }}
+        onDragOver={(e) => { e.preventDefault(); setOver(true); }}
+        onDragLeave={() => setOver(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setOver(false);
+          readFile(e.dataTransfer.files && e.dataTransfer.files[0]);
+        }}
+      >
+        <div className="upload-copy">
+          <strong>Upload JSON</strong>
           <p>
-            Drop a JSON file from your computer, or click to choose one. The file is read
-            in this browser only. It is not uploaded or stored on a server, so your questions
-            stay on your PC.{' '}
+            Use this for anything else you want to study — another class, a chapter you wrote,
+            notes from a friend. Drop a question file here, or click to choose one. It stays
+            in this browser.{' '}
             <a
               href="example.json"
               className="text-link"
@@ -100,11 +129,11 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
                 openExample();
               }}
             >
-              [example.json]
+              example.json
             </a>
           </p>
-          <span className="cue">or choose a file</span>
         </div>
+        <span className="go">Choose a file</span>
       </div>
 
       <input
@@ -115,16 +144,9 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         onChange={(e) => { readFile(e.target.files && e.target.files[0]); e.target.value = ''; }}
       />
 
-      <p className="leitner-note">
-        Right answers move a card up a box. Misses return to box 1. The next question
-        is taken from the lowest box still in play.
-      </p>
-
-      <div className="row">
-        <button className="btn primary" onClick={() => onOpenCourse('541')}>CPSC 541</button>
-        <button className="btn" onClick={() => onOpenCourse('544')}>CPSC 544</button>
+      <div className="row landing-extra">
         <button type="button" className="text-link" onClick={() => setPasting((p) => !p)}>
-          {pasting ? 'Hide' : 'Load your own questions'}
+          {pasting ? 'Hide paste box' : 'Paste questions instead'}
         </button>
       </div>
 

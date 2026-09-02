@@ -4,6 +4,7 @@ export const COURSES = [
   {
     id: '541',
     code: '541',
+    title: 'Requirements Engineering',
     decks: [
       {
         id: '541-ch1',
