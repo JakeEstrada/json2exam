@@ -239,7 +239,7 @@ export default function App() {
           maxBox={settings.maxBox}
           onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
         />
-        {brain && <AskGPT brain={brain} card={null} phase="review" picked={[]} />}
+        <AskGPT brain={brain} card={null} phase="review" picked={[]} />
       </div>
     );
   }
@@ -309,14 +309,12 @@ export default function App() {
         <span><kbd>esc</kbd> to finish</span>
       </div>
 
-      {brain && (
-        <AskGPT
+      <AskGPT
           brain={brain}
           card={current}
           phase={phase}
           picked={picked}
         />
-      )}
     </div>
   );
 }

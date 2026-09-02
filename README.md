@@ -11,13 +11,15 @@ instead of one.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # static bundle in dist/
-npm test         # unit tests for the parser
+cp .env.example .env      # then paste OPENAI_API_KEY
+npm run dev               # http://localhost:5173
+npm run build             # static bundle in dist/
+npm test                  # unit tests for the parser
 ```
 
-Nothing is served or stored anywhere. The file you drop is read in the browser with
-`FileReader` and progress is kept in `localStorage`.
+AskGPT calls `/api/ask`, which reads `OPENAI_API_KEY` from `.env` (never from the browser). That OpenAI key is the only secret you need. Without it, Chapter 1 falls back to the canned notes.
+
+Nothing else is stored on a server. The question file you drop is still read in the browser with `FileReader`, and progress stays in `localStorage`.
 
 ## Question file format
 
