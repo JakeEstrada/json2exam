@@ -1,13 +1,10 @@
 import { useState, useRef } from 'react';
 import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
-import { SAMPLE, PASTE_PLACEHOLDER } from '../data/sample.js';
+import FileWindow from './FileWindow.jsx';
+import { SAMPLE } from '../data/sample.js';
 import { COURSES } from '../data/catalog.js';
-import { openJson } from '../lib/openJson.js';
-
-function openExample() {
-  openJson(SAMPLE, 'example.json');
-}
+import aiFileGuide from '../data/aiFileGuide.md?raw';
 
 function courseBlurb(course) {
   if (!course.decks.length) return 'No chapters yet.';
@@ -23,8 +20,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
   const [over, setOver] = useState(false);
   const [error, setError] = useState(null);
   const [warn, setWarn] = useState(null);
-  const [pasting, setPasting] = useState(false);
-  const [pasted, setPasted] = useState('');
+  const [preview, setPreview] = useState(null);
   const fileRef = useRef(null);
 
   function accept(text, name) {
@@ -52,7 +48,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => accept(String(reader.result), file.name);
-    reader.onerror = () => setError({ head: 'That file could not be read.', detail: ['Try opening it and pasting the text instead.'] });
+    reader.onerror = () => setError({ head: 'That file could not be read.', detail: ['Try another file.'] });
     reader.readAsText(file);
   }
 
@@ -126,40 +122,29 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                openExample();
+                setPreview({ kind: 'json', filename: 'example.json', data: SAMPLE });
               }}
             >
               example.json
             </a>
           </p>
+          <a
+            href="how-to-get-quick-json-files.md"
+            className="text-link orange-link"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setPreview({
+                kind: 'md',
+                filename: 'how-to-get-quick-json-files.md',
+                source: aiFileGuide,
+              });
+            }}
+          >
+            how to get quick json files
+          </a>
         </div>
         <span className="go">Choose a file</span>
-      </div>
-
-      <div className="sheet ai-file">
-        <h2>Getting a question file fast</h2>
-        <p>
-          You don’t have to write these by hand. Upload your textbook chapter or lecture slides
-          to an LLM and have it generate the questions for you in the JSON format above.
-        </p>
-        <p>Two things to watch for, because models get both wrong by default:</p>
-        <ul>
-          <li>
-            <strong>Balance the answer key.</strong> Left alone, an LLM will pile most of the
-            correct answers onto one or two letters and never use the last couple at all. Tell
-            it to spread the correct answers evenly across every option.
-          </li>
-          <li>
-            <strong>Watch the answer length.</strong> The correct answer tends to come out as
-            the longest, most detailed option while the distractors are short fragments. That
-            makes the whole thing guessable without reading the question. Tell it to keep every
-            option about the same length.
-          </li>
-        </ul>
-        <p>
-          I’ve had good results with Claude for this. It handles the format well and does a
-          decent job keeping things balanced if you ask it to.
-        </p>
       </div>
 
       <input
@@ -169,29 +154,6 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         style={{ display: 'none' }}
         onChange={(e) => { readFile(e.target.files && e.target.files[0]); e.target.value = ''; }}
       />
-
-      <div className="row landing-extra">
-        <button type="button" className="text-link" onClick={() => setPasting((p) => !p)}>
-          {pasting ? 'Hide paste box' : 'Paste questions instead'}
-        </button>
-      </div>
-
-      {pasting && (
-        <div>
-          <textarea
-            className="paste-area"
-            value={pasted}
-            spellCheck="false"
-            placeholder={PASTE_PLACEHOLDER}
-            onChange={(e) => setPasted(e.target.value)}
-          />
-          <div className="row">
-            <button className="btn primary" disabled={!pasted.trim()} onClick={() => accept(pasted, 'Pasted deck')}>
-              Load these questions
-            </button>
-          </div>
-        </div>
-      )}
 
       {error && (
         <div className="notice">
@@ -214,6 +176,16 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
             </button>
           </div>
         </div>
+      )}
+
+      {preview && (
+        <FileWindow
+          kind={preview.kind}
+          filename={preview.filename}
+          data={preview.data}
+          source={preview.source}
+          onClose={() => setPreview(null)}
+        />
       )}
 
     </div>

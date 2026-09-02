@@ -1,6 +1,9 @@
-import { openJson } from '../lib/openJson.js';
+import { useState } from 'react';
+import FileWindow from './FileWindow.jsx';
 
 export default function Course({ course, onStart }) {
+  const [preview, setPreview] = useState(null);
+
   return (
     <div>
       <div className="bar course-head">
@@ -24,7 +27,11 @@ export default function Course({ course, onStart }) {
                   <button
                     type="button"
                     className="text-link deck-file"
-                    onClick={() => openJson(deck.data, deck.file)}
+                    onClick={() => setPreview({
+                      kind: 'json',
+                      filename: deck.file,
+                      data: deck.data,
+                    })}
                   >
                     {deck.file}
                   </button>
@@ -40,6 +47,15 @@ export default function Course({ course, onStart }) {
             </li>
           ))}
         </ul>
+      )}
+
+      {preview && (
+        <FileWindow
+          kind={preview.kind}
+          filename={preview.filename}
+          data={preview.data}
+          onClose={() => setPreview(null)}
+        />
       )}
     </div>
   );

@@ -98,13 +98,3 @@ export const SAMPLE_SNIPPET = JSON.stringify(
   null,
   2
 );
-
-export const PASTE_PLACEHOLDER = `// Paste your JSON file here. Don’t worry, no one else will see it. It is only stored in your own local memory.
-
-[
-    {
-        "question": "...",
-        "options": ["...", "..."],
-        "answer": "a"
-    }
-]`;
