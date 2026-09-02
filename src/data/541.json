@@ -1,0 +1,546 @@
+{
+  "title": "Requirements Engineering, Chapter 1",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What is a business requirement?",
+      "choices": {
+        "A": "A high-level objective explaining why the organization wants the product",
+        "B": "A goal or task a defined class of users must be able to accomplish with the system",
+        "C": "A nonfunctional requirement describing a service characteristic such as speed",
+        "D": "A restriction on the design or implementation choices open to the developer",
+        "E": "A statement of the behavior the system performs under a specific condition",
+        "F": "A top-level requirement for a product built from several interacting subsystems"
+      },
+      "answer": "A",
+      "explanation": "A business requirement states the objective the organization is trying to reach by having the product built."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "What is a business rule?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A goal or task a defined class of users must be able to accomplish with the system",
+        "C": "A nonfunctional requirement describing a service characteristic such as speed",
+        "D": "A set of logically related capabilities that together deliver value to a user",
+        "E": "A restriction on the design or implementation choices open to the developer",
+        "F": "A policy, guideline, standard, or regulation that constrains the business"
+      },
+      "answer": "F",
+      "explanation": "A business rule comes from how the business operates. It often leads to software requirements but is not itself one."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "What is a constraint?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A nonfunctional requirement describing a service characteristic such as speed",
+        "C": "A description of a connection between the system and an outside device or program",
+        "D": "A restriction on the design or implementation choices open to the developer",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A high-level objective explaining why the organization wants the product"
+      },
+      "answer": "D",
+      "explanation": "A constraint narrows the set of design or implementation choices the developer is allowed to make."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "What is an external interface requirement?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A set of logically related capabilities that together deliver value to a user",
+        "C": "A top-level requirement for a product built from several interacting subsystems",
+        "D": "A description of a connection between the system and an outside device or program",
+        "E": "A restriction on the design or implementation choices open to the developer",
+        "F": "A goal or task a defined class of users must be able to accomplish with the system"
+      },
+      "answer": "D",
+      "explanation": "External interface requirements cover connections to users, other software systems, and hardware devices."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "What is a feature?",
+      "choices": {
+        "A": "A nonfunctional requirement describing a service characteristic such as speed",
+        "B": "A statement of the behavior the system performs under a specific condition",
+        "C": "A set of logically related capabilities that together deliver value to a user",
+        "D": "A policy, guideline, standard, or regulation that constrains the business",
+        "E": "A goal or task a defined class of users must be able to accomplish with the system",
+        "F": "A top-level requirement for a product built from several interacting subsystems"
+      },
+      "answer": "C",
+      "explanation": "A feature groups related capabilities and is normally described by several functional requirements."
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "What is a functional requirement?",
+      "choices": {
+        "A": "A set of logically related capabilities that together deliver value to a user",
+        "B": "A nonfunctional requirement describing a service characteristic such as speed",
+        "C": "A policy, guideline, standard, or regulation that constrains the business",
+        "D": "A statement of a property or characteristic the system is required to respect",
+        "E": "A statement of the behavior the system performs under a specific condition",
+        "F": "A goal or task a defined class of users must be able to accomplish with the system"
+      },
+      "answer": "E",
+      "explanation": "A functional requirement states what the system does, under what condition, in terms a developer can build against."
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "What is a nonfunctional requirement?",
+      "choices": {
+        "A": "A high-level objective explaining why the organization wants the product",
+        "B": "A statement of a property or characteristic the system is required to respect",
+        "C": "A description of a connection between the system and an outside device or program",
+        "D": "A nonfunctional requirement describing a service characteristic such as speed",
+        "E": "A top-level requirement for a product built from several interacting subsystems",
+        "F": "A goal or task a defined class of users must be able to accomplish with the system"
+      },
+      "answer": "B",
+      "explanation": "Nonfunctional requirements describe properties and restrictions rather than behavior the system carries out."
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "What is a quality attribute?",
+      "choices": {
+        "A": "A description of a connection between the system and an outside device or program",
+        "B": "A top-level requirement for a product built from several interacting subsystems",
+        "C": "A goal or task a defined class of users must be able to accomplish with the system",
+        "D": "A nonfunctional requirement describing a service characteristic such as speed",
+        "E": "A policy, guideline, standard, or regulation that constrains the business",
+        "F": "A statement of a property or characteristic the system is required to respect"
+      },
+      "answer": "D",
+      "explanation": "A quality attribute is one kind of nonfunctional requirement, covering service characteristics like performance or security."
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "What is a system requirement?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A set of logically related capabilities that together deliver value to a user",
+        "C": "A top-level requirement for a product built from several interacting subsystems",
+        "D": "A restriction on the design or implementation choices open to the developer",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A policy, guideline, standard, or regulation that constrains the business"
+      },
+      "answer": "C",
+      "explanation": "System requirements apply to a whole product made of interacting parts, which may include hardware as well as software."
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "What is a user requirement?",
+      "choices": {
+        "A": "A policy, guideline, standard, or regulation that constrains the business",
+        "B": "A goal or task a defined class of users must be able to accomplish with the system",
+        "C": "A description of a connection between the system and an outside device or program",
+        "D": "A set of logically related capabilities that together deliver value to a user",
+        "E": "A high-level objective explaining why the organization wants the product",
+        "F": "A statement of the behavior the system performs under a specific condition"
+      },
+      "answer": "B",
+      "explanation": "User requirements describe what a user needs to accomplish, not the detailed software behavior that supports it."
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "SCWW tells Liminal it wants to cut the time the office spends rebuilding job schedules by hand. What type of requirement is this?",
+      "choices": {
+        "A": "User requirement",
+        "B": "System requirement",
+        "C": "Business rule",
+        "D": "Constraint",
+        "E": "Business requirement",
+        "F": "Functional requirement"
+      },
+      "answer": "E",
+      "explanation": "This states why the organization wants Paarth and what value it expects, so it is a business requirement."
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "Company policy says an employee who passes forty hours in a week earns overtime. What is the policy itself?",
+      "choices": {
+        "A": "User requirement",
+        "B": "System requirement",
+        "C": "Business rule",
+        "D": "Feature",
+        "E": "Functional requirement",
+        "F": "Quality attribute"
+      },
+      "answer": "C",
+      "explanation": "The overtime policy exists whether or not Paarth exists. Paarth may need functional requirements to enforce it."
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "Paarth must run on the Raspberry Pi already installed in the shop office. What is the MOST specific classification?",
+      "choices": {
+        "A": "User requirement",
+        "B": "Feature",
+        "C": "Constraint",
+        "D": "External interface requirement",
+        "E": "Nonfunctional requirement",
+        "F": "Business requirement"
+      },
+      "answer": "C",
+      "explanation": "Existing hardware removes implementation options from the developer, which is what a constraint does."
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "Paarth must push each scheduled job into the shop's Google Calendar. What does the Google Calendar connection represent?",
+      "choices": {
+        "A": "System requirement",
+        "B": "Business requirement",
+        "C": "Constraint",
+        "D": "Business rule",
+        "E": "Nonfunctional requirement",
+        "F": "External interface requirement"
+      },
+      "answer": "F",
+      "explanation": "Google Calendar is a separate software system Paarth has to communicate with."
+    },
+    {
+      "id": 15,
+      "type": "multiple_choice",
+      "question": "Payroll Management covers hour totals, overtime, mileage, and reimbursements. What is Payroll Management best classified as?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "Feature",
+        "C": "Business rule",
+        "D": "System requirement",
+        "E": "Business requirement",
+        "F": "Quality attribute"
+      },
+      "answer": "B",
+      "explanation": "It names a group of related capabilities that deliver value together, which is a feature."
+    },
+    {
+      "id": 16,
+      "type": "multiple_choice",
+      "question": "When an employee scans an RFID card, Paarth shall record the clock-in time. What type of requirement is this?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "External interface requirement",
+        "C": "Feature",
+        "D": "Business rule",
+        "E": "Quality attribute",
+        "F": "User requirement"
+      },
+      "answer": "A",
+      "explanation": "It names a specific behavior triggered by a specific condition."
+    },
+    {
+      "id": 17,
+      "type": "multiple_choice",
+      "question": "Paarth should stay responsive with twenty employees using it at once. What is the MOST specific classification?",
+      "choices": {
+        "A": "Quality attribute",
+        "B": "Business requirement",
+        "C": "Nonfunctional requirement",
+        "D": "Business rule",
+        "E": "Functional requirement",
+        "F": "External interface requirement"
+      },
+      "answer": "A",
+      "explanation": "Performance under load is a service characteristic, so quality attribute is more specific than nonfunctional requirement."
+    },
+    {
+      "id": 18,
+      "type": "multiple_choice",
+      "question": "A new office employee must be able to create a job correctly on their first attempt without being shown how. Which quality attribute is this?",
+      "choices": {
+        "A": "Usability",
+        "B": "Scalability",
+        "C": "Integrity",
+        "D": "Reliability",
+        "E": "Maintainability",
+        "F": "Efficiency"
+      },
+      "answer": "A",
+      "explanation": "Usability covers how easily a user can learn the system and complete a task correctly."
+    },
+    {
+      "id": 19,
+      "type": "multiple_choice",
+      "question": "A shop manager needs to find out which production stage a given staircase is in. What type of requirement is this?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "Feature",
+        "C": "Nonfunctional requirement",
+        "D": "User requirement",
+        "E": "Business requirement",
+        "F": "Constraint"
+      },
+      "answer": "D",
+      "explanation": "It describes a task a user class needs to accomplish, without saying how the software provides it."
+    },
+    {
+      "id": 20,
+      "type": "multiple_choice",
+      "question": "Paarth shall prevent any account without the manager role from opening the payroll editor. What is this statement?",
+      "choices": {
+        "A": "Constraint",
+        "B": "Business rule",
+        "C": "Quality attribute",
+        "D": "Feature",
+        "E": "System requirement",
+        "F": "Functional requirement"
+      },
+      "answer": "F",
+      "explanation": "The company policy is the business rule. This statement is the software behavior that enforces it."
+    },
+    {
+      "id": 21,
+      "type": "multiple_choice",
+      "question": "Paarth's timeclock is an RFID reader, a Raspberry Pi, kiosk software, a web API, and a database working together. A requirement covering that whole arrangement is called what?",
+      "choices": {
+        "A": "System requirement",
+        "B": "Feature",
+        "C": "Nonfunctional requirement",
+        "D": "User requirement",
+        "E": "Constraint",
+        "F": "Functional requirement"
+      },
+      "answer": "A",
+      "explanation": "The requirement applies to a product assembled from several interacting subsystems."
+    },
+    {
+      "id": 22,
+      "type": "multiple_choice",
+      "question": "Company policy states that only managers may change an employee's payroll record. What is that policy?",
+      "choices": {
+        "A": "Constraint",
+        "B": "User requirement",
+        "C": "Functional requirement",
+        "D": "External interface requirement",
+        "E": "Business rule",
+        "F": "Quality attribute"
+      },
+      "answer": "E",
+      "explanation": "The policy belongs to the business. Paarth then needs functional and security requirements that enforce it."
+    },
+    {
+      "id": 23,
+      "type": "select_all",
+      "question": "Which of these are functional requirements for Paarth? Select all that apply.",
+      "choices": {
+        "A": "Paarth shall calculate an employee's total hours for the current pay week",
+        "B": "Paarth shall run on the Raspberry Pi already installed in the shop office",
+        "C": "Paarth shall move a job into the archive when its status becomes completed",
+        "D": "Paarth shall record a clock-in time when an employee scans an RFID card",
+        "E": "SCWW wants to cut the hours spent on payroll paperwork by thirty percent",
+        "F": "Paarth shall answer a job status lookup within two seconds under normal load"
+      },
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "The first three name behavior the software performs. The others are a quality attribute, a business requirement, and a constraint."
+    },
+    {
+      "id": 24,
+      "type": "select_all",
+      "question": "Which of these are nonfunctional requirements? Select all that apply.",
+      "choices": {
+        "A": "Paarth shall produce a mileage reimbursement total for each pay period",
+        "B": "Paarth must keep accepting clock-ins when the internet connection drops out",
+        "C": "Paarth shall let a manager change the production stage of an existing job",
+        "D": "Paarth must remain available throughout the shop's posted hours of operation",
+        "E": "Paarth must keep payroll records readable only to accounts with a manager role",
+        "F": "Paarth must return a job search result within two seconds under normal load"
+      },
+      "answer": [
+        "B",
+        "D",
+        "E",
+        "F"
+      ],
+      "explanation": "Performance, security, availability, and robustness describe characteristics. The other two describe behavior."
+    },
+    {
+      "id": 25,
+      "type": "select_all",
+      "question": "Which of these are stated at the level of a user requirement? Select all that apply.",
+      "choices": {
+        "A": "The client shall subscribe to a Socket.IO room named for the job identifier",
+        "B": "The API shall respond with HTTP 201 once a new job record has been created",
+        "C": "The server shall write a PunchRecord document after each accepted RFID scan",
+        "D": "Office staff need to review each employee's mileage before payroll closes",
+        "E": "A salesperson needs to check where a customer's staircase is in production",
+        "F": "An employee needs to clock in at the start of a shift without office help"
+      },
+      "answer": [
+        "D",
+        "E",
+        "F"
+      ],
+      "explanation": "The first three name goals a user class has. The others are system behavior stated for a developer."
+    },
+    {
+      "id": 26,
+      "type": "select_all",
+      "question": "Which of these would be external interfaces for Paarth? Select all that apply.",
+      "choices": {
+        "A": "The RFID reader that sends card scans to the timeclock kiosk",
+        "B": "The Google Calendar API that Paarth pushes scheduled jobs into",
+        "C": "The company policy that defines when overtime pay begins",
+        "D": "The shop's label printer that Paarth prints job travelers on",
+        "E": "The email service Paarth sends weekly payroll summaries through",
+        "F": "The job scheduling module inside the Paarth backend itself"
+      },
+      "answer": [
+        "A",
+        "B",
+        "D",
+        "E"
+      ],
+      "explanation": "External interfaces are software systems, hardware devices, and users outside the system. A policy is a business rule, and an internal module is not external."
+    },
+    {
+      "id": 27,
+      "type": "true_false",
+      "question": "A feature and a functional requirement mean the same thing.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "A",
+      "explanation": "A feature bundles related capabilities and is usually described by several functional requirements."
+    },
+    {
+      "id": 28,
+      "type": "true_false",
+      "question": "A business rule can exist even if Paarth is never built.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "B",
+      "explanation": "Business rules belong to the business. Software requirements may be written to enforce them."
+    },
+    {
+      "id": 29,
+      "type": "true_false",
+      "question": "Every quality attribute is a nonfunctional requirement.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "B",
+      "explanation": "A quality attribute is defined as one type of nonfunctional requirement."
+    },
+    {
+      "id": 30,
+      "type": "true_false",
+      "question": "Every nonfunctional requirement is a quality attribute.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "B",
+      "explanation": "Constraints and external interface requirements are also nonfunctional but are not quality attributes."
+    },
+    {
+      "id": 31,
+      "type": "true_false",
+      "question": "\"A manager needs to approve payroll\" and \"Paarth shall show managers an Approve Payroll button\" sit at the same level.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "B",
+      "explanation": "The first is a user goal. The second is a specific product behavior proposed to support it."
+    },
+    {
+      "id": 32,
+      "type": "true_false",
+      "question": "A constraint reduces the number of implementation choices open to the developer.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "A",
+      "explanation": "That is the defining idea behind a constraint."
+    },
+    {
+      "id": 33,
+      "type": "multiple_choice",
+      "question": "SCWW says: \"I don't care how you build it, the office just needs to know right away when the shop changes a job's stage.\" Which statement is the USER requirement?",
+      "choices": {
+        "A": "Broadcast a job:update event over Socket.IO to every connected office client",
+        "B": "Deploy the Paarth backend to Render so the office can reach it from anywhere",
+        "C": "Store each job's current production stage in a MongoDB collection named jobs",
+        "D": "Add a POST /api/jobs/:id/status endpoint that accepts the new stage value",
+        "E": "Paarth shall cut the shop's administrative workload by roughly thirty percent",
+        "F": "Office staff need to see production status changes without refreshing the page"
+      },
+      "answer": "F",
+      "explanation": "A user requirement names what the user needs to accomplish and leaves the implementation open."
+    },
+    {
+      "id": 34,
+      "type": "multiple_choice",
+      "question": "For that same request, which statement is the best FUNCTIONAL requirement?",
+      "choices": {
+        "A": "Production visibility has been the shop's most requested improvement this year",
+        "B": "Paarth shall notify every connected office client when a job's stage changes",
+        "C": "Socket.IO is a good fit here because it falls back to long polling cleanly",
+        "D": "Office staff need visibility into the production stage of every active job",
+        "E": "SCWW wants better communication between the shop floor and the front office",
+        "F": "Real-time updates matter more to this business than historical reporting does"
+      },
+      "answer": "B",
+      "explanation": "It states observable system behavior without naming a business goal, a user goal, or a specific technology."
+    },
+    {
+      "id": 35,
+      "type": "multiple_choice",
+      "question": "Which sequence runs from the highest-level reason for Paarth down to detailed software behavior?",
+      "choices": {
+        "A": "User requirement, then functional requirement, then business requirement",
+        "B": "User requirement, then business requirement, then functional requirement",
+        "C": "Functional requirement, then user requirement, then business requirement",
+        "D": "Business requirement, then functional requirement, then user requirement",
+        "E": "Business requirement, then user requirement, then functional requirement",
+        "F": "Business rule, then business requirement, then external interface requirement"
+      },
+      "answer": "E",
+      "explanation": "Why the business wants it, then what users must accomplish, then what the system does."
+    },
+    {
+      "id": 36,
+      "type": "true_false",
+      "question": "A single business requirement can give rise to several user requirements.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "A",
+      "explanation": "One business objective usually breaks down into multiple user goals and many functional requirements."
+    },
+    {
+      "id": 37,
+      "type": "true_false",
+      "question": "Nonfunctional requirements are optional and can be dropped if the schedule slips.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "B",
+      "explanation": "They are requirements. Dropping one changes what the delivered product is required to be."
+    }
+  ]
+}

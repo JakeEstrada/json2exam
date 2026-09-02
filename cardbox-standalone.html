@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Json2Exam — a Leitner quiz runner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --desk:        #dfe4ea;
+    --desk-2:      #d3d9e2;
+    --card:        #fcf8ee;
+    --card-edge:   #ded4bd;
+    --card-shadow: rgba(28, 36, 52, .18);
+    --ink:         #1b2330;
+    --ink-soft:    #5d6675;
+    --ink-faint:   #8b929e;
+    --rule:        #c3d3e8;
+    --margin-rule: #c0564c;
+    --accent:      #2f5ea8;
+    --accent-soft: #e2ebf8;
+    --right:       #22684b;
+    --right-soft:  #d9ecdf;
+    --wrong:       #a5342a;
+    --wrong-soft:  #f4dedb;
+    --chip:        #efe8d6;
+    --chip-edge:   #ddd3ba;
+    --focus:       #2f5ea8;
+    --radius:      3px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --desk:        #0f1319;
+      --desk-2:      #141a22;
+      --card:        #1b212a;
+      --card-edge:   #2b3440;
+      --card-shadow: rgba(0, 0, 0, .5);
+      --ink:         #e8e5dd;
+      --ink-soft:    #a2aab7;
+      --ink-faint:   #6f7885;
+      --rule:        #2c4260;
+      --margin-rule: #8f4b44;
+      --accent:      #7fa9e8;
+      --accent-soft: #1d2a3d;
+      --right:       #5cc493;
+      --right-soft:  #17301f;
+      --wrong:       #e5837a;
+      --wrong-soft:  #33191a;
+      --chip:        #242c37;
+      --chip-edge:   #333d4a;
+      --focus:       #7fa9e8;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --desk:        #0f1319;
+    --desk-2:      #141a22;
+    --card:        #1b212a;
+    --card-edge:   #2b3440;
+    --card-shadow: rgba(0, 0, 0, .5);
+    --ink:         #e8e5dd;
+    --ink-soft:    #a2aab7;
+    --ink-faint:   #6f7885;
+    --rule:        #2c4260;
+    --margin-rule: #8f4b44;
+    --accent:      #7fa9e8;
+    --accent-soft: #1d2a3d;
+    --right:       #5cc493;
+    --right-soft:  #17301f;
+    --wrong:       #e5837a;
+    --wrong-soft:  #33191a;
+    --chip:        #242c37;
+    --chip-edge:   #333d4a;
+    --focus:       #7fa9e8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--desk);
+    background-image: linear-gradient(160deg, var(--desk) 0%, var(--desk-2) 100%);
+    color: var(--ink);
+    font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #root { min-height: 100%; }
+
+  .shell {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 20px 64px;
+  }
+
+  button { font: inherit; color: inherit; cursor: pointer; }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+
+  .wordmark {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .wordmark .tld {
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0;
+  }
+
+  .wordmark .glyph {
+    width: 22px; height: 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    position: relative;
+    flex: none;
+  }
+  .wordmark .glyph::before {
+    content: "";
+    position: absolute;
+    inset: 3px 4px auto 4px;
+    height: 7px;
+    border: 1.5px solid var(--ink);
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
+    background: var(--desk);
+  }
+
+  .masthead p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  /* ---------- shared card surface ---------- */
+
+  .sheet {
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 0 var(--card-edge), 0 10px 24px -18px var(--card-shadow);
+  }
+
+  /* ---------- landing ---------- */
+
+  .stack {
+    position: relative;
+    margin: 0 0 26px;
+  }
+
+  .stack .leaf {
+    position: absolute;
+    inset: 0;
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+  }
+  .stack .leaf.one  { transform: rotate(-1.4deg) translateY(7px); }
+  .stack .leaf.two  { transform: rotate(1deg) translateY(4px); }
+
+  .drop {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    box-shadow: 0 14px 30px -22px var(--card-shadow);
+    padding: 46px 30px 40px 44px;
+    text-align: left;
+    width: 100%;
+    display: block;
+    transition: border-color .15s ease, background .15s ease;
+  }
+
+  .drop::before {
+    content: "";
+    position: absolute;
+    left: 26px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--margin-rule);
+    opacity: .55;
+  }
+
+  .drop.is-over {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .drop h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 27px;
+    line-height: 1.25;
+    font-weight: 600;
+    margin: 0 0 8px;
+    letter-spacing: -.015em;
+  }
+
+  .drop p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 46ch;
+  }
+
+  .drop .cue {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    padding: 9px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color .12s ease, color .12s ease;
+  }
+  .btn:hover { border-color: var(--ink-faint); }
+
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .btn.primary { color: #0f1319; }
+  }
+  :root[data-theme="dark"] .btn.primary { color: #0f1319; }
+
+  .btn.primary:hover { filter: brightness(1.06); }
+
+  .btn.quiet {
+    background: transparent;
+    border-color: transparent;
+    color: var(--ink-soft);
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .btn.quiet:hover { color: var(--ink); }
+
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+  .paste-area {
+    width: 100%;
+    min-height: 170px;
+    margin-top: 12px;
+    padding: 14px 16px;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    resize: vertical;
+  }
+
+  .notice {
+    margin-top: 16px;
+    padding: 13px 16px;
+    border-left: 3px solid var(--wrong);
+    background: var(--wrong-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .notice.warn { border-left-color: var(--margin-rule); background: var(--chip); }
+  .notice strong { font-weight: 600; }
+  .notice ul { margin: 8px 0 0; padding-left: 18px; }
+  .notice li { margin-bottom: 3px; }
+
+  .resume {
+    margin-top: 22px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .resume .who { font-weight: 600; font-size: 15px; }
+  .resume .meta { color: var(--ink-soft); font-size: 13.5px; }
+
+  /* ---------- format reference ---------- */
+
+  details.spec {
+    margin-top: 26px;
+    border-top: 1px solid var(--card-edge);
+    padding-top: 16px;
+  }
+  details.spec summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details.spec summary::-webkit-details-marker { display: none; }
+  details.spec summary::before {
+    content: "+";
+    width: 16px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  details.spec[open] summary::before { content: "–"; }
+  details.spec summary:hover { color: var(--ink); }
+
+  .spec-body { padding-top: 14px; font-size: 14.5px; color: var(--ink-soft); }
+  .spec-body p { margin: 0 0 12px; max-width: 68ch; }
+  .spec-body code {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    background: var(--chip);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  pre.sample {
+    margin: 0;
+    padding: 16px;
+    overflow-x: auto;
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  /* ---------- box track ---------- */
+
+  .track {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    align-items: stretch;
+  }
+
+  .box {
+    flex: 1;
+    border: 1px solid var(--card-edge);
+    border-top-width: 3px;
+    border-top-color: var(--card-edge);
+    border-radius: 0 0 var(--radius) var(--radius);
+    background: var(--card);
+    padding: 7px 10px 8px;
+    min-width: 0;
+  }
+  .box.here { border-top-color: var(--accent); }
+  .box.done { border-top-color: var(--right); }
+
+  .box .n {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.1;
+    display: block;
+  }
+  .box .lbl {
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  .box.done .n { color: var(--right); }
+
+  /* ---------- quiz header ---------- */
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .bar h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+  .bar .tally {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .bar .tally b { color: var(--ink); font-weight: 600; }
+
+  .panel {
+    margin-bottom: 14px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  .panel .grp { margin-bottom: 14px; }
+  .panel .grp:last-child { margin-bottom: 0; }
+  .panel .grp > span { display: block; color: var(--ink-soft); margin-bottom: 7px; }
+
+  .seg { display: inline-flex; border: 1px solid var(--card-edge); border-radius: var(--radius); overflow: hidden; }
+  .seg button {
+    background: transparent;
+    border: none;
+    padding: 6px 13px;
+    font-size: 14px;
+    border-right: 1px solid var(--card-edge);
+  }
+  .seg button:last-child { border-right: none; }
+  .seg button.on { background: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .seg button.on { color: #0f1319; }
+  }
+  :root[data-theme="dark"] .seg button.on { color: #0f1319; }
+
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 7px;
+    cursor: pointer;
+  }
+  .check input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+
+  /* ---------- question card ---------- */
+
+  .qcard {
+    position: relative;
+    padding: 24px 26px 26px 46px;
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 28px -24px var(--card-shadow);
+  }
+  .qcard::before {
+    content: "";
+    position: absolute;
+    left: 28px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--margin-rule);
+    opacity: .5;
+  }
+
+  .kind {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 6px;
+  }
+
+  .q-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 400;
+    margin: 0 0 22px;
+    max-width: 40ch;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 31px,
+      var(--rule) 31px 32px
+    );
+  }
+
+  .opts { display: flex; flex-direction: column; gap: 7px; }
+
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+    padding: 11px 13px;
+    font-size: 15.5px;
+    line-height: 1.45;
+    transition: border-color .12s ease, background .12s ease;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--accent); }
+  .opt:disabled { cursor: default; }
+
+  .opt .key {
+    flex: none;
+    width: 23px; height: 23px;
+    display: grid;
+    place-items: center;
+    background: var(--chip);
+    border: 1px solid var(--chip-edge);
+    border-radius: 2px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-top: 1px;
+  }
+  .opt .txt { flex: 1; min-width: 0; }
+  .opt .mark { flex: none; font-size: 13px; font-weight: 600; margin-top: 3px; }
+
+  .opt.picked { border-color: var(--accent); background: var(--accent-soft); }
+  .opt.picked .key { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .opt.picked .key { color: #0f1319; }
+  }
+  :root[data-theme="dark"] .opt.picked .key { color: #0f1319; }
+
+  .opt.good { border-color: var(--right); background: var(--right-soft); }
+  .opt.good .mark, .opt.good .key { color: var(--right); }
+  .opt.bad { border-color: var(--wrong); background: var(--wrong-soft); }
+  .opt.bad .mark, .opt.bad .key { color: var(--wrong); }
+  .opt.missed { border-color: var(--right); border-style: dashed; }
+  .opt.missed .mark { color: var(--right); }
+
+  /* ---------- verdict ---------- */
+
+  .verdict {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--card-edge);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .verdict .said { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+  .verdict .said.yes { color: var(--right); }
+  .verdict .said.no  { color: var(--wrong); }
+  .verdict .why { margin: 0; font-size: 14px; color: var(--ink-soft); max-width: 52ch; }
+  .verdict .moved { margin: 6px 0 0; font-size: 13px; color: var(--ink-faint); }
+
+  .footer-keys {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  kbd {
+    font-family: inherit;
+    font-size: 12px;
+    background: var(--chip);
+    border: 1px solid var(--chip-edge);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- summary ---------- */
+
+  .summary { padding: 34px 30px 30px 46px; position: relative; }
+  .summary::before {
+    content: "";
+    position: absolute;
+    left: 28px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--margin-rule);
+    opacity: .5;
+  }
+  .summary h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0 0 8px;
+    letter-spacing: -.015em;
+  }
+  .summary > p { margin: 0 0 24px; color: var(--ink-soft); max-width: 50ch; }
+
+  .figures {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--card-edge);
+  }
+  .figures div span { display: block; font-size: 13px; color: var(--ink-soft); }
+  .figures div b { font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+
+  .misslist { margin: 0 0 24px; padding: 0; list-style: none; }
+  .misslist li {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--card-edge);
+    font-size: 14.5px;
+  }
+  .misslist li:last-child { border-bottom: none; }
+  .misslist .qq { display: block; font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; margin-bottom: 3px; }
+  .misslist .aa { color: var(--right); }
+  .misslist .cnt { color: var(--ink-faint); font-size: 13px; }
+
+  .sect-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  @media (max-width: 560px) {
+    .shell { padding: 20px 14px 48px; }
+    .qcard { padding: 20px 16px 22px 32px; }
+    .qcard::before { left: 18px; }
+    .drop { padding: 34px 20px 30px 34px; }
+    .drop::before { left: 18px; }
+    .summary { padding: 26px 18px 24px 32px; }
+    .summary::before { left: 18px; }
+    .q-text { font-size: 18.5px; }
+    .box .lbl { font-size: 11px; }
+    .box .n { font-size: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.10/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+/* =====================================================================
+   1. Parsing a user's JSON into a normalized question bank
+   ===================================================================== */
+
+const LETTERS = 'abcdefghij';
+const PREFIX_RE = /^\s*(?:[a-jA-J]|\d{1,2})\s*[).:\-]\s+/;
+
+const TYPE_ALIASES = {
+  single: ['single', 'multiple', 'multiple_choice', 'multiplechoice', 'mc', 'choice', 'one', 'radio'],
+  multi: ['multi', 'multi_select', 'multiselect', 'multiple_select', 'select_all', 'selectall',
+          'select_all_that_apply', 'checkbox', 'many', 'multiple_answer', 'multiple_answers'],
+  boolean: ['boolean', 'bool', 'tf', 't/f', 'true_false', 'truefalse', 'true-false', 'yesno', 'yes_no'],
+};
+
+function normType(raw) {
+  if (typeof raw !== 'string') return null;
+  const v = raw.trim().toLowerCase().replace(/\s+/g, '_');
+  for (const key of Object.keys(TYPE_ALIASES)) {
+    if (TYPE_ALIASES[key].indexOf(v) !== -1) return key;
+  }
+  return null;
+}
+
+function firstDefined() {
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] !== undefined && arguments[i] !== null) return arguments[i];
+  }
+  return undefined;
+}
+
+function optionText(o) {
+  if (o === null || o === undefined) return '';
+  if (typeof o === 'object') {
+    return String(firstDefined(o.text, o.label, o.option, o.value, o.answer, ''));
+  }
+  return String(o);
+}
+
+// Accepts ["a) HTTP", "b) FTP"] as well as ["HTTP", "FTP"].
+function cleanOptions(list) {
+  const rawTexts = list.map(optionText).map((s) => s.trim());
+  const hits = rawTexts.filter((s) => PREFIX_RE.test(s)).length;
+  const clean = hits >= 2 ? rawTexts.map((s) => s.replace(PREFIX_RE, '').trim()) : rawTexts;
+  return { clean, rawTexts };
+}
+
+function isTrueFalsePair(list) {
+  if (list.length !== 2) return false;
+  const a = list.map((s) => s.trim().toLowerCase()).sort();
+  return (a[0] === 'false' && a[1] === 'true') || (a[0] === 'no' && a[1] === 'yes');
+}
+
+// Turn one answer value into an option index, or -1 when it can't be matched.
+function resolveOne(value, clean, rawTexts) {
+  if (typeof value === 'boolean') {
+    const target = value ? 'true' : 'false';
+    const alt = value ? 'yes' : 'no';
+    const i = clean.findIndex((o) => {
+      const t = o.trim().toLowerCase();
+      return t === target || t === alt;
+    });
+    if (i >= 0) return i;
+    return value ? 0 : 1;
+  }
+
+  if (typeof value === 'number' && isFinite(value)) {
+    const n = Math.trunc(value);
+    if (n >= 0 && n < clean.length) return n;       // 0-based index
+    if (n >= 1 && n <= clean.length) return n - 1;  // 1-based fallback
+    return -1;
+  }
+
+  if (typeof value === 'object' && value !== null) {
+    return resolveOne(optionText(value), clean, rawTexts);
+  }
+
+  if (typeof value === 'string') {
+    const v = value.trim();
+    if (!v) return -1;
+    const lower = v.toLowerCase();
+
+    let i = clean.findIndex((o) => o.trim().toLowerCase() === lower);
+    if (i >= 0) return i;
+    i = rawTexts.findIndex((o) => o.trim().toLowerCase() === lower);
+    if (i >= 0) return i;
+
+    if (/^[a-j]$/.test(lower)) {
+      const idx = LETTERS.indexOf(lower);
+      if (idx < clean.length) return idx;
+    }
+    if (/^\d{1,2}$/.test(lower)) return resolveOne(Number(lower), clean, rawTexts);
+    if (lower === 'true' || lower === 'false') return resolveOne(lower === 'true', clean, rawTexts);
+    if (lower === 'yes' || lower === 'no') return resolveOne(lower === 'yes', clean, rawTexts);
+
+    // "a, c" or "a and c" written as one string
+    const parts = v.split(/[,;/]|\band\b/).map((s) => s.trim()).filter(Boolean);
+    if (parts.length > 1) {
+      const all = parts.map((p) => resolveOne(p, clean, rawTexts));
+      if (all.every((n) => n >= 0)) return all;
+    }
+  }
+
+  return -1;
+}
+
+function normalizeQuestion(raw, i) {
+  const label = 'Question ' + (i + 1);
+
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+    return { error: label + ' is not an object.' };
+  }
+
+  const text = String(firstDefined(raw.question, raw.prompt, raw.text, raw.q, '')).trim();
+  if (!text) return { error: label + ' has no question text.' };
+
+  const shortLabel = text.length > 52 ? text.slice(0, 52) + '…' : text;
+  const answerRaw = firstDefined(raw.answer, raw.correct, raw.correctAnswer,
+                                 raw.correct_answer, raw.answers, raw.key);
+  if (answerRaw === undefined) return { error: '"' + shortLabel + '" has no answer.' };
+
+  let optionList = firstDefined(raw.options, raw.choices);
+  let type = normType(raw.type);
+
+  if (!type) {
+    if (Array.isArray(answerRaw) && answerRaw.length > 1) type = 'multi';
+    else if (!optionList && (typeof answerRaw === 'boolean' || /^(true|false|yes|no)$/i.test(String(answerRaw)))) type = 'boolean';
+    else if (Array.isArray(optionList) && isTrueFalsePair(optionList.map(optionText))) type = 'boolean';
+    else type = 'single';
+  }
+
+  if (type === 'boolean' && !Array.isArray(optionList)) optionList = ['True', 'False'];
+
+  if (!Array.isArray(optionList) || optionList.length < 2) {
+    return { error: '"' + shortLabel + '" needs at least two options.' };
+  }
+
+  const { clean, rawTexts } = cleanOptions(optionList);
+  if (clean.some((o) => !o)) return { error: '"' + shortLabel + '" has an empty option.' };
+
+  const values = Array.isArray(answerRaw) ? answerRaw : [answerRaw];
+  const indices = [];
+  for (const v of values) {
+    const got = resolveOne(v, clean, rawTexts);
+    const many = Array.isArray(got) ? got : [got];
+    for (const n of many) {
+      if (n < 0) return { error: '"' + shortLabel + '" has an answer that matches no option.' };
+      if (indices.indexOf(n) === -1) indices.push(n);
+    }
+  }
+  indices.sort((a, b) => a - b);
+
+  if (type !== 'multi' && indices.length > 1) type = 'multi';
+
+  return {
+    question: {
+      id: i + '::' + text.slice(0, 90),
+      text,
+      type,
+      options: clean,
+      answers: indices,
+      explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
+    },
+  };
+}
+
+function normalizeQuiz(data, fallbackTitle) {
+  let list = null;
+  let title = fallbackTitle || 'Untitled deck';
+
+  if (Array.isArray(data)) {
+    list = data;
+  } else if (data && typeof data === 'object') {
+    list = firstDefined(data.questions, data.items, data.cards, data.quiz, data.deck);
+    if (data.title) title = String(data.title);
+    else if (data.name) title = String(data.name);
+  }
+
+  if (!Array.isArray(list)) {
+    throw new Error('Expected a list of questions, either at the top level or under a "questions" key.');
+  }
+  if (!list.length) throw new Error('That file has no questions in it.');
+
+  const questions = [];
+  const skipped = [];
+  list.forEach((raw, i) => {
+    const out = normalizeQuestion(raw, i);
+    if (out.error) skipped.push(out.error);
+    else questions.push(out.question);
+  });
+
+  if (!questions.length) {
+    throw new Error('None of the ' + list.length + ' questions could be read. ' + skipped[0]);
+  }
+  return { title, questions, skipped };
+}
+
+// JSON.parse errors are terse; point at the line instead of the byte offset.
+function describeJsonError(err, source) {
+  const m = /position (\d+)/.exec(err.message || '');
+  if (!m) return err.message;
+  const pos = Number(m[1]);
+  const upTo = source.slice(0, pos);
+  const line = upTo.split('\n').length;
+  const col = pos - upTo.lastIndexOf('\n');
+  return err.message.replace(/at position \d+/, 'on line ' + line + ', column ' + col);
+}
+
+/* =====================================================================
+   2. Leitner scheduling
+   ===================================================================== */
+
+function boxOf(boxes, q) { return boxes[q.id] || 1; }
+
+function pickNext(questions, boxes, maxBox, lastId) {
+  const pool = questions.filter((q) => boxOf(boxes, q) < maxBox);
+  if (!pool.length) return null;
+  const lowest = Math.min.apply(null, pool.map((q) => boxOf(boxes, q)));
+  let tier = pool.filter((q) => boxOf(boxes, q) === lowest);
+  if (tier.length > 1 && lastId) {
+    const fresh = tier.filter((q) => q.id !== lastId);
+    if (fresh.length) tier = fresh;
+  }
+  return tier[Math.floor(Math.random() * tier.length)];
+}
+
+function shuffled(n) {
+  const a = Array.from({ length: n }, (_, i) => i);
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function sameSet(a, b) {
+  if (a.length !== b.length) return false;
+  const sa = a.slice().sort((x, y) => x - y);
+  const sb = b.slice().sort((x, y) => x - y);
+  return sa.every((v, i) => v === sb[i]);
+}
+
+const KIND_LABEL = {
+  single: 'pick one',
+  boolean: 'true or false',
+  multi: 'pick every right answer',
+};
+
+/* =====================================================================
+   3. Saved sessions
+   ===================================================================== */
+
+const STORE_KEY = 'cardbox.session.v1';
+
+function saveSession(state) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* storage may be off */ }
+}
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.quiz || !Array.isArray(parsed.quiz.questions)) return null;
+    return parsed;
+  } catch (e) { return null; }
+}
+function clearSession() {
+  try { localStorage.removeItem(STORE_KEY); } catch (e) { /* ignore */ }
+}
+
+/* =====================================================================
+   4. Sample deck
+   ===================================================================== */
+
+const SAMPLE = {
+  title: 'Network security sampler',
+  questions: [
+    { question: 'Which protocol is built for moving files between hosts?',
+      options: ['a) HTTP', 'b) FTP', 'c) SMTP', 'd) IPX'], answer: 'b' },
+    { question: 'A SQL injection attack works by manipulating the queries an application sends to its database.',
+      type: 'boolean', answer: true,
+      explanation: 'Unsanitized input becomes part of the query text, so the attacker writes SQL the app never intended to run.' },
+    { question: 'Which of these are symmetric ciphers?',
+      type: 'multi', options: ['AES', 'RSA', 'ChaCha20', 'ECDSA'], answer: ['a', 'c'],
+      explanation: 'RSA and ECDSA are public-key algorithms: one key encrypts or signs, a different key reverses it.' },
+    { question: 'What does a TLS certificate actually prove to a browser?',
+      options: ['That the site is safe to use', 'That the server holds the private key for a name a trusted CA vouched for', 'That the connection is faster', 'That the site stores passwords hashed'],
+      answer: 'b' },
+    { question: 'Hashing is reversible if you know the algorithm.',
+      type: 'boolean', answer: false,
+      explanation: 'A hash throws information away. Cracking works by guessing inputs, not by running the function backwards.' },
+    { question: 'Which practices reduce the damage of a stolen password database?',
+      type: 'multi',
+      options: ['Salting each password', 'Using a slow KDF such as bcrypt or Argon2', 'Storing passwords with MD5', 'Encoding passwords in base64'],
+      answer: ['a', 'b'],
+      explanation: 'Base64 is encoding, not protection, and MD5 is far too fast to slow a cracker down.' },
+    { question: 'Port 22 is the default for which service?',
+      options: ['Telnet', 'SSH', 'DNS', 'RDP'], answer: 2 },
+    { question: 'What separates a worm from a virus?',
+      options: ['A worm spreads without a host file or user action', 'A worm only targets Linux', 'A worm cannot encrypt files', 'A worm needs a boot sector'],
+      answer: 'a' },
+    { question: 'Which belong to the CIA triad?',
+      type: 'multi', options: ['Confidentiality', 'Integrity', 'Authorization', 'Availability'],
+      answer: ['a', 'b', 'd'],
+      explanation: 'Authorization matters, but the triad names confidentiality, integrity, and availability.' },
+    { question: 'A firewall rule set that ends in "deny all" follows which principle?',
+      options: ['Fail open', 'Default deny', 'Least astonishment', 'Defense in depth'], answer: 'b' },
+    { question: 'DNS queries over plain UDP port 53 are encrypted end to end.',
+      type: 'boolean', answer: false },
+    { question: 'Which signals point to a phishing email?',
+      type: 'multi',
+      options: ['A reply-to address on a lookalike domain', 'Urgency about an account closing today', 'A digitally signed message from a known sender', 'A link whose text and destination differ'],
+      answer: ['a', 'b', 'd'] },
+  ],
+};
+
+const SAMPLE_SNIPPET = `{
+  "title": "Network security sampler",
+  "questions": [
+    {
+      "question": "Which protocol is built for moving files between hosts?",
+      "options": ["HTTP", "FTP", "SMTP", "IPX"],
+      "answer": "b"
+    },
+    {
+      "question": "Hashing is reversible if you know the algorithm.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "A hash throws information away."
+    },
+    {
+      "question": "Which of these are symmetric ciphers?",
+      "type": "multi",
+      "options": ["AES", "RSA", "ChaCha20", "ECDSA"],
+      "answer": ["a", "c"]
+    }
+  ]
+}`;
+
+/* =====================================================================
+   5. Screens
+   ===================================================================== */
+
+function Masthead() {
+  return (
+    <div className="masthead">
+      <h1 className="wordmark"><span className="glyph" aria-hidden="true"></span>Json2Exam<span className="tld">.com</span></h1>
+      <p>Questions you miss come back sooner. Questions you know drop out.</p>
+    </div>
+  );
+}
+
+function Loader({ onStart, resumable, onResume, onForget }) {
+  const [over, setOver] = useState(false);
+  const [error, setError] = useState(null);
+  const [warn, setWarn] = useState(null);
+  const [pasting, setPasting] = useState(false);
+  const [pasted, setPasted] = useState('');
+  const fileRef = useRef(null);
+
+  function accept(text, name) {
+    setError(null);
+    setWarn(null);
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      setError({ head: 'That text is not valid JSON.', detail: [describeJsonError(e, text)] });
+      return;
+    }
+    let quiz;
+    try {
+      quiz = normalizeQuiz(data, name ? name.replace(/\.json$/i, '') : null);
+    } catch (e) {
+      setError({ head: 'The JSON parsed, but it is not a question bank.', detail: [e.message] });
+      return;
+    }
+    if (quiz.skipped.length) { setWarn({ list: quiz.skipped, quiz }); return; }
+    onStart(quiz);
+  }
+
+  function readFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => accept(String(reader.result), file.name);
+    reader.onerror = () => setError({ head: 'That file could not be read.', detail: ['Try opening it and pasting the text instead.'] });
+    reader.readAsText(file);
+  }
+
+  return (
+    <div>
+      <div className="stack">
+        <div className="leaf one" aria-hidden="true"></div>
+        <div className="leaf two" aria-hidden="true"></div>
+        <button
+          type="button"
+          className={'drop' + (over ? ' is-over' : '')}
+          onClick={() => fileRef.current && fileRef.current.click()}
+          onDragOver={(e) => { e.preventDefault(); setOver(true); }}
+          onDragLeave={() => setOver(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setOver(false);
+            readFile(e.dataTransfer.files && e.dataTransfer.files[0]);
+          }}
+        >
+          <h2>Drop a question file here</h2>
+          <p>A JSON file with your questions in it. Multiple choice, true or false, and pick-every-right-answer all work in the same file.</p>
+          <span className="cue">or choose a file</span>
+        </button>
+      </div>
+
+      <input
+        ref={fileRef}
+        type="file"
+        accept=".json,application/json,text/plain"
+        style={{ display: 'none' }}
+        onChange={(e) => { readFile(e.target.files && e.target.files[0]); e.target.value = ''; }}
+      />
+
+      <div className="row">
+        <button className="btn" onClick={() => accept(JSON.stringify(SAMPLE), 'Network security sampler')}>
+          Try the sample deck
+        </button>
+        <button className="btn quiet" onClick={() => setPasting((p) => !p)}>
+          {pasting ? 'Hide the paste box' : 'Paste JSON instead'}
+        </button>
+      </div>
+
+      {pasting && (
+        <div>
+          <textarea
+            className="paste-area"
+            value={pasted}
+            spellCheck="false"
+            placeholder='[{"question": "...", "options": ["...", "..."], "answer": "a"}]'
+            onChange={(e) => setPasted(e.target.value)}
+          />
+          <div className="row">
+            <button className="btn primary" disabled={!pasted.trim()} onClick={() => accept(pasted, 'Pasted deck')}>
+              Load these questions
+            </button>
+          </div>
+        </div>
+      )}
+
+      {error && (
+        <div className="notice">
+          <strong>{error.head}</strong>
+          <ul>{error.detail.map((d, i) => <li key={i}>{d}</li>)}</ul>
+        </div>
+      )}
+
+      {warn && (
+        <div className="notice warn">
+          <strong>
+            {warn.list.length} question{warn.list.length > 1 ? 's' : ''} could not be read.
+            The other {warn.quiz.questions.length} are ready.
+          </strong>
+          <ul>{warn.list.slice(0, 6).map((d, i) => <li key={i}>{d}</li>)}</ul>
+          {warn.list.length > 6 && <p style={{ margin: '8px 0 0' }}>…and {warn.list.length - 6} more.</p>}
+          <div className="row" style={{ marginTop: '12px' }}>
+            <button className="btn primary" onClick={() => onStart(warn.quiz)}>
+              Study the {warn.quiz.questions.length} that loaded
+            </button>
+          </div>
+        </div>
+      )}
+
+      {resumable && (
+        <div className="sheet resume">
+          <div>
+            <div className="who">{resumable.quiz.title}</div>
+            <div className="meta">
+              {resumable.quiz.questions.length} questions, {resumable.mastered} already mastered
+            </div>
+          </div>
+          <div className="row">
+            <button className="btn primary" onClick={onResume}>Pick up where you left off</button>
+            <button className="btn quiet" onClick={onForget}>Discard</button>
+          </div>
+        </div>
+      )}
+
+      <details className="spec">
+        <summary>What the file should look like</summary>
+        <div className="spec-body">
+          <p>
+            A top-level array of questions works too, so a Python <code>questions = [...]</code> list can be
+            pasted straight in once the outer brackets are valid JSON. Option labels like <code>"a) HTTP"</code> are
+            trimmed automatically.
+          </p>
+          <p>
+            The answer can be a letter (<code>"b"</code>), the exact option text, a 0-based index, or <code>true</code>
+            /<code>false</code>. For pick-every-right-answer questions, give an array. <code>type</code> is optional and
+            gets inferred, but you can set it to <code>single</code>, <code>boolean</code>, or <code>multi</code>.
+            <code>explanation</code> is optional and shows after you answer.
+          </p>
+          <pre className="sample">{SAMPLE_SNIPPET}</pre>
+        </div>
+      </details>
+    </div>
+  );
+}
+
+function BoxTrack({ questions, boxes, maxBox, currentBox }) {
+  const counts = [];
+  for (let b = 1; b <= maxBox; b++) counts.push(0);
+  questions.forEach((q) => { counts[Math.min(boxOf(boxes, q), maxBox) - 1] += 1; });
+
+  return (
+    <div className="track">
+      {counts.map((n, i) => {
+        const b = i + 1;
+        const done = b === maxBox;
+        return (
+          <div key={b} className={'box' + (done ? ' done' : '') + (currentBox === b && !done ? ' here' : '')}>
+            <span className="n">{n}</span>
+            <span className="lbl">{done ? 'mastered' : b === 1 ? 'still shaky' : 'box ' + b}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function Settings({ settings, onChange, onReset, onClose }) {
+  return (
+    <div className="sheet panel">
+      <div className="grp">
+        <span>Right answers in a row before a card retires</span>
+        <div className="seg">
+          {[1, 2, 3, 4].map((n) => (
+            <button key={n} className={settings.maxBox === n + 1 ? 'on' : ''} onClick={() => onChange({ maxBox: n + 1 })}>
+              {n}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="grp">
+        <label className="check">
+          <input type="checkbox" checked={settings.shuffle} onChange={(e) => onChange({ shuffle: e.target.checked })} />
+          Shuffle the answer order each time
+        </label>
+        <label className="check">
+          <input type="checkbox" checked={settings.instant} onChange={(e) => onChange({ instant: e.target.checked })} />
+          Check the answer the moment I pick one
+        </label>
+      </div>
+      <div className="row">
+        <button className="btn" onClick={onReset}>Start this deck over</button>
+        <button className="btn quiet" onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+}
+
+function QuestionCard({ q, order, picked, phase, onToggle, onCheck }) {
+  const reviewing = phase === 'review';
+  const correct = reviewing && sameSet(picked, q.answers);
+  const multi = q.type === 'multi';
+
+  return (
+    <div className="sheet qcard">
+      <p className="kind">{KIND_LABEL[q.type]}</p>
+      <div className="q-text">{q.text}</div>
+
+      <div className="opts" role={multi ? 'group' : 'radiogroup'}>
+        {order.map((realIdx, shown) => {
+          const isPicked = picked.indexOf(realIdx) !== -1;
+          const isAnswer = q.answers.indexOf(realIdx) !== -1;
+          let cls = 'opt';
+          let mark = '';
+          if (reviewing) {
+            if (isAnswer && isPicked) { cls += ' good'; mark = 'right'; }
+            else if (isPicked) { cls += ' bad'; mark = 'no'; }
+            else if (isAnswer) { cls += ' missed'; mark = 'also right'; }
+          } else if (isPicked) {
+            cls += ' picked';
+          }
+          return (
+            <button
+              key={realIdx}
+              className={cls}
+              disabled={reviewing}
+              aria-pressed={isPicked}
+              onClick={() => onToggle(realIdx)}
+            >
+              <span className="key" aria-hidden="true">{LETTERS[shown]}</span>
+              <span className="txt">{q.options[realIdx]}</span>
+              {mark && <span className="mark">{mark}</span>}
+            </button>
+          );
+        })}
+      </div>
+
+      {!reviewing && multi && (
+        <div className="verdict">
+          <p className="why">Pick every option that applies, then check.</p>
+          <button className="btn primary" disabled={!picked.length} onClick={onCheck}>Check answer</button>
+        </div>
+      )}
+
+      {reviewing && (
+        <Verdict q={q} correct={correct} />
+      )}
+    </div>
+  );
+}
+
+function Verdict({ q, correct }) {
+  const names = q.answers.map((i) => q.options[i]).join(', ');
+  return (
+    <div className="verdict" role="status">
+      <div>
+        <p className={'said ' + (correct ? 'yes' : 'no')}>
+          {correct
+            ? 'Right.'
+            : (q.answers.length > 1 ? 'The full answer is ' : 'The answer is ') + names + '.'}
+        </p>
+        {q.explanation && <p className="why">{q.explanation}</p>}
+        <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
+      </div>
+    </div>
+  );
+}
+
+function Summary({ quiz, boxes, stats, maxBox, onAgain, onNew }) {
+  const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= maxBox).length;
+  const answered = stats.right + stats.wrong;
+  const accuracy = answered ? Math.round((stats.right / answered) * 100) : 0;
+  const missed = quiz.questions
+    .filter((q) => (stats.misses[q.id] || 0) > 0)
+    .sort((a, b) => (stats.misses[b.id] || 0) - (stats.misses[a.id] || 0));
+  const finished = mastered === quiz.questions.length;
+
+  return (
+    <div className="sheet summary">
+      <h2>{finished ? 'Every card retired.' : 'Session ended.'}</h2>
+      <p>
+        {finished
+          ? 'You answered every question right ' + (maxBox - 1) + (maxBox - 1 === 1 ? ' time.' : ' times in a row.')
+          : 'You can pick this deck up again later, or start it fresh.'}
+      </p>
+
+      <div className="figures">
+        <div><b>{mastered}/{quiz.questions.length}</b><span>mastered</span></div>
+        <div><b>{stats.right}</b><span>right</span></div>
+        <div><b>{stats.wrong}</b><span>wrong</span></div>
+        <div><b>{accuracy}%</b><span>accuracy</span></div>
+      </div>
+
+      {missed.length > 0 && (
+        <div>
+          <p className="sect-title">What tripped you up</p>
+          <ul className="misslist">
+            {missed.map((q) => (
+              <li key={q.id}>
+                <span className="qq">{q.text}</span>
+                <span className="aa">{q.answers.map((i) => q.options[i]).join(', ')}</span>
+                {' '}<span className="cnt">missed {stats.misses[q.id]}×</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="row">
+        <button className="btn primary" onClick={onAgain}>Run the deck again</button>
+        <button className="btn quiet" onClick={onNew}>Load a different file</button>
+      </div>
+    </div>
+  );
+}
+
+/* =====================================================================
+   6. App
+   ===================================================================== */
+
+const DEFAULT_SETTINGS = { maxBox: 3, shuffle: true, instant: true };
+
+function App() {
+  const [screen, setScreen] = useState('load');
+  const [quiz, setQuiz] = useState(null);
+  const [boxes, setBoxes] = useState({});
+  const [stats, setStats] = useState({ right: 0, wrong: 0, misses: {} });
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
+  const [showSettings, setShowSettings] = useState(false);
+
+  const [current, setCurrent] = useState(null);   // { q, order }
+  const [picked, setPicked] = useState([]);
+  const [phase, setPhase] = useState('answer');   // 'answer' | 'review'
+  const lastIdRef = useRef(null);
+
+  const [saved, setSaved] = useState(() => {
+    const s = loadSession();
+    if (!s) return null;
+    const maxBox = (s.settings && s.settings.maxBox) || 3;
+    const mastered = s.quiz.questions.filter((q) => (s.boxes[q.id] || 1) >= maxBox).length;
+    return { quiz: s.quiz, boxes: s.boxes, stats: s.stats, settings: s.settings, mastered };
+  });
+
+  const deal = useCallback((qz, bx, cfg) => {
+    const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current);
+    if (!next) { setCurrent(null); setScreen('done'); return; }
+    lastIdRef.current = next.id;
+    const mix = cfg.shuffle && next.type !== 'boolean';
+    setCurrent({ q: next, order: mix ? shuffled(next.options.length) : next.options.map((_, i) => i) });
+    setPicked([]);
+    setPhase('answer');
+  }, []);
+
+  function begin(qz, bx, st, cfg) {
+    setQuiz(qz);
+    setBoxes(bx);
+    setStats(st);
+    setSettings(cfg);
+    setShowSettings(false);
+    lastIdRef.current = null;
+    setScreen('quiz');
+    deal(qz, bx, cfg);
+  }
+
+  function startFresh(qz) {
+    begin(qz, {}, { right: 0, wrong: 0, misses: {} }, settings);
+  }
+
+  useEffect(() => {
+    if (quiz) saveSession({ quiz, boxes, stats, settings });
+  }, [quiz, boxes, stats, settings]);
+
+  const check = useCallback((chosen) => {
+    if (!current || phase === 'review') return;
+    if (!chosen.length) return;
+    const q = current.q;
+    const right = sameSet(chosen, q.answers);
+
+    setPicked(chosen);
+    setPhase('review');
+    setBoxes((prev) => {
+      const at = prev[q.id] || 1;
+      const next = right ? Math.min(at + 1, settings.maxBox) : Math.max(1, at - 1);
+      return Object.assign({}, prev, { [q.id]: next });
+    });
+    setStats((prev) => ({
+      right: prev.right + (right ? 1 : 0),
+      wrong: prev.wrong + (right ? 0 : 1),
+      misses: right ? prev.misses : Object.assign({}, prev.misses, { [q.id]: (prev.misses[q.id] || 0) + 1 }),
+    }));
+  }, [current, phase, settings.maxBox]);
+
+  const advance = useCallback(() => {
+    if (phase !== 'review') return;
+    deal(quiz, boxes, settings);
+  }, [phase, quiz, boxes, settings, deal]);
+
+  function toggle(idx) {
+    if (phase === 'review') return;
+    const q = current.q;
+    if (q.type === 'multi') {
+      setPicked((prev) => (prev.indexOf(idx) === -1 ? prev.concat(idx) : prev.filter((n) => n !== idx)));
+    } else if (settings.instant) {
+      check([idx]);
+    } else {
+      setPicked([idx]);
+    }
+  }
+
+  function updateSettings(patch) {
+    if (patch.maxBox) {
+      setBoxes((b) => {
+        const clamped = {};
+        Object.keys(b).forEach((k) => { clamped[k] = Math.min(b[k], patch.maxBox); });
+        return clamped;
+      });
+    }
+    setSettings((prev) => Object.assign({}, prev, patch));
+  }
+
+  // Keyboard: letters and digits pick, Enter checks or advances, Escape ends.
+  useEffect(() => {
+    if (screen !== 'quiz' || !current) return;
+    function onKey(e) {
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (phase === 'review') advance();
+        else if (picked.length) check(picked);
+        return;
+      }
+      if (e.key === 'Escape') { e.preventDefault(); setScreen('done'); return; }
+      if (phase === 'review') { return; }
+
+      const n = current.order.length;
+      let shown = -1;
+      if (/^[1-9]$/.test(e.key)) shown = Number(e.key) - 1;
+      else if (/^[a-j]$/i.test(e.key)) shown = LETTERS.indexOf(e.key.toLowerCase());
+      if (shown >= 0 && shown < n) {
+        e.preventDefault();
+        toggle(current.order[shown]);
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
+
+  if (screen === 'load') {
+    return (
+      <div className="shell">
+        <Masthead />
+        <Loader
+          onStart={startFresh}
+          resumable={saved}
+          onResume={() => begin(saved.quiz, saved.boxes, saved.stats, saved.settings || DEFAULT_SETTINGS)}
+          onForget={() => { clearSession(); setSaved(null); }}
+        />
+      </div>
+    );
+  }
+
+  if (screen === 'done') {
+    return (
+      <div className="shell">
+        <Masthead />
+        <Summary
+          quiz={quiz}
+          boxes={boxes}
+          stats={stats}
+          maxBox={settings.maxBox}
+          onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
+          onNew={() => { clearSession(); setSaved(null); setQuiz(null); setScreen('load'); }}
+        />
+      </div>
+    );
+  }
+
+  const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= settings.maxBox).length;
+  const pct = Math.round((mastered / quiz.questions.length) * 100);
+
+  return (
+    <div className="shell">
+      <Masthead />
+
+      <div className="bar">
+        <h2>{quiz.title}</h2>
+        <div className="row">
+          <span className="tally">
+            <b>{stats.right}</b> right, <b>{stats.wrong}</b> wrong, <b>{pct}%</b> mastered
+          </span>
+          <button className="btn quiet" onClick={() => setShowSettings((s) => !s)}>Settings</button>
+          <button className="btn quiet" onClick={() => setScreen('done')}>Finish</button>
+        </div>
+      </div>
+
+      {showSettings && (
+        <Settings
+          settings={settings}
+          onChange={updateSettings}
+          onReset={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
+
+      <BoxTrack
+        questions={quiz.questions}
+        boxes={boxes}
+        maxBox={settings.maxBox}
+        currentBox={current ? boxOf(boxes, current.q) : 0}
+      />
+
+      {current && (
+        <QuestionCard
+          q={current.q}
+          order={current.order}
+          picked={picked}
+          phase={phase}
+          onToggle={toggle}
+          onCheck={() => check(picked)}
+        />
+      )}
+
+      {phase === 'answer' && current && current.q.type !== 'multi' && !settings.instant && (
+        <div className="row" style={{ marginTop: '14px' }}>
+          <button className="btn primary" disabled={!picked.length} onClick={() => check(picked)}>Check answer</button>
+        </div>
+      )}
+
+      {phase === 'review' && (
+        <div className="row" style={{ marginTop: '14px' }}>
+          <button className="btn primary" onClick={advance}>Next question</button>
+        </div>
+      )}
+
+      <div className="footer-keys">
+        <span>
+          <kbd>1</kbd>–<kbd>9</kbd> or <kbd>a</kbd>–<kbd>d</kbd> to pick, <kbd>enter</kbd> to {phase === 'review' ? 'continue' : 'check'}
+        </span>
+        <span><kbd>esc</kbd> to finish</span>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

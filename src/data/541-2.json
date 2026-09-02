@@ -1,0 +1,547 @@
+{
+  "title": "Requirements Engineering, Chapter 1",
+  "brain": "req-eng-ch1",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What is a business requirement?",
+      "choices": {
+        "A": "A restriction on the design or implementation choices open to the developer",
+        "B": "A top-level requirement for a product built from several interacting subsystems",
+        "C": "A policy, guideline, standard, or regulation that constrains the business",
+        "D": "A nonfunctional requirement describing a service characteristic such as speed",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A high-level objective explaining why the organization wants the product"
+      },
+      "answer": "F",
+      "explanation": "A business requirement states the objective the organization is trying to reach by having the product built."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "What is a business rule?",
+      "choices": {
+        "A": "A policy, guideline, standard, or regulation that constrains the business",
+        "B": "A statement of the behavior the system performs under a specific condition",
+        "C": "A description of a connection between the system and an outside device or program",
+        "D": "A goal or task a defined class of users must be able to accomplish with the system",
+        "E": "A set of logically related capabilities that together deliver value to a user",
+        "F": "A high-level objective explaining why the organization wants the product"
+      },
+      "answer": "A",
+      "explanation": "A business rule comes from policy, regulation, or how the organization operates. It often leads to software requirements but is not one itself."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "What is a constraint?",
+      "choices": {
+        "A": "A restriction on the design or implementation choices open to the developer",
+        "B": "A high-level objective explaining why the organization wants the product",
+        "C": "A policy, guideline, standard, or regulation that constrains the business",
+        "D": "A statement of the behavior the system performs under a specific condition",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A set of logically related capabilities that together deliver value to a user"
+      },
+      "answer": "A",
+      "explanation": "A constraint narrows the set of design or implementation choices the developer is allowed to make."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "What is an external interface requirement?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A policy, guideline, standard, or regulation that constrains the business",
+        "C": "A restriction on the design or implementation choices open to the developer",
+        "D": "A description of a connection between the system and an outside device or program",
+        "E": "A top-level requirement for a product built from several interacting subsystems",
+        "F": "A high-level objective explaining why the organization wants the product"
+      },
+      "answer": "D",
+      "explanation": "External interface requirements cover connections to users, other software systems, and hardware devices."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "What is a feature?",
+      "choices": {
+        "A": "A policy, guideline, standard, or regulation that constrains the business",
+        "B": "A statement of the behavior the system performs under a specific condition",
+        "C": "A high-level objective explaining why the organization wants the product",
+        "D": "A set of logically related capabilities that together deliver value to a user",
+        "E": "A description of a connection between the system and an outside device or program",
+        "F": "A goal or task a defined class of users must be able to accomplish with the system"
+      },
+      "answer": "D",
+      "explanation": "A feature groups related capabilities and is normally described by several functional requirements."
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "What is a functional requirement?",
+      "choices": {
+        "A": "A set of logically related capabilities that together deliver value to a user",
+        "B": "A goal or task a defined class of users must be able to accomplish with the system",
+        "C": "A policy, guideline, standard, or regulation that constrains the business",
+        "D": "A statement of the behavior the system performs under a specific condition",
+        "E": "A restriction on the design or implementation choices open to the developer",
+        "F": "A description of a connection between the system and an outside device or program"
+      },
+      "answer": "D",
+      "explanation": "A functional requirement states what the system does, under what condition, in terms a developer can build against."
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "What is a nonfunctional requirement?",
+      "choices": {
+        "A": "A statement of a property or characteristic the system is required to respect",
+        "B": "A nonfunctional requirement describing a service characteristic such as speed",
+        "C": "A restriction on the design or implementation choices open to the developer",
+        "D": "A goal or task a defined class of users must be able to accomplish with the system",
+        "E": "A top-level requirement for a product built from several interacting subsystems",
+        "F": "A description of a connection between the system and an outside device or program"
+      },
+      "answer": "A",
+      "explanation": "Nonfunctional requirements describe properties and restrictions rather than behavior the system carries out."
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "What is a quality attribute?",
+      "choices": {
+        "A": "A description of a connection between the system and an outside device or program",
+        "B": "A nonfunctional requirement describing a service characteristic such as speed",
+        "C": "A statement of the behavior the system performs under a specific condition",
+        "D": "A statement of a property or characteristic the system is required to respect",
+        "E": "A set of logically related capabilities that together deliver value to a user",
+        "F": "A restriction on the design or implementation choices open to the developer"
+      },
+      "answer": "B",
+      "explanation": "A quality attribute is one kind of nonfunctional requirement, covering service characteristics like performance or security."
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "What is a system requirement?",
+      "choices": {
+        "A": "A goal or task a defined class of users must be able to accomplish with the system",
+        "B": "A restriction on the design or implementation choices open to the developer",
+        "C": "A high-level objective explaining why the organization wants the product",
+        "D": "A statement of the behavior the system performs under a specific condition",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A top-level requirement for a product built from several interacting subsystems"
+      },
+      "answer": "F",
+      "explanation": "System requirements apply to a whole product made of interacting parts, which may include hardware as well as software."
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "What is a user requirement?",
+      "choices": {
+        "A": "A statement of the behavior the system performs under a specific condition",
+        "B": "A policy, guideline, standard, or regulation that constrains the business",
+        "C": "A nonfunctional requirement describing a service characteristic such as speed",
+        "D": "A set of logically related capabilities that together deliver value to a user",
+        "E": "A statement of a property or characteristic the system is required to respect",
+        "F": "A goal or task a defined class of users must be able to accomplish with the system"
+      },
+      "answer": "F",
+      "explanation": "User requirements describe what a user needs to accomplish, not the detailed software behavior that supports it."
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "Discord wants to raise weekly engagement by making it easier for communities to stay active. What type of requirement is this?",
+      "choices": {
+        "A": "Business rule",
+        "B": "Feature",
+        "C": "User requirement",
+        "D": "Nonfunctional requirement",
+        "E": "Business requirement",
+        "F": "Quality attribute"
+      },
+      "answer": "E",
+      "explanation": "It states why the organization wants the work done and what value it expects in return."
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "Instagram accounts must belong to someone at least thirteen years old, per company policy and law. What is that policy?",
+      "choices": {
+        "A": "Constraint",
+        "B": "Business requirement",
+        "C": "Nonfunctional requirement",
+        "D": "Functional requirement",
+        "E": "System requirement",
+        "F": "Business rule"
+      },
+      "answer": "F",
+      "explanation": "The age policy exists outside the software. Instagram then needs functional requirements that enforce it."
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "The Netflix app must run on smart TVs that shipped in 2018 with limited memory. What is the MOST specific classification?",
+      "choices": {
+        "A": "User requirement",
+        "B": "Constraint",
+        "C": "System requirement",
+        "D": "Functional requirement",
+        "E": "Nonfunctional requirement",
+        "F": "Feature"
+      },
+      "answer": "B",
+      "explanation": "Existing hardware removes implementation options from the developer, which is what a constraint does."
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "Instagram lets outside applications publish posts through its Graph API. What does that connection represent?",
+      "choices": {
+        "A": "Constraint",
+        "B": "Feature",
+        "C": "System requirement",
+        "D": "External interface requirement",
+        "E": "Quality attribute",
+        "F": "Nonfunctional requirement"
+      },
+      "answer": "D",
+      "explanation": "The Graph API is a connection between Instagram and separate software systems."
+    },
+    {
+      "id": 15,
+      "type": "multiple_choice",
+      "question": "Discord's Server Moderation covers banning, kicking, muting, and role permissions. What is Server Moderation best classified as?",
+      "choices": {
+        "A": "Feature",
+        "B": "Business requirement",
+        "C": "Functional requirement",
+        "D": "Nonfunctional requirement",
+        "E": "System requirement",
+        "F": "External interface requirement"
+      },
+      "answer": "A",
+      "explanation": "It names a group of related capabilities that deliver value together, which is a feature."
+    },
+    {
+      "id": 16,
+      "type": "multiple_choice",
+      "question": "When a user submits a prompt, ChatGPT shall stream the reply back token by token. What type of requirement is this?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "User requirement",
+        "C": "External interface requirement",
+        "D": "Business requirement",
+        "E": "Nonfunctional requirement",
+        "F": "Feature"
+      },
+      "answer": "A",
+      "explanation": "It names a specific behavior triggered by a specific condition."
+    },
+    {
+      "id": 17,
+      "type": "multiple_choice",
+      "question": "Google Search should return a results page within half a second at peak traffic. What is the MOST specific classification?",
+      "choices": {
+        "A": "Nonfunctional requirement",
+        "B": "Functional requirement",
+        "C": "Quality attribute",
+        "D": "Feature",
+        "E": "External interface requirement",
+        "F": "User requirement"
+      },
+      "answer": "C",
+      "explanation": "Response time under load is a service characteristic, so quality attribute is more specific than nonfunctional requirement."
+    },
+    {
+      "id": 18,
+      "type": "multiple_choice",
+      "question": "A first-time Netflix viewer must be able to find and start a show without being shown how. Which quality attribute is this?",
+      "choices": {
+        "A": "Interoperability",
+        "B": "Efficiency",
+        "C": "Maintainability",
+        "D": "Availability",
+        "E": "Usability",
+        "F": "Reliability"
+      },
+      "answer": "E",
+      "explanation": "Usability covers how easily a new user can learn the product and finish a task correctly."
+    },
+    {
+      "id": 19,
+      "type": "multiple_choice",
+      "question": "A Google Maps user needs to find out whether a nearby pharmacy is open right now. What type of requirement is this?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "Business rule",
+        "C": "Business requirement",
+        "D": "System requirement",
+        "E": "User requirement",
+        "F": "Nonfunctional requirement"
+      },
+      "answer": "E",
+      "explanation": "It describes a task a user class needs to accomplish, without saying how the software provides it."
+    },
+    {
+      "id": 20,
+      "type": "multiple_choice",
+      "question": "Instagram shall reject a sign-up whose entered birth date puts the person under thirteen. What is this statement?",
+      "choices": {
+        "A": "Constraint",
+        "B": "Business rule",
+        "C": "Functional requirement",
+        "D": "Feature",
+        "E": "Quality attribute",
+        "F": "Business requirement"
+      },
+      "answer": "C",
+      "explanation": "The age policy is the business rule. This statement is the software behavior that enforces it."
+    },
+    {
+      "id": 21,
+      "type": "multiple_choice",
+      "question": "Discord runs as desktop, mobile, and web clients plus backend services, databases, and voice infrastructure. A top-level requirement covering that whole arrangement is called what?",
+      "choices": {
+        "A": "Functional requirement",
+        "B": "Business requirement",
+        "C": "System requirement",
+        "D": "Feature",
+        "E": "Quality attribute",
+        "F": "Business rule"
+      },
+      "answer": "C",
+      "explanation": "The requirement applies to a product assembled from several interacting subsystems."
+    },
+    {
+      "id": 22,
+      "type": "multiple_choice",
+      "question": "Discord's permission model says only a role holding Manage Messages may delete another member's post. What is that model?",
+      "choices": {
+        "A": "External interface requirement",
+        "B": "Business rule",
+        "C": "Business requirement",
+        "D": "Nonfunctional requirement",
+        "E": "Constraint",
+        "F": "Functional requirement"
+      },
+      "answer": "B",
+      "explanation": "The permission policy is the rule. Functional and security requirements are then written to enforce it."
+    },
+    {
+      "id": 23,
+      "type": "select_all",
+      "question": "Which of these are functional requirements for Discord? Select all that apply.",
+      "choices": {
+        "A": "Discord shall serve one hundred thousand concurrent users without slowdown",
+        "B": "Discord shall remove a message when a moderator with permission deletes it",
+        "C": "Discord wants to raise the number of servers a typical user stays active in",
+        "D": "Discord shall deliver a text message to every member who can view the channel",
+        "E": "Discord shall notify a member when someone mentions them inside a channel",
+        "F": "Discord shall run on smart TV browsers built before the 2019 model year"
+      },
+      "answer": [
+        "B",
+        "D",
+        "E"
+      ],
+      "explanation": "The first three name behavior the software performs. The others are a quality attribute, a business requirement, and a constraint."
+    },
+    {
+      "id": 24,
+      "type": "select_all",
+      "question": "Which of these are nonfunctional requirements for Netflix? Select all that apply.",
+      "choices": {
+        "A": "Netflix must keep a profile's viewing history readable only to that account",
+        "B": "Netflix must stay available during the evening peak in every served region",
+        "C": "Netflix must begin playback within two seconds of a viewer pressing play",
+        "D": "Netflix shall let a subscriber add a title to the My List collection",
+        "E": "Netflix must keep playing when a client briefly loses its network connection",
+        "F": "Netflix shall show the ten most relevant results for a search query"
+      },
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "explanation": "Performance, security, availability, and robustness describe characteristics. The other two describe behavior."
+    },
+    {
+      "id": 25,
+      "type": "select_all",
+      "question": "Which of these are stated at the level of a user requirement? Select all that apply.",
+      "choices": {
+        "A": "A shopper needs to find the seller behind a product tagged in a photo",
+        "B": "A viewer needs to keep a story private to the people they already follow",
+        "C": "The API shall return 403 when the caller lacks the manage_posts permission",
+        "D": "The client shall page the feed in batches of twenty using a cursor token",
+        "E": "The server shall write a StoryView row for each unique viewer of a story",
+        "F": "A creator needs to know which of their posts drew the most saves this week"
+      },
+      "answer": [
+        "A",
+        "B",
+        "F"
+      ],
+      "explanation": "The first three name goals a user class has. The others are system behavior stated for a developer."
+    },
+    {
+      "id": 26,
+      "type": "select_all",
+      "question": "Which of these would be external interfaces for Spotify? Select all that apply.",
+      "choices": {
+        "A": "The recommendation engine inside the Spotify backend",
+        "B": "A car head unit connecting over Android Auto or CarPlay",
+        "C": "A Bluetooth speaker the phone hands the audio stream to",
+        "D": "The policy that free accounts must hear ads each hour",
+        "E": "A smart TV app casting playback from the phone client",
+        "F": "A third-party app pulling playlists through the Web API"
+      },
+      "answer": [
+        "B",
+        "C",
+        "E",
+        "F"
+      ],
+      "explanation": "External interfaces are devices, outside software, and users beyond the system boundary. An internal module is not external, and a policy is a business rule."
+    },
+    {
+      "id": 27,
+      "type": "true_false",
+      "question": "A feature and a functional requirement mean the same thing.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "B",
+      "explanation": "A feature bundles related capabilities and is usually described by several functional requirements."
+    },
+    {
+      "id": 28,
+      "type": "true_false",
+      "question": "A business rule can exist even if no software ever enforces it.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "B",
+      "explanation": "Business rules come from policy, regulation, or standards. Software requirements may be written to enforce them."
+    },
+    {
+      "id": 29,
+      "type": "true_false",
+      "question": "Every quality attribute is a nonfunctional requirement.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "B",
+      "explanation": "A quality attribute is defined as one type of nonfunctional requirement."
+    },
+    {
+      "id": 30,
+      "type": "true_false",
+      "question": "Every nonfunctional requirement is a quality attribute.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "A",
+      "explanation": "Constraints and external interface requirements are also nonfunctional but are not quality attributes."
+    },
+    {
+      "id": 31,
+      "type": "true_false",
+      "question": "\"A moderator needs to remove a disruptive member\" and \"Discord shall show moderators a Ban Member action\" sit at the same level.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "A",
+      "explanation": "The first is a user goal. The second is a specific product behavior proposed to support it."
+    },
+    {
+      "id": 32,
+      "type": "true_false",
+      "question": "A constraint reduces the number of implementation choices open to the developer.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "A",
+      "explanation": "That is the defining idea behind a constraint."
+    },
+    {
+      "id": 33,
+      "type": "multiple_choice",
+      "question": "A subscriber tells Netflix: \"I don't care how it works, I just want it to pick up where I stopped, on whatever screen I grab next.\" Which statement is the USER requirement?",
+      "choices": {
+        "A": "Netflix shall raise average weekly viewing hours per subscriber by ten percent",
+        "B": "Sync playback position over the device presence channel already open per client",
+        "C": "A viewer needs to resume a title on any device from the point where they stopped",
+        "D": "Write the last playback position to the profile record after every heartbeat",
+        "E": "Add a GET /titles/:id/progress endpoint that returns the saved timestamp value",
+        "F": "Store playback progress keyed by profile and title in the existing datastore"
+      },
+      "answer": "C",
+      "explanation": "A user requirement names what the user needs to accomplish and leaves the implementation open."
+    },
+    {
+      "id": 34,
+      "type": "multiple_choice",
+      "question": "For that same request, which statement is the best FUNCTIONAL requirement?",
+      "choices": {
+        "A": "Subscribers want a smoother experience when they switch between their devices",
+        "B": "Netflix shall resume playback at the last position saved for that profile",
+        "C": "Cassandra fits this well because the writes are cheap and the reads are keyed",
+        "D": "Cross-device continuity is the most requested improvement from subscribers",
+        "E": "A viewer needs to keep watching without hunting for where they left off",
+        "F": "Playback progress ought to live somewhere durable rather than on the client"
+      },
+      "answer": "B",
+      "explanation": "It states observable system behavior without naming a business goal, a user goal, or a specific technology."
+    },
+    {
+      "id": 35,
+      "type": "multiple_choice",
+      "question": "Which sequence runs from the highest-level reason for a product down to detailed software behavior?",
+      "choices": {
+        "A": "Business requirement, then functional requirement, then user requirement",
+        "B": "Functional requirement, then user requirement, then business requirement",
+        "C": "User requirement, then functional requirement, then business requirement",
+        "D": "User requirement, then business requirement, then functional requirement",
+        "E": "Business requirement, then user requirement, then functional requirement",
+        "F": "Business rule, then business requirement, then external interface requirement"
+      },
+      "answer": "E",
+      "explanation": "Why the business wants it, then what users must accomplish, then what the system does."
+    },
+    {
+      "id": 36,
+      "type": "true_false",
+      "question": "One business requirement can give rise to several user requirements.",
+      "choices": {
+        "A": "True",
+        "B": "False"
+      },
+      "answer": "A",
+      "explanation": "A single business objective usually breaks down into multiple user goals and many functional requirements."
+    },
+    {
+      "id": 37,
+      "type": "true_false",
+      "question": "Nonfunctional requirements are optional and can be dropped when the schedule slips.",
+      "choices": {
+        "A": "False",
+        "B": "True"
+      },
+      "answer": "A",
+      "explanation": "They are requirements. Dropping one changes what the delivered product is required to be."
+    }
+  ]
+}
