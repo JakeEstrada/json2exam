@@ -136,6 +136,32 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         <span className="go">Choose a file</span>
       </div>
 
+      <div className="sheet ai-file">
+        <h2>Getting a question file fast</h2>
+        <p>
+          You don’t have to write these by hand. Upload your textbook chapter or lecture slides
+          to an LLM and have it generate the questions for you in the JSON format above.
+        </p>
+        <p>Two things to watch for, because models get both wrong by default:</p>
+        <ul>
+          <li>
+            <strong>Balance the answer key.</strong> Left alone, an LLM will pile most of the
+            correct answers onto one or two letters and never use the last couple at all. Tell
+            it to spread the correct answers evenly across every option.
+          </li>
+          <li>
+            <strong>Watch the answer length.</strong> The correct answer tends to come out as
+            the longest, most detailed option while the distractors are short fragments. That
+            makes the whole thing guessable without reading the question. Tell it to keep every
+            option about the same length.
+          </li>
+        </ul>
+        <p>
+          I’ve had good results with Claude for this. It handles the format well and does a
+          decent job keeping things balanced if you ask it to.
+        </p>
+      </div>
+
       <input
         ref={fileRef}
         type="file"

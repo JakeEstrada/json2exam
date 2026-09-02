@@ -303,6 +303,29 @@
   }
   .deck-grid li { min-width: 0; }
 
+  .ai-file {
+    margin: 0 0 20px;
+    padding: 24px 30px;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .ai-file h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+  .ai-file p { margin: 0 0 12px; }
+  .ai-file p:last-child { margin-bottom: 0; }
+  .ai-file ul {
+    margin: 0 0 12px;
+    padding-left: 1.2em;
+  }
+  .ai-file li { margin: 0 0 10px; }
+  .ai-file li:last-child { margin-bottom: 0; }
+  .ai-file strong { color: var(--ink); font-weight: 600; }
+
   .landing-extra { margin-bottom: 8px; }
 
   .leitner-note {
@@ -790,6 +813,7 @@
     .box .lbl { font-size: 11px; }
     .box .n { font-size: 16px; }
     .welcome,
+    .ai-file,
     .upload-panel { padding: 20px 18px; }
   }
 
