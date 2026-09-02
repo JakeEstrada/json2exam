@@ -95,9 +95,8 @@ function describeLetter(brain, card, letter) {
   const entry = cardEntry(brain, card.q.text);
   const custom = optionNote(entry, shown.text);
   if (custom) return custom;
-  const tag = shown.isAnswer ? 'is part of the keyed answer' : 'is not a keyed answer';
-  const extra = card.q.explanation ? ' ' + card.q.explanation : '';
-  return 'On this card, ' + shown.letter.toUpperCase() + ' is "' + shown.text + '". That ' + tag + '.' + extra;
+  const tag = shown.isAnswer ? 'that’s the answer.' : 'that’s not the answer.';
+  return shown.letter.toUpperCase() + ': ' + tag;
 }
 
 function matchConcept(brain, message) {

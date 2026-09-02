@@ -13,14 +13,13 @@ function openJson(data, filename) {
   window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
 }
 
-export default function Course({ course, onStart, onHome, resumable, onResume, onForget }) {
+export default function Course({ course, onStart, resumable, onResume, onForget }) {
   return (
     <div>
       <ResumeBar resumable={resumable} onResume={onResume} onForget={onForget} />
 
       <div className="bar">
         <h2>CPSC {course.code}</h2>
-        <button type="button" className="btn quiet" onClick={onHome}>Home</button>
       </div>
 
       {course.decks.length === 0 ? (

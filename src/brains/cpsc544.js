@@ -4,8 +4,8 @@ export const cpsc544 = {
   stems: [],
   cards: {},
   concepts: [],
-  greeting: 'I can walk through this 544 set after you check an answer.',
+  greeting: 'Ask about this question after you check.',
   empty: 'Ask about a letter on this card.',
-  locked: 'Check your answer first. I will not walk through the options until then.',
+  locked: 'Check your answer first.',
   fallback: 'I do not have a canned answer for that yet.',
 };

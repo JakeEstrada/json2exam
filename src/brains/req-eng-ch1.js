@@ -54,15 +54,12 @@ const DEF = {
   },
 };
 
-function notDef(actual, wanted) {
-  const a = DEF[actual];
-  const w = DEF[wanted];
-  return 'No. That describes ' + a.term + '. ' + a.note + ' This question asked for ' + w.term + ': ' + w.note;
+function notDef(actual) {
+  return 'No. That’s ' + DEF[actual].term + '.';
 }
 
 function yesDef(wanted) {
-  const w = DEF[wanted];
-  return 'Yes. That is ' + w.term + '. ' + w.note;
+  return 'Yes. That’s ' + DEF[wanted].term + '.';
 }
 
 function defOptions(wanted, extras) {
@@ -124,7 +121,7 @@ const cards = {
   },
 
   'Discord wants to raise weekly engagement by making it easier for communities to stay active. What type of requirement is this?': {
-    about: 'This is a business requirement: Discord is stating why it wants the work and what value it expects (higher weekly engagement).',
+    about: 'Business requirement: why Discord wants the work.',
     options: typeNote('Business requirement',
       'Yes. A growth objective for the organization is a business requirement.',
       {
@@ -137,7 +134,7 @@ const cards = {
   },
 
   'Instagram accounts must belong to someone at least thirteen years old, per company policy and law. What is that policy?': {
-    about: 'The age cutoff is a business rule. It exists in policy and law whether or not Instagram’s software enforces it.',
+    about: 'Business rule: the 13+ policy, not the software that enforces it.',
     options: typeNote('Business rule',
       'Yes. Company policy plus law is a business rule. Instagram then writes functional requirements to enforce it.',
       {
@@ -150,7 +147,7 @@ const cards = {
   },
 
   'The Netflix app must run on smart TVs that shipped in 2018 with limited memory. What is the MOST specific classification?': {
-    about: 'Existing hardware with a hard memory ceiling removes implementation options. That is a constraint, which is more specific than a generic nonfunctional requirement.',
+    about: 'Constraint: you have to run on those old TVs.',
     options: typeNote('Constraint',
       'Yes. You must run on those TVs. That takes choices off the table for the developer.',
       {
@@ -163,7 +160,7 @@ const cards = {
   },
 
   'Instagram lets outside applications publish posts through its Graph API. What does that connection represent?': {
-    about: 'The Graph API is a connection to separate software. That is an external interface requirement.',
+    about: 'External interface: a connection to outside software.',
     options: typeNote('External interface requirement',
       'Yes. Outside apps talking to Instagram over an API is an external interface.',
       {
@@ -176,7 +173,7 @@ const cards = {
   },
 
   "Discord's Server Moderation covers banning, kicking, muting, and role permissions. What is Server Moderation best classified as?": {
-    about: 'Server Moderation names a group of related capabilities that deliver value together. That is a feature, usually specified by several functional requirements.',
+    about: 'Feature: a named bundle of related capabilities.',
     options: typeNote('Feature',
       'Yes. Ban, kick, mute, and roles are related capabilities under one feature name.',
       {
@@ -189,7 +186,7 @@ const cards = {
   },
 
   'When a user submits a prompt, ChatGPT shall stream the reply back token by token. What type of requirement is this?': {
-    about: 'It names a specific behavior (stream the reply token by token) triggered by a specific condition (user submits a prompt). That is a functional requirement.',
+    about: 'Functional: condition plus what the system does.',
     options: typeNote('Functional requirement',
       'Yes. Condition plus observable system behavior is a functional requirement.',
       {
@@ -202,7 +199,7 @@ const cards = {
   },
 
   'Google Search should return a results page within half a second at peak traffic. What is the MOST specific classification?': {
-    about: 'Response time under load is a service characteristic. Quality attribute is more specific than a generic nonfunctional requirement.',
+    about: 'Quality attribute: how fast it has to be.',
     options: typeNote('Quality attribute',
       'Yes. Half a second at peak traffic is a performance quality attribute.',
       {
@@ -215,7 +212,7 @@ const cards = {
   },
 
   'A first-time Netflix viewer must be able to find and start a show without being shown how. Which quality attribute is this?': {
-    about: 'Learnability and successful first-use are usability.',
+    about: 'Usability: a new user can do it without being shown how.',
     options: typeNote('Usability',
       'Yes. Usability covers how easily a new user can learn the product and finish a task correctly.',
       {
@@ -228,7 +225,7 @@ const cards = {
   },
 
   'A Google Maps user needs to find out whether a nearby pharmacy is open right now. What type of requirement is this?': {
-    about: 'It describes a task a user class needs to accomplish, without saying how the software provides it. That is a user requirement.',
+    about: 'User requirement: a task the user needs to do.',
     options: typeNote('User requirement',
       'Yes. “A user needs to find out…” is the user-requirement pattern.',
       {
@@ -241,7 +238,7 @@ const cards = {
   },
 
   'Instagram shall reject a sign-up whose entered birth date puts the person under thirteen. What is this statement?': {
-    about: 'The age policy is the business rule. This sentence is the software behavior that enforces it, so it is a functional requirement.',
+    about: 'Functional: the software enforcing the 13+ rule.',
     options: typeNote('Functional requirement',
       'Yes. “Shall reject a sign-up when…” is system behavior under a condition.',
       {
@@ -254,7 +251,7 @@ const cards = {
   },
 
   'Discord runs as desktop, mobile, and web clients plus backend services, databases, and voice infrastructure. A top-level requirement covering that whole arrangement is called what?': {
-    about: 'The requirement applies to a product assembled from several interacting subsystems. That is a system requirement.',
+    about: 'System requirement: the whole multi-part product.',
     options: typeNote('System requirement',
       'Yes. Clients, backend, databases, and voice together are the system.',
       {
@@ -267,7 +264,7 @@ const cards = {
   },
 
   "Discord's permission model says only a role holding Manage Messages may delete another member's post. What is that model?": {
-    about: 'The permission policy is a business rule. Functional and security requirements are then written to enforce it.',
+    about: 'Business rule: who is allowed to delete whose posts.',
     options: typeNote('Business rule',
       'Yes. Who is allowed to delete whose posts is a rule of the product’s operation, not yet a shall-statement about software.',
       {
@@ -280,7 +277,7 @@ const cards = {
   },
 
   'Which of these are functional requirements for Discord? Select all that apply.': {
-    about: 'Functional requirements name behavior the software performs. A quality target, a business goal, and a platform constraint are not functional.',
+    about: 'Functional = system behavior. Not a goal, quality, or platform limit.',
     options: {
       'Discord shall serve one hundred thousand concurrent users without slowdown':
         'No. Concurrent users without slowdown is a performance quality attribute, not a behavior.',
@@ -298,7 +295,7 @@ const cards = {
   },
 
   'Which of these are nonfunctional requirements for Netflix? Select all that apply.': {
-    about: 'Performance, security, availability, and robustness describe characteristics. Letting someone add to My List, or showing search results, is behavior (functional).',
+    about: 'Quality attributes are characteristics. Adding to My List is behavior.',
     options: {
       "Netflix must keep a profile's viewing history readable only to that account":
         'Yes. Confidentiality of viewing history is a security quality — nonfunctional.',
@@ -316,7 +313,7 @@ const cards = {
   },
 
   'Which of these are stated at the level of a user requirement? Select all that apply.': {
-    about: 'User requirements name goals a user class has. Sentences that start with the API, the client, or the server are system behavior written for a developer.',
+    about: 'User requirements are user goals. API / client / server lines are not.',
     options: {
       'A shopper needs to find the seller behind a product tagged in a photo':
         'Yes. “A shopper needs to…” is a user goal, with no implementation.',
@@ -327,14 +324,14 @@ const cards = {
       'The client shall page the feed in batches of twenty using a cursor token':
         'No. Batch size and cursor tokens are implementation. A user requirement would be “a viewer needs to keep scrolling the feed.”',
       'The server shall write a StoryView row for each unique viewer of a story':
-        'No. Writing a database row is internal behavior. That is why this is not a user requirement — it names storage, not a user goal.',
+        'No. A database row is internal behavior, not a user requirement.',
       'A creator needs to know which of their posts drew the most saves this week':
         'Yes. A creator’s information goal, implementation left open.',
     },
   },
 
   'Which of these would be external interfaces for Spotify? Select all that apply.': {
-    about: 'External interfaces are devices, outside software, and users beyond the system boundary. An internal module is not external. A policy is a business rule.',
+    about: 'External interface = outside the system. An internal module is not.',
     options: {
       'The recommendation engine inside the Spotify backend':
         'No. That engine is inside the system. External means across the boundary.',
@@ -352,7 +349,7 @@ const cards = {
   },
 
   'A feature and a functional requirement mean the same thing.': {
-    about: 'False. A feature bundles related capabilities and is usually described by several functional requirements.',
+    about: 'False. A feature is usually several functional requirements, not one.',
     options: {
       'True': 'No. They sit at different levels. Server Moderation is a feature; “shall remove a message when…” is one functional requirement under it.',
       'False': 'Yes. A feature is the bundle. Functional requirements are the individual behaviors.',
@@ -360,7 +357,7 @@ const cards = {
   },
 
   'A business rule can exist even if no software ever enforces it.': {
-    about: 'True. Business rules come from policy, regulation, or standards. Software requirements may be written later to enforce them.',
+    about: 'True. A business rule can exist with no software at all.',
     options: {
       'False': 'No. Overtime law, a 13+ age policy, or “managers may edit payroll” can all exist on paper with no product behind them.',
       'True': 'Yes. The rule belongs to the business. Software is optional.',
@@ -368,7 +365,7 @@ const cards = {
   },
 
   'Every quality attribute is a nonfunctional requirement.': {
-    about: 'True. A quality attribute is defined as one type of nonfunctional requirement.',
+    about: 'True. Every quality attribute is a nonfunctional requirement.',
     options: {
       'False': 'No. Performance, security, usability, availability are all NFRs. The subtype name is quality attribute.',
       'True': 'Yes. Quality attribute ⊂ nonfunctional requirement.',
@@ -376,7 +373,7 @@ const cards = {
   },
 
   'Every nonfunctional requirement is a quality attribute.': {
-    about: 'False. Constraints and external interface requirements are also nonfunctional, but they are not quality attributes.',
+    about: 'False. Constraints and interfaces are NFRs too, but not quality attributes.',
     options: {
       'False': 'Yes. “Must run on 2018 TVs” is a constraint. The Graph API is an external interface. Neither is a quality attribute.',
       'True': 'No. Nonfunctional is the broader bucket. Quality attributes are only the service characteristics.',
@@ -384,7 +381,7 @@ const cards = {
   },
 
   '"A moderator needs to remove a disruptive member" and "Discord shall show moderators a Ban Member action" sit at the same level.': {
-    about: 'False. The first is a user goal. The second is a specific product behavior proposed to support it.',
+    about: 'False. One is a user goal. The other is system behavior.',
     options: {
       'False': 'Yes. User requirement vs functional requirement. Same topic, different level.',
       'True': 'No. One says what the moderator needs to accomplish. The other names a button the software shall show.',
@@ -392,7 +389,7 @@ const cards = {
   },
 
   'A constraint reduces the number of implementation choices open to the developer.': {
-    about: 'True. That is the defining idea behind a constraint.',
+    about: 'True. A constraint takes design choices off the table.',
     options: {
       'True': 'Yes. Existing hardware, a required language, a mandated cloud — each takes options off the table.',
       'False': 'No. If it does not reduce design or implementation choices, it is not a constraint.',
@@ -400,7 +397,7 @@ const cards = {
   },
 
   'A subscriber tells Netflix: "I don\'t care how it works, I just want it to pick up where I stopped, on whatever screen I grab next." Which statement is the USER requirement?': {
-    about: 'A user requirement names what the user needs to accomplish and leaves the implementation open.',
+    about: 'User requirement: what the user needs, not how you build it.',
     options: {
       'Netflix shall raise average weekly viewing hours per subscriber by ten percent':
         'No. That is a business requirement (organizational metric), not a user task.',
@@ -418,7 +415,7 @@ const cards = {
   },
 
   'For that same request, which statement is the best FUNCTIONAL requirement?': {
-    about: 'A functional requirement states observable system behavior without naming a business goal, a user goal, or a specific technology.',
+    about: 'Functional: what the system does, no tech or business goal.',
     options: {
       'Subscribers want a smoother experience when they switch between their devices':
         'No. Wishy-washy desire, not a shall-behavior.',
@@ -436,7 +433,7 @@ const cards = {
   },
 
   'Which sequence runs from the highest-level reason for a product down to detailed software behavior?': {
-    about: 'Why the business wants it, then what users must accomplish, then what the system does: business requirement → user requirement → functional requirement.',
+    about: 'Business → user → functional.',
     options: {
       'Business requirement, then functional requirement, then user requirement':
         'No. You do not jump to software behavior before saying what users must accomplish.',
@@ -454,7 +451,7 @@ const cards = {
   },
 
   'One business requirement can give rise to several user requirements.': {
-    about: 'True. A single business objective usually breaks down into multiple user goals and many functional requirements.',
+    about: 'True. One business goal usually becomes many user and functional reqs.',
     options: {
       'True': 'Yes. “Raise engagement” can spawn many user tasks (moderation, notifications, discovery) and still more functional shalls.',
       'False': 'No. The mapping is one-to-many as you go down the levels.',
@@ -462,7 +459,7 @@ const cards = {
   },
 
   'Nonfunctional requirements are optional and can be dropped when the schedule slips.': {
-    about: 'False. They are requirements. Dropping one changes what the delivered product is required to be.',
+    about: 'False. Nonfunctional requirements are still requirements.',
     options: {
       'False': 'Yes. If you drop “available during evening peak,” you shipped a different product than the one specified.',
       'True': 'No. Schedule pressure does not turn a requirement into a nice-to-have. You can renegotiate scope, but that is a change to the requirements.',
@@ -475,54 +472,21 @@ export const reqEngCh1 = {
   name: 'AskGPT',
   stems: Object.keys(cards),
   cards,
-  greeting: 'I can walk through this Chapter 1 set — definitions, why an option is or is not the right type, and how the levels nest. I only know this deck. After you check, ask things like “why isn’t F a user requirement?”',
-  empty: 'Ask about a letter on this card, or about a term: business requirement, user requirement, constraint, feature, functional, nonfunctional.',
-  locked: 'Check your answer first. I will not walk through the options until then.',
-  fallback: 'I do not have a canned answer for that. Try a letter on this card (why isn’t F right?), or a term: business requirement, business rule, user requirement, functional, nonfunctional, quality attribute, constraint, feature, system requirement, external interface.',
+  greeting: 'Ask about this question after you check.',
+  empty: 'Ask about a letter or a term.',
+  locked: 'Check your answer first.',
+  fallback: 'Try a letter on this card, or a term like user requirement.',
   concepts: [
-    {
-      test: /business\s+req/i,
-      reply: 'A business requirement is why the organization wants the product: a high-level objective and the value it expects. Example: Discord wants to raise weekly engagement.',
-    },
-    {
-      test: /business\s+rule/i,
-      reply: 'A business rule is policy, law, or a standard that constrains the business. It can exist with no software. Instagram’s 13+ age policy is a rule; “shall reject a sign-up under 13” is the functional requirement that enforces it.',
-    },
-    {
-      test: /user\s+req/i,
-      reply: 'A user requirement is a goal or task a defined class of users must accomplish, with the how left open. “A shopper needs to find the seller” is a user requirement. “The server shall write a StoryView row” is not — that is internal behavior.',
-    },
-    {
-      test: /functional\s+req/i,
-      reply: 'A functional requirement states the behavior the system performs under a specific condition, in terms a developer can build against. “When a user submits a prompt, ChatGPT shall stream the reply token by token.”',
-    },
-    {
-      test: /non[- ]?functional/i,
-      reply: 'Nonfunctional requirements describe properties and restrictions rather than behavior. Quality attributes, constraints, and external interfaces all sit in this bucket. They are still requirements — not optional if the schedule slips.',
-    },
-    {
-      test: /quality\s+attr/i,
-      reply: 'A quality attribute is a nonfunctional requirement about a service characteristic: speed, security, usability, availability, reliability. Every quality attribute is an NFR, but not every NFR is a quality attribute.',
-    },
-    {
-      test: /\bconstraint/i,
-      reply: 'A constraint reduces the number of implementation choices. “The Netflix app must run on 2018 smart TVs with limited memory” is a constraint. It is more specific than just saying “nonfunctional.”',
-    },
-    {
-      test: /\bfeature\b/i,
-      reply: 'A feature is a set of related capabilities that together deliver value. Discord’s Server Moderation (ban, kick, mute, roles) is a feature. It is not the same thing as one functional requirement.',
-    },
-    {
-      test: /system\s+req/i,
-      reply: 'A system requirement is a top-level requirement for a product built from several interacting subsystems — clients, backend, databases, voice, hardware, software.',
-    },
-    {
-      test: /external\s+interface/i,
-      reply: 'An external interface requirement describes a connection between the system and something outside it: a Graph API, a Bluetooth speaker, CarPlay, a third-party app. Internal modules and business rules are not interfaces.',
-    },
-    {
-      test: /usabilit/i,
-      reply: 'Usability is the quality attribute for how easily someone can learn the product and complete a task correctly. A first-time Netflix viewer finding a show without being shown how is usability, not reliability or availability.',
-    },
+    { test: /business\s+req/i, reply: 'A business requirement is why the organization wants the product.' },
+    { test: /business\s+rule/i, reply: 'A business rule is policy, law, or a standard. It can exist with no software.' },
+    { test: /user\s+req/i, reply: 'A user requirement is a goal a user class must accomplish, without saying how.' },
+    { test: /functional\s+req/i, reply: 'A functional requirement is what the system does under a given condition.' },
+    { test: /non[- ]?functional/i, reply: 'A nonfunctional requirement is a property or restriction, not a behavior.' },
+    { test: /quality\s+attr/i, reply: 'A quality attribute is an NFR about speed, security, usability, and the like.' },
+    { test: /\bconstraint/i, reply: 'A constraint limits the design or implementation choices you can make.' },
+    { test: /\bfeature\b/i, reply: 'A feature is a bundle of related capabilities that deliver value together.' },
+    { test: /system\s+req/i, reply: 'A system requirement covers a product made of several interacting parts.' },
+    { test: /external\s+interface/i, reply: 'An external interface is a connection to something outside the system.' },
+    { test: /usabilit/i, reply: 'Usability is how easily someone can learn the product and finish a task.' },
   ],
 };

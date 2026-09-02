@@ -1,12 +1,12 @@
 :root {
-    --desk:        #dfe4ea;
-    --desk-2:      #d3d9e2;
-    --card:        #fcf8ee;
-    --card-edge:   #ded4bd;
+    --desk:        #e2e8f0;
+    --desk-2:      #d4dce8;
+    --card:        #f5f7fb;
+    --card-edge:   #c5d0dd;
     --card-shadow: rgba(28, 36, 52, .18);
-    --ink:         #1b2330;
-    --ink-soft:    #5d6675;
-    --ink-faint:   #8b929e;
+    --ink:         #1a2332;
+    --ink-soft:    #5a6574;
+    --ink-faint:   #8490a0;
     --rule:        #c3d3e8;
     --margin-rule: #c0564c;
     --accent:      #2f5ea8;
@@ -15,8 +15,8 @@
     --right-soft:  #d9ecdf;
     --wrong:       #a5342a;
     --wrong-soft:  #f4dedb;
-    --chip:        #efe8d6;
-    --chip-edge:   #ddd3ba;
+    --chip:        #e4ebf3;
+    --chip-edge:   #c8d3df;
     --focus:       #2f5ea8;
     --radius:      3px;
   }
@@ -28,7 +28,7 @@
       --card:        #1b212a;
       --card-edge:   #2b3440;
       --card-shadow: rgba(0, 0, 0, .5);
-      --ink:         #e8e5dd;
+      --ink:         #e6eaf0;
       --ink-soft:    #a2aab7;
       --ink-faint:   #6f7885;
       --rule:        #2c4260;
@@ -51,7 +51,7 @@
     --card:        #1b212a;
     --card-edge:   #2b3440;
     --card-shadow: rgba(0, 0, 0, .5);
-    --ink:         #e8e5dd;
+    --ink:         #e6eaf0;
     --ink-soft:    #a2aab7;
     --ink-faint:   #6f7885;
     --rule:        #2c4260;
@@ -814,12 +814,11 @@
 
   .askgpt-head {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 8px;
   }
   .askgpt-head strong { display: block; font-size: 15px; }
-  .askgpt-sub { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
 
   .askgpt-log {
     overflow-y: auto;

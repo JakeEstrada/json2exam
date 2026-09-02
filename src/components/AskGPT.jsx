@@ -59,10 +59,7 @@ export default function AskGPT({ brain, card, phase, picked }) {
       {open && (
         <div className="askgpt-panel sheet" role="dialog" aria-label="AskGPT">
           <div className="askgpt-head">
-            <div>
-              <strong>AskGPT</strong>
-              <span className="askgpt-sub">This deck only · no API</span>
-            </div>
+            <strong>AskGPT</strong>
             <button type="button" className="btn quiet" onClick={() => setOpen(false)}>Close</button>
           </div>
 

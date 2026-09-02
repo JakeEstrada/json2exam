@@ -1,6 +1,6 @@
 import { boxOf } from '../lib/leitner.js';
 
-export default function Summary({ quiz, boxes, stats, maxBox, onAgain, onNew }) {
+export default function Summary({ quiz, boxes, stats, maxBox, onAgain }) {
   const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= maxBox).length;
   const answered = stats.right + stats.wrong;
   const accuracy = answered ? Math.round((stats.right / answered) * 100) : 0;
@@ -42,7 +42,6 @@ export default function Summary({ quiz, boxes, stats, maxBox, onAgain, onNew }) 
 
       <div className="row">
         <button className="btn primary" onClick={onAgain}>Run the deck again</button>
-          <button className="btn quiet" onClick={onNew}>Home</button>
       </div>
     </div>
   );

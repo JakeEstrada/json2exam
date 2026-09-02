@@ -219,7 +219,6 @@ export default function App() {
         <Course
           course={course}
           onStart={startDeck}
-          onHome={goHome}
           resumable={saved}
           onResume={resumeSaved}
           onForget={forgetSaved}
@@ -239,7 +238,6 @@ export default function App() {
           stats={stats}
           maxBox={settings.maxBox}
           onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
-          onNew={goHome}
         />
         {brain && <AskGPT brain={brain} card={null} phase="review" picked={[]} />}
       </div>
@@ -262,7 +260,6 @@ export default function App() {
           </span>
           <button className="btn quiet" onClick={() => setShowSettings((s) => !s)}>Settings</button>
           <button className="btn quiet" onClick={() => setScreen('done')}>Finish</button>
-          <button className="btn quiet" onClick={goHome}>Home</button>
         </div>
       </div>
 
