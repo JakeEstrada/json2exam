@@ -3,6 +3,19 @@ import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
 import { SAMPLE_SNIPPET, PASTE_PLACEHOLDER } from '../data/sample.js';
 
+function openExample() {
+  const blob = new Blob([SAMPLE_SNIPPET], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const tab = window.open(url, '_blank', 'noopener');
+  if (!tab) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'example.json';
+    a.click();
+  }
+  window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
+}
+
 export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget }) {
   const [over, setOver] = useState(false);
   const [error, setError] = useState(null);
@@ -44,13 +57,27 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
     <div>
       <ResumeBar resumable={resumable} onResume={onResume} onForget={onForget} />
 
+      <div className="welcome">
+        <p>Hey everyone! It looks like a lot of us are going to be part of the CSUF 2028 cohort together. I put together a small study website and shared the <a href="https://github.com/JakeEstrada/json2exam" target="_blank" rel="noreferrer">GitHub repo</a> in the Discord.</p>
+        <p>I’m hoping we can use it throughout the program to share resources, create study material, and help each other out. I built the tool mainly because I wanted something useful for studying myself, but I figured it could be helpful for everyone else too.</p>
+        <p>The project is completely open source, so if anyone wants to contribute, add features, fix something, or just mess around with the code, feel free to join the repo.</p>
+        <p>Hopefully we can build it up together over the next couple of years. Thanks, guys!</p>
+      </div>
+
       <div className="stack">
         <div className="leaf one" aria-hidden="true"></div>
         <div className="leaf two" aria-hidden="true"></div>
-        <button
-          type="button"
+        <div
           className={'drop' + (over ? ' is-over' : '')}
+          role="button"
+          tabIndex={0}
           onClick={() => fileRef.current && fileRef.current.click()}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              fileRef.current && fileRef.current.click();
+            }
+          }}
           onDragOver={(e) => { e.preventDefault(); setOver(true); }}
           onDragLeave={() => setOver(false)}
           onDrop={(e) => {
@@ -63,10 +90,21 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
           <p>
             Drop a JSON file from your computer, or click to choose one. The file is read
             in this browser only. It is not uploaded or stored on a server, so your questions
-            stay on your PC.
+            stay on your PC.{' '}
+            <a
+              href="example.json"
+              className="text-link"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                openExample();
+              }}
+            >
+              [example.json]
+            </a>
           </p>
           <span className="cue">or choose a file</span>
-        </button>
+        </div>
       </div>
 
       <input
@@ -130,12 +168,6 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         </div>
       )}
 
-      <details className="spec">
-        <summary>What the file should look like</summary>
-        <div className="spec-body">
-          <pre className="sample">{SAMPLE_SNIPPET}</pre>
-        </div>
-      </details>
     </div>
   );
 }

@@ -190,6 +190,7 @@
     text-align: left;
     width: 100%;
     display: block;
+    cursor: pointer;
     transition: border-color .15s ease, background .15s ease;
   }
 
@@ -229,6 +230,21 @@
     color: var(--accent);
     font-weight: 500;
   }
+
+  .welcome {
+    margin: 0 0 22px;
+    max-width: 62ch;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .welcome p { margin: 0 0 12px; }
+  .welcome p:last-child { margin-bottom: 0; }
+  .welcome a {
+    color: var(--accent);
+    font-weight: 500;
+    text-underline-offset: 3px;
+  }
+  .welcome a:hover { color: var(--ink); }
 
   .leitner-note {
     margin: 0 0 16px;
