@@ -219,9 +219,6 @@ export default function App() {
         <Course
           course={course}
           onStart={startDeck}
-          resumable={saved}
-          onResume={resumeSaved}
-          onForget={forgetSaved}
         />
       </div>
     );
