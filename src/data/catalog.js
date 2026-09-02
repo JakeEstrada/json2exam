@@ -8,7 +8,7 @@ export const COURSES = [
       {
         id: '541-ch1',
         label: 'Chapter 1',
-        file: '541-Ch1.json',
+        file: 'Ch1-The essential software requirement.json',
         data: deck541Ch1,
       },
     ],
