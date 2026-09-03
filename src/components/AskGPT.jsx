@@ -177,10 +177,11 @@ export default function AskGPT({ brain, card, phase, picked }) {
         type="button"
         className="askgpt-fab"
         aria-expanded={open}
+        aria-label={open ? 'Hide AskGPT' : 'AskGPT'}
         onClick={() => setOpen((v) => !v)}
       >
         <OpenAIMark className="askgpt-logo" />
-        {open ? 'Hide AskGPT' : 'AskGPT'}
+        <span className="askgpt-fab-label">{open ? 'Hide AskGPT' : 'AskGPT'}</span>
       </button>
     </div>
   );

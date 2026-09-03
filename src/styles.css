@@ -1024,6 +1024,32 @@
   .askgpt-send:hover:not(:disabled) { filter: brightness(0.94); }
   .askgpt-send:disabled { opacity: .35; cursor: not-allowed; }
 
+  @media (max-width: 720px) {
+    .shell:has(.askgpt) {
+      padding-bottom: 104px;
+    }
+    .askgpt {
+      right: 12px;
+      bottom: 12px;
+      width: min(400px, calc(100vw - 16px));
+    }
+    .askgpt-fab {
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      justify-content: center;
+      gap: 0;
+    }
+    .askgpt-fab-label { display: none; }
+    .askgpt-panel {
+      max-height: min(62vh, 480px);
+    }
+    .askgpt-log {
+      min-height: 140px;
+      max-height: 220px;
+    }
+  }
+
   .file-window-back {
     position: fixed;
     inset: 0;
