@@ -298,7 +298,7 @@ const cards = {
     about: 'Quality attributes are characteristics. Adding to My List is behavior.',
     options: {
       "Netflix must keep a profile's viewing history readable only to that account":
-        'Yes. Confidentiality of viewing history is a security quality — nonfunctional.',
+        'Yes. Confidentiality of viewing history is a security quality, nonfunctional.',
       'Netflix must stay available during the evening peak in every served region':
         'Yes. Availability is nonfunctional.',
       'Netflix must begin playback within two seconds of a viewer pressing play':
@@ -306,7 +306,7 @@ const cards = {
       'Netflix shall let a subscriber add a title to the My List collection':
         'No. That is a behavior the system performs: functional.',
       'Netflix must keep playing when a client briefly loses its network connection':
-        'Yes. Continuing under a fault is robustness / reliability — nonfunctional.',
+        'Yes. Continuing under a fault is robustness / reliability, nonfunctional.',
       'Netflix shall show the ten most relevant results for a search query':
         'No. Showing search results is functional behavior. “Most relevant” might later get a quality target, but this is still a shall-do.',
     },
@@ -391,7 +391,7 @@ const cards = {
   'A constraint reduces the number of implementation choices open to the developer.': {
     about: 'True. A constraint takes design choices off the table.',
     options: {
-      'True': 'Yes. Existing hardware, a required language, a mandated cloud — each takes options off the table.',
+      'True': 'Yes. Existing hardware, a required language, a mandated cloud. Each takes options off the table.',
       'False': 'No. If it does not reduce design or implementation choices, it is not a constraint.',
     },
   },

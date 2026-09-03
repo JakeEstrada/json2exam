@@ -58,7 +58,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
 
       <div className="sheet welcome">
         <p>
-          Hey everyone — this is a study / exam prep tool for the CSUF 2028 cohort.
+          Hey everyone, this is a study / exam prep tool for the CSUF 2028 cohort.
           I built it so we can drill questions for <strong>CPSC 541</strong> and <strong>CPSC 544</strong>,
           and I want a deck for each chapter as we go through the program.
         </p>
@@ -71,7 +71,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         <p>
           The project is open source. I shared the{' '}
           <a href="https://github.com/JakeEstrada/json2exam" target="_blank" rel="noreferrer">GitHub repo</a>
-          {' '}in Discord — add a chapter, fix something, or just mess around with the code. Thanks, guys!
+          {' '}in Discord: add a chapter, fix something, or just mess around with the code. Thanks, guys!
         </p>
       </div>
 
@@ -113,7 +113,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         <div className="upload-copy">
           <strong>Upload JSON</strong>
           <p>
-            Use this for anything else you want to study — another class, a chapter you wrote,
+            Use this for anything else you want to study: another class, a chapter you wrote,
             notes from a friend. Drop a question file here, or click to choose one. It stays
             in this browser.{' '}
             <a
