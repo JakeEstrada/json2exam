@@ -113,9 +113,8 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         <div className="upload-copy">
           <strong>Upload JSON</strong>
           <p>
-            Use this for anything else you want to study: another class, a chapter you wrote,
-            notes from a friend. Drop a question file here, or click to choose one. It stays
-            in this browser.{' '}
+            Other classes, personal study, a chapter you wrote. Drop a question file here
+            or click to choose one.{' '}
             <a
               href="example.json"
               className="text-link"
