@@ -7,6 +7,7 @@ import { findBrain } from './lib/ask.js';
 import Masthead from './components/Masthead.jsx';
 import Loader from './components/Loader.jsx';
 import Course from './components/Course.jsx';
+import QuizNotes from './components/QuizNotes.jsx';
 import BoxTrack from './components/BoxTrack.jsx';
 import Settings from './components/Settings.jsx';
 import QuestionCard from './components/QuestionCard.jsx';
@@ -80,8 +81,17 @@ export default function App() {
     setScreen('course');
   }
 
-  function startDeck(data, title) {
-    startFresh(normalizeQuiz(data, title));
+  function startDeck(data, title, extra) {
+    const qz = normalizeQuiz(data, title);
+    if (extra && extra.notes) {
+      qz.notes = extra.notes;
+      qz.notesFile = extra.notesFile || 'notes.md';
+    }
+    if (extra && extra.bookUrl) {
+      qz.bookUrl = extra.bookUrl;
+      qz.bookFile = extra.bookFile || 'chapter.pdf';
+    }
+    startFresh(qz);
   }
 
   function persist() {
@@ -229,6 +239,12 @@ export default function App() {
     return (
       <div className="shell shell-wide">
         <Masthead onHome={goHome} />
+        <QuizNotes
+          filename={quiz.notesFile}
+          source={quiz.notes}
+          bookFile={quiz.bookFile}
+          bookUrl={quiz.bookUrl}
+        />
         <Summary
           quiz={quiz}
           boxes={boxes}
@@ -236,7 +252,7 @@ export default function App() {
           maxBox={settings.maxBox}
           onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
         />
-        <AskGPT brain={brain} card={null} phase="review" picked={[]} />
+        <AskGPT brain={brain} card={null} phase="review" picked={[]} notes={quiz.notes} />
       </div>
     );
   }
@@ -248,6 +264,13 @@ export default function App() {
   return (
     <div className="shell shell-wide">
       <Masthead onHome={goHome} />
+
+      <QuizNotes
+        filename={quiz.notesFile}
+        source={quiz.notes}
+        bookFile={quiz.bookFile}
+        bookUrl={quiz.bookUrl}
+      />
 
       <div className="bar">
         <h2>{quiz.title}</h2>
@@ -304,6 +327,7 @@ export default function App() {
           card={current}
           phase={phase}
           picked={picked}
+          notes={quiz.notes}
         />
     </div>
   );

@@ -1,0 +1,623 @@
+{
+  "title": "CPSC 541 - Chapter 3: Good Practices for Requirements Engineering",
+  "questions": [
+    {
+      "question": "Requirements development consists of which four major activities?",
+      "type": "multiple",
+      "options": [
+        "Planning, coding, testing, deployment",
+        "Elicitation, analysis, specification, validation",
+        "Design, implementation, maintenance, release",
+        "Modeling, programming, testing, training",
+        "Budgeting, scheduling, coding, verification",
+        "Elicitation, architecture, programming, maintenance"
+      ],
+      "answer": "b",
+      "explanation": "Chapter 3 expands on the four requirements development activities: elicitation, analysis, specification, and validation."
+    },
+    {
+      "question": "The four requirements development activities should always be completed in a strict sequence, with one phase completely finished before the next begins.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The process should be iterative, incremental, and interleaved rather than strictly sequential."
+    },
+    {
+      "question": "Which description best matches an iterative requirements process?",
+      "type": "multiple",
+      "options": [
+        "Requirements are written once and never revisited",
+        "Teams repeatedly revisit and refine earlier work as new information is discovered",
+        "Only validation may be repeated",
+        "Requirements work starts only after implementation",
+        "Each activity is performed by a completely separate team",
+        "The development process cannot overlap"
+      ],
+      "answer": "b",
+      "explanation": "The slides show requirements work cycling back to clarify, rewrite, correct, and re-evaluate earlier information."
+    },
+    {
+      "question": "What is one purpose of defining the requirements development process before beginning elicitation?",
+      "type": "multiple",
+      "options": [
+        "To choose the programming language",
+        "To define the steps and activities the team will use to develop requirements",
+        "To eliminate customer involvement",
+        "To write all test cases immediately",
+        "To determine the final architecture",
+        "To guarantee requirements will never change"
+      ],
+      "answer": "b",
+      "explanation": "A good practice is to define the requirements development process, including its steps and activities."
+    },
+    {
+      "question": "What is the main purpose of a vision and scope document?",
+      "type": "multiple",
+      "options": [
+        "To define project objectives, boundaries, and focus",
+        "To describe source code organization",
+        "To list every future test case",
+        "To define database indexes",
+        "To document only user interface colors",
+        "To identify developer salaries"
+      ],
+      "answer": "a",
+      "explanation": "The vision and scope document defines objectives, sets project boundaries, and helps keep the project focused."
+    },
+    {
+      "question": "Which factors can help distinguish different user classes? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Roles",
+        "Goals",
+        "Features used",
+        "Frequency of use",
+        "Knowledge and skill levels",
+        "Location and attitude"
+      ],
+      "answer": ["a", "b", "c", "d", "e", "f"],
+      "explanation": "The slides list all of these as useful characteristics for identifying different user classes."
+    },
+    {
+      "question": "Why is identifying user classes important during elicitation?",
+      "type": "multiple",
+      "options": [
+        "Different groups may use the system differently and have different needs",
+        "Every user always wants exactly the same thing",
+        "It determines which programming language must be used",
+        "It replaces requirements analysis",
+        "It eliminates the need for customer representatives",
+        "It prevents requirements from changing"
+      ],
+      "answer": "a",
+      "explanation": "Different user classes can have different roles, goals, skills, and usage patterns, so their requirements may differ."
+    },
+    {
+      "question": "What is a product champion?",
+      "type": "multiple",
+      "options": [
+        "The developer who writes the most code",
+        "A representative of a user class who speaks and may make decisions on behalf of that group",
+        "A project manager responsible only for budget",
+        "A customer who uses the system once",
+        "A tester responsible for all acceptance testing",
+        "A person who approves every software change"
+      ],
+      "answer": "b",
+      "explanation": "Product champions represent user classes, speak for them, and generally make a long-term commitment to the project."
+    },
+    {
+      "question": "A product champion is usually expected to have a long-term commitment to the project.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The slides distinguish product champions by their ongoing representation and long-term project involvement."
+    },
+    {
+      "question": "How does a focus group differ from a product champion?",
+      "type": "multiple",
+      "options": [
+        "Focus groups are typically short-term participants who describe functionality and quality needs",
+        "Focus groups write source code",
+        "Focus groups have authority over the entire project",
+        "Focus groups replace all user classes",
+        "Focus groups are used only after deployment",
+        "Focus groups manage version control"
+      ],
+      "answer": "a",
+      "explanation": "Focus groups provide input about functionality and quality needs but usually have a shorter-term commitment than product champions."
+    },
+    {
+      "question": "Use cases primarily help identify:",
+      "type": "multiple",
+      "options": [
+        "Tasks users need to accomplish, their goals, and user-system interactions",
+        "Project salaries",
+        "Programming language syntax",
+        "Database indexes",
+        "Server hardware specifications",
+        "Developer vacation schedules"
+      ],
+      "answer": "a",
+      "explanation": "Use cases describe tasks, goals, purposes, and interactions between users and the system."
+    },
+    {
+      "question": "Which of the following can be considered system events? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "External signals",
+        "Incoming data",
+        "Temporal events",
+        "Customer calls",
+        "Inventory changes",
+        "Developer lunch breaks"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The slides identify external signals and data, temporal events, and business events such as customer calls or inventory changes."
+    },
+    {
+      "question": "Why identify system events and responses during elicitation?",
+      "type": "multiple",
+      "options": [
+        "To understand how the system should behave when particular stimuli or events occur",
+        "To choose source code naming conventions",
+        "To create the final database implementation",
+        "To assign salaries",
+        "To eliminate user requirements",
+        "To determine only project cost"
+      ],
+      "answer": "a",
+      "explanation": "System events and responses help reveal required system behavior."
+    },
+    {
+      "question": "What is a requirements workshop?",
+      "type": "multiple",
+      "options": [
+        "A collaborative session where analysts and users discuss requirements and develop draft material",
+        "A programming competition",
+        "A final deployment meeting",
+        "A meeting only for developers",
+        "A hardware testing session",
+        "A project budgeting exercise"
+      ],
+      "answer": "a",
+      "explanation": "Workshops promote collaboration between analysts and users through discussion and draft requirements work."
+    },
+    {
+      "question": "Observing users performing their current work can help analysts understand the context for a new system.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Observation can reveal current tasks, workflows, and data flows that may not be fully captured through interviews alone."
+    },
+    {
+      "question": "What useful information can be captured by observing users?",
+      "type": "multiple",
+      "options": [
+        "Current tasks and data flow",
+        "Only programming language preferences",
+        "Only customer salaries",
+        "Only future project dates",
+        "Source code bugs",
+        "Server configuration files"
+      ],
+      "answer": "a",
+      "explanation": "Observation helps establish context and can reveal actual data flow and work practices."
+    },
+    {
+      "question": "Why should analysts examine problem reports from an existing system?",
+      "type": "multiple",
+      "options": [
+        "Problems and requested enhancements can reveal requirements for the new system",
+        "They are only useful to testers",
+        "They prevent reuse of requirements",
+        "They determine programming language choice",
+        "They eliminate the need for user input",
+        "They guarantee the new system will have no defects"
+      ],
+      "answer": "a",
+      "explanation": "Problems with the old system and previously requested enhancements can provide valuable requirements information."
+    },
+    {
+      "question": "What does requirements reuse mean in Chapter 3?",
+      "type": "multiple",
+      "options": [
+        "Looking for relevant requirements from previous projects or existing products that may apply again",
+        "Copying all requirements from any old project without review",
+        "Reusing source code only",
+        "Using the same project manager on every project",
+        "Avoiding new requirements completely",
+        "Keeping every requirement unchanged forever"
+      ],
+      "answer": "a",
+      "explanation": "Reuse means identifying applicable similarities with previous projects or products rather than starting from nothing."
+    },
+    {
+      "question": "What is a context diagram used for during requirements analysis?",
+      "type": "multiple",
+      "options": [
+        "To show the system's environment, boundaries, and interfaces",
+        "To show detailed source code",
+        "To create test cases",
+        "To determine project salaries",
+        "To document only user stories",
+        "To replace requirements specifications"
+      ],
+      "answer": "a",
+      "explanation": "A context diagram provides a high-level view of the system, its environment, boundaries, and external interfaces."
+    },
+    {
+      "question": "A prototype of a user interface can be useful because it gives users something tangible to react to and provide feedback on.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The slides specifically describe UI prototypes as a way to obtain feedback on a tangible representation."
+    },
+    {
+      "question": "What is the main purpose of a technical prototype?",
+      "type": "multiple",
+      "options": [
+        "To explore the feasibility of potential technical problem areas",
+        "To create the final product immediately",
+        "To replace all requirements documentation",
+        "To determine customer salaries",
+        "To avoid validation",
+        "To prevent change requests"
+      ],
+      "answer": "a",
+      "explanation": "Technical prototypes help determine whether difficult or uncertain aspects of a proposed solution are feasible."
+    },
+    {
+      "question": "Why are requirements prioritized during analysis?",
+      "type": "multiple",
+      "options": [
+        "To allocate requirements to releases and adjust to changing resources, needs, goals, or market conditions",
+        "To ensure every requirement has equal importance",
+        "To eliminate customer input",
+        "To select programming languages",
+        "To prevent future changes",
+        "To avoid requirements management"
+      ],
+      "answer": "a",
+      "explanation": "Prioritization helps decide what should be implemented first and supports adjustments when circumstances change."
+    },
+    {
+      "question": "Requirements modeling can help reveal which types of problems? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Incomplete requirements",
+        "Inconsistent requirements",
+        "Conflicting requirements",
+        "Missing developer salaries",
+        "Unclear relationships",
+        "Problems hidden in natural-language descriptions"
+      ],
+      "answer": ["a", "b", "c", "e", "f"],
+      "explanation": "Abstract and rigorous models can expose incompleteness, inconsistency, conflicts, and unclear relationships."
+    },
+    {
+      "question": "During analysis, teams should identify interfaces with other systems and requirements that affect other subsystems.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The slides include identification of external interfaces and requirements allocated to other subsystems as analysis activities."
+    },
+    {
+      "question": "What is one major goal of requirements specification?",
+      "type": "multiple",
+      "options": [
+        "To create documentation that is consistent, accessible, and reviewable",
+        "To replace customer communication",
+        "To create final source code",
+        "To eliminate change management",
+        "To perform deployment",
+        "To reduce the number of stakeholders"
+      ],
+      "answer": "a",
+      "explanation": "Specification should produce requirements documentation that can be consistently understood, accessed, and reviewed."
+    },
+    {
+      "question": "What kind of document template is suggested in the slides for software requirements specifications?",
+      "type": "multiple",
+      "options": [
+        "IEEE 830-style SRS template",
+        "HTML template",
+        "SQL schema",
+        "JUnit template",
+        "Git commit template",
+        "Dockerfile"
+      ],
+      "answer": "a",
+      "explanation": "The slides explicitly mention adopting an SRS template such as IEEE 830."
+    },
+    {
+      "question": "Why should the source or origin of a requirement be recorded?",
+      "type": "multiple",
+      "options": [
+        "To justify why the requirement exists and support future clarification",
+        "To determine who should write the source code",
+        "To eliminate requirements validation",
+        "To prevent future discussion",
+        "To calculate server capacity",
+        "To determine programming language choice"
+      ],
+      "answer": "a",
+      "explanation": "Recording sources helps explain the requirement's presence and allows analysts to return to the originator when clarification is needed."
+    },
+    {
+      "question": "Why should individual requirements have unique identifiers?",
+      "type": "multiple",
+      "options": [
+        "To support traceability and requirements management",
+        "To make requirements harder to read",
+        "To identify the programmer who wrote them",
+        "To eliminate change requests",
+        "To replace the SRS",
+        "To improve system performance"
+      ],
+      "answer": "a",
+      "explanation": "Unique IDs help trace, manage, reference, and track individual requirements."
+    },
+    {
+      "question": "According to the slides, business rules should generally be kept separate from the SRS because:",
+      "type": "multiple",
+      "options": [
+        "They can exist beyond the scope of a single software project",
+        "They are not important",
+        "They apply only to programmers",
+        "They are always temporary",
+        "They are only test cases",
+        "They cannot influence requirements"
+      ],
+      "answer": "a",
+      "explanation": "Business rules often exist independently of a particular software application or project."
+    },
+    {
+      "question": "Which of the following are quality attributes emphasized in the specification section? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Performance",
+        "Efficiency",
+        "Reliability",
+        "Robustness",
+        "Usability",
+        "Developer salary"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The slides list performance, efficiency, reliability, robustness, and usability as important quality attributes."
+    },
+    {
+      "question": "What is one validation practice described in Chapter 3?",
+      "type": "multiple",
+      "options": [
+        "Inspect requirements documents",
+        "Rewrite source code",
+        "Remove customer involvement",
+        "Freeze all requirements",
+        "Choose the final database",
+        "Deploy the system"
+      ],
+      "answer": "a",
+      "explanation": "Validation includes formal and informal inspection of requirements documents."
+    },
+    {
+      "question": "What distinguishes a formal requirements inspection?",
+      "type": "multiple",
+      "options": [
+        "It is a rigorous examination involving people with different perspectives and expertise",
+        "It is performed only by one developer",
+        "It occurs only after deployment",
+        "It replaces customer review",
+        "It requires no documentation",
+        "It focuses only on programming style"
+      ],
+      "answer": "a",
+      "explanation": "Formal inspection is a structured review involving multiple perspectives and areas of expertise."
+    },
+    {
+      "question": "Which activities are associated with defining test cases during validation? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Describe expected behavior",
+        "Review test cases with customers or users",
+        "Trace test cases back to the specification",
+        "Define acceptance criteria",
+        "Select developer salaries",
+        "Delete the requirements baseline"
+      ],
+      "answer": ["a", "b", "c", "d"],
+      "explanation": "The slides connect test cases to expected behavior, customer review, traceability, and acceptance criteria."
+    },
+    {
+      "question": "Requirements management primarily focuses on:",
+      "type": "multiple",
+      "options": [
+        "Controlling and tracking changes to established requirements",
+        "Writing source code",
+        "Designing databases",
+        "Creating user interfaces",
+        "Hiring developers",
+        "Replacing requirements development"
+      ],
+      "answer": "a",
+      "explanation": "Once requirements are established, management is largely about controlling and tracking change."
+    },
+    {
+      "question": "What are the three main steps mentioned for a change control process?",
+      "type": "multiple",
+      "options": [
+        "Proposal, analysis, resolution",
+        "Coding, testing, deployment",
+        "Elicitation, design, implementation",
+        "Planning, budgeting, hiring",
+        "Request, coding, release",
+        "Drafting, compiling, testing"
+      ],
+      "answer": "a",
+      "explanation": "The slide describes a change control process consisting of proposal, analysis, and resolution."
+    },
+    {
+      "question": "What is a Change Control Board (CCB)?",
+      "type": "multiple",
+      "options": [
+        "A small, competent, empowered group that decides how proposed changes should be handled",
+        "A group of all customers",
+        "A programming team",
+        "A testing team",
+        "A hardware committee",
+        "A documentation archive"
+      ],
+      "answer": "a",
+      "explanation": "The CCB evaluates and makes decisions about proposed requirements changes."
+    },
+    {
+      "question": "What does change impact analysis evaluate? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Other artifacts affected by the change",
+        "The effort required",
+        "The cost of the change",
+        "The scope of the change",
+        "Only whether the customer likes the idea",
+        "Potential effects on related system elements"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "Impact analysis looks at the scope of the proposed change, related artifacts, effort, cost, and broader effects."
+    },
+    {
+      "question": "Why are baseline and version control important in requirements management?",
+      "type": "multiple",
+      "options": [
+        "They help distinguish release baselines and previous versus current requirement versions",
+        "They prevent all requirements changes",
+        "They replace traceability",
+        "They eliminate customer communication",
+        "They remove the need for history",
+        "They determine system performance"
+      ],
+      "answer": "a",
+      "explanation": "Baseline and version control help teams know which set of requirements belongs to which release and what changed between versions."
+    },
+    {
+      "question": "A requirements change history should allow the team to know which four things?",
+      "type": "multiple",
+      "options": [
+        "What changed, when it changed, who changed it, and why",
+        "Who programmed it, where they worked, when they arrived, and how much they earn",
+        "Which server, database, framework, and language were used",
+        "Which user, computer, browser, and operating system were involved",
+        "What was tested, who tested, which IDE, and which compiler",
+        "Only the final requirement text"
+      ],
+      "answer": "a",
+      "explanation": "The slides specifically say a change history should capture the what, when, who, and why."
+    },
+    {
+      "question": "Which sequence contains valid requirements change statuses from the slides?",
+      "type": "multiple",
+      "options": [
+        "Proposed, approved, implemented, verified",
+        "Written, coded, deployed, deleted",
+        "Planned, designed, compiled, shipped",
+        "Requested, documented, ignored, archived",
+        "Drafted, tested, fixed, maintained",
+        "Analyzed, programmed, hosted, monitored"
+      ],
+      "answer": "a",
+      "explanation": "The transcript and slides identify proposed, approved, implemented, and verified as example change states."
+    },
+    {
+      "question": "What does requirements volatility measure?",
+      "type": "multiple",
+      "options": [
+        "The rate at which requirements are changing",
+        "System response time",
+        "CPU temperature",
+        "Number of developers",
+        "Customer satisfaction",
+        "Database size"
+      ],
+      "answer": "a",
+      "explanation": "Volatility refers to how frequently or rapidly requirements change."
+    },
+    {
+      "question": "High requirements volatility can indicate which possible problems? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Poor understanding of requirements",
+        "Ill-defined project scope",
+        "Changing business conditions",
+        "Organizational or political issues",
+        "Guaranteed project success",
+        "Possible instability in the requirements process"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The slides mention poor understanding, weak scope definition, business dynamics, and politics as possible causes of high volatility."
+    },
+    {
+      "question": "Why might a requirements management tool be useful?",
+      "type": "multiple",
+      "options": [
+        "Automation can reduce repetitive work and support tracking, versioning, and traceability tasks",
+        "It removes the need for requirements analysts",
+        "It prevents every future defect",
+        "It makes customer involvement unnecessary",
+        "It eliminates the need for requirements",
+        "It automatically decides which features are correct"
+      ],
+      "answer": "a",
+      "explanation": "The slides note that tools can eliminate drudgery and help perform requirements management tasks more effectively."
+    },
+    {
+      "question": "What is the purpose of a requirements traceability matrix?",
+      "type": "multiple",
+      "options": [
+        "To connect requirements to design, code, and tests",
+        "To store developer passwords",
+        "To replace the source code repository",
+        "To calculate project cost",
+        "To document only business requirements",
+        "To track customer payments"
+      ],
+      "answer": "a",
+      "explanation": "A traceability matrix links requirements through later development artifacts."
+    },
+    {
+      "question": "Which benefits can a traceability matrix provide? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Ensure required functionality is not missed",
+        "Connect requirements to code and tests",
+        "Help prevent unwanted features from appearing",
+        "Support requirements tracking",
+        "Guarantee zero defects",
+        "Show how requirements flow through development"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "Traceability helps ensure required work is implemented and prevents functionality with no requirement justification from being added."
+    },
+    {
+      "question": "A developer adds a feature that cannot be traced back to any approved requirement. What problem can traceability help reveal?",
+      "type": "multiple",
+      "options": [
+        "An extraneous or unauthorized feature",
+        "A missing project manager",
+        "A hardware defect",
+        "A user training issue",
+        "A database indexing problem",
+        "A requirements baseline automatically failing"
+      ],
+      "answer": "a",
+      "explanation": "Traceability can expose features that were added without an approved requirement."
+    },
+    {
+      "question": "Which statement best summarizes the overall Chapter 3 process?",
+      "type": "multiple",
+      "options": [
+        "Develop requirements iteratively through elicitation, analysis, specification, and validation, then manage changes in a controlled and traceable way",
+        "Write requirements once, freeze them, then begin coding",
+        "Let customers define all technical design choices",
+        "Skip analysis and rely on prototypes",
+        "Focus only on requirements management",
+        "Complete all programming before validating requirements"
+      ],
+      "answer": "a",
+      "explanation": "Chapter 3 presents requirements engineering as an iterative development process followed by disciplined requirements management."
+    }
+  ]
+}

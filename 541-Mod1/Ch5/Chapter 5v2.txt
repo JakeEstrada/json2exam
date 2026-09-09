@@ -1,0 +1,37 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements.
+
+In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope.
+
+Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system.
+
+Initially, slide 8 shows the documentation format for more or less the product vision, and slide 9 shows the format for the scope of the project. Again, remember, the business requirement consists of two things. One is vision, the other is scope.
+
+So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents.
+
+Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is.
+
+If you look at, for example, slide number 12, it shows the interaction between the chemist and the system. That is, a chemist uses the chemical tracking system by sending a request for a chemical. So, there is interaction between chemist and also tracking system by sending a request for a chemical.
+
+Then, system provides a vendor catalog if the chemical needs to be ordered. So, the context diagram shows the overview of the system in terms of external entity and how these external entities exchange data with the system. Slide 13 shows a technique called Ecomap, or ecosystem map.
+
+The Ecomap basically is a graphical representation of how the individual components of your system interact with each other. So, for example, slide 13 shows the components initially of the chemical tracking system and it shows how they interact with each other. So, all the subsystems, if you will, of your system and how they interact with each other.
+
+Finally, slide 14 shows a feature tree where you can identify the major features along with sub-features that are necessary to accomplish these major features. So, for example, slide 14, you will see a feature called order chemical, which is on the top right-hand side. Hopefully, you see that.
+
+Then, you can identify two sub-features that accomplish so-called order chemical feature. So, one is search and the other one is chemical request feature. So, these are two features that accomplish ordering chemical.
+
+Now, furthermore, if you look at the search part of the branch, if you will, so that is the search feature accomplished by three different additional sub-features, such as search local lab first initially. Then, if it's not there, find preferred vendors. And then, finally, search the catalog of the vendors.
+
+So, again, in order to accomplish search feature, you need to have three sub-features that accomplish that particular feature. If you will, you're basically doing the so-called step-or-step refinement. That is, you have initially a big abstraction and then you're using step-or-step refinement to find small abstractions that accomplish that particular bigger abstraction.
+
+In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope.
+
+And also, we look at the documentation format for that business requirement. As an example, you can see the project case now. So, upload it.
+
+If you look at our project case, you will see the templates with also things filled in for that particular cafe ordering system. Look at that also. That will help you to understand Chapter 5 better.
+
+Okay, that's Chapter 5.
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

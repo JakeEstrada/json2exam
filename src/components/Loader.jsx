@@ -3,17 +3,23 @@ import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
 import FileWindow from './FileWindow.jsx';
 import { SAMPLE } from '../data/sample.js';
-import { COURSES } from '../data/catalog.js';
+import { COURSES, courseDecks } from '../data/catalog.js';
 import aiFileGuide from '../data/aiFileGuide.md?raw';
 
 function courseBlurb(course) {
-  if (!course.decks.length) return 'No chapters yet.';
-  const questions = course.decks.reduce(
+  const decks = courseDecks(course);
+  if (!decks.length) return 'No chapters yet.';
+  const questions = decks.reduce(
     (n, deck) => n + ((deck.data && deck.data.questions && deck.data.questions.length) || 0),
     0
   );
-  const labels = course.decks.map((d) => d.label).join(', ');
-  return `${questions} question${questions === 1 ? '' : 's'} · ${labels}`;
+  const qLabel = questions + ' question' + (questions === 1 ? '' : 's');
+  if (Array.isArray(course.modules) && course.modules.length) {
+    const mods = course.modules.map((m) => m.label).filter(Boolean).join(', ');
+    return mods ? qLabel + ' · ' + mods : qLabel;
+  }
+  const labels = decks.map((d) => d.label).join(', ');
+  return qLabel + ' · ' + labels;
 }
 
 export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget }) {

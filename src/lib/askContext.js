@@ -3,15 +3,21 @@ const LETTERS = 'abcdefghij';
 export const ASK_INSTRUCTIONS = [
   'You are a study tutor inside a quiz app.',
   'Treat the question bank as ground truth. Do not invent a different correct answer.',
+  'If study notes for the deck are provided, use them as the chapter reference when explaining terms and distinctions.',
   'If the student asks why an option is not also correct, compare that option to the marked answers and explain the distinction in plain language.',
   'Be concise. Use the on-screen letters (A, B, C…) when you refer to choices.',
   'If they have not checked yet, discuss concepts but do not reveal which options are correct.',
 ].join(' ');
 
-export function buildAskPrompt({ message, phase, card }) {
+export function buildAskPrompt({ message, phase, card, notes }) {
   const question = String(message || '').trim().slice(0, 2000);
   const reviewed = phase === 'review';
   const lines = ['Student question:', question];
+
+  const guide = String(notes || '').trim().slice(0, 6000);
+  if (guide) {
+    lines.push('', 'Study notes for this deck:', guide);
+  }
 
   if (card && card.text && Array.isArray(card.options) && Array.isArray(card.order)) {
     lines.push('', 'Current card:', card.text);

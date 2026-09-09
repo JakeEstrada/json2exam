@@ -17,7 +17,7 @@ npm run build             # static bundle in dist/
 npm test                  # unit tests for the parser
 ```
 
-AskGPT calls `/api/ask`, which reads `OPENAI_API_KEY` from `.env` (never from the browser). That OpenAI key is the only secret you need. Without it, Chapter 1 falls back to the canned notes.
+AskGPT calls `/api/ask`, which reads `OPENAI_API_KEY` from `.env` (never from the browser). Without it, older Chapter 1 notes fall back to the canned replies.
 
 Nothing else is stored on a server. The question file you drop is still read in the browser with `FileReader`, and progress stays in `localStorage`.
 
@@ -134,8 +134,7 @@ to the next question, `esc` ends the session and shows the summary.
 
 ## Notes
 
-- Dark mode follows the OS setting via `prefers-color-scheme`; the tokens are also
-  wired to a `data-theme` attribute on `<html>` if you want a manual toggle.
+- Dark mode follows the OS setting, and there is a Dark / Light toggle in the masthead. Your choice is stored in `localStorage`.
 - `prefers-reduced-motion` disables the transitions.
 - There's a single-file build (`cardbox-standalone.html`) that runs React from a CDN
   with in-browser Babel. Handy for opening straight off disk, not what you'd ship.

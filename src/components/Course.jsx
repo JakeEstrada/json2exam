@@ -1,8 +1,103 @@
 import { useState } from 'react';
 import FileWindow from './FileWindow.jsx';
+import { courseDecks } from '../data/catalog.js';
+
+function moduleBlurb(mod) {
+  const decks = (mod && mod.decks) || [];
+  const questions = decks.reduce(
+    (n, deck) => n + ((deck.data && deck.data.questions && deck.data.questions.length) || 0),
+    0
+  );
+  const n = decks.length;
+  const chapters = n + ' chapter' + (n === 1 ? '' : 's');
+  const qLabel = questions + ' question' + (questions === 1 ? '' : 's');
+  return chapters + ' · ' + qLabel;
+}
+
+function DeckCard({ deck, onStart, onPreview }) {
+  const count = deck.data && Array.isArray(deck.data.questions)
+    ? deck.data.questions.length
+    : 0;
+
+  return (
+    <div className="course-card sheet">
+      <strong>{deck.label}</strong>
+      {deck.subtitle && <span className="subtitle">{deck.subtitle}</span>}
+      <p>{count ? count + ' questions' : 'Ready to study'}</p>
+      <div className="deck-links">
+        {deck.notesFile && (
+          <button
+            type="button"
+            className="text-link deck-file"
+            onClick={() => onPreview({
+              kind: 'md',
+              filename: deck.notesFile,
+              source: deck.notes,
+            })}
+          >
+            {deck.notesFile}
+          </button>
+        )}
+        {deck.bookFile && deck.bookUrl && (
+          <button
+            type="button"
+            className="text-link deck-file"
+            onClick={() => onPreview({
+              kind: 'pdf',
+              filename: deck.bookFile,
+              url: deck.bookUrl,
+            })}
+          >
+            {deck.bookFile}
+          </button>
+        )}
+        {deck.file && (
+          <button
+            type="button"
+            className="text-link deck-file"
+            onClick={() => onPreview({
+              kind: 'json',
+              filename: deck.file,
+              data: deck.data,
+            })}
+          >
+            {deck.file}
+          </button>
+        )}
+      </div>
+      <button
+        type="button"
+        className="go"
+        onClick={() => onStart(deck.data, deck.label, {
+          notes: deck.notes,
+          notesFile: deck.notesFile,
+          bookFile: deck.bookFile,
+          bookUrl: deck.bookUrl,
+        })}
+      >
+        Start this deck
+      </button>
+    </div>
+  );
+}
 
 export default function Course({ course, onStart }) {
   const [preview, setPreview] = useState(null);
+  const modules = Array.isArray(course.modules) && course.modules.length
+    ? course.modules
+    : [{ id: course.id, label: null, decks: courseDecks(course) }];
+  const empty = courseDecks(course).length === 0;
+  const [openIds, setOpenIds] = useState(() => {
+    const first = modules.find((mod) => mod.label);
+    return first ? { [first.id]: true } : {};
+  });
+
+  function setModuleOpen(id, open) {
+    setOpenIds((prev) => {
+      if (!!prev[id] === open) return prev;
+      return Object.assign({}, prev, { [id]: open });
+    });
+  }
 
   return (
     <div>
@@ -10,50 +105,77 @@ export default function Course({ course, onStart }) {
         <h2>CPSC {course.code}</h2>
       </div>
 
-      {course.decks.length === 0 ? (
+      {empty ? (
         <p className="leitner-note">No exams in this course yet.</p>
-      ) : (
-        <ul className="start-grid deck-grid">
-          {course.decks.map((deck) => (
-            <li key={deck.id}>
-              <div className="course-card sheet">
-                <strong>{deck.label}</strong>
-                <p>
-                  {deck.data && deck.data.questions
-                    ? `${deck.data.questions.length} questions`
-                    : 'Ready to study'}
-                </p>
-                {deck.file && (
-                  <button
-                    type="button"
-                    className="text-link deck-file"
-                    onClick={() => setPreview({
-                      kind: 'json',
-                      filename: deck.file,
-                      data: deck.data,
-                    })}
-                  >
-                    {deck.file}
-                  </button>
-                )}
+      ) : modules.map((mod) => {
+        const decks = (
+          <>
+            {mod.overviewFile && (
+              <div className="module-tools">
                 <button
                   type="button"
-                  className="go"
-                  onClick={() => onStart(deck.data, deck.label)}
+                  className="text-link"
+                  onClick={() => setPreview({
+                    kind: 'md',
+                    filename: mod.overviewFile,
+                    source: mod.overview,
+                  })}
                 >
-                  Start this deck
+                  {mod.overviewFile}
                 </button>
               </div>
-            </li>
-          ))}
-        </ul>
-      )}
+            )}
+            <ul className="start-grid deck-grid">
+              {mod.decks.map((deck) => (
+                <li key={deck.id}>
+                  <DeckCard
+                    deck={deck}
+                    onStart={onStart}
+                    onPreview={setPreview}
+                  />
+                </li>
+              ))}
+            </ul>
+          </>
+        );
+
+        if (!mod.label) {
+          return (
+            <section key={mod.id} className="module-block">
+              {decks}
+            </section>
+          );
+        }
+
+        return (
+          <details
+            key={mod.id}
+            className="module-block"
+            open={!!openIds[mod.id]}
+          >
+            <summary
+              className="module-head"
+              onClick={(e) => {
+                e.preventDefault();
+                setModuleOpen(mod.id, !openIds[mod.id]);
+              }}
+            >
+              <span className="module-caret" aria-hidden="true" />
+              <h3>{mod.label}</h3>
+              <span className="module-meta">{moduleBlurb(mod)}</span>
+            </summary>
+            {decks}
+          </details>
+        );
+      })}
 
       {preview && (
         <FileWindow
           kind={preview.kind}
           filename={preview.filename}
           data={preview.data}
+          source={preview.source}
+          url={preview.url}
           onClose={() => setPreview(null)}
         />
       )}

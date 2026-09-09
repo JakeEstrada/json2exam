@@ -1,0 +1,655 @@
+{
+  "title": "CPSC 541 - Chapter 4: The Requirements (Business) Analyst",
+  "questions": [
+    {
+      "question": "What is the primary role of a business analyst in requirements engineering?",
+      "type": "multiple",
+      "options": [
+        "Write all of the source code",
+        "Serve as the main connection between customers/users and developers",
+        "Perform only software testing",
+        "Manage only the project budget",
+        "Design all databases",
+        "Approve every change personally"
+      ],
+      "answer": "b",
+      "explanation": "The analyst is the principal conduit between customers or users and developers."
+    },
+    {
+      "question": "Which activities are part of the analyst's role? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Gather requirements",
+        "Study requirements",
+        "Document requirements",
+        "Validate requirements",
+        "Manage requirements",
+        "Write every line of implementation code"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The slides describe the analyst as gathering, studying, documenting, validating, and managing requirements."
+    },
+    {
+      "question": "The term business analyst always refers to a formal job title.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The slides state that analyst is a role, not necessarily a job title."
+    },
+    {
+      "question": "Which people could potentially perform the analyst role? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Software engineers",
+        "Managers",
+        "Domain experts",
+        "Users",
+        "Only certified business analysts",
+        "People with appropriate knowledge and skills"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The analyst role can be filled by different kinds of people, not just someone with a specific title."
+    },
+    {
+      "question": "Why must an analyst understand the project's business requirements?",
+      "type": "multiple",
+      "options": [
+        "To understand why the project is being done",
+        "To choose every programming language",
+        "To eliminate customer input",
+        "To write all test scripts",
+        "To determine employee salaries",
+        "To replace the project sponsor"
+      ],
+      "answer": "a",
+      "explanation": "The analyst must understand the business reason behind the project."
+    },
+    {
+      "question": "Which two concepts should the analyst understand when defining business requirements?",
+      "type": "multiple",
+      "options": [
+        "Vision and scope",
+        "Classes and objects",
+        "Testing and deployment",
+        "Source code and database schema",
+        "Hardware and software",
+        "Budget and payroll only"
+      ],
+      "answer": "a",
+      "explanation": "The slides explicitly say the analyst should know the project's vision and scope."
+    },
+    {
+      "question": "Why should the analyst identify stakeholders?",
+      "type": "multiple",
+      "options": [
+        "To know who is affected by the success or failure of the project",
+        "To find only the programmers",
+        "To remove users from the project",
+        "To decide the final source code structure",
+        "To determine test tool licenses",
+        "To avoid customer communication"
+      ],
+      "answer": "a",
+      "explanation": "Stakeholders are people affected by or interested in the project's outcome."
+    },
+    {
+      "question": "Why should the analyst identify users separately from stakeholders?",
+      "type": "multiple",
+      "options": [
+        "Users are the people who will directly interact with the system",
+        "Users are always project managers",
+        "Users determine the source code language",
+        "Users are never stakeholders",
+        "Users approve budgets",
+        "Users only perform testing"
+      ],
+      "answer": "a",
+      "explanation": "The slides distinguish users as those who directly interact with the system."
+    },
+    {
+      "question": "How should an analyst approach requirements elicitation?",
+      "type": "multiple",
+      "options": [
+        "Passively and only when asked",
+        "Proactively and persistently",
+        "Only through email",
+        "Only through written surveys",
+        "Only after development begins",
+        "By avoiding user contact"
+      ],
+      "answer": "b",
+      "explanation": "The analyst should actively and persistently seek requirements."
+    },
+    {
+      "question": "Which techniques can an analyst use for elicitation? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Interviews",
+        "Workshops",
+        "Surveys",
+        "Observations",
+        "Workflow analysis",
+        "Only source code inspection"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The slides list these as examples of elicitation techniques."
+    },
+    {
+      "question": "During requirements analysis, what should the analyst look for? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Derived requirements",
+        "Implied requirements",
+        "Vagueness",
+        "Conflicts",
+        "Missing or unclear meaning",
+        "Only programming errors"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The analyst must detect hidden, unclear, or conflicting requirements."
+    },
+    {
+      "question": "What is a derived requirement?",
+      "type": "multiple",
+      "options": [
+        "A requirement that follows from another requirement or condition",
+        "A requirement copied directly from source code",
+        "A deleted requirement",
+        "A requirement that has no source",
+        "A test case",
+        "A project budget item"
+      ],
+      "answer": "a",
+      "explanation": "The slides mention finding derived requirements during analysis."
+    },
+    {
+      "question": "What is an implied requirement?",
+      "type": "multiple",
+      "options": [
+        "A requirement that is assumed or indirectly expected but not explicitly stated",
+        "A requirement that was rejected",
+        "A source code comment",
+        "A completed test",
+        "A project milestone",
+        "A deployment script"
+      ],
+      "answer": "a",
+      "explanation": "The analyst should uncover needs that users may assume are obvious but have not stated directly."
+    },
+    {
+      "question": "How should requirements be specified?",
+      "type": "multiple",
+      "options": [
+        "Clear enough for customers and users, and precise enough for developers",
+        "Technical enough that only developers can understand them",
+        "Vague enough to allow any interpretation",
+        "Written only as source code",
+        "Written only for managers",
+        "Written only after testing"
+      ],
+      "answer": "a",
+      "explanation": "The analyst must balance understandability for users with precision for developers."
+    },
+    {
+      "question": "Why are graphical models useful in requirements work?",
+      "type": "multiple",
+      "options": [
+        "Text alone is often not enough, and models can improve analysis and understanding",
+        "They eliminate the need for requirements",
+        "They replace all customer communication",
+        "They automatically generate source code",
+        "They guarantee no defects",
+        "They are only used for project budgets"
+      ],
+      "answer": "a",
+      "explanation": "The slides emphasize that text alone is often insufficient and models can support analysis."
+    },
+    {
+      "question": "What is one benefit of prototypes?",
+      "type": "multiple",
+      "options": [
+        "They can increase understanding",
+        "They make validation unnecessary",
+        "They eliminate user feedback",
+        "They replace the final product",
+        "They prevent requirements from changing",
+        "They automatically resolve stakeholder conflicts"
+      ],
+      "answer": "a",
+      "explanation": "The slides state that prototypes increase understanding."
+    },
+    {
+      "question": "What is the analyst's role during validation?",
+      "type": "multiple",
+      "options": [
+        "Lead the effort, schedule reviews, and help ensure requirements are correct",
+        "Avoid participating",
+        "Only observe developers",
+        "Write source code",
+        "Perform deployment",
+        "Approve business budgets"
+      ],
+      "answer": "a",
+      "explanation": "The analyst leads validation activities and helps ensure the quality of the requirements."
+    },
+    {
+      "question": "Which validation activities may involve the analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Schedule reviews",
+        "Chair reviews",
+        "Ensure requirements quality",
+        "Review code derived from requirements",
+        "Review test cases derived from requirements",
+        "Ignore implementation interpretation"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "The analyst helps ensure the requirements were understood correctly by downstream development and testing."
+    },
+    {
+      "question": "Why might an analyst review code and test cases derived from requirements?",
+      "type": "multiple",
+      "options": [
+        "To ensure the requirements were interpreted correctly",
+        "To replace developers",
+        "To write all implementation details",
+        "To choose programming languages",
+        "To eliminate testing",
+        "To control customer salaries"
+      ],
+      "answer": "a",
+      "explanation": "Reviewing downstream artifacts helps verify correct interpretation of the requirements."
+    },
+    {
+      "question": "What does it mean for an analyst to facilitate prioritization?",
+      "type": "multiple",
+      "options": [
+        "Help users and developers negotiate priorities successfully",
+        "Personally choose every feature",
+        "Always side with users",
+        "Always side with developers",
+        "Make all requirements equal priority",
+        "Ignore business goals"
+      ],
+      "answer": "a",
+      "explanation": "The analyst helps the two sides reach workable agreements about priorities."
+    },
+    {
+      "question": "Which requirements management activities can be responsibilities of the analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Create the requirements management plan",
+        "Establish baselines",
+        "Control changes",
+        "Track status",
+        "Ignore new requirements",
+        "Maintain organized requirements information"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The slides list planning, baselines, change control, and status tracking as management tasks."
+    },
+    {
+      "question": "Why is listening an essential analyst skill?",
+      "type": "multiple",
+      "options": [
+        "The analyst must understand both stated and unstated needs",
+        "The analyst should avoid asking questions",
+        "Listening replaces documentation",
+        "Listening eliminates stakeholder conflicts",
+        "Listening is only useful during testing",
+        "Listening is only needed for managers"
+      ],
+      "answer": "a",
+      "explanation": "Good listening helps the analyst detect implied and unspoken needs."
+    },
+    {
+      "question": "Which behaviors are part of good listening? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Be attentive",
+        "Confirm understanding",
+        "Detect unspoken needs",
+        "Detect implied needs",
+        "Interrupt constantly",
+        "Assume the user's meaning"
+      ],
+      "answer": ["a", "b", "c", "d"],
+      "explanation": "The analyst should actively verify understanding instead of making assumptions."
+    },
+    {
+      "question": "Why are interviewing and questioning skills important?",
+      "type": "multiple",
+      "options": [
+        "Analysts must communicate with many types of people and clarify uncertainty",
+        "Only managers provide requirements",
+        "Interviews replace analysis",
+        "Questions should be avoided",
+        "Users always state every requirement clearly",
+        "The analyst only speaks with developers"
+      ],
+      "answer": "a",
+      "explanation": "Analysts must work with a wide variety of people and ask questions that reveal missing or unclear information."
+    },
+    {
+      "question": "What kinds of situations should analysts ask about during interviews?",
+      "type": "multiple",
+      "options": [
+        "Both normal and unusual uses or situations",
+        "Only normal usage",
+        "Only system failures",
+        "Only deployment",
+        "Only project budget",
+        "Only source code issues"
+      ],
+      "answer": "a",
+      "explanation": "The slides emphasize asking about normal as well as unusual situations."
+    },
+    {
+      "question": "Which issues should analysts clarify through questioning? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Uncertainties",
+        "Disagreements",
+        "Assumptions",
+        "Ambiguities",
+        "Conflicting interpretations",
+        "Only technical bugs"
+      ],
+      "answer": ["a", "b", "c", "d", "e"],
+      "explanation": "Questioning helps expose and resolve unclear or conflicting information."
+    },
+    {
+      "question": "Which abilities are part of analytical skill? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Work with both abstraction and detail",
+        "Generalize and specialize",
+        "Think critically",
+        "Resolve conflicts from multiple sources",
+        "Separate wants from needs",
+        "Separate solutions from requirements"
+      ],
+      "answer": ["a", "b", "c", "d", "e", "f"],
+      "explanation": "All of these are listed as important analytical abilities."
+    },
+    {
+      "question": "Why must an analyst separate wants from needs?",
+      "type": "multiple",
+      "options": [
+        "Not everything a stakeholder wants is actually necessary",
+        "All wants must automatically become requirements",
+        "Needs are less important than wants",
+        "Developers should decide all requirements",
+        "Users should not give input",
+        "Business objectives do not matter"
+      ],
+      "answer": "a",
+      "explanation": "The analyst must distinguish essential needs from preferences."
+    },
+    {
+      "question": "Why should an analyst separate proposed solutions from actual requirements?",
+      "type": "multiple",
+      "options": [
+        "A stakeholder's suggested solution may not be the only or best way to satisfy the underlying need",
+        "Solutions are never useful",
+        "Requirements should always contain implementation details",
+        "Developers should ignore users",
+        "Customers should write the architecture",
+        "The analyst should avoid alternatives"
+      ],
+      "answer": "a",
+      "explanation": "The analyst should understand the underlying need instead of assuming the customer's suggested implementation is the requirement itself."
+    },
+    {
+      "question": "What is an important facilitation skill for an analyst?",
+      "type": "multiple",
+      "options": [
+        "Remain neutral",
+        "Always support the customer",
+        "Always support the developer",
+        "Avoid disagreements",
+        "Make decisions without discussion",
+        "Refuse to compromise"
+      ],
+      "answer": "a",
+      "explanation": "The analyst should remain neutral while helping the parties resolve disagreements."
+    },
+    {
+      "question": "What is one goal of facilitation?",
+      "type": "multiple",
+      "options": [
+        "Reduce tension and build trust between users and developers",
+        "Increase conflict",
+        "Remove customer involvement",
+        "Prevent negotiation",
+        "Let developers make every business decision",
+        "Avoid communication"
+      ],
+      "answer": "a",
+      "explanation": "Facilitation is about helping different groups work together effectively."
+    },
+    {
+      "question": "What does observation help an analyst do?",
+      "type": "multiple",
+      "options": [
+        "Notice subtle information in user words and actions",
+        "Avoid speaking with users",
+        "Replace documentation",
+        "Automatically discover every requirement",
+        "Skip validation",
+        "Design the final architecture"
+      ],
+      "answer": "a",
+      "explanation": "Observation can reveal details users may not explicitly mention."
+    },
+    {
+      "question": "Why is writing important for a business analyst?",
+      "type": "multiple",
+      "options": [
+        "The analyst must clearly express complex ideas",
+        "The analyst writes all source code",
+        "Writing replaces analysis",
+        "Only managers read requirements",
+        "Requirements should remain informal",
+        "Writing eliminates the need for models"
+      ],
+      "answer": "a",
+      "explanation": "Clear writing is necessary to communicate complicated requirements accurately."
+    },
+    {
+      "question": "Which writing-related abilities are important for analysts? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Express complex ideas clearly",
+        "Understand customer and user language",
+        "Read efficiently",
+        "Read critically",
+        "Avoid domain terminology",
+        "Write organized requirements"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The slides emphasize both clear writing and strong reading skills."
+    },
+    {
+      "question": "What does organizational skill help the analyst accomplish?",
+      "type": "multiple",
+      "options": [
+        "Structure large amounts of changing information into a coherent whole",
+        "Eliminate all requirements",
+        "Write source code faster",
+        "Avoid change management",
+        "Remove stakeholder input",
+        "Guarantee project success"
+      ],
+      "answer": "a",
+      "explanation": "Analysts must organize large amounts of evolving requirements information."
+    },
+    {
+      "question": "Why are interpersonal skills useful for analysts?",
+      "type": "multiple",
+      "options": [
+        "They help people with competing interests work together",
+        "They eliminate the need for technical knowledge",
+        "They replace requirements analysis",
+        "They prevent all disagreements",
+        "They only matter after deployment",
+        "They are only useful with developers"
+      ],
+      "answer": "a",
+      "explanation": "The analyst may need to get competing stakeholders to cooperate."
+    },
+    {
+      "question": "Which interpersonal activities are mentioned in the slides? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Getting competitors to work together",
+        "Mentoring",
+        "Educating",
+        "Building cooperation",
+        "Avoiding all difficult people",
+        "Supporting communication"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The analyst's interpersonal role includes cooperation, mentoring, education, and communication."
+    },
+    {
+      "question": "Why is creativity useful for a business analyst?",
+      "type": "multiple",
+      "options": [
+        "It can help identify innovative capabilities and needs users have not thought of",
+        "It allows the analyst to ignore users",
+        "It replaces business objectives",
+        "It eliminates validation",
+        "It removes the need for requirements",
+        "It ensures all features are implemented"
+      ],
+      "answer": "a",
+      "explanation": "The analyst can sometimes identify useful capabilities that users have not explicitly imagined."
+    },
+    {
+      "question": "Which knowledge areas are important for a business analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Requirements engineering",
+        "Software development",
+        "Project management",
+        "Risk management",
+        "Quality engineering",
+        "Application domain knowledge"
+      ],
+      "answer": ["a", "b", "c", "d", "e", "f"],
+      "explanation": "The slides identify all of these as essential knowledge areas."
+    },
+    {
+      "question": "Why is application domain knowledge valuable for an analyst?",
+      "type": "multiple",
+      "options": [
+        "It helps the analyst understand the business and problem being solved",
+        "It replaces technical knowledge",
+        "It removes the need for users",
+        "It guarantees requirements will be correct",
+        "It is only useful for testing",
+        "It is irrelevant to requirements"
+      ],
+      "answer": "a",
+      "explanation": "Understanding the application domain helps the analyst interpret needs and constraints correctly."
+    },
+    {
+      "question": "What is a common strength of a former user who becomes a business analyst?",
+      "type": "multiple",
+      "options": [
+        "Strong understanding of the business and work environment",
+        "Strong knowledge of every engineering technique",
+        "Perfect objectivity",
+        "Advanced software architecture skills",
+        "Complete knowledge of project management",
+        "No bias toward users"
+      ],
+      "answer": "a",
+      "explanation": "Former users typically understand the business and actual work environment very well."
+    },
+    {
+      "question": "Which risks can come with using a former user as the analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Limited familiarity with engineering or technical people",
+        "May not respect current users' perspectives",
+        "May focus too much on the user interface",
+        "May lack technical background",
+        "Always lacks domain knowledge",
+        "Can carry assumptions from personal experience"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The slides highlight several potential weaknesses of former users despite their strong domain understanding."
+    },
+    {
+      "question": "What is a common strength of a former developer who becomes an analyst?",
+      "type": "multiple",
+      "options": [
+        "Strong technical skills",
+        "Perfect social skills",
+        "Deep knowledge of every business domain",
+        "Complete neutrality",
+        "No tendency toward implementation thinking",
+        "Strong customer knowledge in every project"
+      ],
+      "answer": "a",
+      "explanation": "Former developers usually bring strong technical knowledge."
+    },
+    {
+      "question": "Which weaknesses might a former developer have as an analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Weak social skills",
+        "Weak organizational skills",
+        "Limited business knowledge",
+        "Limited application domain knowledge",
+        "No technical knowledge",
+        "Possible difficulty understanding users"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "The slides caution that technical strength does not automatically provide business or interpersonal strength."
+    },
+    {
+      "question": "What is a major strength of a subject matter expert as an analyst?",
+      "type": "multiple",
+      "options": [
+        "Excellent understanding of the problem domain",
+        "Complete technical knowledge",
+        "Perfect neutrality",
+        "No personal bias",
+        "No risk of overdesign",
+        "Guaranteed user representation"
+      ],
+      "answer": "a",
+      "explanation": "Subject matter experts bring deep domain understanding."
+    },
+    {
+      "question": "Which risks can arise when a subject matter expert serves as the analyst? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "May prefer personal requirements over actual user needs",
+        "May create an unnecessarily ambitious system",
+        "May assume too much based on expertise",
+        "May overestimate what users need",
+        "Will always lack domain knowledge",
+        "May not fully represent ordinary users"
+      ],
+      "answer": ["a", "b", "c", "d", "f"],
+      "explanation": "Deep expertise can create bias toward the expert's own view instead of the needs of real users."
+    },
+    {
+      "question": "Which statement best summarizes Chapter 4?",
+      "type": "multiple",
+      "options": [
+        "The business analyst connects users and developers and leads much of the work of discovering, analyzing, documenting, validating, prioritizing, and managing requirements",
+        "The business analyst's main job is programming",
+        "The business analyst only writes documentation",
+        "The analyst is only needed after requirements are complete",
+        "The analyst replaces the project sponsor",
+        "The analyst works only with developers"
+      ],
+      "answer": "a",
+      "explanation": "Chapter 4 presents the analyst as the central facilitator and requirements specialist connecting the business and technical sides."
+    }
+  ]
+}

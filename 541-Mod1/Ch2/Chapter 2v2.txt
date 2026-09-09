@@ -1,0 +1,17 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+Welcome to chapter 2. In this chapter, we look at the requirements from the customer's point of view. First of all, who are the customers? There are multiple understandings who the customers are, and slide 2 shows possible meanings of these customers. An important thing is that all of them have interests in or dependence on the intended product.
+
+So it is needless to say that developers should have excellent relationships in order to have excellent requirements, which then will have influence on excellence of the product. As we know that many products have failed and left unsatisfied customers because of the lack of clear communication between developers and customers. So the job of requirements analysts is to identify and listen to the customers and also satisfy them before moving forward.
+
+In order to have this well-connected relationship between customers and analysts, Uyghur identifies 10 so-called bill of rights and 10 customers' responsibilities. Slides 4 to 7 show the rights of customers, that is, what the customer can expect from the analysts. And slides 7 to 9 show the responsibilities of customers, and most of them are obvious, but the point is that the customer should spend time and effort to understand and to be active in all phases of requirements analysis.
+
+Once the requirements have been developed, the customer needs to sign off the requirements. Again, the customer needs to read and understand what is signing off. If not, then they will have problems later on.
+
+Once the requirements are signed off, then this established so-called baseline of the requirements, this represents basically the contract between the customer and developer, which needs to be managed or changed at a later time. And any changes, obviously, after the baseline has been established, change costs money and time and scope, and the customer needs to understand that, so make sure that they read before they sign it off. And developers need to realize there's something that she or he has to deliver.
+
+Having baseline is important because it is the foundation of future development in terms of functionality, cost, and time, etc. So in this chapter, in summary, we have looked at the requirements from the customer point of view. Initially, we have identified what are the meanings of the customers, and then look at 10 rights and 10 responsibilities of customers.
+
+And then we talked about the baseline, which is created once the customer signs off the requirements, and the importance of the baseline.
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

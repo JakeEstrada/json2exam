@@ -21,6 +21,7 @@ export async function runAsk(body) {
       message,
       phase: body && body.phase,
       card: body && body.card,
+      notes: body && body.notes,
     }),
   ].filter(Boolean).join('\n\n');
 

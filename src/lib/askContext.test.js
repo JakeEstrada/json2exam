@@ -20,3 +20,13 @@ test('buildAskPrompt hides the key until review', () => {
   assert.match(after, /Correct answer\(s\): B/);
   assert.match(after, /Bank explanation: It narrows design choices/);
 });
+
+test('buildAskPrompt includes deck study notes when present', () => {
+  const prompt = buildAskPrompt({
+    message: 'What is vision vs scope?',
+    phase: 'answer',
+    notes: 'Vision = destination. Scope = this trip.',
+  });
+  assert.match(prompt, /Study notes for this deck/);
+  assert.match(prompt, /Vision = destination/);
+});

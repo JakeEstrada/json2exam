@@ -75,3 +75,23 @@ test('loads the Chapter 1 bank with nothing skipped', async () => {
   assert.equal(bank.questions.length, deck.questions.length);
   assert.equal(bank.skipped.length, 0);
 });
+
+test('loads every Module 1 bank with nothing skipped', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../541-Mod1');
+  const files = [
+    ['Ch1/ch1.json', 31],
+    ['Ch2/Ch2.json', 38],
+    ['Ch3/Ch3.json', 47],
+    ['Ch4/Ch4.json', 47],
+    ['Ch5/Ch5.json', 44],
+  ];
+  for (const [rel, count] of files) {
+    const deck = JSON.parse(await readFile(path.join(root, rel), 'utf8'));
+    const bank = normalizeQuiz(deck);
+    assert.equal(bank.questions.length, count, rel);
+    assert.equal(bank.skipped.length, 0, rel);
+  }
+});

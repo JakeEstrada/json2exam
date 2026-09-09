@@ -55,6 +55,15 @@ test('the Paarth Chapter 1 file does not auto-match this brain', async () => {
   assert.equal(findBrain(quiz, BRAINS), null);
 });
 
+test('the Module 1 Chapter 1 file does not auto-match the old canned brain', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const path = await import('node:path');
+  const { fileURLToPath } = await import('node:url');
+  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../541-Mod1/Ch1/ch1.json');
+  const quiz = normalizeQuiz(JSON.parse(await readFile(file, 'utf8')));
+  assert.equal(findBrain(quiz, BRAINS), null);
+});
+
 test('letter questions stay locked until the card is checked', async () => {
   const quiz = await loadDeck('541-Ch1.json');
   const brain = findBrain(quiz, BRAINS);

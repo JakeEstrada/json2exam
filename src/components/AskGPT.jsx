@@ -50,7 +50,7 @@ function cardPayload(card) {
   };
 }
 
-async function askModel({ message, phase, card, picked, history }) {
+async function askModel({ message, phase, card, picked, history, notes }) {
   const res = await fetch('/api/ask', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -60,6 +60,7 @@ async function askModel({ message, phase, card, picked, history }) {
       card: cardPayload(card),
       picked: picked || [],
       history,
+      notes: notes || '',
     }),
   });
   const data = await res.json().catch(() => ({}));
@@ -73,7 +74,7 @@ async function askModel({ message, phase, card, picked, history }) {
   return data.text;
 }
 
-export default function AskGPT({ brain, card, phase, picked }) {
+export default function AskGPT({ brain, card, phase, picked, notes }) {
   const hello = (brain && brain.greeting) || FALLBACK_HELLO;
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState('');
@@ -100,7 +101,7 @@ export default function AskGPT({ brain, card, phase, picked }) {
     setMessages((prev) => prev.concat({ role: 'user', text: message }));
     setPending(true);
     try {
-      const textOut = await askModel({ message, phase, card, picked, history });
+      const textOut = await askModel({ message, phase, card, picked, history, notes });
       setMessages((prev) => prev.concat({ role: 'assistant', text: textOut }));
     } catch (err) {
       let textOut = '';
