@@ -47,21 +47,16 @@ function sessionView(s) {
   };
 }
 
-function StudyPane({ quiz, sidePane, studyFocus, onClose, onMode }) {
+function StudyPane({ quiz, sidePane, studyFocus, onClose }) {
   if (!sidePane) return null;
-  const bookHref = quiz.bookUrl && studyFocus && studyFocus.page
-    ? quiz.bookUrl + '#page=' + studyFocus.page
-    : quiz.bookUrl;
+  const bookHref = sidePane === 'book' && quiz.bookUrl
+    ? (studyFocus && studyFocus.page ? quiz.bookUrl + '#page=' + studyFocus.page : quiz.bookUrl)
+    : '';
   return (
     <SidePane
       title={paneTitle(sidePane)}
       ask={sidePane === 'ask'}
-      mode={sidePane}
-      onMode={onMode}
       onClose={onClose}
-      hasNotes={!!quiz.notes}
-      hasLecture={!!quiz.lecture}
-      hasBook={!!quiz.bookUrl}
       bookHref={bookHref}
     >
       {sidePane !== 'ask' && (
@@ -367,7 +362,6 @@ export default function App() {
             sidePane={sidePane}
             studyFocus={studyFocus}
             onClose={closePane}
-            onMode={setSidePane}
           />
         </div>
       </div>
@@ -448,7 +442,6 @@ export default function App() {
           sidePane={sidePane}
           studyFocus={studyFocus}
           onClose={closePane}
-          onMode={setSidePane}
         />
       </div>
     </div>
