@@ -51,6 +51,19 @@ function DeckCard({ deck, onStart, onPreview }) {
             {deck.bookFile}
           </button>
         )}
+        {deck.lectureFile && (
+          <button
+            type="button"
+            className="text-link deck-file"
+            onClick={() => onPreview({
+              kind: 'txt',
+              filename: deck.lectureFile,
+              source: deck.lecture,
+            })}
+          >
+            {deck.lectureFile}
+          </button>
+        )}
         {deck.file && (
           <button
             type="button"
@@ -73,6 +86,8 @@ function DeckCard({ deck, onStart, onPreview }) {
           notesFile: deck.notesFile,
           bookFile: deck.bookFile,
           bookUrl: deck.bookUrl,
+          lecture: deck.lecture,
+          lectureFile: deck.lectureFile,
         })}
       >
         Start this deck

@@ -90,12 +90,14 @@ test('preserves a chapter reference on a question', () => {
       book: 'Chapter 2 — Customers and stakeholders',
       page: 4,
       excerpt: 'A customer derives direct or indirect benefit from a product.',
+      lecture: 'The job of requirements analysts is to identify and listen to the customers.',
     },
   });
   assert.equal(q.reference.section, 'Who counts as a "customer"');
   assert.equal(q.reference.book, 'Chapter 2 — Customers and stakeholders');
   assert.equal(q.reference.page, 4);
   assert.match(q.reference.excerpt, /benefit/);
+  assert.match(q.reference.lecture, /listen to the customers/);
 });
 
 test('loads every Module 1 bank with nothing skipped', async () => {
@@ -119,6 +121,7 @@ test('loads every Module 1 bank with nothing skipped', async () => {
       assert.ok(q.reference && q.reference.section, rel + ' missing notes section');
       assert.ok(q.reference.page >= 1, rel + ' missing book page');
       assert.ok(q.reference.excerpt, rel + ' missing excerpt');
+      assert.ok(q.reference.lecture, rel + ' missing lecture quote');
     }
   }
 });

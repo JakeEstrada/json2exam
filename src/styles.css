@@ -812,6 +812,23 @@
     margin-left: -6px;
     margin-right: -6px;
   }
+  .lecture-text {
+    padding: 18px 22px 24px;
+    color: var(--paper-ink);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .lecture-text p { margin: 0 0 14px; }
+  .lecture-text p:last-child { margin-bottom: 0; }
+  .lecture-hit {
+    background: var(--accent-soft);
+    box-shadow: inset 0 0 0 1px var(--accent);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    scroll-margin: 16px;
+  }
 
   .q-text {
     font-family: 'Source Serif 4', Georgia, serif;

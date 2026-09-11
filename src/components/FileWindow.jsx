@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { headingId } from '../lib/parseQuiz.js';
+import LectureView from './LectureView.jsx';
 
 function escapeHtml(s) {
   return String(s)
@@ -264,6 +265,8 @@ export default function FileWindow({ filename, kind, data, source, url, onClose 
             <JsonCode data={data} />
           ) : kind === 'pdf' ? (
             <iframe className="pdf-frame" title={filename} src={url} />
+          ) : kind === 'txt' ? (
+            <LectureView source={source} />
           ) : (
             <MarkdownView source={source} />
           )}

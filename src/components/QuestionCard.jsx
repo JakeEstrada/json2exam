@@ -75,7 +75,7 @@ function Verdict({ q, correct }) {
 
 function QuestionSource({ q, onOpen }) {
   const ref = q && q.reference;
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page)) return null;
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture)) return null;
   return (
     <div className="q-source">
       <p className="q-source-label">Chapter reference</p>
@@ -86,6 +86,11 @@ function QuestionSource({ q, onOpen }) {
         {ref.section && onOpen && (
           <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: 0 })}>
             Show in chapter notes
+          </button>
+        )}
+        {ref.lecture && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ lecture: ref.lecture })}>
+            Show in lecture
           </button>
         )}
         {ref.page > 0 && onOpen && (

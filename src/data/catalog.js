@@ -9,6 +9,11 @@ import notes541Ch2 from '../../541-Mod1/Ch2/ch02-customer-perspective.md?raw';
 import notes541Ch3 from '../../541-Mod1/Ch3/ch03-good-practices.md?raw';
 import notes541Ch4 from '../../541-Mod1/Ch4/ch04-business-analyst.md?raw';
 import notes541Ch5 from '../../541-Mod1/Ch5/ch05-business-requirements.md?raw';
+import lecture541Ch1 from '../../541-Mod1/Ch1/Chapter 1V2.txt?raw';
+import lecture541Ch2 from '../../541-Mod1/Ch2/Chapter 2v2.txt?raw';
+import lecture541Ch3 from '../../541-Mod1/Ch3/Chapter 3v2.txt?raw';
+import lecture541Ch4 from '../../541-Mod1/Ch4/Chapter 4v2.txt?raw';
+import lecture541Ch5 from '../../541-Mod1/Ch5/Chapter 5v2.txt?raw';
 import book541Ch1 from '../../541-Mod1/Ch1/Book-chapter 1.pdf?url';
 import book541Ch2 from '../../541-Mod1/Ch2/Book-chapter 2.pdf?url';
 import book541Ch3 from '../../541-Mod1/Ch3/Book-chapter 3.pdf?url';
@@ -42,6 +47,8 @@ export const COURSES = [
             data: deck541Ch1,
             notesFile: 'ch01-essential-software-requirement.md',
             notes: notes541Ch1,
+            lectureFile: 'Chapter 1V2.txt',
+            lecture: lecture541Ch1,
             bookFile: 'Book-chapter 1.pdf',
             bookUrl: book541Ch1,
           },
@@ -53,6 +60,8 @@ export const COURSES = [
             data: deck541Ch2,
             notesFile: 'ch02-customer-perspective.md',
             notes: notes541Ch2,
+            lectureFile: 'Chapter 2v2.txt',
+            lecture: lecture541Ch2,
             bookFile: 'Book-chapter 2.pdf',
             bookUrl: book541Ch2,
           },
@@ -64,6 +73,8 @@ export const COURSES = [
             data: deck541Ch3,
             notesFile: 'ch03-good-practices.md',
             notes: notes541Ch3,
+            lectureFile: 'Chapter 3v2.txt',
+            lecture: lecture541Ch3,
             bookFile: 'Book-chapter 3.pdf',
             bookUrl: book541Ch3,
           },
@@ -75,6 +86,8 @@ export const COURSES = [
             data: deck541Ch4,
             notesFile: 'ch04-business-analyst.md',
             notes: notes541Ch4,
+            lectureFile: 'Chapter 4v2.txt',
+            lecture: lecture541Ch4,
             bookFile: 'Book-chapter 4.pdf',
             bookUrl: book541Ch4,
           },
@@ -86,6 +99,8 @@ export const COURSES = [
             data: deck541Ch5,
             notesFile: 'ch05-business-requirements.md',
             notes: notes541Ch5,
+            lectureFile: 'Chapter 5v2.txt',
+            lecture: lecture541Ch5,
             bookFile: 'Book-chapter 5.pdf',
             bookUrl: book541Ch5,
           },

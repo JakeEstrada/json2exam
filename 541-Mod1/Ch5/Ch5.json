@@ -18,7 +18,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "Business requirements represent the top of the requirements chain. They define the vision of the solution and the scope of the project that will implement the solution."
+        "excerpt": "Business requirements represent the top of the requirements chain. They define the vision of the solution and the scope of the project that will implement the solution.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     },
     {
@@ -30,7 +31,8 @@
         "section": "Business requirements drive the lower levels",
         "book": "Chapter 5 — Defining business requirements",
         "page": 7,
-        "excerpt": "The user requirements and functional requirements must align with the context and objectives that the business requirements establish. Requirements that don't help the project achieve its business objectives shouldn't be implemented."
+        "excerpt": "The user requirements and functional requirements must align with the context and objectives that the business requirements establish. Requirements that don't help the project achieve its business objectives shouldn't be implemented.",
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
       }
     },
     {
@@ -50,7 +52,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The vision provides the context for making decisions throughout the product's life, and it aligns all stakeholders in a common direction. Project participants can unwittingly work at cross-purposes if they have different objectives and priorities."
+        "excerpt": "The vision provides the context for making decisions throughout the product's life, and it aligns all stakeholders in a common direction. Project participants can unwittingly work at cross-purposes if they have different objectives and priorities.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -70,7 +73,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "Two core elements of the business requirements are the vision and the scope. The business requirements consist of mainly two parts: one is the vision, and the other one is scope."
+        "excerpt": "Two core elements of the business requirements are the vision and the scope. The business requirements consist of mainly two parts: one is the vision, and the other one is scope.",
+        "lecture": "In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope."
       }
     },
     {
@@ -90,7 +94,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The product vision succinctly describes the ultimate product that will achieve the business objectives. The vision describes what the product is about and what it ultimately could become."
+        "excerpt": "The product vision succinctly describes the ultimate product that will achieve the business objectives. The vision describes what the product is about and what it ultimately could become.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -102,7 +107,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The vision should change relatively slowly as a product's strategic positioning or a company's business objectives evolve over time. Scope is more dynamic than vision."
+        "excerpt": "The vision should change relatively slowly as a product's strategic positioning or a company's business objectives evolve over time. Scope is more dynamic than vision.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -122,7 +128,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The project scope identifies what portion of the ultimate product vision the current project or development iteration will address. The statement of scope draws the boundary between what's in and what's out for this project."
+        "excerpt": "The project scope identifies what portion of the ultimate product vision the current project or development iteration will address. The statement of scope draws the boundary between what's in and what's out for this project.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     },
     {
@@ -142,7 +149,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The scope pertains to a specific project or iteration that will implement the next increment of the product's functionality. Project scope normally applies to one product release."
+        "excerpt": "The scope pertains to a specific project or iteration that will implement the next increment of the product's functionality. Project scope normally applies to one product release.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     },
     {
@@ -168,7 +176,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "Stakeholders adjust the contents of each release within its schedule, budget, resource, and quality constraints. Scope must account for cost, schedule, resources, and quality."
+        "excerpt": "Stakeholders adjust the contents of each release within its schedule, budget, resource, and quality constraints. Scope must account for cost, schedule, resources, and quality.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     },
     {
@@ -188,7 +197,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "The product vision ensures that we all know where we are hoping to go eventually. The project scope ensures that we are all talking about the same thing for the immediate project or iteration."
+        "excerpt": "The product vision ensures that we all know where we are hoping to go eventually. The project scope ensures that we are all talking about the same thing for the immediate project or iteration.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -200,7 +210,8 @@
         "section": "Stakeholder conflicts",
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 6,
-        "excerpt": "Business requirements collected from multiple sources might conflict. Different stakeholders naturally have different priorities, so conflicts should be expected and managed."
+        "excerpt": "Business requirements collected from multiple sources might conflict. Different stakeholders naturally have different priorities, so conflicts should be expected and managed.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -220,7 +231,8 @@
         "section": "Stakeholder conflicts",
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 6,
-        "excerpt": "Different stakeholders want different things: customer wants simplicity, user wants convenience and features, developer might want interesting technology, and manager wants predictability and profit."
+        "excerpt": "Different stakeholders want different things: customer wants simplicity, user wants convenience and features, developer might want interesting technology, and manager wants predictability and profit.",
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
       }
     },
     {
@@ -240,7 +252,8 @@
         "section": "Stakeholder conflicts",
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 6,
-        "excerpt": "Customer wants simplicity. User wants convenience and features. These contrasting interests help explain why business requirements can conflict."
+        "excerpt": "Customer wants simplicity. User wants convenience and features. These contrasting interests help explain why business requirements can conflict.",
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
       }
     },
     {
@@ -260,7 +273,8 @@
         "section": "Stakeholder conflicts",
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 7,
-        "excerpt": "The project's decision makers must resolve these conflicts before the analyst can detail the requirements. The project sponsor resolves major business-level conflicts."
+        "excerpt": "The project's decision makers must resolve these conflicts before the analyst can detail the requirements. The project sponsor resolves major business-level conflicts.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -280,7 +294,8 @@
         "section": "Stakeholder conflicts",
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 7,
-        "excerpt": "The tension among stakeholders with different goals and constraints can lead to clashing business requirements. Not everyone gets everything."
+        "excerpt": "The tension among stakeholders with different goals and constraints can lead to clashing business requirements. Not everyone gets everything.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -306,7 +321,8 @@
         "section": "Business requirements drive the lower levels",
         "book": "Chapter 5 — Defining business requirements",
         "page": 7,
-        "excerpt": "Business requirements guide which use cases belong in the system, which use cases are most important, and how extensively they should be implemented. They directly influence which user requirements to implement and in what sequence."
+        "excerpt": "Business requirements guide which use cases belong in the system, which use cases are most important, and how extensively they should be implemented. They directly influence which user requirements to implement and in what sequence.",
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
       }
     },
     {
@@ -318,7 +334,8 @@
         "section": "Business requirements drive the lower levels",
         "book": "Chapter 5 — Defining business requirements",
         "page": 7,
-        "excerpt": "If a feature doesn't support a business objective, there'd better be a strong reason for it. Lower-level requirements should align with the business requirements and defined scope."
+        "excerpt": "If a feature doesn't support a business objective, there'd better be a strong reason for it. Lower-level requirements should align with the business requirements and defined scope.",
+        "lecture": "In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope."
       }
     },
     {
@@ -338,7 +355,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Vision and scope document",
         "page": 8,
-        "excerpt": "The vision and scope document collects the business requirements into a single deliverable that sets the stage for the subsequent development work. There should be one vision and scope document even when several systems are involved."
+        "excerpt": "The vision and scope document collects the business requirements into a single deliverable that sets the stage for the subsequent development work. There should be one vision and scope document even when several systems are involved.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -358,7 +376,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Vision and scope document",
         "page": 8,
-        "excerpt": "The owner of the vision and scope document is the project's executive sponsor, funding authority, or someone in a similar role."
+        "excerpt": "The owner of the vision and scope document is the project's executive sponsor, funding authority, or someone in a similar role.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -384,7 +403,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Vision and scope document",
         "page": 8,
-        "excerpt": "A business analyst can work with the sponsor to articulate the business requirements and write the document. Input should come from people who have a clear sense of why they are undertaking the project, including subject matter experts and other knowledgeable sources."
+        "excerpt": "A business analyst can work with the sponsor to articulate the business requirements and write the document. Input should come from people who have a clear sense of why they are undertaking the project, including subject matter experts and other knowledgeable sources.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -404,7 +424,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business requirements",
         "page": 10,
-        "excerpt": "Business opportunity is one of the listed subsections of the Business Requirements section. For a corporate information system, describe the business problem that is being solved or the process being improved."
+        "excerpt": "Business opportunity is one of the listed subsections of the Business Requirements section. For a corporate information system, describe the business problem that is being solved or the process being improved.",
+        "lecture": "In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope."
       }
     },
     {
@@ -431,7 +452,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business requirements",
         "page": 10,
-        "excerpt": "The Business Requirements section includes background, business opportunity, business objectives, success metrics, vision statement, business risks, and assumptions and dependencies."
+        "excerpt": "The Business Requirements section includes background, business opportunity, business objectives, success metrics, vision statement, business risks, and assumptions and dependencies.",
+        "lecture": "In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope."
       }
     },
     {
@@ -451,7 +473,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business requirements",
         "page": 14,
-        "excerpt": "Business assumptions and dependencies are listed under the Business Requirements section. An assumption is a statement that is believed to be true in the absence of proof or definitive knowledge."
+        "excerpt": "Business assumptions and dependencies are listed under the Business Requirements section. An assumption is a statement that is believed to be true in the absence of proof or definitive knowledge.",
+        "lecture": "In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope."
       }
     },
     {
@@ -471,7 +494,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Scope and limitations",
         "page": 15,
-        "excerpt": "List the product's major features or user capabilities, emphasizing those that distinguish it from previous or competing products. Major features are included in the Scope and Limitation portion of the vision and scope document."
+        "excerpt": "List the product's major features or user capabilities, emphasizing those that distinguish it from previous or competing products. Major features are included in the Scope and Limitation portion of the vision and scope document.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -496,7 +520,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Scope and limitations",
         "page": 15,
-        "excerpt": "Scope and Limitations includes major features, scope of the initial release, scope of subsequent releases, and limitations and exclusions. These items define what is and is not included in the current and future project scope."
+        "excerpt": "Scope and Limitations includes major features, scope of the initial release, scope of subsequent releases, and limitations and exclusions. These items define what is and is not included in the current and future project scope.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     },
     {
@@ -516,7 +541,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Scope and limitations",
         "page": 15,
-        "excerpt": "The limitations itemize certain capabilities that the product will not include that some people might assume will be there. Explicitly documenting exclusions helps prevent misunderstandings and scope creep."
+        "excerpt": "The limitations itemize certain capabilities that the product will not include that some people might assume will be there. Explicitly documenting exclusions helps prevent misunderstandings and scope creep.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -536,7 +562,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business context",
         "page": 17,
-        "excerpt": "Business Context presents profiles of major stakeholder categories, management's priorities for the project, and factors to consider when planning deployment. Stakeholder profiles are part of the Business Context section."
+        "excerpt": "Business Context presents profiles of major stakeholder categories, management's priorities for the project, and factors to consider when planning deployment. Stakeholder profiles are part of the Business Context section.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -562,7 +589,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business context",
         "page": 17,
-        "excerpt": "Each stakeholder profile should include the major value or benefit the stakeholder will receive, their likely attitudes toward the product, major features and characteristics of interest, and other relevant business interests."
+        "excerpt": "Each stakeholder profile should include the major value or benefit the stakeholder will receive, their likely attitudes toward the product, major features and characteristics of interest, and other relevant business interests.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -582,7 +610,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business context",
         "page": 17,
-        "excerpt": "To enable effective decision making, the stakeholders must agree on the project's priorities. Each dimension fits in one of three categories: constraint, driver, or degree of freedom."
+        "excerpt": "To enable effective decision making, the stakeholders must agree on the project's priorities. Each dimension fits in one of three categories: constraint, driver, or degree of freedom.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -608,7 +637,8 @@
         "section": "Vision and Scope Document",
         "book": "Chapter 5 — Business context",
         "page": 18,
-        "excerpt": "Deployment considerations include the access users will require, whether users are distributed over multiple locations or time zones, and when users in various locations need to access the system, along with related operating qualities."
+        "excerpt": "Deployment considerations include the access users will require, whether users are distributed over multiple locations or time zones, and when users in various locations need to access the system, along with related operating qualities.",
+        "lecture": "So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents."
       }
     },
     {
@@ -628,7 +658,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Context diagram",
         "page": 19,
-        "excerpt": "The context diagram visually illustrates the boundary. It identifies external entities outside the system that interface to it, as well as data, control, and material flows between those terminators and the system."
+        "excerpt": "The context diagram visually illustrates the boundary. It identifies external entities outside the system that interface to it, as well as data, control, and material flows between those terminators and the system.",
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
       }
     },
     {
@@ -648,7 +679,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Context diagram",
         "page": 19,
-        "excerpt": "The entire system is depicted as a single circle. The external entities can represent user classes, organizations, other systems, or hardware devices, and the arrows represent flows between the system and those entities."
+        "excerpt": "The entire system is depicted as a single circle. The external entities can represent user classes, organizations, other systems, or hardware devices, and the arrows represent flows between the system and those entities.",
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
       }
     },
     {
@@ -668,7 +700,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Context diagram",
         "page": 19,
-        "excerpt": "The arrows on the diagram represent the flow of data, such as a request for a chemical, between the system and its external entities. A chemist uses the chemical tracking system by sending a request for a chemical."
+        "excerpt": "The arrows on the diagram represent the flow of data, such as a request for a chemical, between the system and its external entities. A chemist uses the chemical tracking system by sending a request for a chemical.",
+        "lecture": "If you look at, for example, slide number 12, it shows the interaction between the chemist and the system. That is, a chemist uses the chemical tracking system by sending a request for a chemical. So, there is interaction between chemist and also tracking system by sending a request for a chemical."
       }
     },
     {
@@ -688,7 +721,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Ecosystem map",
         "page": 20,
-        "excerpt": "An ecosystem map shows all of the systems related to the system of interest that interact with one another and the nature of those interactions. It provides a broader graphical view of related systems or components."
+        "excerpt": "An ecosystem map shows all of the systems related to the system of interest that interact with one another and the nature of those interactions. It provides a broader graphical view of related systems or components.",
+        "lecture": "The Ecomap basically is a graphical representation of how the individual components of your system interact with each other. So, for example, slide 13 shows the components initially of the chemical tracking system and it shows how they interact with each other. So, all the subsystems, if you will, of your system and how they interact with each other."
       }
     },
     {
@@ -700,7 +734,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Ecosystem map",
         "page": 20,
-        "excerpt": "Ecosystem maps differ from context diagrams in that they show other systems that have a relationship with the system you're working on, including those without direct interfaces. A context diagram emphasizes the system boundary and exchanges with external entities."
+        "excerpt": "Ecosystem maps differ from context diagrams in that they show other systems that have a relationship with the system you're working on, including those without direct interfaces. A context diagram emphasizes the system boundary and exchanges with external entities.",
+        "lecture": "Then, system provides a vendor catalog if the chemical needs to be ordered. So, the context diagram shows the overview of the system in terms of external entity and how these external entities exchange data with the system. Slide 13 shows a technique called Ecomap, or ecosystem map."
       }
     },
     {
@@ -720,7 +755,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Feature tree",
         "page": 21,
-        "excerpt": "A feature tree is a visual depiction of the product's features organized in logical groups, hierarchically subdividing each feature into further levels of detail."
+        "excerpt": "A feature tree is a visual depiction of the product's features organized in logical groups, hierarchically subdividing each feature into further levels of detail.",
+        "lecture": "Finally, slide 14 shows a feature tree where you can identify the major features along with sub-features that are necessary to accomplish these major features. So, for example, slide 14, you will see a feature called order chemical, which is on the top right-hand side. Hopefully, you see that."
       }
     },
     {
@@ -732,7 +768,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Feature tree",
         "page": 21,
-        "excerpt": "You have initially a big abstraction and then you use step-by-step refinement to find small abstractions that accomplish that bigger abstraction. A feature tree breaks larger capabilities into smaller related sub-features."
+        "excerpt": "You have initially a big abstraction and then you use step-by-step refinement to find small abstractions that accomplish that bigger abstraction. A feature tree breaks larger capabilities into smaller related sub-features.",
+        "lecture": "So, again, in order to accomplish search feature, you need to have three sub-features that accomplish that particular feature. If you will, you're basically doing the so-called step-or-step refinement. That is, you have initially a big abstraction and then you're using step-or-step refinement to find small abstractions that accomplish that particular bigger abstraction."
       }
     },
     {
@@ -752,7 +789,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Feature tree",
         "page": 21,
-        "excerpt": "The gray boxes represent the L1 features, such as Order Chemicals. Search and Chemical Request are subfeatures of Order Chemicals."
+        "excerpt": "The gray boxes represent the L1 features, such as Order Chemicals. Search and Chemical Request are subfeatures of Order Chemicals.",
+        "lecture": "Finally, slide 14 shows a feature tree where you can identify the major features along with sub-features that are necessary to accomplish these major features. So, for example, slide 14, you will see a feature called order chemical, which is on the top right-hand side. Hopefully, you see that."
       }
     },
     {
@@ -772,7 +810,8 @@
         "section": "Scope representation techniques",
         "book": "Chapter 5 — Feature tree",
         "page": 21,
-        "excerpt": "A feature tree hierarchically subdivides each feature into further levels of detail. Feature decomposition helps analysts understand the smaller capabilities required to realize a larger business capability."
+        "excerpt": "A feature tree hierarchically subdivides each feature into further levels of detail. Feature decomposition helps analysts understand the smaller capabilities required to realize a larger business capability.",
+        "lecture": "Finally, slide 14 shows a feature tree where you can identify the major features along with sub-features that are necessary to accomplish these major features. So, for example, slide 14, you will see a feature called order chemical, which is on the top right-hand side. Hopefully, you see that."
       }
     },
     {
@@ -792,7 +831,8 @@
         "section": "Scope control",
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
-        "excerpt": "Many projects suffer from scope creep—rampant growth as more and more functionality gets stuffed into the product. The goal of scope control is to prevent uncontrolled scope creep while still accommodating evolving needs."
+        "excerpt": "Many projects suffer from scope creep—rampant growth as more and more functionality gets stuffed into the product. The goal of scope control is to prevent uncontrolled scope creep while still accommodating evolving needs.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -804,7 +844,8 @@
         "section": "Scope control",
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
-        "excerpt": "A scope definition is a structure, not a straitjacket. Scope change isn't a bad thing if it helps you steer the project toward satisfying evolving customer needs; uncontrolled scope change is the problem."
+        "excerpt": "A scope definition is a structure, not a straitjacket. Scope change isn't a bad thing if it helps you steer the project toward satisfying evolving customer needs; uncontrolled scope change is the problem.",
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
       }
     },
     {
@@ -828,7 +869,8 @@
         "section": "Scope control",
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
-        "excerpt": "Remember, whenever someone requests a new requirement, the analyst needs to ask whether it is in scope. The three outcomes are keep an in-scope request, reject or defer an out-of-scope request, or intentionally change the scope when the idea is valuable enough."
+        "excerpt": "Remember, whenever someone requests a new requirement, the analyst needs to ask whether it is in scope. The three outcomes are keep an in-scope request, reject or defer an out-of-scope request, or intentionally change the scope when the idea is valuable enough.",
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
       }
     },
     {
@@ -848,7 +890,8 @@
         "section": "Scope control",
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
-        "excerpt": "The third possibility is that the proposed new requirement is out of scope, but it's such a good idea that the scope should be broadened to accommodate it, with corresponding changes in budget, schedule, and/or staff."
+        "excerpt": "The third possibility is that the proposed new requirement is out of scope, but it's such a good idea that the scope should be broadened to accommodate it, with corresponding changes in budget, schedule, and/or staff.",
+        "lecture": "Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system."
       }
     },
     {
@@ -868,7 +911,8 @@
         "section": "Vision vs Scope",
         "book": "Chapter 5 — Product vision and project scope",
         "page": 5,
-        "excerpt": "Business requirements explain why the organization is building the product. Two major parts are product vision and project scope, and the chapter also covers the vision and scope document, scope models, and scope control."
+        "excerpt": "Business requirements explain why the organization is building the product. Two major parts are product vision and project scope, and the chapter also covers the vision and scope document, scope models, and scope control.",
+        "lecture": "In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope."
       }
     }
   ]

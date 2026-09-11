@@ -94,6 +94,10 @@ export default function App() {
       qz.bookUrl = extra.bookUrl;
       qz.bookFile = extra.bookFile || 'chapter.pdf';
     }
+    if (extra && extra.lecture) {
+      qz.lecture = extra.lecture;
+      qz.lectureFile = extra.lectureFile || 'lecture.txt';
+    }
     startFresh(qz);
   }
 
@@ -247,6 +251,8 @@ export default function App() {
           source={quiz.notes}
           bookFile={quiz.bookFile}
           bookUrl={quiz.bookUrl}
+          lectureFile={quiz.lectureFile}
+          lecture={quiz.lecture}
           focus={studyFocus}
         />
         <Summary
@@ -274,6 +280,8 @@ export default function App() {
         source={quiz.notes}
         bookFile={quiz.bookFile}
         bookUrl={quiz.bookUrl}
+        lectureFile={quiz.lectureFile}
+        lecture={quiz.lecture}
         focus={studyFocus}
       />
 

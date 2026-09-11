@@ -18,7 +18,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst role",
         "page": 2,
-        "excerpt": "The analyst serves as the principal interpreter through which requirements flow between the customer community and the software development team."
+        "excerpt": "The analyst serves as the principal interpreter through which requirements flow between the customer community and the software development team.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -32,13 +33,20 @@
         "The analyst validates requirements to help confirm that the documented statements correctly reflect stakeholder needs and intent.",
         "The analyst manages requirements after agreement, including organizing the information and controlling later changes to the baseline."
       ],
-      "answer": ["a", "b", "d", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "d",
+        "e",
+        "f"
+      ],
       "explanation": "The slides describe the analyst as gathering, studying, documenting, validating, and managing requirements.",
       "reference": {
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst role",
         "page": 2,
-        "excerpt": "The business analyst is the individual who has the primary responsibility to elicit, analyze, document, and validate the needs of the project stakeholders."
+        "excerpt": "The business analyst is the individual who has the primary responsibility to elicit, analyze, document, and validate the needs of the project stakeholders.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -50,7 +58,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst role",
         "page": 3,
-        "excerpt": "Business analyst is a project role, not necessarily a job title. One or more dedicated specialists could perform the role, or it could be assigned to team members who also perform other functions."
+        "excerpt": "Business analyst is a project role, not necessarily a job title. One or more dedicated specialists could perform the role, or it could be assigned to team members who also perform other functions.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -64,13 +73,20 @@
         "Users can perform analyst work when they can represent needs clearly and work effectively with the technical development team.",
         "People with the appropriate knowledge and skills can fill the analyst role even if it is not their official job title."
       ],
-      "answer": ["a", "b", "d", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "d",
+        "e",
+        "f"
+      ],
       "explanation": "The analyst role can be filled by different kinds of people, not just someone with a specific title.",
       "reference": {
         "section": "Who can fill the role",
         "book": "Chapter 4 — The business analyst role",
         "page": 3,
-        "excerpt": "The role could be assigned to team members who also perform other project functions, including project manager, product owner, subject matter expert, developer, and sometimes even user."
+        "excerpt": "The role could be assigned to team members who also perform other project functions, including project manager, product owner, subject matter expert, developer, and sometimes even user.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -90,7 +106,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 3,
-        "excerpt": "The analyst must first understand the business objectives for the project and then define user, functional, and quality requirements that allow teams to estimate and plan the project."
+        "excerpt": "The analyst must first understand the business objectives for the project and then define user, functional, and quality requirements that allow teams to estimate and plan the project.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -110,7 +127,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 3,
-        "excerpt": "Your work as a BA begins when you help the business or funding sponsor define the project's business requirements. You might suggest a template for a vision and scope document and work with those who hold the vision to help them express it clearly."
+        "excerpt": "Your work as a BA begins when you help the business or funding sponsor define the project's business requirements. You might suggest a template for a vision and scope document and work with those who hold the vision to help them express it clearly.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -130,7 +148,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 3,
-        "excerpt": "Work with the business sponsors to select appropriate representatives for each user class, enlist their participation, and negotiate their responsibilities."
+        "excerpt": "Work with the business sponsors to select appropriate representatives for each user class, enlist their participation, and negotiate their responsibilities.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -150,7 +169,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 3,
-        "excerpt": "Identify project stakeholders and user classes. Work with the business sponsors to select appropriate representatives for each user class, enlist their participation, and negotiate their responsibilities."
+        "excerpt": "Identify project stakeholders and user classes. Work with the business sponsors to select appropriate representatives for each user class, enlist their participation, and negotiate their responsibilities.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -170,7 +190,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "A proactive analyst helps users articulate the system capabilities they need to meet their business objectives by using a variety of information-gathering techniques."
+        "excerpt": "A proactive analyst helps users articulate the system capabilities they need to meet their business objectives by using a variety of information-gathering techniques.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -184,13 +205,20 @@
         "The analyst can study workflows to see how information and tasks move through the business process being supported.",
         "The analyst should rely only on inspecting existing source code and should not use conversations or observation to find needs."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The slides list these as examples of elicitation techniques.",
       "reference": {
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Elicitation uses interviews, workshops, observation, and other techniques to find out what people need. A proactive analyst helps users articulate the system capabilities they need to meet their business objectives."
+        "excerpt": "Elicitation uses interviews, workshops, observation, and other techniques to find out what people need. A proactive analyst helps users articulate the system capabilities they need to meet their business objectives.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -204,13 +232,20 @@
         "The analyst should look for missing or unclear meaning so gaps in the requirements set can be identified and addressed.",
         "The analyst should look only for programming errors in existing code and should not examine the requirements for hidden problems."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The analyst must detect hidden, unclear, or conflicting requirements.",
       "reference": {
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Look for derived requirements that are a logical consequence of what the customers requested and for implicit requirements that the customers seem to expect without saying so. Use requirements models to identify gaps and reveal conflicting requirements."
+        "excerpt": "Look for derived requirements that are a logical consequence of what the customers requested and for implicit requirements that the customers seem to expect without saying so. Use requirements models to identify gaps and reveal conflicting requirements.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -230,7 +265,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Look for derived requirements that are a logical consequence of what the customers requested. A derived requirement is inferred from other requirements."
+        "excerpt": "Look for derived requirements that are a logical consequence of what the customers requested. A derived requirement is inferred from other requirements.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -250,7 +286,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Look for implicit requirements that the customers seem to expect without saying so. An implied requirement is needed even though nobody stated it directly."
+        "excerpt": "Look for implicit requirements that the customers seem to expect without saying so. An implied requirement is needed even though nobody stated it directly.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -270,7 +307,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "The analyst is responsible for documenting requirements in a well-organized and well-written manner that clearly describes the solution that will address the customer's problem."
+        "excerpt": "The analyst is responsible for documenting requirements in a well-organized and well-written manner that clearly describes the solution that will address the customer's problem.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -290,7 +328,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "The BA should determine when it is helpful to represent requirements by using methods other than text, including various types of visual analysis models, tables, mathematical equations, and prototypes."
+        "excerpt": "The BA should determine when it is helpful to represent requirements by using methods other than text, including various types of visual analysis models, tables, mathematical equations, and prototypes.",
+        "lecture": "He must have the technical side of it, and he must be able to do project management, that is how to do a project in terms of process models and also things that are required in terms of resource management, etc. And he must have some knowledge in risk analysis and quality engineering, and he must be also a good application expert. So he must have good knowledge in the domain where he's working in."
       }
     },
     {
@@ -310,7 +349,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Models and prototypes help people react to something tangible. The BA should determine when it is helpful to represent requirements by using methods other than text, including prototypes."
+        "excerpt": "Models and prototypes help people react to something tangible. The BA should determine when it is helpful to represent requirements by using methods other than text, including prototypes.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -330,7 +370,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "Lead requirements validation. The BA must ensure that requirement statements possess the desired characteristics and that a solution based on the requirements will satisfy stakeholder needs. Analysts are the central participants in reviews of requirements."
+        "excerpt": "Lead requirements validation. The BA must ensure that requirement statements possess the desired characteristics and that a solution based on the requirements will satisfy stakeholder needs. Analysts are the central participants in reviews of requirements.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -344,13 +385,20 @@
         "The analyst may review test cases derived from the requirements to check that testers interpreted those statements correctly.",
         "The analyst may ignore how implementation interprets the requirements and treat coding and testing as unrelated to validation."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The analyst helps ensure the requirements were understood correctly by downstream development and testing.",
       "reference": {
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "You should also review designs and tests that were derived from the requirements to ensure that the requirements were interpreted correctly. Analysts are the central participants in reviews of requirements."
+        "excerpt": "You should also review designs and tests that were derived from the requirements to ensure that the requirements were interpreted correctly. Analysts are the central participants in reviews of requirements.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -370,7 +418,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 4,
-        "excerpt": "You should also review designs and tests that were derived from the requirements to ensure that the requirements were interpreted correctly."
+        "excerpt": "You should also review designs and tests that were derived from the requirements to ensure that the requirements were interpreted correctly.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -390,7 +439,8 @@
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 5,
-        "excerpt": "The analyst brokers collaboration and negotiation among the various stakeholders and the developers to ensure that they make sensible priority decisions in alignment with achieving business objectives."
+        "excerpt": "The analyst brokers collaboration and negotiation among the various stakeholders and the developers to ensure that they make sensible priority decisions in alignment with achieving business objectives.",
+        "lecture": "As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers."
       }
     },
     {
@@ -404,13 +454,20 @@
         "The analyst can ignore newly identified requirements so the baseline never changes after the first version has been written.",
         "The analyst can maintain organized requirements information so the team can find, update, and trace the current statements."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The slides list planning, baselines, change control, and status tracking as management tasks.",
       "reference": {
         "section": "Tasks in the engineering process",
         "book": "Chapter 4 — The business analyst's tasks",
         "page": 5,
-        "excerpt": "A business analyst should help create, review, and execute the project's requirements management plan. After establishing a requirements baseline, the BA's focus shifts to tracking the status of those requirements and managing changes to the baseline."
+        "excerpt": "A business analyst should help create, review, and execute the project's requirements management plan. After establishing a requirements baseline, the BA's focus shifts to tracking the status of those requirements and managing changes to the baseline.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -430,7 +487,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "You need to grasp what people are saying and also to read between the lines to detect what they might be hesitant to say. Watch for unstated assumptions that underlie either what you hear from others or your own interpretation."
+        "excerpt": "You need to grasp what people are saying and also to read between the lines to detect what they might be hesitant to say. Watch for unstated assumptions that underlie either what you hear from others or your own interpretation.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -444,13 +502,19 @@
         "The analyst should interrupt constantly so the conversation stays on the analyst's planned list of topics at all times.",
         "The analyst should assume the user's meaning without checking, so time is not spent confirming what was actually meant."
       ],
-      "answer": ["a", "b", "c", "d"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "explanation": "The analyst should actively verify understanding instead of making assumptions.",
       "reference": {
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "Active listening involves eliminating distractions, maintaining an attentive posture and eye contact, and restating key points to confirm your understanding. You need to grasp what people are saying and also detect what they might be hesitant to say."
+        "excerpt": "Active listening involves eliminating distractions, maintaining an attentive posture and eye contact, and restating key points to confirm your understanding. You need to grasp what people are saying and also detect what they might be hesitant to say.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -470,7 +534,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "Most requirements input comes through discussions, so the BA must be able to interact with diverse individuals and groups about their needs. With experience, you'll become skilled in asking questions that reveal and clarify uncertainties, disagreements, assumptions, and unstated expectations."
+        "excerpt": "Most requirements input comes through discussions, so the BA must be able to interact with diverse individuals and groups about their needs. With experience, you'll become skilled in asking questions that reveal and clarify uncertainties, disagreements, assumptions, and unstated expectations.",
+        "lecture": "So in case there are any disagreements between users and developers, he should be able to facilitate to come up with coherent or consistent requirements. And also, the managing requirement, that is, if they change control, if there's any change that needs to be made, and he should be the person who should be able to manage or control the change. The slides 8 through 12 show the skills that are necessary to be a requirements analyst."
       }
     },
     {
@@ -490,7 +555,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "Users naturally focus on the system's normal, expected behaviors. However, much code gets written to handle exceptions. Therefore, you must also probe to identify error conditions and determine how the system should respond."
+        "excerpt": "Users naturally focus on the system's normal, expected behaviors. However, much code gets written to handle exceptions. Therefore, you must also probe to identify error conditions and determine how the system should respond.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -504,13 +570,20 @@
         "The analyst should clarify conflicting interpretations so different listeners do not leave with incompatible understandings.",
         "The analyst should clarify only technical bugs in existing code and should not use questions to examine the requirements."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "Questioning helps expose and resolve unclear or conflicting information.",
       "reference": {
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "You'll become skilled in the art of asking questions that reveal and clarify uncertainties, disagreements, assumptions, and unstated expectations."
+        "excerpt": "You'll become skilled in the art of asking questions that reveal and clarify uncertainties, disagreements, assumptions, and unstated expectations.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -524,13 +597,21 @@
         "The analyst can separate stakeholder wants from the underlying needs that the planned product must actually satisfy.",
         "The analyst can separate proposed solutions from the actual requirements that describe the problem that must be solved."
       ],
-      "answer": ["a", "b", "c", "d", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
       "explanation": "All of these are listed as important analytical abilities.",
       "reference": {
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "An effective business analyst can think at both high and low levels of abstraction and knows when to move from one to another. Analysts need to critically evaluate information to reconcile conflicts, separate user wants from the underlying true needs, and distinguish solution ideas from requirements."
+        "excerpt": "An effective business analyst can think at both high and low levels of abstraction and knows when to move from one to another. Analysts need to critically evaluate information to reconcile conflicts, separate user wants from the underlying true needs, and distinguish solution ideas from requirements.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -550,7 +631,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "They need to critically evaluate the information to reconcile conflicts, separate user \"wants\" from the underlying true needs, and distinguish solution ideas from requirements."
+        "excerpt": "They need to critically evaluate the information to reconcile conflicts, separate user \"wants\" from the underlying true needs, and distinguish solution ideas from requirements.",
+        "lecture": "Obviously, we cannot have everything, but he should possess at least good skills in each of these. Then slide 13 describes the knowledges that a business analyst must possess. He must possess good engineering techniques."
       }
     },
     {
@@ -570,7 +652,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 5,
-        "excerpt": "Analysts need to distinguish solution ideas from requirements. A user attempting to specify a solution as a requirement is a common trap; the skillful BA digs below a presented solution and really understands the user's objectives."
+        "excerpt": "Analysts need to distinguish solution ideas from requirements. A user attempting to specify a solution as a requirement is a common trap; the skillful BA digs below a presented solution and really understands the user's objectives.",
+        "lecture": "So in order to be a requirements analyst, he must be a good listener, he must possess good interview skills in order to interview the users and also a portion of developers. And obviously, in order to do the analysis, he has possessed good analytical skills. And also, he must be a good facilitator and organizer of the meetings, and he must be a good observer."
       }
     },
     {
@@ -590,7 +673,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "A neutral facilitator who has strong questioning, observational, and facilitation skills can help a group build trust and improve the sometimes tense relationship between business and IT staff."
+        "excerpt": "A neutral facilitator who has strong questioning, observational, and facilitation skills can help a group build trust and improve the sometimes tense relationship between business and IT staff.",
+        "lecture": "So in case there are any disagreements between users and developers, he should be able to facilitate to come up with coherent or consistent requirements. And also, the managing requirement, that is, if they change control, if there's any change that needs to be made, and he should be the person who should be able to manage or control the change. The slides 8 through 12 show the skills that are necessary to be a requirements analyst."
       }
     },
     {
@@ -610,7 +694,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "Facilitation is the act of leading a group towards success. A neutral facilitator can help a group build trust and improve the sometimes tense relationship between business and IT staff."
+        "excerpt": "Facilitation is the act of leading a group towards success. A neutral facilitator can help a group build trust and improve the sometimes tense relationship between business and IT staff.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -630,7 +715,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "By watching a user perform her job or use a current application, a good observer can detect subtleties that the user might not think to mention. Strong observational skills sometimes expose new areas for elicitation discussions."
+        "excerpt": "By watching a user perform her job or use a current application, a good observer can detect subtleties that the user might not think to mention. Strong observational skills sometimes expose new areas for elicitation discussions.",
+        "lecture": "So in order to be a requirements analyst, he must be a good listener, he must possess good interview skills in order to interview the users and also a portion of developers. And obviously, in order to do the analysis, he has possessed good analytical skills. And also, he must be a good facilitator and organizer of the meetings, and he must be a good observer."
       }
     },
     {
@@ -650,7 +736,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "The analyst needs a solid command of the language and the ability to express complex ideas clearly, both in written form and verbally. You must be able to write for multiple audiences, including customers who have to validate the requirements and developers who need clear, precise requirements."
+        "excerpt": "The analyst needs a solid command of the language and the ability to express complex ideas clearly, both in written form and verbally. You must be able to write for multiple audiences, including customers who have to validate the requirements and developers who need clear, precise requirements.",
+        "lecture": "Also, he must be able to be a good writer and creative in writing, expressing his findings in good written form. And also, he must have good personal skills going along with users and also developers. So it requires a lot of things from a business analyst."
       }
     },
     {
@@ -664,13 +751,20 @@
         "The analyst should avoid domain terminology entirely, even when that language is how customers normally describe their work.",
         "The analyst should write organized requirements so related information is structured in a way others can follow and review."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The slides emphasize both clear writing and strong reading skills.",
       "reference": {
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "The analyst needs the ability to express complex ideas clearly. Analysts should be efficient and critical readers because they have to wade through a lot of material and grasp the essence quickly. A BA should speak the language of the audience she is talking to."
+        "excerpt": "The analyst needs the ability to express complex ideas clearly. Analysts should be efficient and critical readers because they have to wade through a lot of material and grasp the essence quickly. A BA should speak the language of the audience she is talking to.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -690,7 +784,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "Coping with rapidly changing information and structuring all the bits into a coherent whole demands exceptional organizational skills and the patience and tenacity to make sense from ambiguity and disarray."
+        "excerpt": "Coping with rapidly changing information and structuring all the bits into a coherent whole demands exceptional organizational skills and the patience and tenacity to make sense from ambiguity and disarray.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -710,7 +805,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "Analysts must be able to get people with competing interests to work together as a team. An analyst should feel comfortable talking with individuals in diverse job functions and at all levels of the organization."
+        "excerpt": "Analysts must be able to get people with competing interests to work together as a team. An analyst should feel comfortable talking with individuals in diverse job functions and at all levels of the organization.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -724,13 +820,20 @@
         "The analyst should avoid all difficult people so requirements are gathered only from participants who already agree.",
         "The analyst may support communication so information continues to move clearly among customers, users, and developers."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The analyst's interpersonal role includes cooperation, mentoring, education, and communication.",
       "reference": {
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "Analysts must be able to get people with competing interests to work together as a team. The analyst educates, questions, listens, organizes, and learns, and may need to support mentoring, education, and communication among stakeholders."
+        "excerpt": "Analysts must be able to get people with competing interests to work together as a team. The analyst educates, questions, listens, organizes, and learns, and may need to support mentoring, education, and communication among stakeholders.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -750,7 +853,8 @@
         "section": "Skills",
         "book": "Chapter 4 — Essential analyst skills",
         "page": 6,
-        "excerpt": "The best analysts invent potential requirements for customers to consider. A really valuable BA finds creative ways to satisfy needs that users didn't even know they had."
+        "excerpt": "The best analysts invent potential requirements for customers to consider. A really valuable BA finds creative ways to satisfy needs that users didn't even know they had.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -764,13 +868,21 @@
         "Quality engineering knowledge helps the analyst specify requirements that can be verified and that support a quality product.",
         "Application domain knowledge helps the analyst understand the business problem and interpret stakeholder needs correctly."
       ],
-      "answer": ["a", "b", "c", "d", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
       "explanation": "The slides identify all of these as essential knowledge areas.",
       "reference": {
         "section": "Knowledge",
         "book": "Chapter 4 — Essential analyst knowledge",
         "page": 8,
-        "excerpt": "Business analysts need to understand contemporary requirements engineering practices. An analyst with a sound understanding of project management, development life cycles, risk management, and quality engineering can help prevent requirements issues from torpedoing the project."
+        "excerpt": "Business analysts need to understand contemporary requirements engineering practices. An analyst with a sound understanding of project management, development life cycles, risk management, and quality engineering can help prevent requirements issues from torpedoing the project.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -790,7 +902,8 @@
         "section": "Knowledge",
         "book": "Chapter 4 — Essential analyst knowledge",
         "page": 8,
-        "excerpt": "Knowledge of the business, the industry, and the organization are powerful assets for an effective BA. Analysts who understand the organization and business domains often detect unstated assumptions and implicit requirements."
+        "excerpt": "Knowledge of the business, the industry, and the organization are powerful assets for an effective BA. Analysts who understand the organization and business domains often detect unstated assumptions and implicit requirements.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -810,7 +923,8 @@
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 9,
-        "excerpt": "These individuals understand the business and the work environment, so they can easily gain the trust of their former colleagues. They speak the user's language, and they know the existing systems and business processes."
+        "excerpt": "These individuals understand the business and the work environment, so they can easily gain the trust of their former colleagues. They speak the user's language, and they know the existing systems and business processes.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     },
     {
@@ -824,13 +938,20 @@
         "A former user always lacks domain knowledge, because moving into the analyst role immediately erases understanding of the business.",
         "A former user can carry assumptions from personal experience and may remain stuck in current ways of working rather than seeing improvements."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The slides highlight several potential weaknesses of former users despite their strong domain understanding.",
       "reference": {
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 9,
-        "excerpt": "Former users who are now BAs might know little about software engineering or how to communicate with technical people. Some believe they understand what is needed better than current users do, and it is easy to think of requirements strictly from a user interface perspective."
+        "excerpt": "Former users who are now BAs might know little about software engineering or how to communicate with technical people. Some believe they understand what is needed better than current users do, and it is easy to think of requirements strictly from a user interface perspective.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -850,7 +971,8 @@
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 10,
-        "excerpt": "Many developers do recognize the criticality of the requirements process and can work as analysts when necessary. The developer-turned-analyst brings technical strength but might need to learn more about the business domain."
+        "excerpt": "Many developers do recognize the criticality of the requirements process and can work as analysts when necessary. The developer-turned-analyst brings technical strength but might need to learn more about the business domain.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -864,13 +986,20 @@
         "A former developer has no technical knowledge, because moving into analysis immediately erases implementation experience.",
         "A former developer may have difficulty understanding users and may lapse into technical jargon instead of the customer's language."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The slides caution that technical strength does not automatically provide business or interpersonal strength.",
       "reference": {
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 10,
-        "excerpt": "Some developers have little patience with users. The developer-turned-analyst might need to learn more about the business domain and can easily lapse into technical thinking and jargon, focusing on the software to be built instead of the customers' needs."
+        "excerpt": "Some developers have little patience with users. The developer-turned-analyst might need to learn more about the business domain and can easily lapse into technical thinking and jargon, focusing on the software to be built instead of the customers' needs.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -890,7 +1019,8 @@
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 11,
-        "excerpt": "Young recommends that the business analyst be an application domain expert or a SME. SMEs can determine, based on their experience, whether the requirements are reasonable and how they extend the existing system."
+        "excerpt": "Young recommends that the business analyst be an application domain expert or a SME. SMEs can determine, based on their experience, whether the requirements are reasonable and how they extend the existing system.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -904,13 +1034,20 @@
         "The expert will always lack domain knowledge, because expertise in the subject cannot help with requirements work.",
         "The expert may not fully represent ordinary users and may specify the system to suit a specialist's own preferences."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "Deep expertise can create bias toward the expert's own view instead of the needs of real users.",
       "reference": {
         "section": "Who can fill the role",
         "book": "Chapter 4 — The making of a business analyst",
         "page": 11,
-        "excerpt": "The business analyst who is a domain expert might specify the system's requirements to suit his own preferences, rather than addressing the legitimate needs of the various user classes. SMEs sometimes have difficulty imagining the to-be system and may overestimate what users need."
+        "excerpt": "The business analyst who is a domain expert might specify the system's requirements to suit his own preferences, rather than addressing the legitimate needs of the various user classes. SMEs sometimes have difficulty imagining the to-be system and may overestimate what users need.",
+        "lecture": "Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst."
       }
     },
     {
@@ -930,7 +1067,8 @@
         "section": "What the analyst does",
         "book": "Chapter 4 — The business analyst role",
         "page": 2,
-        "excerpt": "The business analyst is the individual who has the primary responsibility to elicit, analyze, document, and validate the needs of the project stakeholders. The analyst serves as the principal interpreter through which requirements flow between the customer community and the software development team."
+        "excerpt": "The business analyst is the individual who has the primary responsibility to elicit, analyze, document, and validate the needs of the project stakeholders. The analyst serves as the principal interpreter through which requirements flow between the customer community and the software development team.",
+        "lecture": "Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements."
       }
     }
   ]

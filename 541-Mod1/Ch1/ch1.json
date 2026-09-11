@@ -18,7 +18,8 @@
         "section": "Why requirements matter",
         "book": "Chapter 1 — The essential software requirement",
         "page": 4,
-        "excerpt": "Inadequate user input and shortcomings in specifying and managing customer requirements are major contributors to unsuccessful projects."
+        "excerpt": "Inadequate user input and shortcomings in specifying and managing customer requirements are major contributors to unsuccessful projects.",
+        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what self-requirements is and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
       }
     },
     {
@@ -38,7 +39,8 @@
         "section": "Why requirements matter",
         "book": "Chapter 1 — When bad requirements happen to good people",
         "page": 19,
-        "excerpt": "It can cost far more to correct a defect that's found late in the project than to fix it shortly after its creation."
+        "excerpt": "It can cost far more to correct a defect that's found late in the project than to fix it shortly after its creation.",
+        "lecture": "As you know once you have wrong requirements or not clear requirements or complete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher."
       }
     },
     {
@@ -50,7 +52,8 @@
         "section": "Why requirements matter",
         "book": "Chapter 1 — Every project has requirements",
         "page": 18,
-        "excerpt": "The hardest single part of building a software system is deciding precisely what to build. No other part of the work so cripples the resulting system if done wrong."
+        "excerpt": "The hardest single part of building a software system is deciding precisely what to build. No other part of the work so cripples the resulting system if done wrong.",
+        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what self-requirements is and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
       }
     },
     {
@@ -70,7 +73,8 @@
         "section": "Why requirements are hard",
         "book": "Chapter 1 — The essential software requirement",
         "page": 4,
-        "excerpt": "Nowhere more than in the requirements do the interests of all the stakeholders in a project intersect. These stakeholders include customers, users, business analysts, developers, and many others."
+        "excerpt": "Nowhere more than in the requirements do the interests of all the stakeholders in a project intersect. These stakeholders include customers, users, business analysts, developers, and many others.",
+        "lecture": "Then why is it so difficult to come up with a precise self-requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like."
       }
     },
     {
@@ -84,13 +88,20 @@
         "Casual changes are made to the requirements without being recorded or controlled through a defined change process.",
         "The project maintains a controlled requirements baseline so the agreed requirements and later changes stay visible."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The first five can cause requirements problems. Maintaining a controlled baseline is a good requirements management practice.",
       "reference": {
         "section": "Why requirements are hard",
         "book": "Chapter 1 — The essential software requirement",
         "page": 4,
-        "excerpt": "Common problem areas are informal information gathering, implied functionality, miscommunicated assumptions, poorly specified requirements, and a casual change process."
+        "excerpt": "Common problem areas are informal information gathering, implied functionality, miscommunicated assumptions, poorly specified requirements, and a casual change process.",
+        "lecture": "So once you have baseline, then there is change, whatever change to the baseline represents basically management. So marketing people, customers, management, and testing people, engineers, they want to change the requirements. So there is a requirement change process that will also need to be managed, and which should be reflected in your design and implementation."
       }
     },
     {
@@ -110,7 +121,8 @@
         "section": "What a requirement is",
         "book": "Chapter 1 — Software requirements defined",
         "page": 6,
-        "excerpt": "Requirements are a specification of what should be implemented. They are descriptions of how the system should behave, or of a system property or attribute."
+        "excerpt": "Requirements are a specification of what should be implemented. They are descriptions of how the system should behave, or of a system property or attribute.",
+        "lecture": "These are slide number 14, description of property or characteristics the system must exhibit or restriction constraints that it must respect. So for example, it's a quality attributes performance. So functionality-wise, it works, but you should say also performance-wise, say certain feature must respond to five seconds, 10 seconds, or you can say it should be available 24-7, and it should have certain security features."
       }
     },
     {
@@ -130,7 +142,8 @@
         "section": "What a requirement is",
         "book": "Chapter 1 — Software requirements defined",
         "page": 6,
-        "excerpt": "Something the system must do, a property it must possess, or a constraint it must follow."
+        "excerpt": "Something the system must do, a property it must possess, or a constraint it must follow.",
+        "lecture": "That's a more informal description. A more formal definition from IEEE glossary is, say, conditions or capabilities needed by a user to solve a problem, achieve an objective, or condition or capability that must be met by a software to satisfy a contract. So requirements represent the contract."
       }
     },
     {
@@ -150,7 +163,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 7,
-        "excerpt": "Functional requirement: A description of a behavior that a system will exhibit under specific conditions."
+        "excerpt": "Functional requirement: A description of a behavior that a system will exhibit under specific conditions.",
+        "lecture": "So these are three things that are also three levels, if you will, that will influence your functional requirements. Then how do you do then this requirement engineering we call? This requirement engineering is part of a bigger picture of software engineering. The requirement engineering deals with a development and management."
       }
     },
     {
@@ -170,7 +184,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 8,
-        "excerpt": "Functional requirements specify the behaviors the product will exhibit under specific conditions. They describe what the developers must implement to enable users to accomplish their tasks."
+        "excerpt": "Functional requirements specify the behaviors the product will exhibit under specific conditions. They describe what the developers must implement to enable users to accomplish their tasks.",
+        "lecture": "So these are three things that are also three levels, if you will, that will influence your functional requirements. Then how do you do then this requirement engineering we call? This requirement engineering is part of a bigger picture of software engineering. The requirement engineering deals with a development and management."
       }
     },
     {
@@ -190,7 +205,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 7,
-        "excerpt": "Nonfunctional requirement: A description of a property or characteristic that a system must exhibit or a constraint that it must respect."
+        "excerpt": "Nonfunctional requirement: A description of a property or characteristic that a system must exhibit or a constraint that it must respect.",
+        "lecture": "These are slide number 14, description of property or characteristics the system must exhibit or restriction constraints that it must respect. So for example, it's a quality attributes performance. So functionality-wise, it works, but you should say also performance-wise, say certain feature must respond to five seconds, 10 seconds, or you can say it should be available 24-7, and it should have certain security features."
       }
     },
     {
@@ -210,7 +226,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 7,
-        "excerpt": "Quality attribute: A kind of nonfunctional requirement that describes a service or performance characteristic of a product."
+        "excerpt": "Quality attribute: A kind of nonfunctional requirement that describes a service or performance characteristic of a product.",
+        "lecture": "These are slide number 14, description of property or characteristics the system must exhibit or restriction constraints that it must respect. So for example, it's a quality attributes performance. So functionality-wise, it works, but you should say also performance-wise, say certain feature must respond to five seconds, 10 seconds, or you can say it should be available 24-7, and it should have certain security features."
       }
     },
     {
@@ -224,13 +241,20 @@
         "Robustness is a quality attribute because it describes how well the product continues operating under adverse conditions.",
         "Project budget is a quality attribute because it describes how much money may be spent to build the product."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "Performance, availability, security, usability, and robustness are quality attributes. Project budget is not a software quality attribute.",
       "reference": {
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 10,
-        "excerpt": "Other-than-functional requirements might specify not what the system does, but rather how well it does those things. These include the system's availability, usability, security, performance, and many other characteristics."
+        "excerpt": "Other-than-functional requirements might specify not what the system does, but rather how well it does those things. These include the system's availability, usability, security, performance, and many other characteristics.",
+        "lecture": "These are slide number 14, description of property or characteristics the system must exhibit or restriction constraints that it must respect. So for example, it's a quality attributes performance. So functionality-wise, it works, but you should say also performance-wise, say certain feature must respond to five seconds, 10 seconds, or you can say it should be available 24-7, and it should have certain security features."
       }
     },
     {
@@ -250,7 +274,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 7,
-        "excerpt": "Constraint: A restriction that is imposed on the choices available to the developer for the design and construction of a product."
+        "excerpt": "Constraint: A restriction that is imposed on the choices available to the developer for the design and construction of a product.",
+        "lecture": "So if you do specify something, they should be implemented. That's another more, if you will, it's a more semi-formal definition of it. Or there must be a constraint to development to process system."
       }
     },
     {
@@ -264,13 +289,19 @@
         "Required system behavior should not go in the product SRS because behavior is decided only during coding.",
         "Required quality attributes should not go in the product SRS because qualities are outside the specification."
       ],
-      "answer": ["a", "b", "c", "d"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "explanation": "Requirements should focus primarily on what must be built rather than detailed design, implementation, project planning, or test procedures.",
       "reference": {
         "section": "The four requirement levels",
         "book": "Chapter 1 — Product vs. project requirements",
         "page": 14,
-        "excerpt": "An SRS houses the product requirements, but it should not include design or implementation details (other than known constraints), project plans, test plans, or similar information."
+        "excerpt": "An SRS houses the product requirements, but it should not include design or implementation details (other than known constraints), project plans, test plans, or similar information.",
+        "lecture": "So these are not really design issues, are not part of requirements. And typically, we don't include also planning here either, and also testing information. But we can get testing information, the requirements will be used later on for testing purposes, but not testing information."
       }
     },
     {
@@ -290,7 +321,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 8,
-        "excerpt": "Business requirements describe why the organization is implementing the system—the business benefits the organization hopes to achieve."
+        "excerpt": "Business requirements describe why the organization is implementing the system—the business benefits the organization hopes to achieve.",
+        "lecture": "Then you like to find out, so what are the needs from these user classes? Sometimes you don't deal with everybody in user class, but you want to have certain representatives representing the user class, and then from them, you like to find out what are the needs of these users, and you try to understand what are the tasks that they do, and what are the goals they would like to achieve, and also related business objectives. So during the elicitation phase, you're trying to prepare all the stakeholders in terms of classes, and understanding what their goals and tasks are, and what are the basically business objectives related to. So you're laying kind of foundation for the requirements."
       }
     },
     {
@@ -310,7 +342,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 8,
-        "excerpt": "Business requirements describe why the organization is implementing the system—the business benefits the organization hopes to achieve. The focus is on the business objectives of the organization or the customer who requests the system."
+        "excerpt": "Business requirements describe why the organization is implementing the system—the business benefits the organization hopes to achieve. The focus is on the business objectives of the organization or the customer who requests the system.",
+        "lecture": "Then you like to find out, so what are the needs from these user classes? Sometimes you don't deal with everybody in user class, but you want to have certain representatives representing the user class, and then from them, you like to find out what are the needs of these users, and you try to understand what are the tasks that they do, and what are the goals they would like to achieve, and also related business objectives. So during the elicitation phase, you're trying to prepare all the stakeholders in terms of classes, and understanding what their goals and tasks are, and what are the basically business objectives related to. So you're laying kind of foundation for the requirements."
       }
     },
     {
@@ -330,7 +363,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 9,
-        "excerpt": "User requirements describe goals or tasks the users must be able to perform with the product that will provide value to someone."
+        "excerpt": "User requirements describe goals or tasks the users must be able to perform with the product that will provide value to someone.",
+        "lecture": "You need to involve users. And also so-called creeping user requirements, and ambiguous user requirements. Ambiguous requirements always causes bad requirements, too."
       }
     },
     {
@@ -350,7 +384,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 7,
-        "excerpt": "Software requirements include three distinct levels: business requirements, user requirements, and functional requirements. In addition, every system has an assortment of nonfunctional requirements."
+        "excerpt": "Software requirements include three distinct levels: business requirements, user requirements, and functional requirements. In addition, every system has an assortment of nonfunctional requirements.",
+        "lecture": "And there are user requirements, there are people, users that you're using system that will influence also your requirements. Also, there are system requirements that is a other systems that if your system is part of the bigger systems, then the other system will require also from your system. So there are three things that will influence requirements, functional requirements, that is a business requirement, that is business wants a certain way after implementing this issue a certain way, and the user requirement, user wants certain functionalities, and also other systems will require from your certain things."
       }
     },
     {
@@ -362,7 +397,8 @@
         "section": "The four requirement levels",
         "book": "Chapter 1 — Levels and types of requirements",
         "page": 11,
-        "excerpt": "A feature consists of one or more logically related system capabilities that provide value to a user and are described by a set of functional requirements."
+        "excerpt": "A feature consists of one or more logically related system capabilities that provide value to a user and are described by a set of functional requirements.",
+        "lecture": "So these are three things that are also three levels, if you will, that will influence your functional requirements. Then how do you do then this requirement engineering we call? This requirement engineering is part of a bigger picture of software engineering. The requirement engineering deals with a development and management."
       }
     },
     {
@@ -382,7 +418,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Requirements development and management",
         "page": 15,
-        "excerpt": "We find it useful to split requirements engineering into requirements development and requirements management."
+        "excerpt": "We find it useful to split requirements engineering into requirements development and requirements management.",
+        "lecture": "What is status, current status, and change activities. So these are part of the management of requirements. So slide number 22 shows basically the boundary between requirements development and requirements management."
       }
     },
     {
@@ -402,7 +439,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Requirements development",
         "page": 16,
-        "excerpt": "We subdivide requirements development into elicitation, analysis, specification, and validation. These subdisciplines encompass all the activities involved with exploring, evaluating, documenting, and confirming the requirements for a product."
+        "excerpt": "We subdivide requirements development into elicitation, analysis, specification, and validation. These subdisciplines encompass all the activities involved with exploring, evaluating, documenting, and confirming the requirements for a product.",
+        "lecture": "What is status, current status, and change activities. So these are part of the management of requirements. So slide number 22 shows basically the boundary between requirements development and requirements management."
       }
     },
     {
@@ -422,7 +460,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Elicitation",
         "page": 16,
-        "excerpt": "Elicitation encompasses all of the activities involved with discovering requirements. Key actions include identifying the product's expected user classes and understanding user tasks and goals and the business objectives with which those tasks align."
+        "excerpt": "Elicitation encompasses all of the activities involved with discovering requirements. Key actions include identifying the product's expected user classes and understanding user tasks and goals and the business objectives with which those tasks align.",
+        "lecture": "Then you like to find out, so what are the needs from these user classes? Sometimes you don't deal with everybody in user class, but you want to have certain representatives representing the user class, and then from them, you like to find out what are the needs of these users, and you try to understand what are the tasks that they do, and what are the goals they would like to achieve, and also related business objectives. So during the elicitation phase, you're trying to prepare all the stakeholders in terms of classes, and understanding what their goals and tasks are, and what are the basically business objectives related to. So you're laying kind of foundation for the requirements."
       }
     },
     {
@@ -442,7 +481,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Analysis",
         "page": 16,
-        "excerpt": "Analyzing the information received from users to distinguish their task goals from functional requirements, quality expectations, business rules, suggested solutions, and other information."
+        "excerpt": "Analyzing the information received from users to distinguish their task goals from functional requirements, quality expectations, business rules, suggested solutions, and other information.",
+        "lecture": "So functional requirements that you need to implement into the functionality, again, non-functional requirements are those are basically in terms of quality attributes, or you want to say, okay, this is just information, you don't really need to implement. So you need to, from the conversation you have with stakeholders, you need to figure out what you need to implement the functionalities, what is in terms of these are quality attributes, what are the basic rules, what are suggestions you don't really need to implement, or you don't have to include really a part of your implementation. And you need to find out what are the top-level requirements to architectural components."
       }
     },
     {
@@ -462,7 +502,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Specification",
         "page": 17,
-        "excerpt": "Requirements specification involves representing and storing the collected requirements knowledge in a persistent and well-organized fashion. The principal activity is translating the collected user needs into written requirements and diagrams."
+        "excerpt": "Requirements specification involves representing and storing the collected requirements knowledge in a persistent and well-organized fashion. The principal activity is translating the collected user needs into written requirements and diagrams.",
+        "lecture": "And specification is basically writing whatever you do during the analysis in terms of using specific templates or using specific form, writing out and basically making note. That's which can be distributed to other people is specification. And the validation is basically whatever you've written in specification that will be validated through other users or through other engineers."
       }
     },
     {
@@ -482,7 +523,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Validation",
         "page": 17,
-        "excerpt": "Requirements validation confirms that you have the correct set of requirements information that will enable developers to build a solution that satisfies the business objectives. The central activities are reviewing the documented requirements to correct any problems before the development group accepts them."
+        "excerpt": "Requirements validation confirms that you have the correct set of requirements information that will enable developers to build a solution that satisfies the business objectives. The central activities are reviewing the documented requirements to correct any problems before the development group accepts them.",
+        "lecture": "Then you like to find out, so what are the needs from these user classes? Sometimes you don't deal with everybody in user class, but you want to have certain representatives representing the user class, and then from them, you like to find out what are the needs of these users, and you try to understand what are the tasks that they do, and what are the goals they would like to achieve, and also related business objectives. So during the elicitation phase, you're trying to prepare all the stakeholders in terms of classes, and understanding what their goals and tasks are, and what are the basically business objectives related to. So you're laying kind of foundation for the requirements."
       }
     },
     {
@@ -502,7 +544,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Requirements management",
         "page": 17,
-        "excerpt": "Defining the requirements baseline, a snapshot in time that represents an agreed-upon, reviewed, and approved set of functional and nonfunctional requirements, often for a specific product release or development iteration."
+        "excerpt": "Defining the requirements baseline, a snapshot in time that represents an agreed-upon, reviewed, and approved set of functional and nonfunctional requirements, often for a specific product release or development iteration.",
+        "lecture": "As you said, defining baseline is important. So what is that represent the agreement between your client and you or developer, which is current snapshot of the current agreement. And then there are changes, then you have to review the change proposals, evaluate impact before approval."
       }
     },
     {
@@ -516,13 +559,20 @@
         "Requirements management includes tracking requirement status and change activity throughout the life of the project.",
         "Requirements management includes automatically accepting every requested feature so no proposed change is ever refused."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "Requirements management controls and tracks the agreed requirements and their changes. Changes should be evaluated rather than automatically accepted.",
       "reference": {
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Requirements management",
         "page": 17,
-        "excerpt": "Requirements management activities include defining the requirements baseline, evaluating the impact of proposed changes, incorporating approved changes in a controlled way, tracing requirements to design, code, and tests, and tracking requirement status and change activity."
+        "excerpt": "Requirements management activities include defining the requirements baseline, evaluating the impact of proposed changes, incorporating approved changes in a controlled way, tracing requirements to design, code, and tests, and tracking requirement status and change activity.",
+        "lecture": "What is status, current status, and change activities. So these are part of the management of requirements. So slide number 22 shows basically the boundary between requirements development and requirements management."
       }
     },
     {
@@ -542,7 +592,8 @@
         "section": "Requirements engineering breakdown",
         "book": "Chapter 1 — Requirements management",
         "page": 17,
-        "excerpt": "Evaluating the impact of proposed requirements changes and incorporating approved changes into the project in a controlled way."
+        "excerpt": "Evaluating the impact of proposed requirements changes and incorporating approved changes into the project in a controlled way.",
+        "lecture": "So evaluation of the changes and incorporating changes in controlled way, and keeping project plan current, and negotiating new commitments. So you have to come out with, so if you do like to make change, how much it's going to cost, and what's timeline look like. So then also tracing the individual requirement to design and code."
       }
     },
     {
@@ -562,7 +613,8 @@
         "section": "Problems caused by bad requirements",
         "book": "Chapter 1 — Gold plating",
         "page": 21,
-        "excerpt": "Gold plating takes place when a developer adds functionality that wasn't in the requirements specification but which the developer believes the users are just going to love."
+        "excerpt": "Gold plating takes place when a developer adds functionality that wasn't in the requirements specification but which the developer believes the users are just going to love.",
+        "lecture": "And also gold plating. That is things that are really not necessary, but include any way to impress the users or your customers. Minimal specification."
       }
     },
     {
@@ -576,13 +628,20 @@
         "Requirements automatically become easier to verify because ambiguity gives testers more freedom in judging pass or fail.",
         "Stakeholders may be surprised by the delivered system because it matches a different reading than they expected."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "Ambiguity creates multiple interpretations and mismatched expectations, which often lead to rework and wasted effort.",
       "reference": {
         "section": "Problems caused by bad requirements",
         "book": "Chapter 1 — Ambiguous requirements",
         "page": 21,
-        "excerpt": "Ambiguity leads to different expectations on the part of various stakeholders. Some of them are then surprised at whatever is delivered."
+        "excerpt": "Ambiguity leads to different expectations on the part of various stakeholders. Some of them are then surprised at whatever is delivered.",
+        "lecture": "You need to involve users. And also so-called creeping user requirements, and ambiguous user requirements. Ambiguous requirements always causes bad requirements, too."
       }
     },
     {
@@ -602,7 +661,8 @@
         "section": "Traits of a strong requirement",
         "book": "Chapter 1 — Software requirements defined",
         "page": 6,
-        "excerpt": "A strong requirement is complete, correct, feasible, necessary, prioritized, unambiguous, and verifiable."
+        "excerpt": "A strong requirement is complete, correct, feasible, necessary, prioritized, unambiguous, and verifiable.",
+        "lecture": "So then slide number 29, 30, 31, talks about what are the excellent requirements. So what are the attributes of excellent requirements? Complete, so no missing details, always correct. Feasible."
       }
     }
   ]

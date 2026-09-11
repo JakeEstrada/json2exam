@@ -18,7 +18,8 @@
         "section": "The process is not linear",
         "book": "Chapter 3 — A requirements development process framework",
         "page": 4,
-        "excerpt": "Requirements development involves elicitation, analysis, specification, and validation. These activities are interwoven, incremental, and iterative rather than a one-pass sequence."
+        "excerpt": "Requirements development involves elicitation, analysis, specification, and validation. These activities are interwoven, incremental, and iterative rather than a one-pass sequence.",
+        "lecture": "Then furthermore, the requirement development itself consists of four steps. There is elicitation, analysis, specification, and also validation. Initially, slide 2 shows that these four steps are not what are four steps that is you have to completely done before you move on to the next step."
       }
     },
     {
@@ -30,7 +31,8 @@
         "section": "The process is not linear",
         "book": "Chapter 3 — A requirements development process framework",
         "page": 4,
-        "excerpt": "Do not expect to perform elicitation, analysis, specification, and validation in a simple linear, one-pass sequence. In practice these activities are interwoven, incremental, and iterative."
+        "excerpt": "Do not expect to perform elicitation, analysis, specification, and validation in a simple linear, one-pass sequence. In practice these activities are interwoven, incremental, and iterative.",
+        "lecture": "Then furthermore, the requirement development itself consists of four steps. There is elicitation, analysis, specification, and also validation. Initially, slide 2 shows that these four steps are not what are four steps that is you have to completely done before you move on to the next step."
       }
     },
     {
@@ -50,7 +52,8 @@
         "section": "The process is not linear",
         "book": "Chapter 3 — A requirements development process framework",
         "page": 4,
-        "excerpt": "You might analyze something, realize information is missing, go back to elicitation, rewrite the specification, and validate again. Progressive refinement of detail continues throughout requirements development."
+        "excerpt": "You might analyze something, realize information is missing, go back to elicitation, rewrite the specification, and validate again. Progressive refinement of detail continues throughout requirements development.",
+        "lecture": "Finally, slides 19 and 20 show the summaries of activities that take place during each phase of requirements development. And also more detailed steps that take place during the order of steps that are taking place during requirements development. So that's Chapter 3. Chapter 3 is really important to understand because we talked about activities associated with each phase or each steps of development and maintenance."
       }
     },
     {
@@ -70,7 +73,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "Define the requirements development process so the team knows the steps and activities it will use before it begins discovering what people actually need."
+        "excerpt": "Define the requirements development process so the team knows the steps and activities it will use before it begins discovering what people actually need.",
+        "lecture": "Finally, slides 19 and 20 show the summaries of activities that take place during each phase of requirements development. And also more detailed steps that take place during the order of steps that are taking place during requirements development. So that's Chapter 3. Chapter 3 is really important to understand because we talked about activities associated with each phase or each steps of development and maintenance."
       }
     },
     {
@@ -90,7 +94,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "The vision and scope document contains the product's business requirements. The vision gives stakeholders a common understanding of the outcome, and the scope defines what is in and what is out."
+        "excerpt": "The vision and scope document contains the product's business requirements. The vision gives stakeholders a common understanding of the outcome, and the scope defines what is in and what is out.",
+        "lecture": "Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions."
       }
     },
     {
@@ -104,13 +109,21 @@
         "The knowledge and skill levels that different groups of people bring to using the product",
         "The location and attitude of different groups of people who will use or depend on the product"
       ],
-      "answer": ["a", "b", "c", "d", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
       "explanation": "The slides list all of these as useful characteristics for identifying different user classes.",
       "reference": {
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "User groups might differ in frequency of use, features used, privilege levels, or experience. Describe aspects of their job tasks, attitudes, location, or personal characteristics that might influence product design."
+        "excerpt": "User groups might differ in frequency of use, features used, privilege levels, or experience. Describe aspects of their job tasks, attitudes, location, or personal characteristics that might influence product design.",
+        "lecture": "Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions."
       }
     },
     {
@@ -130,7 +143,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "To avoid overlooking the needs of any user community, identify the various groups of users for your product. Different classes can have different roles, goals, skills, and usage patterns."
+        "excerpt": "To avoid overlooking the needs of any user community, identify the various groups of users for your product. Different classes can have different roles, goals, skills, and usage patterns.",
+        "lecture": "Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions."
       }
     },
     {
@@ -150,7 +164,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "Identify an individual who can accurately serve as the voice of the customer for each user class. The product champion presents the needs of that class and makes decisions on its behalf."
+        "excerpt": "Identify an individual who can accurately serve as the voice of the customer for each user class. The product champion presents the needs of that class and makes decisions on its behalf.",
+        "lecture": "And the product champions are basically people who represent each user class and speak for them. And identifying the focus group from these user classes. And identifying the use cases."
       }
     },
     {
@@ -162,7 +177,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "A product champion represents a user class over a longer period and generally makes a long-term commitment to the project, unlike a short-term focus group."
+        "excerpt": "A product champion represents a user class over a longer period and generally makes a long-term commitment to the project, unlike a short-term focus group.",
+        "lecture": "And the product champions are basically people who represent each user class and speak for them. And identifying the focus group from these user classes. And identifying the use cases."
       }
     },
     {
@@ -182,7 +198,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "Focus groups collect input on functionality and quality characteristics. Unlike product champions, focus groups generally do not have decision-making authority and usually have a shorter-term commitment."
+        "excerpt": "Focus groups collect input on functionality and quality characteristics. Unlike product champions, focus groups generally do not have decision-making authority and usually have a shorter-term commitment.",
+        "lecture": "And the product champions are basically people who represent each user class and speak for them. And identifying the focus group from these user classes. And identifying the use cases."
       }
     },
     {
@@ -202,7 +219,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 6,
-        "excerpt": "Explore with user representatives the tasks they need to accomplish and the value they are trying to achieve. User requirements can be expressed as use cases, user stories, or scenarios that describe user-system interactions."
+        "excerpt": "Explore with user representatives the tasks they need to accomplish and the value they are trying to achieve. User requirements can be expressed as use cases, user stories, or scenarios that describe user-system interactions.",
+        "lecture": "And the product champions are basically people who represent each user class and speak for them. And identifying the focus group from these user classes. And identifying the use cases."
       }
     },
     {
@@ -216,13 +234,20 @@
         "Business events such as inventory changes that require the system to update stored data or react",
         "Internal team activities such as status meetings, which are not stimuli the system itself handles"
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The slides identify external signals and data, temporal events, and business events such as customer calls or inventory changes.",
       "reference": {
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "List the external events the system can experience and its expected response to each event. Event classes include signal events, temporal events, and business events such as customer calls or inventory changes."
+        "excerpt": "List the external events the system can experience and its expected response to each event. Event classes include signal events, temporal events, and business events such as customer calls or inventory changes.",
+        "lecture": "So these are features of this product that need to be shown. And identify the system events and responses. And that is how the product behaves based on the stimuli that you exercise on this product."
       }
     },
     {
@@ -242,7 +267,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "Identifying system events and responses shows how the product should behave based on the stimuli exercised on it. That expected reaction is the required behavior of the product."
+        "excerpt": "Identifying system events and responses shows how the product should behave based on the stimuli exercised on it. That expected reaction is the required behavior of the product.",
+        "lecture": "So these are features of this product that need to be shown. And identify the system events and responses. And that is how the product behaves based on the stimuli that you exercise on this product."
       }
     },
     {
@@ -262,7 +288,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "Facilitated requirements-elicitation workshops that permit collaboration between analysts and customers are a powerful way to explore user needs and to draft requirements documents."
+        "excerpt": "Facilitated requirements-elicitation workshops that permit collaboration between analysts and customers are a powerful way to explore user needs and to draft requirements documents.",
+        "lecture": "Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions."
       }
     },
     {
@@ -274,7 +301,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "Watching users perform their business tasks establishes a context for their potential use of a new application and can reveal current tasks, workflows, and data flows."
+        "excerpt": "Watching users perform their business tasks establishes a context for their potential use of a new application and can reveal current tasks, workflows, and data flows.",
+        "lecture": "So these are activities associated with elicitation. And slides 9 to 10 show the activities associated with the analysis of information collected during the elicitation phase. For example, drawing the context diagram."
       }
     },
     {
@@ -294,7 +322,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "Observing users performing their jobs helps analysts understand the context for a new system. Simple process-flow descriptions can depict the steps, decisions, and data movement in the current work."
+        "excerpt": "Observing users performing their jobs helps analysts understand the context for a new system. Simple process-flow descriptions can depict the steps, decisions, and data movement in the current work.",
+        "lecture": "So these are activities associated with elicitation. And slides 9 to 10 show the activities associated with the analysis of information collected during the elicitation phase. For example, drawing the context diagram."
       }
     },
     {
@@ -314,7 +343,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "Problem reports and enhancement requests from users provide a rich source of ideas for capabilities to include in a later release or in a new product."
+        "excerpt": "Problem reports and enhancement requests from users provide a rich source of ideas for capabilities to include in a later release or in a new product.",
+        "lecture": "So these are activities associated with elicitation. And slides 9 to 10 show the activities associated with the analysis of information collected during the elicitation phase. For example, drawing the context diagram."
       }
     },
     {
@@ -334,7 +364,8 @@
         "section": "Elicitation",
         "book": "Chapter 3 — Requirements elicitation",
         "page": 7,
-        "excerpt": "If customers request functionality similar to that already present in an existing product, see whether the requirements are flexible enough to permit reusing or adapting applicable requirements from previous projects or products."
+        "excerpt": "If customers request functionality similar to that already present in an existing product, see whether the requirements are flexible enough to permit reusing or adapting applicable requirements from previous projects or products.",
+        "lecture": "Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions."
       }
     },
     {
@@ -354,7 +385,8 @@
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 8,
-        "excerpt": "The context diagram is a simple analysis model that shows how the new system fits into its environment. It defines the boundaries and interfaces between the system and external entities such as users, devices, and other systems."
+        "excerpt": "The context diagram is a simple analysis model that shows how the new system fits into its environment. It defines the boundaries and interfaces between the system and external entities such as users, devices, and other systems.",
+        "lecture": "So these are activities associated with elicitation. And slides 9 to 10 show the activities associated with the analysis of information collected during the elicitation phase. For example, drawing the context diagram."
       }
     },
     {
@@ -366,7 +398,8 @@
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 8,
-        "excerpt": "Construct a prototype to make concepts and possibilities more tangible. Prototypes let users react to something they can see and help developers and users reach a mutual understanding of the problem."
+        "excerpt": "Construct a prototype to make concepts and possibilities more tangible. Prototypes let users react to something they can see and help developers and users reach a mutual understanding of the problem.",
+        "lecture": "So if possible, also create prototypes to show mostly the interface. How user reacts to or interface the product. And explore the feasibility of the potential problem areas."
       }
     },
     {
@@ -386,7 +419,8 @@
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 8,
-        "excerpt": "Technical prototypes explore the feasibility of potential technical problem areas. They help determine whether difficult or uncertain aspects of a proposed solution can be implemented at acceptable cost and performance."
+        "excerpt": "Technical prototypes explore the feasibility of potential technical problem areas. They help determine whether difficult or uncertain aspects of a proposed solution can be implemented at acceptable cost and performance.",
+        "lecture": "So if possible, also create prototypes to show mostly the interface. How user reacts to or interface the product. And explore the feasibility of the potential problem areas."
       }
     },
     {
@@ -406,7 +440,8 @@
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 8,
-        "excerpt": "Prioritize requirements so the team implements the highest-value or most timely functionality first. Adjust priorities as new requirements are proposed and as customer needs, market conditions, and business goals evolve."
+        "excerpt": "Prioritize requirements so the team implements the highest-value or most timely functionality first. Adjust priorities as new requirements are proposed and as customer needs, market conditions, and business goals evolve.",
+        "lecture": "And need to perform the impact analysis. That is, if you make changes, what kind of other parts of the system are affected? So you need to make impact analysis to decide whether the change should take place or not. And also determine the baseline for the next version."
       }
     },
     {
@@ -420,13 +455,20 @@
         "Unclear relationships among requirements that textual descriptions alone may leave hidden",
         "Problems that remain hidden in natural-language descriptions until a more rigorous model is built"
       ],
-      "answer": ["a", "b", "c", "e", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "e",
+        "f"
+      ],
       "explanation": "Abstract and rigorous models can expose incompleteness, inconsistency, conflicts, and unclear relationships.",
       "reference": {
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 9,
-        "excerpt": "An analysis model depicts requirements visually. Models can reveal incorrect, inconsistent, missing, and conflicting requirements, as well as problems that stay hidden in natural-language descriptions."
+        "excerpt": "An analysis model depicts requirements visually. Models can reveal incorrect, inconsistent, missing, and conflicting requirements, as well as problems that stay hidden in natural-language descriptions.",
+        "lecture": "And also during the analysis phase, also the requirements are prioritized. And also the model requirements model. That is we can use different modeling techniques to analyze the requirements."
       }
     },
     {
@@ -438,7 +480,8 @@
         "section": "Analysis",
         "book": "Chapter 3 — Requirements analysis",
         "page": 9,
-        "excerpt": "All software systems have connections to other parts of the world through external interfaces. Analysis includes identifying those interfaces and allocating requirements that affect other subsystems."
+        "excerpt": "All software systems have connections to other parts of the world through external interfaces. Analysis includes identifying those interfaces and allocating requirements that affect other subsystems.",
+        "lecture": "And need to perform the impact analysis. That is, if you make changes, what kind of other parts of the system are affected? So you need to make impact analysis to decide whether the change should take place or not. And also determine the baseline for the next version."
       }
     },
     {
@@ -458,7 +501,8 @@
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "The essence of requirements specification is to document requirements of different types in a consistent, accessible, and reviewable way that the intended audiences can readily understand."
+        "excerpt": "The essence of requirements specification is to document requirements of different types in a consistent, accessible, and reviewable way that the intended audiences can readily understand.",
+        "lecture": "And the third step is specification. That is documenting the analyzed information."
       }
     },
     {
@@ -478,7 +522,8 @@
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "Adopt standard templates for documenting requirements, including an SRS template. The course materials specifically mention an IEEE 830-style software requirements specification template."
+        "excerpt": "Adopt standard templates for documenting requirements, including an SRS template. The course materials specifically mention an IEEE 830-style software requirements specification template.",
+        "lecture": "In this case, we could use SRS template, which is such as IEEE 830, which you'll be using in our project too. The last step of development is the validation, which is typically done using so-called inspection. So there are different levels of inspection that the most important, the most rigorous one is so-called formal inspection."
       }
     },
     {
@@ -498,7 +543,8 @@
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "To ensure that stakeholders know why every requirement is needed, trace each one back to its origin. Recording the source lets analysts return to the originator when clarification is needed."
+        "excerpt": "To ensure that stakeholders know why every requirement is needed, trace each one back to its origin. Recording the source lets analysts return to the originator when clarification is needed.",
+        "lecture": "And the third step is specification. That is documenting the analyzed information."
       }
     },
     {
@@ -518,7 +564,8 @@
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "Give each requirement a unique identifying label. Labeling permits requirements traceability, referencing, and the recording of changes made to individual requirements."
+        "excerpt": "Give each requirement a unique identifying label. Labeling permits requirements traceability, referencing, and the recording of changes made to individual requirements.",
+        "lecture": "That is, what is the change rate? What are the reasons for change? So how often did the changes take place? Why is that occurring? So you need to keep track of those too to make sure that those things don't happen again if that causes some problem. And using the tools is important. So what kind of tool you're going to use and identifying those tools and using those tools."
       }
     },
     {
@@ -538,7 +585,8 @@
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "Document business rules separately from a project's requirements because they typically have an existence beyond the scope of a specific project. Treat them as an enterprise-level asset, not only a project-level asset."
+        "excerpt": "Document business rules separately from a project's requirements because they typically have an existence beyond the scope of a specific project. Treat them as an enterprise-level asset, not only a project-level asset.",
+        "lecture": "And the third step is specification. That is documenting the analyzed information."
       }
     },
     {
@@ -552,13 +600,20 @@
         "Usability characteristics that describe how readily intended users can learn and operate the product",
         "Project staffing levels, which are resource concerns rather than specified product quality attributes"
       ],
-      "answer": ["a", "b", "c", "d", "e"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "explanation": "The slides list performance, efficiency, reliability, robustness, and usability as important quality attributes.",
       "reference": {
         "section": "Specification",
         "book": "Chapter 3 — Requirements specification",
         "page": 10,
-        "excerpt": "Go beyond functionality to specify quality characteristics that matter for success, including performance, efficiency, reliability, robustness, and usability."
+        "excerpt": "Go beyond functionality to specify quality characteristics that matter for success, including performance, efficiency, reliability, robustness, and usability.",
+        "lecture": "Has it been approved? Proposed, approved, or implemented, or verified? So the proposed request can be either one of these four. So tracking that also is important where it is right now. And also some quantitative measures should be taken in terms of change quality of the changes."
       }
     },
     {
@@ -578,7 +633,8 @@
         "section": "Validation",
         "book": "Chapter 3 — Requirements validation",
         "page": 11,
-        "excerpt": "Validation asks whether the right requirements were documented. Practices include formal inspections, informal reviews, and other examinations of the requirements documents."
+        "excerpt": "Validation asks whether the right requirements were documented. Practices include formal inspections, informal reviews, and other examinations of the requirements documents.",
+        "lecture": "In this case, we could use SRS template, which is such as IEEE 830, which you'll be using in our project too. The last step of development is the validation, which is typically done using so-called inspection. So there are different levels of inspection that the most important, the most rigorous one is so-called formal inspection."
       }
     },
     {
@@ -598,7 +654,8 @@
         "section": "Validation",
         "book": "Chapter 3 — Requirements validation",
         "page": 11,
-        "excerpt": "Peer review of requirements, particularly the rigorous review called inspection, assembles reviewers who represent different perspectives and carefully examine the written requirements for defects."
+        "excerpt": "Peer review of requirements, particularly the rigorous review called inspection, assembles reviewers who represent different perspectives and carefully examine the written requirements for defects.",
+        "lecture": "In this case, we could use SRS template, which is such as IEEE 830, which you'll be using in our project too. The last step of development is the validation, which is typically done using so-called inspection. So there are different levels of inspection that the most important, the most rigorous one is so-called formal inspection."
       }
     },
     {
@@ -612,13 +669,19 @@
         "Select the implementation language, which is a design decision rather than a requirements validation activity",
         "Delete the requirements baseline so that test cases can replace the written specification entirely"
       ],
-      "answer": ["a", "b", "c", "d"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "explanation": "The slides connect test cases to expected behavior, customer review, traceability, and acceptance criteria.",
       "reference": {
         "section": "Validation",
         "book": "Chapter 3 — Requirements validation",
         "page": 11,
-        "excerpt": "Derive tests from the user requirements to document expected behavior, walk through those tests with customers, map tests to the specification, and define acceptance criteria for fitness for use."
+        "excerpt": "Derive tests from the user requirements to document expected behavior, walk through those tests with customers, map tests to the specification, and define acceptance criteria for fitness for use.",
+        "lecture": "So probably we're going to talk about later. Also during the verification phase, you can also define, identify the test cases, which you basically use later on to validate once the system has been created and implemented. Slide 15 through 18 deal with the management requirements, once the requirements have been developed."
       }
     },
     {
@@ -638,7 +701,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Requirements management encompasses practices that help you deal with requirements after you have them in hand, including version control, baselining, change control, status tracking, and tracing requirements to other system elements."
+        "excerpt": "Requirements management encompasses practices that help you deal with requirements after you have them in hand, including version control, baselining, change control, status tracking, and tracing requirements to other system elements.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -658,7 +722,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Establish a mechanism so requirements changes are proposed, analyzed, and resolved. Manage all proposed changes through this process rather than hoping changes will not happen."
+        "excerpt": "Establish a mechanism so requirements changes are proposed, analyzed, and resolved. Manage all proposed changes through this process rather than hoping changes will not happen.",
+        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB change, control a small number of people who will decide which changes should take place, what are not."
       }
     },
     {
@@ -678,7 +743,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Charter a small group of project stakeholders as a change control board to evaluate proposed requirements changes, decide which ones to accept, and set implementation priorities or target releases."
+        "excerpt": "Charter a small group of project stakeholders as a change control board to evaluate proposed requirements changes, decide which ones to accept, and set implementation priorities or target releases.",
+        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB change, control a small number of people who will decide which changes should take place, what are not."
       }
     },
     {
@@ -692,13 +758,20 @@
         "Only whether the customer likes the idea, without evaluating effort, cost, scope, or related artifacts",
         "Potential effects on related system elements that traceability links show may also need modification"
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "Impact analysis looks at the scope of the proposed change, related artifacts, effort, cost, and broader effects.",
       "reference": {
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Evaluate each proposed requirement change to assess its effect on the project, including related artifacts, the effort and cost required, the scope of the change, and potential effects on related system elements."
+        "excerpt": "Evaluate each proposed requirement change to assess its effect on the project, including related artifacts, the effort and cost required, the scope of the change, and potential effects on related system elements.",
+        "lecture": "And need to perform the impact analysis. That is, if you make changes, what kind of other parts of the system are affected? So you need to make impact analysis to decide whether the change should take place or not. And also determine the baseline for the next version."
       }
     },
     {
@@ -718,7 +791,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "A baseline defines an agreed-upon set of requirements, typically for a specific release. Unique version identifiers help avoid confusion between drafts and baselines and between previous and current versions."
+        "excerpt": "A baseline defines an agreed-upon set of requirements, typically for a specific release. Unique version identifiers help avoid confusion between drafts and baselines and between previous and current versions.",
+        "lecture": "So if you make changes, what does the next version look like? And what kind of version control system are you going to use? And maintain the change history. And also track the change status. That is, what is the change request? What is that at this point? So it can be one of these four."
       }
     },
     {
@@ -738,7 +812,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Retain a history of changes made to individual requirements. Record the dates that requirements were changed, the changes that were made, who made each change, and why."
+        "excerpt": "Retain a history of changes made to individual requirements. Record the dates that requirements were changed, the changes that were made, who made each change, and why.",
+        "lecture": "So if you make changes, what does the next version look like? And what kind of version control system are you going to use? And maintain the change history. And also track the change status. That is, what is the change request? What is that at this point? So it can be one of these four."
       }
     },
     {
@@ -758,7 +833,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Track the status of each requirement, including states such as proposed, approved, implemented, or verified, so you can monitor how each change request is moving through development."
+        "excerpt": "Track the status of each requirement, including states such as proposed, approved, implemented, or verified, so you can monitor how each change request is moving through development.",
+        "lecture": "Has it been approved? Proposed, approved, or implemented, or verified? So the proposed request can be either one of these four. So tracking that also is important where it is right now. And also some quantitative measures should be taken in terms of change quality of the changes."
       }
     },
     {
@@ -778,7 +854,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Requirements management includes measuring requirements volatility, the rate at which requirements are changing, along with the reasons those changes are occurring."
+        "excerpt": "Requirements management includes measuring requirements volatility, the rate at which requirements are changing, along with the reasons those changes are occurring.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -792,13 +869,20 @@
         "Guaranteed project success, which high volatility does not indicate and often works against",
         "Possible instability in the requirements process that allows uncontrolled change to continue"
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "The slides mention poor understanding, weak scope definition, business dynamics, and politics as possible causes of high volatility.",
       "reference": {
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "High change rates can indicate poor understanding of the requirements, an ill-defined project scope, changing business conditions, organizational or political issues, or instability in the requirements process."
+        "excerpt": "High change rates can indicate poor understanding of the requirements, an ill-defined project scope, changing business conditions, organizational or political issues, or instability in the requirements process.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -818,7 +902,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Commercial requirements management tools store requirements in a database and help implement and automate tracking, versioning, change history, and traceability tasks, reducing repetitive manual work."
+        "excerpt": "Commercial requirements management tools store requirements in a database and help implement and automate tracking, versioning, change history, and traceability tasks, reducing repetitive manual work.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -838,7 +923,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "A requirements traceability matrix is a set of links that connect each functional requirement to the design and code elements that implement it and the tests that verify it."
+        "excerpt": "A requirements traceability matrix is a set of links that connect each functional requirement to the design and code elements that implement it and the tests that verify it.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -852,13 +938,20 @@
         "Guarantee that the delivered product will have zero defects, which no matrix can actually ensure",
         "Show how requirements flow through design, implementation, and test so gaps can be found"
       ],
-      "answer": ["a", "b", "c", "d", "f"],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
       "explanation": "Traceability helps ensure required work is implemented and prevents functionality with no requirement justification from being added.",
       "reference": {
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "A traceability matrix helps confirm that required functionality is implemented and verified, supports tracking through development, and helps stop developers from adding unauthorized features."
+        "excerpt": "A traceability matrix helps confirm that required functionality is implemented and verified, supports tracking through development, and helps stop developers from adding unauthorized features.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -878,7 +971,8 @@
         "section": "Requirements Management",
         "book": "Chapter 3 — Requirements management",
         "page": 12,
-        "excerpt": "Traceability keeps requirements from being forgotten and stops developers from adding unauthorized features. A feature that cannot be traced to an approved requirement is extraneous."
+        "excerpt": "Traceability keeps requirements from being forgotten and stops developers from adding unauthorized features. A feature that cannot be traced to an approved requirement is extraneous.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     },
     {
@@ -898,7 +992,8 @@
         "section": "The process is not linear",
         "book": "Chapter 3 — A requirements development process framework",
         "page": 4,
-        "excerpt": "Requirements development is iterative through elicitation, analysis, specification, and validation. Requirements management then deals with those requirements after you have them, using change control and tracing."
+        "excerpt": "Requirements development is iterative through elicitation, analysis, specification, and validation. Requirements management then deals with those requirements after you have them, using change control and tracing.",
+        "lecture": "Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management."
       }
     }
   ]

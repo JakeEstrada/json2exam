@@ -188,10 +188,11 @@ function readReference(raw) {
   const section = String(firstDefined(refRaw.section, refRaw.notes, refRaw.heading, '')).trim();
   const book = String(firstDefined(refRaw.book, refRaw.title, '')).trim();
   const excerpt = String(firstDefined(refRaw.excerpt, refRaw.quote, '')).trim();
+  const lecture = String(firstDefined(refRaw.lecture, refRaw.transcript, '')).trim();
   const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
   const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
-  if (!section && !book && !excerpt && !page) return null;
-  return { section, book, excerpt, page };
+  if (!section && !book && !excerpt && !page && !lecture) return null;
+  return { section, book, excerpt, page, lecture };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {
