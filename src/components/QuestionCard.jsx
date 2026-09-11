@@ -1,7 +1,7 @@
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -51,7 +51,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} onOpen={onOpenReference} />
+      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} />
     </div>
   );
 }
@@ -73,9 +73,11 @@ function Verdict({ q, correct }) {
   );
 }
 
-function QuestionSource({ q, onOpen }) {
+function QuestionSource({ q, onOpen, hasLecture }) {
   const ref = q && q.reference;
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture)) return null;
+  const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
+  const canLecture = hasLecture || !!(ref && ref.lecture);
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture)) return null;
   return (
     <div className="q-source">
       <p className="q-source-label">Chapter reference</p>
@@ -88,8 +90,8 @@ function QuestionSource({ q, onOpen }) {
             Show in chapter notes
           </button>
         )}
-        {ref.lecture && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ lecture: ref.lecture })}>
+        {canLecture && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ lecture: lectureQuote })}>
             Show in lecture
           </button>
         )}

@@ -419,6 +419,7 @@ export default function App() {
               onToggle={toggle}
               onCheck={() => check(picked)}
               onOpenReference={openReference}
+              hasLecture={!!quiz.lecture}
             />
           )}
 
