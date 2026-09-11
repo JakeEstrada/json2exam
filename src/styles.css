@@ -768,6 +768,51 @@
     margin: 0 0 6px;
   }
 
+  .q-source {
+    margin: 18px 0 0;
+    padding: 12px 14px 14px;
+    border: 1px solid var(--card-edge);
+    border-radius: 8px;
+    background: var(--accent-soft);
+  }
+  .q-source-label {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .q-source-book,
+  .q-source-notes {
+    margin: 0 0 4px;
+    font-size: 14px;
+  }
+  .q-source-excerpt {
+    margin: 8px 0;
+    padding: 0 0 0 12px;
+    border-left: 3px solid var(--accent);
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .q-source-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-top: 8px;
+  }
+  .md-preview h1.is-focus,
+  .md-preview h2.is-focus,
+  .md-preview h3.is-focus {
+    background: var(--accent-soft);
+    scroll-margin-top: 8px;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+
   .q-text {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 20px;

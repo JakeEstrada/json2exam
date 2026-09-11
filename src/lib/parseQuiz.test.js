@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeQuiz } from './parseQuiz.js';
+import { headingId, normalizeQuiz } from './parseQuiz.js';
 
 const one = (raw) => normalizeQuiz([raw], 't').questions[0];
 
@@ -76,6 +76,28 @@ test('loads the Chapter 1 bank with nothing skipped', async () => {
   assert.equal(bank.skipped.length, 0);
 });
 
+test('headingId strips quotes and punctuation', () => {
+  assert.equal(headingId('Who counts as a "customer"'), 'who-counts-as-a-customer');
+});
+
+test('preserves a chapter reference on a question', () => {
+  const q = one({
+    question: 'Who is a customer?',
+    options: ['Only the end user of the product', 'Anyone who benefits from the product'],
+    answer: 'b',
+    reference: {
+      section: 'Who counts as a "customer"',
+      book: 'Chapter 2 — Customers and stakeholders',
+      page: 4,
+      excerpt: 'A customer derives direct or indirect benefit from a product.',
+    },
+  });
+  assert.equal(q.reference.section, 'Who counts as a "customer"');
+  assert.equal(q.reference.book, 'Chapter 2 — Customers and stakeholders');
+  assert.equal(q.reference.page, 4);
+  assert.match(q.reference.excerpt, /benefit/);
+});
+
 test('loads every Module 1 bank with nothing skipped', async () => {
   const { readFile } = await import('node:fs/promises');
   const { fileURLToPath } = await import('node:url');
@@ -93,5 +115,10 @@ test('loads every Module 1 bank with nothing skipped', async () => {
     const bank = normalizeQuiz(deck);
     assert.equal(bank.questions.length, count, rel);
     assert.equal(bank.skipped.length, 0, rel);
+    for (const q of bank.questions) {
+      assert.ok(q.reference && q.reference.section, rel + ' missing notes section');
+      assert.ok(q.reference.page >= 1, rel + ' missing book page');
+      assert.ok(q.reference.excerpt, rel + ' missing excerpt');
+    }
   }
 });

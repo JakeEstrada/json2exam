@@ -169,8 +169,29 @@ export function normalizeQuestion(raw, i) {
       options: clean,
       answers: indices,
       explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
+      reference: readReference(raw),
     },
   };
+}
+
+export function headingId(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/['’"“”]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function readReference(raw) {
+  const refRaw = firstDefined(raw.reference, raw.ref, raw.source);
+  if (!refRaw || typeof refRaw !== 'object' || Array.isArray(refRaw)) return null;
+  const section = String(firstDefined(refRaw.section, refRaw.notes, refRaw.heading, '')).trim();
+  const book = String(firstDefined(refRaw.book, refRaw.title, '')).trim();
+  const excerpt = String(firstDefined(refRaw.excerpt, refRaw.quote, '')).trim();
+  const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
+  const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
+  if (!section && !book && !excerpt && !page) return null;
+  return { section, book, excerpt, page };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {

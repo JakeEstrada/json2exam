@@ -50,6 +50,7 @@ export default function App() {
   const lastIdRef = useRef(null);
 
   const [saved, setSaved] = useState(() => sessionView(loadSession()));
+  const [studyFocus, setStudyFocus] = useState(null);
 
   const deal = useCallback((qz, bx, cfg) => {
     const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current);
@@ -59,6 +60,7 @@ export default function App() {
     setCurrent({ q: next, order: mix ? shuffled(next.options.length) : next.options.map((_, i) => i) });
     setPicked([]);
     setPhase('answer');
+    setStudyFocus(null);
   }, []);
 
   function begin(qz, bx, st, cfg) {
@@ -67,6 +69,7 @@ export default function App() {
     setStats(st);
     setSettings(cfg);
     setShowSettings(false);
+    setStudyFocus(null);
     lastIdRef.current = null;
     setScreen('quiz');
     deal(qz, bx, cfg);
@@ -244,6 +247,7 @@ export default function App() {
           source={quiz.notes}
           bookFile={quiz.bookFile}
           bookUrl={quiz.bookUrl}
+          focus={studyFocus}
         />
         <Summary
           quiz={quiz}
@@ -270,6 +274,7 @@ export default function App() {
         source={quiz.notes}
         bookFile={quiz.bookFile}
         bookUrl={quiz.bookUrl}
+        focus={studyFocus}
       />
 
       <div className="bar">
@@ -307,6 +312,7 @@ export default function App() {
           phase={phase}
           onToggle={toggle}
           onCheck={() => check(picked)}
+          onOpenReference={setStudyFocus}
         />
       )}
 

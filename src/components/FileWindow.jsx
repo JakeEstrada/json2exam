@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { headingId } from '../lib/parseQuiz.js';
 
 function escapeHtml(s) {
   return String(s)
@@ -161,14 +162,18 @@ function parseMd(source) {
   return blocks;
 }
 
-export function MarkdownView({ source }) {
+export function MarkdownView({ source, focusHeading }) {
   const blocks = parseMd(source);
+  const focusId = headingId(focusHeading);
   return (
     <article className="md-preview">
       {blocks.map((block, i) => {
-        if (block.type === 'h1') return <h1 key={i}>{inlineMd(block.text)}</h1>;
-        if (block.type === 'h2') return <h2 key={i}>{inlineMd(block.text)}</h2>;
-        if (block.type === 'h3') return <h3 key={i}>{inlineMd(block.text)}</h3>;
+        if (block.type === 'h1' || block.type === 'h2' || block.type === 'h3') {
+          const Tag = block.type;
+          const id = headingId(block.text);
+          const cls = focusId && id === focusId ? 'is-focus' : undefined;
+          return <Tag key={i} id={id} className={cls}>{inlineMd(block.text)}</Tag>;
+        }
         if (block.type === 'pre') return <pre key={i}>{block.text}</pre>;
         if (block.type === 'ul') {
           return (

@@ -5,561 +5,871 @@
       "question": "Which level of requirements is the highest level of abstraction?",
       "type": "multiple",
       "options": [
-        "Functional requirements",
-        "User requirements",
-        "Business requirements",
-        "Interface requirements",
-        "Quality attributes",
-        "Test requirements"
+        "Functional requirements specify detailed software behavior and sit below the user and business levels.",
+        "User requirements capture what people must accomplish, but they are not the top level of abstraction.",
+        "Business requirements are the highest level of abstraction and set direction for all lower requirement levels.",
+        "Interface requirements describe connections to other systems rather than the project's top-level business need.",
+        "Quality attributes state how well the product must operate instead of defining the highest business goals.",
+        "Test requirements list later verification checks and do not sit at the top of the requirements chain."
       ],
       "answer": "c",
-      "explanation": "Business requirements are the top-level requirements. User and functional requirements are subordinate to them."
+      "explanation": "Business requirements are the top-level requirements. User and functional requirements are subordinate to them.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "Business requirements represent the top of the requirements chain. They define the vision of the solution and the scope of the project that will implement the solution."
+      }
     },
     {
       "question": "User requirements and functional requirements should support the project's business objectives.",
       "type": "boolean",
       "answer": true,
-      "explanation": "The chapter states that lower-level requirements should not be included if they do not address the business objectives."
+      "explanation": "The chapter states that lower-level requirements should not be included if they do not address the business objectives.",
+      "reference": {
+        "section": "Business requirements drive the lower levels",
+        "book": "Chapter 5 — Defining business requirements",
+        "page": 7,
+        "excerpt": "The user requirements and functional requirements must align with the context and objectives that the business requirements establish. Requirements that don't help the project achieve its business objectives shouldn't be implemented."
+      }
     },
     {
       "question": "Why is it important for stakeholders to share the same understanding of business objectives?",
       "type": "multiple",
       "options": [
-        "So all stakeholders use the same programming language",
-        "So project participants do not work against each other",
-        "So requirements never change",
-        "So developers can avoid talking to users",
-        "So testing becomes unnecessary",
-        "So every feature receives equal priority"
+        "Shared objectives require every stakeholder to adopt the same programming language before work can start.",
+        "Shared objectives keep project participants aligned instead of pulling the work in conflicting directions.",
+        "Shared objectives freeze the requirements so that no stakeholder may request a change later in the project.",
+        "Shared objectives let developers implement the product without further conversation with customers or users.",
+        "Shared objectives make testing unnecessary because they already guarantee that the delivered product is correct.",
+        "Shared objectives require every proposed feature to receive equal priority regardless of business value."
       ],
       "answer": "b",
-      "explanation": "A shared understanding of business objectives helps keep project participants aligned instead of pulling the project in conflicting directions."
+      "explanation": "A shared understanding of business objectives helps keep project participants aligned instead of pulling the project in conflicting directions.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The vision provides the context for making decisions throughout the product's life, and it aligns all stakeholders in a common direction. Project participants can unwittingly work at cross-purposes if they have different objectives and priorities."
+      }
     },
     {
       "question": "According to the lecture, business requirements consist mainly of which two components?",
       "type": "multiple",
       "options": [
-        "Design and implementation",
-        "Testing and deployment",
-        "Vision and scope",
-        "Users and developers",
-        "Features and source code",
-        "Budget and staffing"
+        "Business requirements consist mainly of a detailed design model together with a complete implementation plan.",
+        "Business requirements consist mainly of a testing strategy together with a deployment checklist for operations.",
+        "Business requirements consist mainly of the product vision together with the scope of the current project.",
+        "Business requirements consist mainly of a roster of named users together with the developers assigned to code.",
+        "Business requirements consist mainly of a feature backlog together with the source code that will implement it.",
+        "Business requirements consist mainly of a budget spreadsheet together with a staffing plan for the team."
       ],
       "answer": "c",
-      "explanation": "The professor emphasizes that business requirements consist primarily of product vision and project scope."
+      "explanation": "The professor emphasizes that business requirements consist primarily of product vision and project scope.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "Two core elements of the business requirements are the vision and the scope. The business requirements consist of mainly two parts: one is the vision, and the other one is scope."
+      }
     },
     {
       "question": "What does the product vision describe?",
       "type": "multiple",
       "options": [
-        "The source code structure",
-        "The ultimate long-term goal of the product",
-        "The exact functionality of the next release",
-        "The test plan",
-        "The project staffing plan",
-        "The current defect list"
+        "The product vision describes how source files and modules will be organized inside the implemented software.",
+        "The product vision describes the ultimate long-term goal of the product and the destination being pursued.",
+        "The product vision describes the exact functions that must ship in the next release and nothing beyond that.",
+        "The product vision describes the test cases and schedules the team will use to verify the next increment.",
+        "The product vision describes who will be hired and how the team will be staffed for this particular release.",
+        "The product vision describes the defects currently open in the tracker rather than the product's destination."
       ],
       "answer": "b",
-      "explanation": "The product vision describes the long-term direction or ultimate goal for the product."
+      "explanation": "The product vision describes the long-term direction or ultimate goal for the product.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The product vision succinctly describes the ultimate product that will achieve the business objectives. The vision describes what the product is about and what it ultimately could become."
+      }
     },
     {
       "question": "The product vision generally changes slowly over time.",
       "type": "boolean",
       "answer": true,
-      "explanation": "Because it represents the long-term goal, the product vision is relatively stable compared with the project scope."
+      "explanation": "Because it represents the long-term goal, the product vision is relatively stable compared with the project scope.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The vision should change relatively slowly as a product's strategic positioning or a company's business objectives evolve over time. Scope is more dynamic than vision."
+      }
     },
     {
       "question": "What does project scope primarily describe?",
       "type": "multiple",
       "options": [
-        "The long-term future of the company",
-        "The short-term objective and which part of the vision will be addressed now",
-        "The final source code architecture",
-        "Every possible future feature",
-        "Only the testing strategy",
-        "The business's legal structure"
+        "Project scope describes the company's long-term future strategy rather than what this project will deliver now.",
+        "Project scope describes the short-term objective and which part of the vision this project or release will address.",
+        "Project scope describes the finished source-code architecture developers must produce before any release ships.",
+        "Project scope describes every feature the product might ever include across all future releases and markets.",
+        "Project scope describes only the testing strategy the team will follow and not which capabilities are in scope.",
+        "Project scope describes the business's legal corporate structure instead of the boundary of the current trip."
       ],
       "answer": "b",
-      "explanation": "Scope identifies the portion of the broader product vision that a particular project or release will address."
+      "explanation": "Scope identifies the portion of the broader product vision that a particular project or release will address.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The project scope identifies what portion of the ultimate product vision the current project or development iteration will address. The statement of scope draws the boundary between what's in and what's out for this project."
+      }
     },
     {
       "question": "A project's scope typically covers:",
       "type": "multiple",
       "options": [
-        "Every release the product will ever have",
-        "One release of the product",
-        "Only the user interface",
-        "Only business rules",
-        "Only nonfunctional requirements",
-        "Only future product ideas"
+        "Project scope normally covers every release the product will ever have, from the first increment through retirement.",
+        "Project scope normally covers one release of the product, or one iteration toward the longer product vision.",
+        "Project scope normally covers only the user-interface screens and ignores other capabilities planned for release.",
+        "Project scope normally covers only the business rules and leaves features, data, and interfaces outside the boundary.",
+        "Project scope normally covers only nonfunctional qualities such as speed and ignores functional work for the release.",
+        "Project scope normally covers only future product ideas that have not yet been accepted for any planned increment."
       ],
       "answer": "b",
-      "explanation": "The slides state that project scope normally applies to one product release."
+      "explanation": "The slides state that project scope normally applies to one product release.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The scope pertains to a specific project or iteration that will implement the next increment of the product's functionality. Project scope normally applies to one product release."
+      }
     },
     {
       "question": "Which constraints can cause project scope to be adjusted? Select all that apply.",
       "type": "multi",
       "options": [
-        "Cost",
-        "Schedule",
-        "Resources",
-        "Quality",
-        "Developer favorite color",
-        "Available capacity"
+        "Project cost limits can force the team to reduce what the current release is able to include.",
+        "The release schedule can require shrinking the portion of the vision this trip will cover.",
+        "Available resources can cause the planned contents of a release to be scaled back later.",
+        "Agreed quality targets can require trimming scope so remaining work still meets the bar.",
+        "The lead developer's favorite color can dictate which capabilities belong in this release.",
+        "Available team capacity can limit how much of the product vision this project can deliver."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "Scope must adapt to practical constraints such as cost, schedule, resources, quality, and available capacity."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "explanation": "Scope must adapt to practical constraints such as cost, schedule, resources, quality, and available capacity.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "Stakeholders adjust the contents of each release within its schedule, budget, resource, and quality constraints. Scope must account for cost, schedule, resources, and quality."
+      }
     },
     {
       "question": "Which statement best explains the difference between vision and scope?",
       "type": "multiple",
       "options": [
-        "Vision is short-term while scope is long-term",
-        "Vision defines the long-term product direction, while scope defines what part of that vision is addressed in the current project or release",
-        "Vision describes source code while scope describes tests",
-        "Vision and scope mean exactly the same thing",
-        "Scope applies only after deployment",
-        "Vision applies only to developers"
+        "Vision is the short-term release plan, while scope is the unchanging long-term destination of the product.",
+        "Vision defines the long-term product direction, while scope defines what part of that vision this project addresses.",
+        "Vision describes how the source code is structured, while scope describes only the tests that will be run.",
+        "Vision and scope are two names for the same idea and can be used interchangeably in every project document.",
+        "Scope becomes meaningful only after the product has already been deployed and users are working in production.",
+        "Vision is a concern only for developers writing code and does not guide sponsors or other business stakeholders."
       ],
       "answer": "b",
-      "explanation": "Vision describes where the product is ultimately going; scope defines what the current project will actually tackle."
+      "explanation": "Vision describes where the product is ultimately going; scope defines what the current project will actually tackle.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "The product vision ensures that we all know where we are hoping to go eventually. The project scope ensures that we are all talking about the same thing for the immediate project or iteration."
+      }
     },
     {
       "question": "Requirements conflicts among stakeholders are normal.",
       "type": "boolean",
       "answer": true,
-      "explanation": "Different stakeholders naturally have different priorities, so conflicts should be expected and managed."
+      "explanation": "Different stakeholders naturally have different priorities, so conflicts should be expected and managed.",
+      "reference": {
+        "section": "Stakeholder conflicts",
+        "book": "Chapter 5 — Conflicting business requirements",
+        "page": 6,
+        "excerpt": "Business requirements collected from multiple sources might conflict. Different stakeholders naturally have different priorities, so conflicts should be expected and managed."
+      }
     },
     {
       "question": "Which stakeholder preference is matched correctly?",
       "type": "multiple",
       "options": [
-        "Customer - high-tech excitement",
-        "User - predictability and profit",
-        "Developer - simplicity above all else",
-        "Manager - predictability and profit",
-        "Sponsor - convenience only",
-        "User - project funding"
+        "Customers are the stakeholders typically associated with wanting high-tech excitement more than simplicity.",
+        "Users are the stakeholders typically associated with wanting predictability and profit from the project.",
+        "Developers are the stakeholders typically associated with wanting simplicity above all other technical interests.",
+        "Managers are the stakeholders typically associated with wanting predictability and profit from the project.",
+        "Sponsors are the stakeholders typically associated with wanting convenience only and no funding role.",
+        "Users are the stakeholders typically associated with controlling project funding rather than using features."
       ],
       "answer": "d",
-      "explanation": "The slides associate managers with predictability and profit."
+      "explanation": "The slides associate managers with predictability and profit.",
+      "reference": {
+        "section": "Stakeholder conflicts",
+        "book": "Chapter 5 — Conflicting business requirements",
+        "page": 6,
+        "excerpt": "Different stakeholders want different things: customer wants simplicity, user wants convenience and features, developer might want interesting technology, and manager wants predictability and profit."
+      }
     },
     {
       "question": "Which pair correctly reflects common stakeholder interests from the slides?",
       "type": "multiple",
       "options": [
-        "Customer wants simplicity; user wants convenience and features",
-        "Customer wants maximum technical complexity; user wants fewer features",
-        "Developer wants predictability; manager wants experimental technology",
-        "Sponsor wants no decisions; user wants funding control",
-        "Manager wants simplicity; customer wants source code",
-        "Developer wants fewer features; user wants lower staffing"
+        "Customers often want simplicity, while users often want convenience together with additional product features.",
+        "Customers often want maximum technical complexity, while users often want fewer features than they have now.",
+        "Developers often want predictability and profit, while managers often want experimental technology first.",
+        "Sponsors often want to avoid decisions, while users often want exclusive control over project funding choices.",
+        "Managers often want simplicity above all, while customers often want access to the product source code.",
+        "Developers often want fewer features delivered, while users often want the project to operate with lower staffing."
       ],
       "answer": "a",
-      "explanation": "The chapter uses this contrast to show why business requirements can conflict."
+      "explanation": "The chapter uses this contrast to show why business requirements can conflict.",
+      "reference": {
+        "section": "Stakeholder conflicts",
+        "book": "Chapter 5 — Conflicting business requirements",
+        "page": 6,
+        "excerpt": "Customer wants simplicity. User wants convenience and features. These contrasting interests help explain why business requirements can conflict."
+      }
     },
     {
       "question": "Who is responsible for resolving conflicts involving business stakeholders?",
       "type": "multiple",
       "options": [
-        "Any individual developer",
-        "The project sponsor",
-        "Only the tester",
-        "Only the end user",
-        "The database administrator",
-        "The newest team member"
+        "Any individual developer may settle business-level conflicts without involving sponsors or other decision makers.",
+        "The project sponsor is responsible for resolving conflicts among business stakeholders when they cannot agree.",
+        "Only the tester may decide how competing business objectives should be traded off for the current release.",
+        "Only the end user may resolve conflicts among business stakeholders, including funding and priority disputes.",
+        "The database administrator decides which stakeholder goals survive when business requirements are in conflict.",
+        "The newest team member is expected to settle sponsor-level conflicts because that person is not yet biased."
       ],
       "answer": "b",
-      "explanation": "The sponsor is responsible for resolving business-level conflicts when stakeholders cannot all be satisfied."
+      "explanation": "The sponsor is responsible for resolving business-level conflicts when stakeholders cannot all be satisfied.",
+      "reference": {
+        "section": "Stakeholder conflicts",
+        "book": "Chapter 5 — Conflicting business requirements",
+        "page": 7,
+        "excerpt": "The project's decision makers must resolve these conflicts before the analyst can detail the requirements. The project sponsor resolves major business-level conflicts."
+      }
     },
     {
       "question": "Why can stakeholder conflict not always be solved by satisfying everyone?",
       "type": "multiple",
       "options": [
-        "Because requirements are always wrong",
-        "Because stakeholders can have competing goals and constraints",
-        "Because developers should ignore users",
-        "Because the project scope never matters",
-        "Because business objectives are optional",
-        "Because customers do not influence requirements"
+        "Everyone cannot be satisfied because every documented requirement is automatically wrong and must be discarded.",
+        "Everyone cannot be satisfied because stakeholders can have competing goals and constraints that cannot all be met.",
+        "Everyone cannot be satisfied because developers should ignore users and implement whatever technology looks fun.",
+        "Everyone cannot be satisfied because project scope never matters when people disagree about desired features.",
+        "Everyone cannot be satisfied because business objectives are optional and need not guide which requests are kept.",
+        "Everyone cannot be satisfied because customers do not influence requirements and therefore cannot create tension."
       ],
       "answer": "b",
-      "explanation": "Different stakeholders can have incompatible priorities, so tradeoffs are often required."
+      "explanation": "Different stakeholders can have incompatible priorities, so tradeoffs are often required.",
+      "reference": {
+        "section": "Stakeholder conflicts",
+        "book": "Chapter 5 — Conflicting business requirements",
+        "page": 7,
+        "excerpt": "The tension among stakeholders with different goals and constraints can lead to clashing business requirements. Not everyone gets everything."
+      }
     },
     {
       "question": "Business requirements can influence which aspects of use cases? Select all that apply.",
       "type": "multi",
       "options": [
-        "How many use cases are included",
-        "How extensively a use case is implemented",
-        "The priority of each use case",
-        "The developer's IDE",
-        "Which business goals the use cases support",
-        "Whether a use case belongs in the release"
+        "Business requirements influence how many use cases are included in the system planned for this effort.",
+        "Business requirements influence how extensively each accepted use case should be implemented in the release.",
+        "Business requirements influence the relative priority of each use case when the team sequences the work.",
+        "Business requirements influence which developer's IDE must be installed before any use case can be specified.",
+        "Business requirements influence which stated business goals the selected use cases are expected to support.",
+        "Business requirements influence whether a given use case belongs in the current release or should be deferred."
       ],
-      "answer": ["a", "b", "c", "e", "f"],
-      "explanation": "Business requirements guide which use cases are included, how much of them is implemented, and their relative priority."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "e",
+        "f"
+      ],
+      "explanation": "Business requirements guide which use cases are included, how much of them is implemented, and their relative priority.",
+      "reference": {
+        "section": "Business requirements drive the lower levels",
+        "book": "Chapter 5 — Defining business requirements",
+        "page": 7,
+        "excerpt": "Business requirements guide which use cases belong in the system, which use cases are most important, and how extensively they should be implemented. They directly influence which user requirements to implement and in what sequence."
+      }
     },
     {
       "question": "A use case that does not support any business objective should automatically be included because users requested it.",
       "type": "boolean",
       "answer": false,
-      "explanation": "Lower-level requirements should align with the business requirements and defined scope."
+      "explanation": "Lower-level requirements should align with the business requirements and defined scope.",
+      "reference": {
+        "section": "Business requirements drive the lower levels",
+        "book": "Chapter 5 — Defining business requirements",
+        "page": 7,
+        "excerpt": "If a feature doesn't support a business objective, there'd better be a strong reason for it. Lower-level requirements should align with the business requirements and defined scope."
+      }
     },
     {
       "question": "How many vision and scope documents should normally exist for the project, even if multiple systems will be developed?",
       "type": "multiple",
       "options": [
-        "One for each developer",
-        "One for each system",
-        "A single vision and scope document",
-        "One for each stakeholder",
-        "One for each release candidate",
-        "None if the project is large"
+        "A separate vision and scope document should be written for each developer who will work on the project.",
+        "A separate vision and scope document should be written for each system even when they share one vision.",
+        "A single vision and scope document should normally exist for the project, even if several systems are built.",
+        "A separate vision and scope document should be written for each stakeholder so that no views are combined.",
+        "A separate vision and scope document should be written for each release candidate the team considers later.",
+        "No vision and scope document is needed when the project is large enough to have several cooperating systems."
       ],
       "answer": "c",
-      "explanation": "The slides state that there should be one vision and scope document even when several systems are involved."
+      "explanation": "The slides state that there should be one vision and scope document even when several systems are involved.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Vision and scope document",
+        "page": 8,
+        "excerpt": "The vision and scope document collects the business requirements into a single deliverable that sets the stage for the subsequent development work. There should be one vision and scope document even when several systems are involved."
+      }
     },
     {
       "question": "Who owns the vision and scope document?",
       "type": "multiple",
       "options": [
-        "The project sponsor",
-        "Any developer",
-        "The testing team",
-        "The database administrator",
-        "The UI designer",
-        "The help desk"
+        "The project sponsor owns the vision and scope document as the executive or funding authority for the work.",
+        "Any developer on the team owns the vision and scope document and may change business direction at will.",
+        "The testing team owns the vision and scope document because testers decide which business goals matter most.",
+        "The database administrator owns the vision and scope document and sets the product's long-term destination.",
+        "The user-interface designer owns the vision and scope document because screens define the product vision.",
+        "The help desk owns the vision and scope document because support staff hear every complaint after release."
       ],
       "answer": "a",
-      "explanation": "The project sponsor, such as an executive or funding authority, owns the vision and scope document."
+      "explanation": "The project sponsor, such as an executive or funding authority, owns the vision and scope document.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Vision and scope document",
+        "page": 8,
+        "excerpt": "The owner of the vision and scope document is the project's executive sponsor, funding authority, or someone in a similar role."
+      }
     },
     {
       "question": "Who may provide input into the vision and scope document? Select all that apply.",
       "type": "multi",
       "options": [
-        "Stakeholders",
-        "Subject-matter experts",
-        "Project sponsor",
-        "Relevant business participants",
-        "Only developers",
-        "Other knowledgeable sources"
+        "Stakeholders who understand why the project was undertaken may contribute input to the document.",
+        "Subject-matter experts who know the domain may contribute input while the sponsor still owns the file.",
+        "The project sponsor provides input and remains the owner of the finished vision and scope document.",
+        "Relevant business participants who see the intended value may contribute input to the business requirements.",
+        "Only developers may provide input, and other knowledgeable people should be excluded from the document.",
+        "Other knowledgeable sources with a clear sense of the project's purpose may also contribute useful input."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "The document is owned by the sponsor, but input may come from many stakeholders and subject-matter experts."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "explanation": "The document is owned by the sponsor, but input may come from many stakeholders and subject-matter experts.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Vision and scope document",
+        "page": 8,
+        "excerpt": "A business analyst can work with the sponsor to articulate the business requirements and write the document. Input should come from people who have a clear sense of why they are undertaking the project, including subject matter experts and other knowledgeable sources."
+      }
     },
     {
       "question": "Which item belongs in the Business Requirements section of the vision and scope document?",
       "type": "multiple",
       "options": [
-        "Business opportunity",
-        "Source code architecture",
-        "Test scripts",
-        "Database indexes",
-        "Developer assignments",
-        "Build server configuration"
+        "The business opportunity that explains why the organization is pursuing this product now.",
+        "The source-code architecture that developers will use to structure modules and classes later.",
+        "The test scripts that will later confirm whether implemented functions behave as specified.",
+        "The database indexes chosen to make frequent queries against production tables run faster.",
+        "The developer assignments that name who will implement each component during construction.",
+        "The build-server configuration that compiles the product and publishes installation packages."
       ],
       "answer": "a",
-      "explanation": "Business opportunity is one of the listed subsections of the Business Requirements section."
+      "explanation": "Business opportunity is one of the listed subsections of the Business Requirements section.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business requirements",
+        "page": 10,
+        "excerpt": "Business opportunity is one of the listed subsections of the Business Requirements section. For a corporate information system, describe the business problem that is being solved or the process being improved."
+      }
     },
     {
       "question": "Which of the following belong in the Business Requirements section? Select all that apply.",
       "type": "multi",
       "options": [
-        "Background",
-        "Business opportunity",
-        "Business objectives",
-        "Success metrics",
-        "Vision statement",
-        "Business risks"
+        "Background that explains the history or situation that led to the decision to build this product.",
+        "Business opportunity that describes the problem being solved or the market being pursued now.",
+        "Business objectives that state the measurable benefits the product is expected to provide.",
+        "Success metrics that show whether the project is on track to meet those business objectives.",
+        "Vision statement that summarizes the long-term purpose and intent of the product being built.",
+        "Business risks that summarize major marketplace, timing, acceptance, or impact threats to the effort."
       ],
-      "answer": ["a", "b", "c", "d", "e", "f"],
-      "explanation": "All six are included in the document outline shown in the slides."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "explanation": "All six are included in the document outline shown in the slides.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business requirements",
+        "page": 10,
+        "excerpt": "The Business Requirements section includes background, business opportunity, business objectives, success metrics, vision statement, business risks, and assumptions and dependencies."
+      }
     },
     {
       "question": "Business assumptions and dependencies belong under which section of the vision and scope document?",
       "type": "multiple",
       "options": [
-        "Business Requirements",
-        "Scope and Limitation",
-        "Business Context",
-        "Testing",
-        "Implementation",
-        "Deployment only"
+        "They belong under Business Requirements, together with opportunity, objectives, risks, and related items.",
+        "They belong under Scope and Limitation, which lists features, releases, and exclusions instead of assumptions.",
+        "They belong under Business Context, which covers stakeholder profiles, priorities, and deployment concerns.",
+        "They belong under Testing, which is not one of the three sections of the vision and scope document.",
+        "They belong under Implementation, which is not a heading in the vision and scope document template.",
+        "They belong only under Deployment, which is a Business Context topic rather than assumptions and dependencies."
       ],
       "answer": "a",
-      "explanation": "They are listed under the Business Requirements section."
+      "explanation": "They are listed under the Business Requirements section.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business requirements",
+        "page": 14,
+        "excerpt": "Business assumptions and dependencies are listed under the Business Requirements section. An assumption is a statement that is believed to be true in the absence of proof or definitive knowledge."
+      }
     },
     {
       "question": "Which item belongs under Scope and Limitation?",
       "type": "multiple",
       "options": [
-        "Major features",
-        "Stakeholder profiles",
-        "Business assumptions",
-        "Developer assignments",
-        "Business jargon",
-        "Unit test coverage"
+        "Major features that distinguish the product and can be traced to later system elements belong here.",
+        "Stakeholder profiles that describe customer groups and the value each group expects belong elsewhere.",
+        "Business assumptions that were treated as true when the objectives were first written belong elsewhere.",
+        "Developer assignments that name who will construct each module during implementation belong elsewhere.",
+        "Business jargon definitions that explain vocabulary without stating the release boundary belong elsewhere.",
+        "Unit test coverage targets that measure code tests rather than the product's scope belong elsewhere."
       ],
       "answer": "a",
-      "explanation": "Major features are included in the Scope and Limitation portion of the vision and scope document."
+      "explanation": "Major features are included in the Scope and Limitation portion of the vision and scope document.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Scope and limitations",
+        "page": 15,
+        "excerpt": "List the product's major features or user capabilities, emphasizing those that distinguish it from previous or competing products. Major features are included in the Scope and Limitation portion of the vision and scope document."
+      }
     },
     {
       "question": "Which of the following belong under Scope and Limitation? Select all that apply.",
       "type": "multi",
       "options": [
-        "Major features",
-        "Scope of the initial release",
-        "Scope of subsequent releases",
-        "Limitations and exclusions",
-        "Business risks",
-        "Source code structure"
+        "Major features planned for the product, including capabilities that distinguish this solution from alternatives.",
+        "Scope of the initial release, stating which capabilities are planned for inclusion in the first increment.",
+        "Scope of subsequent releases, outlining later chunks of functionality on a staged release roadmap.",
+        "Limitations and exclusions that name expected capabilities the product or a specific release will not include.",
+        "Business risks, which are recorded under Business Requirements rather than under Scope and Limitation.",
+        "Source code structure, which is a design concern and not a Scope and Limitation heading in the template."
       ],
-      "answer": ["a", "b", "c", "d"],
-      "explanation": "These four items define what is and is not included in the current and future project scope."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "These four items define what is and is not included in the current and future project scope.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Scope and limitations",
+        "page": 15,
+        "excerpt": "Scope and Limitations includes major features, scope of the initial release, scope of subsequent releases, and limitations and exclusions. These items define what is and is not included in the current and future project scope."
+      }
     },
     {
       "question": "Why are limitations and exclusions useful in a scope document?",
       "type": "multiple",
       "options": [
-        "They clearly state what the project will not include",
-        "They describe programming syntax",
-        "They eliminate the need for requirements",
-        "They determine customer salaries",
-        "They make all future changes impossible",
-        "They replace project priorities"
+        "They clearly state what the project will not include so people do not assume those capabilities are planned.",
+        "They describe programming syntax and language rules instead of setting the product's intended boundary.",
+        "They eliminate the need to write requirements because exclusions already define the entire product to build.",
+        "They determine customer salaries and compensation rather than setting expectations about the project scope.",
+        "They make all future changes impossible, locking the product so that no later release may add any work.",
+        "They replace project priorities such as constraints, drivers, and degrees of freedom for the whole effort."
       ],
       "answer": "a",
-      "explanation": "Explicitly documenting exclusions helps prevent misunderstandings and scope creep."
+      "explanation": "Explicitly documenting exclusions helps prevent misunderstandings and scope creep.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Scope and limitations",
+        "page": 15,
+        "excerpt": "The limitations itemize certain capabilities that the product will not include that some people might assume will be there. Explicitly documenting exclusions helps prevent misunderstandings and scope creep."
+      }
     },
     {
       "question": "Which item belongs under Business Context?",
       "type": "multiple",
       "options": [
-        "Stakeholder profiles",
-        "Success metrics",
-        "Vision statement",
-        "Business opportunity",
-        "Source code modules",
-        "Unit tests"
+        "Stakeholder profiles that describe key customer groups and other people affected by the project's outcome.",
+        "Success metrics that belong under Business Requirements as indicators of progress toward the objectives.",
+        "The vision statement that belongs under Business Requirements as the long-term purpose of the product.",
+        "The business opportunity that belongs under Business Requirements as the problem or market being pursued.",
+        "Source code modules that describe implementation structure rather than the project's business context.",
+        "Unit tests that verify code behavior and are not a heading in the Business Context section of the template."
       ],
       "answer": "a",
-      "explanation": "Stakeholder profiles are part of the Business Context section."
+      "explanation": "Stakeholder profiles are part of the Business Context section.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business context",
+        "page": 17,
+        "excerpt": "Business Context presents profiles of major stakeholder categories, management's priorities for the project, and factors to consider when planning deployment. Stakeholder profiles are part of the Business Context section."
+      }
     },
     {
       "question": "Stakeholder profiles can include which information? Select all that apply.",
       "type": "multi",
       "options": [
-        "Value the stakeholder expects from the product",
-        "Stakeholder attitude",
-        "Features of interest",
-        "How the stakeholder relates to the product",
-        "Only source code ownership",
-        "Business interests"
+        "The value or benefit the stakeholder expects to receive from the product once it is delivered.",
+        "The stakeholder's likely attitude toward the product once it becomes available to that group.",
+        "The features and characteristics of the product that are of particular interest to that stakeholder.",
+        "How the stakeholder relates to the product, including that group's role with respect to the outcome.",
+        "Only source-code ownership details, with no attention to value, attitude, features, or business interest.",
+        "Other relevant business interests that help explain what that stakeholder cares about in the product."
       ],
-      "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "The slides describe stakeholder profiles in terms of value, attitude, features of interest, and other relevant business interests."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "explanation": "The slides describe stakeholder profiles in terms of value, attitude, features of interest, and other relevant business interests.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business context",
+        "page": 17,
+        "excerpt": "Each stakeholder profile should include the major value or benefit the stakeholder will receive, their likely attitudes toward the product, major features and characteristics of interest, and other relevant business interests."
+      }
     },
     {
       "question": "Project priorities are described in terms of:",
       "type": "multiple",
       "options": [
-        "Constraints, drivers, and degrees of freedom",
-        "Only programming languages",
-        "Only customer complaints",
-        "Only database technology",
-        "Only testing tools",
-        "Only staffing"
+        "They are expressed as constraints, drivers, and degrees of freedom among competing project dimensions.",
+        "They are expressed only as a list of programming languages the team is permitted to use on the work.",
+        "They are expressed only as a log of customer complaints received before the project was funded.",
+        "They are expressed only as a choice of database technology preferred by the operations organization.",
+        "They are expressed only as a catalog of testing tools the quality staff already knows how to run.",
+        "They are expressed only as a staffing count, with no attention to schedule, cost, or quality tradeoffs."
       ],
       "answer": "a",
-      "explanation": "The Business Context section includes project priorities expressed through constraints, drivers, and degrees of freedom."
+      "explanation": "The Business Context section includes project priorities expressed through constraints, drivers, and degrees of freedom.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business context",
+        "page": 17,
+        "excerpt": "To enable effective decision making, the stakeholders must agree on the project's priorities. Each dimension fits in one of three categories: constraint, driver, or degree of freedom."
+      }
     },
     {
       "question": "Which items may be considered deployment considerations? Select all that apply.",
       "type": "multi",
       "options": [
-        "Locations",
-        "Times",
-        "Performance",
-        "Reliability",
-        "Integrity",
-        "Developer hobbies"
+        "User locations that affect how people will reach the solution after it is deployed into operation.",
+        "Access times that state when users in those locations need the system to be available for work.",
+        "Performance needs that the operating environment must support after the solution goes into production.",
+        "Reliability expectations that deployment planning must consider for production operation of the solution.",
+        "Integrity concerns for data and access that should be addressed as the solution is placed into operation.",
+        "Developer hobbies that might be interesting socially but are not used as deployment considerations."
       ],
-      "answer": ["a", "b", "c", "d", "e"],
-      "explanation": "These are the deployment considerations listed in the slides."
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "explanation": "These are the deployment considerations listed in the slides.",
+      "reference": {
+        "section": "Vision and Scope Document",
+        "book": "Chapter 5 — Business context",
+        "page": 18,
+        "excerpt": "Deployment considerations include the access users will require, whether users are distributed over multiple locations or time zones, and when users in various locations need to access the system, along with related operating qualities."
+      }
     },
     {
       "question": "What is the primary purpose of a context diagram?",
       "type": "multiple",
       "options": [
-        "To show the system and how it interacts with external entities through information flows",
-        "To show detailed class inheritance",
-        "To document source code functions",
-        "To calculate project cost",
-        "To create acceptance tests",
-        "To show only internal database tables"
+        "It shows the system and how it interacts with external entities through information or material flows.",
+        "It shows detailed class inheritance among internal objects that implement the system's planned features.",
+        "It documents individual source-code functions and the algorithms each of those functions will execute.",
+        "It calculates the project's cost, schedule, and staffing without describing any system boundary at all.",
+        "It creates the acceptance tests that customers will run after the product has already been constructed.",
+        "It shows only internal database tables and omits external entities that exchange data with the system."
       ],
       "answer": "a",
-      "explanation": "A context diagram gives a high-level picture of the system boundary, external entities, and exchanged information."
+      "explanation": "A context diagram gives a high-level picture of the system boundary, external entities, and exchanged information.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Context diagram",
+        "page": 19,
+        "excerpt": "The context diagram visually illustrates the boundary. It identifies external entities outside the system that interface to it, as well as data, control, and material flows between those terminators and the system."
+      }
     },
     {
       "question": "In a context diagram, the main system is shown together with:",
       "type": "multiple",
       "options": [
-        "External interfaces and information flows",
-        "Only source code files",
-        "Only user interface screens",
-        "Developer tasks",
-        "Test case results",
-        "Project budgets"
+        "The main system is shown together with external interfaces and the information or material flows exchanged.",
+        "The main system is shown together with only the source-code files developers will create for internals.",
+        "The main system is shown together with only the user-interface screens and no other external entities.",
+        "The main system is shown together with a list of developer tasks rather than neighboring entities and flows.",
+        "The main system is shown together with executed test results instead of external entities and exchanged data.",
+        "The main system is shown together with project budgets rather than information flowing across the boundary."
       ],
       "answer": "a",
-      "explanation": "The diagram shows the system in relation to external entities and the information exchanged with them."
+      "explanation": "The diagram shows the system in relation to external entities and the information exchanged with them.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Context diagram",
+        "page": 19,
+        "excerpt": "The entire system is depicted as a single circle. The external entities can represent user classes, organizations, other systems, or hardware devices, and the arrows represent flows between the system and those entities."
+      }
     },
     {
       "question": "In the Chemical Tracking System example, the chemist sending a request for a chemical to the system is an example of:",
       "type": "multiple",
       "options": [
-        "An information flow between an external entity and the system",
-        "A business risk",
-        "A project priority",
-        "A success metric",
-        "A feature tree branch",
-        "A developer constraint"
+        "It is an information flow between an external entity and the system, as a context diagram would show.",
+        "It is a business risk about marketplace timing rather than a flow drawn across the system boundary.",
+        "It is a project priority expressed as a constraint, driver, or degree of freedom for the current release.",
+        "It is a success metric used to judge whether the project is on track to meet its business objectives.",
+        "It is a feature-tree branch that decomposes Order Chemicals into Search and Chemical Request work.",
+        "It is a developer constraint about staffing or tools rather than an exchange with an outside actor."
       ],
       "answer": "a",
-      "explanation": "The professor uses this example to explain how context diagrams show external entities exchanging data with the system."
+      "explanation": "The professor uses this example to explain how context diagrams show external entities exchanging data with the system.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Context diagram",
+        "page": 19,
+        "excerpt": "The arrows on the diagram represent the flow of data, such as a request for a chemical, between the system and its external entities. A chemist uses the chemical tracking system by sending a request for a chemical."
+      }
     },
     {
       "question": "What does an ecosystem map primarily show?",
       "type": "multiple",
       "options": [
-        "How the system's related components or subsystems interact with one another",
-        "Only the system's user interface",
-        "Only the business goals",
-        "Only one use case",
-        "Only external customers",
-        "Only deployment servers"
+        "It shows how the system's related components or subsystems interact with one another across the solution.",
+        "It shows only the system's user-interface screens and ignores other systems that interconnect with it.",
+        "It shows only the business goals and does not depict related systems or the nature of their interactions.",
+        "It shows only a single use-case path and does not map the wider network of participating systems.",
+        "It shows only external customers as people and omits the other systems that may need modification.",
+        "It shows only deployment servers and hosting sites rather than systems that interconnect and exchange data."
       ],
       "answer": "a",
-      "explanation": "An ecosystem map provides a broader graphical view of related systems or components and their interactions."
+      "explanation": "An ecosystem map provides a broader graphical view of related systems or components and their interactions.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Ecosystem map",
+        "page": 20,
+        "excerpt": "An ecosystem map shows all of the systems related to the system of interest that interact with one another and the nature of those interactions. It provides a broader graphical view of related systems or components."
+      }
     },
     {
       "question": "A context diagram and an ecosystem map are exactly the same representation.",
       "type": "boolean",
       "answer": false,
-      "explanation": "A context diagram emphasizes the system boundary and exchanges with external entities, while an ecosystem map shows the wider network of interacting systems or components."
+      "explanation": "A context diagram emphasizes the system boundary and exchanges with external entities, while an ecosystem map shows the wider network of interacting systems or components.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Ecosystem map",
+        "page": 20,
+        "excerpt": "Ecosystem maps differ from context diagrams in that they show other systems that have a relationship with the system you're working on, including those without direct interfaces. A context diagram emphasizes the system boundary and exchanges with external entities."
+      }
     },
     {
       "question": "What is the purpose of a feature tree?",
       "type": "multiple",
       "options": [
-        "To decompose major product features into smaller supporting features",
-        "To display project salaries",
-        "To store test results",
-        "To replace all requirements documents",
-        "To show only external systems",
-        "To determine programming language syntax"
+        "A feature tree decomposes major product features into smaller supporting features arranged in a hierarchy.",
+        "A feature tree displays project salaries and compensation bands instead of the product's planned capabilities.",
+        "A feature tree stores test results from verification runs rather than showing how features break into parts.",
+        "A feature tree replaces all requirements documents so that no vision, scope, or SRS text is needed anymore.",
+        "A feature tree shows only external systems and their interfaces, which is the job of context or ecosystem views.",
+        "A feature tree determines programming-language syntax rules instead of refining large features into sub-features."
       ],
       "answer": "a",
-      "explanation": "A feature tree breaks larger capabilities into smaller related sub-features."
+      "explanation": "A feature tree breaks larger capabilities into smaller related sub-features.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Feature tree",
+        "page": 21,
+        "excerpt": "A feature tree is a visual depiction of the product's features organized in logical groups, hierarchically subdividing each feature into further levels of detail."
+      }
     },
     {
       "question": "The lecture describes a feature tree as a form of step-by-step refinement from larger abstractions to smaller ones.",
       "type": "boolean",
       "answer": true,
-      "explanation": "The professor explicitly explains feature decomposition as refining a larger abstraction into smaller supporting abstractions."
+      "explanation": "The professor explicitly explains feature decomposition as refining a larger abstraction into smaller supporting abstractions.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Feature tree",
+        "page": 21,
+        "excerpt": "You have initially a big abstraction and then you use step-by-step refinement to find small abstractions that accomplish that bigger abstraction. A feature tree breaks larger capabilities into smaller related sub-features."
+      }
     },
     {
       "question": "In the Chemical Tracking System feature tree, 'Order Chemicals' is an example of:",
       "type": "multiple",
       "options": [
-        "A major feature that can be broken into sub-features",
-        "A business risk",
-        "A stakeholder profile",
-        "A success metric",
-        "A deployment consideration",
-        "A context diagram interface"
+        "Order Chemicals is a major feature that can be broken into sub-features such as Search and Chemical Request.",
+        "Order Chemicals is a business risk about chemical costs rather than a capability shown on the feature tree.",
+        "Order Chemicals is a stakeholder profile describing chemists instead of a feature branch on the product tree.",
+        "Order Chemicals is a success metric for order time rather than a major feature decomposed into supporting parts.",
+        "Order Chemicals is a deployment consideration about lab locations rather than a feature with Search beneath it.",
+        "Order Chemicals is a context-diagram interface to vendors rather than a feature-tree node for ordering work."
       ],
       "answer": "a",
-      "explanation": "The lecture uses 'Order Chemicals' as an example of a major feature that is decomposed into smaller features."
+      "explanation": "The lecture uses 'Order Chemicals' as an example of a major feature that is decomposed into smaller features.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Feature tree",
+        "page": 21,
+        "excerpt": "The gray boxes represent the L1 features, such as Order Chemicals. Search and Chemical Request are subfeatures of Order Chemicals."
+      }
     },
     {
       "question": "Why is breaking a large feature into smaller sub-features useful?",
       "type": "multiple",
       "options": [
-        "It helps explain what smaller capabilities are needed to accomplish the larger feature",
-        "It guarantees the project has no defects",
-        "It eliminates the need for scope",
-        "It prevents requirements from changing",
-        "It replaces business objectives",
-        "It allows developers to ignore stakeholders"
+        "Breaking a large feature down helps explain what smaller capabilities are needed to accomplish that larger feature.",
+        "Breaking a large feature down guarantees the project has no defects because every sub-feature is automatically correct.",
+        "Breaking a large feature down eliminates the need to define scope because the tree already lists every future release.",
+        "Breaking a large feature down prevents requirements from changing, since a decomposed feature can never be adjusted.",
+        "Breaking a large feature down replaces business objectives so that feature names become the only success measure.",
+        "Breaking a large feature down allows developers to ignore stakeholders because the tree substitutes for their input."
       ],
       "answer": "a",
-      "explanation": "Feature decomposition helps analysts understand the smaller capabilities required to realize a larger business capability."
+      "explanation": "Feature decomposition helps analysts understand the smaller capabilities required to realize a larger business capability.",
+      "reference": {
+        "section": "Scope representation techniques",
+        "book": "Chapter 5 — Feature tree",
+        "page": 21,
+        "excerpt": "A feature tree hierarchically subdivides each feature into further levels of detail. Feature decomposition helps analysts understand the smaller capabilities required to realize a larger business capability."
+      }
     },
     {
       "question": "What is scope creep?",
       "type": "multiple",
       "options": [
-        "Uncontrolled growth of project scope",
-        "A planned reduction in requirements",
-        "A testing technique",
-        "A context diagram problem",
-        "A user class",
-        "A deployment strategy"
+        "Scope creep is uncontrolled growth of project scope as more functionality is added without disciplined control.",
+        "Scope creep is a planned reduction in requirements that shrinks the release through an approved tradeoff.",
+        "Scope creep is a testing technique for finding defects by exercising the product at the system boundary.",
+        "Scope creep is a problem that occurs only when a context diagram uses the wrong shape for the system.",
+        "Scope creep is a user class or market segment rather than a failure to keep the project boundary in focus.",
+        "Scope creep is a deployment strategy for rolling the solution out to locations, not a growth of the scope."
       ],
       "answer": "a",
-      "explanation": "Scope creep occurs when more and more functionality is added without disciplined scope control."
+      "explanation": "Scope creep occurs when more and more functionality is added without disciplined scope control.",
+      "reference": {
+        "section": "Scope control",
+        "book": "Chapter 5 — Keeping the scope in focus",
+        "page": 23,
+        "excerpt": "Many projects suffer from scope creep—rampant growth as more and more functionality gets stuffed into the product. The goal of scope control is to prevent uncontrolled scope creep while still accommodating evolving needs."
+      }
     },
     {
       "question": "Keeping scope under control means refusing all new requirements.",
       "type": "boolean",
       "answer": false,
-      "explanation": "The chapter says teams should prevent uncontrolled scope creep while still accommodating evolving needs."
+      "explanation": "The chapter says teams should prevent uncontrolled scope creep while still accommodating evolving needs.",
+      "reference": {
+        "section": "Scope control",
+        "book": "Chapter 5 — Keeping the scope in focus",
+        "page": 23,
+        "excerpt": "A scope definition is a structure, not a straitjacket. Scope change isn't a bad thing if it helps you steer the project toward satisfying evolving customer needs; uncontrolled scope change is the problem."
+      }
     },
     {
       "question": "What are the three possible decisions for a newly proposed requirement? Select all that apply.",
       "type": "multi",
       "options": [
-        "It is in scope, so keep it",
-        "It is out of scope, so discard it",
-        "It is out of scope but valuable enough to justify changing the scope",
-        "Automatically implement it",
-        "Always delay it until the next project",
-        "Ignore the business objectives"
+        "Decide that the request is in scope, so keep it and consider it among the committed work for this effort.",
+        "Decide that the request is out of scope, so discard it or defer it instead of forcing it into this release.",
+        "Decide that the request is out of scope but valuable enough to justify changing the scope on purpose.",
+        "Decide that the request should be implemented automatically as soon as any stakeholder writes it down.",
+        "Decide that the request should always be delayed until the next project, even when it is clearly in scope.",
+        "Decide that the request should be judged while ignoring the business objectives that define valuable work."
       ],
-      "answer": ["a", "b", "c"],
-      "explanation": "The slides give exactly these three possible decisions for evaluating a proposed requirement against the project's scope."
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The slides give exactly these three possible decisions for evaluating a proposed requirement against the project's scope.",
+      "reference": {
+        "section": "Scope control",
+        "book": "Chapter 5 — Keeping the scope in focus",
+        "page": 23,
+        "excerpt": "Remember, whenever someone requests a new requirement, the analyst needs to ask whether it is in scope. The three outcomes are keep an in-scope request, reject or defer an out-of-scope request, or intentionally change the scope when the idea is valuable enough."
+      }
     },
     {
       "question": "A proposed feature does not fit the current scope but strongly supports the business objectives. What is one valid response?",
       "type": "multiple",
       "options": [
-        "Change the project scope through an appropriate decision process",
-        "Add it secretly",
-        "Ignore all cost and schedule impact",
-        "Automatically reject it",
-        "Ask the developer to build it without approval",
-        "Remove the vision statement"
+        "Change the project scope through an appropriate decision process, accepting the tradeoffs that follow.",
+        "Add the feature secretly so that sponsors and other stakeholders never see the written boundary move.",
+        "Ignore all cost and schedule impact and insert the work without adjusting any other project dimension.",
+        "Automatically reject it solely because it is currently outside the written scope statement for this release.",
+        "Ask a developer to build it without approval from the people who own the project's scope decision.",
+        "Remove the vision statement so that the new feature no longer needs any business justification at all."
       ],
       "answer": "a",
-      "explanation": "If an out-of-scope requirement is valuable enough, the project may deliberately change its scope rather than allowing uncontrolled scope creep."
+      "explanation": "If an out-of-scope requirement is valuable enough, the project may deliberately change its scope rather than allowing uncontrolled scope creep.",
+      "reference": {
+        "section": "Scope control",
+        "book": "Chapter 5 — Keeping the scope in focus",
+        "page": 23,
+        "excerpt": "The third possibility is that the proposed new requirement is out of scope, but it's such a good idea that the scope should be broadened to accommodate it, with corresponding changes in budget, schedule, and/or staff."
+      }
     },
     {
       "question": "Which statement best summarizes Chapter 5?",
       "type": "multiple",
       "options": [
-        "Business requirements define the long-term vision and current project scope, align lower-level requirements with business objectives, and provide techniques for documenting and controlling scope",
-        "Business requirements are mainly about source code architecture",
-        "The chapter focuses only on user interface design",
-        "The chapter explains how to eliminate all requirement conflicts",
-        "The chapter focuses entirely on testing",
-        "Business requirements apply only after implementation"
+        "Business requirements define the long-term vision and current project scope, align lower-level requirements with business objectives, and provide techniques for documenting and controlling scope.",
+        "Business requirements are mainly about source-code architecture and module layout rather than vision, scope, alignment of lower-level work, or techniques for documenting and controlling the project boundary.",
+        "The chapter focuses only on user-interface layout and visual design rather than establishing business requirements, aligning lower-level needs, modeling scope, or keeping that scope under control.",
+        "The chapter explains how to eliminate all requirement conflicts so every stakeholder preference can be satisfied without tradeoffs, a sponsor decision, or any remaining tension among business goals.",
+        "The chapter focuses entirely on writing and executing tests rather than vision, scope, the vision and scope document, scope models, or techniques for keeping the project boundary in focus.",
+        "Business requirements apply only after implementation is finished and cannot guide scope, alignment of lower-level requirements, documentation, or control decisions during requirements development."
       ],
       "answer": "a",
-      "explanation": "Chapter 5 is about establishing the top-level business requirements through product vision, project scope, supporting documentation, scope models, and scope control."
+      "explanation": "Chapter 5 is about establishing the top-level business requirements through product vision, project scope, supporting documentation, scope models, and scope control.",
+      "reference": {
+        "section": "Vision vs Scope",
+        "book": "Chapter 5 — Product vision and project scope",
+        "page": 5,
+        "excerpt": "Business requirements explain why the organization is building the product. Two major parts are product vision and project scope, and the chapter also covers the vision and scope document, scope models, and scope control."
+      }
     }
   ]
 }

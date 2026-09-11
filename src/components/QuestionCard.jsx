@@ -1,7 +1,7 @@
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -50,6 +50,8 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
       {reviewing && (
         <Verdict q={q} correct={correct} />
       )}
+
+      <QuestionSource q={q} onOpen={onOpenReference} />
     </div>
   );
 }
@@ -66,6 +68,31 @@ function Verdict({ q, correct }) {
         </p>
         {q.explanation && <p className="why">{q.explanation}</p>}
         <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
+      </div>
+    </div>
+  );
+}
+
+function QuestionSource({ q, onOpen }) {
+  const ref = q && q.reference;
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page)) return null;
+  return (
+    <div className="q-source">
+      <p className="q-source-label">Chapter reference</p>
+      {ref.book && <p className="q-source-book">{ref.book}</p>}
+      {ref.section && <p className="q-source-notes">Notes: {ref.section}</p>}
+      {ref.excerpt && <blockquote className="q-source-excerpt">{ref.excerpt}</blockquote>}
+      <div className="q-source-actions">
+        {ref.section && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: 0 })}>
+            Show in chapter notes
+          </button>
+        )}
+        {ref.page > 0 && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page })}>
+            Open this section in the book
+          </button>
+        )}
       </div>
     </div>
   );

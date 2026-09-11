@@ -5,619 +5,901 @@
       "question": "Requirements development consists of which four major activities?",
       "type": "multiple",
       "options": [
-        "Planning, coding, testing, deployment",
-        "Elicitation, analysis, specification, validation",
-        "Design, implementation, maintenance, release",
-        "Modeling, programming, testing, training",
-        "Budgeting, scheduling, coding, verification",
-        "Elicitation, architecture, programming, maintenance"
+        "Project planning, writing the code, executing system tests, and deploying the finished product",
+        "Architectural design, implementing features, performing maintenance, and releasing the product",
+        "Elicitation, analysis, specification, and validation of the project's software requirements",
+        "Data modeling, programming the solution, testing the builds, and delivering user training",
+        "Budgeting the work, scheduling tasks, coding the system, and verifying the completed build",
+        "Eliciting stakeholder needs, designing the architecture, programming, and performing maintenance"
       ],
-      "answer": "b",
-      "explanation": "Chapter 3 expands on the four requirements development activities: elicitation, analysis, specification, and validation."
+      "answer": "c",
+      "explanation": "Chapter 3 expands on the four requirements development activities: elicitation, analysis, specification, and validation.",
+      "reference": {
+        "section": "The process is not linear",
+        "book": "Chapter 3 — A requirements development process framework",
+        "page": 4,
+        "excerpt": "Requirements development involves elicitation, analysis, specification, and validation. These activities are interwoven, incremental, and iterative rather than a one-pass sequence."
+      }
     },
     {
       "question": "The four requirements development activities should always be completed in a strict sequence, with one phase completely finished before the next begins.",
       "type": "boolean",
       "answer": false,
-      "explanation": "The process should be iterative, incremental, and interleaved rather than strictly sequential."
+      "explanation": "The process should be iterative, incremental, and interleaved rather than strictly sequential.",
+      "reference": {
+        "section": "The process is not linear",
+        "book": "Chapter 3 — A requirements development process framework",
+        "page": 4,
+        "excerpt": "Do not expect to perform elicitation, analysis, specification, and validation in a simple linear, one-pass sequence. In practice these activities are interwoven, incremental, and iterative."
+      }
     },
     {
       "question": "Which description best matches an iterative requirements process?",
       "type": "multiple",
       "options": [
-        "Requirements are written once and never revisited",
-        "Teams repeatedly revisit and refine earlier work as new information is discovered",
-        "Only validation may be repeated",
-        "Requirements work starts only after implementation",
-        "Each activity is performed by a completely separate team",
-        "The development process cannot overlap"
+        "Requirements are written in a single pass and are never revisited after they have been recorded",
+        "Only the validation activity may be repeated; elicitation and analysis remain permanently frozen",
+        "Requirements work is postponed until implementation is finished and the product can be inspected",
+        "Teams repeatedly revisit and refine earlier requirements work as new information is discovered",
+        "Each requirements activity is performed by a completely separate team that never shares results",
+        "Requirements development activities cannot overlap and must finish before construction begins"
       ],
-      "answer": "b",
-      "explanation": "The slides show requirements work cycling back to clarify, rewrite, correct, and re-evaluate earlier information."
+      "answer": "d",
+      "explanation": "The slides show requirements work cycling back to clarify, rewrite, correct, and re-evaluate earlier information.",
+      "reference": {
+        "section": "The process is not linear",
+        "book": "Chapter 3 — A requirements development process framework",
+        "page": 4,
+        "excerpt": "You might analyze something, realize information is missing, go back to elicitation, rewrite the specification, and validate again. Progressive refinement of detail continues throughout requirements development."
+      }
     },
     {
       "question": "What is one purpose of defining the requirements development process before beginning elicitation?",
       "type": "multiple",
       "options": [
-        "To choose the programming language",
-        "To define the steps and activities the team will use to develop requirements",
-        "To eliminate customer involvement",
-        "To write all test cases immediately",
-        "To determine the final architecture",
-        "To guarantee requirements will never change"
+        "To choose the programming language and framework the developers will use for construction",
+        "To eliminate customer involvement so analysts can specify the product without interruptions",
+        "To write all acceptance test cases immediately, before any stakeholder needs have been identified",
+        "To determine the final system architecture before user classes or business goals are identified",
+        "To define the steps and activities the team will use to develop the project's requirements",
+        "To guarantee that approved requirements will never change once the process has been documented"
       ],
-      "answer": "b",
-      "explanation": "A good practice is to define the requirements development process, including its steps and activities."
+      "answer": "e",
+      "explanation": "A good practice is to define the requirements development process, including its steps and activities.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "Define the requirements development process so the team knows the steps and activities it will use before it begins discovering what people actually need."
+      }
     },
     {
       "question": "What is the main purpose of a vision and scope document?",
       "type": "multiple",
       "options": [
-        "To define project objectives, boundaries, and focus",
-        "To describe source code organization",
-        "To list every future test case",
-        "To define database indexes",
-        "To document only user interface colors",
-        "To identify developer salaries"
+        "To describe how source code will be organized into modules, packages, and code repositories",
+        "To define the product's objectives, set the project boundaries, and keep the work focused",
+        "To list every future test case that testers will eventually execute against the finished system",
+        "To specify database indexes and physical storage details that belong in later design documents",
+        "To record only user-interface colors and branding choices rather than objectives and boundaries",
+        "To document the implementation language and coding standards the development team must follow"
       ],
-      "answer": "a",
-      "explanation": "The vision and scope document defines objectives, sets project boundaries, and helps keep the project focused."
+      "answer": "b",
+      "explanation": "The vision and scope document defines objectives, sets project boundaries, and helps keep the project focused.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "The vision and scope document contains the product's business requirements. The vision gives stakeholders a common understanding of the outcome, and the scope defines what is in and what is out."
+      }
     },
     {
       "question": "Which factors can help distinguish different user classes? Select all that apply.",
       "type": "multi",
       "options": [
-        "Roles",
-        "Goals",
-        "Features used",
-        "Frequency of use",
-        "Knowledge and skill levels",
-        "Location and attitude"
+        "The roles that different groups of people perform when they interact with the product",
+        "The goals that different groups of people are trying to accomplish with the intended product",
+        "The features that different groups of people actually use when they work with the product",
+        "The frequency with which different groups of people use the product during their work",
+        "The knowledge and skill levels that different groups of people bring to using the product",
+        "The location and attitude of different groups of people who will use or depend on the product"
       ],
       "answer": ["a", "b", "c", "d", "e", "f"],
-      "explanation": "The slides list all of these as useful characteristics for identifying different user classes."
+      "explanation": "The slides list all of these as useful characteristics for identifying different user classes.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "User groups might differ in frequency of use, features used, privilege levels, or experience. Describe aspects of their job tasks, attitudes, location, or personal characteristics that might influence product design."
+      }
     },
     {
       "question": "Why is identifying user classes important during elicitation?",
       "type": "multiple",
       "options": [
-        "Different groups may use the system differently and have different needs",
-        "Every user always wants exactly the same thing",
-        "It determines which programming language must be used",
-        "It replaces requirements analysis",
-        "It eliminates the need for customer representatives",
-        "It prevents requirements from changing"
+        "Every user always wants exactly the same capabilities, so identifying classes adds little value",
+        "Identifying user classes determines which programming language the project team is required to use",
+        "Different user groups may use the system differently and therefore have different requirements",
+        "Identifying user classes replaces the need to analyze, specify, or validate the gathered requirements",
+        "Identifying user classes eliminates the need for customer representatives or product champions",
+        "Identifying user classes prevents requirements from changing after the first elicitation sessions"
       ],
-      "answer": "a",
-      "explanation": "Different user classes can have different roles, goals, skills, and usage patterns, so their requirements may differ."
+      "answer": "c",
+      "explanation": "Different user classes can have different roles, goals, skills, and usage patterns, so their requirements may differ.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "To avoid overlooking the needs of any user community, identify the various groups of users for your product. Different classes can have different roles, goals, skills, and usage patterns."
+      }
     },
     {
       "question": "What is a product champion?",
       "type": "multiple",
       "options": [
-        "The developer who writes the most code",
-        "A representative of a user class who speaks and may make decisions on behalf of that group",
-        "A project manager responsible only for budget",
-        "A customer who uses the system once",
-        "A tester responsible for all acceptance testing",
-        "A person who approves every software change"
+        "The developer who writes the most code and therefore decides which user needs will be implemented",
+        "A project manager whose only responsibility is to control the budget and the delivery schedule",
+        "A customer who uses the system once during a demo and then has no further project involvement",
+        "A representative of a user class who speaks for that group and may make decisions on its behalf",
+        "A tester who is solely responsible for writing and executing every acceptance test for the product",
+        "A person who must personally approve every software change regardless of its requirements impact"
       ],
-      "answer": "b",
-      "explanation": "Product champions represent user classes, speak for them, and generally make a long-term commitment to the project."
+      "answer": "d",
+      "explanation": "Product champions represent user classes, speak for them, and generally make a long-term commitment to the project.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "Identify an individual who can accurately serve as the voice of the customer for each user class. The product champion presents the needs of that class and makes decisions on its behalf."
+      }
     },
     {
       "question": "A product champion is usually expected to have a long-term commitment to the project.",
       "type": "boolean",
       "answer": true,
-      "explanation": "The slides distinguish product champions by their ongoing representation and long-term project involvement."
+      "explanation": "The slides distinguish product champions by their ongoing representation and long-term project involvement.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "A product champion represents a user class over a longer period and generally makes a long-term commitment to the project, unlike a short-term focus group."
+      }
     },
     {
       "question": "How does a focus group differ from a product champion?",
       "type": "multiple",
       "options": [
+        "Focus groups write the implementation code rather than describing needed functionality and quality",
         "Focus groups are typically short-term participants who describe functionality and quality needs",
-        "Focus groups write source code",
-        "Focus groups have authority over the entire project",
-        "Focus groups replace all user classes",
-        "Focus groups are used only after deployment",
-        "Focus groups manage version control"
+        "Focus groups have lasting decision-making authority over the project, unlike product champions",
+        "Focus groups permanently replace user classes and product champions for the rest of the project",
+        "Focus groups are convened only after deployment, when the product is already in production use",
+        "Focus groups exist to manage version control of requirements rather than to describe user needs"
       ],
-      "answer": "a",
-      "explanation": "Focus groups provide input about functionality and quality needs but usually have a shorter-term commitment than product champions."
+      "answer": "b",
+      "explanation": "Focus groups provide input about functionality and quality needs but usually have a shorter-term commitment than product champions.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "Focus groups collect input on functionality and quality characteristics. Unlike product champions, focus groups generally do not have decision-making authority and usually have a shorter-term commitment."
+      }
     },
     {
       "question": "Use cases primarily help identify:",
       "type": "multiple",
       "options": [
-        "Tasks users need to accomplish, their goals, and user-system interactions",
-        "Project salaries",
-        "Programming language syntax",
-        "Database indexes",
-        "Server hardware specifications",
-        "Developer vacation schedules"
+        "The internal class hierarchy and package structure that developers should use when writing code",
+        "The programming-language syntax and coding conventions the implementation team must follow",
+        "The detailed database schema that implementers should create instead of exploring user goals",
+        "The hardware capacity plan for production servers rather than user-system interaction sequences",
+        "Tasks users need to accomplish, their goals, and the interactions between users and the system",
+        "The project budget allocations for staff rather than the tasks users need the system to support"
       ],
-      "answer": "a",
-      "explanation": "Use cases describe tasks, goals, purposes, and interactions between users and the system."
+      "answer": "e",
+      "explanation": "Use cases describe tasks, goals, purposes, and interactions between users and the system.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 6,
+        "excerpt": "Explore with user representatives the tasks they need to accomplish and the value they are trying to achieve. User requirements can be expressed as use cases, user stories, or scenarios that describe user-system interactions."
+      }
     },
     {
       "question": "Which of the following can be considered system events? Select all that apply.",
       "type": "multi",
       "options": [
-        "External signals",
-        "Incoming data",
-        "Temporal events",
-        "Customer calls",
-        "Inventory changes",
-        "Developer lunch breaks"
+        "External signals received from hardware devices or other systems outside the product boundary",
+        "Incoming data arriving from external sources that the system must accept and then process",
+        "Temporal events that occur because a scheduled time is reached rather than because of new input",
+        "Business events such as customer calls that trigger a required response from the application",
+        "Business events such as inventory changes that require the system to update stored data or react",
+        "Internal team activities such as status meetings, which are not stimuli the system itself handles"
       ],
       "answer": ["a", "b", "c", "d", "e"],
-      "explanation": "The slides identify external signals and data, temporal events, and business events such as customer calls or inventory changes."
+      "explanation": "The slides identify external signals and data, temporal events, and business events such as customer calls or inventory changes.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "List the external events the system can experience and its expected response to each event. Event classes include signal events, temporal events, and business events such as customer calls or inventory changes."
+      }
     },
     {
       "question": "Why identify system events and responses during elicitation?",
       "type": "multiple",
       "options": [
-        "To understand how the system should behave when particular stimuli or events occur",
-        "To choose source code naming conventions",
-        "To create the final database implementation",
-        "To assign salaries",
-        "To eliminate user requirements",
-        "To determine only project cost"
+        "To select coding standards for the implementation rather than to reveal required system behavior",
+        "To finalize the database schema and storage design instead of discovering event-driven behavior",
+        "To understand how the system should behave when particular stimuli or external events occur",
+        "To replace user requirements with a purely technical event list that ignores stakeholder goals",
+        "To estimate only the project budget rather than to understand how the system should respond",
+        "To lock the architecture in place before any external events or expected responses are identified"
       ],
-      "answer": "a",
-      "explanation": "System events and responses help reveal required system behavior."
+      "answer": "c",
+      "explanation": "System events and responses help reveal required system behavior.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "Identifying system events and responses shows how the product should behave based on the stimuli exercised on it. That expected reaction is the required behavior of the product."
+      }
     },
     {
       "question": "What is a requirements workshop?",
       "type": "multiple",
       "options": [
-        "A collaborative session where analysts and users discuss requirements and develop draft material",
-        "A programming competition",
-        "A final deployment meeting",
-        "A meeting only for developers",
-        "A hardware testing session",
-        "A project budgeting exercise"
+        "A coding session in which developers implement features without discussing them with users",
+        "A closeout meeting held after deployment to review the finished product rather than draft needs",
+        "A developers-only design meeting that excludes customers and other user-class representatives",
+        "A technical performance-benchmarking session used to size servers rather than to draft needs",
+        "A budgeting workshop used to allocate funds rather than to explore and draft stakeholder needs",
+        "A collaborative session where analysts and users discuss requirements and develop draft material"
       ],
-      "answer": "a",
-      "explanation": "Workshops promote collaboration between analysts and users through discussion and draft requirements work."
+      "answer": "f",
+      "explanation": "Workshops promote collaboration between analysts and users through discussion and draft requirements work.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "Facilitated requirements-elicitation workshops that permit collaboration between analysts and customers are a powerful way to explore user needs and to draft requirements documents."
+      }
     },
     {
       "question": "Observing users performing their current work can help analysts understand the context for a new system.",
       "type": "boolean",
       "answer": true,
-      "explanation": "Observation can reveal current tasks, workflows, and data flows that may not be fully captured through interviews alone."
+      "explanation": "Observation can reveal current tasks, workflows, and data flows that may not be fully captured through interviews alone.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "Watching users perform their business tasks establishes a context for their potential use of a new application and can reveal current tasks, workflows, and data flows."
+      }
     },
     {
       "question": "What useful information can be captured by observing users?",
       "type": "multiple",
       "options": [
-        "Current tasks and data flow",
-        "Only programming language preferences",
-        "Only customer salaries",
-        "Only future project dates",
-        "Source code bugs",
-        "Server configuration files"
+        "Only the programming languages users prefer, which watching current work is not meant to reveal",
+        "Current tasks, workflows, and data flows that show how people actually perform their work",
+        "Only future project milestone dates, which watching today's work cannot establish by itself",
+        "Implementation defects in existing code, which are found by testing rather than by job observation",
+        "Production server configuration details, which observing users perform their jobs does not reveal",
+        "Only compensation and staffing details, which do not describe current tasks or data movement"
       ],
-      "answer": "a",
-      "explanation": "Observation helps establish context and can reveal actual data flow and work practices."
+      "answer": "b",
+      "explanation": "Observation helps establish context and can reveal actual data flow and work practices.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "Observing users performing their jobs helps analysts understand the context for a new system. Simple process-flow descriptions can depict the steps, decisions, and data movement in the current work."
+      }
     },
     {
       "question": "Why should analysts examine problem reports from an existing system?",
       "type": "multiple",
       "options": [
-        "Problems and requested enhancements can reveal requirements for the new system",
-        "They are only useful to testers",
-        "They prevent reuse of requirements",
-        "They determine programming language choice",
-        "They eliminate the need for user input",
-        "They guarantee the new system will have no defects"
+        "Problem reports are useful only to testers and should be ignored during requirements elicitation",
+        "Examining problem reports prevents reuse of requirements and therefore should be avoided",
+        "Problem reports determine which programming language the team must use for the new system",
+        "Problems and requested enhancements can reveal requirements that belong in the new system",
+        "Problem reports eliminate the need to talk with users because all needs are already documented",
+        "Problem reports guarantee that the new system will contain no defects once it is released"
       ],
-      "answer": "a",
-      "explanation": "Problems with the old system and previously requested enhancements can provide valuable requirements information."
+      "answer": "d",
+      "explanation": "Problems with the old system and previously requested enhancements can provide valuable requirements information.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "Problem reports and enhancement requests from users provide a rich source of ideas for capabilities to include in a later release or in a new product."
+      }
     },
     {
       "question": "What does requirements reuse mean in Chapter 3?",
       "type": "multiple",
       "options": [
-        "Looking for relevant requirements from previous projects or existing products that may apply again",
-        "Copying all requirements from any old project without review",
-        "Reusing source code only",
-        "Using the same project manager on every project",
-        "Avoiding new requirements completely",
-        "Keeping every requirement unchanged forever"
+        "Copying all requirements from any old project without reviewing whether they still apply",
+        "Reusing only source-code modules and never considering previously written requirements text",
+        "Looking for relevant requirements from previous projects or products that may apply again",
+        "Assigning the same project manager to every effort rather than reusing applicable requirements",
+        "Avoiding all new requirements so that only reused statements are ever recorded for the product",
+        "Keeping every reused requirement unchanged forever, even when the new context is different"
       ],
-      "answer": "a",
-      "explanation": "Reuse means identifying applicable similarities with previous projects or products rather than starting from nothing."
+      "answer": "c",
+      "explanation": "Reuse means identifying applicable similarities with previous projects or products rather than starting from nothing.",
+      "reference": {
+        "section": "Elicitation",
+        "book": "Chapter 3 — Requirements elicitation",
+        "page": 7,
+        "excerpt": "If customers request functionality similar to that already present in an existing product, see whether the requirements are flexible enough to permit reusing or adapting applicable requirements from previous projects or products."
+      }
     },
     {
       "question": "What is a context diagram used for during requirements analysis?",
       "type": "multiple",
       "options": [
-        "To show the system's environment, boundaries, and interfaces",
-        "To show detailed source code",
-        "To create test cases",
-        "To determine project salaries",
-        "To document only user stories",
-        "To replace requirements specifications"
+        "To show detailed source-code structure rather than the system's place in its environment",
+        "To create acceptance test cases instead of depicting boundaries and external interfaces",
+        "To determine project staffing costs rather than to clarify the system's environmental context",
+        "To document only user stories and never the system's boundaries or external connections",
+        "To show the system's environment, its boundaries, and its interfaces to external entities",
+        "To replace the software requirements specification with a single high-level context drawing"
       ],
-      "answer": "a",
-      "explanation": "A context diagram provides a high-level view of the system, its environment, boundaries, and external interfaces."
+      "answer": "e",
+      "explanation": "A context diagram provides a high-level view of the system, its environment, boundaries, and external interfaces.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 8,
+        "excerpt": "The context diagram is a simple analysis model that shows how the new system fits into its environment. It defines the boundaries and interfaces between the system and external entities such as users, devices, and other systems."
+      }
     },
     {
       "question": "A prototype of a user interface can be useful because it gives users something tangible to react to and provide feedback on.",
       "type": "boolean",
       "answer": true,
-      "explanation": "The slides specifically describe UI prototypes as a way to obtain feedback on a tangible representation."
+      "explanation": "The slides specifically describe UI prototypes as a way to obtain feedback on a tangible representation.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 8,
+        "excerpt": "Construct a prototype to make concepts and possibilities more tangible. Prototypes let users react to something they can see and help developers and users reach a mutual understanding of the problem."
+      }
     },
     {
       "question": "What is the main purpose of a technical prototype?",
       "type": "multiple",
       "options": [
-        "To explore the feasibility of potential technical problem areas",
-        "To create the final product immediately",
-        "To replace all requirements documentation",
-        "To determine customer salaries",
-        "To avoid validation",
-        "To prevent change requests"
+        "To create the final production product immediately instead of investigating technical risks",
+        "To explore whether uncertain or difficult technical areas of the proposed solution are feasible",
+        "To replace all requirements documentation with an informal prototype that is never written down",
+        "To decide staffing costs rather than to test whether a risky technical approach can actually work",
+        "To skip validation by treating an early technical experiment as if it were the finished design",
+        "To prevent later change requests by freezing the architecture after the first technical experiment"
       ],
-      "answer": "a",
-      "explanation": "Technical prototypes help determine whether difficult or uncertain aspects of a proposed solution are feasible."
+      "answer": "b",
+      "explanation": "Technical prototypes help determine whether difficult or uncertain aspects of a proposed solution are feasible.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 8,
+        "excerpt": "Technical prototypes explore the feasibility of potential technical problem areas. They help determine whether difficult or uncertain aspects of a proposed solution can be implemented at acceptable cost and performance."
+      }
     },
     {
       "question": "Why are requirements prioritized during analysis?",
       "type": "multiple",
       "options": [
-        "To allocate requirements to releases and adjust to changing resources, needs, goals, or market conditions",
-        "To ensure every requirement has equal importance",
-        "To eliminate customer input",
-        "To select programming languages",
-        "To prevent future changes",
-        "To avoid requirements management"
+        "To treat every requirement as equally important so that no item can be deferred to a later release",
+        "To eliminate customer input on value so that the team alone decides what will be built first",
+        "To select programming languages and frameworks rather than to decide what should be built first",
+        "To allocate requirements to releases and adjust when resources, needs, goals, or markets change",
+        "To prevent any future changes by freezing priorities after the first analysis workshop is finished",
+        "To avoid requirements management by assuming that priority decisions never need to be revisited"
       ],
-      "answer": "a",
-      "explanation": "Prioritization helps decide what should be implemented first and supports adjustments when circumstances change."
+      "answer": "d",
+      "explanation": "Prioritization helps decide what should be implemented first and supports adjustments when circumstances change.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 8,
+        "excerpt": "Prioritize requirements so the team implements the highest-value or most timely functionality first. Adjust priorities as new requirements are proposed and as customer needs, market conditions, and business goals evolve."
+      }
     },
     {
       "question": "Requirements modeling can help reveal which types of problems? Select all that apply.",
       "type": "multi",
       "options": [
-        "Incomplete requirements",
-        "Inconsistent requirements",
-        "Conflicting requirements",
-        "Missing developer salaries",
-        "Unclear relationships",
-        "Problems hidden in natural-language descriptions"
+        "Incomplete requirements that omit needed information about the intended product behavior",
+        "Inconsistent requirements that contradict one another across different statements or models",
+        "Conflicting requirements that cannot all be satisfied together in the same delivered product",
+        "Source-code naming inconsistencies, which are implementation issues rather than model defects",
+        "Unclear relationships among requirements that textual descriptions alone may leave hidden",
+        "Problems that remain hidden in natural-language descriptions until a more rigorous model is built"
       ],
       "answer": ["a", "b", "c", "e", "f"],
-      "explanation": "Abstract and rigorous models can expose incompleteness, inconsistency, conflicts, and unclear relationships."
+      "explanation": "Abstract and rigorous models can expose incompleteness, inconsistency, conflicts, and unclear relationships.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 9,
+        "excerpt": "An analysis model depicts requirements visually. Models can reveal incorrect, inconsistent, missing, and conflicting requirements, as well as problems that stay hidden in natural-language descriptions."
+      }
     },
     {
       "question": "During analysis, teams should identify interfaces with other systems and requirements that affect other subsystems.",
       "type": "boolean",
       "answer": true,
-      "explanation": "The slides include identification of external interfaces and requirements allocated to other subsystems as analysis activities."
+      "explanation": "The slides include identification of external interfaces and requirements allocated to other subsystems as analysis activities.",
+      "reference": {
+        "section": "Analysis",
+        "book": "Chapter 3 — Requirements analysis",
+        "page": 9,
+        "excerpt": "All software systems have connections to other parts of the world through external interfaces. Analysis includes identifying those interfaces and allocating requirements that affect other subsystems."
+      }
     },
     {
       "question": "What is one major goal of requirements specification?",
       "type": "multiple",
       "options": [
-        "To create documentation that is consistent, accessible, and reviewable",
-        "To replace customer communication",
-        "To create final source code",
-        "To eliminate change management",
-        "To perform deployment",
-        "To reduce the number of stakeholders"
+        "To replace ongoing customer communication with a written document that is never discussed again",
+        "To create the final source code directly from notes instead of recording reviewable requirements",
+        "To create requirements documentation that is consistent, accessible, and reviewable by stakeholders",
+        "To eliminate change management by assuming that a written specification will never be updated",
+        "To perform product deployment activities rather than to document analyzed requirements clearly",
+        "To reduce the number of stakeholders who may review or comment on the written requirements"
       ],
-      "answer": "a",
-      "explanation": "Specification should produce requirements documentation that can be consistently understood, accessed, and reviewed."
+      "answer": "c",
+      "explanation": "Specification should produce requirements documentation that can be consistently understood, accessed, and reviewed.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "The essence of requirements specification is to document requirements of different types in a consistent, accessible, and reviewable way that the intended audiences can readily understand."
+      }
     },
     {
       "question": "What kind of document template is suggested in the slides for software requirements specifications?",
       "type": "multiple",
       "options": [
-        "IEEE 830-style SRS template",
-        "HTML template",
-        "SQL schema",
-        "JUnit template",
-        "Git commit template",
-        "Dockerfile"
+        "A detailed design-document template that records class diagrams instead of software requirements",
+        "A project-charter template that records only schedule and budget rather than specified requirements",
+        "A test-plan template that organizes test cases instead of structuring the software requirements",
+        "A coding-standards template that lists programming conventions rather than requirement sections",
+        "A deployment-runbook template that describes release steps instead of specifying product requirements",
+        "An IEEE 830-style software requirements specification template used for consistent documentation"
       ],
-      "answer": "a",
-      "explanation": "The slides explicitly mention adopting an SRS template such as IEEE 830."
+      "answer": "f",
+      "explanation": "The slides explicitly mention adopting an SRS template such as IEEE 830.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "Adopt standard templates for documenting requirements, including an SRS template. The course materials specifically mention an IEEE 830-style software requirements specification template."
+      }
     },
     {
       "question": "Why should the source or origin of a requirement be recorded?",
       "type": "multiple",
       "options": [
-        "To justify why the requirement exists and support future clarification",
-        "To determine who should write the source code",
-        "To eliminate requirements validation",
-        "To prevent future discussion",
-        "To calculate server capacity",
-        "To determine programming language choice"
+        "To determine which programmer must write the code rather than why the requirement is needed",
+        "To eliminate requirements validation because a recorded source is treated as automatically correct",
+        "To prevent future discussion of the requirement once its origin has been written down once",
+        "To calculate required server capacity rather than to explain why the requirement is present",
+        "To justify why the requirement exists and to support later clarification with the originator",
+        "To determine the programming language rather than to enable later contact with the originator"
       ],
-      "answer": "a",
-      "explanation": "Recording sources helps explain the requirement's presence and allows analysts to return to the originator when clarification is needed."
+      "answer": "e",
+      "explanation": "Recording sources helps explain the requirement's presence and allows analysts to return to the originator when clarification is needed.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "To ensure that stakeholders know why every requirement is needed, trace each one back to its origin. Recording the source lets analysts return to the originator when clarification is needed."
+      }
     },
     {
       "question": "Why should individual requirements have unique identifiers?",
       "type": "multiple",
       "options": [
-        "To support traceability and requirements management",
-        "To make requirements harder to read",
-        "To identify the programmer who wrote them",
-        "To eliminate change requests",
-        "To replace the SRS",
-        "To improve system performance"
+        "To make requirements harder to read by adding identifiers that provide no management value",
+        "To support traceability, referencing, and management of individual requirements over time",
+        "To identify the programmer who wrote each requirement rather than to enable later tracing",
+        "To eliminate change requests by treating a labeled requirement as permanently unchangeable",
+        "To replace the software requirements specification with a list of identifiers and nothing else",
+        "To improve runtime system performance, which unique requirement labels cannot actually do"
       ],
-      "answer": "a",
-      "explanation": "Unique IDs help trace, manage, reference, and track individual requirements."
+      "answer": "b",
+      "explanation": "Unique IDs help trace, manage, reference, and track individual requirements.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "Give each requirement a unique identifying label. Labeling permits requirements traceability, referencing, and the recording of changes made to individual requirements."
+      }
     },
     {
       "question": "According to the slides, business rules should generally be kept separate from the SRS because:",
       "type": "multiple",
       "options": [
-        "They can exist beyond the scope of a single software project",
-        "They are not important",
-        "They apply only to programmers",
-        "They are always temporary",
-        "They are only test cases",
-        "They cannot influence requirements"
+        "They are unimportant to software projects and therefore do not need to be recorded anywhere at all",
+        "They apply only to programmers and have no implications for functional requirements or policies",
+        "They are always temporary project notes and never outlive the software effort that first recorded them",
+        "They can exist beyond the scope of a single software project and should be treated as enterprise assets",
+        "They are only test cases and should be stored with the test suite rather than as business rules",
+        "They cannot influence software requirements and therefore need no traceability links to the SRS"
       ],
-      "answer": "a",
-      "explanation": "Business rules often exist independently of a particular software application or project."
+      "answer": "d",
+      "explanation": "Business rules often exist independently of a particular software application or project.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "Document business rules separately from a project's requirements because they typically have an existence beyond the scope of a specific project. Treat them as an enterprise-level asset, not only a project-level asset."
+      }
     },
     {
       "question": "Which of the following are quality attributes emphasized in the specification section? Select all that apply.",
       "type": "multi",
       "options": [
-        "Performance",
-        "Efficiency",
-        "Reliability",
-        "Robustness",
-        "Usability",
-        "Developer salary"
+        "Performance characteristics that describe how timely or responsive the product must be in use",
+        "Efficiency characteristics that describe how economically the product uses computing resources",
+        "Reliability characteristics that describe how dependably the finished product continues to operate",
+        "Robustness characteristics that describe how well the product handles unexpected conditions",
+        "Usability characteristics that describe how readily intended users can learn and operate the product",
+        "Project staffing levels, which are resource concerns rather than specified product quality attributes"
       ],
       "answer": ["a", "b", "c", "d", "e"],
-      "explanation": "The slides list performance, efficiency, reliability, robustness, and usability as important quality attributes."
+      "explanation": "The slides list performance, efficiency, reliability, robustness, and usability as important quality attributes.",
+      "reference": {
+        "section": "Specification",
+        "book": "Chapter 3 — Requirements specification",
+        "page": 10,
+        "excerpt": "Go beyond functionality to specify quality characteristics that matter for success, including performance, efficiency, reliability, robustness, and usability."
+      }
     },
     {
       "question": "What is one validation practice described in Chapter 3?",
       "type": "multiple",
       "options": [
-        "Inspect requirements documents",
-        "Rewrite source code",
-        "Remove customer involvement",
-        "Freeze all requirements",
-        "Choose the final database",
-        "Deploy the system"
+        "Rewrite the source code of the product instead of examining the written requirements for defects",
+        "Remove customer involvement from the reviews so that only developers inspect the requirements",
+        "Inspect requirements documents through formal or informal reviews to find defects, omissions, and gaps",
+        "Freeze all requirements permanently so that validation never has to be repeated after the first pass",
+        "Choose the final database product instead of checking whether the documented requirements are right",
+        "Deploy the finished system to production instead of validating the requirements before construction"
       ],
-      "answer": "a",
-      "explanation": "Validation includes formal and informal inspection of requirements documents."
+      "answer": "c",
+      "explanation": "Validation includes formal and informal inspection of requirements documents.",
+      "reference": {
+        "section": "Validation",
+        "book": "Chapter 3 — Requirements validation",
+        "page": 11,
+        "excerpt": "Validation asks whether the right requirements were documented. Practices include formal inspections, informal reviews, and other examinations of the requirements documents."
+      }
     },
     {
       "question": "What distinguishes a formal requirements inspection?",
       "type": "multiple",
       "options": [
-        "It is a rigorous examination involving people with different perspectives and expertise",
-        "It is performed only by one developer",
-        "It occurs only after deployment",
-        "It replaces customer review",
-        "It requires no documentation",
-        "It focuses only on programming style"
+        "It is performed by only one developer working alone without other stakeholder perspectives",
+        "It occurs only after the product has already been deployed and users have begun to report defects",
+        "It replaces customer review entirely so that users never examine the written requirements themselves",
+        "It requires no written documentation and can be completed from memory of earlier conversations",
+        "It is a rigorous examination that involves people with different perspectives and areas of expertise",
+        "It focuses only on programming style rather than on whether the documented requirements are correct"
       ],
-      "answer": "a",
-      "explanation": "Formal inspection is a structured review involving multiple perspectives and areas of expertise."
+      "answer": "e",
+      "explanation": "Formal inspection is a structured review involving multiple perspectives and areas of expertise.",
+      "reference": {
+        "section": "Validation",
+        "book": "Chapter 3 — Requirements validation",
+        "page": 11,
+        "excerpt": "Peer review of requirements, particularly the rigorous review called inspection, assembles reviewers who represent different perspectives and carefully examine the written requirements for defects."
+      }
     },
     {
       "question": "Which activities are associated with defining test cases during validation? Select all that apply.",
       "type": "multi",
       "options": [
-        "Describe expected behavior",
-        "Review test cases with customers or users",
-        "Trace test cases back to the specification",
-        "Define acceptance criteria",
-        "Select developer salaries",
-        "Delete the requirements baseline"
+        "Describe the expected behavior of the product under specified conditions using derived test cases",
+        "Review the derived test cases with customers or users to confirm that they reflect true expectations",
+        "Trace each test case back to the specification to confirm coverage and to find overlooked requirements",
+        "Define acceptance criteria that describe how users will decide whether the solution is fit for use",
+        "Select the implementation language, which is a design decision rather than a requirements validation activity",
+        "Delete the requirements baseline so that test cases can replace the written specification entirely"
       ],
       "answer": ["a", "b", "c", "d"],
-      "explanation": "The slides connect test cases to expected behavior, customer review, traceability, and acceptance criteria."
+      "explanation": "The slides connect test cases to expected behavior, customer review, traceability, and acceptance criteria.",
+      "reference": {
+        "section": "Validation",
+        "book": "Chapter 3 — Requirements validation",
+        "page": 11,
+        "excerpt": "Derive tests from the user requirements to document expected behavior, walk through those tests with customers, map tests to the specification, and define acceptance criteria for fitness for use."
+      }
     },
     {
       "question": "Requirements management primarily focuses on:",
       "type": "multiple",
       "options": [
-        "Controlling and tracking changes to established requirements",
-        "Writing source code",
-        "Designing databases",
-        "Creating user interfaces",
-        "Hiring developers",
-        "Replacing requirements development"
+        "Writing the application's source code rather than controlling changes to established requirements",
+        "Controlling and tracking changes to requirements after they have been established and baselined",
+        "Designing the physical database rather than tracking changes to the agreed requirements set",
+        "Creating the user-interface layouts rather than managing change to the established requirements",
+        "Hiring additional developers rather than controlling and tracking approved requirements changes",
+        "Replacing requirements development entirely instead of managing change after requirements exist"
       ],
-      "answer": "a",
-      "explanation": "Once requirements are established, management is largely about controlling and tracking change."
+      "answer": "b",
+      "explanation": "Once requirements are established, management is largely about controlling and tracking change.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Requirements management encompasses practices that help you deal with requirements after you have them in hand, including version control, baselining, change control, status tracking, and tracing requirements to other system elements."
+      }
     },
     {
       "question": "What are the three main steps mentioned for a change control process?",
       "type": "multiple",
       "options": [
-        "Proposal, analysis, resolution",
-        "Coding, testing, deployment",
-        "Elicitation, design, implementation",
-        "Planning, budgeting, hiring",
-        "Request, coding, release",
-        "Drafting, compiling, testing"
+        "Coding the change, testing the build, and deploying the result without a change-control decision",
+        "Eliciting new needs, designing the architecture, and implementing code as the change-control path",
+        "Planning the schedule, budgeting the work, and hiring staff instead of proposing and resolving changes",
+        "Requesting a change, immediately coding it, and releasing it without analysis or board resolution",
+        "Drafting comments, compiling the program, and testing the build as if that were change control",
+        "Proposal of the change, analysis of its impact, and resolution of whether to accept the change"
       ],
-      "answer": "a",
-      "explanation": "The slide describes a change control process consisting of proposal, analysis, and resolution."
+      "answer": "f",
+      "explanation": "The slide describes a change control process consisting of proposal, analysis, and resolution.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Establish a mechanism so requirements changes are proposed, analyzed, and resolved. Manage all proposed changes through this process rather than hoping changes will not happen."
+      }
     },
     {
       "question": "What is a Change Control Board (CCB)?",
       "type": "multiple",
       "options": [
-        "A small, competent, empowered group that decides how proposed changes should be handled",
-        "A group of all customers",
-        "A programming team",
-        "A testing team",
-        "A hardware committee",
-        "A documentation archive"
+        "A meeting of all customers that must vote on every change before any analysis is performed",
+        "A programming team that implements every requested change without evaluating project impact",
+        "A small, competent, empowered group that decides how proposed requirements changes are handled",
+        "A testing team that decides requirements changes based only on how hard the change is to test",
+        "A hardware-selection committee that chooses servers rather than evaluating requirements changes",
+        "A documentation archive that stores old specifications but does not decide how changes are handled"
       ],
-      "answer": "a",
-      "explanation": "The CCB evaluates and makes decisions about proposed requirements changes."
+      "answer": "c",
+      "explanation": "The CCB evaluates and makes decisions about proposed requirements changes.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Charter a small group of project stakeholders as a change control board to evaluate proposed requirements changes, decide which ones to accept, and set implementation priorities or target releases."
+      }
     },
     {
       "question": "What does change impact analysis evaluate? Select all that apply.",
       "type": "multi",
       "options": [
-        "Other artifacts affected by the change",
-        "The effort required",
-        "The cost of the change",
-        "The scope of the change",
-        "Only whether the customer likes the idea",
-        "Potential effects on related system elements"
+        "Other development artifacts that would have to change if the proposed requirement change is accepted",
+        "The effort required to perform the tasks needed to implement the proposed requirements change",
+        "The estimated cost of implementing the proposed change, including work on related system elements",
+        "The scope of the proposed change across requirements, design, code, tests, and other related work",
+        "Only whether the customer likes the idea, without evaluating effort, cost, scope, or related artifacts",
+        "Potential effects on related system elements that traceability links show may also need modification"
       ],
       "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "Impact analysis looks at the scope of the proposed change, related artifacts, effort, cost, and broader effects."
+      "explanation": "Impact analysis looks at the scope of the proposed change, related artifacts, effort, cost, and broader effects.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Evaluate each proposed requirement change to assess its effect on the project, including related artifacts, the effort and cost required, the scope of the change, and potential effects on related system elements."
+      }
     },
     {
       "question": "Why are baseline and version control important in requirements management?",
       "type": "multiple",
       "options": [
-        "They help distinguish release baselines and previous versus current requirement versions",
-        "They prevent all requirements changes",
-        "They replace traceability",
-        "They eliminate customer communication",
-        "They remove the need for history",
-        "They determine system performance"
+        "They prevent all requirements changes rather than controlling which versions are official baselines",
+        "They replace the need for requirements traceability once a baseline identifier has been assigned",
+        "They eliminate customer communication after the first baseline is published for a given release",
+        "They help distinguish release baselines and tell previous requirement versions from current ones",
+        "They remove the need to keep a change history once version identifiers have been assigned",
+        "They determine runtime system performance, which baseline and version labels cannot affect"
       ],
-      "answer": "a",
-      "explanation": "Baseline and version control help teams know which set of requirements belongs to which release and what changed between versions."
+      "answer": "d",
+      "explanation": "Baseline and version control help teams know which set of requirements belongs to which release and what changed between versions.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "A baseline defines an agreed-upon set of requirements, typically for a specific release. Unique version identifiers help avoid confusion between drafts and baselines and between previous and current versions."
+      }
     },
     {
       "question": "A requirements change history should allow the team to know which four things?",
       "type": "multiple",
       "options": [
-        "What changed, when it changed, who changed it, and why",
-        "Who programmed it, where they worked, when they arrived, and how much they earn",
-        "Which server, database, framework, and language were used",
-        "Which user, computer, browser, and operating system were involved",
-        "What was tested, who tested, which IDE, and which compiler",
-        "Only the final requirement text"
+        "What changed in the requirement, when it changed, who made each change, and why the change was made",
+        "Which source module was edited, how many lines changed, which release received it, and who coded it",
+        "Which server hosted it, which database stored it, which framework ran it, and which language was used",
+        "Which stakeholder requested it, which meeting recorded it, which tool stored it, and which file held it",
+        "What tests passed afterward, who executed them, which environment was used, and which build shipped",
+        "Only the latest requirement wording, without recording the date, the author, or the reason for change"
       ],
       "answer": "a",
-      "explanation": "The slides specifically say a change history should capture the what, when, who, and why."
+      "explanation": "The slides specifically say a change history should capture the what, when, who, and why.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Retain a history of changes made to individual requirements. Record the dates that requirements were changed, the changes that were made, who made each change, and why."
+      }
     },
     {
       "question": "Which sequence contains valid requirements change statuses from the slides?",
       "type": "multiple",
       "options": [
-        "Proposed, approved, implemented, verified",
-        "Written, coded, deployed, deleted",
-        "Planned, designed, compiled, shipped",
-        "Requested, documented, ignored, archived",
-        "Drafted, tested, fixed, maintained",
-        "Analyzed, programmed, hosted, monitored"
+        "Written, coded, deployed, and deleted, which are not the change-status values given in the chapter",
+        "Planned, designed, compiled, and shipped, which describe construction rather than change-request status",
+        "Requested, documented, ignored, and archived, which omit approval, implementation, and verification",
+        "Drafted, tested, fixed, and maintained, which are not the status sequence identified in the slides",
+        "Proposed, approved, implemented, and verified as the requirement change moves through development",
+        "Analyzed, programmed, hosted, and monitored, which describe later life-cycle work rather than change status"
       ],
-      "answer": "a",
-      "explanation": "The transcript and slides identify proposed, approved, implemented, and verified as example change states."
+      "answer": "e",
+      "explanation": "The transcript and slides identify proposed, approved, implemented, and verified as example change states.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Track the status of each requirement, including states such as proposed, approved, implemented, or verified, so you can monitor how each change request is moving through development."
+      }
     },
     {
       "question": "What does requirements volatility measure?",
       "type": "multiple",
       "options": [
-        "The rate at which requirements are changing",
-        "System response time",
-        "CPU temperature",
-        "Number of developers",
-        "Customer satisfaction",
-        "Database size"
+        "The system's response time under load, which is a performance attribute rather than change rate",
+        "The rate at which requirements are changing during the project, not a measure of system speed",
+        "The defect density found in source code, which measures implementation quality rather than change rate",
+        "The number of developers assigned to the team, which does not measure how frequently needs change",
+        "The measured level of customer satisfaction, which is not the definition of requirements volatility",
+        "The volume of data stored by the product, which does not describe how frequently requirements change"
       ],
-      "answer": "a",
-      "explanation": "Volatility refers to how frequently or rapidly requirements change."
+      "answer": "b",
+      "explanation": "Volatility refers to how frequently or rapidly requirements change.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Requirements management includes measuring requirements volatility, the rate at which requirements are changing, along with the reasons those changes are occurring."
+      }
     },
     {
       "question": "High requirements volatility can indicate which possible problems? Select all that apply.",
       "type": "multi",
       "options": [
-        "Poor understanding of requirements",
-        "Ill-defined project scope",
-        "Changing business conditions",
-        "Organizational or political issues",
-        "Guaranteed project success",
-        "Possible instability in the requirements process"
+        "A poor understanding of the real requirements, which can cause frequent corrections and churn",
+        "An ill-defined project scope, which leaves the boundary unstable and invites constant change",
+        "Changing business conditions that force the team to revise previously agreed requirements",
+        "Organizational or political issues that drive repeated changes unrelated to genuine product need",
+        "Guaranteed project success, which high volatility does not indicate and often works against",
+        "Possible instability in the requirements process that allows uncontrolled change to continue"
       ],
       "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "The slides mention poor understanding, weak scope definition, business dynamics, and politics as possible causes of high volatility."
+      "explanation": "The slides mention poor understanding, weak scope definition, business dynamics, and politics as possible causes of high volatility.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "High change rates can indicate poor understanding of the requirements, an ill-defined project scope, changing business conditions, organizational or political issues, or instability in the requirements process."
+      }
     },
     {
       "question": "Why might a requirements management tool be useful?",
       "type": "multiple",
       "options": [
-        "Automation can reduce repetitive work and support tracking, versioning, and traceability tasks",
-        "It removes the need for requirements analysts",
-        "It prevents every future defect",
-        "It makes customer involvement unnecessary",
-        "It eliminates the need for requirements",
-        "It automatically decides which features are correct"
+        "A tool removes the need for requirements analysts because the software can elicit needs by itself",
+        "A tool prevents every future defect, which no requirements-management product can actually do",
+        "A tool makes customer involvement unnecessary because stakeholders no longer need to review needs",
+        "A tool eliminates the need to write requirements because the repository invents them automatically",
+        "A tool automatically decides which features are correct without human analysis or validation",
+        "Automation can reduce repetitive work and support tracking, versioning, and traceability tasks"
       ],
-      "answer": "a",
-      "explanation": "The slides note that tools can eliminate drudgery and help perform requirements management tasks more effectively."
+      "answer": "f",
+      "explanation": "The slides note that tools can eliminate drudgery and help perform requirements management tasks more effectively.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Commercial requirements management tools store requirements in a database and help implement and automate tracking, versioning, change history, and traceability tasks, reducing repetitive manual work."
+      }
     },
     {
       "question": "What is the purpose of a requirements traceability matrix?",
       "type": "multiple",
       "options": [
-        "To connect requirements to design, code, and tests",
-        "To store developer passwords",
-        "To replace the source code repository",
-        "To calculate project cost",
-        "To document only business requirements",
-        "To track customer payments"
+        "To store stakeholder contact lists rather than to link requirements to later development artifacts",
+        "To replace the source-code repository so that design and tests no longer need any other storage",
+        "To connect each requirement to the design, code, and tests that implement and verify that requirement",
+        "To calculate the project budget and staffing cost rather than to link requirements through artifacts",
+        "To document only business objectives and never their connections to design, code, or test cases",
+        "To track project budget line items, which is a cost-accounting concern rather than requirements tracing"
       ],
-      "answer": "a",
-      "explanation": "A traceability matrix links requirements through later development artifacts."
+      "answer": "c",
+      "explanation": "A traceability matrix links requirements through later development artifacts.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "A requirements traceability matrix is a set of links that connect each functional requirement to the design and code elements that implement it and the tests that verify it."
+      }
     },
     {
       "question": "Which benefits can a traceability matrix provide? Select all that apply.",
       "type": "multi",
       "options": [
-        "Ensure required functionality is not missed",
-        "Connect requirements to code and tests",
-        "Help prevent unwanted features from appearing",
-        "Support requirements tracking",
-        "Guarantee zero defects",
-        "Show how requirements flow through development"
+        "Help ensure that required functionality is not missed during design, construction, and testing",
+        "Connect each requirement to the code and tests that implement and verify that requirement",
+        "Help prevent unwanted features from appearing when they have no approved requirement source",
+        "Support tracking of requirements as they move through development and later change activity",
+        "Guarantee that the delivered product will have zero defects, which no matrix can actually ensure",
+        "Show how requirements flow through design, implementation, and test so gaps can be found"
       ],
       "answer": ["a", "b", "c", "d", "f"],
-      "explanation": "Traceability helps ensure required work is implemented and prevents functionality with no requirement justification from being added."
+      "explanation": "Traceability helps ensure required work is implemented and prevents functionality with no requirement justification from being added.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "A traceability matrix helps confirm that required functionality is implemented and verified, supports tracking through development, and helps stop developers from adding unauthorized features."
+      }
     },
     {
       "question": "A developer adds a feature that cannot be traced back to any approved requirement. What problem can traceability help reveal?",
       "type": "multiple",
       "options": [
-        "An extraneous or unauthorized feature",
-        "A missing project manager",
-        "A hardware defect",
-        "A user training issue",
-        "A database indexing problem",
-        "A requirements baseline automatically failing"
+        "A missing project manager, which traceability of features to requirements does not reveal",
+        "A hardware manufacturing defect, which a requirements-to-code trace matrix does not detect",
+        "A user-training gap, which is not what missing requirement-to-feature traces are meant to expose",
+        "An extraneous or unauthorized feature that was added without an approved requirement source",
+        "A database-indexing problem, which is a design-performance issue rather than a tracing finding",
+        "A requirements baseline that automatically fails, which is not the problem this scenario describes"
       ],
-      "answer": "a",
-      "explanation": "Traceability can expose features that were added without an approved requirement."
+      "answer": "d",
+      "explanation": "Traceability can expose features that were added without an approved requirement.",
+      "reference": {
+        "section": "Requirements Management",
+        "book": "Chapter 3 — Requirements management",
+        "page": 12,
+        "excerpt": "Traceability keeps requirements from being forgotten and stops developers from adding unauthorized features. A feature that cannot be traced to an approved requirement is extraneous."
+      }
     },
     {
       "question": "Which statement best summarizes the overall Chapter 3 process?",
       "type": "multiple",
       "options": [
         "Develop requirements iteratively through elicitation, analysis, specification, and validation, then manage changes in a controlled and traceable way",
-        "Write requirements once, freeze them, then begin coding",
-        "Let customers define all technical design choices",
-        "Skip analysis and rely on prototypes",
-        "Focus only on requirements management",
-        "Complete all programming before validating requirements"
+        "Write every requirement in a single linear pass, freeze that document so it cannot change, and only then allow the construction work to begin",
+        "Let customers define all technical design and architecture choices, skipping a disciplined requirements development and change-management process",
+        "Skip analysis and specification entirely and rely only on prototypes, without validating a reviewable requirements baseline for the product",
+        "Focus only on requirements management activities and skip elicitation, analysis, specification, and validation of the actual product needs",
+        "Complete all programming of the product first, and only afterward validate whether the documented requirements were actually correct ones"
       ],
       "answer": "a",
-      "explanation": "Chapter 3 presents requirements engineering as an iterative development process followed by disciplined requirements management."
+      "explanation": "Chapter 3 presents requirements engineering as an iterative development process followed by disciplined requirements management.",
+      "reference": {
+        "section": "The process is not linear",
+        "book": "Chapter 3 — A requirements development process framework",
+        "page": 4,
+        "excerpt": "Requirements development is iterative through elicitation, analysis, specification, and validation. Requirements management then deals with those requirements after you have them, using change control and tracing."
+      }
     }
   ]
 }
