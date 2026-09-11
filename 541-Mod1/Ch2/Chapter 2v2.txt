@@ -1,17 +1,93 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Chapter 2v2.mp3
 
-Welcome to chapter 2. In this chapter, we look at the requirements from the customer's point of view. First of all, who are the customers? There are multiple understandings who the customers are, and slide 2 shows possible meanings of these customers. An important thing is that all of them have interests in or dependence on the intended product.
+[00:00] Welcome to Chapter 2.
 
-So it is needless to say that developers should have excellent relationships in order to have excellent requirements, which then will have influence on excellence of the product. As we know that many products have failed and left unsatisfied customers because of the lack of clear communication between developers and customers. So the job of requirements analysts is to identify and listen to the customers and also satisfy them before moving forward.
+[00:03] In this chapter, we look at the requirements from the customer's point of view.
 
-In order to have this well-connected relationship between customers and analysts, Wiegers identifies 10 so-called bill of rights and 10 customers' responsibilities. Slides 4 to 7 show the rights of customers, that is, what the customer can expect from the analysts. And slides 7 to 9 show the responsibilities of customers, and most of them are obvious, but the point is that the customer should spend time and effort to understand and to be active in all phases of requirements analysis.
+[00:08] First of all, who are the customers?
 
-Once the requirements have been developed, the customer needs to sign off the requirements. Again, the customer needs to read and understand what is signing off. If not, then they will have problems later on.
+[00:14] There are multiple understandings who the customers are.
 
-Once the requirements are signed off, then this established so-called baseline of the requirements, this represents basically the contract between the customer and developer, which needs to be managed or changed at a later time. And any changes, obviously, after the baseline has been established, change costs money and time and scope, and the customer needs to understand that, so make sure that they read before they sign it off. And developers need to realize there's something that she or he has to deliver.
+[00:18] Slide 2 shows possible meanings of these customers.
 
-Having baseline is important because it is the foundation of future development in terms of functionality, cost, and time, etc. So in this chapter, in summary, we have looked at the requirements from the customer point of view. Initially, we have identified what are the meanings of the customers, and then look at 10 rights and 10 responsibilities of customers.
+[00:22] The important thing is that all of them have interest in or dependent on intended product.
 
-And then we talked about the baseline, which is created once the customer signs off the requirements, and the importance of the baseline.
+[00:30] So it is needless to say that developers should have excellent relationship in order to have
 
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+[00:37] excellent requirements which then will have influence on excellent software product.
+
+[00:46] As we know that many products have failed and left unsatisfied customers because of
+
+[00:53] the lack of the clear communication between developers and customers.
+
+[00:58] So the job of requirements analysts is to identify and listen to the customers and also
+
+[01:05] satisfy them before moving forward.
+
+[01:10] In order to have this well-connected relationship between customers and analysts, Weger identifies
+
+[01:18] 10 so-called bill of rights and 10 customers' responsibilities.
+
+[01:30] Slides 4 to 7 show the rights of customers, that is, what the customer can expect from
+
+[01:38] the analysts, and Slides 7 to 9 show the responsibilities of the customer, and most of them are obvious,
+
+[01:47] but the point is that the customer should spend time and effort to understand and to
+
+[01:56] to be active in all phases of requirements analysis.
+
+[02:01] Once the changes or requirements have been developed,
+
+[02:04] the customer needs to sign off the requirements.
+
+[02:07] Again, the customer needs to read and understand
+
+[02:11] what is signing off.
+
+[02:13] If not, then they will have a problem later on.
+
+[02:16] Once the requirements signed off,
+
+[02:18] then this established so-called baseline of the requirements
+
+[02:23] just represents basically the contract
+
+[02:26] between the customer and developer,
+
+[02:28] which need to be managed or changed at a later time.
+
+[02:32] And any changes, obviously, after baseline has been
+
+[02:36] established, change costs money and time and scope.
+
+[02:40] And the customer needs to understand that.
+
+[02:42] So make sure that they read before they sign it off.
+
+[02:46] And customer developers need to realize
+
+[02:49] there's something that she or he has to deliver.
+
+[02:53] Having baseline is important
+
+[02:55] because it is the foundation of future development
+
+[02:58] in terms of functionality, cost, and time, et cetera.
+
+[03:03] So in this chapter, in summary, we
+
+[03:06] have looked at the requirements from the customer point
+
+[03:08] of view.
+
+[03:09] Initially, we have identified what are the meanings
+
+[03:13] of the customers, and then look at 10 rights and 10
+
+[03:16] responsibilities of customers.
+
+[03:18] And we talked about the baseline, which
+
+[03:20] is created once the customer signs off the requirements.
+
+[03:24] and the importance of the baseline.

@@ -1,47 +1,201 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Chapter 3v2.mp3
 
-Welcome to chapter 3. In this chapter, we look at the requirement engineering as we described in chapter 1 more in detail. If you recall that requirement engineering consists of requirements development and requirements management. So there are two parts, initial development and management.
+[00:00] Welcome to Chapter 3.
 
-Then furthermore, the requirement development itself consists of four steps. There is elicitation, analysis, specification, and also validation. Initially, slide 2 shows that these four steps are not what are four steps that is you have to completely done before you move on to the next step. 
+[00:02] In this chapter, we look at the requirement engineering as we described in Chapter 1 more in detail.
 
-Rather, they are iterative, incremental, and overlapped. And slide 3 to 8 show that the activities associated with elicitation, that is writing vision and scope documents, identifying the user classes. There are different users that will be using this product and identifying the product champions. 
+[00:10] If you recall that requirement engineering consists of requirements development and requirements management.
 
-And the product champions are basically people who represent each user class and speak for them. And identifying the focus group from these user classes. And identifying the use cases. 
+[00:16] So there are two parts, initial development and management.
 
-So these are features of this product that need to be shown. And identify the system events and responses. And that is how the product behaves based on the stimuli that you exercise on this product. 
+[00:20] Then furthermore, the requirement development itself consists of four steps.
 
-So if you do certain things to product, how does it react to basically what you do to the product. That means the behavior of the product. And also hold workshops. 
+[00:25] There is elicitation, allowances, specification, and also validation.
 
-And observation of the user to understand typically the system better. Examine the problems that occurred in the previous product, if any. And trying to find any reusable requirements that have been developed in the past. 
+[00:32] Initially, slide two shows that these four steps are not water force steps.
 
-So these are activities associated with elicitation. And slides 9 to 10 show the activities associated with the analysis of information collected during the elicitation phase. For example, drawing the context diagram. 
+[00:39] That is, you have to be completely done before you move on to the next step.
 
-Trying to identify the overview of the software product in terms of data, external entities, etc., etc. So the main view of the product. We'll do also in our project also. 
+[00:43] Rather, they are iterative, incremental, and overlapped.
 
-So if possible, also create prototypes to show mostly the interface. How user reacts to or interface the product. And explore the feasibility of the potential problem areas. 
+[00:48] And slide three to eight show that the activities associated with elicitation,
 
-And also during the analysis phase, also the requirements are prioritized. And also model the requirements. That is we can use different modeling techniques to analyze the requirements. 
+[00:54] There is a writing vision and scope documents, identifying the user classes, there is different
 
-We could use like class modeling, use case modeling, and data modeling, which will be also utilized in our project. And finally, identify any interfaces, that is in terms of data or requirements. So what other data that other systems besides yours can expect from your requirements. 
+[01:03] users that would be using this product, and identifying the product champions.
 
-And what are requirements are you providing to other subsystems, so other systems can use those data requirements. And the third step is specification. That is documenting the analyzed information.
+[01:09] And the product champions are basically people who represent each user class and speak for
 
-In this case, we could use SRS template, which is such as IEEE 830, which you'll be using in our project too. The last step of development is the validation, which is typically done using so-called inspection. So there are different levels of inspection that the most important, the most rigorous one is so-called formal inspection. 
+[01:15] them.
 
-So probably we're going to talk about later. Also during the verification phase, you can also define, identify the test cases, which you basically use later on to validate once the system has been created and implemented. Slide 15 through 18 deal with the management requirements, once the requirements have been developed.
+[01:16] And identifying the focus group from these use classes, and identifying the use cases.
 
-The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB, a change control board, a small number of people who will decide which changes should take place, what are not. 
+[01:23] So these are features of this product that need to be shown and identify the system events
 
-And need to perform the impact analysis. That is, if you make changes, what kind of other parts of the system are affected? So you need to make impact analysis to decide whether the change should take place or not. And also determine the baseline for the next version. 
+[01:29] and responses and that is how the product behaves based on the stimuli that you exercise
 
-So if you make changes, what does the next version look like? And what kind of version control system are you going to use? And maintain the change history. And also track the change status. That is, what is the change request? What is that at this point? So it can be one of these four. 
+[01:36] on this product.
 
-Has it been approved? Proposed, approved, or implemented, or verified? So the proposed request can be either one of these four. So tracking that also is important where it is right now. And also some quantitative measures should be taken in terms of change quality of the changes. 
+[01:37] So if you do certain things to the product, how does it react to that, basically what
 
-That is, what is the change rate? What are the reasons for change? So how often did the changes take place? Why is that occurring? So you need to keep track of those too to make sure that those things don't happen again if that causes some problem. And using the tools is important. So what kind of tool you're going to use and identifying those tools and using those tools. 
+[01:43] you do to the product, that means the behavior of the product.
 
-And lastly, create traceability matrices. That is, basically, tracing the requirements through design and implementation and testing. So that you can see where the current requirement is in terms of whole development. 
+[01:47] and also hold workshops, and observation of the user
 
-Finally, slides 19 and 20 show the summaries of activities that take place during each phase of requirements development. And also more detailed steps that take place during the order of steps that are taking place during requirements development. So that's Chapter 3. Chapter 3 is really important to understand because we talked about activities associated with each phase or each steps of development and maintenance.
+[01:52] to understand typically the system better,
 
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+[01:55] examine the problems that occurred
+
+[01:57] in the previous product, if any,
+
+[02:00] and trying to find any reusable requirements
+
+[02:03] that have been developed in the past.
+
+[02:05] So these are activities associated with elicitation.
+
+[02:09] And slides nine to 10 show the activities associated
+
+[02:11] with the analysis of information collected
+
+[02:15] during the elicitation phase.
+
+[02:17] For example, during the context diagram,
+
+[02:21] trying to identify the overview of the software product
+
+[02:26] in terms of data, external entities, et cetera, et cetera.
+
+[02:31] So the main view of the product.
+
+[02:34] We'll do also in our project also.
+
+[02:37] So if possible, also create port types
+
+[02:39] to show mostly the interface, how
+
+[02:44] user reacts to the interface of the product,
+
+[02:47] and explore the feasibility of the potential problem areas.
+
+[02:52] And also, during the analysis phase,
+
+[02:56] also the requirements are prioritized.
+
+[02:59] And also, the requirements of the model,
+
+[03:01] that is, we can use different modeling techniques
+
+[03:05] to analyze the requirements.
+
+[03:07] We could use class modeling, use case modeling,
+
+[03:10] and data modeling, which will be also
+
+[03:12] outlined in our project.
+
+[03:14] And finally, identify any interfaces that
+
+[03:18] is in terms of data or requirements.
+
+[03:20] So what other data that other subsystems, other systems,
+
+[03:25] besides of yours, can expect from your requirements?
+
+[03:29] And what are requirements are you
+
+[03:30] providing to other subsystems so other systems can
+
+[03:33] use those data and requirements?
+
+[03:36] The third step is specification that
+
+[03:39] is documenting the analyzed information.
+
+[03:43] In this case, we could use SRS template, which
+
+[03:47] is such as IEEE 830, which you'll
+
+[03:51] be using in our project, too.
+
+[03:54] The last step of development is the validation,
+
+[03:57] which is typically done using so-called the inspection.
+
+[04:01] So there are different levels of inspection
+
+[04:03] that the most important, the most rigorous one
+
+[04:05] is so-called the former inspection,
+
+[04:07] so probably we're going to talk about later.
+
+[04:09] Also, during the verification phase,
+
+[04:13] You can also identify the test cases which you basically use later on to validate once
+
+[04:21] the system has been created and implemented.
+
+[04:26] Slide 15-18 deals with the management requirements once the requirements have been developed.
+
+[04:34] The management basically is controlling the change.
+
+[04:40] So if someone wants to change the baseline, how basically do you control?
+
+[04:45] What kind of activity involves doing the changes?
+
+[04:49] So for example, we need to define the process of control.
+
+[04:54] So how do you, what are the steps of changing the control and the change?
+
+[05:01] And identify, so for CCD, change completely a small number of people who will decide which
+
+[05:06] what changes should take place or are not, and need to perform the impact analysis.
+
+[05:13] That is, if you make changes, what kind of other parts of the system are affected?
+
+[05:17] So you need to make impact analysis in order to decide whether the changes should take
+
+[05:23] place or not, and also determine the baseline for the next version.
+
+[05:29] So if you make changes, what does the next version look like and what kind of version
+
+[05:35] control system are going to use, and maintain the change history, and also
+
+[05:41] track the change status. That is, what is the change request? What is that at this
+
+[05:47] point? So it can be one of these four. Has it approved? Once it has been
+
+[05:54] approved, are proposed, approved, or implemented, or verified? So the proposed
+
+[06:02] request can be either one of these four. So tracking that also is important what it is right now.
+
+[06:08] And also some quantitative measures should be taken in terms of a change quality of the changes.
+
+[06:16] That is what is the change rate? What are the reasons for change? So how often do
+
+[06:21] two changes take place? Why is there occurring? So you need to keep track of those two so for
+
+[06:26] or to make sure that those things don't happen again if that causes some problem.
+
+[06:33] And using the tools is important, so what kind of tool you are going to use and identifying
+
+[06:37] those tools and using those tools.
+
+[06:40] And lastly, create traceability matrix that is basically tracing the requirements through
+
+[06:47] the design and implementation and testing, so that you can see where the current state's
+
+[06:53] current requirements in terms of whole development.
+
+[06:57] Finally slide 19 and 20 show the summaries of activities that take place during each
+
+[07:02] phase of requirements development and also more detailed steps that take place during
+
+[07:09] the order of steps that are taking place during requirements development.
+
+[07:13] So that's chapter 3.
+
+[07:15] Chapter 3 is really important to understand because we talked about activities associated
+
+[07:21] with each phase or each steps of development and maintenance.

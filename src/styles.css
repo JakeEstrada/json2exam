@@ -496,6 +496,12 @@
     background: var(--study-paper);
     color: var(--study-ink);
   }
+  .quiz-study.is-pane .quiz-notes-body.is-lecture {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
   .quiz-study.is-pane .quiz-notes-body.is-pdf {
     padding: 0;
     overflow: hidden;
@@ -1037,22 +1043,72 @@
     margin-left: -6px;
     margin-right: -6px;
   }
+  .lecture-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  .lecture-player {
+    flex: none;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 10px 14px 8px;
+    background: var(--study-paper);
+    border-bottom: 1px solid var(--study-rule);
+  }
+  .lecture-player audio {
+    display: block;
+    width: 100%;
+    height: 36px;
+  }
+  .lecture-clip {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: var(--study-ink);
+  }
   .lecture-text {
-    padding: 18px 22px 24px;
+    padding: 14px 16px 24px;
     color: var(--paper-ink);
     font-size: 15px;
     line-height: 1.55;
+    overflow: auto;
+    flex: 1;
+    min-height: 0;
   }
   .lecture-text p { margin: 0 0 14px; }
   .lecture-text p:last-child { margin-bottom: 0; }
+  .lecture-cue {
+    display: grid;
+    grid-template-columns: 4.4em minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    width: 100%;
+    margin: 0 0 8px;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+  }
+  .lecture-cue:hover { background: color-mix(in srgb, var(--study-strong) 10%, transparent); }
+  .lecture-time {
+    color: var(--study-ink);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
   .lecture-hit {
     background: var(--accent-soft);
     box-shadow: inset 0 0 0 1px var(--accent);
     border-radius: 6px;
-    padding: 8px 10px;
-    margin-left: -10px;
-    margin-right: -10px;
     scroll-margin: 16px;
+  }
+  .lecture-cue.is-live:not(.lecture-hit) {
+    background: color-mix(in srgb, var(--study-strong) 8%, transparent);
   }
 
   .q-text {

@@ -14,6 +14,11 @@ import lecture541Ch2 from '../../541-Mod1/Ch2/Chapter 2v2.txt?raw';
 import lecture541Ch3 from '../../541-Mod1/Ch3/Chapter 3v2.txt?raw';
 import lecture541Ch4 from '../../541-Mod1/Ch4/Chapter 4v2.txt?raw';
 import lecture541Ch5 from '../../541-Mod1/Ch5/Chapter 5v2.txt?raw';
+import audio541Ch1 from '../../541-Mod1/Ch1/Chapter 1V2.mp3?url';
+import audio541Ch2 from '../../541-Mod1/Ch2/Chapter 2v2.mp3?url';
+import audio541Ch3 from '../../541-Mod1/Ch3/Chapter 3v2.mp3?url';
+import audio541Ch4 from '../../541-Mod1/Ch4/Chapter 4v2.mp3?url';
+import audio541Ch5 from '../../541-Mod1/Ch5/Chapter 5v2.mp3?url';
 import book541Ch1 from '../../541-Mod1/Ch1/Book-chapter 1.pdf?url';
 import book541Ch2 from '../../541-Mod1/Ch2/Book-chapter 2.pdf?url';
 import book541Ch3 from '../../541-Mod1/Ch3/Book-chapter 3.pdf?url';
@@ -49,6 +54,8 @@ export const COURSES = [
             notes: notes541Ch1,
             lectureFile: 'Chapter 1V2.txt',
             lecture: lecture541Ch1,
+            lectureAudioFile: 'Chapter 1V2.mp3',
+            lectureAudio: audio541Ch1,
             bookFile: 'Book-chapter 1.pdf',
             bookUrl: book541Ch1,
           },
@@ -62,6 +69,8 @@ export const COURSES = [
             notes: notes541Ch2,
             lectureFile: 'Chapter 2v2.txt',
             lecture: lecture541Ch2,
+            lectureAudioFile: 'Chapter 2v2.mp3',
+            lectureAudio: audio541Ch2,
             bookFile: 'Book-chapter 2.pdf',
             bookUrl: book541Ch2,
           },
@@ -75,6 +84,8 @@ export const COURSES = [
             notes: notes541Ch3,
             lectureFile: 'Chapter 3v2.txt',
             lecture: lecture541Ch3,
+            lectureAudioFile: 'Chapter 3v2.mp3',
+            lectureAudio: audio541Ch3,
             bookFile: 'Book-chapter 3.pdf',
             bookUrl: book541Ch3,
           },
@@ -88,6 +99,8 @@ export const COURSES = [
             notes: notes541Ch4,
             lectureFile: 'Chapter 4v2.txt',
             lecture: lecture541Ch4,
+            lectureAudioFile: 'Chapter 4v2.mp3',
+            lectureAudio: audio541Ch4,
             bookFile: 'Book-chapter 4.pdf',
             bookUrl: book541Ch4,
           },
@@ -101,6 +114,8 @@ export const COURSES = [
             notes: notes541Ch5,
             lectureFile: 'Chapter 5v2.txt',
             lecture: lecture541Ch5,
+            lectureAudioFile: 'Chapter 5v2.mp3',
+            lectureAudio: audio541Ch5,
             bookFile: 'Book-chapter 5.pdf',
             bookUrl: book541Ch5,
           },

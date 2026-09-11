@@ -1,21 +1,89 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Chapter 4v2.mp3
 
-Welcome to chapter 4. In this chapter, we'll talk about the business analyst or the BA who plays a crucial role in making the product a successful one. Basically, he's the person who is in charge, coming up with the requirements, and serves as the middleman between the developer and also the user. Initially, the slides 2 through 7 show the details of the tasks that a business analyst is supposed to do, such as defining the business requirements. 
+[00:00] Welcome to Chapter 4. In this chapter, we'll talk about the Business Analyst, or the BA,
 
-As you know, the business requirements are the top-level requirements, identifying the stakeholders and users, and obviously the engineering process, such as eliciting the requirements, analyzing the requirements, and specifying the requirements, and the modeling requirements, and also validating requirements. So the engineering part of that must be also done by the business analyst. And also, facilitating the requirements between the users and developers. 
+[00:10] who plays a crucial role in making the product a successful one.
 
-So in case there are any disagreements between users and developers, he should be able to facilitate to come up with coherent or consistent requirements. And also, the managing requirement, that is, if they change control, if there's any change that needs to be made, and he should be the person who should be able to manage or control the change. The slides 8 through 12 show the skills that are necessary to be a requirements analyst. 
+[00:17] Basically, he's a person who is in charge, coming up with the requirements,
 
-So in order to be a requirements analyst, he must be a good listener, he must possess good interview skills in order to interview the users and also a portion of developers. And obviously, in order to do the analysis, he has possessed good analytical skills. And also, he must be a good facilitator and organizer of the meetings, and he must be a good observer. 
+[00:22] and or serves, if you will, the middleman between the developer and also the user.
 
-Also, he must be able to be a good writer and creative in writing, expressing his findings in good written form. And also, he must have good personal skills going along with users and also developers. So it requires a lot of things from a business analyst. 
+[00:35] Initially, the slides two through seven showed the details of the tasks that business island is
 
-Obviously, we cannot have everything, but he should possess at least good skills in each of these. Then slide 13 describes the knowledge that a business analyst must possess. He must possess good engineering techniques. 
+[00:43] supposed to do, such as defining the business requirement. As you know, the business requirement
 
-He must have the technical side of it, and he must be able to do project management, that is how to do a project in terms of process models and also things that are required in terms of resource management, etc. And he must have some knowledge in risk analysis and quality engineering, and he must be also a good application expert. So he must have good knowledge in the domain where he's working in.
+[00:49] at the top level requirements, identifying the stakeholders and users, and obviously
 
-Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users or developers — users have intimate knowledge in terms of requirements, and developers have intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst. 
+[00:57] the engineering process such as eliciting the requirements, analyzing the requirements,
 
-That's chapter 4.
+[01:04] and specifying the requirements and the modeling requirements, and also validating requirements.
 
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+[01:12] So the engineering part of that must be also done by the business analyst, and also facilitating
+
+[01:19] the requirements between the users and developers.
+
+[01:21] So if there is any disagreement between users and developers,
+
+[01:27] he should be able to facilitate to come up
+
+[01:32] with the coherent or consistent requirements.
+
+[01:35] And also the managing requirement,
+
+[01:37] that is, if they change controllers,
+
+[01:39] any changes need to be made.
+
+[01:41] And he should be the person who should be able to manage
+
+[01:45] or control the change.
+
+[01:48] The slides 8 through 12 show the skills that are necessary to be a requirements analyst.
+
+[01:54] So in order to be a requirements analyst, he must be a good listener, he must possess
+
+[02:03] a good interview skills in order to interview the users and also portion of developers.
+
+[02:12] And obviously, in order to do the analysis, he has possessed good analytical skills.
+
+[02:20] And also, he must be a good facilitator and organizer of the meetings.
+
+[02:27] And he must be a good observer.
+
+[02:30] Also, he must be able to be a good writer and creative in writing, expressing the findings
+
+[02:40] in good written form, and also he must have good personal skills going along with users
+
+[02:47] and also developers. So it requires a lot of things from a business analyst. Obviously
+
+[02:52] we cannot have everything, but he should possess a list of skills in each of these.
+
+[02:59] Slide 13 describes the knowledge that a business analyst must possess. He must possess good
+
+[03:06] engineering techniques. He must have the technical side of it and he must be able to do the project
+
+[03:13] management, that is how to do a project in terms of process models and also things in
+
+[03:20] terms of resource management, etc. He has some knowledge in risk analysis, quiet engineering
+
+[03:26] and he must be also a good application expert. So he must have good knowledge in the domain
+
+[03:31] where it's working in. Finally, slides 14 through 16 describe who could be such a potential
+
+[03:38] business analyst, obviously users from developers who have, users have intimate knowledge in
+
+[03:47] terms of requirements, and developers intimate knowledge from the developing point of view,
+
+[03:52] and also domain experts who have intimate knowledge of the particular problem could
+
+[03:56] be a good business analyst.
+
+[03:59] So in summary, chapter 4, we talked about the business analyst who is crucial in making
+
+[04:05] a product successful in terms of number one, the tasks that he has to do, and the skills
+
+[04:11] he needs, and the knowledge also he should have, and finally, who could be a potential
+
+[04:17] business analyst.
+
+[04:19] That's chapter 4.

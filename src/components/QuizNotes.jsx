@@ -5,7 +5,7 @@ import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
 
 export default function QuizNotes({
-  source, bookUrl, lecture, focus, mode,
+  source, bookUrl, lecture, lectureAudio, focus, mode,
 }) {
   const page = focus && focus.page ? focus.page : 0;
   const heading = focus && focus.heading ? focus.heading : '';
@@ -32,8 +32,8 @@ export default function QuizNotes({
         </div>
       )}
       {active === 'lecture' && lecture && (
-        <div className="quiz-notes-body">
-          <LectureView source={lecture} highlight={lectureQuote} />
+        <div className="quiz-notes-body is-lecture">
+          <LectureView source={lecture} highlight={lectureQuote} audioUrl={lectureAudio} />
         </div>
       )}
       {active === 'book' && bookUrl && (

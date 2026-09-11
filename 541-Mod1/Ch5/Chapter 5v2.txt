@@ -1,37 +1,165 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Chapter 5v2.mp3
 
-Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and functional requirements.
+[00:00] Welcome to Chapter 5. In this Chapter, Chapter 5, we'll talk about then how to establish the top level of requirements.
 
-In this chapter we're going to talk about business requirements. The business requirements consist of mainly two parts. One is the vision, and the other one is scope.
+[00:11] Remember, there are three levels of requirements. The top one was business requirements, then user requirements and function requirements.
 
-Now, the product vision describes, if you will, the long-term goals of the products, whereas the scope describes mainly short-term objectives, such as what part of the vision is addressed at this time. Also, the business requirement ultimately influences the user requirements, the next level, which are expressed in terms of, we'll look at those later, in terms of use cases. So, lecture-wise, if you look at slides 8 through 10, they show the templates of such vision and scope documents, which you can see also in our project case for COS, or it's the cafe ordering system.
+[00:22] In this chapter, we're going to talk about business requirements.
 
-Initially, slide 8 shows the documentation format for more or less the product vision, and slide 9 shows the format for the scope of the project. Again, remember, the business requirement consists of two things. One is vision, the other is scope.
+[00:27] The business requirements consist of mainly two parts.
 
-So, if you look at slide 8, it shows product vision, and slide 9 shows the scope of the project. Final slide 10 shows the business context, such as stakeholders, project priorities, and also deployment consideration. So, again, slides 8 through 10 show the template of vision and scope documents.
+[00:31] One is the vision and the other one is scope.
 
-Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or data flow diagram, if you know what a data flow diagram is.
+[00:36] Now the product vision describes, if you will, the long-term goals of the products, whereas
 
-If you look at, for example, slide number 12, it shows the interaction between the chemist and the system. That is, a chemist uses the chemical tracking system by sending a request for a chemical. So, there is interaction between chemist and also tracking system by sending a request for a chemical.
+[00:43] the scope describes mainly short-term objectives, such as what part of the vision is addressed
 
-Then, system provides a vendor catalog if the chemical needs to be ordered. So, the context diagram shows the overview of the system in terms of external entity and how these external entities exchange data with the system. Slide 13 shows a technique called an eco-map, or ecosystem map.
+[00:53] at this time.
 
-The eco-map basically is a graphical representation of how the individual components of your system interact with each other. So, for example, slide 13 shows the components initially of the chemical tracking system and it shows how they interact with each other. So, all the subsystems, if you will, of your system and how they interact with each other.
+[00:55] So the business requirement ultimately influences the user requirements, the next level, which
 
-Finally, slide 14 shows a feature tree where you can identify the major features along with sub-features that are necessary to accomplish these major features. So, for example, slide 14, you will see a feature called order chemical, which is on the top right-hand side. Hopefully, you see that.
+[01:02] are expressed in terms of, we'll look at also later, in terms of use cases.
 
-Then, you can identify two sub-features that accomplish so-called order chemical feature. So, one is search and the other one is chemical request feature. So, these are two features that accomplish ordering chemical.
+[01:07] So lecture-wise, if you look at slides 8 through 10, they show the template of such vision
 
-Now, furthermore, if you look at the search part of the branch, if you will, so that is the search feature accomplished by three different additional sub-features, such as search local lab first initially. Then, if it's not there, find preferred vendors. And then, finally, search the catalog of the vendors.
+[01:16] scope document, which you can see also in our project case for COS, which is the Cafe
 
-So, again, in order to accomplish search feature, you need to have three sub-features that accomplish that particular feature. If you will, you're basically doing the so-called stepwise refinement. That is, you have initially a big abstraction and then you're using stepwise refinement to find small abstractions that accomplish that particular bigger abstraction.
+[01:22] Ordering System.
 
-In summary, in Chapter 5, we talked about top-level requirements, which is known to be a business requirement. Again, business requirement consists of two major components. One is product vision and project scope.
+[01:24] Initially, the slide 8 shows the documentation format for more or less the product vision.
 
-And also, we look at the documentation format for that business requirement. As an example, you can see the project case now. So, upload it.
+[01:31] And slide 9 shows the format for the scope of the project.
 
-If you look at our project case, you will see the templates with also things filled in for that particular cafe ordering system. Look at that also. That will help you to understand Chapter 5 better.
+[01:36] Again, remember, the business requirement consists of two things.
 
-Okay, that's Chapter 5.
+[01:40] One is vision and the other is scope.
 
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+[01:43] So if you look at slide 8, it shows product vision and state 9 shows the scope of the
+
+[01:50] project.
+
+[01:52] slide 10 shows the business context such as stakeholders, priorities, and also deployment
+
+[02:01] consideration. So again, slide 8 through 10 show the template of vision and scope documents.
+
+[02:11] Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope
+
+[02:20] of the project. Initially, the slides 11 and 12 show so-called a context diagram. A context
+
+[02:31] diagram basically shows how a software system interacts with the so-called external entities
+
+[02:39] of that system in terms of data that are being exchanged or known to a context diagram of
+
+[02:45] flow diagram, if you know what flow diagram is. If you look at, for example, slide number
+
+[02:52] 12, it shows the interaction between the chemists and also the system. That is, a chemist uses
+
+[02:59] the chemical tracking system by sending a request for chemicals. So there is interaction between
+
+[03:08] chemists and also tracking system by sending a request for chemicals. Then the system provides
+
+[03:15] a vendor catalog if the chemical needs to be ordered.
+
+[03:20] So the context diagram shows the overview of the system in terms of the external entity
+
+[03:25] and how these external entities exchange data with the system.
+
+[03:32] The slide 13 shows the technique called the ECOMAT or Ecosystem Map.
+
+[03:38] The ECOMAT basically is a graphic representation how the individual components of your system
+
+[03:45] intact each other. So, for example, slide 13 shows the components initially of the chemical
+
+[03:53] tracking system and it shows how they interact with each other. So, all the subsystems, if
+
+[04:00] you will, of your system and how they intact each other.
+
+[04:04] The final slide 14 shows the so-called feature tree where you can identify the major features
+
+[04:12] along with sub features that are necessary
+
+[04:15] to accomplish these major features.
+
+[04:18] So for example, in slide 14,
+
+[04:20] you will see that a feature called order chemical,
+
+[04:24] which is on the top right hand side.
+
+[04:27] Hopefully you see that.
+
+[04:28] Then you can identify two sub features
+
+[04:33] that accomplish so-called order chemical feature.
+
+[04:37] So one is a search and the other one is a search request.
+
+[04:41] sorry, chemical request feature.
+
+[04:43] So these are two features that are
+
+[04:46] accomplished ordering chemical.
+
+[04:48] Now furthermore, if you look at the search part
+
+[04:51] of the branch field, if you will,
+
+[04:56] so that is the search feature we accomplished
+
+[05:00] by three different additional search features,
+
+[05:04] such as search local app first initially.
+
+[05:08] Then if there's not there, find preferred vendors.
+
+[05:12] And then finally, search the catalog of the vendor.
+
+[05:15] So again, in order to accomplish search feature,
+
+[05:19] you need to have three sub-features that
+
+[05:23] accomplish that particular feature.
+
+[05:28] If you will, you're basically doing the so-called step
+
+[05:31] or as refinement.
+
+[05:32] That is, you have initially a big abstraction.
+
+[05:35] And then you're using step or as refinement
+
+[05:37] to find small obstructions, they'll
+
+[05:40] accomplish their particular bigger obstruction.
+
+[05:44] In summary, in chapter 5, we talked
+
+[05:47] about top-level requirements, which
+
+[05:49] is, we know it to be a business requirement.
+
+[05:52] Again, business requirement consists
+
+[05:54] of two major components.
+
+[05:55] One is product division and project scope.
+
+[05:59] And also, we look at the documentation format
+
+[06:02] for that business requirements.
+
+[06:06] And as an example, you can see then the project case now.
+
+[06:10] So upload it.
+
+[06:12] If you look at our project case, you
+
+[06:14] will see that the templates with also things
+
+[06:17] filled in for that particular cafe ordering system.
+
+[06:21] Look at that also.
+
+[06:21] They will help you to understand chapter five better.
+
+[06:24] OK, that's chapter five.

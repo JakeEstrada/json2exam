@@ -88,6 +88,8 @@ function DeckCard({ deck, onStart, onPreview }) {
           bookUrl: deck.bookUrl,
           lecture: deck.lecture,
           lectureFile: deck.lectureFile,
+          lectureAudio: deck.lectureAudio,
+          lectureAudioFile: deck.lectureAudioFile,
         })}
       >
         Start this deck

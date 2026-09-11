@@ -14,7 +14,18 @@ import QuestionCard from './components/QuestionCard.jsx';
 import Summary from './components/Summary.jsx';
 import AskGPT from './components/AskGPT.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
-import { COURSES } from './data/catalog.js';
+import { COURSES, courseDecks } from './data/catalog.js';
+
+function withLectureAudio(qz) {
+  if (!qz || qz.lectureAudio) return qz;
+  const decks = COURSES.flatMap(courseDecks);
+  const deck = decks.find((d) => d.lectureFile && d.lectureFile === qz.lectureFile);
+  if (deck && deck.lectureAudio) {
+    qz.lectureAudio = deck.lectureAudio;
+    qz.lectureAudioFile = deck.lectureAudioFile;
+  }
+  return qz;
+}
 
 const DEFAULT_SETTINGS = { maxBox: 3, shuffle: true, instant: true };
 
@@ -58,6 +69,7 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onMode }) {
           source={quiz.notes}
           bookUrl={quiz.bookUrl}
           lecture={quiz.lecture}
+          lectureAudio={quiz.lectureAudio}
           focus={studyFocus}
           mode={sidePane}
         />
@@ -97,7 +109,7 @@ export default function App() {
   }, []);
 
   function begin(qz, bx, st, cfg) {
-    setQuiz(qz);
+    setQuiz(withLectureAudio(qz));
     setBoxes(bx);
     setStats(st);
     setSettings(cfg);
@@ -131,6 +143,10 @@ export default function App() {
     if (extra && extra.lecture) {
       qz.lecture = extra.lecture;
       qz.lectureFile = extra.lectureFile || 'lecture.txt';
+    }
+    if (extra && extra.lectureAudio) {
+      qz.lectureAudio = extra.lectureAudio;
+      qz.lectureAudioFile = extra.lectureAudioFile || 'lecture.mp3';
     }
     startFresh(qz);
   }

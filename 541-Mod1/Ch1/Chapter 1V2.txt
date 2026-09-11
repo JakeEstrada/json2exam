@@ -1,133 +1,583 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Chapter 1V2.mp3
 
-Welcome to chapter one, the essentials of software requirements. This chapter basically three components. First of all, it tries to describe why do we need software requirements. 
+[00:00] Welcome to chapter 1, the essential of self-requirements.
 
-As we know that if you want to develop software you have to have software requirements. So it talks about that there is a need for precise and good software requirements. Secondly, it tries to describe what is definition then of exact software requirements. 
+[00:04] This chapter basically three components.
 
-And lastly, the components and types and levels that is a components of software requirement engineering. So it describes in this area. So let's get into why do we need software requirements. 
+[00:07] First of all, it transcribes why do we need a self-requirements?
 
-As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what software requirements are and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build.
+[00:13] As we know that if you want to develop software, you have to have self-requirements.
 
-So we have to clearly understand what we need to build, what the software requirement is. So no other part of the work so cripples the resulting system if done wrong. No other part is more difficult to rectify later. 
+[00:20] So it talks about that there is a need for precise and good self-requirements.
 
-As you know once you have wrong requirements or not clear requirements or incomplete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher. 
+[00:27] Secondly, it tries to describe what is the definition of an exact software requirement,
 
-So if you obviously discover that that's during the maintenance phase, the cost will be tremendously higher. That is anywhere between 60 to 200 times of the cost that we could have spent during the requirements. So not only that, if you have a bad product later on, obviously the customer is frustrated. 
+[00:33] and lastly, the components and types and levels that is the components of software requirement
 
-They spent money, they waited long, but the product it doesn't do what it's supposed to do. Also the developers obviously is frustrated. They spent all the time and money, resources, and then this customer is not satisfied and it doesn't do what it's supposed to do.
+[00:40] engineering, so it tries to describe in this area.
 
-Obviously that's a big problem too. So both are if you don't do correct software requirements, then the customer is frustrated and developers will be also frustrated. So in that case, then the software project is a total failure. 
+[00:45] So let's get into why do we need software requirements.
 
-Then why is it so difficult to come up with a precise software requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like. 
+[00:50] A scenario that, as it says, introduction, failure to understand and control requirements
 
-So obviously, you heard the term, if there are too many cooks, they spoil the broth. So if too many people wanting to give inputs and if you don't really sort out what is exactly needed, obviously that is a recipe for disaster. Also short-term requirements gathering. 
+[00:56] is number one cause of project failure.
 
-You have to have a clear engineering process how you go about collecting this requirement information. If you don't have a clear process of doing that, then obviously you don't get precise requirements. So again, first part talked about what the requirement is, why we need requirements, and why it's so difficult gathering the requirements. 
+[01:00] So if you don't really clearly understand
 
-Second part is that slide number eight, 1.3, is what is in software requirements. So there are some informal definitions. It says what should be implemented, external behavior, or appearance system. 
+[01:02] what self-requirement is,
 
-That's a more informal description. A more formal definition from IEEE glossary is, say, conditions or capabilities needed by a user to solve a problem, achieve an objective, or condition or capability that must be met by a software to satisfy a contract. So requirements represent the contract. 
+[01:03] and if you don't control the requirements,
 
-So in order to meet the contract, it must be implemented. There's some other definitions too. So requirements or specifications should be implemented. 
+[01:07] it is total failure.
 
-So if you do specify something, they should be implemented. That's another more, if you will, it's a more semi-formal definition of it. Or there must be a constraint to development to process system. 
+[01:09] And as it says also in the following slides,
 
-So you also describe the constraints to the system, their conditions to the system. That's also part of software requirements. So then part number two is what types of requirements. 
+[01:12] a single hardest part of building a software system
 
-So what are the components of basically software requirements? Initially, we divide into functional requirements and non-functional requirements. Functional requirements are basically that you have to implement in terms of functionality. So for example, you could say, okay, my system must do x, y, z. So if you use your software system, it should display that kind of behavior. 
+[01:14] is deciding precisely what to build.
 
-So that's the functional requirements. So functionality. And there are non-functional requirements.
+[01:18] So we have to clearly understand what we need to build,
 
-These are slide number 14, description of property or characteristics the system must exhibit or restriction constraints that it must respect. So for example, it's a quality attributes performance. So functionality-wise, it works, but you should say also performance-wise, say certain feature must respond to five seconds, 10 seconds, or you can say it should be available 24-7, and it should have certain security features. 
+[01:21] what is that is requirement software.
 
-So it is not really functionality issue, but it's more quality attribute issue. So these are because of non-functional requirements. Also constraints also. 
+[01:24] So no other part of work is so cripple to the resulting system, if done wrong.
 
-So I say, for example, a user can access only three times the login procedure. After that, it should be basically stopped. So these are kind of constraints, or it should detect certain numbers from lowest level to what is lowest level it should detect, and what is upper level they should detect. 
+[01:31] No other part is more difficult to rectify later.
 
-So these are not really functionality, but more quality attributes of software. So first thing, what is not, is obviously you don't want to describe functional requirements in a requirement that is a design or implementation detail. So we're not certain which language we're going to use, and how we want to implement that.
+[01:34] As you know, once you have wrong requirements or not clear requirements or complete requirements,
 
-So these are not really design issues, are not part of requirements. And typically, we don't include also planning here either, and also testing information. But we can get testing information, the requirements will be used later on for testing purposes, but not testing information. 
+[01:41] later on once the system is built, try to rectify that is obviously a big problem.
 
-So what kind of value you're going to use, et cetera, will not be part of the software requirements. Again, part number two describes what are the components of requirements. Initially, there is functional requirements and non-functional requirements. 
+[01:46] As you know, there is a study that shows that if there is a defect in the requirements,
 
-Functional requirements are these systems, non-functional requirements are more quality attributes. Now in terms of functional requirements, these functional requirements, what it's supposed to do is influenced by the three things. Number one is the highest level is business requirement. 
+[01:55] if you correct that, that is, say, cost of unit of 1, then if the defect is discovered
 
-That is what is the business says, for example, it should be after implementing this system, 80% of all customer should use my particular software. So that's a business requirement. So business requires certain vision and scope, and that influences later on your requirements. 
+[02:05] later and later, the cost was higher.
 
-And there are user requirements, there are people, users that you're using system that will influence also your requirements. Also, there are system requirements that is a other systems that if your system is part of the bigger systems, then the other system will require also from your system. So there are three things that will influence requirements, functional requirements, that is a business requirement, that is business wants a certain way after implementing this issue a certain way, and the user requirement, user wants certain functionalities, and also other systems will require from your certain things. 
+[02:08] So if you obviously discovered that, that's during the maintenance phase, the cost would
 
-So these are three things that are also three levels, if you will, that will influence your functional requirements. Then how do you do then this requirement engineering we call? This requirement engineering is part of a bigger picture of software engineering. The requirement engineering deals with a development and management. 
+[02:12] be tremendously higher, that is anywhere between 60 to 200 times of the cost that we could
 
-So you initially develop requirements, and then you have to manage it as it goes along, requirements do change, and managing, changing, deleting, adding more requirements, so that's the management. Now, in terms of software requirements, there are four steps also. So if you initially develop requirements, there it needs to go through four steps. 
+[02:18] have spent during the requirements.
 
-Initially, you elicit the requirements. So elicitation initially deals with slide number 17, what are the user classes? So what are the users that will be using or utilizing or influencing your system? So you need to elicit the problem that is, in order to do that, you do those things. So initially, you need to find out, so during the elicitation, you need to find out what are user classes.
+[02:22] So not only that, if you have a bad product later on, obviously the customer is frustrated.
 
-Then you like to find out, so what are the needs from these user classes? Sometimes you don't deal with everybody in user class, but you want to have certain representatives representing the user class, and then from them, you like to find out what are the needs of these users, and you try to understand what are the tasks that they do, and what are the goals they would like to achieve, and also related business objectives. So during the elicitation phase, you're trying to prepare all the stakeholders in terms of classes, and understanding what their goals and tasks are, and what are the basically business objectives related to. So you're laying kind of foundation for the requirements.
+[02:30] They spend money, they wait long, but the product doesn't do what it's supposed to
 
-The second task is analysis. Once you do elicitation, then you analyze information that you have. That is, initially, you're going to find out what are the functional requirements, and what are the non-functional requirements. 
+[02:35] do.
 
-So functional requirements that you need to implement into the functionality, again, non-functional requirements are those are basically in terms of quality attributes, or you want to say, okay, this is just information, you don't really need to implement. So you need to, from the conversation you have with stakeholders, you need to figure out what you need to implement the functionalities, what is in terms of these are quality attributes, what are the basic rules, what are suggestions you don't really need to implement, or you don't have to include really a part of your implementation. And you need to find out what are the top-level requirements to architectural components. 
+[02:36] So the developers, obviously, is frustrated.
 
-That is, what are the requirements that lead to the most top-level requirements. So in the requirements, you have top-level requirements, there are other sub-level requirements related to that. So initially, you want to find out if there's a big picture of the requirement, which you can divide into sub-tasks or sub-requirements. 
+[02:40] They spend also time and money, resources.
 
-So you need to figure out what is the biggest components, if you will, the top requirements that I need to fill in, what are the details of the requirements, so figuring out that's also part of analysis. And also what are the quality attributes, obviously, and the important thing is you need to find out what are the priorities. So if you have to implement, if your time is limited, and if you have to implement certain things, then obviously you need to set the priority of these requirements so that later you implement or you go move forward based on these priorities. 
+[02:44] And then this customer is not satisfied.
 
-So analysis phase, find the distinguishing functional requirement, non-functional, or just suggestions, and what are the main features, if your main requirements of software. And you need to understand the importance of quality attributes and setting the priority. That's typically the activities related to analysis. 
+[02:47] And it doesn't do what it's supposed to do.
 
-And specification is basically writing whatever you do during the analysis in terms of using specific templates or using specific form, writing out and basically making note. That's which can be distributed to other people is specification. And the validation is basically whatever you've written in specification that will be validated through other users or through other engineers. 
+[02:49] So obviously, that's a big problem too.
 
-So validate, that's exactly what needs to be done. So again, four steps. Initially, you need to elicit, basically foundation, and try to analysis of the requirements, and then you specify that, and then you validate. 
+[02:51] So both are, if you don't do correct self-requirements,
 
-So these are four steps of requirement engineering. So next, once you have developed software requirements, it needs to be managed. That is basically the software requirements represent the contract, if you will, agreement between the user or your customer and software engineer. 
+[02:55] then the customer is frustrated.
 
-So you need to establish initially that, we call it baseline. So you have to establish a baseline. And then once you have established the baseline, then there will be changes to baseline. 
+[02:58] And developers will be also frustrated.
 
-So you have to basically maintain these changes or control the changes. So that's basically what the management is. Once you establish the baseline, how do you basically control the change of this baseline? Slide number 21 shows basically some activities you do during the management.
+[03:01] So in that case, then the self-project
 
-As you said, defining baseline is important. So what is that represent the agreement between your client and you or developer, which is current snapshot of the current agreement. And then there are changes, then you have to review the change proposals, evaluate impact before approval. 
+[03:04] is a total failure.
 
-So evaluation of the changes and incorporating changes in controlled way, and keeping project plan current, and negotiating new commitments. So you have to come out with, so if you do like to make change, how much it's going to cost, and what's timeline look like. So then also tracing the individual requirement to design and code. 
+[03:05] Then why is it so difficult to come up with a precise self-requirement?
 
-So once you do change requirements, that should be reflected also in design and code. And testing. And also tracking the status. 
+[03:11] First of all, it involves a large number of stakeholders.
 
-What is status, current status, and change activities. So these are part of the management of requirements. So slide number 22 shows basically the boundary between requirements development and requirements management. 
+[03:15] So as you see slide number six, there are customers, users, developers, testers.
 
-So top portion shows basically the requirements development. So initially you elicit, analyze, document, that means you specify, you verify, and then you negotiate your client, you come up basically then with a baseline for your requirements, which is in the middle, rectangle shaped figure, it says baseline requirements. So once going through development process, you come up baseline. 
+[03:22] There are many, many people that give input to what systems are supposed to look like.
 
-So once you have baseline, then there is change, whatever change to the baseline represents basically management. So marketing people, customers, management, and testing people, engineers, they want to change the requirements. So there is a requirement change process that will also need to be managed, and which should be reflected in your design and implementation. 
+[03:27] So obviously, you heard the term, if there are too many cooks, it's supposed to be both.
 
-So change process. So between this development process of requirements and managing of requirements is baseline. Baseline is the contract or agreement between the developer, again, and the user. 
+[03:32] So if it's too many people wanting to give input and if you don't really sort out what
 
-Okay, slide number, starting from 23, or section 1.6, it shows one more time how critical the requirement, good requirement is. Shows the consequences of bad requirements. Obviously you have to rework bad requirements, and it could cost a lot more, and frustration. 
+[03:38] is exactly needed, obviously that is the recipe for disaster.
 
-So if the consequence of bad requirements is basically a tremendous dissatisfaction and cost, there will be spent coming up with a wrong product. Number 25 and 26 shows causes and effects of bad requirements. So insufficient user requirement involvement causes, obviously, bad requirements. 
+[03:43] Also short-term requirements gathering, there is a, you have to have clear engineering process
 
-You need to involve users. And also so-called creeping user requirements, and ambiguous user requirements. Ambiguous requirements always causes bad requirements, too. 
+[03:50] how you go about collecting this requirement information.
 
-And also gold plating. That is things that are really not necessary, but include any way to impress the users or your customers. Minimal specification. 
+[03:55] If you don't have clear process of doing that, then obviously you don't get precise requirements.
 
-Overlooked users. And also inaccurate planning. So these are all causes for a bad requirement. 
+[04:02] So again, first part talked about what the requirement is, why we need requirements, and
 
-Benefits of good requirements are very clear. You have fewer defects. That is less rework. 
+[04:08] why it's so difficult gathering the requirements.
 
-We have clear requirements. You don't need to work more later on. And you have faster, even, development. 
+[04:11] Second part is that slide number 8, 1.3, is what is in self-requirement.
 
-That is, if you clear requirements, then it will lead to fast development rather than changing that later on. You can estimate the better in terms of time and cost. Less chaos. 
+[04:18] So there are some informal definitions.
 
-And most importantly, higher satisfaction for user and developer. Satisfied user, obviously, they will come back, and they'll give you more business. So it is important to your business or to your company that you have a satisfied customer, and they come back. 
+[04:20] It says what should be implemented, external behavior, or appearance system.
 
-And also your engineers, if they produce something, they're proud people. If it's produced something that is not liked by other people, obviously, there's no incentive. So if you develop a product that's liked by someone else, and also is highly productive, obviously, then that will give also satisfaction to the developers. 
+[04:26] That's a more informal description.
 
-So then slide number 29, 30, 31, talks about what are the excellent requirements. So what are the attributes of excellent requirements? Complete, so no missing details, always correct. Feasible. 
+[04:30] The formal definition from IEEE Closery is, say, conditions or capabilities needed by
 
-If you write the requirements, it should be feasible. Necessary. Prioritized, also important. 
+[04:37] a user to solve a problem or achieve an objective.
 
-Unambiguous, no double meaning or triple meaning even. Verifiable, traceable. So these are all good attributes of excellent requirements. 
+[04:42] Or condition or capability that must be met by a software to satisfy a contract.
 
-So again, summarize this chapter one. We initially talked about why do we need good software requirements? What is the importance of software requirements? If we don't do these requirements, what are the consequences of bad software requirements? Then we talked about what software requirements are, the definitions of software requirements in terms of types and levels of requirements. Lastly, we talked about also this requirement engineering, that is, how do we do a good requirements? Initially, remember, the software requirement engineering consists of two things. 
+[04:49] So requirements represent a contract, so in order to meet the contract, it must be implemented.
 
-One is initial development and the development consists of also four parts. So if you remember, that was chapter one. So it describes the basics of this 541. 
+[04:57] There are some other definitions too.
 
-Hope you had fun and talk to you later.
+[04:59] So requirements that are specifications should be implemented.
 
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+[05:02] So if you do specify something, they should be implemented.
+
+[05:06] That's another more, if you will, formal, is more semi-formal definition of it.
+
+[05:12] So or they must be a constraint to development, to process system.
+
+[05:16] So you also describe the constraints to the system, their conditions to the system.
+
+[05:21] That's also part of software requirements.
+
+[05:23] So there, then part number two is what types of requirements.
+
+[05:28] So what are the components, basically, of requirements?
+
+[05:33] Initially, we divide into functional requirements
+
+[05:36] and non-functional requirements.
+
+[05:38] Function requirements are basically
+
+[05:40] that you have to implement in terms of functionality.
+
+[05:44] So for example, you could say, OK, my system must do x, y, z.
+
+[05:49] So if you use your software system,
+
+[05:52] it should display that kind of behavior.
+
+[05:54] So that's the functional requirements.
+
+[05:56] So functionality, and there are non-functional requirements.
+
+[06:02] These are slide number 14, description of property
+
+[06:06] or characteristics that system must exhibit,
+
+[06:09] or restriction constraints that it must respect.
+
+[06:13] So for example, it's, say, a quality attribute performance.
+
+[06:17] So functionality-wise, it works, but if you just say,
+
+[06:21] also performance-wise, say, a certain feature
+
+[06:24] must be respond to five seconds, 10 seconds,
+
+[06:29] or you can say it should be available 24-7,
+
+[06:32] or it should have certain security features.
+
+[06:35] So it is not really a functionality issue,
+
+[06:37] but it's more a quality attribute issue.
+
+[06:40] So these are because of non-functional requirements.
+
+[06:43] Also constraints also.
+
+[06:45] So I say, for example, a user can access
+
+[06:49] only three times the login procedure.
+
+[06:52] After that, it should be basically stopped.
+
+[06:56] So these are kind of constraints,
+
+[06:58] or it should detect certain numbers from lowest level
+
+[07:02] to what is lowest level it should detect,
+
+[07:05] and what is upper level it should detect.
+
+[07:08] So these are not really functionality,
+
+[07:10] but more quality attributes of software.
+
+[07:12] So first thing, what is not is a,
+
+[07:15] obviously you don't wanna describe
+
+[07:17] in functional requirements,
+
+[07:21] in the requirements that is a design or implementation detail.
+
+[07:24] So we're not showing which language we're going to use
+
+[07:27] and how we want to implement that.
+
+[07:30] So these are not really design issues,
+
+[07:32] are not part of requirements.
+
+[07:35] And typically, we don't include also planning here, either,
+
+[07:39] and also testing information.
+
+[07:42] But we can get testing information requirements
+
+[07:45] to be used later on for testing purposes,
+
+[07:48] but not testing information.
+
+[07:50] So what kind of value you are going to use, etcetera, will not be part of the self-requirements.
+
+[07:55] Again, what is part number two describes what are the components of requirements.
+
+[08:03] Initially, there is function requirements and non-function requirements.
+
+[08:07] Function requirements are what your system is supposed to do.
+
+[08:10] Non-function requirements are more required to attribute.
+
+[08:12] Now, in terms of function requirements, this function requirements, what it's supposed
+
+[08:16] to do is influenced by the three things.
+
+[08:20] Number one is a highest level is a business requirement.
+
+[08:24] That is what is the business says, for example, it should be after implementing this system
+
+[08:32] 80% of all customer should use my particular software.
+
+[08:37] So that's a business requirement.
+
+[08:38] So business requires certain vision and scope and that influences later on your requirements.
+
+[08:47] And there are user requirements.
+
+[08:48] There are people, users that you're using system that will influence also your requirements.
+
+[08:54] Also there are system requirements that is a other systems that if your system is part
+
+[09:00] of the bigger systems, then the other system will require also from your system.
+
+[09:06] So there are three things that will influence function requirements, that is a business requirement,
+
+[09:12] that is business one to a certain way after implementing this issue a certain way, and
+
+[09:16] And they use the requirement, user-run certain functionalities, and also other systems will
+
+[09:22] require from your certain things.
+
+[09:24] So these are three things that are also three levels, if you will, that will influence your
+
+[09:30] functional requirements.
+
+[09:32] Then how do you do, then, this requirements, requirement engineering, we call, requirement
+
+[09:38] engineering is part of a bigger picture of self-engineering.
+
+[09:41] There are requirements engineering deals with a development and management.
+
+[09:46] So you initially develop requirements and then you have to manage it as it goes along.
+
+[09:52] Requirements do change and managing, changing, leading, adding more requirements.
+
+[10:00] management. Now, in terms of requirements, there are four steps. Awesome. So, if you
+
+[10:06] initially develop requirements, there it needs to go through four steps. Initially, you elicitate
+
+[10:12] the requirements. So, elicitation initially deals with slide number 17. What are the user
+
+[10:19] classes? So, what are the users that will be using or utilizing or influencing your
+
+[10:26] So, you need to elicit the problem that is in order to do that, you do those things.
+
+[10:32] So, initially, you need to find out the face during the elicitation, you need to find out
+
+[10:37] what are user classes.
+
+[10:39] Okay, then you like to find out, so what are the needs from these user classes?
+
+[10:47] You want to find, sometimes you don't deal with everybody in user class, but you want
+
+[10:53] to have certain representatives representing the user class and then from them you like
+
+[10:58] to find out what are the needs of this user and you try to understand what are the tasks
+
+[11:04] that they do and what are the goals they would like to achieve and also related so business
+
+[11:10] objectives so during the elicitation phase you're trying to prepare all the stakeholders
+
+[11:16] in terms of classes and understanding what their goals and goals and tasks are and what
+
+[11:22] What are the basically business objectives related to this?
+
+[11:26] So you're laying kind of foundation for the requirements.
+
+[11:31] The second task is analysis.
+
+[11:33] Once you do elicitation, then you analyze information that you have.
+
+[11:39] That is initially you're going to find out what are the functional requirements and what
+
+[11:44] are the non-functional requirements.
+
+[11:46] So functional requirements that you need to implement in the functionality, again,
+
+[11:49] function requirements are those are basically in terms of quality attributes or you want
+
+[11:55] to say, okay, this is just information you don't really need to implement.
+
+[11:59] So you need to, from the conversation you have with stakeholders, you need to figure
+
+[12:03] out what you need to implement the functionalities, what is, in terms of these are quality attributes,
+
+[12:08] what are the basic rules, what are the suggestions you don't really need to implement or you
+
+[12:13] don't have to include really a part of your implementation and you need to find out
+
+[12:19] are the top level requirements to architectural components? That is, what are the requirements
+
+[12:23] that lead to the most top level requirements? So in the requirements, you have top level
+
+[12:29] requirements. There are other sub-level requirements related to that. So initially, you want to
+
+[12:34] find out if you have a big picture of the requirement, which you can divide into sub-tasks
+
+[12:39] or sub-requirements. So you need to figure out what is the biggest components, if you
+
+[12:44] will. The top requirements that I need to fill in, what are the details of the requirements
+
+[12:48] figuring out that's also part of analysis and also what are the quality attributes obviously
+
+[12:53] and importantly is you need to find out what are the priorities. So if you have to implement,
+
+[12:59] if your time is limited and if you have implement certain things then obviously you need to set the
+
+[13:07] priority of these requirements so that later you implement or you go move forward based on these
+
+[13:15] priorities. So analysis phase find distinguishing function requirement, non-function, all just
+
+[13:20] suggestions. And what are the main features, if your main requirements of software. And
+
+[13:28] you need to understand importance of quality attributes and setting the priority. That's
+
+[13:34] typically the activities related to analysis. And specification is basically writing whatever
+
+[13:40] Whatever you do during the analysis in terms of using specific templates or using specific
+
+[13:47] form, writing out and basically making a note that can be distributed to other people is
+
+[13:54] specification.
+
+[13:55] And the validation is basically is whatever you written in specification that will be validated
+
+[14:03] through other the users or through other engineers.
+
+[14:08] So validate that's exactly what needs to be done.
+
+[14:11] So again, four steps.
+
+[14:12] Initially, you need to elicit basically a foundation
+
+[14:18] and try to analyze this of the requirements.
+
+[14:23] And then you specify that, and then you validate.
+
+[14:26] So these are four step of requirement engineering.
+
+[14:29] So next, once you have developed self-requirements,
+
+[14:34] it needs to be managed.
+
+[14:36] That is, basically, the self-requirements
+
+[14:39] represent the contract, if you will,
+
+[14:41] agreement between the user or your customer
+
+[14:46] and software engineer.
+
+[14:47] So you need to establish initially
+
+[14:49] that, as we call it, baseline.
+
+[14:52] So you have to establish a baseline.
+
+[14:54] And then once you have to establish the baseline,
+
+[14:57] then there will be changes to baseline.
+
+[15:00] So you have to basically maintain these changes
+
+[15:04] or control the changes.
+
+[15:06] So that's basically what the management is.
+
+[15:09] Once you establish the baseline, how do you basically
+
+[15:13] control the change of this baseline?
+
+[15:17] Slide number 21 shows basically some activities
+
+[15:21] you do during the management.
+
+[15:23] You said defining baseline is important.
+
+[15:25] So what is that represent the agreement between your client
+
+[15:31] and you, or developers, which is a snapshot of the current agreement, and then there are
+
+[15:39] changes, then you have to review the change proposals, evaluate the impact for approval,
+
+[15:45] so evaluation of the changes, and incorporating changes in a controlled way, and keeping project
+
+[15:54] plan current, and negotiating new commitments, so you have to come out with, so if you do
+
+[15:59] like to make change, how much it's going to cost, and what's time to not look like.
+
+[16:05] So then also tracing the individual requirement to design and code.
+
+[16:09] So once you do change requirements, that should be reflected or same design and code
+
+[16:15] and testing.
+
+[16:17] And also tracking the status, current status, current status, and change activities.
+
+[16:24] So these are part of the management of requirements.
+
+[16:28] So slide number 22 shows basically the boundary between requirements and requirements management.
+
+[16:36] So the top portion shows basically the requirements development.
+
+[16:42] So initially you elicit, analyze, document, that means you specify, you verify, and then
+
+[16:49] you negotiate your client, you come up basically then with a baseline for your requirements
+
+[16:55] which is the middle rectangle shaped figure,
+
+[17:00] it says baseline requirements.
+
+[17:01] So once it's going through a development process,
+
+[17:03] you can have baseline.
+
+[17:05] So once you have baseline, then there is change,
+
+[17:08] whatever change to the baseline
+
+[17:11] represents basically management.
+
+[17:16] So marketing people, customers, management,
+
+[17:18] and testing people, engineers,
+
+[17:20] they wanna change the requirements.
+
+[17:22] So there is a requirement change process
+
+[17:24] that will also need to be managed and which should be reflected your design and implementation,
+
+[17:34] so change process.
+
+[17:35] So between this development process of requirements and managing of requirements is baseline.
+
+[17:45] Baseline is the contract or agreement between the developer again and the user.
+
+[17:52] Okay, slide number from starting from 23 or section 1.6, it shows one more time how critical
+
+[18:00] the requirement, good requirement, is, shows the consequences of bad requirements.
+
+[18:05] Obviously, you have to rework if bad requirements and it could cost a lot more and frustration.
+
+[18:14] So if your consequence bet requirements is basically tremendous dissatisfaction and cost
+
+[18:25] that they will be spent coming up with a wrong product.
+
+[18:30] Number 25-26 shows causes and effects of bet requirements.
+
+[18:36] So insufficient user requirement involvement causes obviously bet requirements you need
+
+[18:41] to involve users.
+
+[18:43] And also, so-called creeping user requirements.
+
+[18:48] And ambiguous user requirements, ambiguous requirements of this course is a bad requirement.
+
+[18:56] And also gold plating, that is things that are really not necessary, but include any
+
+[19:01] way to impress the users or your customers.
+
+[19:06] Minimal specification, overlooked users, and also inaccurate planning.
+
+[19:12] So these are all causes for a bad requirement.
+
+[19:19] Benefits of good requirements are very clear.
+
+[19:21] You have fewer defects, that is less rework.
+
+[19:25] If you have clear requirements, you don't need to work more later on.
+
+[19:29] And you have fast, even development, that is, if you have clear requirements, then it
+
+[19:34] will lead to fast development rather than changing that later on.
+
+[19:38] You can estimate the better in terms of time and cost, less callous and most importantly
+
+[19:44] higher satisfaction for user and developer.
+
+[19:48] Satisfied user obviously they will come back and they will give you more business.
+
+[19:53] So it is important to your business or to your company that you have a satisfaction
+
+[20:00] customer and they come back and also your engineers if they produce something
+
+[20:04] there are proud people if it's produced something that is not like by other
+
+[20:09] people obviously there's no incentive so if you develop product is liked by
+
+[20:14] someone else and also it's liked by your it's highly productive obviously then
+
+[20:20] they will give or so a satisfaction to the developers so then slide number 29
+
+[20:26] 9, 30, 31 talks about what are the excellent requirements.
+
+[20:32] So what are the attributes of excellent requirements?
+
+[20:35] Complete, so no missing details, obviously correct, feasible.
+
+[20:39] If you write two requirements, it should be feasible, necessary, prioritized, also important,
+
+[20:46] unambiguous that no double meaning or triple meaning even, verifiable, which can be verified,
+
+[20:52] And complete and consistent, modifiable, traceable.
+
+[20:58] So these are all good attributes of excellent requirements.
+
+[21:06] So again, summarize this chapter one.
+
+[21:09] We initially talked about why do we need a good self-requirement?
+
+[21:14] What is the importance of self-requirements?
+
+[21:18] If when we don't do the requirements, what are the consequences of bad software requirements?
+
+[21:25] Then we talked about what is software requirements, the definitions of software requirements in
+
+[21:31] terms of types and levels of requirements.
+
+[21:34] Lastly, we talked about also the requirement engineering, that is, how do we do a good
+
+[21:41] requirements?
+
+[21:42] Initially, remember, the software requirement engineering consists of two things.
+
+[21:47] initial developments and the management development consists also four parts so
+
+[21:52] if you remember so that was chapter one so it describes the basics of this 541
+
+[21:58] hopefully had fun and talk to you later
