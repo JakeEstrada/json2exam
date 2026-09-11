@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { LETTERS } from '../lib/parseQuiz.js';
 import { reply } from '../lib/ask.js';
 import openaiMark from '../../openai.svg';
@@ -74,14 +75,27 @@ async function askModel({ message, phase, card, picked, history, notes }) {
   return data.text;
 }
 
-export default function AskGPT({ brain, card, phase, picked, notes }) {
+export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen, onClose, fill, hideFab }) {
   const hello = (brain && brain.greeting) || FALLBACK_HELLO;
-  const [open, setOpen] = useState(false);
+  const [innerOpen, setInnerOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [pending, setPending] = useState(false);
   const [messages, setMessages] = useState(() => [{ role: 'assistant', text: hello }]);
+  const [slot, setSlot] = useState(null);
   const listRef = useRef(null);
   const qid = card && card.q ? card.q.id : '';
+  const isOpen = open !== undefined ? !!open : innerOpen;
+
+  function setOpen(next) {
+    const value = typeof next === 'function' ? next(isOpen) : next;
+    if (value && onOpen) onOpen();
+    if (!value && onClose) onClose();
+    if (open === undefined) setInnerOpen(value);
+  }
+
+  useLayoutEffect(() => {
+    setSlot(fill && isOpen ? document.getElementById('quiz-side-body') : null);
+  }, [fill, isOpen]);
 
   useEffect(() => {
     setMessages([{ role: 'assistant', text: hello }]);
@@ -91,7 +105,7 @@ export default function AskGPT({ brain, card, phase, picked, notes }) {
 
   useEffect(() => {
     if (listRef.current) listRef.current.scrollTop = listRef.current.scrollHeight;
-  }, [messages, pending, open]);
+  }, [messages, pending, isOpen]);
 
   async function ask(text) {
     const message = String(text || '').trim();
@@ -119,71 +133,76 @@ export default function AskGPT({ brain, card, phase, picked, notes }) {
 
   const chips = suggestionChips(card, phase, picked || [], brain);
 
-  return (
-    <div className={'askgpt' + (open ? ' is-open' : '')}>
-      {open && (
-        <div className="askgpt-panel" role="dialog" aria-label="AskGPT">
-          <div className="askgpt-head">
-            <div className="askgpt-brand">
-              <span className="askgpt-brand-mark">
-                <OpenAIMark className="askgpt-logo" />
-              </span>
-              <div className="askgpt-brand-copy">
-                <strong>AskGPT</strong>
-                <span>Study tutor</span>
-              </div>
+  const panel = isOpen && (
+    <div className={'askgpt-panel' + (fill ? ' is-fill' : '')} role="dialog" aria-label="AskGPT">
+      {!fill && (
+        <div className="askgpt-head">
+          <div className="askgpt-brand">
+            <span className="askgpt-brand-mark">
+              <OpenAIMark className="askgpt-logo" />
+            </span>
+            <div className="askgpt-brand-copy">
+              <strong>AskGPT</strong>
+              <span>Study tutor</span>
             </div>
-            <button type="button" className="askgpt-close" onClick={() => setOpen(false)} aria-label="Close">
-              ×
-            </button>
           </div>
-
-          <div className="askgpt-log" ref={listRef} aria-live="polite">
-            {messages.map((m, i) => (
-              <p key={i} className={'askgpt-msg ' + m.role}>{m.text}</p>
-            ))}
-            {pending && <p className="askgpt-msg assistant is-wait">Thinking…</p>}
-          </div>
-
-          {chips.length > 0 && (
-            <div className="askgpt-chips">
-              {chips.map((c) => (
-                <button key={c} type="button" className="askgpt-chip" onClick={() => ask(c)} disabled={pending}>
-                  {c}
-                </button>
-              ))}
-            </div>
-          )}
-
-          <form
-            className="askgpt-form"
-            onSubmit={(e) => { e.preventDefault(); ask(draft); }}
-          >
-            <label className="sr-only" htmlFor="askgpt-input">Question for AskGPT</label>
-            <input
-              id="askgpt-input"
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder="Ask why an option isn’t also right…"
-              autoComplete="off"
-            />
-            <button type="submit" className="askgpt-send" disabled={pending || !draft.trim()}>
-              Send
-            </button>
-          </form>
+          <button type="button" className="askgpt-close" onClick={() => setOpen(false)} aria-label="Close">
+            ×
+          </button>
         </div>
       )}
 
-      <button
-        type="button"
-        className="askgpt-fab"
-        aria-expanded={open}
-        aria-label={open ? 'Hide AskGPT' : 'AskGPT'}
-        onClick={() => setOpen((v) => !v)}
+      <div className="askgpt-log" ref={listRef} aria-live="polite">
+        {messages.map((m, i) => (
+          <p key={i} className={'askgpt-msg ' + m.role}>{m.text}</p>
+        ))}
+        {pending && <p className="askgpt-msg assistant is-wait">Thinking…</p>}
+      </div>
+
+      {chips.length > 0 && (
+        <div className="askgpt-chips">
+          {chips.map((c) => (
+            <button key={c} type="button" className="askgpt-chip" onClick={() => ask(c)} disabled={pending}>
+              {c}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <form
+        className="askgpt-form"
+        onSubmit={(e) => { e.preventDefault(); ask(draft); }}
       >
-        <OpenAIMark className="askgpt-logo" />
-        <span className="askgpt-fab-label">{open ? 'Hide AskGPT' : 'AskGPT'}</span>
-      </button>
+        <label className="sr-only" htmlFor="askgpt-input">Question for AskGPT</label>
+        <input
+          id="askgpt-input"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          placeholder="Ask why an option isn’t also right…"
+          autoComplete="off"
+        />
+        <button type="submit" className="askgpt-send" disabled={pending || !draft.trim()}>
+          Send
+        </button>
+      </form>
+    </div>
+  );
+
+  return (
+    <div className={'askgpt' + (isOpen ? ' is-open' : '') + (fill ? ' is-fill' : '')}>
+      {fill && slot ? createPortal(panel, slot) : (!fill && panel)}
+      {!fill && !hideFab && (
+        <button
+          type="button"
+          className="askgpt-fab"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? 'Hide AskGPT' : 'AskGPT'}
+          onClick={() => setOpen(!isOpen)}
+        >
+          <OpenAIMark className="askgpt-logo" />
+          <span className="askgpt-fab-label">{isOpen ? 'Hide AskGPT' : 'AskGPT'}</span>
+        </button>
+      )}
     </div>
   );
 }

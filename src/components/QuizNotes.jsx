@@ -1,102 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { headingId } from '../lib/parseQuiz.js';
 import { MarkdownView } from './FileWindow.jsx';
 import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
 
-function StudyPanel({ filename, children, extra, bodyClass, open, onOpenChange }) {
-  return (
-    <details
-      className="quiz-notes sheet"
-      open={open}
-      onToggle={(e) => onOpenChange && onOpenChange(e.currentTarget.open)}
-    >
-      <summary className="quiz-notes-head">
-        <span className="module-caret" aria-hidden="true" />
-        <span className="quiz-notes-file">{filename}</span>
-        {extra}
-      </summary>
-      <div className={'quiz-notes-body' + (bodyClass ? ' ' + bodyClass : '')}>
-        {children}
-      </div>
-    </details>
-  );
-}
-
 export default function QuizNotes({
-  filename, source, bookFile, bookUrl, lectureFile, lecture, focus,
+  source, bookUrl, lecture, focus, mode,
 }) {
-  const [notesOpen, setNotesOpen] = useState(false);
-  const [bookOpen, setBookOpen] = useState(false);
-  const [lectureOpen, setLectureOpen] = useState(false);
   const page = focus && focus.page ? focus.page : 0;
   const heading = focus && focus.heading ? focus.heading : '';
   const lectureQuote = focus && focus.lecture ? focus.lecture : '';
   const bookQuery = focus && (focus.excerpt || focus.book)
     ? [focus.excerpt, focus.book].filter(Boolean).join(' ')
     : '';
-  const bookSrc = bookUrl && page ? bookUrl + '#page=' + page : bookUrl;
+  const active = mode || (lecture && lectureQuote ? 'lecture' : source ? 'notes' : 'book');
 
   useEffect(() => {
-    if (!focus) return;
-    if (focus.heading && source && !focus.lecture && !focus.page) setNotesOpen(true);
-    if (focus.page && bookUrl) setBookOpen(true);
-    if (focus.lecture && lecture) setLectureOpen(true);
+    if (active !== 'notes' || !heading) return;
     const t = window.setTimeout(() => {
-      const study = document.getElementById('quiz-study');
-      if (study) study.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (focus.lecture || focus.page) return;
-      if (!focus.heading) return;
-      const el = document.getElementById(headingId(focus.heading));
+      const el = document.getElementById(headingId(heading));
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
     return () => window.clearTimeout(t);
-  }, [focus, source, bookUrl, lecture]);
+  }, [active, heading]);
 
-  if (!source && !bookUrl && !lecture) return null;
   return (
-    <div className="quiz-study" id="quiz-study">
-      <p className="quiz-study-label">Source materials</p>
-      {source && (
-        <StudyPanel
-          filename={filename || 'notes.md'}
-          open={notesOpen}
-          onOpenChange={setNotesOpen}
-        >
+    <div className="quiz-study is-pane">
+      {active === 'notes' && source && (
+        <div className="quiz-notes-body">
           <MarkdownView source={source} focusHeading={heading} />
-        </StudyPanel>
+        </div>
       )}
-      {lecture && (
-        <StudyPanel
-          filename={lectureFile || 'lecture.txt'}
-          open={lectureOpen}
-          onOpenChange={setLectureOpen}
-        >
+      {active === 'lecture' && lecture && (
+        <div className="quiz-notes-body">
           <LectureView source={lecture} highlight={lectureQuote} />
-        </StudyPanel>
+        </div>
       )}
-      {bookUrl && (
-        <StudyPanel
-          filename={bookFile || 'chapter.pdf'}
-          bodyClass="is-pdf"
-          open={bookOpen}
-          onOpenChange={setBookOpen}
-          extra={(
-            <a
-              className="text-link quiz-notes-open"
-              href={bookSrc}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Open in new tab
-            </a>
-          )}
-        >
-          {bookOpen && (
-            <PdfPage url={bookUrl} page={page || 1} query={bookQuery} />
-          )}
-        </StudyPanel>
+      {active === 'book' && bookUrl && (
+        <div className="quiz-notes-body is-pdf">
+          <PdfPage url={bookUrl} page={page || 1} query={bookQuery} />
+        </div>
       )}
     </div>
   );
