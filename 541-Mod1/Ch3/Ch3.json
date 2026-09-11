@@ -468,7 +468,7 @@
         "book": "Chapter 3 — Requirements analysis",
         "page": 9,
         "excerpt": "An analysis model depicts requirements visually. Models can reveal incorrect, inconsistent, missing, and conflicting requirements, as well as problems that stay hidden in natural-language descriptions.",
-        "lecture": "And also during the analysis phase, also the requirements are prioritized. And also the model requirements model. That is we can use different modeling techniques to analyze the requirements."
+        "lecture": "And also during the analysis phase, also the requirements are prioritized. And also model the requirements. That is we can use different modeling techniques to analyze the requirements."
       }
     },
     {
@@ -723,7 +723,7 @@
         "book": "Chapter 3 — Requirements management",
         "page": 12,
         "excerpt": "Establish a mechanism so requirements changes are proposed, analyzed, and resolved. Manage all proposed changes through this process rather than hoping changes will not happen.",
-        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB change, control a small number of people who will decide which changes should take place, what are not."
+        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB, a change control board, a small number of people who will decide which changes should take place, what are not."
       }
     },
     {
@@ -744,7 +744,7 @@
         "book": "Chapter 3 — Requirements management",
         "page": 12,
         "excerpt": "Charter a small group of project stakeholders as a change control board to evaluate proposed requirements changes, decide which ones to accept, and set implementation priorities or target releases.",
-        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB change, control a small number of people who will decide which changes should take place, what are not."
+        "lecture": "The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB, a change control board, a small number of people who will decide which changes should take place, what are not."
       }
     },
     {

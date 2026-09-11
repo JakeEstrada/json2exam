@@ -20,7 +20,7 @@ Trying to identify the overview of the software product in terms of data, extern
 
 So if possible, also create prototypes to show mostly the interface. How user reacts to or interface the product. And explore the feasibility of the potential problem areas. 
 
-And also during the analysis phase, also the requirements are prioritized. And also the model requirements model. That is we can use different modeling techniques to analyze the requirements. 
+And also during the analysis phase, also the requirements are prioritized. And also model the requirements. That is we can use different modeling techniques to analyze the requirements. 
 
 We could use like class modeling, use case modeling, and data modeling, which will be also utilized in our project. And finally, identify any interfaces, that is in terms of data or requirements. So what other data that other systems besides yours can expect from your requirements. 
 
@@ -30,7 +30,7 @@ In this case, we could use SRS template, which is such as IEEE 830, which you'll
 
 So probably we're going to talk about later. Also during the verification phase, you can also define, identify the test cases, which you basically use later on to validate once the system has been created and implemented. Slide 15 through 18 deal with the management requirements, once the requirements have been developed.
 
-The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB change, control a small number of people who will decide which changes should take place, what are not. 
+The management basically is controlling the change. So if someone wants to change the baseline, how basically do you control? What kind of activities involves doing the changes? So for example, we need to define the process of control. So what are the steps of controlling the change? And identify so-called CCB, a change control board, a small number of people who will decide which changes should take place, what are not. 
 
 And need to perform the impact analysis. That is, if you make changes, what kind of other parts of the system are affected? So you need to make impact analysis to decide whether the change should take place or not. And also determine the baseline for the next version. 
 
@@ -40,7 +40,7 @@ Has it been approved? Proposed, approved, or implemented, or verified? So the pr
 
 That is, what is the change rate? What are the reasons for change? So how often did the changes take place? Why is that occurring? So you need to keep track of those too to make sure that those things don't happen again if that causes some problem. And using the tools is important. So what kind of tool you're going to use and identifying those tools and using those tools. 
 
-And lastly, create traceability metrics. That is, basically, tracing the requirements through design and implementation and testing. So that you can see where the current requirement is in terms of whole development. 
+And lastly, create traceability matrices. That is, basically, tracing the requirements through design and implementation and testing. So that you can see where the current requirement is in terms of whole development. 
 
 Finally, slides 19 and 20 show the summaries of activities that take place during each phase of requirements development. And also more detailed steps that take place during the order of steps that are taking place during requirements development. So that's Chapter 3. Chapter 3 is really important to understand because we talked about activities associated with each phase or each steps of development and maintenance.
 

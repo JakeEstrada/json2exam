@@ -4,7 +4,7 @@ Welcome to chapter 2. In this chapter, we look at the requirements from the cust
 
 So it is needless to say that developers should have excellent relationships in order to have excellent requirements, which then will have influence on excellence of the product. As we know that many products have failed and left unsatisfied customers because of the lack of clear communication between developers and customers. So the job of requirements analysts is to identify and listen to the customers and also satisfy them before moving forward.
 
-In order to have this well-connected relationship between customers and analysts, Uyghur identifies 10 so-called bill of rights and 10 customers' responsibilities. Slides 4 to 7 show the rights of customers, that is, what the customer can expect from the analysts. And slides 7 to 9 show the responsibilities of customers, and most of them are obvious, but the point is that the customer should spend time and effort to understand and to be active in all phases of requirements analysis.
+In order to have this well-connected relationship between customers and analysts, Wiegers identifies 10 so-called bill of rights and 10 customers' responsibilities. Slides 4 to 7 show the rights of customers, that is, what the customer can expect from the analysts. And slides 7 to 9 show the responsibilities of customers, and most of them are obvious, but the point is that the customer should spend time and effort to understand and to be active in all phases of requirements analysis.
 
 Once the requirements have been developed, the customer needs to sign off the requirements. Again, the customer needs to read and understand what is signing off. If not, then they will have problems later on.
 

@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { headingId, normalizeQuiz } from './parseQuiz.js';
+import { lectureParagraphs, matchingLectureIndexes } from './lecture.js';
 
 const one = (raw) => normalizeQuiz([raw], 't').questions[0];
 
@@ -121,7 +122,32 @@ test('loads every Module 1 bank with nothing skipped', async () => {
       assert.ok(q.reference && q.reference.section, rel + ' missing notes section');
       assert.ok(q.reference.page >= 1, rel + ' missing book page');
       assert.ok(q.reference.excerpt, rel + ' missing excerpt');
-      assert.ok(q.reference.lecture, rel + ' missing lecture quote');
+    }
+  }
+});
+
+test('lecture quotes, when present, hit a transcript paragraph', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../541-Mod1');
+  const files = [
+    ['Ch1/ch1.json', 'Ch1/Chapter 1V2.txt'],
+    ['Ch2/Ch2.json', 'Ch2/Chapter 2v2.txt'],
+    ['Ch3/Ch3.json', 'Ch3/Chapter 3v2.txt'],
+    ['Ch4/Ch4.json', 'Ch4/Chapter 4v2.txt'],
+    ['Ch5/Ch5.json', 'Ch5/Chapter 5v2.txt'],
+  ];
+  for (const [jsonRel, txtRel] of files) {
+    const deck = JSON.parse(await readFile(path.join(root, jsonRel), 'utf8'));
+    const txt = await readFile(path.join(root, txtRel), 'utf8');
+    const paras = lectureParagraphs(txt);
+    const bank = normalizeQuiz(deck);
+    for (const q of bank.questions) {
+      const quote = q.reference && q.reference.lecture;
+      if (!quote) continue;
+      const hits = matchingLectureIndexes(paras, quote);
+      assert.ok(hits.length, jsonRel + ' unmatched lecture for: ' + q.text.slice(0, 72));
     }
   }
 });

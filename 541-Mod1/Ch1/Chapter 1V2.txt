@@ -1,30 +1,30 @@
 (Transcribed by TurboScribe. Go Unlimited to remove this message.)
 
-Welcome to chapter one, the essential of self-requirements. This chapter basically three components. First of all, it tries to describe why do we need a self-requirements. 
+Welcome to chapter one, the essentials of software requirements. This chapter basically three components. First of all, it tries to describe why do we need software requirements. 
 
-As we know that if you want to develop software you have to have self-requirements. So it talks about that there is a need for precise and good self-requirements. Secondly, it tries to describe what is definition then of exact self-requirements. 
+As we know that if you want to develop software you have to have software requirements. So it talks about that there is a need for precise and good software requirements. Secondly, it tries to describe what is definition then of exact software requirements. 
 
-And lastly, the components and types and levels that is a components of software requirement engineering. So it describes in this area. So let's get into why do we need self-requirements. 
+And lastly, the components and types and levels that is a components of software requirement engineering. So it describes in this area. So let's get into why do we need software requirements. 
 
-As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what self-requirements is and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build.
+As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what software requirements are and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build.
 
-So we have to clearly understand what we need to build, what is that is requirement software. So no other part of work is so crippled as the resulting system. If done wrong, no other parts is more difficult to rectify later. 
+So we have to clearly understand what we need to build, what the software requirement is. So no other part of the work so cripples the resulting system if done wrong. No other part is more difficult to rectify later. 
 
-As you know once you have wrong requirements or not clear requirements or complete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher. 
+As you know once you have wrong requirements or not clear requirements or incomplete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher. 
 
 So if you obviously discover that that's during the maintenance phase, the cost will be tremendously higher. That is anywhere between 60 to 200 times of the cost that we could have spent during the requirements. So not only that, if you have a bad product later on, obviously the customer is frustrated. 
 
 They spent money, they waited long, but the product it doesn't do what it's supposed to do. Also the developers obviously is frustrated. They spent all the time and money, resources, and then this customer is not satisfied and it doesn't do what it's supposed to do.
 
-Obviously that's a big problem too. So both are if you don't do correct self-requirements, then the customer is frustrated and developers will be also frustrated. So in that case, then the software project is a total failure. 
+Obviously that's a big problem too. So both are if you don't do correct software requirements, then the customer is frustrated and developers will be also frustrated. So in that case, then the software project is a total failure. 
 
-Then why is it so difficult to come up with a precise self-requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like. 
+Then why is it so difficult to come up with a precise software requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like. 
 
-So obviously, you heard the term, if there are too many cooks, it's false. So if too many people wanting to give inputs and if you don't really sort out what is exactly needed, obviously that is a recipe for disaster. Also short-term requirements gathering. 
+So obviously, you heard the term, if there are too many cooks, they spoil the broth. So if too many people wanting to give inputs and if you don't really sort out what is exactly needed, obviously that is a recipe for disaster. Also short-term requirements gathering. 
 
 You have to have a clear engineering process how you go about collecting this requirement information. If you don't have a clear process of doing that, then obviously you don't get precise requirements. So again, first part talked about what the requirement is, why we need requirements, and why it's so difficult gathering the requirements. 
 
-Second part is that slide number eight, 1.3, is what is in self-requirements. So there are some informal definitions. It says what should be implemented, external behavior, or appearance system. 
+Second part is that slide number eight, 1.3, is what is in software requirements. So there are some informal definitions. It says what should be implemented, external behavior, or appearance system. 
 
 That's a more informal description. A more formal definition from IEEE glossary is, say, conditions or capabilities needed by a user to solve a problem, achieve an objective, or condition or capability that must be met by a software to satisfy a contract. So requirements represent the contract. 
 
@@ -112,7 +112,7 @@ Benefits of good requirements are very clear. You have fewer defects. That is le
 
 We have clear requirements. You don't need to work more later on. And you have faster, even, development. 
 
-That is, if you clear requirements, then it will lead to fast development rather than changing that later on. You can estimate the better in terms of time and cost. Less callous. 
+That is, if you clear requirements, then it will lead to fast development rather than changing that later on. You can estimate the better in terms of time and cost. Less chaos. 
 
 And most importantly, higher satisfaction for user and developer. Satisfied user, obviously, they will come back, and they'll give you more business. So it is important to your business or to your company that you have a satisfied customer, and they come back. 
 
@@ -120,11 +120,11 @@ And also your engineers, if they produce something, they're proud people. If it'
 
 So then slide number 29, 30, 31, talks about what are the excellent requirements. So what are the attributes of excellent requirements? Complete, so no missing details, always correct. Feasible. 
 
-If you write due requirements, it should be feasible. Necessary. Prioritized, also important. 
+If you write the requirements, it should be feasible. Necessary. Prioritized, also important. 
 
 Unambiguous, no double meaning or triple meaning even. Verifiable, traceable. So these are all good attributes of excellent requirements. 
 
-So again, summarize this chapter one. We initially talked about why do we need good self-requirements? What is the importance of self-requirements? If we don't do these requirements, what are the consequences of bad self-requirements? Then we talked about what is self-requirements, the definitions of self-requirements in terms of types and levels of requirements. Lastly, we talked about also this requirement engineering, that is, how do we do a good requirements? Initially, remember, the self-requirement engineering consists of two things. 
+So again, summarize this chapter one. We initially talked about why do we need good software requirements? What is the importance of software requirements? If we don't do these requirements, what are the consequences of bad software requirements? Then we talked about what software requirements are, the definitions of software requirements in terms of types and levels of requirements. Lastly, we talked about also this requirement engineering, that is, how do we do a good requirements? Initially, remember, the software requirement engineering consists of two things. 
 
 One is initial development and the development consists of also four parts. So if you remember, that was chapter one. So it describes the basics of this 541. 
 

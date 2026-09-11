@@ -19,7 +19,7 @@
         "book": "Chapter 1 — The essential software requirement",
         "page": 4,
         "excerpt": "Inadequate user input and shortcomings in specifying and managing customer requirements are major contributors to unsuccessful projects.",
-        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what self-requirements is and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
+        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what software requirements are and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
       }
     },
     {
@@ -40,7 +40,7 @@
         "book": "Chapter 1 — When bad requirements happen to good people",
         "page": 19,
         "excerpt": "It can cost far more to correct a defect that's found late in the project than to fix it shortly after its creation.",
-        "lecture": "As you know once you have wrong requirements or not clear requirements or complete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher."
+        "lecture": "As you know once you have wrong requirements or not clear requirements or incomplete requirements, later on once the system is built, trying to rectify that is obviously a big problem. As you know there is a study that shows that if there is a defect in the requirements, if you correct that, that is a say cost of unit of one. Then if the defect is discovered later and later, the cost goes higher."
       }
     },
     {
@@ -53,7 +53,7 @@
         "book": "Chapter 1 — Every project has requirements",
         "page": 18,
         "excerpt": "The hardest single part of building a software system is deciding precisely what to build. No other part of the work so cripples the resulting system if done wrong.",
-        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what self-requirements is and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
+        "lecture": "As you know that as it says introduction, failure to understand and control requirements is number one cause for a project failure. So if you don't really clearly understand what software requirements are and if you don't control the requirements, it is total failure. And as it says also in the following slides, a single hardest part of building software system is deciding precisely what to build."
       }
     },
     {
@@ -74,7 +74,7 @@
         "book": "Chapter 1 — The essential software requirement",
         "page": 4,
         "excerpt": "Nowhere more than in the requirements do the interests of all the stakeholders in a project intersect. These stakeholders include customers, users, business analysts, developers, and many others.",
-        "lecture": "Then why is it so difficult to come up with a precise self-requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like."
+        "lecture": "Then why is it so difficult to come up with a precise software requirement? First of all, it involves large number of stakeholders. So as you see slide number six, there are customers, users, developers, testers. There are many, many people to give input to what system is supposed to look like."
       }
     },
     {

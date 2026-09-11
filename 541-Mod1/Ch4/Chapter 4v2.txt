@@ -10,11 +10,11 @@ So in order to be a requirements analyst, he must be a good listener, he must po
 
 Also, he must be able to be a good writer and creative in writing, expressing his findings in good written form. And also, he must have good personal skills going along with users and also developers. So it requires a lot of things from a business analyst. 
 
-Obviously, we cannot have everything, but he should possess at least good skills in each of these. Then slide 13 describes the knowledges that a business analyst must possess. He must possess good engineering techniques. 
+Obviously, we cannot have everything, but he should possess at least good skills in each of these. Then slide 13 describes the knowledge that a business analyst must possess. He must possess good engineering techniques. 
 
 He must have the technical side of it, and he must be able to do project management, that is how to do a project in terms of process models and also things that are required in terms of resource management, etc. And he must have some knowledge in risk analysis and quality engineering, and he must be also a good application expert. So he must have good knowledge in the domain where he's working in.
 
-Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users from developers whose users have intimate knowledge in terms of requirements, and developers' intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst. 
+Finally, slides 14 through 16 describe who could be such a potential business analyst. Obviously, users or developers — users have intimate knowledge in terms of requirements, and developers have intimate knowledge from the developing point of view, and also domain experts who have intimate knowledge of the particular problem could be good business analysts. So in summary, chapter 4, we talked about the business analyst who is crucial in making a product successful in terms of, number one, the tasks that he has to do, and the skills he needs, and the knowledge also he should have, and finally, who could be a potential business analyst. 
 
 That's chapter 4.
 

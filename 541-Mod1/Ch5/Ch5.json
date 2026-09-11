@@ -32,7 +32,7 @@
         "book": "Chapter 5 — Defining business requirements",
         "page": 7,
         "excerpt": "The user requirements and functional requirements must align with the context and objectives that the business requirements establish. Requirements that don't help the project achieve its business objectives shouldn't be implemented.",
-        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and functional requirements."
       }
     },
     {
@@ -232,7 +232,7 @@
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 6,
         "excerpt": "Different stakeholders want different things: customer wants simplicity, user wants convenience and features, developer might want interesting technology, and manager wants predictability and profit.",
-        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and functional requirements."
       }
     },
     {
@@ -253,7 +253,7 @@
         "book": "Chapter 5 — Conflicting business requirements",
         "page": 6,
         "excerpt": "Customer wants simplicity. User wants convenience and features. These contrasting interests help explain why business requirements can conflict.",
-        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and functional requirements."
       }
     },
     {
@@ -322,7 +322,7 @@
         "book": "Chapter 5 — Defining business requirements",
         "page": 7,
         "excerpt": "Business requirements guide which use cases belong in the system, which use cases are most important, and how extensively they should be implemented. They directly influence which user requirements to implement and in what sequence.",
-        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and function requirements."
+        "lecture": "Welcome to chapter 5. In this chapter, chapter 5, we'll talk about then how to establish the top level of requirements. Remember, there are three levels of requirements. The top one was business requirements, then user requirements, and functional requirements."
       }
     },
     {
@@ -659,7 +659,7 @@
         "book": "Chapter 5 — Context diagram",
         "page": 19,
         "excerpt": "The context diagram visually illustrates the boundary. It identifies external entities outside the system that interface to it, as well as data, control, and material flows between those terminators and the system.",
-        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or data flow diagram, if you know what a data flow diagram is."
       }
     },
     {
@@ -680,7 +680,7 @@
         "book": "Chapter 5 — Context diagram",
         "page": 19,
         "excerpt": "The entire system is depicted as a single circle. The external entities can represent user classes, organizations, other systems, or hardware devices, and the arrows represent flows between the system and those entities.",
-        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or data flow diagram, if you know what a data flow diagram is."
       }
     },
     {
@@ -722,7 +722,7 @@
         "book": "Chapter 5 — Ecosystem map",
         "page": 20,
         "excerpt": "An ecosystem map shows all of the systems related to the system of interest that interact with one another and the nature of those interactions. It provides a broader graphical view of related systems or components.",
-        "lecture": "The Ecomap basically is a graphical representation of how the individual components of your system interact with each other. So, for example, slide 13 shows the components initially of the chemical tracking system and it shows how they interact with each other. So, all the subsystems, if you will, of your system and how they interact with each other."
+        "lecture": "The eco-map basically is a graphical representation of how the individual components of your system interact with each other. So, for example, slide 13 shows the components initially of the chemical tracking system and it shows how they interact with each other. So, all the subsystems, if you will, of your system and how they interact with each other."
       }
     },
     {
@@ -735,7 +735,7 @@
         "book": "Chapter 5 — Ecosystem map",
         "page": 20,
         "excerpt": "Ecosystem maps differ from context diagrams in that they show other systems that have a relationship with the system you're working on, including those without direct interfaces. A context diagram emphasizes the system boundary and exchanges with external entities.",
-        "lecture": "Then, system provides a vendor catalog if the chemical needs to be ordered. So, the context diagram shows the overview of the system in terms of external entity and how these external entities exchange data with the system. Slide 13 shows a technique called Ecomap, or ecosystem map."
+        "lecture": "Then, system provides a vendor catalog if the chemical needs to be ordered. So, the context diagram shows the overview of the system in terms of external entity and how these external entities exchange data with the system. Slide 13 shows a technique called an eco-map, or ecosystem map."
       }
     },
     {
@@ -769,7 +769,7 @@
         "book": "Chapter 5 — Feature tree",
         "page": 21,
         "excerpt": "You have initially a big abstraction and then you use step-by-step refinement to find small abstractions that accomplish that bigger abstraction. A feature tree breaks larger capabilities into smaller related sub-features.",
-        "lecture": "So, again, in order to accomplish search feature, you need to have three sub-features that accomplish that particular feature. If you will, you're basically doing the so-called step-or-step refinement. That is, you have initially a big abstraction and then you're using step-or-step refinement to find small abstractions that accomplish that particular bigger abstraction."
+        "lecture": "So, again, in order to accomplish search feature, you need to have three sub-features that accomplish that particular feature. If you will, you're basically doing the so-called stepwise refinement. That is, you have initially a big abstraction and then you're using stepwise refinement to find small abstractions that accomplish that particular bigger abstraction."
       }
     },
     {
@@ -845,7 +845,7 @@
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
         "excerpt": "A scope definition is a structure, not a straitjacket. Scope change isn't a bad thing if it helps you steer the project toward satisfying evolving customer needs; uncontrolled scope change is the problem.",
-        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or data flow diagram, if you know what a data flow diagram is."
       }
     },
     {
@@ -870,7 +870,7 @@
         "book": "Chapter 5 — Keeping the scope in focus",
         "page": 23,
         "excerpt": "Remember, whenever someone requests a new requirement, the analyst needs to ask whether it is in scope. The three outcomes are keep an in-scope request, reject or defer an out-of-scope request, or intentionally change the scope when the idea is valuable enough.",
-        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or flow diagram, if you know what a flow diagram is."
+        "lecture": "Final slides 11, 12, 13, and 14 describe the techniques, how to represent the scope of the project. Initially, slides 11 and 12 show so-called a context diagram. A context diagram basically shows how a system, software system, interacts with the so-called external entities of that system in terms of data that are being exchanged, or known to you as a context diagram or data flow diagram, if you know what a data flow diagram is."
       }
     },
     {
