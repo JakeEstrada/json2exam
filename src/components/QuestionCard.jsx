@@ -94,8 +94,8 @@ function QuestionSource({ q, onOpen }) {
           </button>
         )}
         {ref.page > 0 && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page })}>
-            Open this section in the book
+          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page, excerpt: ref.excerpt, book: ref.book })}>
+            Show in book
           </button>
         )}
       </div>

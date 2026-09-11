@@ -13,6 +13,7 @@
   "dependencies": {
     "@ai-sdk/openai": "^4.0.56",
     "ai": "^7.0.90",
+    "pdfjs-dist": "^4.10.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

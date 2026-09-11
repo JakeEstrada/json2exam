@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { headingId } from '../lib/parseQuiz.js';
 import { MarkdownView } from './FileWindow.jsx';
 import LectureView from './LectureView.jsx';
+import PdfPage from './PdfPage.jsx';
 
 function StudyPanel({ filename, children, extra, bodyClass, open, onOpenChange }) {
   return (
@@ -31,17 +32,20 @@ export default function QuizNotes({
   const page = focus && focus.page ? focus.page : 0;
   const heading = focus && focus.heading ? focus.heading : '';
   const lectureQuote = focus && focus.lecture ? focus.lecture : '';
+  const bookQuery = focus && (focus.excerpt || focus.book)
+    ? [focus.excerpt, focus.book].filter(Boolean).join(' ')
+    : '';
   const bookSrc = bookUrl && page ? bookUrl + '#page=' + page : bookUrl;
 
   useEffect(() => {
     if (!focus) return;
-    if (focus.heading && source && !focus.lecture) setNotesOpen(true);
+    if (focus.heading && source && !focus.lecture && !focus.page) setNotesOpen(true);
     if (focus.page && bookUrl) setBookOpen(true);
     if (focus.lecture && lecture) setLectureOpen(true);
     const t = window.setTimeout(() => {
       const study = document.getElementById('quiz-study');
       if (study) study.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (focus.lecture) return;
+      if (focus.lecture || focus.page) return;
       if (!focus.heading) return;
       const el = document.getElementById(headingId(focus.heading));
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -89,12 +93,9 @@ export default function QuizNotes({
             </a>
           )}
         >
-          <iframe
-            key={bookSrc}
-            className="pdf-frame"
-            title={bookFile || 'Chapter book'}
-            src={bookSrc}
-          />
+          {bookOpen && (
+            <PdfPage url={bookUrl} page={page || 1} query={bookQuery} />
+          )}
         </StudyPanel>
       )}
     </div>
