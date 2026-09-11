@@ -38,18 +38,21 @@ export default function QuizNotes({
     if (focus.heading && source && !focus.lecture) setNotesOpen(true);
     if (focus.page && bookUrl) setBookOpen(true);
     if (focus.lecture && lecture) setLectureOpen(true);
-    if (focus.lecture || !focus.heading) return;
-    const id = headingId(focus.heading);
     const t = window.setTimeout(() => {
-      const el = document.getElementById(id);
+      const study = document.getElementById('quiz-study');
+      if (study) study.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (focus.lecture) return;
+      if (!focus.heading) return;
+      const el = document.getElementById(headingId(focus.heading));
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 60);
+    }, 80);
     return () => window.clearTimeout(t);
   }, [focus, source, bookUrl, lecture]);
 
   if (!source && !bookUrl && !lecture) return null;
   return (
-    <div className="quiz-study">
+    <div className="quiz-study" id="quiz-study">
+      <p className="quiz-study-label">Source materials</p>
       {source && (
         <StudyPanel
           filename={filename || 'notes.md'}

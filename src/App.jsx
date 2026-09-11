@@ -246,6 +246,13 @@ export default function App() {
     return (
       <div className="shell shell-wide">
         <Masthead onHome={goHome} />
+        <Summary
+          quiz={quiz}
+          boxes={boxes}
+          stats={stats}
+          maxBox={settings.maxBox}
+          onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
+        />
         <QuizNotes
           filename={quiz.notesFile}
           source={quiz.notes}
@@ -254,13 +261,6 @@ export default function App() {
           lectureFile={quiz.lectureFile}
           lecture={quiz.lecture}
           focus={studyFocus}
-        />
-        <Summary
-          quiz={quiz}
-          boxes={boxes}
-          stats={stats}
-          maxBox={settings.maxBox}
-          onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
         />
         <AskGPT brain={brain} card={null} phase="review" picked={[]} notes={quiz.notes} />
       </div>
@@ -274,16 +274,6 @@ export default function App() {
   return (
     <div className="shell shell-wide">
       <Masthead onHome={goHome} />
-
-      <QuizNotes
-        filename={quiz.notesFile}
-        source={quiz.notes}
-        bookFile={quiz.bookFile}
-        bookUrl={quiz.bookUrl}
-        lectureFile={quiz.lectureFile}
-        lecture={quiz.lecture}
-        focus={studyFocus}
-      />
 
       <div className="bar">
         <h2>{quiz.title}</h2>
@@ -335,6 +325,16 @@ export default function App() {
           <button className="btn primary" onClick={advance}>Next question</button>
         </div>
       )}
+
+      <QuizNotes
+        filename={quiz.notesFile}
+        source={quiz.notes}
+        bookFile={quiz.bookFile}
+        bookUrl={quiz.bookUrl}
+        lectureFile={quiz.lectureFile}
+        lecture={quiz.lecture}
+        focus={studyFocus}
+      />
 
       <AskGPT
           brain={brain}
