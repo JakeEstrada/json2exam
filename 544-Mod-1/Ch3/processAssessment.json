@@ -128,15 +128,13 @@
         "Use a process model as the basis for assessment",
         "Maintain confidentiality",
         "Involve senior management",
-        "Respect the views of people being assessed",
-        "Maintain an action orientation"
+        "Respect the views of people being assessed"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "These are the five principles listed in the lecture.",
       "reference": {
@@ -341,8 +339,7 @@
         "Well respected in the organization",
         "Able to deal with people in an informal and non-threatening manner",
         "A team player",
-        "Has attended assessment training with the team",
-        "Currently manages one of the projects being assessed"
+        "Has attended assessment training with the team"
       ],
       "answer": [
         "a",
@@ -553,8 +550,7 @@
         "Quality assurance and release",
         "Software integration and test",
         "Coding and unit test",
-        "Requirements and design",
-        "Only executive management"
+        "Requirements and design"
       ],
       "answer": [
         "a",
@@ -635,8 +631,7 @@
         "Supported by assessment evidence",
         "Addressable by an action recommendation",
         "Specific rather than a sweeping generalization",
-        "Relevant to major or key issues",
-        "Focused on identifying a guilty individual"
+        "Relevant to major or key issues"
       ],
       "answer": [
         "a",

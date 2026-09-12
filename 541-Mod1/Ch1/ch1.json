@@ -7,9 +7,7 @@
       "options": [
         "Choosing an unsuitable programming language is the primary reason software projects fail to deliver.",
         "Failing to understand and control the product's requirements is a leading cause of software project failure.",
-        "Staffing the project with too few developers is the main reason software projects fail to succeed.",
         "Leaving cloud infrastructure out of the design is the biggest reason software projects fail to finish.",
-        "Poor database normalization is the most common reason software projects fail to meet their goals.",
         "Running the product on an outdated operating system is the leading cause of software project failure."
       ],
       "answer": "b",
@@ -29,8 +27,6 @@
         "Requirements become completely frozen once programming starts, so later discovery cannot lead to any correction.",
         "Customers are forbidden from changing their minds after work begins, so early discovery is the only allowed adjustment.",
         "The cost of correcting a defect generally increases the later it is discovered, so early detection is far cheaper.",
-        "Requirements defects affect only documentation, so finding them early merely keeps the written records tidy.",
-        "Late defects can be corrected only by managers, so early discovery avoids escalating every error to management.",
         "Testing cannot detect requirements problems at all, so the only useful time to find them is during requirements work."
       ],
       "answer": "c",
@@ -60,14 +56,12 @@
       "question": "Why can requirements engineering involve significant communication difficulty?",
       "type": "multiple",
       "options": [
-        "Only developers are permitted to define requirements, so other participants cannot contribute their stated needs.",
         "Requirements are generated automatically from source code, so people rarely need to discuss the intended behavior.",
         "Many different stakeholders can have different needs, priorities, and assumptions that the team must reconcile.",
         "Customers are prohibited from participating in requirements work, so analysts must infer needs without talking to them.",
-        "Requirements concern only hardware devices, so software stakeholders have little reason to communicate about them.",
         "Requirements are written only after the product is released, so early communication among the parties is unnecessary."
       ],
-      "answer": "c",
+      "answer": "b",
       "explanation": "Customers, users, analysts, developers, testers, managers, legal staff, support staff, and others may all influence requirements.",
       "reference": {
         "section": "Why requirements are hard",
@@ -84,16 +78,13 @@
         "Requirements are collected through informal gathering processes that never become a defined engineering activity.",
         "Needed product behavior is treated as implied functionality that nobody states or records in an explicit form.",
         "Teams rely on wrong or unspoken assumptions instead of confirming what stakeholders actually need from the product.",
-        "The written specification is left ambiguous or internally conflicting, so readers cannot tell what was agreed.",
-        "Casual changes are made to the requirements without being recorded or controlled through a defined change process.",
-        "The project maintains a controlled requirements baseline so the agreed requirements and later changes stay visible."
+        "The written specification is left ambiguous or internally conflicting, so readers cannot tell what was agreed."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The first five can cause requirements problems. Maintaining a controlled baseline is a good requirements management practice.",
       "reference": {
@@ -108,14 +99,12 @@
       "question": "Which statement best describes a software requirement?",
       "type": "multiple",
       "options": [
-        "A software requirement is a description of the source code that developers are obligated to write for the product.",
         "A software requirement specifies what should be implemented, including behavior, properties, attributes, or constraints.",
         "A software requirement is a schedule that shows when programmers should finish each planned piece of implementation work.",
-        "A software requirement is a testing script written after development to confirm that the finished code already works.",
         "A software requirement is a diagram that shows the final database tables the implemented product is expected to contain.",
         "A software requirement is a list of programming languages that developers have already approved for use on the project."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Requirements describe what should be implemented, how the system should behave, properties it must possess, or constraints it must respect.",
       "reference": {
         "section": "What a requirement is",
@@ -131,9 +120,7 @@
       "options": [
         "A requirement is a programming technique that a developer selects while constructing a particular part of the system.",
         "A requirement is a condition or capability needed by a user to solve a problem or to achieve an objective.",
-        "A requirement is a design pattern that an architect recommends before any user needs have been identified.",
         "A requirement is a testing method that quality assurance selects after the implementation work has already finished.",
-        "A requirement is a feature that developers personally believe would be useful, regardless of stated user needs.",
         "A requirement is a project schedule that management has approved, rather than a capability the product must provide."
       ],
       "answer": "b",
@@ -150,14 +137,12 @@
       "question": "A functional requirement primarily describes:",
       "type": "multiple",
       "options": [
-        "A functional requirement primarily describes how much money the organization expects the project to cost.",
-        "A functional requirement primarily describes which developer on the team will implement a particular feature.",
         "A functional requirement primarily describes a behavior the system will exhibit under a specific set of conditions.",
         "A functional requirement primarily describes how members of the development team will communicate with one another.",
         "A functional requirement primarily describes the company's hiring policy rather than any behavior of the software.",
         "A functional requirement primarily describes the project's deadline instead of specifying required system behavior."
       ],
-      "answer": "c",
+      "answer": "a",
       "explanation": "Functional requirements describe system behavior under specified conditions.",
       "reference": {
         "section": "The four requirement levels",
@@ -173,10 +158,8 @@
       "options": [
         "The statement is a functional requirement because it specifies behavior the system must perform under a condition.",
         "The statement is a business objective because it explains why the organization wants the product in the first place.",
-        "The statement is a project schedule because it tells the team when the login feature must be finished.",
         "The statement is a stakeholder class because it identifies a group of people who care about the login feature.",
-        "The statement is a testing procedure because it tells testers the exact steps for exercising the login feature.",
-        "The statement is a requirements baseline because it records an approved snapshot of every agreed login rule."
+        "The statement is a testing procedure because it tells testers the exact steps for exercising the login feature."
       ],
       "answer": "a",
       "explanation": "It specifies behavior the system must perform when a particular condition occurs.",
@@ -195,9 +178,7 @@
         "A nonfunctional requirement is a requirement that does not need to be implemented in the delivered software product.",
         "A nonfunctional requirement describes a property, characteristic, quality, or constraint that the system must satisfy.",
         "A nonfunctional requirement is simply a requirement written by someone other than a programmer on the project team.",
-        "A nonfunctional requirement is a feature that has already been removed from the project and will not be delivered.",
-        "A nonfunctional requirement is a requirement that applies only to testing and never to the product's actual behavior.",
-        "A nonfunctional requirement is a requirement that has not yet been approved, so the team may ignore it for now."
+        "A nonfunctional requirement is a requirement that applies only to testing and never to the product's actual behavior."
       ],
       "answer": "b",
       "explanation": "Nonfunctional requirements describe characteristics such as performance, availability, security, usability, and constraints.",
@@ -214,13 +195,11 @@
       "type": "multiple",
       "options": [
         "This is a business requirement because it states why the organization wants the web application built.",
-        "This is a user requirement because it describes a goal a user must accomplish with the application.",
-        "This is a functional requirement because it specifies a new behavior the application must perform.",
         "This is a quality attribute because it states a performance characteristic the application must exhibit.",
         "This is a project requirement because it describes resources needed to complete the development work.",
         "This is a requirements management activity because it tracks changes after the requirements are baselined."
       ],
-      "answer": "d",
+      "answer": "b",
       "explanation": "Response time describes performance, which is a quality attribute and therefore a type of nonfunctional requirement.",
       "reference": {
         "section": "The four requirement levels",
@@ -237,16 +216,13 @@
         "Performance is a quality attribute because it describes how well the product must carry out its functions.",
         "Availability is a quality attribute because it describes when and how dependably the product must remain usable.",
         "Security is a quality attribute because it describes how the product must protect assets and resist misuse.",
-        "Usability is a quality attribute because it describes how readily intended users can learn and operate the product.",
-        "Robustness is a quality attribute because it describes how well the product continues operating under adverse conditions.",
-        "Project budget is a quality attribute because it describes how much money may be spent to build the product."
+        "Usability is a quality attribute because it describes how readily intended users can learn and operate the product."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "Performance, availability, security, usability, and robustness are quality attributes. Project budget is not a software quality attribute.",
       "reference": {
@@ -261,14 +237,12 @@
       "question": "A constraint primarily does what?",
       "type": "multiple",
       "options": [
-        "A constraint primarily defines the business value the organization hopes the finished project will produce.",
         "A constraint primarily restricts the choices available to developers when designing or constructing the system.",
         "A constraint primarily describes every test case that quality assurance must execute against the finished product.",
         "A constraint primarily identifies all stakeholders who have an interest in the product or its business outcome.",
-        "A constraint primarily replaces functional requirements so the team no longer needs to specify system behavior.",
-        "A constraint primarily defines the user's overall goal rather than limiting how the team may build the product."
+        "A constraint primarily replaces functional requirements so the team no longer needs to specify system behavior."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "A constraint limits the design or implementation choices available to the development team.",
       "reference": {
         "section": "The four requirement levels",
@@ -285,9 +259,7 @@
         "Detailed implementation decisions should not go in the product SRS unless they are genuine imposed constraints.",
         "Detailed design choices should not go in the product SRS unless they are genuine imposed constraints.",
         "Project planning information should not go in the product SRS because it describes how the work will be run.",
-        "Detailed testing procedures should not go in the product SRS because they belong with the project's test plans.",
-        "Required system behavior should not go in the product SRS because behavior is decided only during coding.",
-        "Required quality attributes should not go in the product SRS because qualities are outside the specification."
+        "Detailed testing procedures should not go in the product SRS because they belong with the project's test plans."
       ],
       "answer": [
         "a",
@@ -308,14 +280,12 @@
       "question": "A business requirement primarily explains:",
       "type": "multiple",
       "options": [
-        "A business requirement primarily explains exactly how a particular on-screen button should be programmed in code.",
         "A business requirement primarily explains why the organization wants the product and what objective it hopes to achieve.",
         "A business requirement primarily explains how testers should execute test cases against the finished software product.",
-        "A business requirement primarily explains how a database table should be indexed so that stored queries run quickly.",
         "A business requirement primarily explains which developer is responsible for implementing a particular product feature.",
         "A business requirement primarily explains which programming language team members must learn before implementation starts."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Business requirements express high-level business objectives, vision, and desired outcomes.",
       "reference": {
         "section": "The four requirement levels",
@@ -332,8 +302,6 @@
         "This is a functional requirement because it specifies a behavior the self-service system must exhibit for users.",
         "This is a business requirement because it states a business outcome the organization hopes the system will achieve.",
         "This is an external interface requirement because it describes a connection between the system and another device.",
-        "This is a quality attribute because it states a performance or service characteristic the system must exhibit.",
-        "This is a test requirement because it tells testers how to prove that support-call volume has already changed.",
         "This is a design constraint because it restricts the technical choices developers may use while building the system."
       ],
       "answer": "b",
@@ -351,9 +319,7 @@
       "type": "multiple",
       "options": [
         "A user requirement describes a goal or task that a specified class of users must be able to accomplish with the system.",
-        "A user requirement describes the source code that developers are required to write to implement a particular feature.",
         "A user requirement describes the project's financial budget rather than anything a user must accomplish with the product.",
-        "A user requirement describes a detailed database schema that the implemented product is expected to contain and use.",
         "A user requirement describes a tester's expected workload instead of a task the user needs to perform with the system.",
         "A user requirement describes a developer's preferred architecture rather than a goal the user must achieve with the product."
       ],
@@ -374,8 +340,6 @@
         "The general relationship among the levels is functional requirements, then user requirements, then business requirements.",
         "The general relationship among the levels is user requirements, then business requirements, then functional requirements.",
         "The general relationship among the levels is business requirements, then user requirements, then functional requirements.",
-        "The general relationship among the levels is functional requirements, then business requirements, then user requirements.",
-        "The general relationship among the levels is system requirements, then testing requirements, then business requirements.",
         "The general relationship among the levels is business requirements, then source code, then user requirements from that code."
       ],
       "answer": "c",
@@ -405,14 +369,12 @@
       "question": "Requirements engineering is divided into which two major areas?",
       "type": "multiple",
       "options": [
-        "Requirements engineering is divided into design work and programming work for the product being built.",
-        "Requirements engineering is divided into testing activities and deployment activities for the finished product.",
         "Requirements engineering is divided into requirements development and requirements management as its two major areas.",
         "Requirements engineering is divided into planning activities and budgeting activities for the surrounding project.",
         "Requirements engineering is divided into hardware concerns and software concerns rather than requirement activities.",
         "Requirements engineering is divided into frontend work and backend work for the system's technical implementation."
       ],
-      "answer": "c",
+      "answer": "a",
       "explanation": "Chapter 1 divides requirements engineering into requirements development and requirements management.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -426,14 +388,12 @@
       "question": "Which four activities make up requirements development?",
       "type": "multiple",
       "options": [
-        "Requirements development is made up of planning, coding, testing, and deployment of the software product.",
         "Requirements development is made up of elicitation, analysis, specification, and validation of the requirements.",
         "Requirements development is made up of design, implementation, verification, and maintenance of the product.",
         "Requirements development is made up of research, development, deployment, and support for the finished product.",
-        "Requirements development is made up of interviewing, programming, testing, and documentation by the project team.",
-        "Requirements development is made up of business analysis, coding, deployment, and management of the project."
+        "Requirements development is made up of interviewing, programming, testing, and documentation by the project team."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Requirements development consists of elicitation, analysis, specification, and validation.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -448,13 +408,11 @@
       "type": "multiple",
       "options": [
         "This interview work is validation because the analyst is confirming that already-written requirements are correct.",
-        "This interview work is specification because the analyst is writing organized requirements for others to review.",
-        "This interview work is requirements management because the analyst is controlling changes after a baseline exists.",
         "This interview work is elicitation because the analyst is discovering user classes, tasks, and needed capabilities.",
         "This interview work is testing because the analyst is executing cases against an already-implemented software product.",
         "This interview work is implementation because the analyst is writing the code that will satisfy the discovered needs."
       ],
-      "answer": "d",
+      "answer": "b",
       "explanation": "Elicitation is the process of discovering requirements and understanding users, their tasks, goals, and business objectives.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -471,8 +429,6 @@
         "This sorting work is elicitation because the analyst is still discovering raw needs from stakeholders for the first time.",
         "This sorting work is analysis because the analyst is organizing gathered information and distinguishing its different kinds.",
         "This sorting work is specification because the analyst is writing the final requirements document for others to review.",
-        "This sorting work is validation because the analyst is confirming with users that the written requirements are correct.",
-        "This sorting work is deployment because the analyst is installing the finished product in the operating environment.",
         "This sorting work is maintenance because the analyst is changing an already-released product after customers report defects."
       ],
       "answer": "b",
@@ -489,14 +445,12 @@
       "question": "An analyst converts discovered user needs into organized written requirements and diagrams that developers and customers can review. Which activity is this?",
       "type": "multiple",
       "options": [
-        "This documentation work is elicitation because the analyst is still discovering what users need from the new system.",
-        "This documentation work is analysis because the analyst is only classifying information rather than writing it down.",
         "This documentation work is specification because the analyst is recording requirements in an organized, persistent form.",
         "This documentation work is validation because the analyst is confirming that already-written requirements are correct.",
         "This documentation work is requirements management because the analyst is controlling changes after a baseline exists.",
         "This documentation work is implementation because the analyst is writing source code that realizes the recorded needs."
       ],
-      "answer": "c",
+      "answer": "a",
       "explanation": "Specification means documenting the collected requirements knowledge in an organized and persistent form.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -511,13 +465,11 @@
       "type": "multiple",
       "options": [
         "This review work is analysis because the team is still classifying raw information rather than checking written requirements.",
-        "This review work is elicitation because the team is discovering needs for the first time instead of checking a document.",
         "This review work is validation because the team is confirming a shared understanding and finding errors before implementation.",
         "This review work is project planning because the team is building a schedule rather than checking the requirements themselves.",
-        "This review work is implementation because the team is writing code instead of examining the documented requirements.",
         "This review work is requirements tracing because the team is linking requirements to design, code, and tests after the fact."
       ],
-      "answer": "c",
+      "answer": "b",
       "explanation": "Validation confirms that the documented requirements accurately represent what is needed before development proceeds.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -531,14 +483,12 @@
       "question": "What is a requirements baseline?",
       "type": "multiple",
       "options": [
-        "A requirements baseline is the first rough idea a developer mentions in an early conversation about the product.",
         "A requirements baseline is a snapshot of the reviewed and agreed-upon set of requirements at a particular point in time.",
-        "A requirements baseline is a list of all rejected requirements that the team has decided it will never implement.",
         "A requirements baseline is a copy of the source code taken before testing begins on a particular product increment.",
         "A requirements baseline is a document that contains only business requirements and omits user and functional needs.",
         "A requirements baseline is the minimum performance level the software must meet, rather than an agreed requirements set."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "A baseline represents the current agreement about the requirements and provides a controlled starting point for managing changes.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -555,16 +505,13 @@
         "Requirements management includes defining and maintaining a requirements baseline that records the current agreement.",
         "Requirements management includes evaluating the impact of proposed changes before those changes are approved.",
         "Requirements management includes incorporating approved changes in a controlled way so the agreement stays consistent.",
-        "Requirements management includes tracing requirements to design, code, and tests so coverage and impact stay visible.",
-        "Requirements management includes tracking requirement status and change activity throughout the life of the project.",
-        "Requirements management includes automatically accepting every requested feature so no proposed change is ever refused."
+        "Requirements management includes tracing requirements to design, code, and tests so coverage and impact stay visible."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "Requirements management controls and tracks the agreed requirements and their changes. Changes should be evaluated rather than automatically accepted.",
       "reference": {
@@ -580,13 +527,11 @@
       "type": "multiple",
       "options": [
         "The team should immediately begin programming the requested feature without examining its effects on the project.",
-        "The team should reject the request because requirements can never change after a baseline has been established.",
         "The team should evaluate the proposed change and determine its impact before deciding whether to approve it.",
         "The team should delete the original baseline so that the new feature can replace the previous agreed requirements.",
-        "The team should wait until after deployment to consider the request, even if the change is important now.",
         "The team should let the developer who received the request decide privately without an evaluated change process."
       ],
-      "answer": "c",
+      "answer": "b",
       "explanation": "Requirements management allows change, but changes should be evaluated for effects on cost, schedule, design, code, testing, and other requirements.",
       "reference": {
         "section": "Requirements engineering breakdown",
@@ -600,14 +545,12 @@
       "question": "What is gold plating?",
       "type": "multiple",
       "options": [
-        "Gold plating means giving the most important requirement the highest priority so the team builds it first.",
         "Gold plating means adding functionality that was not required because a developer believes the customer will like it.",
         "Gold plating means improving the wording of an ambiguous requirement so readers share a single interpretation.",
         "Gold plating means reviewing a requirement with multiple users so overlooked needs are more likely to be found.",
-        "Gold plating means making a requirement verifiable so testers can determine whether the product satisfies it.",
         "Gold plating means establishing a baseline before development so later changes can be evaluated in a controlled way."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Gold plating occurs when developers add unnecessary or unrequested functionality, which can consume time and money without delivering needed value.",
       "reference": {
         "section": "Problems caused by bad requirements",
@@ -624,16 +567,13 @@
         "Different stakeholders interpret the same requirement differently, so they do not share one expected meaning.",
         "Developers may implement the wrong behavior because they built a reasonable interpretation that was not intended.",
         "Testers and developers may have different expectations, so test results disagree with what was actually built.",
-        "Time can be wasted resolving misunderstandings that clearer requirement statements would have prevented.",
-        "Requirements automatically become easier to verify because ambiguity gives testers more freedom in judging pass or fail.",
-        "Stakeholders may be surprised by the delivered system because it matches a different reading than they expected."
+        "Time can be wasted resolving misunderstandings that clearer requirement statements would have prevented."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "Ambiguity creates multiple interpretations and mismatched expectations, which often lead to rework and wasted effort.",
       "reference": {
@@ -650,8 +590,6 @@
       "options": [
         "An excellent individual requirement is complete, correct, feasible, necessary, prioritized, unambiguous, and verifiable.",
         "An excellent individual requirement is short, technical, complex, detailed, coded, tested, and then already deployed.",
-        "An excellent individual requirement is cheap, fast, flexible, optional, visual, reusable, and fully automated.",
-        "An excellent individual requirement is documented, programmed, compiled, deployed, monitored, patched, and archived.",
         "An excellent individual requirement is profitable, graphical, object-oriented, distributed, scalable, portable, and cloud-based.",
         "An excellent individual requirement is approved, implemented, tested, deployed, maintained, replaced, and then deleted."
       ],

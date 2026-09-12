@@ -1,5 +1,87 @@
+import { useEffect, useRef, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
+
+function speakText(text) {
+  const synth = typeof window !== 'undefined' && window.speechSynthesis;
+  if (!synth || !text) return false;
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.rate = 0.95;
+  synth.speak(utter);
+  return true;
+}
+
+function stopSpeech() {
+  const synth = typeof window !== 'undefined' && window.speechSynthesis;
+  if (synth) synth.cancel();
+}
+
+function cardSpeech(q, order) {
+  let text = q.text || '';
+  if (q.options && order && order.length) {
+    text += '. The choices are. ';
+    order.forEach((idx, i) => {
+      text += LETTERS[i].toUpperCase() + '. ' + q.options[idx] + '. ';
+    });
+  }
+  return text;
+}
+
+function SpeakButton({ text }) {
+  const [on, setOn] = useState(false);
+  const tick = useRef(0);
+  const canSpeak = typeof window !== 'undefined' && !!window.speechSynthesis;
+
+  useEffect(() => {
+    stopSpeech();
+    setOn(false);
+    if (tick.current) window.clearInterval(tick.current);
+    return () => {
+      stopSpeech();
+      if (tick.current) window.clearInterval(tick.current);
+    };
+  }, [text]);
+
+  if (!canSpeak) return null;
+
+  return (
+    <button
+      type="button"
+      className={'speak-btn' + (on ? ' is-on' : '')}
+      aria-label={on ? 'Stop reading' : 'Read question aloud'}
+      title={on ? 'Stop reading' : 'Read question aloud'}
+      onClick={() => {
+        if (on) {
+          stopSpeech();
+          if (tick.current) window.clearInterval(tick.current);
+          setOn(false);
+          return;
+        }
+        const started = speakText(text);
+        setOn(started);
+        if (!started) return;
+        const synth = window.speechSynthesis;
+        if (tick.current) window.clearInterval(tick.current);
+        tick.current = window.setInterval(() => {
+          if (!synth.speaking) {
+            window.clearInterval(tick.current);
+            tick.current = 0;
+            setOn(false);
+          }
+        }, 250);
+      }}
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        {on ? (
+          <path d="M6 6h4v12H6zm8 0h4v12h-4z" fill="currentColor" />
+        ) : (
+          <path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.3-3.9v7.8A4.5 4.5 0 0 0 17.5 12zm2.5 0c0 2.5-1.1 4.7-2.8 6.2l1.4 1.4A10 10 0 0 0 22 12a10 10 0 0 0-3.4-7.6l-1.4 1.4A8 8 0 0 1 20 12z" fill="currentColor" />
+        )}
+      </svg>
+    </button>
+  );
+}
 
 export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasBook }) {
   const reviewing = phase === 'review';
@@ -9,7 +91,10 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   return (
     <div className="sheet qcard">
       <p className="kind">{KIND_LABEL[q.type]}</p>
-      <div className="q-text">{q.text}</div>
+      <div className="q-head">
+        <div className="q-text">{q.text}</div>
+        <SpeakButton text={cardSpeech(q, order)} />
+      </div>
 
       <div className="opts" role={multi ? 'group' : 'radiogroup'}>
         {order.map((realIdx, shown) => {

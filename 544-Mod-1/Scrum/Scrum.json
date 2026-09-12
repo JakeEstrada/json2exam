@@ -33,14 +33,13 @@
         "Self-directed teams",
         "Daily team measurement",
         "Avoidance of overly prescriptive process",
-        "Management assigns each developer's tasks every morning",
         "Demonstration to stakeholders at the end of an iteration"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "e"
+        "d"
       ],
       "explanation": "Scrum emphasizes self-direction, daily visibility of progress, minimal prescription, and stakeholder demonstrations. Managers do not normally assign individual tasks.",
       "reference": {
@@ -310,7 +309,6 @@
         "What have you done since the last Scrum?",
         "What will you do before the next Scrum?",
         "What is getting in the way of meeting the iteration goals?",
-        "What salary increase would you like?",
         "Which employee should be removed from the project?"
       ],
       "answer": [
@@ -420,16 +418,13 @@
         "Remove reported blocks",
         "Protect the team from outside interruptions",
         "Reinforce the project and Sprint vision",
-        "Ensure Scrum practices are followed",
-        "Assign every developer's daily task",
-        "Provide or obtain needed resources"
+        "Ensure Scrum practices are followed"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The Scrum Master removes impediments, acts as a firewall, reinforces vision, ensures Scrum practices are followed, and helps provide resources. The Scrum Master does not normally assign individual work.",
       "reference": {

@@ -8,9 +8,7 @@
         "The analyst writes all application source code so developers can concentrate on architecture and technical infrastructure planning.",
         "The analyst performs only software testing after implementation is finished and the product is already prepared for formal release.",
         "The analyst serves as the principal interpreter connecting customers or users with developers so requirements can flow between both groups.",
-        "The analyst manages only the project budget and schedule while leaving discovery of requirements entirely to the business sponsor.",
-        "The analyst designs every database schema so stakeholder needs are captured entirely in data models rather than written requirements.",
-        "The analyst personally approves every proposed change without consulting customers, users, or developers about the product impact."
+        "The analyst designs every database schema so stakeholder needs are captured entirely in data models rather than written requirements."
       ],
       "answer": "c",
       "explanation": "The analyst is the principal conduit between customers or users and developers.",
@@ -28,17 +26,14 @@
       "options": [
         "The analyst gathers requirements from customers and users so the team understands what capabilities the product must provide.",
         "The analyst studies collected requirements to understand their meaning, relationships, and implications for the planned solution.",
-        "The analyst writes every line of implementation code so developers do not have to interpret the specified stakeholder requirements.",
         "The analyst documents requirements so customers, users, and developers share a clear written description of the needed solution.",
-        "The analyst validates requirements to help confirm that the documented statements correctly reflect stakeholder needs and intent.",
-        "The analyst manages requirements after agreement, including organizing the information and controlling later changes to the baseline."
+        "The analyst validates requirements to help confirm that the documented statements correctly reflect stakeholder needs and intent."
       ],
       "answer": [
         "a",
         "b",
-        "d",
-        "e",
-        "f"
+        "c",
+        "d"
       ],
       "explanation": "The slides describe the analyst as gathering, studying, documenting, validating, and managing requirements.",
       "reference": {
@@ -68,17 +63,14 @@
       "options": [
         "Software engineers can perform analyst work when they have the knowledge and skills needed for requirements tasks on the project.",
         "Managers can perform analyst work when they can elicit, analyze, and communicate requirements in addition to directing the project.",
-        "Only people who hold a formal business-analyst certification are permitted to perform analyst tasks on a software project.",
         "Domain experts can perform analyst work when they can translate business knowledge into requirements that developers can use.",
-        "Users can perform analyst work when they can represent needs clearly and work effectively with the technical development team.",
-        "People with the appropriate knowledge and skills can fill the analyst role even if it is not their official job title."
+        "Users can perform analyst work when they can represent needs clearly and work effectively with the technical development team."
       ],
       "answer": [
         "a",
         "b",
-        "d",
-        "e",
-        "f"
+        "c",
+        "d"
       ],
       "explanation": "The analyst role can be filled by different kinds of people, not just someone with a specific title.",
       "reference": {
@@ -94,13 +86,11 @@
       "type": "multiple",
       "options": [
         "So the analyst can select every programming language and framework the development team will use for implementation.",
-        "So the analyst can remove any further customer input after the initial project charter has already been approved.",
         "So the analyst can write every test script and thereby replace the quality team's interpretation of the requirements.",
         "So the analyst understands why the project is being undertaken and can align later requirements work with that purpose.",
-        "So the analyst can assign individual developers to implementation tasks based solely on the stated business objectives.",
-        "So the analyst can replace the project sponsor as the person who authorizes funding and organizational direction."
+        "So the analyst can assign individual developers to implementation tasks based solely on the stated business objectives."
       ],
-      "answer": "d",
+      "answer": "c",
       "explanation": "The analyst must understand the business reason behind the project.",
       "reference": {
         "section": "What the analyst does",
@@ -116,9 +106,7 @@
       "options": [
         "The analyst should focus on classes and objects so the object-oriented design can be completed before any requirements are written.",
         "The analyst should understand the project's vision and scope so the business reason and boundaries of the work are clear.",
-        "The analyst should focus on testing and deployment activities so release procedures can be finished before requirements exist.",
         "The analyst should understand source code structure and the database schema so implementation details become the business requirements.",
-        "The analyst should focus on hardware and software inventories so purchasing decisions can replace a statement of business need.",
         "The analyst should understand only the budget and payroll figures because financial data fully define the project's business requirements."
       ],
       "answer": "b",
@@ -136,13 +124,11 @@
       "type": "multiple",
       "options": [
         "So the analyst can limit involvement to programmers and ignore other people who still have an interest in the project outcome.",
-        "So the analyst can remove users from the project and rely only on managers to describe the needed product capabilities.",
         "So the analyst can decide the final source code structure before stakeholders have described their actual business needs.",
         "So the analyst can choose test-tool licenses for the quality team instead of identifying people affected by the project.",
-        "So the analyst knows who is affected by the project's success or failure and must be considered during requirements work.",
-        "So the analyst can avoid customer communication and gather all needed information only from internal technical staff."
+        "So the analyst knows who is affected by the project's success or failure and must be considered during requirements work."
       ],
-      "answer": "e",
+      "answer": "d",
       "explanation": "Stakeholders are people affected by or interested in the project's outcome.",
       "reference": {
         "section": "What the analyst does",
@@ -156,14 +142,12 @@
       "question": "Why should the analyst identify users separately from stakeholders?",
       "type": "multiple",
       "options": [
-        "Users should be treated as project managers because they always have authority to direct the schedule and the team.",
         "Users should be identified only so they can choose the source code language the developers will use for implementation.",
         "Users are the people who will directly interact with the system, so their needs are distinct from those of other stakeholders.",
         "Users are never stakeholders, so identifying them separately means they should be excluded from requirements discussions.",
-        "Users should be identified because they are the people who authorize project funding and approve the overall budget.",
         "Users should be identified only because they perform testing and have no role in describing needed product capabilities."
       ],
-      "answer": "c",
+      "answer": "b",
       "explanation": "The slides distinguish users as those who directly interact with the system.",
       "reference": {
         "section": "What the analyst does",
@@ -180,9 +164,7 @@
         "The analyst should wait passively and collect requirements only when stakeholders volunteer information without being asked.",
         "The analyst should seek requirements proactively and persistently, using techniques that help users articulate needed capabilities.",
         "The analyst should elicit requirements only through email so that all stakeholder communication remains written and asynchronous.",
-        "The analyst should elicit requirements only through written surveys and should not hold interviews or facilitated workshops.",
-        "The analyst should postpone elicitation until development has already begun and some code is available to show stakeholders.",
-        "The analyst should avoid direct contact with users and rely only on managers to describe what the planned system must do."
+        "The analyst should elicit requirements only through written surveys and should not hold interviews or facilitated workshops."
       ],
       "answer": "b",
       "explanation": "The analyst should actively and persistently seek requirements.",
@@ -201,16 +183,13 @@
         "The analyst can interview stakeholders to hear how they describe needed capabilities, constraints, and current problems.",
         "The analyst can facilitate workshops so a group of stakeholders can explore needs and agree on requirements together.",
         "The analyst can use surveys to collect requirements information from a larger set of people than interviews alone would reach.",
-        "The analyst can observe people doing their work in order to notice needs they may not mention during a conversation.",
-        "The analyst can study workflows to see how information and tasks move through the business process being supported.",
-        "The analyst should rely only on inspecting existing source code and should not use conversations or observation to find needs."
+        "The analyst can observe people doing their work in order to notice needs they may not mention during a conversation."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The slides list these as examples of elicitation techniques.",
       "reference": {
@@ -228,16 +207,13 @@
         "The analyst should look for derived requirements that follow logically from other requested requirements or stated conditions.",
         "The analyst should look for implied requirements that stakeholders expect even though nobody has stated them directly.",
         "The analyst should look for vagueness so unclear statements can be clarified before they are treated as agreed requirements.",
-        "The analyst should look for conflicts so disagreements among sources can be resolved before the requirements are baselined.",
-        "The analyst should look for missing or unclear meaning so gaps in the requirements set can be identified and addressed.",
-        "The analyst should look only for programming errors in existing code and should not examine the requirements for hidden problems."
+        "The analyst should look for conflicts so disagreements among sources can be resolved before the requirements are baselined."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The analyst must detect hidden, unclear, or conflicting requirements.",
       "reference": {
@@ -255,8 +231,6 @@
         "A derived requirement is one that follows from another requirement or condition rather than being requested on its own.",
         "A derived requirement is a statement copied directly from source code so that implementation details become the official need.",
         "A derived requirement is a requirement that has already been deleted from the baseline and should no longer be implemented.",
-        "A derived requirement is a statement that has no source in stakeholder needs, related requirements, or project conditions.",
-        "A derived requirement is simply a test case written to check whether an already specified requirement has been satisfied.",
         "A derived requirement is a budget line item that records the estimated cost of implementing a requested product capability."
       ],
       "answer": "a",
@@ -275,8 +249,6 @@
       "options": [
         "An implied requirement is a need that is assumed or indirectly expected even though nobody has stated it explicitly.",
         "An implied requirement is a requested capability that stakeholders considered and then formally rejected from the product scope.",
-        "An implied requirement is a comment left in source code to explain an implementation decision to future maintainers.",
-        "An implied requirement is a completed test that already demonstrated that a documented requirement has been satisfied.",
         "An implied requirement is a project milestone that marks when a planned increment of development work should be finished.",
         "An implied requirement is a deployment script that installs the completed software into a target operating environment."
       ],
@@ -296,10 +268,8 @@
       "options": [
         "Requirements should be clear enough for customers and users to understand, yet precise enough for developers to implement.",
         "Requirements should be written in highly technical language so that only experienced developers can interpret their intended meaning.",
-        "Requirements should remain deliberately vague so that any later interpretation by the team can still be treated as correct.",
         "Requirements should be specified only as source code so that documentation outside the implementation is considered unnecessary.",
-        "Requirements should be written only for managers and should omit the detail that customers, users, and developers would need.",
-        "Requirements should be written only after testing is finished so that the documents describe completed product behavior."
+        "Requirements should be written only for managers and should omit the detail that customers, users, and developers would need."
       ],
       "answer": "a",
       "explanation": "The analyst must balance understandability for users with precision for developers.",
@@ -318,9 +288,7 @@
         "Text alone is often not enough, and models can improve analysis and help people understand relationships among requirements.",
         "Graphical models eliminate the need to write or discuss requirements because the diagrams fully replace stakeholder communication.",
         "Graphical models replace all customer communication, so the analyst no longer needs interviews, reviews, or written specifications.",
-        "Graphical models automatically generate the finished source code, so developers do not need to interpret the specified requirements.",
-        "Graphical models guarantee that the requirements set will contain no defects and will not need later clarification or correction.",
-        "Graphical models are used only to present project budgets and have no role in analyzing or communicating product requirements."
+        "Graphical models automatically generate the finished source code, so developers do not need to interpret the specified requirements."
       ],
       "answer": "a",
       "explanation": "The slides emphasize that text alone is often insufficient and models can support analysis.",
@@ -339,9 +307,7 @@
         "Prototypes can increase understanding by giving people something tangible to react to when they review proposed capabilities.",
         "Prototypes make later validation unnecessary because any idea shown in a prototype is already known to be the correct requirement.",
         "Prototypes eliminate the need for user feedback because the analyst can decide requirements after building a sample interface.",
-        "Prototypes replace the final product, so the team does not need to implement a production system after the prototype is shown.",
-        "Prototypes prevent requirements from changing because stakeholders will not request modifications after they have seen a model.",
-        "Prototypes automatically resolve stakeholder conflicts, so the analyst no longer needs to negotiate among competing interests."
+        "Prototypes prevent requirements from changing because stakeholders will not request modifications after they have seen a model."
       ],
       "answer": "a",
       "explanation": "The slides state that prototypes increase understanding.",
@@ -360,9 +326,7 @@
         "The analyst should lead the validation effort, schedule reviews, and help ensure that the documented requirements are correct.",
         "The analyst should avoid participating in validation so that only developers and testers judge whether the requirements are right.",
         "The analyst should only observe developers during reviews and should not organize or contribute to requirements validation work.",
-        "The analyst should write source code during validation so that implementation work can replace reviews of the requirements.",
-        "The analyst should perform product deployment during validation instead of checking whether the documented requirements are correct.",
-        "The analyst should approve business budgets during validation rather than leading reviews of the specified requirements."
+        "The analyst should perform product deployment during validation instead of checking whether the documented requirements are correct."
       ],
       "answer": "a",
       "explanation": "The analyst leads validation activities and helps ensure the quality of the requirements.",
@@ -381,16 +345,13 @@
         "The analyst may schedule reviews so stakeholders can examine the requirements and identify problems before work proceeds.",
         "The analyst may chair reviews so the discussion stays focused on whether the documented requirements are correct and complete.",
         "The analyst may work to ensure requirements quality so the statements are fit for use by customers, developers, and testers.",
-        "The analyst may review code derived from the requirements to check that implementers interpreted those statements correctly.",
-        "The analyst may review test cases derived from the requirements to check that testers interpreted those statements correctly.",
-        "The analyst may ignore how implementation interprets the requirements and treat coding and testing as unrelated to validation."
+        "The analyst may review code derived from the requirements to check that implementers interpreted those statements correctly."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The analyst helps ensure the requirements were understood correctly by downstream development and testing.",
       "reference": {
@@ -406,9 +367,7 @@
       "type": "multiple",
       "options": [
         "To ensure that developers and testers interpreted the requirements correctly when they created those downstream work products.",
-        "To replace developers on the project so the analyst becomes the person who implements the specified product capabilities.",
         "To write all remaining implementation details in place of the development team after the requirements have been baselined.",
-        "To choose the programming languages and frameworks the team must use when they implement the specified requirements.",
         "To eliminate testing from the project because a requirements review is treated as sufficient proof that the product is correct.",
         "To take over product deployment after those reviews, instead of checking whether the requirements were interpreted correctly."
       ],
@@ -429,9 +388,7 @@
         "The analyst helps users and developers negotiate priorities successfully so decisions stay aligned with the business objectives.",
         "The analyst personally chooses every feature priority without discussion so users and developers do not need to negotiate.",
         "The analyst always sides with users during priority discussions and treats developer constraints as irrelevant to the decision.",
-        "The analyst always sides with developers during priority discussions and treats user needs as secondary to technical preference.",
-        "The analyst makes every requirement the same priority so the team never has to decide which work should be done first.",
-        "The analyst ignores business goals during prioritization and ranks work only according to what is easiest to implement."
+        "The analyst always sides with developers during priority discussions and treats user needs as secondary to technical preference."
       ],
       "answer": "a",
       "explanation": "The analyst helps the two sides reach workable agreements about priorities.",
@@ -450,16 +407,13 @@
         "The analyst can help create the requirements management plan so the team knows how those requirements will be controlled.",
         "The analyst can help establish baselines so a defined set of requirements is recognized as the agreed starting point for work.",
         "The analyst can help control changes so proposed modifications are evaluated instead of being inserted into the baseline casually.",
-        "The analyst can help track status so the team knows which requirements are proposed, approved, implemented, or verified.",
-        "The analyst can ignore newly identified requirements so the baseline never changes after the first version has been written.",
-        "The analyst can maintain organized requirements information so the team can find, update, and trace the current statements."
+        "The analyst can help track status so the team knows which requirements are proposed, approved, implemented, or verified."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The slides list planning, baselines, change control, and status tracking as management tasks.",
       "reference": {
@@ -475,9 +429,7 @@
       "type": "multiple",
       "options": [
         "The analyst must understand both stated needs and unstated or implied needs that stakeholders may not mention directly.",
-        "The analyst should avoid asking questions and should rely only on silent observation to collect requirements information.",
         "Listening replaces documentation, so a careful conversation means the analyst does not need to write the requirements down.",
-        "Listening eliminates stakeholder conflicts, so the analyst will not need facilitation once people have been heard once.",
         "Listening is useful only during testing, when testers describe defects, and has little value during requirements elicitation.",
         "Listening is needed only when the analyst meets managers and is unnecessary when the analyst talks with users or developers."
       ],
@@ -498,9 +450,7 @@
         "The analyst should be attentive so speakers can see that their description of needs is being heard and considered.",
         "The analyst should confirm understanding by restating key points instead of assuming the first interpretation is correct.",
         "The analyst should detect unspoken needs that a speaker may be hesitant to raise during the requirements conversation.",
-        "The analyst should detect implied needs that follow from what was said even though they were not stated directly.",
-        "The analyst should interrupt constantly so the conversation stays on the analyst's planned list of topics at all times.",
-        "The analyst should assume the user's meaning without checking, so time is not spent confirming what was actually meant."
+        "The analyst should detect implied needs that follow from what was said even though they were not stated directly."
       ],
       "answer": [
         "a",
@@ -524,9 +474,7 @@
         "Analysts must communicate with many types of people and ask questions that clarify uncertainty, disagreement, and missing detail.",
         "Only managers provide requirements, so interviewing skill matters only for executive meetings and not for user discussions.",
         "Interviews replace analysis, so once a conversation is finished the analyst does not need to examine the information further.",
-        "Questions should be avoided because stakeholders will volunteer every needed requirement without prompting from the analyst.",
-        "Users always state every requirement clearly, so the analyst does not need to probe for exceptions, assumptions, or gaps.",
-        "The analyst only speaks with developers, so interviewing skill is unnecessary when the work involves customers or users."
+        "Questions should be avoided because stakeholders will volunteer every needed requirement without prompting from the analyst."
       ],
       "answer": "a",
       "explanation": "Analysts must work with a wide variety of people and ask questions that reveal missing or unclear information.",
@@ -545,8 +493,6 @@
         "Analysts should ask about both normal expected uses and unusual or exception situations that the system must still handle.",
         "Analysts should ask only about normal everyday usage and should not spend interview time on exceptions or unusual cases.",
         "Analysts should ask only about system failures and should not discuss the ordinary work the product is intended to support.",
-        "Analysts should ask only about deployment procedures and should not discuss how people will actually use the product.",
-        "Analysts should ask only about the project budget and should not use interviews to explore needed product capabilities.",
         "Analysts should ask only about source code issues and should not discuss business situations that the system must support."
       ],
       "answer": "a",
@@ -566,16 +512,13 @@
         "The analyst should clarify uncertainties so the team does not proceed on guesses about what a stakeholder actually meant.",
         "The analyst should clarify disagreements so conflicting statements can be resolved before they become competing requirements.",
         "The analyst should clarify assumptions so hidden beliefs about the problem or the solution are stated and checked.",
-        "The analyst should clarify ambiguities so a requirement cannot reasonably be read in more than one conflicting way.",
-        "The analyst should clarify conflicting interpretations so different listeners do not leave with incompatible understandings.",
-        "The analyst should clarify only technical bugs in existing code and should not use questions to examine the requirements."
+        "The analyst should clarify ambiguities so a requirement cannot reasonably be read in more than one conflicting way."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "Questioning helps expose and resolve unclear or conflicting information.",
       "reference": {
@@ -593,17 +536,13 @@
         "The analyst can work with both abstraction and detail, moving between high-level ideas and specific requirement statements.",
         "The analyst can generalize from one example and specialize a broad need into more detailed requirements for the solution.",
         "The analyst can think critically about stakeholder information to evaluate whether it is complete, consistent, and relevant.",
-        "The analyst can resolve conflicts that appear when requirements information comes from several sources or viewpoints.",
-        "The analyst can separate stakeholder wants from the underlying needs that the planned product must actually satisfy.",
-        "The analyst can separate proposed solutions from the actual requirements that describe the problem that must be solved."
+        "The analyst can resolve conflicts that appear when requirements information comes from several sources or viewpoints."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e",
-        "f"
+        "d"
       ],
       "explanation": "All of these are listed as important analytical abilities.",
       "reference": {
@@ -619,10 +558,8 @@
       "type": "multiple",
       "options": [
         "Not everything a stakeholder wants is actually necessary, so the analyst must distinguish preferences from essential needs.",
-        "Every stakeholder want must automatically become a requirement, so there is no reason to judge whether it is necessary.",
         "Needs are less important than wants, so the analyst should treat requested preferences as more binding than true necessities.",
         "Developers should decide all requirements alone, so the analyst does not need to judge which stakeholder requests are necessary.",
-        "Users should not give input on needs, so the analyst can specify the product without distinguishing wants from necessities.",
         "Business objectives do not matter when judging requests, so any want can be accepted without checking the project's purpose."
       ],
       "answer": "a",
@@ -642,9 +579,7 @@
         "A stakeholder's suggested solution may not be the only or best way to satisfy the underlying need that prompted the request.",
         "Proposed solutions are never useful, so the analyst should discard any implementation idea a stakeholder offers during elicitation.",
         "Requirements should always contain implementation details, so a suggested solution should be recorded as the requirement itself.",
-        "Developers should ignore users, so the analyst does not need to recover the underlying need behind a suggested solution.",
-        "Customers should write the architecture, so a proposed solution can replace analysis of the problem the product must solve.",
-        "The analyst should avoid alternatives and accept the first solution mentioned rather than examining the underlying need."
+        "Customers should write the architecture, so a proposed solution can replace analysis of the problem the product must solve."
       ],
       "answer": "a",
       "explanation": "The analyst should understand the underlying need instead of assuming the customer's suggested implementation is the requirement itself.",
@@ -662,8 +597,6 @@
       "options": [
         "The analyst should remain neutral while helping the parties discuss disagreements and work toward a workable agreement.",
         "The analyst should always support the customer and treat developer concerns as obstacles rather than legitimate constraints.",
-        "The analyst should always support the developer and treat customer requests as secondary to technical preference.",
-        "The analyst should avoid disagreements entirely so conflicting views are never discussed during requirements work.",
         "The analyst should make decisions without discussion so users and developers do not spend time negotiating priorities.",
         "The analyst should refuse to compromise so one side's original position is adopted without searching for common ground."
       ],
@@ -683,10 +616,8 @@
       "options": [
         "Facilitation should reduce tension and build trust so users and developers can work together on the requirements more effectively.",
         "Facilitation should increase conflict between business and technical staff so disagreements become more visible and remain unresolved.",
-        "Facilitation should remove customer involvement so developers can specify the product without discussing needs with users.",
         "Facilitation should prevent negotiation so priority and scope decisions are never discussed among the affected stakeholder groups.",
-        "Facilitation should let developers make every business decision so users no longer influence what the product must accomplish.",
-        "Facilitation should avoid communication among groups so each side documents its own requirements without hearing the other."
+        "Facilitation should let developers make every business decision so users no longer influence what the product must accomplish."
       ],
       "answer": "a",
       "explanation": "Facilitation is about helping different groups work together effectively.",
@@ -704,9 +635,7 @@
       "options": [
         "Observation helps the analyst notice subtle information in users' words and actions that people may not mention explicitly.",
         "Observation lets the analyst avoid speaking with users because watching work is treated as a complete replacement for discussion.",
-        "Observation replaces documentation, so notes from watching users mean the analyst does not need to write the requirements.",
         "Observation automatically discovers every requirement, so interviews, workshops, and analysis become unnecessary after watching work.",
-        "Observation allows the analyst to skip validation because anything seen in current work is already known to be a correct need.",
         "Observation is used to design the final architecture, so watching users replaces technical design work by the development team."
       ],
       "answer": "a",
@@ -726,9 +655,7 @@
         "The analyst must clearly express complex ideas so customers, users, and developers can understand the same requirements.",
         "The analyst writes all source code, so writing skill matters mainly as a substitute for the development team's implementation work.",
         "Writing replaces analysis, so a polished specification means the analyst does not need to examine the information for gaps.",
-        "Only managers read requirements, so the analyst can write for executives and omit the precision developers and users need.",
-        "Requirements should remain informal, so careful writing is unnecessary once the team has talked through the product ideas.",
-        "Writing eliminates the need for models, so a textual specification should never be accompanied by diagrams or prototypes."
+        "Only managers read requirements, so the analyst can write for executives and omit the precision developers and users need."
       ],
       "answer": "a",
       "explanation": "Clear writing is necessary to communicate complicated requirements accurately.",
@@ -747,16 +674,13 @@
         "The analyst should express complex ideas clearly so different audiences can understand the same requirement statements.",
         "The analyst should understand customer and user language so requirements can be discussed in terms familiar to the business.",
         "The analyst should read efficiently so large amounts of source material can be reviewed without losing the essential points.",
-        "The analyst should read critically so problems, gaps, and unjustified claims in source material can be recognized.",
-        "The analyst should avoid domain terminology entirely, even when that language is how customers normally describe their work.",
-        "The analyst should write organized requirements so related information is structured in a way others can follow and review."
+        "The analyst should read critically so problems, gaps, and unjustified claims in source material can be recognized."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The slides emphasize both clear writing and strong reading skills.",
       "reference": {
@@ -774,8 +698,6 @@
         "It helps the analyst structure large amounts of changing information into a coherent whole that the project team can use.",
         "It helps the analyst eliminate all requirements so the project can proceed without a documented description of needed capabilities.",
         "It helps the analyst write source code faster by organizing files, so organizational skill is mainly an implementation technique.",
-        "It helps the analyst avoid change management because an organized document is assumed never to need any later updates.",
-        "It helps the analyst remove stakeholder input so the specification can be organized without further customer involvement.",
         "It guarantees project success by itself, so strong organization makes elicitation, validation, and facilitation unnecessary."
       ],
       "answer": "a",
@@ -795,9 +717,7 @@
         "They help people with competing interests work together so requirements discussions can continue despite conflicting goals.",
         "They eliminate the need for technical knowledge, so an interpersonal analyst does not need to understand development constraints.",
         "They replace requirements analysis, so good relationships mean the analyst does not need to examine the information critically.",
-        "They prevent all disagreements, so interpersonal skill guarantees that stakeholders will never conflict over needs or priorities.",
-        "They matter only after deployment, when support staff talk with users, and have little value during requirements work.",
-        "They are useful only with developers, so the analyst does not need interpersonal skill when working with customers or users."
+        "They prevent all disagreements, so interpersonal skill guarantees that stakeholders will never conflict over needs or priorities."
       ],
       "answer": "a",
       "explanation": "The analyst may need to get competing stakeholders to cooperate.",
@@ -816,16 +736,13 @@
         "The analyst may need to get competitors or groups with competing interests to work together on shared requirements.",
         "The analyst may mentor colleagues so others can develop the skills needed to perform requirements work more effectively.",
         "The analyst may educate stakeholders so they understand the requirements process and the meaning of proposed statements.",
-        "The analyst may build cooperation so people who start with conflicting interests can still contribute to a shared agreement.",
-        "The analyst should avoid all difficult people so requirements are gathered only from participants who already agree.",
-        "The analyst may support communication so information continues to move clearly among customers, users, and developers."
+        "The analyst may build cooperation so people who start with conflicting interests can still contribute to a shared agreement."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The analyst's interpersonal role includes cooperation, mentoring, education, and communication.",
       "reference": {
@@ -841,8 +758,6 @@
       "type": "multiple",
       "options": [
         "Creativity can help the analyst identify innovative capabilities and needs that users have not thought of or stated yet.",
-        "Creativity allows the analyst to ignore users because imaginative ideas can replace discussion of actual stakeholder needs.",
-        "Creativity replaces business objectives, so an inventive feature list does not need to support the project's stated purpose.",
         "Creativity eliminates validation, because an original idea does not need to be checked against stakeholder needs or constraints.",
         "Creativity removes the need for requirements, so a creative analyst can send developers ideas instead of specified statements.",
         "Creativity ensures that all features are implemented, so inventiveness alone guarantees every conceived capability will ship."
@@ -864,17 +779,13 @@
         "Requirements engineering knowledge helps the analyst choose and apply elicitation, analysis, specification, and management practices.",
         "Software development knowledge helps the analyst communicate with the technical team and understand implementation constraints.",
         "Project management knowledge helps the analyst plan requirements work and align it with schedules, resources, and project goals.",
-        "Risk management knowledge helps the analyst recognize requirements-related risks that could threaten the project's success.",
-        "Quality engineering knowledge helps the analyst specify requirements that can be verified and that support a quality product.",
-        "Application domain knowledge helps the analyst understand the business problem and interpret stakeholder needs correctly."
+        "Risk management knowledge helps the analyst recognize requirements-related risks that could threaten the project's success."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e",
-        "f"
+        "d"
       ],
       "explanation": "The slides identify all of these as essential knowledge areas.",
       "reference": {
@@ -892,9 +803,7 @@
         "It helps the analyst understand the business and the problem being solved, including constraints that stakeholders may leave unstated.",
         "It replaces technical knowledge, so a domain-savvy analyst does not need to understand software development or implementation limits.",
         "It removes the need for users, because domain knowledge lets the analyst specify the product without talking to the people who do the work.",
-        "It guarantees that requirements will be correct, so domain expertise makes elicitation, analysis, and validation unnecessary.",
-        "It is useful only for testing, when testers invent cases, and has little value while the analyst is discovering or specifying needs.",
-        "It is irrelevant to requirements work, because domain facts should not influence how the analyst interprets stakeholder requests."
+        "It is useful only for testing, when testers invent cases, and has little value while the analyst is discovering or specifying needs."
       ],
       "answer": "a",
       "explanation": "Understanding the application domain helps the analyst interpret needs and constraints correctly.",
@@ -913,8 +822,6 @@
         "A former user often has a strong understanding of the business and of the actual work environment the product must support.",
         "A former user typically has strong knowledge of every engineering technique used to specify, model, and verify software requirements.",
         "A former user is perfectly objective about current users and does not bring assumptions from personal experience into the work.",
-        "A former user usually has advanced software architecture skills and can design the technical structure of the planned product.",
-        "A former user typically has complete project-management knowledge and can replace the project manager on the same assignment.",
         "A former user has no bias toward users and therefore gives equal weight to technical preferences and business needs automatically."
       ],
       "answer": "a",
@@ -934,16 +841,13 @@
         "A former user may have limited familiarity with engineering methods or with how to communicate effectively with technical people.",
         "A former user may not respect current users' perspectives if the analyst believes earlier personal experience is already sufficient.",
         "A former user may focus too much on the user interface and treat screen-design ideas as if they were the real requirements.",
-        "A former user may lack the technical background needed to represent information in forms that developers can use effectively.",
-        "A former user always lacks domain knowledge, because moving into the analyst role immediately erases understanding of the business.",
-        "A former user can carry assumptions from personal experience and may remain stuck in current ways of working rather than seeing improvements."
+        "A former user may lack the technical background needed to represent information in forms that developers can use effectively."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The slides highlight several potential weaknesses of former users despite their strong domain understanding.",
       "reference": {
@@ -961,9 +865,7 @@
         "A former developer usually brings strong technical skills that help when discussing implementation constraints with the team.",
         "A former developer typically has perfect social skills and therefore needs no further practice in facilitation or interviewing.",
         "A former developer already has deep knowledge of every business domain and does not need to learn the problem being solved.",
-        "A former developer is completely neutral about solutions and never slips into implementation thinking during elicitation.",
-        "A former developer has no tendency toward implementation thinking and will not describe technical designs as if they were needs.",
-        "A former developer already has strong customer knowledge on every project, even when the business domain is entirely new."
+        "A former developer has no tendency toward implementation thinking and will not describe technical designs as if they were needs."
       ],
       "answer": "a",
       "explanation": "Former developers usually bring strong technical knowledge.",
@@ -982,16 +884,13 @@
         "A former developer may have weak social skills and limited patience for the conversations that elicitation and negotiation require.",
         "A former developer may have weak organizational skills for structuring large amounts of changing requirements information.",
         "A former developer may have limited business knowledge and may not see why a requested capability matters to the organization.",
-        "A former developer may have limited application-domain knowledge and may therefore misinterpret the problem being solved.",
-        "A former developer has no technical knowledge, because moving into analysis immediately erases implementation experience.",
-        "A former developer may have difficulty understanding users and may lapse into technical jargon instead of the customer's language."
+        "A former developer may have limited application-domain knowledge and may therefore misinterpret the problem being solved."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "The slides caution that technical strength does not automatically provide business or interpersonal strength.",
       "reference": {
@@ -1009,9 +908,7 @@
         "A subject matter expert often has an excellent understanding of the problem domain and of how the current work is done.",
         "A subject matter expert typically has complete technical knowledge of every implementation approach the team might choose.",
         "A subject matter expert is perfectly neutral and does not let personal expertise influence which requirements are specified.",
-        "A subject matter expert has no personal bias, so the specified system will automatically reflect ordinary users' real needs.",
-        "A subject matter expert has no risk of overdesign and will not propose a more ambitious system than users actually need.",
-        "A subject matter expert is guaranteed to represent ordinary users, so other user classes do not need to be consulted."
+        "A subject matter expert has no personal bias, so the specified system will automatically reflect ordinary users' real needs."
       ],
       "answer": "a",
       "explanation": "Subject matter experts bring deep domain understanding.",
@@ -1030,16 +927,13 @@
         "The expert may prefer personal requirements over the actual needs of the people who will use the finished product.",
         "The expert may create an unnecessarily ambitious system that goes beyond what ordinary users need to do their work.",
         "The expert may assume too much based on expertise and leave important needs unstated because they already seem obvious.",
-        "The expert may overestimate what users need and specify capabilities that are more complex than the real work requires.",
-        "The expert will always lack domain knowledge, because expertise in the subject cannot help with requirements work.",
-        "The expert may not fully represent ordinary users and may specify the system to suit a specialist's own preferences."
+        "The expert may overestimate what users need and specify capabilities that are more complex than the real work requires."
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "f"
+        "d"
       ],
       "explanation": "Deep expertise can create bias toward the expert's own view instead of the needs of real users.",
       "reference": {
@@ -1057,8 +951,6 @@
         "The analyst connects users and developers and leads much of the work of discovering, analyzing, documenting, validating, prioritizing, and managing requirements.",
         "The analyst's main job is programming, so most of the role is writing source code rather than working with customers and users on needed product capabilities.",
         "The analyst only writes documentation after others have already discovered, analyzed, validated, prioritized, and formally agreed the product requirements.",
-        "The analyst is needed only after requirements are complete, so the role begins once other people have already finished writing the specification.",
-        "The analyst replaces the project sponsor and becomes the person who authorizes funding and sets the organization's long-term product strategy.",
         "The analyst works only with developers and does not need to communicate with customers or users about needed product capabilities or business goals."
       ],
       "answer": "a",

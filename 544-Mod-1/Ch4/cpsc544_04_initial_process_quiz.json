@@ -38,16 +38,13 @@
         "Planning and estimation",
         "Performance tracking",
         "Change control",
-        "Commitment management",
-        "Quality assurance",
-        "Eliminating all documentation"
+        "Commitment management"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The lecture identifies planning, performance tracking, change control, commitment management, and quality assurance as needed actions for improving from Level 1.",
       "reference": {
@@ -252,8 +249,7 @@
         "No clear idea how big the job really is",
         "No basis for knowing where the project stands",
         "No way to justify added resources when trouble occurs",
-        "Guaranteed high product quality",
-        "Reliable commitments"
+        "Guaranteed high product quality"
       ],
       "answer": [
         "a",
@@ -358,7 +354,6 @@
         "Programs often require more code than expected",
         "Larger programs introduce new technical and management issues",
         "New issues are surprising because they differ from previous experience",
-        "Larger software is always easier to understand",
         "Complexity grows only in exact proportion to lines of code"
       ],
       "answer": [
@@ -459,8 +454,7 @@
         "Common notations for precise communication",
         "Documented and updated standards",
         "Resolution of conflicts among standards",
-        "Controlled distribution of standard changes",
-        "Allowing each person to interpret notation differently"
+        "Controlled distribution of standard changes"
       ],
       "answer": [
         "a",
@@ -506,8 +500,7 @@
         "The entire function may not be implementable in time",
         "Some needs become clear only after using a partial system",
         "Some design issues cannot be resolved until a preliminary system runs",
-        "A release discipline helps sort user priorities",
-        "Large systems are always successfully built in one shot"
+        "A release discipline helps sort user priorities"
       ],
       "answer": [
         "a",
@@ -573,8 +566,7 @@
         "Systematic project management",
         "Careful change management",
         "Independent software assurance",
-        "Dependence on heroic individual effort",
-        "Making commitments before planning"
+        "Dependence on heroic individual effort"
       ],
       "answer": [
         "a",
@@ -624,17 +616,13 @@
         "Plan the work",
         "Track and maintain the plan",
         "Divide the work into independent parts",
-        "Precisely define requirements for each part",
-        "Rigorously control relationships among the parts",
-        "Treat software development as a learning process"
+        "Precisely define requirements for each part"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e",
-        "f"
+        "d"
       ],
       "explanation": "All six are explicitly listed in the lecture as basic principles for controlling chaos.",
       "reference": {

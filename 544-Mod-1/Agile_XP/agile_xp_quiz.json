@@ -909,15 +909,13 @@
         "Whole team together in a common project room",
         "Test-first development",
         "Customer-owned acceptance tests",
-        "Planning Game",
-        "Pair programming"
+        "Planning Game"
       ],
       "answer": [
         "a",
         "b",
         "c",
-        "d",
-        "e"
+        "d"
       ],
       "explanation": "The lecture lists all five as recommended starting practices when full XP adoption is too much to take on at once.",
       "reference": {

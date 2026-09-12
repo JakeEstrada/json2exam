@@ -156,6 +156,31 @@ test('loads every 544 Module 1 bank with video quotes that hit the transcript', 
   }
 });
 
+test('quiz banks keep at most four choices on a card', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const files = [
+    '../../541-Mod1/Ch1/ch1.json',
+    '../../541-Mod1/Ch2/Ch2.json',
+    '../../541-Mod1/Ch3/Ch3.json',
+    '../../541-Mod1/Ch4/Ch4.json',
+    '../../541-Mod1/Ch5/Ch5.json',
+    '../../544-Mod-1/Ch1/SWmaturity.json',
+    '../../544-Mod-1/Ch3/processAssessment.json',
+    '../../544-Mod-1/Scrum/Scrum.json',
+  ];
+  for (const rel of files) {
+    const deck = JSON.parse(await readFile(path.join(here, rel), 'utf8'));
+    const bank = normalizeQuiz(deck);
+    for (const q of bank.questions) {
+      if (q.type === 'boolean') continue;
+      assert.ok(q.options.length <= 4, rel + ' has more than 4 options: ' + q.text.slice(0, 72));
+    }
+  }
+});
+
 test('544 Module 1 single-choice answers are not uniquely longest by a wide margin', async () => {
   const { readFile } = await import('node:fs/promises');
   const { fileURLToPath } = await import('node:url');
