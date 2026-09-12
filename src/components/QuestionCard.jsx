@@ -8,7 +8,8 @@ function speakText(text) {
   synth.cancel();
   const utter = new SpeechSynthesisUtterance(text);
   utter.rate = 0.95;
-  synth.speak(utter);
+  // iOS Safari drops the first speak() if it runs in the same turn as cancel().
+  window.setTimeout(() => synth.speak(utter), 60);
   return true;
 }
 

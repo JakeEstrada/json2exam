@@ -28,7 +28,7 @@ function withLectureMedia(qz) {
     qz.lectureAudio = deck.lectureAudio;
     qz.lectureAudioFile = deck.lectureAudioFile;
   }
-  if (!qz.lectureVideo && deck.lectureVideo) {
+  if (deck.lectureVideo) {
     qz.lectureVideo = deck.lectureVideo;
     qz.lectureVideoFile = deck.lectureVideoFile;
   }

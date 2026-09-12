@@ -52,11 +52,12 @@ const lectureVideos = import.meta.glob('../../544-Mod-1/**/*.mp4', {
   eager: true,
 });
 
+const DEFAULT_VIDEO_BASE = 'https://pub-ea8a251ae8ec4d72aff3a85dc2b9627b.r2.dev';
+
 function lectureVideo(rel) {
-  const local = lectureVideos['../../544-Mod-1/' + rel];
-  if (local) return local;
-  const base = String(import.meta.env.VITE_LECTURE_VIDEO_BASE || '').replace(/\/$/, '');
-  return base ? base + '/' + rel : '';
+  const base = String(import.meta.env.VITE_LECTURE_VIDEO_BASE || DEFAULT_VIDEO_BASE).replace(/\/$/, '');
+  if (base) return base + '/' + rel;
+  return lectureVideos['../../544-Mod-1/' + rel] || '';
 }
 
 export function courseDecks(course) {

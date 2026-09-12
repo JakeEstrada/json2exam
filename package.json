@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Leitner-system quiz runner that reads a JSON question bank",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --test"
