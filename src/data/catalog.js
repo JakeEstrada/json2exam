@@ -53,7 +53,10 @@ const lectureVideos = import.meta.glob('../../544-Mod-1/**/*.mp4', {
 });
 
 function lectureVideo(rel) {
-  return lectureVideos['../../544-Mod-1/' + rel] || '';
+  const local = lectureVideos['../../544-Mod-1/' + rel];
+  if (local) return local;
+  const base = String(import.meta.env.VITE_LECTURE_VIDEO_BASE || '').replace(/\/$/, '');
+  return base ? base + '/' + rel : '';
 }
 
 export function courseDecks(course) {
