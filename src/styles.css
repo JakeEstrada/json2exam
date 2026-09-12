@@ -485,6 +485,8 @@
   .quiz-study.is-pane .pdf-page-wrap {
     max-height: none;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .quiz-study-label {
     margin: 0 0 2px;
@@ -548,15 +550,55 @@
     background: #fff;
   }
   .pdf-page-wrap {
-    overflow: auto;
+    overflow: hidden;
     max-height: min(62vh, 640px);
     background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .pdf-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex: none;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--card-edge);
+    background: var(--card);
+  }
+  .pdf-toolbar-label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .pdf-page-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
   }
   .pdf-page-status {
     margin: 0;
     padding: 10px 14px;
     color: var(--study-ink);
     font-size: 13px;
+  }
+  .pdf-sheet {
+    margin: 0 12px 16px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(16, 20, 28, 0.12);
+  }
+  .pdf-sheet-label {
+    margin: 0;
+    padding: 8px 10px 0;
+    font-size: 12px;
+    font-weight: 650;
+    color: var(--study-ink);
+  }
+  .pdf-sheet.has-hit {
+    box-shadow: 0 0 0 2px var(--accent), 0 8px 22px rgba(16, 20, 28, 0.12);
+  }
+  .pdf-page-wrap.is-stack .pdf-page-scroll {
+    padding: 12px 0 20px;
+    background: var(--desk-2);
   }
   .pdf-page {
     position: relative;

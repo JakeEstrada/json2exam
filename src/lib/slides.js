@@ -60,6 +60,25 @@ export function formatSlideRange(range) {
   return 'Slide ' + range.start;
 }
 
+export function slideHighlightQuery(text) {
+  return String(text || '')
+    .replace(new RegExp(SLIDE_RE.source, 'gi'), ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function slidePageList(start, end, total) {
+  const from = Math.max(1, Number(start) || 1);
+  const rawEnd = Number(end) || 0;
+  let to = rawEnd > from ? rawEnd : from + 2;
+  if (total >= 1) to = Math.min(to, total);
+  if (to < from) to = from;
+  if (to - from >= 12) to = from + 11;
+  const pages = [];
+  for (let n = from; n <= to; n += 1) pages.push(n);
+  return pages;
+}
+
 export function slideParts(text) {
   const src = String(text || '');
   const hits = slideMentions(src);

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { headingId } from '../lib/parseQuiz.js';
+import { slideHighlightQuery } from '../lib/slides.js';
 import { MarkdownView } from './FileWindow.jsx';
 import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
@@ -9,11 +10,15 @@ export default function QuizNotes({
 }) {
   const page = focus && focus.page ? focus.page : 0;
   const slide = focus && focus.slide ? focus.slide : 0;
+  const slideEnd = focus && focus.slideEnd ? focus.slideEnd : 0;
   const heading = focus && focus.heading ? focus.heading : '';
   const lectureQuote = focus && focus.lecture ? focus.lecture : '';
   const bookQuery = focus && (focus.excerpt || focus.book)
     ? [focus.excerpt, focus.book].filter(Boolean).join(' ')
     : '';
+  const slideQuery = [focus && focus.excerpt, slideHighlightQuery(lectureQuote)]
+    .filter(Boolean)
+    .join(' ');
   const active = mode
     || (slidesUrl && slide ? 'slides' : lecture && lectureQuote ? 'lecture' : source ? 'notes' : 'book');
 
@@ -46,12 +51,24 @@ export default function QuizNotes({
       )}
       {active === 'slides' && slidesUrl && (
         <div className="quiz-notes-body is-pdf">
-          <PdfPage url={slidesUrl} page={slide || 1} query="" />
+          <PdfPage
+            url={slidesUrl}
+            page={slide || 1}
+            pageEnd={slideEnd}
+            query={slideQuery}
+            label="Slide"
+            stack
+          />
+        </div>
+      )}
+      {active === 'slides' && !slidesUrl && (
+        <div className="quiz-notes-body">
+          <p className="pdf-page-status">Slides are not available for this deck.</p>
         </div>
       )}
       {active === 'book' && bookUrl && (
         <div className="quiz-notes-body is-pdf">
-          <PdfPage url={bookUrl} page={page || 1} query={bookQuery} />
+          <PdfPage url={bookUrl} page={page || 1} query={bookQuery} label="Page" />
         </div>
       )}
     </div>

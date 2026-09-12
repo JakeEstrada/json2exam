@@ -106,7 +106,7 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl, onO
                     className="slide-ref"
                     onClick={(e) => {
                       e.stopPropagation();
-                      onOpenSlide(part.slide);
+                      onOpenSlide(part.slide, part.slideEnd, c.text);
                     }}
                   >
                     {part.text}

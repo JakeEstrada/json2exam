@@ -193,7 +193,16 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
           </button>
         )}
         {canSlides && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ slide: slideStart || 1 })}>
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => onOpen({
+              slide: slideStart || 1,
+              slideEnd: (fromLecture && fromLecture.end) || slideStart || 1,
+              excerpt: ref.excerpt,
+              lecture: lectureQuote,
+            })}
+          >
             Show in slides
           </button>
         )}

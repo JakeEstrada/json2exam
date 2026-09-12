@@ -212,9 +212,14 @@ export default function App() {
     }
   }
 
-  function openSlide(slide) {
+  function openSlide(slide, slideEnd, quote) {
     const page = Number(slide) || 1;
-    setStudyFocus({ slide: page });
+    const last = Number(slideEnd) || 0;
+    setStudyFocus({
+      slide: page,
+      slideEnd: last > page ? last : 0,
+      lecture: quote || '',
+    });
     setSidePane('slides');
   }
 

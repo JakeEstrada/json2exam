@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { highlightItemIndexes, queryTokens } from './pdfHighlight.js';
+import { highlightItemIndexes, highlightSlideIndexes, queryTokens } from './pdfHighlight.js';
 
 test('queryTokens drops short and common words', () => {
   assert.deepEqual(queryTokens('The customer is a stakeholder who benefits'), ['customer', 'stakeholder', 'benefits']);
@@ -32,5 +32,19 @@ test('highlightItemIndexes falls back to keyword density', () => {
     { str: 'The next section is about testing.' },
   ];
   const hits = highlightItemIndexes(items, 'Gold plating is adding functionality that was not required.');
+  assert.ok(hits.includes(1));
+});
+
+test('highlightSlideIndexes marks matching words on a slide', () => {
+  const items = [
+    { str: 'Customer’s Bill of Rights' },
+    { str: 'Expect analysts to speak your language' },
+    { str: 'Copyright notice' },
+  ];
+  const hits = highlightSlideIndexes(
+    items,
+    'Slides 4 to 7 show the rights of customers, that is, what the customer can expect from the analysts'
+  );
+  assert.ok(hits.includes(0));
   assert.ok(hits.includes(1));
 });

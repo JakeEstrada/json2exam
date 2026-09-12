@@ -1,6 +1,32 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { readJsonBody, runAsk } from './api/ask-core.js';
+
+function pdfStandardFontsPlugin() {
+  const src = path.resolve('node_modules/pdfjs-dist/standard_fonts');
+  return {
+    name: 'pdf-standard-fonts',
+    configureServer(server) {
+      server.middlewares.use('/standard_fonts', (req, res, next) => {
+        const name = decodeURIComponent((req.url || '').split('?')[0])
+          .replace(/^\/+/, '')
+          .replace(/^standard_fonts\/+/, '');
+        if (!name || name.includes('..')) return next();
+        const file = path.join(src, name);
+        if (!file.startsWith(src) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+          return next();
+        }
+        res.setHeader('Content-Type', path.extname(file) === '.ttf' ? 'font/ttf' : 'application/octet-stream');
+        fs.createReadStream(file).pipe(res);
+      });
+    },
+    closeBundle() {
+      fs.cpSync(src, path.resolve('dist/standard_fonts'), { recursive: true });
+    },
+  };
+}
 
 function askApiPlugin() {
   return {
@@ -39,7 +65,7 @@ export default defineConfig(({ mode }) => {
   if (env.OPENAI_MODEL) process.env.OPENAI_MODEL = env.OPENAI_MODEL;
 
   return {
-    plugins: [react(), askApiPlugin()],
+    plugins: [react(), askApiPlugin(), pdfStandardFontsPlugin()],
     assetsInclude: ['**/*.pdf', '**/*.mp3', '**/*.mp4'],
   };
 });

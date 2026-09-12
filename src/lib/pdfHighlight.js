@@ -79,6 +79,22 @@ export function highlightItemIndexes(items, query) {
   return out;
 }
 
+export function highlightSlideIndexes(items, query) {
+  const phrase = highlightItemIndexes(items, query);
+  const keys = queryTokens(query);
+  if (!keys.length) return phrase;
+  const keySet = {};
+  keys.forEach((k) => { keySet[k] = true; });
+  const extra = [];
+  (items || []).forEach((it, i) => {
+    if (queryTokens(it && it.str).some((w) => keySet[w])) extra.push(i);
+  });
+  if (!phrase.length && !extra.length) return [];
+  const seen = {};
+  phrase.concat(extra).forEach((i) => { seen[i] = true; });
+  return Object.keys(seen).map(Number).sort((a, b) => a - b);
+}
+
 export function transformMatrix(a, b) {
   return [
     a[0] * b[0] + a[2] * b[1],

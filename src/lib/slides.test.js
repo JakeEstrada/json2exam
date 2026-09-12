@@ -4,7 +4,9 @@ import {
   firstSlideMention,
   firstSlideRange,
   formatSlideRange,
+  slideHighlightQuery,
   slideMentions,
+  slidePageList,
   slideParts,
 } from './slides.js';
 
@@ -36,4 +38,10 @@ test('splits lecture text so slide mentions can be clicked', () => {
   assert.deepEqual(parts.map((p) => p.slide || 0), [0, 8, 0, 11, 0]);
   assert.equal(formatSlideRange({ start: 8, end: 10 }), 'Slides 8–10');
   assert.equal(formatSlideRange({ start: 6, end: 6 }), 'Slide 6');
+});
+
+test('slidePageList stacks a range and fills in neighbors for a single slide', () => {
+  assert.deepEqual(slidePageList(4, 7, 12), [4, 5, 6, 7]);
+  assert.deepEqual(slidePageList(10, 10, 12), [10, 11, 12]);
+  assert.equal(slideHighlightQuery('Look at slide 8, then the feature tree').indexOf('slide'), -1);
 });
