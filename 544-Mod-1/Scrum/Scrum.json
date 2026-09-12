@@ -1,0 +1,786 @@
+{
+  "title": "Scrum",
+  "questions": [
+    {
+      "question": "What does Scrum primarily emphasize compared with methods that prescribe detailed requirements, design, and implementation activities?",
+      "options": [
+        "Formal documentation and strict phase transitions",
+        "Project management values and practices",
+        "A specific programming language and architecture",
+        "Heavyweight requirements modeling"
+      ],
+      "answer": "b",
+      "explanation": "Scrum emphasizes project management values and practices rather than prescribing detailed activities for requirements, design, implementation, and testing.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So Scrum is iterative, evolutionary iterative method that emphasizes a set of opposing management values and practices, rather than saying any specific things for specific phase."
+      }
+    },
+    {
+      "question": "Scrum strongly promotes self-directed and self-organizing teams.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "A central Scrum principle is that teams organize their own work rather than having management dictate how every task must be completed.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Okay? Practices, or practices of scrum, self-directed and the self-organizing team."
+      }
+    },
+    {
+      "question": "Which of the following are practices emphasized by Scrum? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Self-directed teams",
+        "Daily team measurement",
+        "Avoidance of overly prescriptive process",
+        "Management assigns each developer's tasks every morning",
+        "Demonstration to stakeholders at the end of an iteration"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "e"
+      ],
+      "explanation": "Scrum emphasizes self-direction, daily visibility of progress, minimal prescription, and stakeholder demonstrations. Managers do not normally assign individual tasks.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "It promotes, you collect data every day and share this data with your members to see your program."
+      }
+    },
+    {
+      "question": "What is the usual iteration length recommended in the Scrum material?",
+      "options": [
+        "1 to 3 days",
+        "1 week",
+        "30 calendar days",
+        "6 months"
+      ],
+      "answer": "c",
+      "explanation": "The lecture presents 30 calendar days, or about four weeks, as the normally recommended Scrum iteration length.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "usually 30 calendar day iterations. We recommend 30 days of iteration, four weeks, a little bit longer than other practices, okay? That was their recommendation. Demo to external stakeholders"
+      }
+    },
+    {
+      "question": "What is a Scrum iteration called?",
+      "options": [
+        "Stage",
+        "Sprint",
+        "Release",
+        "Cycle gate"
+      ],
+      "answer": "b",
+      "explanation": "A Scrum iteration is called a Sprint.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Iteration is called as sprint in the scrum. Two consecutive meetings are held."
+      }
+    },
+    {
+      "question": "Once work has been selected for a Sprint, management should normally avoid adding additional work during that Sprint.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Scrum protects the team's focus during the Sprint. If something absolutely must be added, something else should ideally be removed.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "No extra additional work to an iteration once chosen. So once you choose certain amount of work to do"
+      }
+    },
+    {
+      "question": "Why does Scrum discourage adding new work during an active Sprint?",
+      "options": [
+        "Because customers are forbidden from requesting any new features after the first Sprint has already started",
+        "Because uninterrupted focus on the chosen Sprint goals should be maintained",
+        "Because the Product Backlog cannot be changed",
+        "Because Scrum does not allow requirements changes"
+      ],
+      "answer": "b",
+      "explanation": "The Sprint is protected so the team can concentrate on the selected goals without continuous outside interruption.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "The SCURM team has to be able to focus on the stated goals or iteration. Thus, management and SCURM master focus on providing team with the resources they need"
+      }
+    },
+    {
+      "question": "Before the next Sprint begins, who may reprioritize the Product Backlog?",
+      "options": [
+        "Only individual developers",
+        "The Product Owner and management",
+        "Only the Scrum Master",
+        "Only external stakeholders"
+      ],
+      "answer": "b",
+      "explanation": "Although work should not normally be added during a Sprint, the Product Owner and management may reprioritize the Product Backlog before the next Sprint.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "The first one is, stakeholders meet to refine and re-prioritize the product backlog and the release backlog,"
+      }
+    },
+    {
+      "question": "Which statement best describes Scrum's position on documentation and ceremony?",
+      "options": [
+        "Every Scrum project must produce the same documents",
+        "Scrum forbids formal documentation",
+        "Scrum is flexible and generally favors as little ceremony as practical",
+        "Only the Scrum Master decides how much documentation is required"
+      ],
+      "answer": "c",
+      "explanation": "Scrum does not prescribe a large fixed set of artifacts. The team decides what is appropriate, with a general preference for minimal ceremony.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Recommendation is you'd better go with as a leader ceremony as part. It's simple, as much as you can. On the Scrum project, they recommend the whole team, a manager, okay,"
+      }
+    },
+    {
+      "question": "Who should decide how much ceremony and how many additional work products are appropriate for a Scrum project?",
+      "options": [
+        "The whole team",
+        "Only the customer",
+        "Only senior management",
+        "Only the Scrum Master"
+      ],
+      "answer": "a",
+      "explanation": "The lecture emphasizes that the whole Scrum team, rather than simply a manager, should decide what level of ceremony is appropriate.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "On the Scrum project, they recommend the whole team, a manager, okay, will decide how much it is appropriate to do."
+      }
+    },
+    {
+      "question": "Which four major phases are shown in the Scrum lifecycle?",
+      "options": [
+        "Requirements, design, coding, testing",
+        "Planning, coding, verification, maintenance",
+        "Pre-game planning, staging, development, release",
+        "Initiation, elaboration, construction, transition"
+      ],
+      "answer": "c",
+      "explanation": "The lifecycle shown in the lecture consists of pre-game planning, staging, development, and release.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "staging and developmental release, okay? So they roughly say, okay, what kind of thing you have to do in the pregame and the development"
+      }
+    },
+    {
+      "question": "What is an important purpose of Scrum pre-game planning?",
+      "options": [
+        "Assign every programming task to an individual developer",
+        "Establish the product vision and begin creating the Product Backlog",
+        "Complete all system testing",
+        "Freeze all requirements permanently"
+      ],
+      "answer": "b",
+      "explanation": "Pre-game planning establishes the vision and starts the Product Backlog, along with related planning activities.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "The planning is to establish vision. Vision is very important in the scrum, and once it is established, it will be, okay,"
+      }
+    },
+    {
+      "question": "What is the Product Backlog?",
+      "options": [
+        "Only the tasks already selected for the current Sprint, excluding future features, defects, and other desired product work",
+        "A prioritized collection of features, use cases, enhancements, defects, and other desired product work",
+        "A list of completed defects",
+        "A schedule created only by the Scrum Master"
+      ],
+      "answer": "b",
+      "explanation": "The Product Backlog contains the conceivable work for the product, including features, use cases, enhancements, defects, and similar items.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So you put all the system features you have to build for the system into this product backlog."
+      }
+    },
+    {
+      "question": "Who owns and prioritizes the Product Backlog?",
+      "options": [
+        "Scrum Master",
+        "Product Owner",
+        "Development team manager",
+        "Daily tracker"
+      ],
+      "answer": "b",
+      "explanation": "One Product Owner is designated as the owner of the Product Backlog and prioritizes its contents.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So one product owner is a designated product owner, and the recast are mediated through."
+      }
+    },
+    {
+      "question": "What is the Release Backlog?",
+      "options": [
+        "A list of every future idea for the product",
+        "The subset of the Product Backlog intended for the next operational or product release",
+        "The list of developers assigned to a release",
+        "The list of defects discovered after deployment, used in place of planning items for the next product release"
+      ],
+      "answer": "b",
+      "explanation": "The Release Backlog is the subset of Product Backlog items intended to make the next release.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "is identification of the release backlog and the subset of a product backlog"
+      }
+    },
+    {
+      "question": "What is the Sprint Backlog?",
+      "options": [
+        "Every conceivable requirement that could ever be added to the product, including work far beyond the current Sprint",
+        "A set of tasks selected and created to accomplish the goals of the current Sprint",
+        "A historical record of previous releases only",
+        "A list maintained only by external customers"
+      ],
+      "answer": "b",
+      "explanation": "The Sprint Backlog contains the tasks needed to accomplish the selected goals for the current Sprint.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "versus days. So it shows how much of work you have left to do. And the spring backload has all the tasks for this iteration. And the granularity of this"
+      }
+    },
+    {
+      "question": "What task size does the lecture recommend for items in the Sprint Backlog?",
+      "options": [
+        "1 to 2 hours",
+        "4 to 16 hours",
+        "20 to 40 hours",
+        "One month each"
+      ],
+      "answer": "b",
+      "explanation": "Sprint Backlog tasks are described as typically being in the 4-to-16-hour range.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "which are within the four to 16 hours of range of work. We already talked this, right?"
+      }
+    },
+    {
+      "question": "Sprint Backlog estimates are allowed to change and may even increase above the original estimate.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The Sprint Backlog is updated as the team learns more, so estimates may change and can increase.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "video, somebody overestimated the task hours remaining in the sprint backlog. Okay, other practices and values include workers daily update the sprint backlog,"
+      }
+    },
+    {
+      "question": "What is one of the most important pieces of information tracked in the Sprint Backlog?",
+      "options": [
+        "Developer salaries",
+        "Estimated work remaining",
+        "Number of customer complaints",
+        "Lines of source code written"
+      ],
+      "answer": "b",
+      "explanation": "The Sprint Backlog tracks estimated work remaining for tasks, often updated daily.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And this shows hours of work remaining, hours of work. So this task is completed."
+      }
+    },
+    {
+      "question": "What does the Backlog Graph primarily display?",
+      "options": [
+        "Number of employees assigned to each Sprint",
+        "Estimated task hours remaining over time",
+        "Number of requirements added by customers",
+        "Number of meetings held during the Sprint"
+      ],
+      "answer": "b",
+      "explanation": "The Backlog Graph is a visual summary of estimated task hours remaining in the Sprint Backlog.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And then use a graph to draw this as chart to see easily how much work you have left. So in the Scrum team, we will have a person playing all this daily tracker."
+      }
+    },
+    {
+      "question": "According to the lecture, the Backlog Graph is considered especially important because it provides visibility into remaining work.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The slides describe estimated remaining work shown by the Backlog Graph as one of the most critical forms of project data to track.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Okay? So this tells total hours remaining over each day. Okay? So here this much remains, this much remains, this much remains."
+      }
+    },
+    {
+      "question": "Which three questions are traditionally answered by every team member during the Daily Scrum? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "What have you done since the last Scrum?",
+        "What will you do before the next Scrum?",
+        "What is getting in the way of meeting the iteration goals?",
+        "What salary increase would you like?",
+        "Which employee should be removed from the project?"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The core Daily Scrum questions concern completed work, planned work, and impediments or blocks.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "What have you done since the last school? So for one day, what is true, okay?"
+      }
+    },
+    {
+      "question": "Which two additional Scrum questions does the lecture attribute to Larman? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Are there any missed tasks that should be added to the Sprint Backlog?",
+        "Have you learned or decided anything relevant to other team members?",
+        "Should the current Sprint be extended?",
+        "Which stakeholder should become Scrum Master?"
+      ],
+      "answer": [
+        "a",
+        "b"
+      ],
+      "explanation": "Larman adds questions about missed tasks needed for the existing Sprint goals and newly learned information relevant to the team.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "tasks to add to the spring backlog, any missed task you find, but this is not new requirements itself. New requirements is from the... you cannot add a new"
+      }
+    },
+    {
+      "question": "Adding a missed implementation task to the Sprint Backlog is different from adding a new requirement.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "A missed task may be added if it is necessary to accomplish an already selected Sprint goal. This is not the same as introducing a new requirement.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "tasks to add to the spring backlog, any missed task you find, but this is not new requirements itself. New requirements is from the... you cannot add a new"
+      }
+    },
+    {
+      "question": "How long does a typical Daily Scrum take according to the lecture?",
+      "options": [
+        "About 15 to 20 minutes",
+        "About 1 hour",
+        "About 2 hours",
+        "Half a day"
+      ],
+      "answer": "a",
+      "explanation": "The Daily Scrum is intended to be brief, averaging about 15 to 20 minutes for roughly 7 to 10 people.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Every 15 to 20 minutes for 7 to 10 people, and probably you may have longer meetings at the end of,"
+      }
+    },
+    {
+      "question": "Why is the Daily Scrum ideally held while standing?",
+      "options": [
+        "To improve physical fitness",
+        "To encourage brevity",
+        "Because chairs are prohibited in Scrum offices",
+        "To make customers uncomfortable"
+      ],
+      "answer": "b",
+      "explanation": "Standing encourages team members to keep the meeting short and focused.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "The meeting is ideally held in a stand-up circle to encourage the brevity. Every 15 to 20 minutes for 7 to 10 people,"
+      }
+    },
+    {
+      "question": "If an issue requires a long technical discussion during the Daily Scrum, what should normally happen?",
+      "options": [
+        "The entire Scrum should continue until the issue is solved",
+        "The Sprint should immediately be cancelled",
+        "A secondary meeting should be held afterward with the relevant people",
+        "The issue should be ignored until the Sprint Review"
+      ],
+      "answer": "c",
+      "explanation": "The Daily Scrum should remain focused on its standard questions. Detailed discussions are moved to follow-up meetings.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "If other issues need discussion, secondary meeting can be arranged. So in addition to the work products we talked before,"
+      }
+    },
+    {
+      "question": "What is the Scrum Master's primary relationship to the development team?",
+      "options": [
+        "The Scrum Master assigns every development task personally and closely supervises how each team member implements the work",
+        "The Scrum Master serves the team by removing impediments, providing resources, protecting the team, and reinforcing Scrum",
+        "The Scrum Master writes all requirements",
+        "The Scrum Master performs all testing personally"
+      ],
+      "answer": "b",
+      "explanation": "The Scrum Master acts more like a servant and facilitator than a traditional command-and-control manager.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So the manager's scrum master is the servant of the developers, not master, as he said. Scrum master is not removing blocks promptly, acting a firewall, and he cannot provide a resource well."
+      }
+    },
+    {
+      "question": "Which of the following are responsibilities of the Scrum Master? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Remove reported blocks",
+        "Protect the team from outside interruptions",
+        "Reinforce the project and Sprint vision",
+        "Ensure Scrum practices are followed",
+        "Assign every developer's daily task",
+        "Provide or obtain needed resources"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "explanation": "The Scrum Master removes impediments, acts as a firewall, reinforces vision, ensures Scrum practices are followed, and helps provide resources. The Scrum Master does not normally assign individual work.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "of helper, okay? Get the resource and reserve all the issues for the team. That's what they have to do. And let your members decide and do everything. Expectations, set"
+      }
+    },
+    {
+      "question": "What does the Scrum Master 'firewall' practice mean?",
+      "options": [
+        "The Scrum Master configures the project's network firewall",
+        "The Scrum Master protects the team from external work requests and interruptions",
+        "The Scrum Master prevents developers from speaking to customers so that all product questions must go through management",
+        "The Scrum Master approves all source code"
+      ],
+      "answer": "b",
+      "explanation": "The Scrum Master acts as a firewall between the team and external parties that might interrupt the Sprint with additional work.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Anybody outside you have to do this to your members. You should work as a firework here. So you should keep your members to work a fine job fully."
+      }
+    },
+    {
+      "question": "According to the Scrum practice described in the lecture, decisions needed from the Scrum Master should ideally be made within what amount of time?",
+      "options": [
+        "One hour",
+        "One day",
+        "One week",
+        "One Sprint"
+      ],
+      "answer": "a",
+      "explanation": "The lecture describes a 'decision in one hour' practice and promotes making reversible decisions quickly.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "the Scrum master are ideally decided immediately or within one hour. The The value of better decisions are better than more decisions, and they can be reversed, is promoted."
+      }
+    },
+    {
+      "question": "What does 'blocks gone in one day' mean?",
+      "options": [
+        "Developers should delete unfinished Sprint tasks every day so remaining work never appears on the next day's list",
+        "Impediments reported at the Daily Scrum should ideally be removed before the next meeting",
+        "Every Sprint must last only one day",
+        "The Product Backlog must be recreated every day"
+      ],
+      "answer": "b",
+      "explanation": "Scrum promotes rapid removal of impediments so that a block reported today is ideally resolved before the next Daily Scrum.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And the blocks reported at the scrum meetings are ideally removed before the next meeting. So that means every day when they meet the problem,"
+      }
+    },
+    {
+      "question": "In the chickens-and-pigs analogy, what distinguishes a pig from a chicken?",
+      "options": [
+        "Pigs are managers and chickens are developers",
+        "Pigs are committed and accountable for the project outcome, while chickens are involved or informed",
+        "Pigs are customers and chickens are programmers",
+        "Pigs are the people who work remotely, while chickens are the people required to sit together in the common project room"
+      ],
+      "answer": "b",
+      "explanation": "The pig is committed to the outcome, while the chicken is involved or interested but not committed in the same way.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So chicken can create eggs without sacrificing much, right? It can create eggs every day."
+      }
+    },
+    {
+      "question": "During the Daily Scrum, who is normally permitted to speak?",
+      "options": [
+        "Anyone attending",
+        "Only senior management",
+        "Only the Scrum Team, the 'pigs'",
+        "Only the Scrum Master"
+      ],
+      "answer": "c",
+      "explanation": "The lecture states that Scrum Team members, or pigs, normally speak. Chickens may observe but remain silent except for unusual circumstances.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "but we don't recommend the chickens involved in this unless some extreme cases, special cases. Otherwise, they can observe what they cannot participate directly."
+      }
+    },
+    {
+      "question": "The CEO is normally free to interrupt the Daily Scrum and redirect the team's work.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "Even senior management is normally treated as a chicken during the Daily Scrum. The lecture allows limited exceptions for serious business or survival-related information.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "They cannot just interfere, okay, with your talking, your discussion, your meeting, okay?"
+      }
+    },
+    {
+      "question": "What maximum team size does the lecture generally recommend for one Scrum Team?",
+      "options": [
+        "3 people",
+        "7 people",
+        "20 people",
+        "50 people"
+      ],
+      "answer": "b",
+      "explanation": "The material recommends Scrum teams of seven or fewer people.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "So they recommend one Scrum team has seven or less members. you need more people, then you will have a separate Scrum team. So each Scrum team will"
+      }
+    },
+    {
+      "question": "How does Scrum scale when a project requires many more people than one Scrum Team can contain?",
+      "options": [
+        "Increase a single Scrum Team to hundreds of members so that one Daily Scrum can cover the entire project",
+        "Remove the Daily Scrum",
+        "Create multiple small Scrum Teams and coordinate them with a Scrum of Scrums",
+        "Replace Scrum with waterfall"
+      ],
+      "answer": "c",
+      "explanation": "Large Scrum projects use multiple small teams, with representatives coordinating through a Scrum of Scrums.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "If you have more than one scrum team, and then the presenters from each scrum team will meet together just like this scrum team."
+      }
+    },
+    {
+      "question": "What is a Scrum of Scrums?",
+      "options": [
+        "A four-hour product demonstration held at the end of each Sprint in place of any coordination among teams",
+        "A coordination meeting involving representatives from multiple Scrum Teams",
+        "The first Sprint Planning meeting",
+        "A meeting used only by customers"
+      ],
+      "answer": "b",
+      "explanation": "A Scrum of Scrums allows representatives of multiple Scrum Teams to coordinate work on a larger project.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "If you have more than one scrum team, and then the presenters from each scrum team will meet together just like this scrum team."
+      }
+    },
+    {
+      "question": "What work environment does Scrum prefer when practical?",
+      "options": [
+        "Everyone working separately without communication",
+        "A common project room",
+        "Only remote work",
+        "Separate offices for every developer"
+      ],
+      "answer": "b",
+      "explanation": "Scrum prefers teams working together in a common project room, although geographically distributed teams can still succeed.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "have seven or less team members. Scrum also recommend to work in the common project room. So we will have Scrum over Scrum. Scrum is complementary enough to other practices, so"
+      }
+    },
+    {
+      "question": "What is the purpose of the Sprint Review?",
+      "options": [
+        "Assign every individual task for the next Sprint so developers leave with a complete personal work schedule",
+        "Demonstrate the working product to stakeholders and gather feedback",
+        "Perform employee performance evaluations",
+        "Create the initial Product Backlog"
+      ],
+      "answer": "b",
+      "explanation": "The Sprint Review demonstrates the product to the Product Owner and stakeholders and encourages feedback and discussion.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "There is a demo of the product and the goals including, improving stakeholders of the system function design."
+      }
+    },
+    {
+      "question": "How long may the Sprint Review last according to the lecture?",
+      "options": [
+        "Maximum of about 20 minutes",
+        "Maximum of one hour",
+        "Maximum of four hours",
+        "There is no limit"
+      ],
+      "answer": "c",
+      "explanation": "The lecture specifies a maximum Sprint Review length of four hours.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "there is a review meeting, maximum of four hours, tells you how, what is the size of the meeting, okay,"
+      }
+    },
+    {
+      "question": "During the Sprint Review, stakeholders should immediately make binding commitments for the next Sprint.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "Feedback and brainstorming are encouraged at the Sprint Review, but commitments are made later during Sprint Planning.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "for no commitments made during that meeting. Later, at the next spring planning meeting, stakeholders and the team make commitments."
+      }
+    },
+    {
+      "question": "What does the lecture say about PowerPoint presentations during the Sprint Review?",
+      "options": [
+        "They are required",
+        "They are preferred over a live product demonstration and should replace showing the working software entirely",
+        "They are forbidden in favor of demonstrating the working product",
+        "Only the Scrum Master may use them"
+      ],
+      "answer": "c",
+      "explanation": "The material says PowerPoint presentations are forbidden for the Sprint Review because the emphasis should be on showing the actual product.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And the PowerPoint slides, the presentations are forbidden, then much in time to do this kind of paperwork."
+      }
+    },
+    {
+      "question": "What does the Scrum practice of a daily build involve?",
+      "options": [
+        "Rewriting the entire product every day",
+        "At least one daily integration and regression test across checked-in code",
+        "Creating an entirely new Product Backlog every morning and discarding the previous day's prioritized feature list",
+        "Releasing the product to customers every day"
+      ],
+      "answer": "b",
+      "explanation": "The lecture recommends at least one daily integration and regression test across checked-in project code.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "and the daily build is recommended. And as you can see here, there are a lot of things"
+      }
+    },
+    {
+      "question": "Scrum can be combined with practices from other development methods such as XP or UP.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Because Scrum concentrates heavily on project management rather than prescribing every engineering activity, it can be combined with other methods.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "They don't tell that kind of things. So it is easily combined with or complementary to other methods. So you may use a scrum, this is with practices"
+      }
+    },
+    {
+      "question": "Which difference between Scrum and XP is specifically mentioned in the lecture?",
+      "options": [
+        "XP forbids iterations",
+        "Scrum generally recommends 30-day iterations while XP commonly uses shorter iterations",
+        "Scrum requires pair programming on every development task, while XP does not treat pairing as a recommended practice",
+        "XP does not involve customers"
+      ],
+      "answer": "b",
+      "explanation": "The Scrum material notes that Scrum's roughly 30-day iteration length is longer than XP's preferred shorter iterations.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And the SCROM's 30-day time-box situation length is not completely consistent with XP. XP is more flexible to six weeks' length."
+      }
+    },
+    {
+      "question": "What does it mean that Scrum emphasizes an empirical rather than a defined process?",
+      "options": [
+        "Every activity, artifact, and process phase is fully specified in advance, so the team never inspects progress or adapts based on experience",
+        "The team adapts based on observation, progress, feedback, and experience rather than following a completely prescribed process",
+        "Scrum eliminates planning",
+        "Scrum requires all decisions to be made by management"
+      ],
+      "answer": "b",
+      "explanation": "Scrum relies strongly on inspection, daily information, feedback, and adaptation rather than defining every process step beforehand.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "scheme is its emphasis on empirical rather than a defined path. They don't define any past piece, those two powerful work products to produce for each phase, each"
+      }
+    },
+    {
+      "question": "Which Scrum value is demonstrated by making the Product Backlog, Daily Scrum status, and Backlog Graph visible?",
+      "options": [
+        "Openness",
+        "Secrecy",
+        "Specialization",
+        "Centralization"
+      ],
+      "answer": "a",
+      "explanation": "The lecture associates openness with visible priorities, commitments, project status, work trends, and velocity.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "The openly accessible product backlog makes visible the work and the priorities. So we post the split backlog and chart every day so we can see the progress of the work."
+      }
+    },
+    {
+      "question": "What does the Scrum value of respect emphasize?",
+      "options": [
+        "Blaming the individual judged responsible whenever a Sprint fails, rather than treating the outcome as a team problem",
+        "Team responsibility and recognition of different individual strengths and weaknesses",
+        "Allowing management to control all technical decisions",
+        "Preventing developers from helping each other"
+      ],
+      "answer": "b",
+      "explanation": "Respect means treating problems as team problems instead of scapegoating individuals and allowing the team to organize around members' strengths and weaknesses.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "individual members on team are respected for their different strengths and and weakness, and not singled out for iteration of failure."
+      }
+    },
+    {
+      "question": "Which behavior reflects the Scrum value of courage?",
+      "options": [
+        "Management dictates exactly how every task must be performed, and the team is not trusted to organize its own work",
+        "Management trusts the team to self-direct, and the team accepts responsibility for self-management",
+        "The team avoids difficult decisions",
+        "Developers hide delays from management"
+      ],
+      "answer": "b",
+      "explanation": "Scrum requires courage from management to trust the team and from team members to accept responsibility for self-direction.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "Management has the courage to plan, guide, adaptively, and to trust individuals and the team"
+      }
+    },
+    {
+      "question": "Where did the name Scrum originate?",
+      "options": [
+        "A military planning technique",
+        "A rugby formation representing adaptive team behavior",
+        "A software testing acronym",
+        "A Japanese programming language whose name was later borrowed to describe a software development method"
+      ],
+      "answer": "b",
+      "explanation": "The term came from rugby and was used to represent a team moving together adaptively toward a shared goal.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And scrum is like a scrum in the rugby game, the whole team together, again,"
+      }
+    },
+    {
+      "question": "Which 1986 article is identified as an important historical root of Scrum?",
+      "options": [
+        "No Silver Bullet",
+        "The Mythical Man-Month",
+        "The New New Product Development Game",
+        "The Cathedral and the Bazaar"
+      ],
+      "answer": "c",
+      "explanation": "Takeuchi and Nonaka's 1986 Harvard Business Review article 'The New New Product Development Game' is identified as a major historical root of Scrum.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "one of the article of Harvard Business Review, and they introduced term over facimi,"
+      }
+    },
+    {
+      "question": "Which people are strongly associated with the creation and formalization of Scrum in the lecture?",
+      "options": [
+        "Frederick Brooks and Watts Humphrey",
+        "Jeff Sutherland and Ken Schwaber",
+        "Kent Beck and Martin Fowler",
+        "Takeuchi and Craig Larman"
+      ],
+      "answer": "b",
+      "explanation": "Jeff Sutherland introduced early Scrum practices and later worked with Ken Schwaber to formalize and refine Scrum.",
+      "reference": {
+        "book": "Scrum",
+        "lecture": "And Ken Swabble worked with this guy Sutherland at Israel. And then they formulated this scrum idea better."
+      }
+    }
+  ]
+}

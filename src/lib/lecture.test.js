@@ -66,3 +66,10 @@ test('formatLectureTime pads minutes and seconds', () => {
   assert.equal(formatLectureTime(0), '00:00');
   assert.equal(formatLectureTime(65), '01:05');
 });
+
+test('parseLecture reads an mp4 filename on the first line', () => {
+  const parsed = parseLecture('talk.mp4\n\n[01:20] Confidentiality is required at all organizational levels.\n');
+  assert.equal(parsed.audioFile, 'talk.mp4');
+  assert.equal(parsed.cues[0].start, 80);
+  assert.match(parsed.cues[0].text, /Confidentiality/);
+});

@@ -1,0 +1,676 @@
+{
+  "title": "CPSC 544 - The Initial Process",
+  "questions": [
+    {
+      "question": "Which sequence correctly lists the five software process maturity levels presented in the lecture?",
+      "options": [
+        "Initial, Defined, Repeatable, Managed, Optimizing",
+        "Initial, Repeatable, Defined, Managed, Optimizing",
+        "Repeatable, Initial, Defined, Optimizing, Managed",
+        "Initial, Repeatable, Managed, Defined, Optimizing"
+      ],
+      "answer": "b",
+      "explanation": "The lecture presents the maturity levels in order as Initial, Repeatable, Defined, Managed, and Optimizing.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "One is initial, okay, and two is repeatable, three is defined, four is managed, five is optimizing. The reason to have these names, we have some, actually some regions to have those names, okay, like that, okay, in each level. So we will see why they are putting name like that."
+      }
+    },
+    {
+      "question": "What word best characterizes a Level 1 Initial Process organization?",
+      "options": [
+        "Quantitative",
+        "Qualitative",
+        "Chaotic",
+        "Standardized"
+      ],
+      "answer": "c",
+      "explanation": "Level 1 is characterized as chaotic, with unpredictable cost, schedule, and quality performance.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And we like to talk about what could be a chaotic project. What kind of characteristics you can find from the chaotic project, which are learning at the initial process level,"
+      }
+    },
+    {
+      "question": "Which of the following are needed actions for moving beyond the Initial Process level? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Planning and estimation",
+        "Performance tracking",
+        "Change control",
+        "Commitment management",
+        "Quality assurance",
+        "Eliminating all documentation"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "explanation": "The lecture identifies planning, performance tracking, change control, commitment management, and quality assurance as needed actions for improving from Level 1.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "First of all, it's good to have a planning and estimation in the organization, okay. These will have some good systematic way of planning and estimation. Secondly, we suggest to this organization to have the good way of turning in country projects and their people when they build."
+      }
+    },
+    {
+      "question": "A Level 2 Repeatable organization has completely standardized and formally defined processes across the organization.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "Level 2 can still rely on informal and ad hoc process methods. Standardization and formal process definition are needed to move toward Level 3.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "But at this point, here, you may use some informal and adult process methods and procedures. So even though you have a good basic mechanism of planning and control, your PIP and having some change management and quality control, but still your process is not very standardized in the organization or wherever."
+      }
+    },
+    {
+      "question": "Which characteristic is associated with Level 2 - Repeatable?",
+      "options": [
+        "Reasonable control of schedules but highly variable cost and quality",
+        "Statistical control over product quality",
+        "Fully optimized process automation",
+        "Unpredictable cost, schedule, and quality with no repeatability"
+      ],
+      "answer": "a",
+      "explanation": "Level 2 is described as intuitive: schedules are under reasonable control, while cost and quality can still vary substantially.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So your customers can believe you produce the same quality you built last time. So this is the second level of organization. But at this point, here, you may use some informal and adult process methods and procedures. So even though you have a good basic mechanism of planning and control,"
+      }
+    },
+    {
+      "question": "What is a major action needed to move from Repeatable toward Defined?",
+      "options": [
+        "Abandon process documentation",
+        "Develop process standards and definitions",
+        "Stop using tools and methods",
+        "Rely more heavily on individual heroes"
+      ],
+      "answer": "b",
+      "explanation": "The organization must standardize and define its procedures, activities, work products, methods, and tools.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "To go up to the next level, to the higher level, good to standardize all your procedures, your activities, your work product to produce in each activities. And it's good to have a standardized way of using tools and methods. So everybody can understand what they have to do, when they have to do, what they have"
+      }
+    },
+    {
+      "question": "Why is Level 3 called the Defined Process level?",
+      "options": [
+        "Because all product defects have been defined",
+        "Because project budgets are fixed permanently",
+        "Because standard procedures, process activities, methods, and work products are defined",
+        "Because only senior managers may define the work while everyone else continues using informal local methods"
+      ],
+      "answer": "c",
+      "explanation": "The lecture explains that Level 3 is called Defined because the organization has defined and standardized its process.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So we define the standard procedures, process activities, that's why it is define the process. So in this way, you can remember why they are calling this office level defined. At this point, we have them much. And then this is good."
+      }
+    },
+    {
+      "question": "At Level 3, organizations should begin establishing process measurements and quantitative quality goals in order to advance further.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Level 3 uses a defined process, and the next improvement is to establish measurement, quantitative quality goals, and tracking.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So at this point, you start systematically using measurement. You already used some measurement already, okay, in the low levels. You did something. From here, if you would like to go up to the next level, when you manage your project, definitely you need this measurement analysis to decide objective decision-making, to build objective decision-making. Okay, and then you will go up to the next level,"
+      }
+    },
+    {
+      "question": "Which maturity level is associated with reasonable statistical control over product quality?",
+      "options": [
+        "Level 1 - Initial",
+        "Level 2 - Repeatable",
+        "Level 3 - Defined",
+        "Level 4 - Managed"
+      ],
+      "answer": "d",
+      "explanation": "Level 4 Managed is characterized by quantitative management and reasonable statistical control over product quality.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "level four, manage the level. Okay, then in the CMMI it says collaboratively manage the process level, right? You are actually, okay, you're almost the perfect now."
+      }
+    },
+    {
+      "question": "What is the focus of Level 5 - Optimizing?",
+      "options": [
+        "Returning to ad hoc work whenever schedules become tight and dropping further process improvement",
+        "Continued process measurement, automation, improvement, and error prevention",
+        "Replacing all managers with technical experts",
+        "Avoiding changes to the process"
+      ],
+      "answer": "b",
+      "explanation": "Level 5 emphasizes continued measurement and improvement of the process itself, including automation and error prevention.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "you are expected to control your process itself. Process. So up to this point, we control the quality of product. We like to improve the quality of product."
+      }
+    },
+    {
+      "question": "Most software organizations operate in the Initial Process level at least some of the time.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The lecture explicitly states that most software organizations operate at the Initial Process level at least some of the time, and many never leave it.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So most of the organizations start from this initial level of organization, okay? They do something in planning estimation, but it's very vague, okay? No, no, no, no mechanism to do it, and no systematic way to do it,"
+      }
+    },
+    {
+      "question": "What typically drives professionals in an Initial Process organization from crisis to crisis?",
+      "options": [
+        "Excessive process automation",
+        "Unplanned priorities and unmanaged change",
+        "Too much statistical process control",
+        "Overly rigid requirements baselines"
+      ],
+      "answer": "b",
+      "explanation": "The Initial Process is described as being driven by unplanned priorities and unmanaged change.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So, you know, the variation of their work is very high. Okay, so sometimes good, sometimes bad. With this test of organization, okay, and then what kind of thing we need to improve? So we suggest four things, mainly."
+      }
+    },
+    {
+      "question": "Why can an Initial Process organization be difficult to identify from the outside in the short term?",
+      "options": [
+        "It never produces working software",
+        "It may temporarily appear successful and meet some checkpoints",
+        "It refuses to communicate with customers and therefore never appears successful from the outside",
+        "It always uses a formal process"
+      ],
+      "answer": "b",
+      "explanation": "Such organizations can look convincing and may meet interim checkpoints, but their instability becomes visible over time.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Okay? This is what I told you, you know, from outside, whenever they look at this organization, okay, they may not know exactly where they are, okay? Are they at the level one, two, three? They don't know sometimes because they produce the product sometimes very well."
+      }
+    },
+    {
+      "question": "What usually reveals an Initial Process organization over time?",
+      "options": [
+        "It consistently exceeds commitments",
+        "It generally fails to meet commitments",
+        "It never changes requirements",
+        "It uses too much documentation"
+      ],
+      "answer": "b",
+      "explanation": "Over time, Initial Process organizations are recognizable because they generally do not meet commitments reliably.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "but time goes by, people can easily find out this organization is in the initial level or higher level. Whenever they find out, they do not meet the deadline or they produce the defects, then they expect."
+      }
+    },
+    {
+      "question": "When an Initial Process organization delivers on schedule, the lecture says this is often due to:",
+      "options": [
+        "A highly mature organizational process that already makes on-time delivery the expected result",
+        "Herculean individual efforts rather than organizational strength",
+        "Eliminating all testing",
+        "Perfect requirements"
+      ],
+      "answer": "b",
+      "explanation": "Occasional success is treated as an exception or accident, often caused by extraordinary individual effort.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "it is just an accident rather than it is expected. So which means it is not a repeatable process. Sometimes they are good, sometimes bad. Just a kind of lucky thing, fortune there."
+      }
+    },
+    {
+      "question": "A project can have technically sound work and still appear to the customer to be a disaster.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The lecture's chaotic project example notes that good technical work can be undermined by poor planning and project management.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Even though it shows a good technical shape in their product, they don't have a good plan. And the lack of a documented planning, they have a plan in only both mind."
+      }
+    },
+    {
+      "question": "What is the central management problem in the chaotic project example?",
+      "options": [
+        "Too much planning",
+        "Inadequate project management",
+        "Too many quality reviews",
+        "Too little programming"
+      ],
+      "answer": "b",
+      "explanation": "The lecture emphasizes that inadequate project management can nearly destroy years of good technical work.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "characteristics chaotic project exhibit. Okay, project is seriously late. Okay, they always late and the people think, okay, this is very natural. In that organization they think it is very natural. Always late, we did it, always. And the schedule doesn't admit, yes, we do not admit always."
+      }
+    },
+    {
+      "question": "Without a plan, which problems arise? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "No clear idea how big the job really is",
+        "No basis for knowing where the project stands",
+        "No way to justify added resources when trouble occurs",
+        "Guaranteed high product quality",
+        "Reliable commitments"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture directly identifies lack of project-size understanding, lack of status basis, and inability to justify added resources as consequences of not having a plan.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And no idea how big the project really is, no basis to know where they stand, something like that. like that. So these are the characteristics we can easily meet. So to go up to the high level, what we expect is we like to remove those problematic characteristics from our project. That's our goal, why we like to improve our process. Without having good planning"
+      }
+    },
+    {
+      "question": "Which is a typical sign of a chaotic project?",
+      "options": [
+        "The project is seriously late",
+        "The schedule is consistently met",
+        "Planning is thoroughly documented",
+        "Small feature requests always remain small"
+      ],
+      "answer": "a",
+      "explanation": "A chaotic project is described as seriously late, poorly planned, and unable to reliably meet its schedule.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "characteristics chaotic project exhibit. Okay, project is seriously late. Okay, they always late and the people think, okay, this is very natural. In that organization they think it is very natural. Always late, we did it, always. And the schedule doesn't admit, yes, we do not admit always."
+      }
+    },
+    {
+      "question": "Why are seemingly small additional functions dangerous in a chaotic project?",
+      "options": [
+        "They always require new hardware",
+        "They may hide far more code and effort than expected",
+        "They automatically improve the schedule because each added function is too small to affect the plan",
+        "They reduce the need for planning"
+      ],
+      "answer": "b",
+      "explanation": "A small-looking function can become a hidden trap and expand into a large amount of code and effort.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And sometimes simple looking function, you think you can complete this within a day, But it can be a trap, you know, it lays your work for a week, for a month, like that. And also, without having good plan, other plan, you know, it's very hard to do resource. Without knowing plan, you know, who will use this resource?"
+      }
+    },
+    {
+      "question": "What does the lecture identify as the most common reason for chaotic behavior?",
+      "options": [
+        "Too many standards",
+        "Lack of commitment discipline",
+        "Too much testing",
+        "Excessive process measurement"
+      ],
+      "answer": "b",
+      "explanation": "The lecture explicitly says lack of commitment discipline is the most common reason for chaotic behavior.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So why social organizations are chaotic? There are many regions. Probably you use a gas rather than a plant, okay? And in the low-level organization, they believe strongly magic, okay?"
+      }
+    },
+    {
+      "question": "Under extreme pressure, software managers in chaotic organizations often:",
+      "options": [
+        "Make a guess rather than a plan",
+        "Delay all commitments until perfect data exists",
+        "Increase process measurement",
+        "Reduce project uncertainty completely"
+      ],
+      "answer": "a",
+      "explanation": "One chaotic force is that managers under pressure may guess instead of developing a sound plan.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Probably you use a gas rather than a plant, okay? And in the low-level organization, they believe strongly magic, okay? Probably you can solve it. Why not? We did it always, okay?"
+      }
+    },
+    {
+      "question": "What does 'believing in magic' mean in the context of a chaotic software organization?",
+      "options": [
+        "Using mathematically proven algorithms so that planning and management controls become unnecessary",
+        "Expecting a savior or new technology to remove the need for planning",
+        "Using automation to collect metrics",
+        "Developing a prototype"
+      ],
+      "answer": "b",
+      "explanation": "The lecture warns against hoping that a guru, savior, or new technology will solve problems that actually require planning and management.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And in the low-level organization, they believe strongly magic, okay? Probably you can solve it. Why not? We did it always, okay? We made every impossible thing possible, okay?"
+      }
+    },
+    {
+      "question": "There is a 'silver bullet' technology that can remove the need for effective software management.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture explicitly states that there is no silver bullet; technology can help, but many problems require effective management.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And in the low-level organization, they believe strongly magic, okay? Probably you can solve it. Why not? We did it always, okay? We made every impossible thing possible, okay?"
+      }
+    },
+    {
+      "question": "Which statements describe the escalating cycle of software scale? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Programs often require more code than expected",
+        "Larger programs introduce new technical and management issues",
+        "New issues are surprising because they differ from previous experience",
+        "Larger software is always easier to understand",
+        "Complexity grows only in exact proportion to lines of code"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture describes an escalating cycle in which size grows beyond expectations, new issues emerge, and those issues are often unlike prior experience.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Here of the software project follows an SKL cycle. If you are done with size of 10,000 lines of code project, but the complexity of work of 10,000 lines of code work is same as 1 million codes of work."
+      }
+    },
+    {
+      "question": "An organization that has reached a higher maturity level can never fall back to the Initial Process level.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "New management, competition, technical challenges, and pressure can cause an organization to abandon discipline and revert toward the Initial Process.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "You throw it out, process, test, you have to go through. And then definitely, okay, you have a high probability to have more defects in your product. The commitment or before you build the plan, good plan, you make commitment. Those kinds of things always travel in this level of organization, okay?"
+      }
+    },
+    {
+      "question": "What is described as one of the most insidious and difficult software management problems?",
+      "options": [
+        "Unplanned commitments",
+        "Too many prototypes",
+        "Too much documentation",
+        "Excessive quality assurance"
+      ],
+      "answer": "a",
+      "explanation": "The lecture calls the unplanned commitment one of the most insidious and difficult software management problems.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "The commitment or before you build the plan, good plan, you make commitment. Those kinds of things always travel in this level of organization, okay? And sometimes simple looking function, you think you can complete this within a day, But it can be a trap, you know, it lays your work for a week, for a month, like that."
+      }
+    },
+    {
+      "question": "Why is making a commitment before a work plan exists dangerous?",
+      "options": [
+        "It guarantees the team will over-document the project",
+        "It can leave insufficient time and resources to do the job",
+        "It prevents any code from being written",
+        "It eliminates all uncertainty"
+      ],
+      "answer": "b",
+      "explanation": "Without an orderly plan, commitments can be made without knowing the real effort, leaving insufficient time and resources.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "You have to work, okay, so you can easily find out, oh, I made the wrong commitment here. So you both did not know, you did not know, nobody knew, okay? So why social organizations are chaotic? There are many regions."
+      }
+    },
+    {
+      "question": "What is the risk of depending heavily on a technical 'guru'?",
+      "options": [
+        "The organization becomes too standardized",
+        "The organization may rely on one person's heroics instead of a stable process",
+        "The team will automatically move to Level 5 as soon as a recognized technical expert joins the staff",
+        "The project will require fewer requirements"
+      ],
+      "answer": "b",
+      "explanation": "Technical wizards can be valuable, but relying on them can create fragility if their personal heroics substitute for organizational process.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Okay. And also in this organization, they believe some technical ritual to solve all the problems. So actually, in this organization, usually they have certain people like that, okay? Someone who has good techniques, he solved all the problems whenever you meet the problem, and he complete the work. Whenever you have a shortage of time to complete, he solved all the problems."
+      }
+    },
+    {
+      "question": "A technical guru who succeeded on a small project can safely assume the same approach will scale to any size project.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture warns that success on a small team or project does not mean the same person or approach can handle arbitrarily large systems.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "right? So with the small size of the project, you did well, but with the large size of project, from the beginning you don't understand what it is, Okay, so we have to know how to cinematically divide the work to the manageable size, okay, and how to analyze this, how to make a plan based on this analysis, based on this decomposition"
+      }
+    },
+    {
+      "question": "Why are problems of scale fundamental in software development?",
+      "options": [
+        "Large programs are simply repeated copies of small programs, so scale adds no new management problems",
+        "As products grow, they become harder to understand and require more coordination and control",
+        "Large systems eliminate the need for standards",
+        "Software complexity decreases as size increases"
+      ],
+      "answer": "b",
+      "explanation": "Larger software distributes knowledge across more people and components, increasing communication, management, and technical complexity.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And again, problems of scale, okay, problems of scale cause always problem with small size of problem, you solve the where, but as the size increases, we have problems to solve, so it's to solve all, okay. So I also talk about the problem of scale."
+      }
+    },
+    {
+      "question": "As software knowledge becomes more widely distributed, what becomes necessary? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Common notations for precise communication",
+        "Documented and updated standards",
+        "Resolution of conflicts among standards",
+        "Controlled distribution of standard changes",
+        "Allowing each person to interpret notation differently"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "Distributed knowledge requires common notation, documented standards, conflict resolution, and controlled communication of changes.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "And also something we have to consider is common notations are needed for precise communication. whenever we co-work together, you produce some artifacts and your colleague will read the work product you produce. So if you use a soft-on box in your design specification and this implementer called the"
+      }
+    },
+    {
+      "question": "For larger-scale software, control is needed over requirements, design, code, and test.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The lecture explicitly says similar control is needed across requirements, design, code, and test as software scale increases.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "We suggest them to have a good way to manage the changes. So whenever they have different versions of change of hardware and software and the product, it's a good idea to have a similar way to manage these changes. So everybody knows in the organization what is changing"
+      }
+    },
+    {
+      "question": "Why are prototypes or multiple releases useful as software size increases?",
+      "options": [
+        "Because large systems can usually be built correctly in one shot if the initial requirements list looks complete",
+        "Because some needs and design issues become clear only through partial operational experience",
+        "Because they eliminate the need for requirements",
+        "Because they prevent users from changing priorities"
+      ],
+      "answer": "b",
+      "explanation": "Prototypes and multiple releases help reveal needs, resolve design issues, and allow development to proceed when the full system cannot be implemented at once.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "software size increases, prototypes and multiple releases are needed because we have to understand entirely so once we decompose the problem it's good first of all it's good to build a certain prototype so you can share the idea your idea with your customers okay using this by showing this prototype and"
+      }
+    },
+    {
+      "question": "Which are reasons given for using prototypes or multiple releases on larger software systems? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "The entire function may not be implementable in time",
+        "Some needs become clear only after using a partial system",
+        "Some design issues cannot be resolved until a preliminary system runs",
+        "A release discipline helps sort user priorities",
+        "Large systems are always successfully built in one shot"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture gives all four of these reasons and adds that large software systems are not successfully built in one shot.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "software size increases, prototypes and multiple releases are needed because we have to understand entirely so once we decompose the problem it's good first of all it's good to build a certain prototype so you can share the idea your idea with your customers okay using this by showing this prototype and"
+      }
+    },
+    {
+      "question": "What complication appears when multiple releases are used?",
+      "options": [
+        "Requirements no longer need prioritization, because later releases can absorb leftover work without extra coordination",
+        "Component designs, dependencies, integration, and testing must be synchronized across releases",
+        "Planning becomes unnecessary",
+        "Teams no longer need shared standards"
+      ],
+      "answer": "b",
+      "explanation": "Multiple releases create coordination needs involving phased requirements, component design, dependencies, build and integration plans, and test drivers.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "using the multiple releases, new complication arises, something like that, the requirements must be based to meet. You just need landscape here, and the product interdependencies are orchestrated"
+      }
+    },
+    {
+      "question": "According to the lecture, software process entropy refers to:",
+      "options": [
+        "The natural tendency of a process to drift toward disorder unless effort is continually applied",
+        "A measurement of source code execution speed that is used as the official indicator of process health",
+        "A method for assigning programmers to teams",
+        "A fixed maturity level"
+      ],
+      "answer": "a",
+      "explanation": "Entropy is used as an analogy for the tendency of software organizations and processes to become disorganized unless discipline is continually reinforced.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "This slide talks about the soft path entropy. I think I talk about this a little bit in the previous lecture. Entropy explains the level of disorder, okay?"
+      }
+    },
+    {
+      "question": "Which three forces are identified as tending to disrupt even a sound project management system?",
+      "options": [
+        "Dynamic requirements, increasing system size, and human nature",
+        "Testing, documentation, and automation as the three forces that push a sound management system into disorder",
+        "Customers, managers, and programmers",
+        "Cost, schedule, and quality"
+      ],
+      "answer": "a",
+      "explanation": "The software process entropy slide identifies dynamic requirements, increasing system size, and human nature as three forces that push processes toward disorder.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "Entropy explains the level of disorder, okay? In the organization. So whenever you like to do something, try to organize everything, but with this nature of entropy role,"
+      }
+    },
+    {
+      "question": "Which three broad elements are presented as part of the way out of the chaos trap? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Systematic project management",
+        "Careful change management",
+        "Independent software assurance",
+        "Dependence on heroic individual effort",
+        "Making commitments before planning"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture presents systematic project management, careful change management, and independent software assurance as the general solution.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "by examining malignations that have worked their way out of the chaos, okay. However, the outlines of general solutions are clear like this, okay. to have management to monitor and control your project. To monitor and control your project, you should have a good plan."
+      }
+    },
+    {
+      "question": "What must systematic project management include?",
+      "options": [
+        "Work must be estimated, planned, and managed",
+        "Only the coding phase needs to be planned",
+        "Plans should remain unchanged even when new knowledge appears",
+        "Management should avoid monitoring project status"
+      ],
+      "answer": "a",
+      "explanation": "The lecture says the work must be estimated, planned, and managed as part of systematic project management.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "First thing, we should have a good planning and estimation. We should have a good mechanism to monitor and control the project based on this plan. And then you should have a good changey control mechanism"
+      }
+    },
+    {
+      "question": "Which principle for controlling chaos says teams should update their plans as they learn more?",
+      "options": [
+        "Ignore gaps in knowledge",
+        "Refine the plan as knowledge of the job improves",
+        "Freeze the original plan permanently so that later learning is not allowed to change it",
+        "Avoid reviewing work"
+      ],
+      "answer": "b",
+      "explanation": "The lecture treats software development as a learning process and says the plan should be refined as knowledge improves.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "and treat software development as a learning process. You have to do this again and again and again, okay? Continuously you have to reinforce your work. And recognize what you don't know, okay?"
+      }
+    },
+    {
+      "question": "Which of the following are basic principles for controlling chaos in software organizations? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Plan the work",
+        "Track and maintain the plan",
+        "Divide the work into independent parts",
+        "Precisely define requirements for each part",
+        "Rigorously control relationships among the parts",
+        "Treat software development as a learning process"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "explanation": "All six are explicitly listed in the lecture as basic principles for controlling chaos.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "So these are the principles for controlling chaos in your organization. Plan the work, maintain the plan, and divide the work into independent part, decompose the work into the manageable side. and precisely define the requirement for each part you decompose."
+      }
+    },
+    {
+      "question": "What should be done when the gap between what the team knows and what the task requires is severe?",
+      "options": [
+        "Proceed immediately and hope the gap disappears",
+        "Add more features",
+        "Fix the knowledge gap before proceeding",
+        "Remove quality assurance"
+      ],
+      "answer": "c",
+      "explanation": "The lecture says to recognize what you do not know and, when the knowledge gap is severe, fix it before proceeding.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "When the gap between your knowledge and task is severe, fix it before proceeding. The manager will give you the work and commit your work and the work to meet your commitment and refine the plan as your knowledge of the job improves. So that's all we talk in this chapter, the initial process level."
+      }
+    },
+    {
+      "question": "Which statement best summarizes the lecture's recommended starting point for stabilizing an Initial Process organization?",
+      "options": [
+        "Hire one exceptional programmer and rely on that person to solve crises whenever the schedule slips",
+        "Establish planning and estimation, project monitoring/control, change control, and quality control",
+        "Focus entirely on new tools and technology",
+        "Reduce management involvement and rely on informal communication"
+      ],
+      "answer": "b",
+      "explanation": "The instructor repeatedly emphasizes four minimum stabilizing activities: planning/estimation, monitoring/control, change control, and quality control.",
+      "reference": {
+        "book": "Chapter 4 — The Initial Process",
+        "lecture": "First thing, we should have a good planning and estimation. We should have a good mechanism to monitor and control the project based on this plan. And then you should have a good changey control mechanism"
+      }
+    }
+  ]
+}

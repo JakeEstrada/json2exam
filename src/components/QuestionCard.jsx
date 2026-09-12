@@ -1,7 +1,7 @@
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasBook }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -51,7 +51,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} />
+      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasBook={hasBook} />
     </div>
   );
 }
@@ -73,11 +73,12 @@ function Verdict({ q, correct }) {
   );
 }
 
-function QuestionSource({ q, onOpen, hasLecture }) {
+function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasBook }) {
   const ref = q && q.reference;
   const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
-  const canLecture = hasLecture || !!(ref && ref.lecture);
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture)) return null;
+  const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
+  const canBook = hasBook || (ref && ref.page > 0);
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canBook)) return null;
   return (
     <div className="q-source">
       <p className="q-source-label">Chapter reference</p>
@@ -92,12 +93,12 @@ function QuestionSource({ q, onOpen, hasLecture }) {
         )}
         {canLecture && onOpen && (
           <button type="button" className="text-link" onClick={() => onOpen({ lecture: lectureQuote })}>
-            Show in lecture
+            {hasVideo ? 'Show in video' : 'Show in lecture'}
           </button>
         )}
-        {ref.page > 0 && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page, excerpt: ref.excerpt, book: ref.book })}>
-            Show in book
+        {canBook && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page || 1, excerpt: ref.excerpt, book: ref.book })}>
+            {hasVideo ? 'Show in slides' : 'Show in book'}
           </button>
         )}
       </div>

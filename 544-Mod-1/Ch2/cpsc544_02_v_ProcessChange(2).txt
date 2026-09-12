@@ -1,0 +1,1421 @@
+cpsc544_02_v_ProcessChange.mp4
+
+[00:01] Okay, let's talk about chapter 2. Today, it talks about principles of software process change.
+
+[00:09] So here, we may learn some principles regarding software process change.
+
+[00:16] So we will talk about these topics, processing of prospective six-phase principles for the process change.
+
+[00:24] And also, we'd like to talk about some misconceptions we may easily have.
+
+[00:31] Then we will talk about whether those things are true or false.
+
+[00:37] And also we like to talk about some strategies to implement a process change in an organization.
+
+[00:43] So when we talk about the process change, we have to relate the process to some others,
+
+[00:53] like product and quality of product.
+
+[00:56] And also we like to probably have to consider for the people.
+
+[01:01] Okay, so who will do this?
+
+[01:03] Because the software production is very,
+
+[01:08] very related to the human, right?
+
+[01:10] It is very human intensive work.
+
+[01:12] So the quality of human may affect
+
+[01:15] the quality of software product.
+
+[01:17] But we can think, then do we have
+
+[01:21] quality people in our organization?
+
+[01:23] Sometimes yes, sometimes not.
+
+[01:25] Okay, the problem is, even though you have
+
+[01:29] or good people in your organization,
+
+[01:32] but probably you may not utilize them well.
+
+[01:35] Okay? In that case, that's why you cannot have good people.
+
+[01:39] Okay? So rather than blaming we have good people or not,
+
+[01:43] something like that, you have to know how to utilize people
+
+[01:47] in your organization well.
+
+[01:48] And it can be done by many, in fact, many things, okay,
+
+[01:52] to enhance quality of people in your vision can be affected
+
+[01:58] by manufacturers like how much you manage people where, okay?
+
+[02:04] So even though they are talented, they don't know what they have to work,
+
+[02:08] what they have to do and when they have to do and what kind
+
+[02:11] of thing they have to produce while, what kind of task they do, okay?
+
+[02:15] So it's not well-organized and they are not well-informed how to do, what to do.
+
+[02:21] In that case, probably they cannot produce the product you want
+
+[02:25] at a certain time you expect and with a certain budget you expect, right?
+
+[02:31] So good management skills may affect a lot, okay, to utilize your people.
+
+[02:38] And also without training people properly with technology or methods and tools they need,
+
+[02:46] They probably, they cannot, you know, show their capabilities in, you know, appropriate
+
+[02:55] way.
+
+[02:56] So training is also very important to do.
+
+[03:00] And also you better define your process very, very, you know, standard format, okay?
+
+[03:06] You have standardized tasks and procedures and use of tools, use of methods, okay?
+
+[03:13] So people can really understand what's going on there, what they have to do, and whenever
+
+[03:18] they use these two and what is input, what is output.
+
+[03:22] Whenever they use this method, what could be preconditioned to use this, what could be
+
+[03:30] postconditioned from this.
+
+[03:32] Okay?
+
+[03:33] Sounds like that.
+
+[03:34] Okay?
+
+[03:35] So there are many factors there.
+
+[03:38] And also, this book suggests considering some methods,
+
+[03:43] including design methods.
+
+[03:45] Recently, we emphasized on very early design,
+
+[03:49] like high-level design, architectural design,
+
+[03:53] others saw the great design or detailed design.
+
+[03:59] So the detailed design, we usually call it design.
+
+[04:04] But also we have a good early design techniques in the early stage of software development.
+
+[04:16] So once you have some part of the important user's requirements,
+
+[04:24] functional requirements and also non-functionary requirements,
+
+[04:27] and then probably you can start design your system.
+
+[04:31] And you cannot wait forever to get 100% of users' requirements from the customers because
+
+[04:37] sometimes they do not know what they expect from the system entirely from the beginning.
+
+[04:43] So once you find out the most important and very important features of the system and
+
+[04:51] very important functional requirements and the very important non-functional requirements,
+
+[04:54] then you can start it, why not?
+
+[04:57] And then you may do some high-level design.
+
+[05:02] You may not do low-level detail design at this point because you don't have enough requirements
+
+[05:09] you have to know.
+
+[05:11] But you can still start high-level design with the cheap features they expect.
+
+[05:17] So some miscellaneous features may not affect much your entire structure of the system.
+
+[05:25] important features, important requirements,
+
+[05:28] important constraints in design.
+
+[05:30] Okay, for example, they like to heavily use a certain database
+
+[05:34] system, okay, in some way or in some how, okay.
+
+[05:38] In that case, probably you have to consider, you know,
+
+[05:40] what the certain software structure, okay,
+
+[05:44] that may utilize this use of a database somehow, okay.
+
+[05:50] And if they have some constraint to use web access heavily,
+
+[05:54] And then probably from the beginning, you have to think of design,
+
+[05:57] you have to design a system that may easily access web
+
+[06:02] and they can, should be secure in the web access.
+
+[06:07] And they should be the, the modify over, you know,
+
+[06:11] with different, with new events in this web technology,
+
+[06:16] something like that.
+
+[06:17] Once you fix the software development and then
+
+[06:20] if web technology is changing to the web 3.0, web 4.0,
+
+[06:26] something like that, we don't know what it is.
+
+[06:28] But it really happens because, you know, 10,
+
+[06:31] 20 years ago, we even did not hear about the term web, right?
+
+[06:41] Nobody knows what it is, right?
+
+[06:43] But with the 10, 20 years, you can see,
+
+[06:46] new technology came to us and then it changed the all other areas,
+
+[06:52] all other technologies, all other fields and it creates e-commerce that we didn't imagine at all,
+
+[07:01] you know, 15, 20 years ago or something like that.
+
+[07:03] So who knows, after 10 years ago, after this, after you created this program
+
+[07:09] and then probably you meet the, you can meet the new technology, okay?
+
+[07:13] And then you see, what is this?
+
+[07:16] We haven't heard about it.
+
+[07:18] We haven't studied about it in our computer science department.
+
+[07:22] But it really happens.
+
+[07:23] Same to me.
+
+[07:25] I have to teach something I never educated before.
+
+[07:30] I have to study by myself.
+
+[07:32] I have to teach this, because technology always
+
+[07:34] comes in this area.
+
+[07:36] So we have to cope with this new technology always.
+
+[07:39] It's our fate, as long as you take this measure.
+
+[07:44] and then we have to go with this situation, okay?
+
+[07:48] So when you design a system,
+
+[07:51] you may go many different ways.
+
+[07:52] Probably, okay, I have to develop this system
+
+[07:56] and I use it for five years very well
+
+[07:59] and I will throw it out whenever new technology comes.
+
+[08:02] Possibility, okay?
+
+[08:04] And also probably you may think,
+
+[08:06] okay, I have to reuse this existing system
+
+[08:09] and I have to know how to connect this legacy system
+
+[08:14] with the new system, something like that.
+
+[08:16] So there are many choices you can take.
+
+[08:20] So based on your resource and based on your strategy
+
+[08:26] and based on your vision score, you can decide
+
+[08:31] in which way you go.
+
+[08:34] Unless you have a good framework of software,
+
+[08:37] it's very hard to change your software structure
+
+[08:41] to another structure.
+
+[08:42] It's very difficult and it's very erroneous
+
+[08:47] and it could be very expensive to do it, okay?
+
+[08:51] But if you have a certain framework or software
+
+[08:55] which can be modifiable easily to another system,
+
+[09:00] then probably it will help you to reduce
+
+[09:04] the maintenance cost or the extension cost
+
+[09:08] or the modification cost, right?
+
+[09:10] Something like that.
+
+[09:11] Those kinds of things we can consider.
+
+[09:14] So many new technology, you can consider some method,
+
+[09:18] techniques to design the system in the early stage
+
+[09:22] of software development,
+
+[09:24] like software architecture design techniques,
+
+[09:26] something like that.
+
+[09:27] So you can consider that to have a better system, okay,
+
+[09:32] in terms of your vision scores and your resource.
+
+[09:36] So slides talks about that kind of things.
+
+[09:48] It says better people clearly do better work, but you have to also think you already have
+
+[09:57] a best team here, so you...
+
+[10:00] have to consider a good proper leadership and support to utilize them well. And
+
+[10:07] you'd better know how to use their talent. They already, your people
+
+[10:14] already have with good management skills and the support. And also the
+
+[10:24] good products is based on the good support your designs. So also you have to
+
+[10:31] consider how to use it.
+
+[10:33] And to build a good design, also you
+
+[10:35] have to consider the domain knowledge.
+
+[10:38] Without having good knowledge in domain,
+
+[10:41] it's very hard to build a good design.
+
+[10:43] And so you may work, if you're a designer,
+
+[10:47] you may work with the domain experts in that area.
+
+[10:51] So do you communicate with them and find out
+
+[10:54] the technology, the specification,
+
+[10:57] and the need requirements in that area.
+
+[11:00] and then you can build it.
+
+[11:06] Okay, there are six major principles suggested here
+
+[11:10] for the process change.
+
+[11:12] Again, major changes to the software process
+
+[11:15] must start at the top, and everyone must be involved.
+
+[11:19] And effective change requires goal and knowledge
+
+[11:22] over current process, and change is continuous.
+
+[11:26] And software change will not be retained
+
+[11:28] without conscious effort and the periodic reinforcement.
+
+[11:33] and software process improvement requires investment.
+
+[11:35] So we will look at this one by one in the next slide.
+
+[11:38] So to succeed or software process change, it needs a lot of resource in your organization
+
+[11:46] because it needs to analyze the current of your process.
+
+[11:51] So it should be done in many different ways, and then it consumes resource, people and the time, okay?
+
+[11:57] And also it may touch some sensitive things like some confidential data or something like that, right?
+
+[12:04] So, it is very important to get support from your high-level manager, not the leader manager,
+
+[12:12] role manager, even though you have a good, talented leader manager, role managers,
+
+[12:18] unless you have high managers, very high manager's support from the experience we learn,
+
+[12:26] it is very hard to succeed, process change, because it takes a lot of resources.
+
+[12:32] Not only we have to analyze our current system,
+
+[12:34] we have to find out the target, we have to go.
+
+[12:38] It is usually the high manager levels and also we have to put a lot
+
+[12:46] of resources to really implement changes.
+
+[12:50] It takes time.
+
+[12:51] It takes resource.
+
+[12:52] So without having the support from the high-level manager,
+
+[12:58] you cannot retain this effort for a long time.
+
+[13:02] Then if you do not do it, if you do not put the resource
+
+[13:06] for time being and also you have to put the resource periodically,
+
+[13:11] regularly, iteratively, okay, and then you may not do it.
+
+[13:15] You just start it, but you fail, okay,
+
+[13:18] without having resource to continue it, okay?
+
+[13:21] So if your people in the organization cannot really
+
+[13:30] recognize what is the process, what is the change of process, what is the benefit we can get
+
+[13:36] from the process change, okay? The probability to make your processes succeed is lower. They
+
+[13:48] don't know what the process, they don't know what the benefit from the processes change,
+
+[13:52] okay? So without having the cooperation of the people in the organization, it's very hard
+
+[13:58] to the sensitive things and the touch, the very important things
+
+[14:07] and also touch something that has, have a risk and touch on something that is a resource,
+
+[14:15] a lot of resource, they put the time, they put the effort, you know,
+
+[14:19] so without having their effort and their cooperation, it's very hard to do it.
+
+[14:24] So it's very important to train people about the importance
+
+[14:32] of a process change, and then we need to get the cooperation
+
+[14:36] from the entire people, okay?
+
+[14:39] And also effective change is built on knowledge.
+
+[14:46] That means to change something, we have to know what we have
+
+[14:50] to change, to learn what we have to change,
+
+[14:54] we have to know where we are at right now, okay?
+
+[14:57] If you like to go to trip, you like to go to some, the park, the national park,
+
+[15:04] you have to know where I am to look at the map and to find a way to go there, right?
+
+[15:11] So not only you have to know the target you like to go, but also you have
+
+[15:14] to know exactly the current position I have, okay?
+
+[15:18] So to change your process, you have to know what is the status of my current process
+
+[15:24] and you have to be able to find out all the problems,
+
+[15:29] advantage and disadvantage, your process,
+
+[15:33] the process exhibit right now,
+
+[15:35] and then find out some improvement point, okay, to change,
+
+[15:41] and then you can succeed.
+
+[15:43] And also, that assessment is a learning process, okay?
+
+[15:52] Once you know something, you adapt into your process
+
+[15:57] and find out you really succeed, okay, to achieve your goal with this process change.
+
+[16:07] And then you cannot just serve you, you have to know how to utilize your knowledge,
+
+[16:12] your learned lessons from the experience, and then you have to do this again and again,
+
+[16:19] okay, it's like that. And also you may have everyone has a problem, everyone has something
+
+[16:28] to improve and every organization has something to improve and there are a lot of things
+
+[16:34] in your list for process change and then you have to know which one is the most important.
+
+[16:41] You cannot touch everything at once, at one time, together because always because of a resource.
+
+[16:48] If you have enough money, that's fine, okay? But we are always in short term resource.
+
+[16:55] Using this limited resource, we have to find out how much effectively we perform this change.
+
+[17:03] Which one is the most important? Or which one may affect other others?
+
+[17:12] So if you touch something, probably that may resolve all other issues listed in the problem list.
+
+[17:22] Okay, once you you're changing one and then they in side effect of this change can
+
+[17:28] Can be affected to the some some other areas together
+
+[17:33] Okay, so you have to find out those kind of relations and which one is more important
+
+[17:38] Which one is more urgent to to do something like that and the social changes
+
+[17:48] Continues if you just start changing and if you stop it
+
+[17:53] you may learn something, you may get something at that point at least, but if you stop doing it,
+
+[18:03] then probably you may have a better than that. So the process change is a kind of a continuing
+
+[18:12] work. You have to do this again and again and again and again. So you have some kind of
+
+[18:19] iteration here. Find out problems, prioritize them, and resolve the issues based on this priority, and then
+
+[18:26] you may do some pilot,
+
+[18:29] you test using some kind of pilot system, and then find out the effectiveness of your change,
+
+[18:36] if it works well, and then probably you spread out this to the entire organization to change,
+
+[18:42] okay, just like that. And once it works, and then you go back and find out what is the current status again.
+
+[18:49] Is it effective and have you achieved your previous goal and then find out,
+
+[18:54] okay, what is the next goal then?
+
+[18:57] Okay, so in this way, you have to continuously perform it.
+
+[19:01] Even though you do not go up forever, okay, so for example, you have a certain levels
+
+[19:06] of capability and maturity and you go up to the highest level and then people may think,
+
+[19:11] okay, we are done, okay, we are free from this, so we don't need to put any resource for that.
+
+[19:16] people may think it is in that way easily but it is not sure because whenever you
+
+[19:24] you you you what is that I like to using some analogy here whenever whenever you
+
+[19:38] do not you do not put certain resource to reinforce a certain activity if you
+
+[19:45] do not put the energy okay easily the physical things can be stopped or
+
+[19:49] or it can be easily disordered.
+
+[20:01] For example, entropy explains the level of a disorder, okay, in the universe, okay?
+
+[20:10] So, for example, you clean up your room every day, right?
+
+[20:17] You clean up your room, and then after a few hours or one day,
+
+[20:22] you find out everything is screwed up again, right?
+
+[20:26] So, something like that, okay?
+
+[20:29] Unless you clean up your room every time, every hour,
+
+[20:36] every day, it will be easily in disorder.
+
+[20:41] Okay? So all the physical things have their properties.
+
+[20:46] Without putting the resource
+
+[20:50] and without having reinforcement,
+
+[20:54] usually the other things can be disordered.
+
+[21:00] So it is a kind of a natural gain.
+
+[21:08] So in the same way, if you do not put to re-impose your process change in your organization,
+
+[21:16] it is easily go back to the low level.
+
+[21:21] Easily it is go back to the low reach capability level because of this profitable entropy.
+
+[21:32] So this entropy property works with this keyword and process change also.
+
+[21:43] At this level, how do you know what you need to change?
+
+[21:47] I'm sorry?
+
+[21:48] At this level, how do you know what you need to change?
+
+[21:50] At this level, how do we know what we have to change?
+
+[21:54] Question, right?
+
+[21:56] How do you know a certain level you mentioned?
+
+[21:59] You probably have some kind of benchmark, okay?
+
+[22:03] or certain model to compare your process to this benchmark.
+
+[22:08] And then you may find out where I am, at which level we are at.
+
+[22:14] Without having the kind of model you can compare, it's very hard to do it.
+
+[22:20] Without having the kind of standard, how do I know where I am?
+
+[22:25] You don't need to know actually much, okay, without having that.
+
+[22:29] So, for example, if you have certain things like certain models, we like to follow, okay,
+
+[22:36] for example, or same MI model, for example.
+
+[22:39] And then you can compare the process of your organization and your practices you're done
+
+[22:46] in your organization with the practice defined in the same MI model and then find
+
+[22:50] out what you do and what you do not do right now, okay.
+
+[22:56] So with this kind of a comparison, you can easily find out your status and also you can find
+
+[23:04] out what can be improved, which means what you have not done right now yet, okay?
+
+[23:12] And then that practices are your improvement point, is it clear?
+
+[23:20] Anything else?
+
+[23:22] We have questions?
+
+[23:24] Okay, again, this talks about continuous reinforcement.
+
+[23:48] Even though you try to do some process change, you cannot maintain this
+
+[23:55] without having the continuous reinforcement, okay?
+
+[24:01] And then this slide talks about certain four stages to adopt a new process method, okay?
+
+[24:13] So this is installation stage and practice stage
+
+[24:16] and the proficiency stage and naturalist stage.
+
+[24:19] So, whenever you adopt a new technology, for example, you like to drive a car, okay?
+
+[24:25] So, you became to the certain age in the high-level student, and your parents allow you to drive.
+
+[24:33] Okay, you can get drive license to drive, okay?
+
+[24:39] And then, you learn how to drive, at least, right?
+
+[24:45] So, okay, you study how to drive.
+
+[24:46] And then you need to, once you know how to drive and then you have to practice, okay?
+
+[24:54] If you know how to drive, if you drive out your car to the road, what happens?
+
+[25:02] We have some action happen easily, right?
+
+[25:04] So you have to do some practice before you really go to the real road, right?
+
+[25:10] So you have to adapt this new technology and also you have to practice where, okay?
+
+[25:18] And then once you practice it and you're confident to drive and you go to, you drive your car on the road
+
+[25:24] and you go this way and that way and everywhere, and then you are very confident. You are very, you feel
+
+[25:31] comfortable, okay, to do it. And then you are proficient, okay, to drive at this point.
+
+[25:38] And then, first time, probably you just look at the load,
+
+[25:43] the front always, and then sometimes you look at probably some, you know,
+
+[25:50] the back mirror or side mirrors, but you cannot do anything else, you know,
+
+[25:54] you should be very careful, you know, without losing this focus, you can easily
+
+[25:59] make an accident, right? Later on, you are very comfortable, you are
+
+[26:06] fresh, you are in the proficiency stage, and then you are very comfortable to
+
+[26:13] And now while you're starting talking with your family,
+
+[26:17] you are listening to the music while you're driving
+
+[26:21] and you can drink something, you know,
+
+[26:24] while you're handling with one hand,
+
+[26:26] something like that, right?
+
+[26:27] So it goes to the next stage, the nature of this, okay?
+
+[26:33] So this is kind of stages,
+
+[26:36] the human adapt new technology, okay?
+
+[26:40] So it applies to the software development, it applies to the adoption
+
+[26:46] of a software technology, software method, and the software tools you use
+
+[26:51] in the software production too.
+
+[26:53] So whenever you, to learn to use new tools, new methods, new programming languages
+
+[27:00] to use, new web technology to use, okay, new database to use, something like that,
+
+[27:06] usually people go through these four stages.
+
+[27:09] And then process change need a time as key and the money, okay?
+
+[27:25] So you need some dedicated people to follow this process change without having them.
+
+[27:33] It's very hard to succeed.
+
+[27:34] And also you need to have a good planning.
+
+[27:37] Whatever you do, you don't have a good plan.
+
+[27:40] Without having plan, you don't know what you have to do.
+
+[27:42] Even though planning does not work well and you may not follow your plan
+
+[27:50] exactly, but it is fine. Still you need some kind of plan rather than nothing, okay?
+
+[27:57] And also you need to put some time and management and investment. Also whatever
+
+[28:15] you do in the manufacturing, you have to put a lot of effort to do it. You have
+
+[28:20] to prepare, you have to build a plan, you have to design and you have to select the tools to do it
+
+[28:26] and you have to specify how to control it and the same thing happens in the software change
+
+[28:33] and software development. Whenever you do it, you have to know who will do it and what kind of
+
+[28:38] tools to use and what you have to do and how to control your work based on your plan.
+
+[28:48] Okay, initially you have.
+
+[28:49] So next slide also talks about the planning.
+
+[28:56] Planning is very important to have in the beginning.
+
+[29:01] And based on this plan, you can better monitor
+
+[29:07] and control your activities.
+
+[29:09] And automation should be certainly be used
+
+[29:18] to reserve the high priority problems,
+
+[29:20] but either effort should be wasted
+
+[29:22] until cleared effort process application is available.
+
+[29:26] So to automate things, everything, you should have a clear definition of the process
+
+[29:32] and also you should consider the priority, okay?
+
+[29:38] We mentioned about those kind of things.
+
+[29:41] And improvement should be made in small steps, okay?
+
+[29:44] Whenever you go up to the mountain, have you often go up to the mountain, okay?
+
+[29:54] So if you go up, what do you have to do?
+
+[30:01] I suggest people, whenever we go up the crime mountain,
+
+[30:07] okay, whenever you go up, it's very important
+
+[30:10] to have a small test, but a little bit, you know,
+
+[30:14] the work particularly.
+
+[30:16] Rather than having, you know, the rules like this,
+
+[30:19] you know, once you do this, you know,
+
+[30:21] when you crime mountain, you can easily feel the tired, okay,
+
+[30:26] and you have to give up, okay, before you achieve your goal.
+
+[30:31] So in the same way in the past change, we have to go through the small steps
+
+[30:38] because if you change a lot in your behavior, in the behavior of your organization and method,
+
+[30:45] and if you change a lot in your, and then people cannot easily understand what's going on,
+
+[30:53] cannot understand what they have to do, okay?
+
+[30:56] So also it is very hard to change in that way.
+
+[30:59] And naturally, people don't like change, right?
+
+[31:03] If your family asks something to do in the holiday,
+
+[31:09] what is your response?
+
+[31:11] Some good people say, yes, I can do it.
+
+[31:13] But some people, I don't like to do it.
+
+[31:16] I like to take rest.
+
+[31:17] You know?
+
+[31:18] It's really natural, you know, the people.
+
+[31:20] And also, if somebody asks you to do something
+
+[31:23] you have not done before or you do not do it usually,
+
+[31:29] Or if it requires you to change something, then you usually do, then probably you don't like it.
+
+[31:40] So it's very natural. People do not want to change. So the changing step cannot be done with the big steps.
+
+[31:49] It's very hard, and you can do it, but the failure rate could be more, the higher and
+
+[31:58] higher than going with the small steps.
+
+[32:04] Training is very important, and many organizations ask people to do something new without having
+
+[32:17] training.
+
+[32:18] Then they will have a hard time to do it, right?
+
+[32:22] if I ask you to do certain homework in this organization, okay, do this, do this in the homework
+
+[32:27] and submit it without giving any good specifications, without giving you any step how to do it,
+
+[32:34] without giving you a certain resource you have to read to prepare for doing that, okay,
+
+[32:39] then it's very hard to do it.
+
+[32:41] Same thing, in your organization, if you like to do something, if you like to change something,
+
+[32:45] you have to teach them how to change it, you have to train them, okay,
+
+[32:50] how to use new tools, new methods.
+
+[32:54] So the training is very important
+
+[32:56] and the training is a good investment for many things.
+
+[33:03] Okay? Then let's talk about some common misconceptions
+
+[33:17] about the software process.
+
+[33:19] We have some statements here and then let's find
+
+[33:22] out whether those statements are true or false.
+
+[33:26] Okay? We must start with form requirements.
+
+[33:30] If it passes a test when you develop the software under development now, it must be okay.
+
+[33:43] If it passes a test, it might be okay.
+
+[33:46] And software quality cannot be measured.
+
+[33:50] And the problems are technical, mostly in the organization.
+
+[33:53] If you have a problem, the most of the problems are technical problems, then non-technical
+
+[34:03] problems.
+
+[34:04] We need better people.
+
+[34:05] We always need better people.
+
+[34:08] And software management is different
+
+[34:11] from other management in other production.
+
+[34:14] Okay, so how many of those statements are true?
+
+[34:21] So we have six statements here.
+
+[34:25] Okay, so let's vote.
+
+[34:29] All six statements look true.
+
+[34:33] How many of you think they are true?
+
+[34:35] I just asked one by one, so six, all six statements are true, nobody, okay.
+
+[34:47] And then five statements are true among them.
+
+[34:51] I don't know, not all of them, but probably some of them might be true.
+
+[34:57] More? Or still one?
+
+[34:59] Okay. Four statements among them are true.
+
+[35:03] One, two, three, four, five, six.
+
+[35:06] and three statements are true at the least.
+
+[35:14] One, and two statements are true.
+
+[35:18] One, two, three, four, five, six,
+
+[35:21] and one statement only true.
+
+[35:26] One, two, three, four.
+
+[35:29] Gerald's statement is true.
+
+[35:33] One, two, three, four, five, six, seven.
+
+[35:36] Okay, good.
+
+[35:37] Let's look at answers.
+
+[35:41] Okay? Each one is checked. Let's look at one by one. We must start with the form requirements. Okay, let's discuss.
+
+[35:49] We must start with
+
+[35:52] form requirements, like 100% requirements, or
+
+[35:57] 90% of requirements at least we can start, or
+
+[36:02] 60% of the requirements we can start. What do you think? Is it false? Do you think? Why?
+
+[36:08] Because usually at the beginning, the people don't even know what they want.
+
+[36:13] What they want?
+
+[36:14] And the requirement for...
+
+[36:15] Some people may know, but some customers may know, but some customers may not know, okay?
+
+[36:22] Because the requirement changes depending on the environment.
+
+[36:25] Okay. And also, they may change their requirements once they say,
+
+[36:29] okay, this is mighty common, but they may change later. That's possible, okay?
+
+[36:35] And what else? Any other opinion here?
+
+[36:41] It depends on the size of the product, yes, that's true too.
+
+[36:47] If the product size is very small and very easily understandable,
+
+[36:56] then probably you can start with 100% of the requirements,
+
+[37:03] not 100% but 90 at least, so it depends on problems again.
+
+[37:09] And what else, what other cases you meet in your experience?
+
+[37:13] Okay, so with, you know, the major opinions here, it's very hard,
+
+[37:28] we can think it's very hard to start building system with 100%
+
+[37:34] of requirements from the beginning, okay?
+
+[37:37] Sometimes we have a skill, we may have some chances
+
+[37:41] to change the current later, again.
+
+[37:45] So that's what it's, if I ask it's true or false,
+
+[37:50] probably you have to say, oh, it may be false.
+
+[37:53] But, you know, we have to find out what is the nuance here,
+
+[37:59] what the context, okay, through this statement, okay?
+
+[38:05] So this kind of statement could be a kind of a misconception,
+
+[38:10] in front of a misconception we may have.
+
+[38:16] And we must start with the same thing, okay?
+
+[38:25] And then next statement says,
+
+[38:28] if it passes, it must be okay, what do you think?
+
+[38:37] Here in means product, software, system, hardware,
+
+[38:42] whatever, the product we like to build now, okay?
+
+[38:45] So if this product passes, is it okay?
+
+[38:51] Do you think so?
+
+[38:52] No, why?
+
+[38:53] Before you need to refine who is testing the results, because if the same people who develop,
+
+[39:00] of course it will pass.
+
+[39:04] That's a good point, but not always 100% sure.
+
+[39:10] Even though the same person tested, they may find out errors in testing.
+
+[39:20] testing. So yes, probably they may easily disregard errors because they used that code. They believe
+
+[39:28] this code is working. So without having good test cases carefully built based on the requirements,
+
+[39:35] we are then probably easily they miss it. Yes.
+
+[39:37] It depends on the attributes. At some time we're using the standard attributes to test
+
+[39:43] the model. It may be possible it cannot work on some other attributes we are using afterwards.
+
+[39:50] Okay, so you're using some certain tools, certain standards, okay?
+
+[39:56] maybe the testing levels depending on the
+
+[40:00] of different testing errors, you may find the errors, you may not.
+
+[40:04] So, the conclusion is here, depending on the testing error,
+
+[40:09] sometimes we may not find out all the errors, okay?
+
+[40:12] Does it say that?
+
+[40:17] Maybe the reports can be, you know, it says if it doesn't pass,
+
+[40:26] then it may have an error, right?
+
+[40:30] That could be true statement, but if we say,
+
+[40:35] If it passes test, it must be okay.
+
+[40:39] Sometimes yes, sometimes not.
+
+[40:41] So we cannot say this is always true.
+
+[40:49] Okay. And there is no way, you know, we can find, there is no way to say,
+
+[41:00] there is no way to prove this statement.
+
+[41:03] There is no book in this product.
+
+[41:06] We cannot, we cannot prove this.
+
+[41:08] We cannot prove there is no book in the product.
+
+[41:11] Okay? There may be folks in this product right now, but we do not know yet.
+
+[41:21] We have not find it out yet.
+
+[41:26] Okay? So then, how much do we test?
+
+[41:36] How much do we have to test?
+
+[41:38] So we test again, test again, test again, okay?
+
+[41:41] Find out some errors.
+
+[41:42] Sometimes we do not find out any errors anymore, but how long does it take?
+
+[41:48] How much effort, time we have to put, how much resource people we have to put in testing?
+
+[41:55] It depends, it depends on, but, you know, we have to consider.
+
+[41:59] Right, testing is a never-ending process.
+
+[42:01] Right, never-ending process.
+
+[42:03] It doesn't pass for you, it doesn't pass for me.
+
+[42:05] You're right.
+
+[42:06] Okay, so we have to consider our resource, the availability of our resource.
+
+[42:13] So, and also we use some kind of historical data, okay, and whenever you view this work
+
+[42:21] with the level of testing, with the level of our expertise.
+
+[42:27] Once we have done this much, probably it's okay to get the entire errors embedded there,
+
+[42:39] but much is safe right now, okay, once we have done this much based on the resource.
+
+[42:46] And also, it depends on the system we built.
+
+[42:50] If that system is highly critical to the human life, okay,
+
+[43:01] if it is very, the, related to the, you know,
+
+[43:07] some human life, like medical systems,
+
+[43:12] or if this system is too much expensive, you know,
+
+[43:16] once we lose it, you know, we lose a lot, okay,
+
+[43:20] Then we have to put more money, more resource,
+
+[43:24] probably we will put some kind of a formal method
+
+[43:28] to prove, okay, more formally, okay, more correctly,
+
+[43:33] even though we put a lot of resource there,
+
+[43:35] still we have to do it.
+
+[43:38] If it is not a life-critical system, okay,
+
+[43:43] and then probably even though we have some errors there,
+
+[43:47] we just say, oh, there is an error, that's fixed it,
+
+[43:50] That's enough, right?
+
+[43:51] So we don't need to spend a lot of time to fix it, okay,
+
+[43:58] with our current resource.
+
+[44:00] So it depends on the system you build.
+
+[44:03] And the next statement says,
+
+[44:11] software quality cannot be measured, okay?
+
+[44:16] So we talked about the software quality last time a little bit,
+
+[44:19] and then like the security, maintainability,
+
+[44:22] modifiability, those kinds of things, right?
+
+[44:25] So, is it true, can you measure those software quality or opinions?
+
+[44:42] Can you measure software quality?
+
+[44:48] Yes? Okay, how?
+
+[44:49] You can measure like, like, testability or security, performance.
+
+[44:59] As some of the companies, we have people to measure the quality of software, and they asked for, like,
+
+[45:07] normally one cylinder could like to only have seven errors of software.
+
+[45:14] So if you have the errors more than seven, it means that there is another potential seven errors in software.
+
+[45:22] In the software?
+
+[45:23] Yeah, so it's the potential, I think, for software.
+
+[45:26] If you find out more errors, you think probably there are more hidden errors inside rather
+
+[45:32] than thinking, oh, we found enough errors, seven errors already.
+
+[45:36] There may be only three errors inside, so we are done.
+
+[45:40] Okay, so there are two different ways to go.
+
+[45:42] If you find a lot of errors, you may think, okay, we found almost errors.
+
+[45:48] Or if you find a lot of errors, you think there might be a lot of errors embedded here
+
+[45:55] we haven't found out yet, because we found the number of errors this much or probably
+
+[46:03] we have too many errors in the product. So there are many different ways to think,
+
+[46:08] but usually the argument is usually taken. Whenever we think, whenever we find out a lot
+
+[46:18] of errors, we should think, okay, there are a lot of errors inside already. And if it is not
+
+[46:24] Usual and then we can think probably something's wrong in our process right now. We do
+
+[46:30] Okay, that's what it happened
+
+[46:32] We also when we developed a very similar system in the last year in the last project
+
+[46:37] we found at this stage in the in the purely of you for the
+
+[46:43] Loader with design we found only okay three errors per
+
+[46:48] Pages, but now we found the ten errors per page in the
+
+[46:52] design document then we have to suspect probably something is wrong in our
+
+[47:00] process that's what it happened rather than thinking we found a lot of errors
+
+[47:04] that's enough to go next okay there there are someone who likes to talk no I
+
+[47:17] think that only the number of errors is not enough to determine that right there
+
+[47:22] there are there are a lot of other factors yeah because maybe you have any
+
+[47:25] by the program don't display, you know,
+
+[47:28] don't output what they're supposed to display.
+
+[47:30] Right. Not only number of errors,
+
+[47:32] we have to consider some kind of rate,
+
+[47:34] like how many errors you found in a certain amount
+
+[47:39] of time in testing or the review for inspection
+
+[47:43] and how many the errors is found by one inspector
+
+[47:50] and how many hours each inspector used
+
+[47:55] in preparation of a review, there are a lot of things
+
+[48:00] to consider actually, you know.
+
+[48:03] So, it is hard to say or pick up any one measure
+
+[48:10] to measure all quality attributes, okay?
+
+[48:14] And it is very hard to find the one metric
+
+[48:18] to tell information about even one quality attribute,
+
+[48:23] but we may have several set of metrics, you know,
+
+[48:27] to guess, to start guessing or to start statistical inference to find out the quality of a product.
+
+[48:36] There are many problems occurred in your organization, and then probably you may
+
+[48:48] easily think the problems, most of the problems are technical problems. But the research says
+
+[48:57] the quality problems of most software innovations are not technical problems, okay, not only
+
+[49:12] technical problems. So not only you consider how to reduce errors in the technical things
+
+[49:19] like coding, game testing, game reviewing, but also you have to consider many other things
+
+[49:26] like how to manage the process, how to control process,
+
+[49:30] how to plan process, how to estimate it,
+
+[49:33] and how to arrange the resource, okay, on time,
+
+[49:40] you know, appropriate way, you know, appropriate places.
+
+[49:46] Okay, we need better people, yes, it is always,
+
+[49:49] it looks always true, but, you know,
+
+[49:52] we cannot say it is always true,
+
+[49:56] because you may have better people right now already.
+
+[50:00] but you don't know how to utilize them.
+
+[50:03] That's what has happened, okay?
+
+[50:10] And the software management is different, okay?
+
+[50:15] Maybe some part of that statement is true.
+
+[50:18] Software has some different characteristics
+
+[50:21] from the different other products,
+
+[50:25] like car or hardware, computer, or something else, right?
+
+[50:30] But it is a very human intensive product.
+
+[50:35] The human is very involved in building this software product
+
+[50:43] than others.
+
+[50:44] The hardware can be more easily, fastly built by the automation
+
+[50:52] of that process.
+
+[50:54] But the many part of process in software production
+
+[50:59] needs human resource.
+
+[51:02] People are doing something.
+
+[51:04] So the role of a human is very important in software products.
+
+[51:10] So yes, maybe we have to consider carefully
+
+[51:15] the different characteristics of software development
+
+[51:19] from the other product.
+
+[51:21] But still, also, we can use many good techniques,
+
+[51:28] management techniques, control techniques,
+
+[51:30] and like statistical control techniques used
+
+[51:35] in the hardware production, okay,
+
+[51:38] other production engineering, we can adapt this
+
+[51:43] into software engineering, okay,
+
+[51:47] to the control and monitor the process
+
+[51:51] of software development, too.
+
+[51:54] Okay, then we talk about some basic principles
+
+[52:03] And we talk about some misconceptions we may have
+
+[52:09] easily in software production and software process change.
+
+[52:14] And at last we talk about strategy
+
+[52:17] for implementing software process change.
+
+[52:21] So an effective change in process has three phases,
+
+[52:28] unfreezing and moving and refreezing.
+
+[52:31] Okay, so whenever you like to cook your meat, what you have to do?
+
+[52:38] You have to take it out of your meat, you already bought and put it in the fridge later,
+
+[52:45] and you have to take it out, right?
+
+[52:47] You have to take it out, and you have to unfreeze it to cook it easily,
+
+[52:51] and then you do some cooking, and if you do not spend all, you have to refreeze it,
+
+[52:59] It sounds like that, so it's same, very similar thing happen here, you have a process right now,
+
+[53:06] you, the process is well set up and it's working well, okay, but still you find
+
+[53:12] out something we have to change, right, and then you stop process and then find
+
+[53:18] out what's wrong here, and then do some diagnosing and find out some problems to solve,
+
+[53:28] And then you perform some actions here to change the process.
+
+[53:33] And then you have to refreeze it to work in a normal way best, right?
+
+[53:44] And then you may have some like champions.
+
+[53:51] There are some people who are called like champions.
+
+[53:57] They are the people who initiate the process change.
+
+[54:04] And also there should be some change agents
+
+[54:08] who really implement this change activities.
+
+[54:12] Your organization.
+
+[54:16] And this slide talks about three key elements
+
+[54:21] of effective change.
+
+[54:23] Planning and implementation and communication.
+
+[54:26] You need to have a good planning
+
+[54:28] good planning for the process change and also you have to implement it well and also you communicate
+
+[54:37] this. Everybody should understand what's going on here. Everybody should understand what's the value
+
+[54:43] to change this and what they have to do. What are their role in this process change. To make a
+
+[55:06] A process change to succeed is good to have a public friends.
+
+[55:12] So everybody understand, okay?
+
+[55:15] Not only few people understand what's coming here and do this, okay?
+
+[55:22] Everybody should understand what's going on and what they have to do.
+
+[55:25] So each different roles, they have different people may have different roles,
+
+[55:30] okay, playing this process change.
+
+[55:32] And also, it's good to have a periodic progress report,
+
+[55:37] not only report to the high manager who are supporting,
+
+[55:41] who are sponsoring your process change,
+
+[55:44] but also people should understand.
+
+[55:46] So early demonstration of success is very important,
+
+[55:50] so people find out how much this is good to do,
+
+[55:56] and then they can be more willing
+
+[56:00] to participate in this process chain, okay?
+
+[56:10] Okay, so once you are done, you find out problems
+
+[56:16] and fix it and implement it, and then you start doing,
+
+[56:23] going back to the normal process by having new processes
+
+[56:29] incorporated in your, okay.
+
+[56:37] Through that, we need to do something like we have
+
+[56:41] to retain the management team that is to institute the change.
+
+[56:48] Like if you're the process engineering team did this
+
+[56:53] and once you are done some process change, do not,
+
+[57:00] do not destroy this team entirely.
+
+[57:05] You better keep some people.
+
+[57:06] It's not necessary to have an old resource, okay, once your process is going well.
+
+[57:14] At least you need to keep certain portion of those people, okay, who will understand about this process change,
+
+[57:21] and then what is the source tap, and what can be done, and then using those resources,
+
+[57:29] you will maintain this, you will reinforce this, okay, continuously.
+
+[57:34] And also, you need to modify your organization procedure.
+
+[57:38] Once you know what kind of change you have to do,
+
+[57:42] and once you test this, it works well, then you have
+
+[57:45] to change your procedures, your tasks, your process formally,
+
+[57:48] so everybody, you know, should adopt.
+
+[57:52] And that covers measurement and incentives, okay?
+
+[57:55] How do you know your process change is succeed?
+
+[58:01] Okay, so you have to have some kind of objective way
+
+[58:04] to measure this success and objective way to measure
+
+[58:09] of the normal operation, okay, with this change in the process, okay.
+
+[58:18] So it's good idea to have a certain way of measurement and analysis to find
+
+[58:23] out whether your process is going where right now.
+
+[58:27] And also, you have to find out what is the way you have to go, okay?
+
+[58:36] And then you can manage and monitor your progress based on that.
+
+[58:43] And set up dedicated steps to monitor and support the performance,
+
+[58:50] and we need to establish an education and training program to import this to all people.
+
+[58:59] Okay, that's all we have, we talk about the process change,
+
+[59:04] principle of process change.
+
+[59:05] Any questions for that?
+
+[59:11] Good timing, okay?
+
+[59:18] Understandable, okay?
+
+[59:21] So what we have studied today,
+
+[59:22] we study about the principles of process change,
+
+[59:25] we talk about it, and we talk about some kind of,
+
+[59:28] some consideration, principles of process change,
+
+[59:33] and we talk about some misconceptions usually we get,
+
+[59:38] And we talk about what we have to consider in the process change in the organization, okay?
+
+[59:46] Okay, we start the lecture here.
+
+[59:50] And I'd like to give you a chance to ask anything about homework or working.

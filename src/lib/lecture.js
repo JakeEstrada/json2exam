@@ -1,5 +1,5 @@
 const SCRIBE_RE = /^\(Transcribed by TurboScribe\.[^)]*\)\s*$/i;
-const AUDIO_NAME_RE = /\.(mp3|wav|m4a|ogg|webm)$/i;
+const AUDIO_NAME_RE = /\.(mp3|wav|m4a|ogg|webm|mp4|mov|mkv)$/i;
 const CUE_RE = /^\[(\d{1,2}):(\d{2})(?::(\d{2}))?\]\s*(.*)$/;
 
 export function lectureSeconds(min, sec, hour) {

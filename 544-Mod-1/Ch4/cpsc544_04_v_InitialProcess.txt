@@ -1,0 +1,945 @@
+cpsc544_04_v_InitialProcess.mp4
+
+[00:00] let's go back to the initial process.
+
+[00:11] So in this, so we like to talk about the sub-path
+
+[00:17] is the nature of initial process.
+
+[00:20] So what kind of characteristics can see
+
+[00:24] the organizations which is at the initial process level.
+
+[00:30] And we like to talk about what could be a chaotic project.
+
+[00:35] What kind of characteristics you can find
+
+[00:37] from the chaotic project, which are learning
+
+[00:41] at the initial process level,
+
+[00:44] and why software organizations are chaotic,
+
+[00:48] and how can we improve this, okay?
+
+[00:51] How can we advance from this initial process level
+
+[00:55] to the next level, upper level?
+
+[00:59] And then we talk about how can we get rid of this.
+
+[01:04] Okay, so these are the names of the levers in the Humphrey book,
+
+[01:18] which is very similar to the CMMI border levers,
+
+[01:23] but there are some differences.
+
+[01:26] So in the Humphrey book, originally we had these levers
+
+[01:33] when you start with the idea of CMM before we had the CMMI.
+
+[01:39] One is initial, okay, and two is repeatable, three is defined, four is managed, five is optimizing.
+
+[01:50] The reason to have these names, we have some, actually some regions to have those names,
+
+[01:57] okay, like that, okay, in each level.
+
+[02:00] So we will see why they are putting name like that.
+
+[02:06] Today we start learning about initial, initial process level.
+
+[02:11] So in the initial level, these are characteristics.
+
+[02:19] The one work we use for this initial level organization is they don't have any good prediction
+
+[02:31] of the work, they don't have a good planning, they don't have a good estimation, okay,
+
+[02:36] have some but it is not systematic, okay, it is not always done, okay,
+
+[02:42] and it is not well planned, okay.
+
+[02:45] Sometimes they do very well, okay.
+
+[02:54] Sometimes they do very well, sometimes not.
+
+[02:57] They have good engineers and then probably they, they, okay.
+
+[03:07] So that's why they, they commit their, their time and day to produce a product.
+
+[03:14] Times they don't, okay, because they don't have that kind of, at that time.
+
+[03:23] So, unfortunately, they couldn't make it, even though everything is fine,
+
+[03:29] but sometimes they cannot make it because of some outside reasons, okay,
+
+[03:33] region outside of organization.
+
+[03:36] If something happens, those organizations
+
+[03:39] are very phrasal, could be broken easily
+
+[03:44] because it is not well set up.
+
+[03:47] Their organization is not stable.
+
+[03:49] Their process is not stable.
+
+[03:51] So if something happens inside or outside,
+
+[03:56] or if they like to incorporate certain tools to use,
+
+[04:01] if they use a certain technique to develop certain products,
+
+[04:07] In that case, the process is easily broken, okay, very fragile.
+
+[04:12] So, you know, the variation of their work is very high.
+
+[04:20] Okay, so sometimes good, sometimes bad.
+
+[04:22] With this test of organization, okay, and then what kind of thing we need to improve?
+
+[04:31] So we suggest four things, mainly.
+
+[04:37] First of all, it's good to have a planning and estimation in the organization, okay.
+
+[04:42] These will have some good systematic way of planning and estimation.
+
+[04:48] Secondly, we suggest to this organization to have the good way of turning in
+
+[04:57] country projects and their people when they build.
+
+[05:06] We suggest them to have a good way to manage the changes.
+
+[05:18] So whenever they have different versions of change of hardware and software and the product,
+
+[05:24] it's a good idea to have a similar way to manage these changes.
+
+[05:29] So everybody knows in the organization what is changing
+
+[05:32] and what version they are working with right now, what is the baseline of their product.
+
+[05:42] And the fourth, we recommend them to have a good way to control their colleagues
+
+[05:50] from which they can judge whether their process is doing well based on the standard they follow,
+
+[06:04] the standard procedure, standard way of working, standard format, standard product, okay?
+
+[06:12] So with having these four minimum, of course those are minimum activities they should have to stabilize their process, okay?
+
+[06:26] And then they can go up to the next level, repeatable.
+
+[06:30] As the title says, this level of organization is repeatable,
+
+[06:38] which means they can repeatedly do the work in the appropriate way
+
+[06:46] by producing at the level of coming here.
+
+[06:54] They did excellence sometimes.
+
+[06:57] They did a very long time, it is repeatable.
+
+[07:02] Having those four basic activities produce product time,
+
+[07:12] and they can build certain products repeatedly.
+
+[07:17] So something is guaranteed here.
+
+[07:20] So your customers can believe you produce the same quality you built last time.
+
+[07:28] So this is the second level of organization.
+
+[07:30] But at this point, here, you may use some informal and adult process methods and procedures.
+
+[07:39] So even though you have a good basic mechanism of planning and control,
+
+[07:47] your PIP and having some change management and quality control,
+
+[07:51] but still your process is not very standardized in the organization or wherever.
+
+[07:57] So people cannot understand exactly how all these mechanisms are organized well in the
+
+[08:03] organization.
+
+[08:04] To go up to the next level, to the higher level, good to standardize all your procedures,
+
+[08:14] your activities, your work product to produce in each activities.
+
+[08:19] And it's good to have a standardized way of using tools and methods.
+
+[08:24] So everybody can understand what they have to do, when they have to do, what they have
+
+[08:29] to produce, using which tools, using which method.
+
+[08:33] Of course, each project has different characteristics.
+
+[08:38] So you have a chance to customize it.
+
+[08:42] You may not use a standard procedure.
+
+[08:44] You may not use a standard process entirely, 100% always, with different types of projects.
+
+[08:53] So you are allowed to customize to a specific project.
+
+[09:02] So everybody knows, get customized also.
+
+[09:06] So you do not customize it as you want, whatever you want.
+
+[09:10] You have to customize it by following the customization procedure defined already in the organization.
+
+[09:18] So it makes you keep to produce a certain amount of work product minimally you have to
+
+[09:28] produce.
+
+[09:29] It tells you minimum of work to produce product.
+
+[09:35] It tells you minimum of requirement to produce a quality product.
+
+[09:42] To do that it's good to have a good resource.
+
+[09:48] people dedicated to to do this work like a process engineering group okay so
+
+[09:57] there should be certain people
+
+[10:00] take care of all this business in your organization, okay, full-time. And also
+
+[10:06] it's good to establish methods and tools in your organization. So people can know
+
+[10:15] whenever they like to learn new techniques, whenever they like to
+
+[10:19] incorporate new techniques, new methods, new tools to build a new product
+
+[10:25] in a new project, they have to know a certain systematic way to incorporate
+
+[10:30] this tool without changing too much of your process, existing process, without affecting
+
+[10:38] too much your existing process.
+
+[10:40] So your process is very stabilized here at this point.
+
+[10:49] Once you do this one and then you go up to the river, define the process.
+
+[10:53] So we define the standard procedures, process activities, that's why it is define the process.
+
+[11:01] So in this way, you can remember why they are calling this office level defined.
+
+[11:10] At this point, we have them much.
+
+[11:13] And then this is good.
+
+[11:17] In this level, if your organization is working at this level, it's great, it's still good.
+
+[11:25] But you like to do something better, something more than that.
+
+[11:30] you like to go up to the next level, then what you can do? Probably at this point up to this
+
+[11:37] point we did some decision making or we controlled our project without using the measurement.
+
+[11:53] If you like to go up to the next level, it's probably a good idea. It's a good time to
+
+[11:58] to use a measurement here.
+
+[12:00] Before you go up there, when you do the project planning
+
+[12:05] and the project planning and estimation
+
+[12:09] and the project monitoring and controls here,
+
+[12:13] you might collect already some data.
+
+[12:17] And you might use some data here, partially,
+
+[12:21] to do something.
+
+[12:22] But whenever you go up to the next level,
+
+[12:25] you are required to use this measurement analysis
+
+[12:28] to at least to all the key process areas, which are emphasized importantly in your organization.
+
+[12:38] So select a few.
+
+[12:41] If you apply this to all process areas, that's great, but cost is very high.
+
+[12:47] So you may select a few of them and which are the key process areas, very important process
+
+[12:54] areas.
+
+[12:55] By controlling this, using a quantitative approach, probably you can reduce cost and improve quality a lot.
+
+[13:02] And you can control people well, you can control quality of product well, and then, okay, that's great, right?
+
+[13:09] So at this point, you start systematically using measurement.
+
+[13:15] You already used some measurement already, okay, in the low levels. You did something.
+
+[13:19] From here, if you would like to go up to the next level, when you manage your project, definitely you need this measurement analysis to decide objective decision-making, to build objective decision-making.
+
+[13:37] Okay, and then you will go up to the next level,
+
+[13:43] level four, manage the level.
+
+[13:45] Okay, then in the CMMI it says
+
+[13:51] collaboratively manage the process level, right?
+
+[13:58] You are actually, okay, you're almost the perfect now.
+
+[14:05] You're doing very well, okay?
+
+[14:08] But you like to go up to another stage, okay?
+
+[14:13] If you like to go up to another stage,
+
+[14:15] Then it's good to have some challenge
+
+[14:19] to support the measurement analysis, like the automatic.
+
+[14:23] You can make a measurement analysis like some of automatic.
+
+[14:27] So you can reduce errors in data collection
+
+[14:30] and the manipulation of data.
+
+[14:33] And also you can automatically generate
+
+[14:35] many informative indicators to use.
+
+[14:38] Also, up to this point, we talk about the quality of product.
+
+[14:45] We talk about the quality of product.
+
+[14:47] How can you improve quality of product yourself?
+
+[14:50] But whenever you go up to the next level,
+
+[14:53] which is the highest level,
+
+[14:55] you are expected to control your process itself.
+
+[14:59] Process.
+
+[15:00] So up to this point, we control the quality of product.
+
+[15:03] We like to improve the quality of product.
+
+[15:05] How can we control the quality of product?
+
+[15:08] But when you go up to the highest level,
+
+[15:10] you are expected to control your process.
+
+[15:13] You know what you have to change in your process
+
+[15:17] And how can you improve your product?
+
+[15:21] And what are the major problems you have in your organization?
+
+[15:24] You are at the level to find out those major problems,
+
+[15:30] find out those problems,
+
+[15:31] and you will be able to collect those problems.
+
+[15:34] Once you collect those main problems,
+
+[15:37] you can solve most of the problems, okay?
+
+[15:41] So you are in the great situation, okay,
+
+[15:48] to control both the product and the product by yourself.
+
+[15:54] So in this way, we are learning how to improve our process,
+
+[16:04] how to control our process, how to define process,
+
+[16:07] how to manage the project,
+
+[16:09] how to produce good quality product,
+
+[16:12] how to improve our process.
+
+[16:16] Okay, so the highest level is optimizing process, okay.
+
+[16:29] And then probably you have a question,
+
+[16:35] where is our organization right now, if you work right now,
+
+[16:40] okay, or if you happen to, you know, an organization, okay?
+
+[16:47] You start thinking, okay, where was my organization?
+
+[16:51] Where is my organization?
+
+[16:53] Is it at level 1, 2, 3, 4, right?
+
+[16:57] So most of the organizations start
+
+[16:59] from this initial level of organization, okay?
+
+[17:02] They do something in planning estimation, but it's very vague, okay?
+
+[17:10] No, no, no, no mechanism to do it, and no systematic way to do it,
+
+[17:18] and no basis to do it, okay?
+
+[17:22] They may do something always.
+
+[17:23] They don't follow it at all, they don't check whether they are doing based on their planning
+
+[17:31] and estimation.
+
+[17:32] So it is really natural, many organizations are at this level, again, if they are at this
+
+[17:40] level, they are bad, no, maybe they are very good, still good, with some reasons there.
+
+[17:50] But we don't guarantee their quality of product is always the same as they did.
+
+[17:57] Or they meet the deadline always they made.
+
+[18:02] They have no systematic way to control the project, so it is very guarantee they work
+
+[18:12] in the same way with the same quality always.
+
+[18:15] It is phrasal, it would be easily broken with many regions.
+
+[18:23] Okay? This is what I told you, you know, from outside, whenever they look at this organization,
+
+[18:40] okay, they may not know exactly where they are, okay?
+
+[18:47] Are they at the level one, two, three?
+
+[18:49] They don't know sometimes because they produce the product sometimes very well.
+
+[18:53] they commit their promise often.
+
+[19:01] You know, the first time is very hard to find out,
+
+[19:06] but time goes by, people can easily find out
+
+[19:10] this organization is in the initial level or higher level.
+
+[19:15] Whenever they find out, they do not meet the deadline
+
+[19:20] or they produce the defects, then they expect.
+
+[19:29] Sometimes they are good but sometimes they are bad when usually at the last minute.
+
+[19:41] So in the middle of the project period they show they are doing well but at last usually they find out something was wrong
+
+[19:49] because they did not estimate well so even though they think they may take just one month to complete this
+
+[19:56] but they find out oh it was an error.
+
+[20:00] In estimation, it takes six months, even though they estimate just one month to accomplish something like that.
+
+[20:08] It happens.
+
+[20:10] Also, sometimes they are doing well, but it is a kind of accident rather than their regular job,
+
+[20:19] regular pattern of the way they are working.
+
+[20:23] If we meet the deadline and it produces good quality product on time, then we can think
+
+[20:31] it is just an accident rather than it is expected.
+
+[20:38] So which means it is not a repeatable process.
+
+[20:42] Sometimes they are good, sometimes bad.
+
+[20:43] Just a kind of lucky thing, fortune there.
+
+[20:52] So with the initial process, the main problem we find out and we have a talk is what?
+
+[21:00] Project management is not properly done.
+
+[21:04] That's what happens.
+
+[21:05] And in the project management, they don't know how to plan,
+
+[21:10] to estimate exactly.
+
+[21:12] Estimation is actually another topic, big topic to learn.
+
+[21:18] It is not easy to do it.
+
+[21:21] But experienced organizations and high-level organizations
+
+[21:25] may have a high probability to create the more accurate plan and estimation than the row levels, right?
+
+[21:36] Also, if you do not have a very specific exact, you don't know how to manage a project.
+
+[21:48] So even though your plan is not perfect, if you have a certain plan, then you can check this plan,
+
+[21:55] plan you can check the current status of your project and you can compare it and
+
+[22:00] find out certain deviation between this plan and the actual work and then you
+
+[22:05] can find out whether this goes where or this goes wrong. Okay but without having
+
+[22:11] such a good plan you don't know spastically what you have to do,
+
+[22:18] what you have to act, what you have to check, you have to monitor, what you have
+
+[22:23] control, you don't know. Okay, so this slide shows some examples of the some
+
+[22:34] characteristics chaotic project exhibit. Okay, project is seriously late. Okay, they
+
+[22:43] always late and the people think, okay, this is very natural. In that organization
+
+[22:48] they think it is very natural. Always late, we did it, always. And the schedule
+
+[22:53] doesn't admit, yes, we do not admit always.
+
+[22:57] We didn't know it already.
+
+[23:00] And the more plan even with a good technical shape.
+
+[23:04] Even though it shows a good technical shape
+
+[23:06] in their product, they don't have a good plan.
+
+[23:12] And the lack of a documented planning,
+
+[23:14] they have a plan in only both mind.
+
+[23:18] There is no documented plan, nobody knows.
+
+[23:21] And a small amount of additional function expected
+
+[23:24] turns out to be hundreds, thousands of code.
+
+[23:27] So based on their experience, they think, okay, it may take just two days to complete.
+
+[23:33] Sometimes it's a crack, whenever they had already very similar experience to do it,
+
+[23:39] in that case, crack, okay?
+
+[23:41] Fortunately, if they do the same thing again and again,
+
+[23:45] wherever probably they will not have any problem, right?
+
+[23:48] They're well experienced in that area, no problem.
+
+[23:51] We don't need to worry about it, actually.
+
+[23:53] Why we spend the money to do planning and estimation and something like that, right?
+
+[23:57] But it doesn't happen always in the real life, right?
+
+[24:02] We always meet new, we call it new things always.
+
+[24:08] We have a new problem always, can you think, can you realize this?
+
+[24:15] Whenever you think, oh, I solve this,
+
+[24:17] and then you will meet another problem next day.
+
+[24:20] It happens always, not only in the company,
+
+[24:23] but also in your home, right?
+
+[24:25] You will see many problems every day, especially if you have a kid already, probably,
+
+[24:32] or later, okay, you will meet problems every day, okay?
+
+[24:36] They create, you know, something, you know, every day you have to solve, okay?
+
+[24:41] So same thing.
+
+[24:42] In the organization, we cannot do the same thing always.
+
+[24:45] We meet the new technology always in computer science,
+
+[24:49] especially we have a new technology every year, okay?
+
+[24:52] So we have to learn new things, so we cannot use the same thing to the next year.
+
+[24:56] So how come the estimation you used last time can be comparable with this?
+
+[25:03] It can be used to do new projects using new tools, new technology.
+
+[25:10] Even new engineers, you have new people.
+
+[25:13] So this is really natural.
+
+[25:17] And no idea how big the project really is, no basis to know where they stand, something like that.
+
+[25:24] like that. So these are the characteristics we can easily meet. So to go up to the high
+
+[25:32] level, what we expect is we like to remove those problematic characteristics from our
+
+[25:40] project. That's our goal, why we like to improve our process. Without having good planning
+
+[25:56] and estimation skills, there's no idea how much it takes, how much effort we have to
+
+[26:04] And without having this good plan, you don't know how you commit work.
+
+[26:14] You don't know how much you have to do, how much you have to spend time to do certain things.
+
+[26:18] But you just promise, okay, sign here.
+
+[26:21] And then without thinking anything, you sign.
+
+[26:23] And then this is your work sheet.
+
+[26:28] You have to work, okay, so you can easily find out, oh, I made the wrong commitment here.
+
+[26:35] So you both did not know, you did not know, nobody knew, okay?
+
+[26:43] So why social organizations are chaotic?
+
+[26:49] There are many regions.
+
+[26:51] Probably you use a gas rather than a plant, okay?
+
+[26:55] And in the low-level organization, they believe strongly magic, okay?
+
+[27:04] Probably you can solve it. Why not?
+
+[27:07] We did it always, okay?
+
+[27:09] We made every impossible thing possible, okay?
+
+[27:15] We can do it.
+
+[27:16] That's great. That's great.
+
+[27:17] That's great.
+
+[27:18] Here of the software project follows an SKL cycle.
+
+[27:26] If you are done with size of 10,000 lines of code project,
+
+[27:33] but the complexity of work of 10,000 lines of code work
+
+[27:41] is same as 1 million codes of work.
+
+[27:44] So as the software size or system size
+
+[27:48] increases, equity of work also increases.
+
+[27:53] It is not the proportionality.
+
+[27:57] Sometimes it's very exponentially increased.
+
+[28:00] So you could not easily imagine,
+
+[28:03] you could not easily estimate the complexity.
+
+[28:10] Even after high level or virtual level
+
+[28:12] is reached by organization, do management increase,
+
+[28:15] the competition, put pressure from the process?
+
+[28:19] So you are in good shape right now,
+
+[28:21] But your boss is changing, your people is changing, new people come, new technology you have to use,
+
+[28:28] and then you have pressure, okay, I have to finish this, okay, by this month, something like that.
+
+[28:33] And then you can easily neglect using formal process you have done so far.
+
+[28:40] You throw it out, process, test, you have to go through.
+
+[28:46] And then definitely, okay, you have a high probability to have more defects in your product.
+
+[28:54] The commitment or before you build the plan, good plan, you make commitment.
+
+[29:10] Those kinds of things always travel in this level of organization, okay?
+
+[29:16] And sometimes simple looking function, you think you can complete this within a day,
+
+[29:24] But it can be a trap, you know, it lays your work for a week, for a month, like that.
+
+[29:32] And also, without having good plan, other plan, you know, it's very hard to do resource.
+
+[29:41] Without knowing plan, you know, who will use this resource?
+
+[29:46] And then how can you arrange the time and the day to use the resource?
+
+[29:55] he should be used mutually exclusive.
+
+[30:00] You know, sometimes it happens, right?
+
+[30:03] And you don't know how many people you have to put to do this work.
+
+[30:06] How many days you have to spend to do this.
+
+[30:12] Okay. And also in this organization, they believe some technical ritual to solve all the problems.
+
+[30:24] So actually, in this organization, usually they have certain people like that, okay?
+
+[30:29] Someone who has good techniques, he solved all the problems whenever you meet the problem, and he complete the work.
+
+[30:36] Whenever you have a shortage of time to complete, he solved all the problems.
+
+[30:42] So you always believe him, but what happened? He left your company.
+
+[30:51] Also, these kinds of people may believe he can solve everything, as he did, but it is sometimes true, but sometimes not.
+
+[31:01] sometimes not, okay? So another problem is complexity. People is inherently
+
+[31:14] defects by complexity. If something is very complex, usually we try to avoid it,
+
+[31:20] right? So with the small size of the project, you did well, but with the
+
+[31:27] large size of project, from the beginning you don't understand what it is,
+
+[31:33] Okay, so we have to know how to cinematically divide the work to the manageable size, okay,
+
+[31:45] and how to analyze this, how to make a plan based on this analysis, based on this decomposition
+
+[31:51] of problem, okay.
+
+[31:54] So in the low-level organization, they don't know how to do it well, but that's why they
+
+[31:58] cannot get estimation and planning.
+
+[32:06] And again, problems of scale, okay, problems of scale cause always problem with small size
+
+[32:12] of problem, you solve the where, but as the size increases, we have problems to solve,
+
+[32:22] so it's to solve all, okay.
+
+[32:28] So I also talk about the problem of scale.
+
+[32:35] And also something we have to consider is common notations are needed for precise communication.
+
+[32:44] whenever we co-work together, you produce some artifacts and your
+
+[32:50] colleague will read the work product you produce. So if you use a
+
+[32:56] soft-on box in your design specification and this implementer called the
+
+[33:01] programmer cannot understand what the box means, what the circle means, okay, so
+
+[33:06] you need to have some kind of a common standard to communicate each other. So
+
+[33:11] So you should define the common language, the design language so everybody can understand,
+
+[33:17] everybody can produce it, everybody can read it in the same way, okay?
+
+[33:23] So that's why in the role level, you know, in the role level, that's why the data data
+
+[33:29] and how communication has a problem always.
+
+[33:32] So whenever you go up to the higher level, like define the process level, we should
+
+[33:37] define or standard process or standard materials, okay,
+
+[33:44] work for the keys we used here, okay, legend we used here.
+
+[33:50] So when you go up to the higher level, communication is much better, okay.
+
+[33:56] We commonly read the same thing.
+
+[34:00] We commonly use the same thing in the same way.
+
+[34:04] We interpret something as we defined in the same way.
+
+[34:11] So whenever we build this standard, this standard should be documented
+
+[34:20] and it is publicized so all people in your organization should be able to read and use it.
+
+[34:31] The complexity and standard must be identified and also if you have a change in your standard,
+
+[34:39] you should be notified publicize so everybody should know it.
+
+[34:46] There are many different standards, organizational standards or your department's project standard
+
+[34:51] or it could be the standard, the factor standard in the industry you use or it could be a certain
+
+[34:58] government role or state role.
+
+[35:01] There are many things you have to standardize.
+
+[35:09] software size increases, prototypes and multiple releases are needed because
+
+[35:14] we have to understand entirely so once we decompose the problem it's good
+
+[35:19] first of all it's good to build a certain prototype so you can share the
+
+[35:24] idea your idea with your customers okay using this by showing this prototype and
+
+[35:31] not only with the customer but also with other team members to the project
+
+[35:38] And also, if you cannot create entire system at once,
+
+[35:45] it's good to divide the problem
+
+[35:48] and solve a problem one by one.
+
+[35:52] So you may use incremental approach.
+
+[35:54] You incrementally add functions spiced there.
+
+[35:58] Or you may do some evolutionary work.
+
+[36:01] You build a certain subset of a system.
+
+[36:05] Once it works well, then you add more function
+
+[36:08] and as you evolve the system.
+
+[36:12] So there are many different approaches.
+
+[36:15] Or you can combine those different approaches together
+
+[36:18] at one.
+
+[36:19] So iterative, evolutionary, incrementally developed
+
+[36:24] product comes like that.
+
+[36:26] So you may consider good approaches
+
+[36:29] to handle the problem.
+
+[36:36] And if you release multiple products
+
+[36:40] using the multiple releases, new complication arises,
+
+[36:46] something like that, the requirements must be based to meet.
+
+[36:50] You just need landscape here,
+
+[36:53] and the product interdependencies are orchestrated
+
+[36:56] to meet the release of functional requirements,
+
+[36:58] prerequisites, or something.
+
+[37:03] And then, the problem of software scale size.
+
+[37:13] And so, again, it talks about with the small size
+
+[37:16] of problem you may solve easily,
+
+[37:18] but once you will meet the problem with your,
+
+[37:24] the management and the method and tools you use,
+
+[37:29] incorporate.
+
+[37:33] This slide talks about the soft path entropy.
+
+[37:37] I think I talk about this a little bit
+
+[37:39] in the previous lecture.
+
+[37:42] Entropy explains the level of disorder, okay?
+
+[37:48] In the organization.
+
+[37:49] So whenever you like to do something,
+
+[37:57] try to organize everything, but with this nature of entropy role,
+
+[38:09] it automatically becomes disorder.
+
+[38:15] So I gave you an example last time, cleaning up your room.
+
+[38:20] You clean up your room, but within an hour, two hours,
+
+[38:24] your room is in disorder, disorganized always.
+
+[38:29] So, in the same way, in the software organization and the software production, and in the process
+
+[38:38] we use to produce this software, we always meet this situation.
+
+[38:47] Unless you continuously put your time to re-import the level of your process and the quality of
+
+[38:59] your product, your work product, and your process easily go into the low level, okay.
+
+[39:05] So this symptom is explained by the entropy, okay. And then what we have to do
+
+[39:18] by examining malignations that have worked their way out of the chaos, okay.
+
+[39:26] However, the outlines of general solutions are clear like this, okay.
+
+[39:31] to have management to monitor and control your project.
+
+[39:41] To monitor and control your project, you should have a good plan.
+
+[39:44] So you should have a good way of planning and estimation
+
+[39:49] to have change in management skills
+
+[39:53] and good to have quality control skills.
+
+[39:58] So these are the
+
+[40:00] basic activities you should have to gain from the initial level to the higher level.
+
+[40:12] So these are the minimum activities you have to incorporate at the first time in your organization.
+
+[40:17] So if you have a chance to talk with your boss and then you talk about some problems you meet
+
+[40:27] in your organization and if he asks you is there any good idea to get rid of this situation
+
+[40:34] And then yes, I know the answer, okay, so tell him, tell your boss.
+
+[40:40] We have four basic things we have to consider in our organization
+
+[40:43] to remove all the problems we meet every day, okay, these days.
+
+[40:47] First thing, we should have a good planning and estimation.
+
+[40:51] We should have a good mechanism to monitor
+
+[40:54] and control the project based on this plan.
+
+[40:57] And then you should have a good changey control mechanism
+
+[41:01] and the quality control mechanism, okay?
+
+[41:03] So if you start with these four things, okay, you will be at least in good shape, okay, to start with.
+
+[41:12] At least you can repeatedly produce good work product you expect.
+
+[41:18] Okay, this is the starting point.
+
+[41:25] So these are the principles for controlling chaos in your organization.
+
+[41:32] Plan the work, maintain the plan, and divide the work into independent part,
+
+[41:40] decompose the work into the manageable side.
+
+[41:44] and precisely define the requirement for each part you decompose.
+
+[41:50] And rigorously control the relationship among parts
+
+[41:52] and treat software development as a learning process.
+
+[41:55] You have to do this again and again and again, okay?
+
+[41:59] Continuously you have to reinforce your work.
+
+[42:02] And recognize what you don't know, okay?
+
+[42:06] This is a very difficult thing actually.
+
+[42:08] This is a good thing we have to learn always, right?
+
+[42:12] What we know, what we don't know.
+
+[42:15] Not only for the soft process or improvement, but also for our entire life.
+
+[42:19] It is very useful to practice.
+
+[42:22] When the gap between your knowledge and task is severe, fix it before proceeding.
+
+[42:29] The manager will give you the work and commit your work and the work to meet your commitment
+
+[42:35] and refine the plan as your knowledge of the job improves.
+
+[42:40] So that's all we talk in this chapter, the initial process level.
+
+[42:48] level. Any questions for this? So today we talk about what are the characteristics
+
+[42:53] we can meet the organization in the initial process level to get rid of this
+
+[43:09] gain from our organization to go up to the better level, better status.
+
+[43:16] Okay, any questions? Any questions for this? Okay, great. See you next time. Thank you.

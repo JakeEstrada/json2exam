@@ -1,0 +1,974 @@
+{
+  "title": "Agile Process & Extreme Programming (XP)",
+  "questions": [
+    {
+      "question": "What best describes iterative development?",
+      "options": [
+        "Completing requirements, design, coding, and testing once in a strict sequence",
+        "Building the system through a sequence of self-contained mini-projects",
+        "Writing all documentation before any implementation begins",
+        "Delivering only after the entire system is complete"
+      ],
+      "answer": "b",
+      "explanation": "Iterative development divides the lifecycle into repeated iterations. Each iteration is a mini-project that can include requirements analysis, design, programming, and testing.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So each iteration is a kind of self-contained mini project which is composed of activities such as Recurrence Analysis Design Programming Test."
+      }
+    },
+    {
+      "question": "What is the goal at the end of an iteration?",
+      "options": [
+        "A complete requirements specification",
+        "A stable, integrated, tested, partially complete system",
+        "A finished product with no remaining changes",
+        "A finalized architecture document"
+      ],
+      "answer": "b",
+      "explanation": "The lecture describes an iteration release as a stable, integrated, tested, partially complete system.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "iteration, at the end of each iteration, probably, we can build subtle release, okay? So this release could be internal release or external release."
+      }
+    },
+    {
+      "question": "An iteration release must always be delivered to the external customer.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture notes that an iteration release may be internal or external, depending on the project and process.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "subtle release, okay? So this release could be internal release or external release. Internal release means we may not really release this to the customers, finally, okay?"
+      }
+    },
+    {
+      "question": "What is the main idea of risk-driven iterative development?",
+      "options": [
+        "Work on the easiest features first",
+        "Delay difficult problems until the architecture is stable",
+        "Address the riskiest and most difficult elements early",
+        "Let only the customer decide what is implemented"
+      ],
+      "answer": "c",
+      "explanation": "Risk-driven development chooses risky or difficult elements for early iterations so the team can learn about feasibility and improve estimates and planning.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "this system and find out this list in the early design and tackle those list issues first and then you can make a better estimation better planning for"
+      }
+    },
+    {
+      "question": "What is the main idea of client-driven iterative development?",
+      "options": [
+        "Developers independently choose upcoming features based only on technical difficulty and ignore the client's business priorities",
+        "The client chooses features for the next iteration based on perceived business value",
+        "The project manager fixes the release plan at the beginning",
+        "Customers are consulted only after final delivery"
+      ],
+      "answer": "b",
+      "explanation": "Client-driven planning lets the client steer the project by selecting what they consider the highest-value features for upcoming iterations.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "okay, solution. And the client-driven approach is let client involve in development, participate in the development somehow, okay, and then let"
+      }
+    },
+    {
+      "question": "Which statements describe timeboxing? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Each iteration has a fixed duration",
+        "The duration should normally remain stable once chosen",
+        "The iteration is extended whenever work is unfinished",
+        "Scope may be reprioritized to fit the fixed timebox"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": "Timeboxing fixes the iteration duration. If all planned work cannot fit, the team should prioritize and adjust scope rather than simply extending the iteration.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So it says to have a time-boxed iteration. So it's a fixed period, period time over each iteration. So you may decide, okay I like to go by one week iteration or two week"
+      }
+    },
+    {
+      "question": "What does evolutionary development imply?",
+      "options": [
+        "Requirements, plans, estimates, and solutions are fully frozen before coding",
+        "Requirements, plans, estimates, and solutions evolve across iterations",
+        "Only the user interface changes during the project",
+        "Every iteration adds exactly one feature"
+      ],
+      "answer": "b",
+      "explanation": "Evolutionary development allows requirements, plans, estimates, and the solution itself to be refined over time instead of fully defined up front.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "evolutionary approach, we don't know or do not need to know entire 100% of requirements, but with knowing the very important requirements which have"
+      }
+    },
+    {
+      "question": "What is the key emphasis of adaptive development?",
+      "options": [
+        "Avoiding customer feedback until release",
+        "Changing the system and plans in response to feedback",
+        "Using only fixed long-term schedules",
+        "Completing all architecture work before any coding"
+      ],
+      "answer": "b",
+      "explanation": "Adaptive development emphasizes feedback-response: feedback from users, tests, and developers is used to adjust the product, estimates, and plans.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So in the adaptive approach is emphasizing on feedback and adaptation. Of course you may get the feedback from the iterative approach and the incremental approach"
+      }
+    },
+    {
+      "question": "Evolutionary requirements analysis means that no requirements need to be identified early.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture explicitly calls this a misunderstanding. Important high-level requirements and architecturally influential factors should be identified early.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "Okay, then if you go by evolutionary approach or incremental, those kind of things, we don't need to have any requirements, that there is wrong, okay, wrong understanding to have"
+      }
+    },
+    {
+      "question": "Which are examples of architecturally influential factors (AIFs) mentioned in the lecture? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Load",
+        "Usability",
+        "Internationalization",
+        "Font choice for a button label"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The slides identify factors such as load, usability, and internationalization as examples of AIFs because they can influence architectural decisions.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So they are called architecturally influential factors. So those factors may give impact on decision of your architecture or structure of the system."
+      }
+    },
+    {
+      "question": "Why should highly important functional and nonfunctional requirements be recognized early?",
+      "options": [
+        "They may affect the architecture and become expensive to change later",
+        "They guarantee that requirements will never change again, so later architectural revision is unnecessary",
+        "They eliminate the need for testing",
+        "They allow the team to avoid customer involvement"
+      ],
+      "answer": "a",
+      "explanation": "The lecture stresses that requirements affecting the basic structure of the system should be considered early because changing the architecture later can be very costly.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "later and then you have to spend more money to fix it later, because probably you have to touch the architecture itself rather than just building that function later."
+      }
+    },
+    {
+      "question": "What is adaptive planning?",
+      "options": [
+        "Creating a complete detailed schedule for the entire remaining project at the start and refusing to revise it later",
+        "Planning in detail only for a relatively short horizon and adjusting as information improves",
+        "Allowing developers to work without estimates",
+        "Replacing all planning with customer conversations"
+      ],
+      "answer": "b",
+      "explanation": "Adaptive planning limits detailed commitments to the near future so that planning detail matches the quality of available information.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So in the adaptive planning, the AI process recommends to have adaptive planning rather than predictive planning and embrace changing requirements, okay, because one of the goal"
+      }
+    },
+    {
+      "question": "What is incremental delivery?",
+      "options": [
+        "Repeatedly delivering a system with expanding capabilities",
+        "Completing all features internally and delivering once",
+        "Changing requirements without producing releases",
+        "Replacing one development team with another"
+      ],
+      "answer": "a",
+      "explanation": "Incremental delivery repeatedly places increasingly capable versions of the system into production or the marketplace.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "we talk about this somehow, okay. So in the incremental delivery we repeatedly deliver the system in production, okay, and it is a we have a two different ways"
+      }
+    },
+    {
+      "question": "What makes evolutionary delivery different from ordinary incremental delivery?",
+      "options": [
+        "It avoids production releases",
+        "It uses feedback from an installed release to guide the next delivery",
+        "It requires all requirements to be complete before development",
+        "It prohibits changes once an increment is delivered"
+      ],
+      "answer": "b",
+      "explanation": "Evolutionary delivery adds a strong feedback loop: feedback from the installed product is used to guide future deliveries.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "incremental delivery, and then we get the feedback from the current release to guide next to release. So Agile developed the process or methods to try"
+      }
+    },
+    {
+      "question": "According to the Agile Manifesto, which item is valued more than processes and tools?",
+      "options": [
+        "Individuals and interactions",
+        "Contracts",
+        "Documentation",
+        "Detailed schedules"
+      ],
+      "answer": "a",
+      "explanation": "The Agile Manifesto values individuals and interactions over processes and tools.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "Individuals and interactions over processes and tools. Processes and tools are also important to use to make a process better, okay, but we like to more emphasize on"
+      }
+    },
+    {
+      "question": "According to the Agile Manifesto, which item is valued more than comprehensive documentation?",
+      "options": [
+        "Working software",
+        "Project plans",
+        "Formal contracts",
+        "Architectural models"
+      ],
+      "answer": "a",
+      "explanation": "The manifesto values working software over comprehensive documentation.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "and working software over comprehensive documentation they like to more emphasize on code like in the software development you like to more emphasize"
+      }
+    },
+    {
+      "question": "According to the Agile Manifesto, which item is valued more than contract negotiation?",
+      "options": [
+        "Customer collaboration",
+        "Coding standards",
+        "Risk management",
+        "Testing"
+      ],
+      "answer": "a",
+      "explanation": "The manifesto values customer collaboration over contract negotiation.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "In customer collaboration over contract negotiation, I gave you an example just before about this,"
+      }
+    },
+    {
+      "question": "According to the Agile Manifesto, which item is valued more than following a plan?",
+      "options": [
+        "Responding to change",
+        "Writing more documentation",
+        "Increasing team size",
+        "Freezing requirements"
+      ],
+      "answer": "a",
+      "explanation": "The manifesto values responding to change over following a plan.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And responding to change over following plan. Following plan is very important to meet the schedule"
+      }
+    },
+    {
+      "question": "The Agile Manifesto says that processes, tools, documentation, contracts, and plans have no value.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The manifesto says the items on the right still have value, but the items on the left are valued more.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "Okay, that does not mean we will not use method and tools."
+      }
+    },
+    {
+      "question": "Which Agile principle identifies the primary measure of progress?",
+      "options": [
+        "Amount of documentation",
+        "Working software",
+        "Number of meetings",
+        "Lines of code"
+      ],
+      "answer": "b",
+      "explanation": "Agile principle 7 states that working software is the primary measure of progress.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "principle number seven says working software is a primary measure of progress, Whatever you do, what we like to do, we like to build software in our discipline."
+      }
+    },
+    {
+      "question": "What does sustainable development mean in the Agile principles?",
+      "options": [
+        "The team should periodically work extreme overtime",
+        "Sponsors, developers, and users should be able to maintain a constant pace indefinitely",
+        "Only senior developers should work on critical tasks",
+        "Every iteration is required to contain exactly the same number of features, regardless of remaining work or risk"
+      ],
+      "answer": "b",
+      "explanation": "Agile promotes a pace that can be sustained indefinitely rather than relying on repeated overwork.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "sponsor developers users should be able to maintain a constant pace indefinitely okay that's what I told you and continue use attention to"
+      }
+    },
+    {
+      "question": "What does the Agile principle of simplicity mean?",
+      "options": [
+        "Avoid all documentation",
+        "Maximize the amount of work not done",
+        "Use only simple programming languages",
+        "Avoid difficult requirements"
+      ],
+      "answer": "b",
+      "explanation": "The slides define simplicity as 'the art of maximizing the amount of work not done.'",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So find out what is the essential to do, to produce, to go. And then take that and go to the next step."
+      }
+    },
+    {
+      "question": "According to the Agile principles, the best architectures, requirements, and designs emerge from what kind of teams?",
+      "options": [
+        "Strictly manager-controlled teams",
+        "Self-organizing teams",
+        "Customer-only teams",
+        "Teams with no defined goals"
+      ],
+      "answer": "b",
+      "explanation": "Agile principle 11 states that the best architectures, requirements, and designs emerge from self-organizing teams.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "emerge from the self-organizing teams. Many agile processes suggest you promote self-organizing teams."
+      }
+    },
+    {
+      "question": "Which of the following are listed as Agile development methods? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Scrum",
+        "Extreme Programming (XP)",
+        "Feature-Driven Development (FDD)",
+        "Strict Waterfall only"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture lists Scrum, XP, Evo, Crystal, Agile Modeling, Agile UP, DSDM, FDD, Lean Development, and others.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So these are the list of agile methods currently we use, Scrum or XP or Evo, Chrystal, agile modeling, dynamic solutions, delivery model, DSDM, or feature-driven development, and"
+      }
+    },
+    {
+      "question": "What are the four foundational values of Extreme Programming (XP)?",
+      "options": [
+        "Communication, simplicity, feedback, courage",
+        "Planning, budgeting, staffing, control",
+        "Speed, scale, automation, documentation",
+        "Quality, scope, time, cost"
+      ],
+      "answer": "a",
+      "explanation": "The lecture presents XP as founded on communication, simplicity, feedback, and courage.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "or as I process XP emphasize on this communication and simplicity and the feedback and the courage activity by college there are many instances you can"
+      }
+    },
+    {
+      "question": "Which of the following are XP core practices? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Pair programming",
+        "Continuous integration",
+        "Sustainable pace",
+        "Big design up front"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Pair programming, continuous integration, and sustainable pace are among XP's 12 core practices; big design up front conflicts with XP's simple-design philosophy.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "continuous integration, sustainable pace and whole team together and coding standards. Oh, there are many, right? Okay, and then what they are saying by that, okay?"
+      }
+    },
+    {
+      "question": "What is the recommended XP iteration length for average projects in the lecture?",
+      "options": [
+        "1–3 days",
+        "1–3 weeks",
+        "4–8 weeks",
+        "3–12 months"
+      ],
+      "answer": "b",
+      "explanation": "XP recommends short timeboxed iterations, typically one to three weeks.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "and it expects one to three weeks time box for each iteration."
+      }
+    },
+    {
+      "question": "Compared with Scrum and UP, XP is described as relatively low on which scale?",
+      "options": [
+        "Customer involvement",
+        "Ceremony",
+        "Testing",
+        "Business value"
+      ],
+      "answer": "b",
+      "explanation": "The lecture classifies XP as low on the ceremony scale, with relatively few predefined formal workproducts.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So XP is in the area where we expect less documentation comparing with other practices sometimes."
+      }
+    },
+    {
+      "question": "Which statement best reflects XP's original known applicability?",
+      "options": [
+        "It was proven primarily on teams of roughly 10 developers or fewer and not proven for safety-critical systems",
+        "It was designed only for teams larger than 100",
+        "It was created specifically for large safety-critical systems and was never considered suitable for small teams of about ten developers",
+        "It requires delivery dates longer than five years"
+      ],
+      "answer": "a",
+      "explanation": "The lecture notes that XP was originally proven on roughly 10 developers or fewer and had not been proven for safety-critical systems.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "XP covers here this much of styles of a project okay so you can see it is not But well used or suggested to build critical, high critical systems which use a lot of resources."
+      }
+    },
+    {
+      "question": "XP is aimed primarily at relatively small-team projects, usually with delivery dates under one year.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "That is the target profile described in the lecture, though XP has also been applied to larger teams.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "But with this small or medium size project, with medium criticality, probably it works well."
+      }
+    },
+    {
+      "question": "Which development techniques are explicitly associated with XP's programmer-focused methods? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Test-driven development",
+        "Refactoring",
+        "Pair programming",
+        "Continuous integration"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture lists all four as important XP techniques that help programmers respond to changing requirements while maintaining code quality.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "it provides explicit methods for programmers, okay? So they can more confidently respond"
+      }
+    },
+    {
+      "question": "Which sequence correctly lists the major XP lifecycle phases?",
+      "options": [
+        "Exploration, Planning, Iterations to Release, Productionizing, Maintenance",
+        "Requirements, Architecture, Construction, Verification, Retirement",
+        "Planning, Procurement, Coding, Deployment, Audit",
+        "Analysis, Design, Coding, Testing, Documentation"
+      ],
+      "answer": "a",
+      "explanation": "The XP lifecycle shown in the slides contains Exploration, Planning, Iterations to Release, Productionizing, and Maintenance.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "sample life cycle of XP exploration phase and the planning phase iterations"
+      }
+    },
+    {
+      "question": "What is an architectural spike intended to do?",
+      "options": [
+        "Identify high-risk areas and improve estimation",
+        "Produce the finished user manual and training materials before any risk analysis begins",
+        "Replace system testing",
+        "Freeze all requirements"
+      ],
+      "answer": "a",
+      "explanation": "The lecture defines an architectural spike as an early effort to identify high-risk areas and support better estimation.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So for example, the purpose of exploration is to have enough, we are estimating story current for the first release and have a feasibility study or something like that."
+      }
+    },
+    {
+      "question": "In the lecture, a spike is described as:",
+      "options": [
+        "Broad but shallow only",
+        "End-to-end but very thin, going depth-first from top to bottom",
+        "A complete production release that ships every planned feature to external customers",
+        "A documentation review"
+      ],
+      "answer": "b",
+      "explanation": "The slide describes a spike as end-to-end but very thin: depth-first from the top to the bottom and then closed-loop.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And going through the entire steps, even though it is a very small problem,"
+      }
+    },
+    {
+      "question": "What is a system metaphor in XP?",
+      "options": [
+        "A conceptual framework or shared description of how the system works and is intended to be built",
+        "A financial estimate that sets the release budget and is treated as the system's complete technical design",
+        "A test case written by the customer",
+        "A code ownership policy"
+      ],
+      "answer": "a",
+      "explanation": "The lecture describes the metaphor as a conceptual framework, logical architecture, or shared story describing how the system works.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So, some metaphors can tell you what is the basic idea of a game"
+      }
+    },
+    {
+      "question": "In the Release Planning Game, what do customers and developers do?",
+      "options": [
+        "Complete story cards and rough estimates, then decide what to include in the next release",
+        "Assign every implementation task to an individual programmer and lock those assignments before any estimation",
+        "Freeze the architecture permanently",
+        "Run only automated tests"
+      ],
+      "answer": "a",
+      "explanation": "Release planning involves completing story cards, estimating them, and deciding what should be done for the next release.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And in the release planning game, the customers and developers complete the story cards and the lab estimate and then decide what to do for the next release."
+      }
+    },
+    {
+      "question": "In the Iteration Planning Game, who chooses the stories to implement?",
+      "options": [
+        "Customers, based on current status and priorities",
+        "Only the coach",
+        "Only the tracker",
+        "Only the most senior programmer, who then ignores current project status and customer priorities"
+      ],
+      "answer": "a",
+      "explanation": "Customers select stories for the next iteration based on project status and their latest priorities.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And for the next iteration, in the iteration planning game, customers pick the stories. So XP recommends the customers initiate this project, drive the project, and decide what"
+      }
+    },
+    {
+      "question": "What happens after customers choose stories for an XP iteration?",
+      "options": [
+        "Developers break the stories into short estimated tasks",
+        "The team stops estimating",
+        "The selected stories are implemented immediately without task breakdown, estimates, or testing",
+        "The project manager assigns overtime"
+      ],
+      "answer": "a",
+      "explanation": "Developers decompose selected stories into short tasks and estimate the effort required.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So once you have a story chosen in each iteration, then you start building lists of tasks to this story, implement a feature shown in our story."
+      }
+    },
+    {
+      "question": "How does XP view overtime?",
+      "options": [
+        "As the preferred, healthy way to recover from schedule slips without harming quality or productivity",
+        "As a sign of project dysfunction and a threat to productivity and quality",
+        "As mandatory during every release",
+        "As unrelated to software quality"
+      ],
+      "answer": "b",
+      "explanation": "The lecture strongly discourages overtime and treats it as a warning sign of an unhealthy project.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "code refactor and testing and then the intuit system, okay, and go home at 5 p.m. It's really good. So again, when I talk about this in the world and some"
+      }
+    },
+    {
+      "question": "What is pair programming?",
+      "options": [
+        "Two programmers working together at one computer, with one driving and one reviewing/navigating",
+        "Two programmers independently writing the same system on separate computers and later merging their copies",
+        "A programmer and customer negotiating a contract",
+        "Two teams merging their repositories once per release"
+      ],
+      "answer": "a",
+      "explanation": "Pair programming places two programmers at one workstation: the driver types while the observer/navigator reviews and thinks ahead.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So you have two people together working with the coding and designing and coding the system."
+      }
+    },
+    {
+      "question": "The lecture suggests that pairing an experienced engineer with a novice can be useful for training.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The professor explicitly describes pair programming as useful for training when an experienced engineer works with a novice.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So pure programming is also good for training for the new engineers, too."
+      }
+    },
+    {
+      "question": "What is collective or team code ownership?",
+      "options": [
+        "Only the original author may modify a file",
+        "Responsibility for the code belongs to the whole team",
+        "Customers own the source code and assign edits",
+        "Each programmer owns one permanent module"
+      ],
+      "answer": "b",
+      "explanation": "XP emphasizes shared responsibility: the entire team owns and is responsible for the codebase.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "Always responsibility is given to the whole teams. All teams should be responsible for this product together."
+      }
+    },
+    {
+      "question": "What does continuous integration mean in XP?",
+      "options": [
+        "Frequently integrating new work with the existing system and testing it",
+        "Integrating only once before final release",
+        "Replacing manual coding with automated code generation so that integration and testing can be deferred",
+        "Keeping each programmer's work isolated"
+      ],
+      "answer": "a",
+      "explanation": "XP encourages frequent integration, combined with frequent or automated testing, to detect problems quickly.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And also, it suggests to have a continuous integration. So once you build a part of system"
+      }
+    },
+    {
+      "question": "What are story cards used to record?",
+      "options": [
+        "User stories such as features, fixes, or nonfunctional requirements",
+        "Only detailed use cases",
+        "Only test failures",
+        "Only detailed architecture diagrams that replace any discussion of features, fixes, or requirements"
+      ],
+      "answer": "a",
+      "explanation": "Story cards record user stories, which can represent features, fixes, or nonfunctional requirements desired by the user.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "A story card is a kind of paper index card on which we hand-write the simple features,"
+      }
+    },
+    {
+      "question": "XP stories are the same thing as detailed use cases.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture explicitly says XP stories are not use cases or scenarios; they usually represent features.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "XPP reports feature driven approach rather than the use case driven approach other the practices promote for example a unified process very heavily"
+      }
+    },
+    {
+      "question": "Why is a story card sometimes described as 'a promise to talk'?",
+      "options": [
+        "Because it summarizes the need instead of fully documenting every detail, so developers discuss it with the customer",
+        "Because the card is a legal contract",
+        "Because a story card is forbidden from including estimates and is meant to replace all further discussion with the customer",
+        "Because only managers may read it"
+      ],
+      "answer": "a",
+      "explanation": "XP prefers oral communication. The story card is a brief reminder that triggers further discussion with the customer.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So they view the card as a kind of promise to talk. So with this feature, I have to talk with the customer"
+      }
+    },
+    {
+      "question": "What does the XP practice 'whole team together' help make possible?",
+      "options": [
+        "Rapid face-to-face communication among customers, developers, and others",
+        "Eliminating customer contact",
+        "Assigning every programmer a separate office so that questions must wait for scheduled meetings or email",
+        "Replacing all meetings with email"
+      ],
+      "answer": "a",
+      "explanation": "XP favors a common project room and close access to the customer so questions and decisions can be handled quickly.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "then you'd better do it in the common project room in this way. That's what the practice says."
+      }
+    },
+    {
+      "question": "What happens during creation of the XP task list?",
+      "options": [
+        "The team generates tasks for the stories chosen for the iteration",
+        "Only the manager writes tasks after the iteration ends",
+        "Customers assign code files to specific programmers",
+        "The team writes the final system documentation"
+      ],
+      "answer": "a",
+      "explanation": "During Iteration Planning, the team creates a list of tasks for the selected stories, often on a whiteboard or individual task cards.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So once you have a story chosen in each iteration, then you start building lists of tasks to this story, implement a feature shown in our story."
+      }
+    },
+    {
+      "question": "What is the typical recommended size of an XP task in the lecture?",
+      "options": [
+        "1–2 hours",
+        "1–2 days",
+        "1–2 weeks",
+        "1–2 months"
+      ],
+      "answer": "b",
+      "explanation": "Tasks are expected to be small, typically in the one-to-two-day range.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "within one, two days' wage. So in that much grain, you can make some fine grain tasks"
+      }
+    },
+    {
+      "question": "How are tasks assigned in XP?",
+      "options": [
+        "A manager assigns them",
+        "People volunteer and accept responsibility",
+        "The customer assigns them",
+        "Tasks are assigned at random by a script so that no one has to volunteer or accept ownership"
+      ],
+      "answer": "b",
+      "explanation": "XP favors volunteering rather than assignment, with the idea that self-accepted responsibility increases commitment and satisfaction.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And also, volunteering is the suggested recommended rather than assigning jobs."
+      }
+    },
+    {
+      "question": "How much up-front design thinking does the lecture describe as typical in XP before coding?",
+      "options": [
+        "Several weeks",
+        "Several days",
+        "About 10–20 minutes of light design or sketching",
+        "None at all under any circumstances, even a brief sketch before a programmer starts coding"
+      ],
+      "answer": "c",
+      "explanation": "The slides describe XP as favoring very light modeling and suggest that more than roughly 10–20 minutes before programming may be considered excessive.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "They suggest you have just 10 to 20 minutes of design for specific task to implement and immediately start coding and discussing with your pair about designing and coding and perform"
+      }
+    },
+    {
+      "question": "XP is completely anti-documentation.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture says XP is not anti-documentation. It discourages unnecessary documents and favors 'just enough' documentation because documentation has a cost.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So that does not mean you don't need to document in XP practice. You have to find out what kind of documentation you minimally need."
+      }
+    },
+    {
+      "question": "What compensates for XP's minimal documentation practice?",
+      "options": [
+        "The presence and availability of an onsite customer",
+        "A larger independent testing department that writes documents instead of talking with the customer",
+        "Longer iteration lengths",
+        "More formal contracts"
+      ],
+      "answer": "a",
+      "explanation": "XP relies heavily on direct communication and an onsite customer, reducing the need to encode every detail in formal documents.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And you better have an on-site customer at that time to show what they did last time and to let them select"
+      }
+    },
+    {
+      "question": "Which are examples of simple XP progress or quality metrics mentioned in the lecture? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Number of completed tasks",
+        "Number of completed stories",
+        "Success rate of tests",
+        "Number of pages of documentation"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture gives completed tasks, completed stories, and test success rate as examples of simple metrics.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So, for example, number of completed tasks and stories, and the success rate of a test, those kinds of things can be good candidate for the measurement."
+      }
+    },
+    {
+      "question": "Why does XP use visible wall graphs?",
+      "options": [
+        "To communicate progress and quality metrics easily to the team",
+        "To replace all source control",
+        "To hide progress and quality information from customers and keep the team from seeing it",
+        "To record only financial data"
+      ],
+      "answer": "a",
+      "explanation": "XP recommends visible graphs so the entire team can quickly see and communicate progress and quality information.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So once you collect this data, and then you better use a visual work graph so everybody can see this and find out what are the problems and what are the status of the project, easily."
+      }
+    },
+    {
+      "question": "Who is responsible for regularly collecting task and story progress metrics in XP?",
+      "options": [
+        "The tracker",
+        "The customer",
+        "The tester only",
+        "The consultant"
+      ],
+      "answer": "a",
+      "explanation": "The tracker regularly collects progress metrics, traditionally by walking around and speaking directly with programmers.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So task and the story progress metrics could be collected by tracker. And XPRINSPRO suggests to collect this data by meeting with the programmers and getting data and collect"
+      }
+    },
+    {
+      "question": "What does IEH stand for in the XP lecture?",
+      "options": [
+        "Integrated Engineering Hours",
+        "Ideal Engineering Hours",
+        "Iterative Estimation Hours",
+        "Incremental Execution Hours"
+      ],
+      "answer": "b",
+      "explanation": "IEH means Ideal Engineering Hours: uninterrupted, dedicated, focused time required to complete a task.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "estimation and planning as we suggest to consider ideal engineering hours which which means an uninterrupted, dedicated, focused time"
+      }
+    },
+    {
+      "question": "For larger story estimates, some XP practitioners recommend:",
+      "options": [
+        "Only second-by-second estimates",
+        "Coarse one-, two-, or three-week values",
+        "Never estimating stories",
+        "Always using exact calendar dates"
+      ],
+      "answer": "b",
+      "explanation": "The slides note that larger stories may be estimated with coarse one-, two-, or three-week durations instead of fine-grained IEH estimates.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "Each story may be implemented within one day, two day, or two weeks, three weeks. on your time box or your iteration, and depending on your stories, types of stories, probably"
+      }
+    },
+    {
+      "question": "Which of the following were listed as significant XP-influenced projects? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Atlas leasing system",
+        "Orca security incident-response",
+        "C3 payroll",
+        "Apollo guidance computer"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture lists Atlas, Orca, and C3 as sample XP-influenced projects.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "a small size project, C3 payroll system, which may be done from Chrysler company."
+      }
+    },
+    {
+      "question": "What adoption strategy does XP recommend in the lecture?",
+      "options": [
+        "Start with the easiest project and avoid difficult problems",
+        "Pick the worst project or problem, apply XP until solved, then repeat",
+        "Adopt only coding standards first and stop there",
+        "Require the entire organization to change at once"
+      ],
+      "answer": "b",
+      "explanation": "One slide states the XP adoption strategy as: pick the worst project or problem, apply XP until solved, and repeat.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So they suggest to pick up the worst project or problem and then apply XP until solved to see how it works where in your organization and try to repeat this."
+      }
+    },
+    {
+      "question": "If all XP practices cannot be adopted at once, which practices does the lecture say Beck recommends starting with? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Whole team together in a common project room",
+        "Test-first development",
+        "Customer-owned acceptance tests",
+        "Planning Game",
+        "Pair programming"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "explanation": "The lecture lists all five as recommended starting practices when full XP adoption is too much to take on at once.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "So like a whole team together in the common project loan practice and the test first development practice"
+      }
+    },
+    {
+      "question": "Who are identified as early roots of XP through their collaboration at Tektronix?",
+      "options": [
+        "Kent Beck and Ward Cunningham",
+        "Frederick Brooks and Barry Boehm",
+        "Martin Fowler and Craig Larman",
+        "Ron Jeffries and Alistair Cockburn"
+      ],
+      "answer": "a",
+      "explanation": "The lecture traces XP's roots to Kent Beck and Ward Cunningham working together at Tektronix in the mid-1980s.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "the Cunningham started to talk about practices SS, which are consolidated later as XP, the first time in mid-1980, and they found the"
+      }
+    },
+    {
+      "question": "What did Beck and Cunningham help develop during their Tektronix collaboration?",
+      "options": [
+        "CRC cards and design patterns",
+        "The Scrum Guide",
+        "The Waterfall model",
+        "CMMI maturity levels"
+      ],
+      "answer": "a",
+      "explanation": "The lecture credits their collaboration with the idea of CRC cards and important contributions to design patterns.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "idea of CRC card which were used in many object-oriented design or object-oriented program education. Then they talk about the design patterns, and they talk about the practices which become"
+      }
+    },
+    {
+      "question": "On which project did many XP practices coalesce under Kent Beck's leadership?",
+      "options": [
+        "Chrysler C3 payroll project",
+        "Atlas leasing system",
+        "Orca incident-response project",
+        "Unix kernel project"
+      ],
+      "answer": "a",
+      "explanation": "The lecture states that many XP practices came together on Chrysler's C3 project, where Beck introduced the practices and Ron Jeffries helped coach the team.",
+      "reference": {
+        "book": "Agile Process & Extreme Programming",
+        "lecture": "And then later, Beck joined the Chrysler C3 project, and then he worked with the Lan Jeffries and Martin Fowler and then they consolidate their practices in this"
+      }
+    }
+  ]
+}

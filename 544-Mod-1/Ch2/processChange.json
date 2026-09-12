@@ -1,0 +1,751 @@
+{
+  "title": "The Principles of Software Process Change",
+  "questions": [
+    {
+      "question": "Why is software process management described as not being a cure-all?",
+      "options": [
+        "Because software processes cannot be measured",
+        "Because process management only applies to manufacturing",
+        "Because people and design methods must also be considered",
+        "Because software development should depend entirely on individual talent"
+      ],
+      "answer": "c",
+      "explanation": "Process management provides a framework for assessing problems and improving an organization, but people and design methods are also major factors in software success.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "It says better people clearly do better work, but you have to also think you already have a best team here, so you... have to consider a good proper leadership and support to utilize them well. And you'd better know how to use their talent. They already, your people"
+      }
+    },
+    {
+      "question": "According to the lecture, focusing only on recruiting better people can lead into a blind alley.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The best people are always in short supply, and organizations often already have capable people whose performance can improve through leadership, support, training, and better processes.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "It says better people clearly do better work, but you have to also think you already have a best team here, so you... have to consider a good proper leadership and support to utilize them well. And you'd better know how to use their talent. They already, your people"
+      }
+    },
+    {
+      "question": "Which of the following can help an organization make better use of the people it already has? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Proper leadership and support",
+        "Training in needed tools and methods",
+        "Clearly defined processes and responsibilities",
+        "Replacing the entire development team whenever problems occur"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The lecture emphasizes leadership, support, training, and well-defined processes rather than assuming that replacing people is the primary solution.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "have to consider a good proper leadership and support to utilize them well. And you'd better know how to use their talent. They already, your people already have with good management skills and the support. And also the good products is based on the good support your designs. So also you have to"
+      }
+    },
+    {
+      "question": "Why should software designers understand the application domain?",
+      "options": [
+        "Because programmers should also act as customers",
+        "Because a program can be viewed as executable knowledge",
+        "Because domain knowledge eliminates the need for requirements",
+        "Because application knowledge makes testing unnecessary"
+      ],
+      "answer": "b",
+      "explanation": "The lecture describes a program as executable knowledge. Good designers therefore need application knowledge or must work closely with domain experts.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "have to consider the domain knowledge. Without having good knowledge in domain, it's very hard to build a good design. And so you may work, if you're a designer,"
+      }
+    },
+    {
+      "question": "Which statement best represents the relationship between design and process?",
+      "options": [
+        "A good process can completely compensate for poor design",
+        "Design becomes unnecessary when a process is mature",
+        "With a good design, an orderly process can be of great help",
+        "Process and design are unrelated"
+      ],
+      "answer": "c",
+      "explanation": "Superior products tend to have superior designs, and an orderly process helps when it is combined with sound design.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "good products is based on the good support your designs. So also you have to consider how to use it. And to build a good design, also you have to consider the domain knowledge."
+      }
+    },
+    {
+      "question": "Which of the following is NOT one of the six basic principles of software process change?",
+      "options": [
+        "Major process changes must start at the top",
+        "Everyone must ultimately be involved",
+        "Change should stop once the target maturity level is reached",
+        "Software process improvement requires investment of planning, dedicated people, management time, and capital"
+      ],
+      "answer": "c",
+      "explanation": "One of the six principles is that change is continuous. Process improvement is not considered finished permanently after reaching one goal.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Again, major changes to the software process must start at the top, and everyone must be involved. And effective change requires goal and knowledge over current process, and change is continuous."
+      }
+    },
+    {
+      "question": "Why must major software process changes start at the top?",
+      "options": [
+        "Only executives are capable of understanding software",
+        "Senior management must provide continuing resources, priority, and support",
+        "Developers should not participate in process decisions",
+        "Top management must personally perform all process assessments and write every new procedure without staff help"
+      ],
+      "answer": "b",
+      "explanation": "Senior management leadership is required to launch the effort and provide the resources, authority, and continuing priority necessary to sustain it.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "must start at the top, and everyone must be involved. And effective change requires goal and knowledge over current process, and change is continuous. And software change will not be retained"
+      }
+    },
+    {
+      "question": "Why must everyone ultimately be involved in software process improvement?",
+      "options": [
+        "Software engineering is a team effort, and nonparticipants can inhibit progress",
+        "Every employee must become a process manager",
+        "Management is not involved in software process improvement because only individual programmers need to change how they work",
+        "Individual work does not exist in software development"
+      ],
+      "answer": "a",
+      "explanation": "Software engineering is a team effort. People who do not participate may miss the benefits of the improvement and can interfere with progress.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "must start at the top, and everyone must be involved. And effective change requires goal and knowledge over current process, and change is continuous. And software change will not be retained"
+      }
+    },
+    {
+      "question": "Effective software process change requires knowledge of both the desired goal and the current process.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "The lecture compares process improvement to using a map: knowing the destination is not enough; you must also know your current position.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "to know exactly the current position I have, okay? So to change your process, you have to know what is the status of my current process and you have to be able to find out all the problems, advantage and disadvantage, your process,"
+      }
+    },
+    {
+      "question": "What is a primary purpose of a software process assessment?",
+      "options": [
+        "To immediately automate the current process",
+        "To identify who should be blamed for defects",
+        "To understand the current process, its problems, and opportunities for improvement",
+        "To eliminate the need for management involvement once a technical team has catalogued the organization's defects"
+      ],
+      "answer": "c",
+      "explanation": "Assessment is a learning process used to understand the organization's current status, identify key problems, and determine possible improvements.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And also, that assessment is a learning process, okay? Once you know something, you adapt into your process and find out you really succeed, okay, to achieve your goal with this process change. And then you cannot just serve you, you have to know how to utilize your knowledge,"
+      }
+    },
+    {
+      "question": "Why are priorities especially important in a process improvement program?",
+      "options": [
+        "Every process problem must be fixed simultaneously, because leaving any issue unaddressed makes the whole improvement program fail",
+        "Organizations have limited resources and must determine which problems should be addressed first",
+        "Only management problems should be prioritized",
+        "Priorities eliminate the need for assessments"
+      ],
+      "answer": "b",
+      "explanation": "An organization normally cannot address every issue at once. It must identify the most important, urgent, or influential improvement opportunities.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Which one is the most important? Or which one may affect other others? So if you touch something, probably that may resolve all other issues listed in the problem list. Okay, once you you're changing one and then they in side effect of this change can Can be affected to the some some other areas together"
+      }
+    },
+    {
+      "question": "Software process improvement should generally be treated as:",
+      "options": [
+        "A one-time project",
+        "A continual process of learning and growth",
+        "Something performed only after a major failure",
+        "A task that ends after automation"
+      ],
+      "answer": "b",
+      "explanation": "The lecture emphasizes that change is continuous. Organizations repeatedly assess, improve, evaluate, and identify new goals.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "then probably you may have a better than that. So the process change is a kind of a continuing work. You have to do this again and again and again and again. So you have some kind of iteration here. Find out problems, prioritize them, and resolve the issues based on this priority, and then you may do some pilot,"
+      }
+    },
+    {
+      "question": "Which statements are associated with the principle that change is continuous? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Every defect is an improvement opportunity",
+        "Reactive changes generally make things worse",
+        "Crisis prevention is more important than crisis recovery",
+        "Once a process works, it should never be examined again"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Continuous improvement means learning from defects and preventing future problems rather than relying primarily on reactive crisis management.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "then probably you may have a better than that. So the process change is a kind of a continuing work. You have to do this again and again and again and again. So you have some kind of iteration here. Find out problems, prioritize them, and resolve the issues based on this priority, and then you may do some pilot,"
+      }
+    },
+    {
+      "question": "Why do software process changes require periodic reinforcement?",
+      "options": [
+        "People immediately forget all training",
+        "Accurate and disciplined work tends to decay if new methods are not monitored and reinforced",
+        "Software processes cannot be documented",
+        "Process changes should be replaced every few weeks so that people never have time to settle into a single method"
+      ],
+      "answer": "b",
+      "explanation": "New methods do not automatically remain in use. They must be carefully introduced, monitored, and periodically reinforced.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "without conscious effort and the periodic reinforcement. and software process improvement requires investment. So we will look at this one by one in the next slide. So to succeed or software process change, it needs a lot of resource in your organization"
+      }
+    },
+    {
+      "question": "What is the correct order of the four stages of human adoption of a new process method?",
+      "options": [
+        "Practice, installation, naturalness, proficiency",
+        "Installation, proficiency, practice, naturalness",
+        "Installation, practice, proficiency, naturalness",
+        "Naturalness, practice, installation, proficiency"
+      ],
+      "answer": "c",
+      "explanation": "The four stages are installation, practice, proficiency, and naturalness.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "So this is installation stage and practice stage and the proficiency stage and naturalist stage. So, whenever you adopt a new technology, for example, you like to drive a car, okay? So, you became to the certain age in the high-level student, and your parents allow you to drive."
+      }
+    },
+    {
+      "question": "During which adoption stage do people learn to perform the new method as instructed?",
+      "options": [
+        "Installation",
+        "Practice",
+        "Proficiency",
+        "Naturalness"
+      ],
+      "answer": "b",
+      "explanation": "During practice, people learn to carry out the new method according to the instructions they were given.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "So this is installation stage and practice stage and the proficiency stage and naturalist stage. So, whenever you adopt a new technology, for example, you like to drive a car, okay? So, you became to the certain age in the high-level student, and your parents allow you to drive."
+      }
+    },
+    {
+      "question": "During which adoption stage has a method become so ingrained that it can be performed without much conscious intellectual effort?",
+      "options": [
+        "Installation",
+        "Practice",
+        "Proficiency",
+        "Naturalness"
+      ],
+      "answer": "d",
+      "explanation": "Naturalness is reached when the method has become ingrained and can be performed naturally.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "and the proficiency stage and naturalist stage. So, whenever you adopt a new technology, for example, you like to drive a car, okay? So, you became to the certain age in the high-level student, and your parents allow you to drive. Okay, you can get drive license to drive, okay?"
+      }
+    },
+    {
+      "question": "Which resources does software process improvement require? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Planning",
+        "Dedicated people",
+        "Management time",
+        "Capital investment"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture explicitly states that process improvement requires planning, dedicated people, management time, and investment.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "and software process improvement requires investment. So we will look at this one by one in the next slide. So to succeed or software process change, it needs a lot of resource in your organization because it needs to analyze the current of your process."
+      }
+    },
+    {
+      "question": "What does the statement 'unplanned process improvement is wishful thinking' mean?",
+      "options": [
+        "Processes improve naturally without management involvement",
+        "Improvement requires detailed plans, resources, dedication, and tracking",
+        "Planning prevents organizations from adapting",
+        "Improvement plans should only be created after implementation"
+      ],
+      "answer": "b",
+      "explanation": "Software process improvement must be deliberately planned, resourced, monitored, and followed through.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Whatever you do, you don't have a good plan. Without having plan, you don't know what you have to do. Even though planning does not work well and you may not follow your plan exactly, but it is fine. Still you need some kind of plan rather than nothing, okay?"
+      }
+    },
+    {
+      "question": "What is the problem with automating a poorly defined process?",
+      "options": [
+        "Automation automatically removes process problems",
+        "The resulting automated process will also produce poorly defined results",
+        "Automation is never useful in software engineering",
+        "Automation eliminates the need for process measurement once the poorly defined steps have been put into tools"
+      ],
+      "answer": "b",
+      "explanation": "Automation does not fix an unclear process. The process application should first be clearly understood and defined.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "until cleared effort process application is available. So to automate things, everything, you should have a clear definition of the process and also you should consider the priority, okay? We mentioned about those kind of things."
+      }
+    },
+    {
+      "question": "Before investing heavily in automation, an organization should:",
+      "options": [
+        "Automate every activity at the same time",
+        "Clearly define the process and identify high-priority problems",
+        "Remove all existing procedures",
+        "Wait until all software defects have disappeared before defining the process or choosing any automation"
+      ],
+      "answer": "b",
+      "explanation": "Automation should target important problems, but the process and its application must first be clearly defined.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And automation should be certainly be used to reserve the high priority problems, but either effort should be wasted until cleared effort process application is available."
+      }
+    },
+    {
+      "question": "Why should process improvements generally be made in small steps?",
+      "options": [
+        "Large improvements are technically impossible in software organizations, so any change bigger than a one-line procedure update is bound to fail",
+        "People naturally resist change, and large changes can create unstable processes and increase failure risk",
+        "Small changes do not require testing",
+        "Management cannot approve large changes"
+      ],
+      "answer": "b",
+      "explanation": "Processes near human capability limits can become unstable, and people often resist major changes. Small changes can be tested and adjusted before wider adoption.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And improvement should be made in small steps, okay? Whenever you go up to the mountain, have you often go up to the mountain, okay? So if you go up, what do you have to do? I suggest people, whenever we go up the crime mountain,"
+      }
+    },
+    {
+      "question": "A process change should be widely deployed immediately after it is designed.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture recommends making changes in small steps and testing and adjusting them before widespread implementation.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And improvement should be made in small steps, okay? Whenever you go up to the mountain, have you often go up to the mountain, okay? So if you go up, what do you have to do? I suggest people, whenever we go up the crime mountain,"
+      }
+    },
+    {
+      "question": "Why does the lecture strongly emphasize training?",
+      "options": [
+        "Training eliminates the need for management",
+        "Without training, people must learn through trial and error, which wastes time and creates additional errors",
+        "Training guarantees that software contains no defects, which means reviews, testing, and process controls can be dropped afterward",
+        "Training is only needed for inexperienced programmers"
+      ],
+      "answer": "b",
+      "explanation": "Without proper training in processes, methods, tools, and technologies, learning occurs through costly and error-prone trial and error.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And also without training people properly with technology or methods and tools they need, They probably, they cannot, you know, show their capabilities in, you know, appropriate way. So training is also very important to do."
+      }
+    },
+    {
+      "question": "According to the lecture, training is expensive, but not nearly as expensive as not training.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Training requires resources, but inadequate training produces wasted time, errors, and ineffective use of methods and tools.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And also without training people properly with technology or methods and tools they need, They probably, they cannot, you know, show their capabilities in, you know, appropriate way. So training is also very important to do."
+      }
+    },
+    {
+      "question": "Which statement about software requirements is identified as a common misconception?",
+      "options": [
+        "Requirements can evolve as development progresses",
+        "Requirements problems should be addressed at the requirements level",
+        "Development must always wait until firm and complete requirements exist",
+        "Incremental development can help refine requirements"
+      ],
+      "answer": "c",
+      "explanation": "The lecture rejects the idea that development must always wait for complete, firm requirements. Requirements commonly evolve during development.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "We must start with form requirements, like 100% requirements, or 90% of requirements at least we can start, or 60% of the requirements we can start. What do you think? Is it false? Do you think? Why?"
+      }
+    },
+    {
+      "question": "What approach does the lecture recommend when complete requirements cannot realistically be known at the beginning?",
+      "options": [
+        "Cancel the project",
+        "Incremental development",
+        "Freeze all requirements immediately",
+        "Begin coding without considering requirements"
+      ],
+      "answer": "b",
+      "explanation": "An incremental development process allows requirements and the implementation to be mutually refined as more is learned.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And you cannot wait forever to get 100% of users' requirements from the customers because sometimes they do not know what they expect from the system entirely from the beginning. So once you find out the most important and very important features of the system and very important functional requirements and the very important non-functional requirements,"
+      }
+    },
+    {
+      "question": "When a requirements problem is discovered during development, it should primarily be:",
+      "options": [
+        "Patched directly in the source code",
+        "Ignored if the software already passes its tests",
+        "Resolved at the requirements level",
+        "Handled only after release"
+      ],
+      "answer": "c",
+      "explanation": "The slides emphasize that requirements problems should be corrected at the requirements level rather than merely patched in design or code.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And you cannot wait forever to get 100% of users' requirements from the customers because sometimes they do not know what they expect from the system entirely from the beginning. So once you find out the most important and very important features of the system and very important functional requirements and the very important non-functional requirements,"
+      }
+    },
+    {
+      "question": "If software passes all of its current tests, that proves the software is correct.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "Passing tests does not prove the absence of defects. Testing becomes a less reliable indicator of total system quality as systems and operating environments become more complex.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "if it passes, it must be okay, what do you think? Here in means product, software, system, hardware, whatever, the product we like to build now, okay? So if this product passes, is it okay?"
+      }
+    },
+    {
+      "question": "Which statement about testing is supported by the lecture?",
+      "options": [
+        "If software passes a test, it must contain no defects",
+        "If software fails a test, something is wrong",
+        "Testing can mathematically prove that no bugs exist",
+        "Every software product requires the same amount of testing"
+      ],
+      "answer": "b",
+      "explanation": "The lecture says the converse is valid: if the product does not pass its test, it is not OK. Passing, however, does not prove that no defects remain.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "if it passes, it must be okay, what do you think? Here in means product, software, system, hardware, whatever, the product we like to build now, okay? So if this product passes, is it okay?"
+      }
+    },
+    {
+      "question": "How should the amount of testing performed on a system be determined?",
+      "options": [
+        "Every system should receive exactly the same amount of testing, regardless of resources, history, criticality, or risk",
+        "Testing should stop after the first successful test",
+        "It depends on factors such as available resources, historical experience, system criticality, and risk",
+        "Only the number of developers determines testing effort"
+      ],
+      "answer": "c",
+      "explanation": "The professor emphasized that testing effort depends on available resources and the nature of the system. Life-critical or highly costly systems justify substantially greater verification effort.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "If that system is highly critical to the human life, okay, if it is very, the, related to the, you know, some human life, like medical systems, or if this system is too much expensive, you know,"
+      }
+    },
+    {
+      "question": "The statement 'software quality cannot be measured' is:",
+      "options": [
+        "True because software is invisible",
+        "True because defects cannot be counted",
+        "False, although no single measure completely represents software quality",
+        "False because one universal quality metric exists that completely represents every aspect of software quality"
+      ],
+      "answer": "c",
+      "explanation": "The slides reject the misconception. There is no single comprehensive quality measure, but useful measurements and sets of metrics can still provide valuable information.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "software quality cannot be measured, okay? So we talked about the software quality last time a little bit, and then like the security, maintainability, modifiability, those kinds of things, right?"
+      }
+    },
+    {
+      "question": "Which could be useful when evaluating software quality? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Defect rates",
+        "Errors found during reviews or inspections",
+        "Inspection effort or preparation time",
+        "Multiple metrics used together to support statistical inference"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture explains that one metric is rarely sufficient. Multiple measurements can be used together to reason about software quality.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "but we may have several set of metrics, you know, to guess, to start guessing or to start statistical inference to find out the quality of a product. There are many problems occurred in your organization, and then probably you may easily think the problems, most of the problems are technical problems. But the research says"
+      }
+    },
+    {
+      "question": "According to the lecture, the highest-priority problems in many low-maturity software organizations are primarily:",
+      "options": [
+        "Hardware performance problems",
+        "Technical programming language problems such as weak compilers, limited languages, and coding-style defects",
+        "Process and management problems such as uncontrolled changes, late defects, and crises",
+        "A shortage of programming languages"
+      ],
+      "answer": "c",
+      "explanation": "Although important technical problems exist, many high-priority organizational problems involve management, planning, control, changes, defects, and crisis response.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "the quality problems of most software innovations are not technical problems, okay, not only technical problems. So not only you consider how to reduce errors in the technical things like coding, game testing, game reviewing, but also you have to consider many other things like how to manage the process, how to control process,"
+      }
+    },
+    {
+      "question": "What is wrong with the misconception 'we need better people'?",
+      "options": [
+        "Individual ability has no effect on software development, so recruiting, leadership, training, and management support cannot change how teams perform",
+        "Organizations may already have capable people, and many problems are caused by the process and management rather than individual workers",
+        "Managers should never hire talented people",
+        "Software developers are interchangeable"
+      ],
+      "answer": "b",
+      "explanation": "Good people are valuable, but replacing people alone does not solve process problems. Leadership, training, management, and the process itself strongly affect performance.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Okay, we need better people, yes, it is always, it looks always true, but, you know, we cannot say it is always true, because you may have better people right now already."
+      }
+    },
+    {
+      "question": "According to the slides, when software professionals make errors, the true underlying cause is often:",
+      "options": [
+        "The programming language",
+        "The process rather than the people",
+        "The operating system",
+        "A lack of intelligence"
+      ],
+      "answer": "b",
+      "explanation": "The lecture warns against automatically blaming individuals. Many recurring errors require management and process improvements.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "the quality problems of most software innovations are not technical problems, okay, not only technical problems. So not only you consider how to reduce errors in the technical things like coding, game testing, game reviewing, but also you have to consider many other things like how to manage the process, how to control process,"
+      }
+    },
+    {
+      "question": "The fact that software has unique characteristics means traditional management techniques should not be used.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "Software is different in important ways, but traditional management and control techniques can still be adapted and used. Software's unique characteristics require more management discipline, not less.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "But still, also, we can use many good techniques, management techniques, control techniques, and like statistical control techniques used in the hardware production, okay,"
+      }
+    },
+    {
+      "question": "Which management practices are still useful in software engineering? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Detailed planning",
+        "Tracking systems",
+        "Periodic technical reviews",
+        "Periodic management reviews"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The slides specifically identify plans, tracking systems, and periodic technical and management reviews as useful practices.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Without having plan, you don't know what you have to do. Even though planning does not work well and you may not follow your plan exactly, but it is fine. Still you need some kind of plan rather than nothing, okay? And also you need to put some time and management and investment. Also whatever"
+      }
+    },
+    {
+      "question": "What are the three phases of an effective process change?",
+      "options": [
+        "Planning, coding, testing",
+        "Assessment, automation, deployment",
+        "Unfreezing, moving, refreezing",
+        "Installation, practice, proficiency"
+      ],
+      "answer": "c",
+      "explanation": "The process change strategy is described using three phases: unfreezing the existing situation, moving to the changed process, and refreezing the new process into normal practice.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "unfreezing and moving and refreezing. Okay, so whenever you like to cook your meat, what you have to do? You have to take it out of your meat, you already bought and put it in the fridge later, and you have to take it out, right?"
+      }
+    },
+    {
+      "question": "In software process change, what does 'unfreezing' primarily involve?",
+      "options": [
+        "Removing all existing processes immediately so the organization can abandon current practices and start from a blank slate",
+        "Understanding the organization's real problems and making people aware of opportunities for change",
+        "Automating the current process",
+        "Ending management oversight"
+      ],
+      "answer": "b",
+      "explanation": "Unfreezing prepares the organization for change by identifying real problems and creating awareness that improvement is needed. A software process assessment can help accomplish this.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "unfreezing and moving and refreezing. Okay, so whenever you like to cook your meat, what you have to do? You have to take it out of your meat, you already bought and put it in the fridge later, and you have to take it out, right?"
+      }
+    },
+    {
+      "question": "What is the role of a process change champion?",
+      "options": [
+        "To perform every process change personally",
+        "To initiate the change, attract management attention, gain sponsorship, and help launch the program",
+        "To replace senior management",
+        "To monitor the finished process after implementation, without initiating the change or winning management sponsorship"
+      ],
+      "answer": "b",
+      "explanation": "Champions initiate change and help build the credibility and management support needed to launch the improvement effort.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "There are some people who are called like champions. They are the people who initiate the process change. And also there should be some change agents who really implement this change activities."
+      }
+    },
+    {
+      "question": "What is the primary role of a senior management sponsor in process change?",
+      "options": [
+        "Writing all new software procedures",
+        "Providing resources and official backing",
+        "Performing all employee training",
+        "Replacing the change agents"
+      ],
+      "answer": "b",
+      "explanation": "A sponsor has sufficient authority to recognize the value of the work and provide resources and official organizational support.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "who are sponsoring your process change, but also people should understand. So early demonstration of success is very important, so people find out how much this is good to do,"
+      }
+    },
+    {
+      "question": "What is the role of change agents?",
+      "options": [
+        "They initiate every improvement idea before a champion exists and before management has agreed that change is needed",
+        "They lead the planning and implementation of the actual change",
+        "They only approve budgets",
+        "They prevent employees from modifying processes"
+      ],
+      "answer": "b",
+      "explanation": "After the need for change and management sponsorship are established, change agents lead the planning and implementation effort.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And also there should be some change agents who really implement this change activities. Your organization. And this slide talks about three key elements"
+      }
+    },
+    {
+      "question": "What are the three key elements of effective process change?",
+      "options": [
+        "Cost, schedule, and quality",
+        "People, products, and tools",
+        "Planning, implementation, and communication",
+        "Requirements, design, and testing"
+      ],
+      "answer": "c",
+      "explanation": "The slides identify planning, implementation, and communication as the three key elements of effective change.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And this slide talks about three key elements of effective change. Planning and implementation and communication. You need to have a good planning"
+      }
+    },
+    {
+      "question": "Who should participate in planning a process change?",
+      "options": [
+        "Only senior executives",
+        "Only software developers",
+        "Knowledgeable representatives from each affected group",
+        "Only external consultants, without participation from the groups that must adopt the new process"
+      ],
+      "answer": "c",
+      "explanation": "Including knowledgeable representatives from affected groups improves the quality of the plan and makes acceptance of the change more likely.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "Everybody should understand what's going on and what they have to do. So each different roles, they have different people may have different roles, okay, playing this process change. And also, it's good to have a periodic progress report,"
+      }
+    },
+    {
+      "question": "Which actions help maintain momentum and support during process change? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Public plans",
+        "Periodic progress reports",
+        "Early demonstrations of success",
+        "Keeping the entire change secret from employees"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Public plans, progress reports, and early successes help reassure employees and maintain continued executive support.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "So early demonstration of success is very important, so people find out how much this is good to do, and then they can be more willing to participate in this process chain, okay?"
+      }
+    },
+    {
+      "question": "Why is an early demonstration of success useful during process change?",
+      "options": [
+        "It proves that no additional process improvement will ever be needed after the organization shows its first visible success",
+        "It helps people see the value of the change and encourages continued participation and management support",
+        "It eliminates the need for measurement",
+        "It allows the process team to stop working"
+      ],
+      "answer": "b",
+      "explanation": "Visible early success gives employees evidence that the change is worthwhile and helps sustain organizational and executive support.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "So early demonstration of success is very important, so people find out how much this is good to do, and then they can be more willing to participate in this process chain, okay?"
+      }
+    },
+    {
+      "question": "What is the main objective of 'refreezing'?",
+      "options": [
+        "Returning to the original process",
+        "Stopping all future process improvement",
+        "Ensuring that an achieved capability becomes retained in normal organizational practice",
+        "Removing the process improvement team immediately so the new practices continue without monitoring, incentives, or support"
+      ],
+      "answer": "c",
+      "explanation": "Refreezing institutionalizes the new capability so that the organization does not gradually return to its old behavior.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "And then you have to refreeze it to work in a normal way best, right? And then you may have some like champions. There are some people who are called like champions. They are the people who initiate the process change."
+      }
+    },
+    {
+      "question": "Which are techniques for refreezing a successful process change? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Retain at least part of the management or process team that instituted the change",
+        "Modify organizational procedures to incorporate the new process",
+        "Establish measurements and incentives",
+        "Set up staff to monitor and support performance",
+        "Establish education and training programs"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "explanation": "Refreezing requires institutional support. The slides recommend retaining knowledgeable people, formally updating procedures, measuring performance, supporting the process, and continuing education and training.",
+      "reference": {
+        "book": "Chapter 2 — The Principles of Software Process Change",
+        "lecture": "and we need to establish an education and training program to import this to all people. Okay, that's all we have, we talk about the process change, principle of process change. Any questions for that?"
+      }
+    }
+  ]
+}

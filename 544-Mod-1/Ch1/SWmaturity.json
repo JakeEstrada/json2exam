@@ -1,0 +1,814 @@
+{
+  "title": "CPSC 544 - Software Maturity Framework",
+  "questions": [
+    {
+      "question": "What is a software process?",
+      "options": [
+        "A collection of programming languages used by a development team",
+        "The set of tools, methods, and practices used to produce a software product",
+        "A document describing only the testing phase of development",
+        "A list of software requirements provided by the customer"
+      ],
+      "answer": "b",
+      "explanation": "The lecture defines the software process as the set of tools, methods, and practices used to produce a software product.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "The process is the set of tools, methods, and the practices we use to produce or software product. And this should include what we produce, who produce, when produce."
+      }
+    },
+    {
+      "question": "According to the lecture, a software process should make clear which three basic things?",
+      "type": "multi",
+      "options": [
+        "What is produced or done",
+        "Who performs the work",
+        "When the work is performed",
+        "Which programming language is most popular"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The process must establish what is done, who does it, and when it is done.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And this should include what we produce, who produce, when produce. So we have to talk about what, and who, and when. And we talk about the practice, practice, good practice,"
+      }
+    },
+    {
+      "question": "What is a software engineering practice?",
+      "options": [
+        "Only a programming technique used during coding",
+        "A broad collection of concepts, principles, methods, and tools considered during software planning and development",
+        "A final acceptance test performed just before product release and regarded as the complete software engineering practice",
+        "A management report created after a project ends"
+      ],
+      "answer": "b",
+      "explanation": "Practice includes the concepts, principles, methods, and tools needed to actually carry out the software process.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "What is a practice? A practice is a broad array of concepts, principles, methods, and tools you consider as software is planned and developed."
+      }
+    },
+    {
+      "question": "Which of the following could be considered a work product?",
+      "type": "multi",
+      "options": [
+        "Source code",
+        "A design specification",
+        "An analysis document",
+        "A design diagram"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "A work product is anything produced by an activity in the software process, including code, documents, specifications, models, and diagrams.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "Work product is anything you produce from each activity you define in your process. It could be code, simply, or it could be, and it could be just written document."
+      }
+    },
+    {
+      "question": "What is the fundamental characteristic of a truly effective software process?",
+      "options": [
+        "It uses the newest technology",
+        "It is predictable",
+        "It has the largest development team",
+        "It eliminates the need for management"
+      ],
+      "answer": "b",
+      "explanation": "The lecture emphasizes that an effective software process must fundamentally be predictable.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "your your process is truly effective okay if your process is predictable then and we say your process is an effective process, okay? Repeatable, repeatable means I already told this, you produce, repeatedly you produce at least the same"
+      }
+    },
+    {
+      "question": "Which conditions help demonstrate that a software process is predictable and effective?",
+      "type": "multi",
+      "options": [
+        "Cost estimates are met with reasonable consistency",
+        "Schedule commitments are met with reasonable consistency",
+        "Products generally meet users' functional expectations",
+        "Products generally meet users' quality expectations"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "Predictability involves consistently meeting cost and schedule commitments while producing products that satisfy functional and quality expectations.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And if cost, estimate, and schedule commitment meet the reasonable consistency and the resulting products generally meet the user's functional and quality expectations, then we say your process is effective, okay?"
+      }
+    },
+    {
+      "question": "What are the two simultaneous objectives of software process management?",
+      "options": [
+        "Reduce documentation and increase coding speed as the two simultaneous objectives of software process management",
+        "Produce products according to plan and improve the organization's capability to produce better products",
+        "Hire more developers and purchase more tools",
+        "Eliminate management and automate development"
+      ],
+      "answer": "b",
+      "explanation": "Software process management aims both to execute the current project according to plan and to improve the organization's future development capability.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "An objective of software process management are to produce product quality plan while simultaneously improving organizations capability to product better."
+      }
+    },
+    {
+      "question": "When is a process considered stable or under statistical control?",
+      "options": [
+        "When every project produces exactly the same software",
+        "When its future performance is predictable within established statistical limits",
+        "When no defects are ever discovered",
+        "When management no longer needs to monitor the process because future results are assumed to remain acceptable"
+      ],
+      "answer": "b",
+      "explanation": "A statistically controlled process has future performance that is predictable within established statistical limits.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "Okay, so if you are adopting this static process control, then probably you can make your process repeatable and a higher retreat. That's what it does. So there are many factors to consider in measuring the process, and the number must appropriately"
+      }
+    },
+    {
+      "question": "When a process is under statistical control, repeating the work in roughly the same way should produce roughly the same result.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "This repeatability is one of the key ideas behind statistical process control.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "Okay, so if you are adopting this static process control, then probably you can make your process repeatable and a higher retreat. That's what it does. So there are many factors to consider in measuring the process, and the number must appropriately"
+      }
+    },
+    {
+      "question": "What is the basic principle behind statistical process control?",
+      "options": [
+        "Automation",
+        "Measurement",
+        "Hiring",
+        "Prototyping"
+      ],
+      "answer": "b",
+      "explanation": "The lecture states that measurement is the basic principle behind statistical control.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "You need to measure, collect data, and analyze this data, okay, performing some statistical analysis, and then find out whether you are in good shape or not."
+      }
+    },
+    {
+      "question": "Which statements about process measurement are correct?",
+      "type": "multi",
+      "options": [
+        "Measurements should properly represent the process being controlled",
+        "Measurements should be sufficiently well-defined and verified",
+        "Measuring human processes can change those processes",
+        "Measurements should have a predefined use"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture warns that measurements must be meaningful, reliable, and purposeful because the act of measuring people and processes can itself affect behavior.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So there are many factors to consider in measuring the process, and the number must appropriately present the process being controlled. What kind of data you have to collect? There are many datas you can collect."
+      }
+    },
+    {
+      "question": "Why should an organization avoid collecting measurements that have no predefined use?",
+      "options": [
+        "All software measurements are inaccurate",
+        "Measurement can affect human behavior, so data should be collected for a clear purpose",
+        "Managers are not allowed to view measurements, so teams may collect unused data without any predefined purpose",
+        "Measurements are only useful at Level 5"
+      ],
+      "answer": "b",
+      "explanation": "Because measurement itself can alter human processes, the lecture recommends limiting measurements to those that serve a predefined purpose.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "be collected and why it is collected. And the managers and engineers should understand that this data will not be used to assess personal the engineers, persons. It will be used to measure the quality of product and the process and organization level."
+      }
+    },
+    {
+      "question": "What is the first step in the six-step software process improvement cycle?",
+      "options": [
+        "Purchase new development tools",
+        "Understand the current status of the development process",
+        "Hire a process improvement team",
+        "Implement the desired process immediately without first understanding the current status of development"
+      ],
+      "answer": "b",
+      "explanation": "Improvement begins by understanding where the organization currently stands.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "First, understand the current status of the development process. Even though you did not define or process, probably you are performing work based on certain process,"
+      }
+    },
+    {
+      "question": "Which sequence correctly represents the general software process improvement cycle?",
+      "options": [
+        "Plan, code, test, deploy, maintain, stop",
+        "Understand current status, develop a vision, prioritize improvement actions, create a plan, commit resources, repeat",
+        "Hire people, buy tools, automate, test, document, repeat",
+        "Measure quality, remove managers, rewrite the software, deploy the product, and then repeat that entire cycle from the start"
+      ],
+      "answer": "b",
+      "explanation": "The six steps are current-state assessment, vision, prioritized actions, planning, resource commitment, and then starting the cycle again.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "and then develop a vision of the design process. And then what kind of a process I like to have then. And then you have a current process, you have a desired process, you can compare them,"
+      }
+    },
+    {
+      "question": "What is the correct order of the five CMM software process maturity levels?",
+      "options": [
+        "Initial, Defined, Repeatable, Managed, Optimizing",
+        "Initial, Repeatable, Defined, Managed, Optimizing",
+        "Repeatable, Initial, Managed, Defined, Optimizing",
+        "Initial, Managed, Repeatable, Defined, Optimizing"
+      ],
+      "answer": "b",
+      "explanation": "The five CMM maturity levels are Initial, Repeatable, Defined, Managed, and Optimizing.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "This will suggest five maturity levels. We consider initial, repeatable, defined, managed, optimizing, okay? So we have a initial level just in the chaos state"
+      }
+    },
+    {
+      "question": "How does the CMMI maturity-level terminology differ from the older CMM terminology?",
+      "options": [
+        "CMMI eliminates Level 5",
+        "CMMI calls Level 2 Managed and Level 4 Quantitatively Managed",
+        "CMMI calls Level 1 Repeatable",
+        "CMMI uses only three maturity levels and keeps the older CMM names for Level 2 and Level 4 unchanged"
+      ],
+      "answer": "b",
+      "explanation": "CMM uses Repeatable at Level 2 and Managed at Level 4, while CMMI uses Managed at Level 2 and Quantitatively Managed at Level 4.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "In the level two, they change the name from repeatable to the managed. And then accordingly, they change this managed to the computatively managed, and others are same. Okay."
+      }
+    },
+    {
+      "question": "What is the first major goal for an organization at Initial Level 1?",
+      "options": [
+        "Full automation",
+        "Rudimentary predictability of schedules and costs",
+        "Eliminating project management",
+        "Quantitative process optimization before the organization has any predictability of schedules or costs"
+      ],
+      "answer": "b",
+      "explanation": "Before advanced improvement is possible, an Initial organization must begin establishing predictability in schedule and cost.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "estimate your project and plan your project and oversight your project, okay, like that. And then you can go to the next level, then probably you can expect probably your process is repeatable, probably you can repeatedly produce a certain quality of product. The defined level organization is expected to define"
+      }
+    },
+    {
+      "question": "What primarily characterizes the Repeatable Process at Level 2?",
+      "options": [
+        "A stable process supported by rigorous management of commitments, cost, schedules, and changes",
+        "Complete automation of all development activities without rigorous management of commitments, cost, schedules, or changes",
+        "No need for project planning",
+        "Continuous optimization based on statistical data"
+      ],
+      "answer": "a",
+      "explanation": "Level 2 establishes basic management control so previous successes can be repeated more reliably.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And then if you go to the next level, it is called the repeatable process, the repeatable process. So by having those basic mechanisms, you have a capability to handle all issues in your organization. And then your process level is repeatable, which can repeatedly produce very similar"
+      }
+    },
+    {
+      "question": "What is a major characteristic of the Defined Process at Level 3?",
+      "options": [
+        "The organization has no standard process",
+        "The organization has defined its process for consistent implementation and better understanding",
+        "The organization relies primarily on individual heroes rather than a defined process for consistent implementation",
+        "All process data is automatically collected"
+      ],
+      "answer": "b",
+      "explanation": "At Level 3 the development process itself has been formally defined and can be consistently followed.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "The defined level organization is expected to define their standardized procedures and guidelines and the methods and tools they are using, okay? And then, next level, they performing some measurement"
+      }
+    },
+    {
+      "question": "At which maturity level does the organization begin comprehensive process measurement and analysis?",
+      "options": [
+        "Level 1 - Initial",
+        "Level 2 - Repeatable",
+        "Level 3 - Defined",
+        "Level 4 - Managed"
+      ],
+      "answer": "d",
+      "explanation": "The Managed Process at Level 4 introduces comprehensive measurement and quantitative process analysis.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So, when you are at level 3, and if you like to go up to another higher level of maturity, and then you can consider this quantitative approach in your management. Okay? So what kind of thing you can do, establish minimum basic set of process measurement and establish process database, collect all data for the process data and the product data and the resources to do it."
+      }
+    },
+    {
+      "question": "What is the central idea of the Optimizing Process at Level 5?",
+      "options": [
+        "Establish basic project plans",
+        "Define the development life cycle for the first time and treat that step as the Level 5 optimizing goal",
+        "Create a foundation for continuing process improvement and optimization",
+        "Stop changing the process once it becomes stable"
+      ],
+      "answer": "c",
+      "explanation": "Level 5 uses the mature process and its data as a foundation for continuous improvement and optimization.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "In the optimizing level, the highest level, you're expected to have everything we discussed so far. In addition to that, you are capable to know what is good, what is bad in your process, and how to fix the problem in your process."
+      }
+    },
+    {
+      "question": "Why were maturity levels chosen as a framework for process improvement?",
+      "type": "multi",
+      "options": [
+        "They reflect historical phases through which real software organizations tend to improve",
+        "Each level represents a reasonable improvement from the preceding level",
+        "They provide interim goals and progress measures",
+        "They help identify immediate improvement priorities"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The maturity framework provides an evolutionary path with achievable steps, measurable progress, and clear priorities.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And also, this maturity level suggests your interim improvement goals and the progress measures. You may not go up to the highest level at once without having good foundations in your organizations."
+      }
+    },
+    {
+      "question": "Which characteristics are commonly associated with an Initial Level 1 organization?",
+      "type": "multi",
+      "options": [
+        "Ad hoc or chaotic development",
+        "Weak or nonexistent formal procedures",
+        "Poorly integrated or inconsistently used tools",
+        "Lax change control"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "Initial organizations often lack disciplined procedures, consistent tool use, effective planning, and change control.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "level is initial level and the typical characteristic of this initial level organization is chaotic. Which means we cannot effectively characterize that organization in a certain way. It looks like sometimes they are good, sometimes not good. It's very hard to judge at once."
+      }
+    },
+    {
+      "question": "What is one of the best ways to determine whether an organization is truly at the Initial Process Level?",
+      "options": [
+        "Count how many developers it employs",
+        "Observe how it behaves during a crisis",
+        "Check which programming language it uses",
+        "Determine whether it uses Agile"
+      ],
+      "answer": "b",
+      "explanation": "A crisis reveals whether the organization truly follows its process or abandons it under pressure.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "with that type of crisis then you are in this level level one right now okay so probably you can assess yourself what types of process between the level okay bio originations at right now okay then so if you think okay oh this is my Okay, and then how can you improve it? So if you become a lead, or project leader, or"
+      }
+    },
+    {
+      "question": "A team has documented procedures, but during a crisis it abandons them and immediately falls back to coding and testing. Which maturity level does this behavior suggest?",
+      "options": [
+        "Initial",
+        "Repeatable",
+        "Managed",
+        "Optimizing"
+      ],
+      "answer": "a",
+      "explanation": "The lecture specifically identifies abandoning established procedures during a crisis as a sign of an Initial-level organization.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "with that type of crisis then you are in this level level one right now okay so probably you can assess yourself what types of process between the level okay bio originations at right now okay then so if you think okay oh this is my Okay, and then how can you improve it? So if you become a lead, or project leader, or"
+      }
+    },
+    {
+      "question": "Which basic controls can help an Initial organization move toward a more mature process?",
+      "type": "multi",
+      "options": [
+        "Project management",
+        "Management oversight",
+        "Quality assurance",
+        "Change control"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "These four basic controls establish the discipline needed to move beyond the Initial level.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "basis for the management. So what are they? Project management skills. You should have a certain way to manage the project. You should know how to estimate project, make plan based on this estimation of the work, okay. Probably you may use your historical data and you may use your experience or you may use a certain"
+      }
+    },
+    {
+      "question": "What is the fundamental role of a project management system according to the lecture?",
+      "options": [
+        "To eliminate all project risk",
+        "To ensure effective control of commitments",
+        "To replace software engineers",
+        "To select programming languages"
+      ],
+      "answer": "b",
+      "explanation": "Project management is primarily concerned with establishing and controlling realistic commitments.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "a certain way to manage the project. You should know how to estimate project, make plan based on this estimation of the work, okay. Probably you may use your historical data and you may use your experience or you may use a certain tools to estimate certain methods okay but some methods are saying you may have"
+      }
+    },
+    {
+      "question": "Why is senior management oversight important in a disciplined software organization?",
+      "options": [
+        "Senior management should personally write the production software so review of plans, costs, and process performance is no longer needed",
+        "Major plans and process performance need review so over-commitment, cost surprises, and inconsistent process use can be detected",
+        "Senior management must select every development tool",
+        "It removes the need for quality assurance"
+      ],
+      "answer": "b",
+      "explanation": "Management oversight helps ensure plans are realistic and that the defined process is actually being followed.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "What about the management oversight? Do you have a systematic way to review the work? And regularly you meet the people regularly. You discuss about your project, your plan,"
+      }
+    },
+    {
+      "question": "What is the main responsibility of a software quality assurance group?",
+      "options": [
+        "Write most of the production code rather than independently assuring that software work is performed as required",
+        "Assure management that software work is being performed the way it is supposed to be performed",
+        "Set customer prices",
+        "Replace the project manager"
+      ],
+      "answer": "b",
+      "explanation": "Quality assurance independently monitors whether planning, implementation, and verification activities follow the established process.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "related to quality assurance called the QA. And the middle organizations are using this QA to knowledge QA as for testing, which is not exactly correct."
+      }
+    },
+    {
+      "question": "For quality assurance to be effective, the QA organization should have an independent reporting line to senior management.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "Independence helps QA report process and quality problems without being controlled by the organization it is evaluating.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "and then you should have a way to report to your high enough higher manager who can support resources to fix those problems. So that kind of activity should be done."
+      }
+    },
+    {
+      "question": "According to the lecture, approximately how large might an effective quality assurance organization be relative to the software organization?",
+      "options": [
+        "Less than 1 percent",
+        "About 3 to 6 percent",
+        "About 25 percent",
+        "More than 50 percent"
+      ],
+      "answer": "b",
+      "explanation": "The slides state that QA generally requires resources equal to roughly 3 to 6 percent of the size of the software organization.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "related to quality assurance called the QA. And the middle organizations are using this QA to knowledge QA as for testing, which is not exactly correct."
+      }
+    },
+    {
+      "question": "Why is software change control considered fundamental?",
+      "options": [
+        "It prevents customers from ever requesting changes",
+        "It supports business and financial control as well as technical stability",
+        "It eliminates software testing",
+        "It allows developers to change requirements whenever they want"
+      ],
+      "answer": "b",
+      "explanation": "Controlled requirements, design, and code changes are necessary for predictable development and technical stability.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And then how can you handle this change? If requirements are changed, then your design should be changed, your code should be changed,"
+      }
+    },
+    {
+      "question": "What may happen if requirements, design, and code changes are not controlled?",
+      "options": [
+        "Development becomes more predictable",
+        "Orderly design, implementation, and testing become impossible",
+        "Testing becomes unnecessary",
+        "The organization automatically reaches Level 3 because uncontrolled change is taken as a sign of process maturity"
+      ],
+      "answer": "b",
+      "explanation": "Uncontrolled changes disrupt planning, design, implementation, testing, and quality management.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And then how can you handle this change? If requirements are changed, then your design should be changed, your code should be changed,"
+      }
+    },
+    {
+      "question": "Which actions are required to advance from the Repeatable Process toward the Defined Process?",
+      "type": "multi",
+      "options": [
+        "Establish a software engineering process group",
+        "Establish a software development process architecture or life cycle",
+        "Introduce a family of software engineering methods and technologies",
+        "Stop documenting the process"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Moving from Level 2 to Level 3 requires dedicated process improvement resources, a defined process architecture, and appropriate engineering methods and technologies.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So to go up to the level two, from level two to level three, define the process level and then you need to establish development of process. To build this organizational process is a good idea to have a process architecture which defines all components of a process,"
+      }
+    },
+    {
+      "question": "What is the primary purpose of a Software Engineering Process Group such as an EPG or SEPG?",
+      "options": [
+        "Focus exclusively on software process improvement",
+        "Write every project's source code rather than focusing exclusively on software process improvement",
+        "Perform only customer support",
+        "Replace senior management"
+      ],
+      "answer": "a",
+      "explanation": "The process group provides dedicated technical resources focused on improving the organization's software process.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So they are called the process group, and it is called the engineering process group or software engineering process group, okay? Okay, so next slide discuss about all the issues we've talked so far. And then now you have a basic mechanism of project management, quality assurance,"
+      }
+    },
+    {
+      "question": "Why does the lecture argue that some people should receive full-time assignments for process improvement?",
+      "options": [
+        "Software development requires fewer engineers",
+        "Little orderly process improvement occurs when everyone is devoted only to immediate product work",
+        "Managers should not work on products",
+        "Process improvement requires no project experience, so full-time roles can be filled by people who have never shipped software"
+      ],
+      "answer": "b",
+      "explanation": "If everyone is consumed by current product deadlines, systematic process improvement tends to be neglected.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "to your organization well, and to do this kind of job is good idea to establish a group of team, okay, a team to take care of this work, okay, take care of this process work. So they are called the process group, and it is called the engineering process group or software engineering process group, okay?"
+      }
+    },
+    {
+      "question": "What does a software development process architecture describe?",
+      "options": [
+        "Only the source-code directory structure",
+        "The technical and management activities required to properly execute the development process",
+        "Only the hardware architecture of the final system, not the technical and management activities used to execute development",
+        "The company's financial organization"
+      ],
+      "answer": "b",
+      "explanation": "The process architecture decomposes the development life cycle into defined tasks and activities.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "To build this organizational process is a good idea to have a process architecture which defines all components of a process, all sets of components there, like phases, steps, tasks, and input outputs, method tools."
+      }
+    },
+    {
+      "question": "Which items may be defined for tasks within a software development process architecture?",
+      "type": "multi",
+      "options": [
+        "Prerequisites",
+        "Functional descriptions",
+        "Verification procedures",
+        "Task completion specifications"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The process architecture decomposes work until individual tasks have clear prerequisites, descriptions, verification procedures, and completion criteria.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "all sets of components there, like phases, steps, tasks, and input outputs, method tools. And then from this set of components, process components, you can build any process architecture, like Lego."
+      }
+    },
+    {
+      "question": "Which engineering methods and technologies does the lecture mention as useful when advancing toward the Defined Process?",
+      "type": "multi",
+      "options": [
+        "Design and code inspections",
+        "Formal design methods",
+        "Library control systems and comprehensive testing methods",
+        "Prototyping and modern implementation languages"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "These are examples of the engineering methods and technologies that can be introduced as the process becomes more formally defined.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So we discuss about the inspection and testing as a method and tools. And another version of configuration management. And how to define process in the software engineering process group. Okay, so we will study about it."
+      }
+    },
+    {
+      "question": "Which activities help an organization advance from the Defined Process toward the Managed Process?",
+      "type": "multi",
+      "options": [
+        "Establish a basic set of process measurements",
+        "Establish and maintain a process database",
+        "Provide resources for gathering and using process data",
+        "Assess product quality and identify where quality targets are not being met"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The transition toward Level 4 centers on systematic collection, maintenance, analysis, and use of process and quality data.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "So what kind of thing you can do, establish minimum basic set of process measurement and establish process database, collect all data for the process data and the product data and the resources to do it. To do this, probably you need some training and you need some expertise in this type of work. and you have to have a database to collect all this data permanently and"
+      }
+    },
+    {
+      "question": "What is one of the greatest practical problems associated with the Managed Process?",
+      "options": [
+        "Developers no longer need data",
+        "The cost of gathering and maintaining process data",
+        "The organization cannot define a process",
+        "Quality can no longer be measured"
+      ],
+      "answer": "b",
+      "explanation": "There are many potentially useful measures, but collecting and maintaining them can be expensive.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "Gathering data is not easy and it takes cost. It takes the time of your engineers. Your engineers may do better work there. So whether one or the other is good, but it takes cost."
+      }
+    },
+    {
+      "question": "Which two requirements are emphasized for advancing from the Managed Process to the Optimizing Process?",
+      "type": "multi",
+      "options": [
+        "Support automatic gathering of process data",
+        "Use process data to modify the process, prevent problems, and improve efficiency",
+        "Stop gathering quantitative information",
+        "Return responsibility for quality to individual developers only"
+      ],
+      "answer": [
+        "a",
+        "b"
+      ],
+      "explanation": "Level 5 depends on efficiently collecting data and actively using that data to improve the process itself.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "better have a way to automate this data collection and everyone should understand how this will be used and this data should be protected. It's the only the person who allow to use a certain type of data can access that data and this data should be used to improve quality of product and the"
+      }
+    },
+    {
+      "question": "What important shift occurs when an organization moves from the Managed Process to the Optimizing Process?",
+      "options": [
+        "The organization stops caring about quality",
+        "Attention expands from improving the product to using data to improve the process itself",
+        "The organization stops measuring its process",
+        "The organization returns to ad hoc development and stops using process data to improve either products or the process"
+      ],
+      "answer": "b",
+      "explanation": "The key paradigm shift is using quantitative information not merely to manage products but to tune and improve the process that creates them.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "process. Okay, what about the process? Can you use this data to improve our process? So for example, you find out certain things to continuously make the very similar error and that result in poor quality of product. Okay and then why don't you perform some causal analysis? What is the cause of the problem, certain"
+      }
+    },
+    {
+      "question": "At the Optimizing level, process data can be used to identify the weakest elements of the process and improve them.",
+      "type": "boolean",
+      "answer": true,
+      "explanation": "One of the central benefits of Level 5 is the ability to identify weak process areas and systematically correct them.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "what is bad in your process, and how to fix the problem in your process. So they decided about tree-treading this way, because those tree-treading shows some kind of historical phases of evolutionary improvement."
+      }
+    },
+    {
+      "question": "How can an Optimizing Process help the people within an organization?",
+      "type": "multi",
+      "options": [
+        "Help management identify where people need support",
+        "Allow professionals to communicate using concise quantitative terms",
+        "Help professionals understand their own work performance",
+        "Provide a framework for determining how performance can improve"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The lecture stresses that mature processes enhance rather than replace talented people by giving them information, support, and a framework for improvement.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "And it lets the professionals communicate in concise, quantitative terms. Rather than qualitative languages, they can use concise and quantitative term terminologies to communicate, to find out the problems, to discuss the problems, and to find out the solutions to improve their process."
+      }
+    },
+    {
+      "question": "Why was the SEI Software Capability Maturity Model originally developed?",
+      "options": [
+        "To rank programming languages",
+        "To help military services select capable software contractors",
+        "To replace all international software standards rather than help military services select capable contractors",
+        "To measure individual programmer typing speed"
+      ],
+      "answer": "b",
+      "explanation": "The CMM was originally intended to provide guidance for assessing the capability of software contractors, particularly for military procurement.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "the CMM model originally was born to access the providers. Okay, so if you do the job very big project and it cannot be doable by alone, by yourself, and then you need helpers, okay, so you need some providers of each component. First of all, for your system, you have a hardware component, software component."
+      }
+    },
+    {
+      "question": "A software organization consistently succeeds only because one exceptionally skilled engineer solves every crisis. Why does the lecture consider this a weak process?",
+      "options": [
+        "Skilled engineers should not solve difficult problems",
+        "The organization's results depend on an individual rather than on a repeatable process",
+        "Good engineers make statistical control impossible",
+        "Mature organizations should never have expert developers because individual skill is considered incompatible with a repeatable process"
+      ],
+      "answer": "b",
+      "explanation": "A mature process should allow the organization to continue producing quality products even when particular individuals leave.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "or not a specific person or a specific way to do in your organization, dominate your quality work. And if cost, estimate, and schedule commitment meet the reasonable consistency and the resulting products"
+      }
+    },
+    {
+      "question": "Which statement best describes a repeatable software process as explained in the lecture?",
+      "options": [
+        "The same engineer must perform every project",
+        "The organization can repeatedly produce similar or better quality even when personnel or circumstances change",
+        "Every project must use exactly the same programming language even when personnel change and product quality still varies widely",
+        "All projects must produce identical software"
+      ],
+      "answer": "b",
+      "explanation": "Repeatability means organizational capability comes from the process rather than depending completely on specific individuals.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "even though some of your engineers are moving to another department or to another organization, still your organization is working well. And your organization repeatedly produce"
+      }
+    },
+    {
+      "question": "Which is an example of a functional requirement rather than a quality requirement?",
+      "options": [
+        "A page must load within one second",
+        "The system must support one million concurrent users",
+        "The application must allow the user to save a file",
+        "The service must be available 99.99 percent of the time"
+      ],
+      "answer": "c",
+      "explanation": "Saving a file describes a service or behavior the system performs. Performance, scalability, and availability describe quality characteristics.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "First, what is the functional requirements then? It says we need to meet users, customers, functional requirements. What is the functional requirements? Some function you recast."
+      }
+    },
+    {
+      "question": "A system successfully opens a requested webpage, but it takes one hour to display it. How did the lecture characterize this situation?",
+      "options": [
+        "Both functional and quality requirements are excellent",
+        "The functionality works, but the nonfunctional quality is poor",
+        "The system has no functional behavior",
+        "Response time is a functional requirement only"
+      ],
+      "answer": "b",
+      "explanation": "The requested function occurs, but the extremely poor response time represents a failure of a nonfunctional quality attribute.",
+      "reference": {
+        "book": "Chapter 1 — A Software Maturity Framework",
+        "lecture": "take one hour to print one page and it is due to this software not the other part of a system. Functionally, it is fine, right? It will preach, but it will take too much time than we expect. That part of a property speed is non-functionally current."
+      }
+    }
+  ]
+}

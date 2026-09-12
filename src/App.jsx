@@ -16,13 +16,21 @@ import AskGPT from './components/AskGPT.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
 
-function withLectureAudio(qz) {
-  if (!qz || qz.lectureAudio) return qz;
+function withLectureMedia(qz) {
+  if (!qz) return qz;
   const decks = COURSES.flatMap(courseDecks);
-  const deck = decks.find((d) => d.lectureFile && d.lectureFile === qz.lectureFile);
-  if (deck && deck.lectureAudio) {
+  const deck = decks.find((d) =>
+    (d.lectureFile && d.lectureFile === qz.lectureFile) ||
+    (d.data && d.data.title && qz.title && d.data.title === qz.title)
+  );
+  if (!deck) return qz;
+  if (!qz.lectureAudio && deck.lectureAudio) {
     qz.lectureAudio = deck.lectureAudio;
     qz.lectureAudioFile = deck.lectureAudioFile;
+  }
+  if (!qz.lectureVideo && deck.lectureVideo) {
+    qz.lectureVideo = deck.lectureVideo;
+    qz.lectureVideoFile = deck.lectureVideoFile;
   }
   return qz;
 }
@@ -54,7 +62,7 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose }) {
     : '';
   return (
     <SidePane
-      title={paneTitle(sidePane)}
+      title={paneTitle(sidePane, quiz.lectureVideo)}
       ask={sidePane === 'ask'}
       onClose={onClose}
       bookHref={bookHref}
@@ -65,6 +73,7 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose }) {
           bookUrl={quiz.bookUrl}
           lecture={quiz.lecture}
           lectureAudio={quiz.lectureAudio}
+          lectureVideo={quiz.lectureVideo}
           focus={studyFocus}
           mode={sidePane}
         />
@@ -104,7 +113,7 @@ export default function App() {
   }, []);
 
   function begin(qz, bx, st, cfg) {
-    setQuiz(withLectureAudio(qz));
+    setQuiz(withLectureMedia(qz));
     setBoxes(bx);
     setStats(st);
     setSettings(cfg);
@@ -142,6 +151,10 @@ export default function App() {
     if (extra && extra.lectureAudio) {
       qz.lectureAudio = extra.lectureAudio;
       qz.lectureAudioFile = extra.lectureAudioFile || 'lecture.mp3';
+    }
+    if (extra && extra.lectureVideo) {
+      qz.lectureVideo = extra.lectureVideo;
+      qz.lectureVideoFile = extra.lectureVideoFile || 'lecture.mp4';
     }
     startFresh(qz);
   }
@@ -345,12 +358,12 @@ export default function App() {
                 )}
                 {quiz.lecture && (
                   <button type="button" className="text-link" onClick={() => setSidePane('lecture')}>
-                    Lecture
+                    {quiz.lectureVideo ? 'Video' : 'Lecture'}
                   </button>
                 )}
                 {quiz.bookUrl && (
                   <button type="button" className="text-link" onClick={() => setSidePane('book')}>
-                    Book
+                    {quiz.lectureVideo ? 'Slides' : 'Book'}
                   </button>
                 )}
               </div>
@@ -414,6 +427,8 @@ export default function App() {
               onCheck={() => check(picked)}
               onOpenReference={openReference}
               hasLecture={!!quiz.lecture}
+              hasVideo={!!quiz.lectureVideo}
+              hasBook={!!quiz.bookUrl}
             />
           )}
 

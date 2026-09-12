@@ -1,0 +1,2061 @@
+Agile_XP_video.mp4
+
+[00:00] Let's talk about the AI process and XP, extreme programming today.
+
+[00:06] So before we talk about the AI process,
+
+[00:14] we'd like to talk about some basic practices
+
+[00:18] most of the AI processes have,
+
+[00:22] like iterative development approach
+
+[00:25] and the risk-driven and the client-driven
+
+[00:29] and the time-boxing concept
+
+[00:32] and evolutionary development concept and
+
+[00:36] or the active planning concept. Okay then
+
+[00:40] what is iterative development? In our approach we usually
+
+[00:46] talk as a waterfall model.
+
+[00:48] Like waterfall we like to
+
+[00:52] do the work in sequence
+
+[00:55] and once. Actually the original
+
+[01:00] a waterfall model suggests some iterative approach but it is not
+
+[01:05] shown or discussed where in many books or articles, they just consider what form or
+
+[01:19] there's just one past sequential process. Originally it was not talked in that way
+
+[01:25] but many people are considering what form or there is like that. But that
+
+[01:30] discussion is not the main issue here. We just assume okay what form or there is a
+
+[01:36] kind of situation over there, even though originally it doesn't say. So anyway, so
+
+[01:43] if we go, whenever you produce a certain product, we go through like a planning
+
+[01:51] initiation of the project and performing some rekalmor analysis and design the
+
+[01:57] system to find our solutions and then we really implement it by coding in
+
+[02:04] software product case and then performing some testing and then we
+
+[02:09] deliver this system to the customers like that okay but we find this is a
+
+[02:16] very simple approach to go through but we find out from the experience it is
+
+[02:22] not it doesn't solve all the problems we meet in production okay so we found out
+
+[02:29] or it is a good approach to have some kind of iteration in production, again iteration.
+
+[02:36] So we may perform the recovery analysis, perform design and coding and testing, and then go
+
+[02:44] back to the requirements again, why?
+
+[02:48] Because customer likes to change in mind, okay?
+
+[02:52] customer was not clear about the requirements 100% in the beginning. So
+
+[03:04] customer and developers both tried to understand the requirements and build
+
+[03:13] some prototypes and find out some solutions and then try to incorporate
+
+[03:22] this into the into a requirement to have a better requirements clarify the
+
+[03:27] requirements and then design the system again and do the work sometimes you
+
+[03:32] build the prototype and throw it throw it away and build a new stem from the
+
+[03:39] scratch or sometimes you reuse prototype to extend the functions or evolve the
+
+[03:47] system to the final product. So you may go different, you have different choices here, okay?
+
+[03:55] So we find our iterative approach is better than just one pass approach.
+
+[04:05] So each iteration is a kind of self-contained mini project which is composed of activities
+
+[04:15] such as Recurrence Analysis Design Programming Test.
+
+[04:20] So perform some part of analysis, some part of design sum,
+
+[04:25] and code for some parts, test for that part.
+
+[04:29] And then go back to the Recurrence
+
+[04:33] and tackle the other parts of Recurrence.
+
+[04:37] Analyze them, design them, code them, and test.
+
+[04:43] and go back to the original set of requirements or update the set of
+
+[04:49] requirements, change the requirements, and then tackle some parts of problem in
+
+[04:53] analysis, design, and code, the testing, something like that. So we can have this
+
+[04:57] iteration as many as we need to build the final product. And in each
+
+[05:06] iteration, at the end of each iteration, probably, we can build
+
+[05:11] subtle release, okay? So this release could be internal release or external release.
+
+[05:17] Internal release means we may not really release this to the customers, finally, okay?
+
+[05:24] We just keep it internally and but we make some certain internal release
+
+[05:31] for each increment or each level of, different level of evolution in each
+
+[05:37] situation. Or sometimes we just release it to the customer, okay, really. So it
+
+[05:46] depends on the different type of projects, different type of process you
+
+[05:51] take. And this iterative approach you may take some approaches like risk driven
+
+[06:02] or client driven, okay. So probably you can consider the what are risks to build
+
+[06:10] this system and find out this list in the early design and tackle those list
+
+[06:17] issues first and then you can make a better estimation better planning for
+
+[06:23] the to build the system okay or you can have a better way to go to approach to
+
+[06:30] okay, solution. And the client-driven approach is let client involve in
+
+[06:39] development, participate in the development somehow, okay, and then let
+
+[06:46] them drive the system. Okay, so for example in each iteration we demonstrate
+
+[06:52] the current release to the representative customer, custom
+
+[06:57] representative and then ask satisfaction of this system, okay, to ask whether it
+
+[07:08] meets the customer's requirements and then in the next situation or customer
+
+[07:15] representative choose which part of system or which increment system or
+
+[07:21] which evolution level of system you like to build in the next time, okay.
+
+[07:27] So you have certain global planning from the beginning, total plan, but it is not clear actually.
+
+[07:37] It cannot be complete because without knowing the requirements or the feasible solutions,
+
+[07:44] it's very hard to exactly estimate and build a plan in the beginning.
+
+[07:48] So you have a lot of plan in the beginning, but in each iteration, in the beginning of each iteration,
+
+[07:54] you can build iteration plan or plan for this current immediate iteration.
+
+[08:02] It is much clearer. You have a good idea and the requirements on hand at that time for the next iteration.
+
+[08:11] So build the eject estimation and the plan and you can follow it.
+
+[08:18] And also, let customers can drive the system so they feel,
+
+[08:24] oh, I developed the system as I want.
+
+[08:29] So it makes the customer satisfied better.
+
+[08:36] And another practice suggested and used in the HR process is time boxing.
+
+[08:50] So it says to have a time-boxed iteration. So it's a fixed period, period time over each
+
+[08:58] iteration. So you may decide, okay I like to go by one week iteration or two week
+
+[09:06] iteration. So iteration with one week or two week time-box. So once you
+
+[09:12] decide it, okay, keep it. So many reports say, okay, you better keep it rather than
+
+[09:19] and changing your timeboxing every time, okay?
+
+[09:25] But sometimes you can find out,
+
+[09:26] oh, this problem is very hard to solve within this period.
+
+[09:32] You find out after you start your iteration already, okay?
+
+[09:40] And then practice suggests you recommend you
+
+[09:45] to follow fixed time box,
+
+[09:49] but probably you will prioritize the current requirement.
+
+[10:00] prioritize some subset of these requirements, and then you can go with the high list key
+
+[10:09] or prioritize the requirements first, and then keep the time-boxed iteration and then
+
+[10:17] complete it and show the release and get the feedback and make next plan, next iteration
+
+[10:26] based on that, something like that, okay. And also in each iteration you may not go
+
+[10:38] through all activities, okay. Sometimes you more emphasize on analysis and
+
+[10:46] design in the first iterations. Still you can build some code, you may test
+
+[10:52] those code. But if you go to the rater iterations, probably the portion you
+
+[11:01] put more time in the coding and testing is higher than the early iterations.
+
+[11:09] Because in the early iterations, especially for the first iteration,
+
+[11:13] probably you like to spend more time to identify and inject the problems to solve
+
+[11:18] first. So probably you would like to spend more time on that, but as I
+
+[11:25] process, it suggests you to start immediately programming also and
+
+[11:31] testing also with those part, as well as possible, okay, to find out what is a
+
+[11:38] risk, what is a problem, and what is solution. Also, it suggests to go with
+
+[11:45] certain exercise with a certain part of a problem going through the entire
+
+[11:52] solution to the end even though it that probably is very small to solve okay
+
+[11:57] but tackle it and try to find out the solution to the end and then you have a
+
+[12:05] higher chance to find out what could be problem in this development in this
+
+[12:11] project, okay, in the early stage. So you can use this in your estimation planning
+
+[12:18] in the future. Someone had a question here? And another term we like to know in
+
+[12:32] agile processes is evolutionary approach and adaptive approach, okay. So in the
+
+[12:40] evolutionary approach, we don't know or do not need to know entire 100% of
+
+[12:49] requirements, but with knowing the very important requirements which have
+
+[12:59] high risk or which are prioritized highly, and the main issues in the
+
+[13:07] system and tackle that problems and then once you find out some solutions
+
+[13:13] and the problems and then probably you can evolve your requirements much
+
+[13:20] better and accordingly you can evolve the system you build that part of
+
+[13:26] evolution okay of the system so in each iteration you can evolve the system
+
+[13:34] make it more clear, and make it more functional.
+
+[13:41] In a similar way, we have another approach, like incremental approach.
+
+[13:47] Incremental approach, the difference between this evolutionary approach and incremental approach is,
+
+[13:54] in the incremental approach, we go by a certain minimal set of functions first.
+
+[14:00] first and then in each iteration in each release we add more functions more
+
+[14:08] functions incrementally and then we build a final system that's a incremental
+
+[14:15] approach so evolutionary approach and incremental approach are strictly
+
+[14:21] speaking they are different in this way okay yes it depends okay you may have a
+
+[14:38] 100% of requirements and then but still you like to go by incremental approach
+
+[14:43] to show your customers only gain the part of product and like a prototype of
+
+[14:51] product so you can get some feedback from your customers and then probably you
+
+[14:57] have a better approach to go next time so yeah that's possible but mostly we
+
+[15:02] don't have 100% of requirements in the beginning so we may add more functions
+
+[15:08] later that's possible too but the most important thing here is we should know
+
+[15:14] at least the most important functions first in the beginning at least we have
+
+[15:21] to know the most important function to characterize the system we like to build.
+
+[15:28] If you have a very important functions, functional requirements or non-functional requirements
+
+[15:34] later and then you have to spend more money to fix it later, because probably you have
+
+[15:44] to touch the architecture itself rather than just building that function later.
+
+[15:51] Because if the functions and non-functional requirements are very important, you have
+
+[15:56] to incorporate to the system, then they may change the structure of the system, entire
+
+[16:03] structure of the system, basic framework of your system, not just adding new functions
+
+[16:09] incrementally later, that's not the same thing.
+
+[16:15] So it is very important to know very highly key, important, non-functional requirements
+
+[16:21] in the beginning to build a vague framework of the system, to build a structure of the
+
+[16:27] system, architecture of the system in the beginning.
+
+[16:31] So if you have some miscellaneous function later, it doesn't matter much.
+
+[16:35] It doesn't cost that much than changing the entire structure of the system.
+
+[16:47] So in the adaptive approach is emphasizing on feedback and adaptation.
+
+[16:57] Of course you may get the feedback from the iterative approach and the incremental approach
+
+[17:03] and the evolutionary approach too, but they are not required the components there, but
+
+[17:09] in the adaptive approach, if you like to say this is adaptive approach, adaptive development
+
+[17:14] And then it is required to get appropriate feedback and based on this feedback you adapt
+
+[17:22] the system based on this.
+
+[17:25] So if you go by this approach then that kind of development approach is called adaptive
+
+[17:31] development.
+
+[17:33] So accordingly you change your estimation plan based on this feedback and find out what
+
+[17:41] kind of thing you like to tackle next time, in the next situation, adaptively.
+
+[17:46] Okay, then if you go by evolutionary approach or incremental, those kind of things, we don't
+
+[17:57] need to have any requirements, that there is wrong, okay, wrong understanding to have
+
+[18:06] this.
+
+[18:07] At least we have to know very high, risky, functional, non-functional requirements in
+
+[18:12] the beginning, as I told you just before, okay.
+
+[18:16] So they are called architecturally influential factors.
+
+[18:22] So those factors may give impact on decision of your architecture or structure of the system.
+
+[18:33] So you may have tens of hundreds of thousands of functional and non-functional requirements,
+
+[18:39] but not all of them affect decision of your basic structure of the system.
+
+[18:46] any types of style of the structure, you can still perform functions, you can
+
+[18:52] still perform some non-function, non-function requirements. But if you go
+
+[18:57] by this style or that style, if it affects certain part of a function or
+
+[19:06] non-function requirements, those functional non-function requirements are
+
+[19:09] architectural influential factors. They affect your decision over your system,
+
+[19:15] decision of a structure with your system, architecture of your system, okay? So for
+
+[19:20] example you like to go by modifiability at best, okay? In the high
+
+[19:26] priority, you like to prioritize modifiability is the highest one, okay?
+
+[19:33] Then other factors and then probably you have to design the system to
+
+[19:39] To satisfy this modifiability, you value the highest one.
+
+[19:48] So if you go by different architecture styles that cannot satisfy your modifiability requirements,
+
+[19:58] you made the wrong choice.
+
+[20:00] from the beginning, from the beginning, and then you have a high risk to fail the project later, because you cannot demonstrate
+
+[20:08] your system you build, you will build, will not demonstrate
+
+[20:12] modifiability to the customers. Then customer will say,
+
+[20:15] what happened with the modifiability? I ask you, this is the most important, but I cannot see
+
+[20:21] the system demonstrate this modifiability as high.
+
+[20:25] Okay, so in the beginning you have to consider, so later on if you like to
+
+[20:31] change it, sometimes you may change with some minimal cost, but usually changing
+
+[20:38] architecture takes high cost, sometimes it's too late to change. So it should be
+
+[20:45] done in the beginning of early design, and then based on that architecture
+
+[20:50] design, then you can go with the detailed design implementation. So we
+
+[20:57] We will not go by step by step situation, so we do not complete the analysis, we do
+
+[21:07] not complete the design 100% in sequence, right, in the iterative approach.
+
+[21:12] We may complete some part of design, some part of coding, okay, so what can you do here?
+
+[21:21] Still you have to find out these architectural inferential factors, okay, so from the beginning
+
+[21:27] you have to find out those architecture
+
+[21:28] influential factors first and decide
+
+[21:31] framework of your system and then
+
+[21:34] probably you'll go by incremental approach
+
+[21:37] evolutionary approach iteratively. It
+
+[21:41] works. Then you have a question. Yes we
+
+[21:46] talk about always adjusting to changing
+
+[21:49] requirements or oftentimes we do has
+
+[21:52] modifiability. I have taken a different
+
+[21:56] class software development and we still
+
+[21:59] I still haven't talked about any procedure of denying the change.
+
+[22:04] Can we tell a client, look, no, we are not going to implement this change or make a change?
+
+[22:11] Yeah, that's the question.
+
+[22:13] One organization I experienced went through the very formal process,
+
+[22:20] formal documentations for all steps,
+
+[22:23] whenever the customer likes to change requirements.
+
+[22:28] then they went through the formal documentation. So, okay, you change this,
+
+[22:34] this, this, this, and then is it what you want? Yes, sign on it. And we get the sign.
+
+[22:41] And then ask, make a new estimation and ask more money or something like that.
+
+[22:48] Okay, sometimes it works and they should be working in this way. If it is
+
+[22:55] very time critical or if it is very cost critical or it is very safety critical
+
+[23:01] there are many many many regions to do that but think in this way you do not
+
+[23:12] satisfy your customer at this time do you think you have a higher chance to
+
+[23:17] get the next of next project okay that's the answer so it depends on surely you
+
+[23:24] You may say no or yes, it's up to you, but you have to think successful business, and
+
+[23:34] then also you cannot say always yes if it makes you fail this project.
+
+[23:43] If you fail this project, you have no chance to go through the next project anyhow.
+
+[23:53] So you have to think flexibly depending on the situation, depending on the size of product,
+
+[24:03] the complexity of a project, and the characteristic of a project, and many different issues involved
+
+[24:08] in there.
+
+[24:12] Any other questions?
+
+[24:25] So in the adaptive planning, the AI process recommends to have adaptive planning rather
+
+[24:33] than predictive planning and embrace changing requirements, okay, because one of the goal
+
+[24:45] in the AI process is to satisfy customers, but how much degree you satisfy customers
+
+[24:53] gain it depends on.
+
+[24:54] I cannot say objectively what is the correct way to go, okay.
+
+[25:02] The next topic is about incremental delivery.
+
+[25:05] we talk about this somehow, okay. So in the incremental delivery we repeatedly
+
+[25:12] deliver the system in production, okay, and it is a we have a two different ways
+
+[25:20] to go, internal release or external release or both. And in the evolutionary
+
+[25:28] delivery, okay, evolution delivery is a refinement of the practice, so
+
+[25:33] incremental delivery, and then we get the feedback from the current release to
+
+[25:40] guide next to release. So Agile developed the process or methods to try
+
+[25:54] to adopt all these good practices. So it likes to apply time-boxed
+
+[26:06] iterative and evolutionary development, and adaptive planning, okay, and to, it
+
+[26:15] promotes evolutionally delivery, and include some other values and practices
+
+[26:23] shown in the particular, these agile practices you will see later, like
+
+[26:28] especially extreme programming, okay, and also we like to emphasize on this rapid
+
+[26:36] and flexible response to change.
+
+[26:39] So which means we like to embrace change
+
+[26:41] rather than refuse changing requirements, okay?
+
+[26:48] Okay, so the people in this area built a manifesto,
+
+[26:55] titled, as I manifest like this,
+
+[26:58] this shows the motto they like to promote, okay?
+
+[27:02] To do this.
+
+[27:04] Individuals and interactions over processes and tools.
+
+[27:09] Processes and tools are also important to use to make a process better, okay, but we like to more emphasize on
+
+[27:18] playing with individuals and interactions
+
+[27:22] rather than using method and tools.
+
+[27:25] Okay, that does not mean
+
+[27:28] we will not use method and tools.
+
+[27:30] Okay.
+
+[27:31] It means which part we more emphasize on in our decisions, okay, if we confront with a certain issue.
+
+[27:38] and working software over comprehensive documentation they like to more
+
+[27:47] emphasize on code like in the software development you like to more emphasize
+
+[27:54] on the product okay working code rather than others like documentation but that
+
+[28:02] does not mean you cannot disregard documentation at all if your system is
+
+[28:07] very like critical system and you should exactly understand the specification, you
+
+[28:13] should specify your requirements or design more formally to tell the same
+
+[28:20] thing to the all engineers to be interpreted in the same way by all
+
+[28:26] different engineers then you'd better go with the formal the specification and
+
+[28:33] and documentation more heavily than other types of project.
+
+[28:37] So it depends on the project, okay, types of project.
+
+[28:42] But, so HCH means agile process is more appropriate
+
+[28:49] for building such projects, products,
+
+[28:54] rather than those critical systems, okay?
+
+[28:59] But again, that does not mean you cannot use
+
+[29:01] an agile process to build those systems.
+
+[29:03] So you have to think always balancing here,
+
+[29:07] how much can you put weight for this part and that part,
+
+[29:11] depending on the characteristic of your target project.
+
+[29:18] In customer collaboration over contract negotiation,
+
+[29:23] I gave you an example just before about this,
+
+[29:26] contract negotiation is very important,
+
+[29:29] but still customer collaboration is more important.
+
+[29:32] they like to give more value with this customer collaboration
+
+[29:40] and the customer satisfaction.
+
+[29:44] And responding to change over following plan.
+
+[29:48] Following plan is very important to meet the schedule
+
+[29:51] and meet the quality requirements on time.
+
+[29:55] But more important thing is we like to embrace change.
+
+[30:00] Change is very natural, and we found in the project, in most projects, so we have to find out how to resolve these issues rather than refusing to change the requirements.
+
+[30:14] So we accept change, and in which way we will change, in which way we will resolve all the issues with this change.
+
+[30:24] And also, the agile community suggests principles like this, principles in addition to that manifesto.
+
+[30:39] So first, our highest priority is to satisfy customers, like to satisfy customers.
+
+[30:46] And second, welcome changing requirements.
+
+[30:50] And third, deliver working software frequently, so customer can feel how it goes well, and
+
+[30:59] how much it is done, and in which way we will go next time, in next situation, like that.
+
+[31:06] And business people and developers must work together daily throughout the project.
+
+[31:12] Business people, developers may have different views of the system, different splits here,
+
+[31:20] they have to share. What is the business goal? What is the problem in development?
+
+[31:26] So they have to understand each other and also they have to communicate frequently and easily.
+
+[31:32] And build a project around the motivated individuals.
+
+[31:38] So you should motivate your people's engineers to build this them with a strong vision.
+
+[31:46] So some practices suggest to let the engineers know this vision every iteration, every day, rather than asking very miscellaneous things.
+
+[32:00] So one of the major job could be give the vision, let them know the vision.
+
+[32:08] And then let engineers decide most of miscellaneous things by themselves to complete the project.
+
+[32:15] And another important thing they suggest is a face-to-face conversation.
+
+[32:26] So we have many ways to communicate nowadays.
+
+[32:29] We have e-mails and many other tools to communicate.
+
+[32:33] It is very convenient to go with,
+
+[32:36] but they also suggest to have a face-to-face conversation
+
+[32:40] and easy contact in the common working space without having words.
+
+[32:47] they can see each other easily, which means they can communicate other
+
+[32:52] engineers or custom representative or business people easily, okay, to discuss
+
+[32:59] about the issues they meet every day and to help them, okay, to provide the
+
+[33:05] resource and to solve all the problems immediately. And the number seven,
+
+[33:11] principle number seven says working software is a primary measure of progress,
+
+[33:17] Whatever you do, what we like to do, we like to build software in our discipline.
+
+[33:26] So we should build a software, working software, appropriately working software.
+
+[33:35] And the AI processes promote the sustainable development.
+
+[33:40] I cannot ask your people to work 24 hours per day, 7 days per week.
+
+[33:47] week so probably you will have a problem in the future so you should provide a
+
+[33:52] good environment to support the good working in good pace and the
+
+[34:02] sponsor developers users should be able to maintain a constant pace
+
+[34:06] indefinitely okay that's what I told you and continue use attention to
+
+[34:11] The technical excellence and the good design enhances agility.
+
+[34:18] And the simplest, okay, simplest and the best architecture and requirements and designers
+
+[34:27] emerge from the self-organizing teams.
+
+[34:30] Many agile processes suggest you promote self-organizing teams.
+
+[34:35] So give your powers to your members to decide, okay, most of the things, rather than, you
+
+[34:42] you know, ordering everything to your people, assigning job to every people.
+
+[34:48] Let them decide most of the work and volunteer to do certain tasks, okay?
+
+[34:58] And at the regular interval, the team reflects on how to become more effective,
+
+[35:02] and then tune and adjust.
+
+[35:04] So in the regular time, at the end of each iteration or beginning of each iteration,
+
+[35:09] you should have a certain time to discuss about what you did last time,
+
+[35:12] what could be improved the next time
+
+[35:15] and then try to improve your work in this way.
+
+[35:20] Okay, so we have a manifesto
+
+[35:23] and the agile principles like this.
+
+[35:27] And we have some sample,
+
+[35:29] some the agile methods used in the market like this.
+
+[35:36] Most of them implement in their practices,
+
+[35:41] increment those as I manifest and the concepts shown in the measure
+
+[35:47] manifesto as I manifesto and the presperts somehow okay yes you had a
+
+[35:54] question okay so for example you so for example when you do the work probably
+
+[36:18] you can go by a very complete set of design and design documentation to go to the coding.
+
+[36:26] But rather than doing that in the Agile process, you better do the job minimally.
+
+[36:33] So find out what is the essential to do, to produce, to go.
+
+[36:38] And then take that and go to the next step.
+
+[36:41] And also iteratively do this job.
+
+[36:46] And when you design the system, make it simple, do it simple, something like that.
+
+[36:56] So these are the list of agile methods currently we use, Scrum or XP or Evo, Chrystal, agile
+
+[37:06] modeling, dynamic solutions, delivery model, DSDM, or feature-driven development, and
+
+[37:14] wind development.
+
+[37:16] Among them, we like to study more about XP in this class, because we do not want to cover
+
+[37:39] all of them here, so we like to go by XP in this class.
+
+[37:46] XP is originally an extreme program, it's called extreme programming, and it's a well-known
+
+[37:53] or as I process XP emphasize on this communication and simplicity and the
+
+[38:01] feedback and the courage activity by college there are many instances you can
+
+[38:13] see which she implements this college concept in their practice so for example
+
+[38:20] open space we like to have open space workspace okay in our HR working
+
+[38:27] So we don't like to have some words between the engineers in the working space, so we can immediately see who are there and whenever you have any questions, you can immediately go there and ask them.
+
+[38:42] So you should be ready to ask and to be answered by other people, like this.
+
+[38:50] And also, for another example, you may have a custom representative in your team.
+
+[38:56] So rather than protecting them to view what you are doing, let them know what you are doing.
+
+[39:04] Every day they watch you, and also you can discuss with your customers every day.
+
+[39:14] So one of the best practices is to build a story, a story card.
+
+[39:22] Okay, well stories are just a simple note in the index card on the index card. You just simply
+
+[39:29] Have a few words to say or function you like to feature sit in future
+
+[39:34] you like to implement and based on that you build the tasks and
+
+[39:37] Your engineers will volunteer a certain part of the task is here and then they immediately start designing and coding for that
+
+[39:44] Okay, so you you open or everything to your customers like this and like to get the help from your customers
+
+[39:52] And also, whenever you have a question regarding this feature described in your story, ask
+
+[39:59] you...
+
+[40:00] your customer representative immediately.
+
+[40:02] And what you like to, what you talk about this,
+
+[40:07] okay, by this feature you wrote in the story.
+
+[40:13] So story, in the story card doesn't tell you
+
+[40:16] everything you, what you have to build.
+
+[40:19] It just tell you what you have to consider, okay,
+
+[40:24] in building your system,
+
+[40:26] such as it tells about the certain feature it should have.
+
+[40:29] So it tells you, it initiate your discussion
+
+[40:35] with your customers, who initiate that story, that feature.
+
+[40:41] So customer representative said,
+
+[40:44] okay, I'd like to build this function.
+
+[40:47] I'd like to download the certain content from this system
+
+[40:51] and then ask you, oh, what do you mean
+
+[40:53] by this download content?
+
+[40:55] Could you elaborate more for me, okay?
+
+[41:00] So this kind of things, so this is one example,
+
+[41:03] you can show your courage in your open space environment,
+
+[41:08] something like that.
+
+[41:09] So the simplicity feedback courage,
+
+[41:11] they are exercised and adopted in many different ways,
+
+[41:17] in many different types of practices actually.
+
+[41:21] So that is just one example of exercising your courage.
+
+[41:26] courage, practice in your process. So with having just only this word, probably
+
+[41:37] you're very confusing what it means. So unless I describe it in this
+
+[41:45] way in this class right now, and then you go to those record references and
+
+[41:52] and find out more references to see some examples for this is each recommended practice.
+
+[42:01] Okay, so in addition to the methods and the approaches we discussed so far,
+
+[42:13] like incremental iterative, evolutionally-adaptive approaches,
+
+[42:17] but also we like to have these practices in the XP.
+
+[42:22] Okay, so the approaches method we discussed in the beginning of VEG, VEG practice we should
+
+[42:30] have in the agile process including this XP and then XP likes to emphasize on these practices,
+
+[42:37] differently from the other method, agile method. So XP likes to promote planning game
+
+[42:43] and the small frequent releases and the system metaphors and simple design and
+
+[42:55] testing and frequent factoring and peer programming and team code ownership and
+
+[43:04] continuous integration, sustainable pace and whole team together and coding
+
+[43:10] standards. Oh, there are many, right? Okay, and then what they are saying by that, okay?
+
+[43:19] So planning game, we like to have the feedback from each iteration, each release in each
+
+[43:27] iteration, and then discuss with your customers and select another story to build in the next
+
+[43:34] iteration and build the plan for the next iteration, something like that, okay? So
+
+[43:40] That kind of practice is promoted in the XP.
+
+[43:45] And the small, frequent releases are recommended
+
+[43:48] to have in each situation.
+
+[43:51] And system metaphors, so you like to have
+
+[43:54] certain architecture aspect to find out
+
+[43:58] what is a good solution for a certain problem,
+
+[44:00] certain issue, risk issue you meet, okay?
+
+[44:04] And going through the entire steps,
+
+[44:08] even though it is a very small problem,
+
+[44:12] but going through the entire step to the end
+
+[44:15] and to find out what could be a problem,
+
+[44:17] what kind of thing you have to consider
+
+[44:19] in estimation and planning
+
+[44:21] and have a better plan for the next releases,
+
+[44:24] okay, something like that.
+
+[44:26] So, some metaphors can tell you
+
+[44:30] what is the basic idea of a game
+
+[44:34] or the system you like to build.
+
+[44:38] And simple design, you better go with the simple design.
+
+[44:43] Rather than spending two weeks in designing,
+
+[44:47] you just spend 20 minutes, 10 minutes in designing
+
+[44:51] and start coding.
+
+[44:53] That's what they recommend to do.
+
+[44:57] And then tackle another task, and then
+
+[45:01] spend 10, 20 minutes of designing and start coding
+
+[45:04] and testing, and take another story
+
+[45:08] and find out solutions, spend 20 minutes of designing
+
+[45:13] and start coding, something like that,
+
+[45:14] rather than spending two hours, two days
+
+[45:17] using the high-tech tools to build design models.
+
+[45:24] Just go by pen and pencil, draw some diagrams
+
+[45:28] to communicate with your coworkers,
+
+[45:31] your peers to build this part of the system
+
+[45:34] and discuss it immediately, simply,
+
+[45:37] and then capture with this camera,
+
+[45:40] and share this idea by posting the project website.
+
+[45:50] And testing, they ask frequent testing,
+
+[45:55] almost everyday testing,
+
+[45:57] so they recommend to use automated testing tool.
+
+[46:03] So once you build a certain part of system
+
+[46:05] and put it into this tool,
+
+[46:08] And then it automatically test with the existing part
+
+[46:12] of the system.
+
+[46:13] And the pre-confectioning, you perform some simple design
+
+[46:20] and start coding immediately.
+
+[46:23] And then you may find out something doesn't look good.
+
+[46:26] So keeping the API in the same way,
+
+[46:29] but you may code much better in a simple way,
+
+[46:34] in a better logic, more effective way
+
+[46:37] to solve the problem, you can fix the code.
+
+[46:41] So that kind of thing is called refactoring of the code.
+
+[46:46] And peer programming, SPE suggest you have peer programming.
+
+[46:50] So you have two people together working
+
+[46:54] with the coding and designing and coding the system.
+
+[46:59] And while one person is coding, another person
+
+[47:04] look at the code and think of the better design
+
+[47:07] and suggest the way of coding.
+
+[47:12] And also they change roles frequently.
+
+[47:18] So the person who did the design
+
+[47:22] and then start coding next time,
+
+[47:25] and the person who did the coding
+
+[47:26] and then take role for the designer like that.
+
+[47:34] They may design and code at the same time,
+
+[47:39] but somebody's always watching, okay,
+
+[47:43] and together you consider the solution together.
+
+[47:46] So it is good to have,
+
+[47:50] it's not good to have same level of engineers,
+
+[47:55] like especially not same level,
+
+[47:58] the novice level of engineers together.
+
+[48:00] Don't put the novice level of engineers together as a pair.
+
+[48:04] You better have one experienced engineer
+
+[48:07] and the novice engineer together.
+
+[48:09] So then the device engineer can run from the experience engineer,
+
+[48:13] how to design the system better, how to build the code better,
+
+[48:17] then something like that.
+
+[48:19] So pure programming is also good for training
+
+[48:23] for the new engineers, too.
+
+[48:27] And team code ownership, and with another practice here,
+
+[48:32] the whole team together, that tells you
+
+[48:37] The responsibility is not given to only a certain engineer.
+
+[48:44] Always responsibility is given to the whole teams.
+
+[48:47] All teams should be responsible for this product together.
+
+[48:52] And so you have to find out if somebody,
+
+[48:55] your novice engineer doesn't solve the problem well
+
+[49:00] and then some experienced engineer should take care
+
+[49:04] of those part to help them, okay?
+
+[49:09] to build a better system always.
+
+[49:11] So you should share this responsibility
+
+[49:14] and ownership of the project always, okay?
+
+[49:18] And also, it suggests to have a continuous integration.
+
+[49:21] So once you build a part of system
+
+[49:24] and then integrate the system,
+
+[49:26] and then with the other practice testing,
+
+[49:30] we already talked about this automated tools for testing.
+
+[49:34] So using those kinds of techniques and tools
+
+[49:37] to integrate system and test the system frequently
+
+[49:40] and to see the code is working well.
+
+[49:44] And the sustainable pace, we already discussed about it.
+
+[49:47] You will not be asked to many hours to work,
+
+[49:51] to many days work.
+
+[49:53] So then probably your engineers get tired.
+
+[49:57] Will not produce good productivity later.
+
+[50:00] So, when we talk about this in some organizations, many of the low-level engineers really like
+
+[50:11] this practice, while high-level engineers don't like to accept the agile process much.
+
+[50:19] Because some practices of the agile practice suggest to have the reasonable number of working
+
+[50:28] our states, you have to set up in planning in estimation and also it's
+
+[50:34] just to give the power of decision to the row level of management
+
+[50:40] from high level to make more working more of effective
+
+[50:46] something like that. And probably you'll be able to build and follow certain
+
+[50:55] standard in coding so everybody can understand each other's code easily. So
+
+[51:01] when we especially work as a pair, you better go by certain coding
+
+[51:08] convention rather than, you know, having different types of coding like that, okay?
+
+[51:13] So in the beginning, when you read this terrible core practices, you
+
+[51:21] find that the words itself is very simple, but it's very hard to
+
+[51:27] understand what it is exactly, but once I explain them, it is understandable,
+
+[51:32] right, what they are talking about by them. And if you look at this
+
+[51:40] diagram, this chart, this shows you how much the over documentation
+
+[51:51] the certain agile process is packed, and how much of iterations, how many days or weeks
+
+[52:04] expected in each agile process.
+
+[52:07] For example, XP expects one to three weeks time-baked iteration, which means each iteration
+
+[52:17] needs one or two or three weeks length.
+
+[52:21] And also it shows how much we expect in documentation.
+
+[52:27] So XP is in the area where we expect less documentation
+
+[52:34] comparing with other practices sometimes.
+
+[52:37] So whenever you have a certain type of a project
+
+[52:42] and you like to apply this XP, and you have a question,
+
+[52:46] Is it feasible, appropriate to use this XP practice
+
+[52:51] in this particular project?
+
+[52:53] And then probably you may consider this time box.
+
+[52:56] Is it appropriate to cut your work in one or two,
+
+[53:01] three weeks to go with each implementation,
+
+[53:07] part of implementation, part of increment,
+
+[53:09] part of iteration?
+
+[53:10] Or how much documentation your customer require?
+
+[53:15] or your acquirer require you to do, or your organization expects you to do, something like that.
+
+[53:23] So if the project is very critical system which needs a well-documented,
+
+[53:33] the good documentation, thorough documentation, and then formal specifications, something like that,
+
+[53:40] probably you may not choose this XP as your main practice. You don't
+
+[53:51] need to go by this XP always it depends on the actually the characteristic of
+
+[53:55] the product you will build and the project you go with. So based on this
+
+[54:02] information probably you can decide what types of project could be
+
+[54:06] appropriate to apply this XP, okay. And also this chart shows a coke band scale and the coke
+
+[54:20] band suggests to consider the two issues like two in projects and how many people are involved
+
+[54:32] in this project that you consider and how much the system is critical, okay. For
+
+[54:40] example, this level of sea level of a style of level of project is
+
+[54:49] comfort and next one is the discretionary money level and
+
+[54:57] the essential money on the life level. So in the life criticality the system is a
+
+[55:04] very critical life-threatening system if you fail. And also in the comfort
+
+[55:15] level probably even though you fail it doesn't hurt much to your organization
+
+[55:22] or the result of project something like that. So depending on the style the
+
+[55:28] types of a project in terms of a criticality and depending on the how
+
+[55:36] much resource you have to use to complete this project, probably you may
+
+[55:41] categorize the project in different ways. So for example, CS6 means you may
+
+[55:50] need only one or six people maximum to complete this project and even though
+
+[55:57] you fail this probably it is not much the critical okay something like that so
+
+[56:06] so depending on that probably you can categorize your project in this way so
+
+[56:11] XP covers here this much of styles of a project okay so you can see it is not
+
+[56:22] But well used or suggested to build critical, high critical systems which use a lot of resources.
+
+[56:38] But with this small or medium size project, with medium criticality, probably it works
+
+[56:45] well.
+
+[56:49] Okay, so XP is a kind of agile method which promotes this incremental iterative approach
+
+[56:59] and this stress system of satisfaction through rapid creation of high-value software and
+
+[57:06] skipper and the sustainable software development and the flexible response to change.
+
+[57:15] The iterations are short,
+
+[57:18] comparing with the other Azure processes,
+
+[57:22] and it expects one to three weeks time box
+
+[57:24] for each iteration.
+
+[57:27] And as the word the programming in the XP suggests,
+
+[57:30] it provides explicit methods for programmers, okay?
+
+[57:35] So they can more confidently respond
+
+[57:38] to change the carmelons, something like that.
+
+[57:43] And the XP is very communication
+
+[57:46] and the team-oriented approach.
+
+[57:49] So they invite the customers into the team,
+
+[57:53] and they like to share the idea.
+
+[57:55] But many reports say inviting, actually having
+
+[58:01] customers on site is not easy.
+
+[58:06] ID is good, but it's not easy because the customer
+
+[58:10] representative who has enough knowledge
+
+[58:15] for the target system is also very important
+
+[58:20] in the organization.
+
+[58:22] So it is very hard to hold him
+
+[58:25] in the development side all the times.
+
+[58:29] Okay?
+
+[58:35] So this is one
+
+[58:39] sample life cycle of XP exploration phase
+
+[58:43] and the planning phase iterations
+
+[58:45] to release a phase product,
+
+[58:48] shown ising phase and the maintenance phase.
+
+[58:51] So in each, the left ones are listed above and in the last page explains what kind of
+
+[59:03] thing you have to consider for each phase.
+
+[59:06] So for example, the purpose of exploration is to have enough, we are estimating story
+
+[59:12] current for the first release and have a feasibility study or something like that.
+
+[59:22] And then next slide shows a sample XP project lifecycle that you can adapt.
+
+[59:30] So you have use case story writing and having some architecture spike in the exploration
+
+[59:41] phase, and in the planning phase, you perform this, and in the next phase you perform that,
+
+[59:48] something like that.
+
+[59:51] Okay, so like many projects, XP can start with exploration, and some story card features
+
+[59:59] may be written.
+
+[1:00:00] with the lab estimates, but you should include the most important factors at this time to
+
+[1:00:08] decide the structure of the system in the beginning at least.
+
+[1:00:14] And in the release planning game, the customers and developers complete the story cards and
+
+[1:00:19] the lab estimate and then decide what to do for the next release.
+
+[1:00:26] And for the next iteration, in the iteration planning game, customers pick the stories.
+
+[1:00:33] So XP recommends the customers initiate this project, drive the project, and decide what
+
+[1:00:42] kind of thing we will do in the next iteration.
+
+[1:00:45] And let them still drive the project.
+
+[1:00:50] So enhanced satisfaction of a customer is much better.
+
+[1:01:00] And when you estimate, XP does not recommend the overworking.
+
+[1:01:07] So think of a sustainable pace of working in the planning and estimation.
+
+[1:01:20] And the developers implement the stories with the read time box period and the continually
+
+[1:01:25] collaborating with the customers, which are expected to reside in the common project plume.
+
+[1:01:35] And then, if not finished for release, and then return to the step three for the next
+
+[1:01:42] iteration.
+
+[1:01:43] So, next slide shows another, the XP iteration lifecycle sample, okay?
+
+[1:01:51] and discuss the explains about some work products you can use.
+
+[1:02:00] Okay, and it is related to the measurement issues and we will have another slide to discuss about the measurement.
+
+[1:02:13] And the next slide also shows an XP development lifecycle and next slide shows a typical day of XP developer.
+
+[1:02:27] And they start with the standing up meeting and they just spend 23 minutes only to discuss
+
+[1:02:36] about the issues and to decide what kind of thing they do.
+
+[1:02:43] And then they start pairing and start designing and coding.
+
+[1:02:52] code refactor and testing and then the intuit system, okay, and go home at 5 p.m.
+
+[1:03:05] It's really good. So again, when I talk about this in the world and some
+
+[1:03:10] organizations, the lower engineers are cheering because of this. This
+
+[1:03:22] This is emphasized by a sustainable pace in the expi practice.
+
+[1:03:31] So this picture shows some sample snapshot of daily meeting like this, so rather than
+
+[1:03:39] having formal meeting, they just stand up and discuss about issues and decide everything
+
+[1:03:47] within two or three minutes.
+
+[1:03:49] Okay, don't spend time, too much time in meeting, okay, but meet every day like this and
+
+[1:03:58] this picture shows
+
+[1:04:00] sample of peer programming, okay, how it is done. And next
+
+[1:04:08] slide shows some work products you the better produce
+
+[1:04:13] in each
+
+[1:04:16] the activity, like in the re-commerce activity you the better produce a story cards and
+
+[1:04:21] And for the design activity, you will produce CRC code and the sketches.
+
+[1:04:27] And for the project management activity, you will produce task lists for some visual graphs.
+
+[1:04:39] And next slide shows many types of roles you can consider in this XP practice,
+
+[1:04:51] like customer and development and the management other group of stakeholders.
+
+[1:05:03] And next slide shows the requirements, the practices you have to consider in the requirement activity.
+
+[1:05:12] So for example, in the planning game phase, probably you may consider the requirements
+
+[1:05:20] And you better have an on-site customer at that time
+
+[1:05:26] to show what they did last time and to let them select
+
+[1:05:32] story cards to implement in the next situation.
+
+[1:05:38] Select that.
+
+[1:05:41] And the next topic is about story cards.
+
+[1:05:44] And so as we briefly said last time,
+
+[1:05:49] A story card is a kind of paper index card
+
+[1:05:52] on which we hand-write the simple features,
+
+[1:05:57] okay, the system features.
+
+[1:05:59] So like upload a note for a certain online application.
+
+[1:06:05] So we do not specify in five lines, 10 lines,
+
+[1:06:10] two pages to that, we just simply say,
+
+[1:06:15] okay, upload a note is a feature
+
+[1:06:18] we like to have for this system, for example.
+
+[1:06:21] And then it works as a starting point
+
+[1:06:27] to communicate with your customer representative on site.
+
+[1:06:32] Then you can immediately get the requirements.
+
+[1:06:34] Whenever you have a question regarding that,
+
+[1:06:36] you can discuss with your customer representative
+
+[1:06:39] to learn what they want, exactly, okay?
+
+[1:06:43] So in some other as I process,
+
+[1:06:46] or the general, the auxiliary to the design method,
+
+[1:06:52] they are using, mostly they are using
+
+[1:06:56] the other requirements specification like user cases.
+
+[1:07:00] And so user cases have many different format,
+
+[1:07:03] brief user cases or some detailed,
+
+[1:07:07] very detailed user cases or some medium level of user cases.
+
+[1:07:12] So, detailed use cases may cover the three, four, ten pages for one feature to exercise
+
+[1:07:21] all the main, main scenario and some alternative scenario.
+
+[1:07:27] And what happened with some emergency case, what happened with this case, that case, like
+
+[1:07:32] that, you can make it detailed in many different ways.
+
+[1:07:37] And still, in brief use case, you may just spend two, three lines to describe what the
+
+[1:07:44] feature is to specify it.
+
+[1:07:49] But use case talks about how an actor or customer or actor is a kind of role to use this system
+
+[1:08:00] And the actor can be represented by human or server system or other legacy system or
+
+[1:08:07] external software, hardware, whatever, okay?
+
+[1:08:11] Whatever they use this system is described in the use cases.
+
+[1:08:18] So use case talks about how an actor uses a system.
+
+[1:08:23] But system feature doesn't talk about their interaction like that.
+
+[1:08:28] talks about just the system feature we like to have for this system, okay. So
+
+[1:08:37] XPP reports feature driven approach rather than the use case driven
+
+[1:08:43] approach other the practices promote for example a unified process very heavily
+
+[1:08:51] use these use cases in the requirements phase.
+
+[1:08:55] A requirement as a requirement work activities.
+
+[1:09:05] Unified process has different phases from the regular
+
+[1:09:14] software development process.
+
+[1:09:17] And another emphasis is on communication in XP.
+
+[1:09:33] So Story Card is just telling a simple system feature.
+
+[1:09:40] And then from that, we expect we have the communications
+
+[1:09:47] with the customers.
+
+[1:09:48] So they view the card as a kind of promise to talk.
+
+[1:09:53] So with this feature, I have to talk with the customer
+
+[1:09:58] representative who.
+
+[1:10:00] Initiate this feature. We will talk about this feature. Okay, so you can learn more information
+
+[1:10:05] so by having
+
+[1:10:07] The custom representative in your team development team you can compensate the highway documentation
+
+[1:10:16] By using very a precise specification method
+
+[1:10:21] In XP
+
+[1:10:22] or you don't need to have it because you you have a another way to get the
+
+[1:10:28] the information of requirements by having communication with customers but
+
+[1:10:36] if you don't have a custom representative on hand and also if you
+
+[1:10:41] don't write specify your system features precisely what happened you may not get
+
+[1:10:49] the good requirements right so probably once you start working some features and
+
+[1:10:55] And then later, after this iteration, or a few iterations later, then from the feedback,
+
+[1:11:02] you can get, oh, what happened?
+
+[1:11:04] I didn't mean that picture.
+
+[1:11:08] You miss it in my picture.
+
+[1:11:10] I described last time in my story, card.
+
+[1:11:16] So with this miscommunications, probably you will have a hard time.
+
+[1:11:20] So you should be very careful to choose a set of practices recommended by XP in your
+
+[1:11:33] organization.
+
+[1:11:34] You can customize the XP practices somehow in your organization to apply.
+
+[1:11:42] But if you customize in that way, just simply delete a certain practice without having other
+
+[1:11:50] compensation, okay, and then probably you will get trouble like this. So ask people
+
+[1:11:56] just to suggest to have just a story card to write the simple, the pictures
+
+[1:12:02] simply, but that do not, doesn't mean you don't need to have a precise
+
+[1:12:09] requirements, okay. The daily communication or easy communication with
+
+[1:12:18] customers can compensate this deficiency to have a very short description or
+
+[1:12:27] feature-simple description of your features because you can easily get
+
+[1:12:32] this requirement information anytime, anyhow. That's why they can work
+
+[1:12:39] together. Their practices are working together in that way, so if you
+
+[1:12:43] selectively choose this practice, that practice, and I don't choose the such
+
+[1:12:49] practice because of certain region, whatever, and then probably you will go
+
+[1:12:56] to go into the trouble. Okay? Okay, and it is recommended to use those story cards
+
+[1:13:15] to estimate your project, so for each iteration your customer representative
+
+[1:13:20] You may choose stories to develop for the next iteration and also based on that you
+
+[1:13:28] can estimate and build a plan based on such choices.
+
+[1:13:37] Each story may be implemented within one day, two day, or two weeks, three weeks.
+
+[1:13:47] on your time box or your iteration, and depending on your stories, types of stories, probably
+
+[1:13:57] you have to consider how to estimate, how to use them, how to refine them, too.
+
+[1:14:03] So once you have a story chosen in each iteration, then you start building lists of tasks to
+
+[1:14:18] this story, implement a feature shown in our story.
+
+[1:14:24] And then let your engineers choose, voluntarily choose those tasks to implement.
+
+[1:14:38] And one of the characteristics as I process is embracing change, so XP also likes to embrace
+
+[1:14:46] change and a task risk. Okay so you can generate task risk for the stories you
+
+[1:14:58] chose for each iteration. We already talked about it. And once you build a
+
+[1:15:07] list of tasks, each task will make each task which can be implemented
+
+[1:15:17] within one, two days' wage.
+
+[1:15:20] So in that much grain, you can make some fine grain tasks
+
+[1:15:28] from each story, which was simply
+
+[1:15:34] written in the story code.
+
+[1:15:38] And also, volunteering is the suggested
+
+[1:15:42] recommended rather than assigning jobs.
+
+[1:15:46] So they make their commitment by choosing voluntary
+
+[1:15:51] and their tasks to do.
+
+[1:15:54] So they will be more responsible
+
+[1:15:57] and they will have more motive to do.
+
+[1:16:06] And the experts suggest to have a very light modeling
+
+[1:16:10] rather than heavy modeling work like two days, three days
+
+[1:16:14] modeling work with high tech tools.
+
+[1:16:17] They suggest you have just 10 to 20 minutes of design for specific task to implement and
+
+[1:16:25] immediately start coding and discussing with your pair about designing and coding and perform
+
+[1:16:32] some refactoring if you think you better do it, something like that, and perform testing
+
+[1:16:37] immediately whenever you complete that part.
+
+[1:16:43] So some other, as I practice process,
+
+[1:16:47] it's like a unified process with Chrome.
+
+[1:16:50] They may allow like half day of design
+
+[1:16:54] or one day of design, something like that.
+
+[1:16:56] But XP particularly promotes just very short designing work
+
+[1:17:03] and immediately start programming and perform testing.
+
+[1:17:14] Okay, then what about the documentation?
+
+[1:17:17] How much documentation we'd better do
+
+[1:17:19] in whenever we apply XP practice.
+
+[1:17:22] So XP suggests you have a minimal
+
+[1:17:25] or just enough documentation.
+
+[1:17:28] So if you, for each project,
+
+[1:17:31] you have to decide how much you document
+
+[1:17:33] and what kind of thing you document more formally,
+
+[1:17:37] more precisely, what kind of things you document very light.
+
+[1:17:41] So you have to decide it.
+
+[1:17:43] But mostly they suggest not to have a heavy documentation.
+
+[1:17:49] So that does not mean you don't need to document in XP practice.
+
+[1:17:59] You have to find out what kind of documentation you minimally need.
+
+[1:18:04] So it depends on the size of a product.
+
+[1:18:08] If you have a big size working with many people, many engineers together,
+
+[1:18:13] probably it's very hard to communicate with each other easily.
+
+[1:18:17] If you have 1,000 engineers working together,
+
+[1:18:20] If you make a daily meeting with 1,000,
+
+[1:18:25] it may not work at all, right?
+
+[1:18:27] So what can you do?
+
+[1:18:28] Probably, if you have, probably XP is not a good way to do.
+
+[1:18:33] Secondly, if you have to use XP
+
+[1:18:35] because it is required by your carders or whoever,
+
+[1:18:40] and then probably you can build a certain group of teams,
+
+[1:18:45] again, some teams, group of teams,
+
+[1:18:48] and then each team may have a daily meeting.
+
+[1:18:51] again, looks like that. So that's what you have to customize, what you have to apply.
+
+[1:19:05] This XP principle in terabyte tearing, these kind of things. The kind of thing is not
+
+[1:19:12] detailed, described, or taught in the XP practices, but that's what you have to find out then
+
+[1:19:19] this side. So if you think that this project is very critical, you should have
+
+[1:19:31] a good documentation for the maintenance purpose too, or your customer
+
+[1:19:36] require you to make a good document so they can use them, okay, especially for
+
+[1:19:45] the maintenance. So in that case probably you have to provide those
+
+[1:19:49] documents. So depending on the size of product project and the stack, the
+
+[1:19:57] characteristic project, you have to decide.
+
+[1:20:00] okay, how much you document formally.
+
+[1:20:05] And also, you will measure something
+
+[1:20:09] which is meaningful to your case, your project,
+
+[1:20:15] and then XB suggests to have at least one major
+
+[1:20:21] to show and discuss and to see the status of your project
+
+[1:20:26] or the status of your work, okay.
+
+[1:20:31] So, for example, number of completed tasks and stories, and the success rate of a test,
+
+[1:20:40] those kinds of things can be good candidate for the measurement.
+
+[1:20:44] So once you collect this data, and then you better use a visual work graph so everybody
+
+[1:20:51] can see this and find out what are the problems and what are the status of the project, easily.
+
+[1:21:00] So this is also one way of communication, so simplest rule may apply this one too, rather
+
+[1:21:08] than having complicated communication to let engineers understand what's going on project
+
+[1:21:16] and let you both understand what's going on.
+
+[1:21:21] If you have just the visual work graphs and everybody can see it, every morning it gives
+
+[1:21:28] your simple way of communication to understand the project, right? So the
+
+[1:21:34] rules and the values of XP can be exercised in many different ways with
+
+[1:21:40] many instances, okay, differently. And also you should have know, you should know
+
+[1:21:48] how to monitor and track control of your project. So pro, you will have some
+
+[1:21:55] tracking mechanism. So XPS suggests to have a tracking mechanism by using this daily tracker.
+
+[1:22:02] So task and the story progress metrics could be collected by tracker. And XPRINSPRO suggests
+
+[1:22:15] to collect this data by meeting with the programmers and getting data and collect
+
+[1:22:23] data and the build the indicators or visual work chart from that.
+
+[1:22:30] So they suggest, they say SP is about the people, not the computers.
+
+[1:22:35] So they suggest to have a face-to-face communication to do this, not only the peer programming but
+
+[1:22:43] also the other daily meeting and the meeting with the customers, meeting with your engineers
+
+[1:22:50] but also for collecting data, major data still,
+
+[1:22:55] and they suggest to have this face-to-face communications.
+
+[1:23:04] And the XP suggests to have not only XP,
+
+[1:23:06] but also the most of our Azure processes
+
+[1:23:10] promote to have a common work space,
+
+[1:23:14] like a common project room, okay?
+
+[1:23:18] So they think XP is a kind of a team sport,
+
+[1:23:23] so have team members together without words between them.
+
+[1:23:30] Probably you may have, they may have separate rooms
+
+[1:23:37] and also you have a common project room together.
+
+[1:23:40] That's another way to resolve other issues, okay?
+
+[1:23:46] That does not mean you,
+
+[1:23:48] they should use only one common project room
+
+[1:23:51] from the beginning until the project ends.
+
+[1:23:55] They may have a separate working spaces or project room
+
+[1:24:00] to perform some other businesses,
+
+[1:24:03] but whenever they do the project,
+
+[1:24:07] then you'd better do it in the common project room in this way.
+
+[1:24:11] That's what the practice says.
+
+[1:24:14] So that room looks like this
+
+[1:24:18] in these pictures, so they are working together in the one room without having any
+
+[1:24:26] words, which means we shared all the information, we can immediately access other
+
+[1:24:33] engineers' customers, we can immediately talk with other people when we did the
+
+[1:24:38] information, and that doesn't mean you just stop by everybody and make them not
+
+[1:24:45] work. They are working something like that. So you have to always think, what is the principle
+
+[1:24:52] here? What is the value they like to get by exercising these practices? That's what you
+
+[1:24:59] have to know, exactly. So whenever you have choices, you have to think, okay, is this
+
+[1:25:06] alternative still satisfy the value of practices of XP, promoted by XP or not? You have to
+
+[1:25:14] answer that always. And also it's that we have the words like whiteboards on the entire
+
+[1:25:23] world. If any of you don't have a whiteboard that much, then probably you can just use
+
+[1:25:29] some, the positive, you know, the large positive star, the static clean sheet or some other
+
+[1:25:38] things like this diagram. Also, you can have some posts.
+
+[1:25:48] And also, whenever you design a system, you just use the
+
+[1:25:50] whiteboards and the words and those are the posted papers
+
+[1:25:57] and then put them and draw some chart and discuss 10-20 minutes
+
+[1:26:03] and then immediately start coding.
+
+[1:26:07] And then when we have a problem, then come back here and redraw or change your design
+
+[1:26:12] in your chart by hand using pen and pencil, a pencil with paper.
+
+[1:26:18] And then for documentation pro, you can capture those diagrams using your digital cameras or
+
+[1:26:28] using cell phones.
+
+[1:26:29] Most of the people have cell phones with digital cameras nowadays and then take them
+
+[1:26:34] and posted on your project website to share.
+
+[1:26:39] Okay.
+
+[1:26:40] Nikishan, you have?
+
+[1:26:41] Yeah, I understand the value of handwritten notes
+
+[1:26:45] is that they can be done quicker
+
+[1:26:48] rather than launching software and moving with the mouse.
+
+[1:26:51] But with touchscreen computers,
+
+[1:26:54] do you know if organizations that use XP,
+
+[1:26:57] they would actually use a touchscreen to, because-
+
+[1:27:01] They are using certain, the whiteboard feature can print out,
+
+[1:27:08] sort of the printer or save to the file.
+
+[1:27:14] Something like that.
+
+[1:27:14] So you can use those kind of tools.
+
+[1:27:17] They suggest low tech and high touch
+
+[1:27:21] rather than using high tech with low touch.
+
+[1:27:25] Okay, so that means for most people to have high touch,
+
+[1:27:30] have a high-touch face-to-face communication to solve all the issue problems to get the information
+
+[1:27:37] rather than communicating indirectly and through the only documentation or things like that
+
+[1:27:46] using very complex tools to spend long time to do that.
+
+[1:27:53] So that does not mean you don't need to use a high-tech tool.
+
+[1:27:56] That does not mean you don't need to use a case tool. You can use a case tool. Why not?
+
+[1:28:00] they just suggest you you spend more time you spend more resource for the the
+
+[1:28:09] the high touch okay that's what it means then high tech okay and in the
+
+[1:28:27] estimation and planning as we suggest to consider ideal engineering hours which
+
+[1:28:35] which means an uninterrupted, dedicated, focused time
+
+[1:28:40] to complete task, excluding all other times.
+
+[1:28:46] So make your working hour realistic
+
+[1:28:51] and reflect this realistic working hour to your estimation
+
+[1:28:56] to have a sustainable pace of working,
+
+[1:29:03] rather than working all night for many weeks, months,
+
+[1:29:08] and fed up not to work anymore, okay, something like that.
+
+[1:29:18] Okay, there are some sample projects reported.
+
+[1:29:22] There are small size of project or medium size of project
+
+[1:29:26] or larger size of project,
+
+[1:29:28] a small size project, C3 payroll system,
+
+[1:29:31] which may be done from Chrysler company.
+
+[1:29:36] which was one year and 10 more people and medium size and large size. So medium size
+
+[1:29:49] one-year project with 25 people, large size three-year project with 60 more people.
+
+[1:30:00] So if you adopt this XP at the first time in your organization, what kind of thing you can consider, okay?
+
+[1:30:08] So they suggest to pick up the worst project or problem and then apply XP until solved to see how it works
+
+[1:30:16] where in your organization and try to repeat this.
+
+[1:30:20] And if you are hesitating to use this XP at the first time
+
+[1:30:29] entirely, and you may have a hard time
+
+[1:30:33] to go with this new culture in the first time,
+
+[1:30:39] then they suggest to go with this set of practices
+
+[1:30:46] first and see what happened.
+
+[1:30:49] So like a whole team together in the common project loan
+
+[1:30:53] practice and the test first development practice
+
+[1:30:57] and acceptance test return owned by customers practice
+
+[1:31:01] and the planning game perform some playing game,
+
+[1:31:05] having the refining the stories
+
+[1:31:09] and having the feedback from the previous situation
+
+[1:31:14] and make a plan, estimation and a plan
+
+[1:31:17] based on the story's customer select for each iteration
+
+[1:31:23] and have a pure programming practice, you know what I'm saying.
+
+[1:31:28] So they suggest a minimum set of practices
+
+[1:31:31] you can choose in FP process in this way.
+
+[1:31:40] And the history shows Kanbei and the world,
+
+[1:31:42] the Cunningham started to talk about practices
+
+[1:31:47] SS, which are consolidated later as XP, the first time in mid-1980, and they found the
+
+[1:32:01] idea of CRC card which were used in many object-oriented design or object-oriented program education.
+
+[1:32:15] Then they talk about the design patterns, and they talk about the practices which become
+
+[1:32:24] most of the practices in the XP practices.
+
+[1:32:31] And then later, Beck joined the Chrysler C3 project, and then he worked with the Lan
+
+[1:32:41] Jeffries and Martin Fowler and then they consolidate their practices in this
+
+[1:32:51] way which becomes XP and this is simple XP practice we like to choose in this
+
+[1:33:06] class so if you go to the web page I suggest you to see and then you may see
+
+[1:33:12] this Extreme Programming Project Phases and Lifecycle, and also you can see the many set
+
+[1:33:23] of practices grouped by planning, managing, designing, encoding, and testing in this way,
+
+[1:33:31] and then I asked you to have all of them to practice this XP, and you should report how
+
+[1:33:41] you exercise all these practices suggest in each group here.
+
+[1:33:46] So probably you may apply this Ichi practice in different ways,
+
+[1:33:53] slightly differently depending on the situation of your environment.
+
+[1:33:59] But you have to exactly understand what Ichi practice or values mean.
+
+[1:34:06] Value means, and then you have to apply this properly.
+
+[1:34:10] So, again, last time, previously I told you,
+
+[1:34:14] you may not selectively choose only what you like to do.
+
+[1:34:18] Okay? So, whenever you select this, select,
+
+[1:34:20] or whenever you perform this in this way,
+
+[1:34:25] that way, you have to have always a rational.
+
+[1:34:27] Why? Why?
+
+[1:34:28] We'd better go this way in my situation.
+
+[1:34:31] Okay? Okay.
+
+[1:34:38] Next slide is about references.
+
+[1:34:41] I used to develop this lecture note
+
+[1:34:44] at the most part of my lecture note came from the contents
+
+[1:34:52] of these references, okay?
+
+[1:34:54] So if you'd like to learn more about it precisely,
+
+[1:34:58] go to those web pages and then you can get detailed information.
+
+[1:35:06] Okay, so that's all about the HR process and the XP today
+
+[1:35:11] and the kitchens, not only kitchens for this
+
+[1:35:19] but also captions for your homework relate to this one, too.
+
+[1:35:23] Yes?
+
+[1:35:25] How do script with those are part of the user stories?
+
+[1:35:29] User stories?
+
+[1:35:30] How can you...
+
+[1:35:31] How scripted are they?
+
+[1:35:32] Script your use cases.
+
+[1:35:33] Simple.
+
+[1:35:35] As it says, you can have just a simple statement
+
+[1:35:41] to describe all picture for each story card.
+
+[1:35:45] So you can use the index card to just have a few words to describe the system feature.
+
+[1:35:54] And then, again, the XP promotes lightweight documentation in this way,
+
+[1:36:03] but you should have your custom representative in your team.
+
+[1:36:07] So you have many members here, and each member may play a role or different roles at the same time.
+
+[1:36:21] So you can play a role as a developer, or so you can play a role as a customer.
+
+[1:36:27] So each members decide who will play a role or which roles.
+
+[1:36:35] And then, you know, you have a meeting, you just, you really perform this as a real situation.
+
+[1:36:46] Okay, so you meet together and you discuss about, okay, how we define process, what customer wants, okay,
+
+[1:36:56] how to practice XP to do your project something like that.
+
+[1:37:00] And once you decide your process and define your process precisely based
+
+[1:37:08] on the practices here, XP suggested.
+
+[1:37:13] So you build the process, you build the activities you have to perform.
+
+[1:37:17] So for each activity, based on these practices and values described in this example XP,
+
+[1:37:26] we will follow in this class.
+
+[1:37:28] And then you precisely describe more,
+
+[1:37:32] specify more about your activity and the work products
+
+[1:37:35] you have to produce and in which way you produce this.
+
+[1:37:39] What kind of tools you very use or manually you do this
+
+[1:37:41] or what kind of work products you have to produce
+
+[1:37:44] from this activity, something like that.
+
+[1:37:46] So once you define it and then you follow this process,
+
+[1:37:51] your process you define.
+
+[1:37:53] And then you build the application,
+
+[1:37:57] target application we decided in this semester.
+
+[1:38:02] So you just go with your process every day.
+
+[1:38:10] We'll show you every day you meet,
+
+[1:38:12] have a daily meeting in the morning,
+
+[1:38:15] and discuss about what issues you found yesterday,
+
+[1:38:20] and give solutions, share the solutions with each other,
+
+[1:38:25] and let your engineers choose what kind of tasks they'd like to do for day or for this week,
+
+[1:38:33] for this iteration. And your team manager, somebody is team manager, project manager,
+
+[1:38:41] okay, in your team. And then he should support this project, okay, to provide the resources they
+
+[1:38:49] want. So if they ask, I need a copy to work well, then your project leader should provide a copy
+
+[1:38:55] for this joke. I'm playing joke, but that's what the project leader should do, not signing
+
+[1:39:05] job, okay, you do this, you do that. They let them choose what kind of thing they do
+
+[1:39:11] and just the project leader try to find out what are the problems they like to work and
+
+[1:39:18] then provide the resource, getting resource from the high-level management or some other
+
+[1:39:23] department and provide those resources to your people to work well.
+
+[1:39:29] So I want you to practice this, the XP, to build this application, just to simulate your
+
+[1:39:39] situation.
+
+[1:39:40] Yes?
+
+[1:39:41] The other question is, we do have other activities such as estimation and project planning.
+
+[1:39:45] So a lot of this seems to be part of the XP rate.
+
+[1:39:50] So whenever you describe your estimation and scheduling well, like release planning creates
+
+[1:39:57] a release schedule, so if you describe.
+
+[1:40:00] they will and then in that section probably you say okay we fully describe
+
+[1:40:04] this estimation in there or we haven't done about the estimation planning well
+
+[1:40:11] so I like to consider this more gain in this way or something like this I like
+
+[1:40:16] to have a chance to think of other process area like estimation planning
+
+[1:40:22] or those kind of things more seriously because that kind of thing is actually
+
+[1:40:26] really issues you have in the real situation.
+
+[1:40:33] So those are the process areas you minimally
+
+[1:40:37] should consider whenever you work with the real organizations.
+
+[1:40:43] So as a project manager or middle manager, team leader,
+
+[1:40:46] you will have that kind of situation always.
+
+[1:40:49] So I'd like to give you a chance to think of it,
+
+[1:40:52] to prepare for your future.
+
+[1:40:54] Any questions?

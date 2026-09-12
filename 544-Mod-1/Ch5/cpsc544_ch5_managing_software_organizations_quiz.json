@@ -1,0 +1,797 @@
+{
+  "title": "CPSC 544 Chapter 5 - Managing Software Organizations",
+  "questions": [
+    {
+      "question": "What is the main focus of Chapter 5, Managing Software Organizations?",
+      "options": [
+        "Choosing programming languages and database designs that can replace project management entirely",
+        "Managing software projects through commitments, management systems, and project oversight",
+        "Database normalization",
+        "User interface prototyping"
+      ],
+      "answer": "b",
+      "explanation": "The chapter centers on project management, especially commitment discipline, the management system, and establishing a project management system.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So we have three topics here in this chapter. commitment discipline and the management system establishing project management system, okay? So the role of management system is to ensure the projects are successfully completed, okay? So in that case, we have to define what is the success and what is the completion, okay?"
+      }
+    },
+    {
+      "question": "Why are commitment management, project planning, configuration management, and software quality assurance emphasized early in the Repeatable Process?",
+      "options": [
+        "They are the only process areas software organizations ever need once a Repeatable process exists",
+        "They are mainly required for government contracts",
+        "They establish basic control needed before orderly process improvement can occur",
+        "They eliminate the need for management review"
+      ],
+      "answer": "c",
+      "explanation": "These areas provide the basic control mechanisms needed for project planning and process management. Without them, the process remains too erratic for orderly improvement.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So with having these basic control mechanisms, we can be able to add more other, we can be able to implement other process areas. So we have three topics here in this chapter."
+      }
+    },
+    {
+      "question": "Which three major topics are identified for Chapter 5? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Commitment discipline",
+        "The management system",
+        "Establishing a project management system",
+        "Database configuration management"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The chapter is organized around commitment discipline, the management system, and establishing a project management system.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So we have three topics here in this chapter. commitment discipline and the management system establishing project management system, okay? So the role of management system is to ensure the projects are successfully completed, okay? So in that case, we have to define what is the success and what is the completion, okay?"
+      }
+    },
+    {
+      "question": "What is the primary role of a management system in a software organization?",
+      "options": [
+        "To guarantee that no requirements ever change",
+        "To ensure that projects are successfully completed",
+        "To replace project managers with automated tools",
+        "To eliminate all disagreements among staff"
+      ],
+      "answer": "b",
+      "explanation": "The management system exists to ensure projects are successfully completed.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So the role of management system is to ensure the projects are successfully completed, okay? So in that case, we have to define what is the success and what is the completion, okay? So first of all, we have to define the success criteria and the completion criteria of the entire project."
+      }
+    },
+    {
+      "question": "Why must an organization define what 'success' and 'completion' mean?",
+      "options": [
+        "Because every project must use the same programming language before success or completion can be discussed",
+        "Because project performance cannot be judged consistently without agreed completion and success criteria",
+        "Because customers are not involved in project completion",
+        "Because completion always means deployment"
+      ],
+      "answer": "b",
+      "explanation": "The lecture stresses that organizations need explicit criteria for when work, phases, and projects are considered complete and successful.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So in that case, we have to define what is the success and what is the completion, okay? So first of all, we have to define the success criteria and the completion criteria of the entire project. So once you start the project, when you say it is completed, it is successful, we succeed"
+      }
+    },
+    {
+      "question": "A project's completion criterion must always be the production deployment date.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture gives several possible completion criteria, such as successful validation, deployment, or even later customer feedback. The correct choice depends on the organization.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "another company use a diploma date as a completion date of the project and what After you get the positive feedback from users, okay, so still you keep your team up to that point, right? But still we have to think of many things like this. The first case, when we perform the system testing validation and then say, okay, we are done."
+      }
+    },
+    {
+      "question": "Why might an organization keep a small number of people associated with a project after delivery?",
+      "options": [
+        "To prevent the project from ever being officially completed",
+        "To handle maintenance, defects, or customer issues that appear later",
+        "To avoid documenting the software",
+        "To keep the original schedule unchanged"
+      ],
+      "answer": "b",
+      "explanation": "The lecture notes that some people may need to remain available for maintenance, rework, or post-delivery customer issues.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "considerations here. So probably we have to keep a minimum number of people who can maintain the project later so whenever something happens to that product, those people are key people, you know, to handle that kind of instance, right? So you can choose different organizations may have a different strategy to do it based"
+      }
+    },
+    {
+      "question": "Which statement best reflects the lecture's view of completion criteria for individual development phases?",
+      "options": [
+        "Every company should use exactly the same criteria",
+        "A phase is complete as soon as coding begins",
+        "Organizations should define their own objective rules for deciding when a phase is complete",
+        "Only the customer can decide whether a phase is complete, so the organization never needs its own rules"
+      ],
+      "answer": "c",
+      "explanation": "The lecture repeatedly emphasizes that completion criteria depend on the organization and should be made explicit.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So it depends on the organization, they have their own rules, okay, they have own criteria for this success and the completion of the work. So we should have this to clearly say, somehow we should have this kind of things, say, have you done your work or not, have you done your work as promised, so when you do your"
+      }
+    },
+    {
+      "question": "Which of the following could be used as evidence that a phase is complete?",
+      "options": [
+        "A successful formal review, inspection, or peer review",
+        "A developer saying the work feels finished, without any review, inspection, or sign-off",
+        "The project running longer than expected",
+        "A new project being started"
+      ],
+      "answer": "a",
+      "explanation": "The lecture gives formal reviews, inspections, peer reviews, and sign-offs as examples of ways organizations may define completion.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So some companies are using the review, the inspection, formal review or inspection, peer reviews. If they are done peer review successfully and then they are signing, okay, this phase is done, okay, or some companies have user iterative approach or incremental approach at more and"
+      }
+    },
+    {
+      "question": "Each software project should have a plan based on what?",
+      "options": [
+        "A hierarchy of commitments",
+        "A fixed programming language",
+        "A single manager's opinion",
+        "The previous project's exact schedule"
+      ],
+      "answer": "a",
+      "explanation": "One of the basic principles of project management in the lecture is that each project has a plan based on a hierarchy of commitments.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "Each project has a plan that is based on hierarchy of commitments. So you make a commitment to do something, and then your team make a commitment to do something. And the entire, your site makes commitment to do something,"
+      }
+    },
+    {
+      "question": "What is a commitment in the context of this chapter?",
+      "options": [
+        "An estimate made without agreement",
+        "An agreement by one person to do something for another",
+        "A list of possible future tasks",
+        "A report written after project completion that records what the team wished it had delivered"
+      ],
+      "answer": "b",
+      "explanation": "The slides define a commitment as an agreement by one person to do something for another.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So the commitment is on agreement by one person to do something for another. So if the three people are in the same team and then you have to make a commitment what you like to do. And once you produce output and who will use this as input to do something, the next work."
+      }
+    },
+    {
+      "question": "What does a management system help resolve?",
+      "options": [
+        "Only programming errors",
+        "Natural conflicts between projects and between line and staff organizations",
+        "All customer complaints automatically, without any need to balance projects or staff groups",
+        "Only disagreements about coding style"
+      ],
+      "answer": "b",
+      "explanation": "A management system helps resolve conflicts over work, priorities, and resources across projects and organizational groups.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So management system reserves the natural conflicts between the project and between line and step organizations. So if it can be done by alone, until the end, it's much simpler. But if there should be some kind of organization orchestrating, we should have some kind"
+      }
+    },
+    {
+      "question": "What is the purpose of an oversight and review system?",
+      "options": [
+        "To replace the project plan",
+        "To audit and track progress against plans",
+        "To eliminate the need for estimates",
+        "To prevent managers from changing resources"
+      ],
+      "answer": "b",
+      "explanation": "Oversight and review systems compare actual progress to the project plan so management can monitor and control the work.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And the oversight and the review system audits and the tracks progress against the plans. Without having plan, we don't know how to monitor and control your project."
+      }
+    },
+    {
+      "question": "A project can be effectively monitored and controlled even if it has no plan.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture stresses that without a plan there is no baseline against which progress can be monitored and controlled.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "Without having plan, we don't know how to monitor and control your project. So you should have at least a certain plan to start with. Even though plan is not complete,"
+      }
+    },
+    {
+      "question": "Why can a project plan still be useful even if it is not perfect at the beginning?",
+      "options": [
+        "Because plans never need to be updated",
+        "Because it provides a starting baseline that can be revised as work proceeds",
+        "Because estimates are not needed once work begins and the original plan can then be discarded",
+        "Because customers cannot change requirements"
+      ],
+      "answer": "b",
+      "explanation": "The lecture says a project should at least have a plan to start with, and that the plan can be revised during the work.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So you should have at least a certain plan to start with. Even though plan is not complete, you can revise it while we are doing the work. And then you compare with that and find out the good way"
+      }
+    },
+    {
+      "question": "What is described as the foundation of software project management?",
+      "options": [
+        "Commitment discipline",
+        "Automated testing",
+        "Source code size",
+        "The annual budget"
+      ],
+      "answer": "a",
+      "explanation": "Commitment discipline is explicitly described as the foundation for software project management.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So the foundation for software project management is the commitment discipline, okay? So, please think, okay, the most important thing here is coming month and meeting the coming month."
+      }
+    },
+    {
+      "question": "Which mechanisms support commitment discipline? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Plans",
+        "Estimates",
+        "Reviews",
+        "Tracking systems"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The chapter says commitment discipline is supported by plans, estimates, reviews, and tracking systems.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So, this is supported by plans and estimates, reviews, and tracking systems, okay? So, to properly perform this project management, we need to be able to make a good estimation. We should be able to build a good plan, okay, and we should have a certain mechanism to review and the track control the project,"
+      }
+    },
+    {
+      "question": "According to the lecture, who actually meets commitments?",
+      "options": [
+        "Tools",
+        "Procedures",
+        "Committed people",
+        "Review documents"
+      ],
+      "answer": "c",
+      "explanation": "Reviews, procedures, and tools support the work, but commitments are ultimately met by committed people.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "tools, however, they met by the committed people, okay? So eventually, in this kind of work, like software development, which involves a lot of human intensive effort, okay?"
+      }
+    },
+    {
+      "question": "A commitment normally includes which two ideas?",
+      "options": [
+        "A completion date and some consideration or payment",
+        "A programming language and a database",
+        "A risk list and a test report",
+        "A staffing chart and an assigned office location for everyone who will do the work"
+      ],
+      "answer": "a",
+      "explanation": "The slides state that a commitment involves a planned completion date and some consideration or payment.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So, commitment involves a planned completion date and some consideration or payment. So, we should consider certain date to complete and certain criteria of completion"
+      }
+    },
+    {
+      "question": "Why are mutual commitments especially important in software projects involving many professionals?",
+      "options": [
+        "Because coordinated work depends on people delivering outputs that others need as inputs",
+        "Because every worker performs the same task",
+        "Because communication can be eliminated",
+        "Because schedules become unnecessary once many professionals are working on the same product"
+      ],
+      "answer": "a",
+      "explanation": "Coordinated work requires people to know who will produce what, by when, and how one person's output supports another person's work.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And once you produce output and who will use this as input to do something, the next work. So management system reserves the natural conflicts between the project and between line and step organizations. So if it can be done by alone, until the end, it's much simpler."
+      }
+    },
+    {
+      "question": "Which are elements of an effective commitment? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "The person makes the commitment willingly",
+        "The work, resources, and schedule are carefully considered",
+        "The commitment is openly stated",
+        "The person waits until the deadline passes before reporting a problem"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Effective commitments are willing, carefully considered, agreed upon, publicly stated, actively pursued, and renegotiated in advance when necessary.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And the person, these are elements of an effective commitment, okay. So the person making the commitment does so willingly, okay. So they like to do this, okay, at a certain time. That means they think it can be done, okay,"
+      }
+    },
+    {
+      "question": "What should happen if it becomes clear before the committed date that the commitment cannot be met?",
+      "options": [
+        "Hide the problem until the deadline so that no renegotiation with stakeholders is needed",
+        "Give advance notice and negotiate a new commitment",
+        "Cancel the project immediately",
+        "Ignore the original commitment"
+      ],
+      "answer": "b",
+      "explanation": "The lecture explicitly says advance notice should be given and a new commitment negotiated.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "advance notice is given and the new commitment should be negotiated. Okay, so commitment should be treated as seriously and the management team should put the external effort to make them meet the commitment. And to be effective, the software commitment process must be reached to the top."
+      }
+    },
+    {
+      "question": "Why should commitments be openly and publicly stated?",
+      "options": [
+        "So responsibilities, dependencies, and expectations are visible to the people involved",
+        "So estimates can be avoided",
+        "So only senior managers know the plan and working-level staff never see the commitments",
+        "So team members cannot request help"
+      ],
+      "answer": "a",
+      "explanation": "The lecture emphasizes openness so people understand their responsibilities, what others owe them, and when resources or outputs should be available.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And the coming month is openly and publicly stated. Okay, so plan should be publicly publicized so everybody can see it happen. And as long as the open society is more sound,"
+      }
+    },
+    {
+      "question": "What is the key idea behind the commitment hierarchy?",
+      "options": [
+        "Only individual contributors make commitments, while teams and executives stay outside the hierarchy",
+        "Commitments exist at multiple levels, from individuals and teams up through the organization",
+        "Only customers make commitments",
+        "Commitments should remain informal"
+      ],
+      "answer": "b",
+      "explanation": "The lecture describes commitments at individual, team, site, and organizational levels.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "Each project has a plan that is based on hierarchy of commitments. So you make a commitment to do something, and then your team make a commitment to do something. And the entire, your site makes commitment to do something,"
+      }
+    },
+    {
+      "question": "For the software commitment process to be effective, how far must it reach?",
+      "options": [
+        "Only to the programming team",
+        "Only to the project manager",
+        "To the top of the organization",
+        "Only to the customer support group"
+      ],
+      "answer": "c",
+      "explanation": "The slides state that the software commitment process must reach to the top of the organization.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And to be effective, the software commitment process must be reached to the top. So we start from the bottom here, and we build the plan, and we have to make a commitment, and then it goes off. And this requires that all commitments for future software delivery are personally made"
+      }
+    },
+    {
+      "question": "Who should personally make commitments for future software delivery according to the chapter?",
+      "options": [
+        "Any available developer who happens to be nearest the customer at the time",
+        "The organization's senior executive",
+        "Only the customer",
+        "The testing team"
+      ],
+      "answer": "b",
+      "explanation": "The chapter says commitments for future software delivery should be personally made by the organization's senior executive.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And this requires that all commitments for future software delivery are personally made by the organization's senior executive. So eventually your senior management executive should sign for all of this and make a promise to deliver the project on time with the expected quality to customers."
+      }
+    },
+    {
+      "question": "Before a major software delivery commitment is made, what should occur?",
+      "options": [
+        "A formal review and concurrence process",
+        "Immediate coding",
+        "A customer complaint",
+        "A reduction in documentation"
+      ],
+      "answer": "a",
+      "explanation": "The commitment should follow successful completion of a formal review and concurrence process.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And these commitments are made only after successful completion of the formal review and the concurrence process. So before you make a commitment formally, you have to perform some serious formality review and the conference effort to schedule all things properly."
+      }
+    },
+    {
+      "question": "What is required to establish a sound commitment process? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "A senior executive who insists on planning before commitment",
+        "Training in scheduling and estimating",
+        "Specific estimating, review, and approval procedures",
+        "A rule that commitments must be made before any planning"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The chapter emphasizes executive insistence on planning plus training and formal estimating, review, and approval procedures.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "planning be done before any commitment is made. So the next slide, the next census says in addition, since the people must know how to make schedule estimate properly and training courses are required as are past the estimation and reviewing and approval procedures."
+      }
+    },
+    {
+      "question": "Which of the following is NOT one of the four general management-system objectives discussed in the chapter?",
+      "options": [
+        "Maintain a technical and business strategy for long-term goals",
+        "Provide quality products that meet customer needs",
+        "Perform the mission competitively and economically",
+        "Eliminate all future changes to products"
+      ],
+      "answer": "d",
+      "explanation": "The four objectives concern strategy, quality products, competitive and economical performance, and continual improvement.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "there are generally four components for this, to have a technical and the business strategy, okay? And to provide the quality products to meet, sounds like this."
+      }
+    },
+    {
+      "question": "What is one long-term goal that a technical and business strategy might target?",
+      "options": [
+        "Growth rate or market position",
+        "Removing all project reviews",
+        "Avoiding customer contact",
+        "Reducing every project to one developer"
+      ],
+      "answer": "a",
+      "explanation": "The slides give growth rate and market position as examples of long-term goals.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "as a growth rate and the market position. And to provide the quality products, then meet the customer's requirements. and to perform the assigned mission competitively"
+      }
+    },
+    {
+      "question": "What is the purpose of an annual operating plan?",
+      "options": [
+        "To specify tasks and assign responsibilities and resources",
+        "To document only completed defects",
+        "To replace all project-level planning once the yearly budget has already been approved",
+        "To define coding syntax"
+      ],
+      "answer": "a",
+      "explanation": "Annual operating plans establish a framework for operations by specifying tasks and assigning responsibilities and resources.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "most organizations produce their annual operating plans, okay? So based on that plan, we specify the resources used so we can orchestrate all the work properly. And also, management oversight is very important to monitor and review their plans and monitor their progress against the plan."
+      }
+    },
+    {
+      "question": "According to the chapter, what is the essential first step in producing operating plans?",
+      "options": [
+        "Choosing a programming language",
+        "Allocating skilled resources",
+        "Writing the final test report",
+        "Hiring an outside auditor"
+      ],
+      "answer": "b",
+      "explanation": "Because skilled resources are the most important need of projects and staff, their allocation is described as the essential first step.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So based on that plan, we specify the resources used so we can orchestrate all the work properly. And also, management oversight is very important to monitor and review their plans and monitor their progress against the plan. the plan. So on effective management system typical users reviews and the"
+      }
+    },
+    {
+      "question": "What two mechanisms does an effective management system typically use to resolve conflicts and balance line and staff concerns?",
+      "options": [
+        "Reviews and a contention system",
+        "Coding standards and pair programming",
+        "Unit tests and integration tests",
+        "Hiring and outsourcing"
+      ],
+      "answer": "a",
+      "explanation": "Management oversight uses reviews together with a contention system to resolve conflicts and establish balance.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And also, management oversight is very important to monitor and review their plans and monitor their progress against the plan. the plan. So on effective management system typical users reviews and the contention system to resolve product and period conflicts and to have a good"
+      }
+    },
+    {
+      "question": "How are separate organizational plans handled during management oversight?",
+      "options": [
+        "They remain independent forever",
+        "They are consolidated into a total organization plan and incorporated into higher-level plans",
+        "They are discarded after review",
+        "They are replaced by customer plans and never reviewed or consolidated into a higher-level plan"
+      ],
+      "answer": "b",
+      "explanation": "The separate plans are reviewed, issues are resolved, and then the plans are consolidated into the total organization plan.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "different parts of organization then probably we should have a certain way to to resolve those issues, and then let them build separate plans, and then we consolidate all those plans and rebuild the entire business plans, okay?"
+      }
+    },
+    {
+      "question": "What is the main purpose of the contention process?",
+      "options": [
+        "To suppress disagreement",
+        "To encourage open expression of differences and rational resolution",
+        "To let senior managers decide immediately without hearing dissenting views from involved parties",
+        "To delay every decision"
+      ],
+      "answer": "b",
+      "explanation": "The contention system is designed to surface differences openly so the organization can understand issues and make better decisions.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "contention systems to encourage the open expression of differences and their racial resolution. So whenever they do the project, they have many decisions to do, okay, they have many different alternatives. So in that case they should be able to express their opinions which way we will go to have"
+      }
+    },
+    {
+      "question": "What principle underlies the contention system?",
+      "options": [
+        "The best decisions come from the fastest vote",
+        "The best decisions are based on a full understanding of the relevant issues",
+        "Managers should avoid dissent",
+        "Technical staff should not question business decisions once a manager has already chosen a path"
+      ],
+      "answer": "b",
+      "explanation": "The chapter states that better decisions require a full understanding of the relevant issues.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "best decisions are based on full understanding of relevant issues. So if you do not allow people to discuss about any issues that might be happen later or you do not have any chance to discuss about different alternatives to decide something, then they may not think of this problem carefully so you will have trouble later."
+      }
+    },
+    {
+      "question": "According to the contention-system principles, what should happen when a major decision still has dissent?",
+      "options": [
+        "The dissenting parties should be excluded",
+        "The decision should always be made immediately so that remaining dissent can be ignored",
+        "Dissenting parties should be present and asked to state their views",
+        "The issue should be ignored"
+      ],
+      "answer": "c",
+      "explanation": "The process requires dissenting parties to be present and heard before an important decision is made.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "out whether all dissenting parties are present in the meeting. So we listen to all the different alternatives here or probably we need more time for survey or study to have a better idea, something like that. So based on that, decision can be deferred rather than decided quickly with short time"
+      }
+    },
+    {
+      "question": "If disagreeing parties are absent or more preparation is needed, what should happen?",
+      "options": [
+        "The senior manager should make the decision anyway so the meeting can finish on time",
+        "The decision should be deferred until the necessary homework is done",
+        "The project should be cancelled",
+        "The disagreement should be removed from the record"
+      ],
+      "answer": "b",
+      "explanation": "The contention-system principles say to defer the decision if key dissenters are absent or more preparation is required.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So based on that, decision can be deferred rather than decided quickly with short time and you will give more chance to think of it or to prepare for other, to study or other alternatives and let them meet again, okay, and you can decide it later."
+      }
+    },
+    {
+      "question": "What is the purpose of the quarterly review?",
+      "options": [
+        "To replace all daily management",
+        "To resolve conflicts and monitor progress against period and product objectives",
+        "To approve programming language syntax and other coding standards for the coming quarter",
+        "To focus only on financial performance"
+      ],
+      "answer": "b",
+      "explanation": "The quarterly review is a forum for conflict resolution and for monitoring project and organizational performance against plans and goals.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And the topics of this quarterly review typically include these issues. An assessment of a project performance against the plan. And organization's performance against the goal. Like, so, performance, if you have a certain performance goal,"
+      }
+    },
+    {
+      "question": "Which topics would typically belong in a quarterly review? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Project performance against plan",
+        "Organization performance against goals",
+        "Milestone and financial status",
+        "Issues and action items"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "explanation": "The slides and example agenda include project performance, milestones, financial status, issues, process status, productivity, quality, and action items.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "An assessment of a project performance against the plan. And organization's performance against the goal. Like, so, performance, if you have a certain performance goal, you like to check those goals are fulfilled."
+      }
+    },
+    {
+      "question": "In the example project schedule checkpoints table, which status columns are tracked?",
+      "options": [
+        "Planned, projected, actual, and difference",
+        "Cost, quality, scope, and risk",
+        "Open, closed, blocked, and deleted",
+        "Design, code, test, and deploy"
+      ],
+      "answer": "a",
+      "explanation": "The example checkpoint table compares planned, projected, actual, and difference values for project milestones.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "structures and the next slide shows table for the simple project schedule checkpoint Okay, so if you don't have any idea how to perform the monitoring control over your project. This is a good example for the project monitoring control. And so, very one must also assess project progress periodically,"
+      }
+    },
+    {
+      "question": "Which of the following appears as a sample project schedule checkpoint?",
+      "options": [
+        "Functional requirements approval",
+        "Marketing campaign approval",
+        "Office relocation",
+        "Employee vacation scheduling"
+      ],
+      "answer": "a",
+      "explanation": "The example checkpoints include functional requirements approval, design reviews, code reviews, unit testing, system testing, and customer shipment.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "structures and the next slide shows table for the simple project schedule checkpoint Okay, so if you don't have any idea how to perform the monitoring control over your project. This is a good example for the project monitoring control. And so, very one must also assess project progress periodically,"
+      }
+    },
+    {
+      "question": "How should management assess project progress over time?",
+      "options": [
+        "Only once, after the project is finished and the final product has already been delivered",
+        "Periodically through a sequence of reviews at key project points",
+        "Only when the customer complains",
+        "Only through informal conversations"
+      ],
+      "answer": "b",
+      "explanation": "Project phase reviews are conducted periodically at key points in the project.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And so, very one must also assess project progress periodically, and this is typically accomplished through a sequence of reviews at a key point in each project. And next slide shows some standards you can use to process your work"
+      }
+    },
+    {
+      "question": "Which standard is identified as Software Development and Documentation?",
+      "options": [
+        "MIL-STD-498",
+        "ISO 9000",
+        "ISO/IEC 15504",
+        "ISO/IEC 15288"
+      ],
+      "answer": "a",
+      "explanation": "The slides identify MIL-STD-498 as Software Development and Documentation.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And next slide shows some standards you can use to process your work with this standard. The first one is the DOD standard and also it talks about the ISO standards. If you take some other course related to these standards, probably you can learn more about this standard. The last slide tells the most important management review system is conducted by project management"
+      }
+    },
+    {
+      "question": "Which standard is associated with software life cycle processes?",
+      "options": [
+        "ISO/IEC 12207",
+        "ISO/IEC 15504",
+        "ISO 9000",
+        "MIL-STD-498"
+      ],
+      "answer": "a",
+      "explanation": "ISO/IEC 12207 is listed as Information Technology - Software Life Cycle Processes.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And next slide shows some standards you can use to process your work with this standard. The first one is the DOD standard and also it talks about the ISO standards. If you take some other course related to these standards, probably you can learn more about this standard. The last slide tells the most important management review system is conducted by project management"
+      }
+    },
+    {
+      "question": "Which standard is associated with process assessment and is also called SPICE?",
+      "options": [
+        "ISO/IEC 15504",
+        "ISO/IEC 15288",
+        "ISO 9000",
+        "MIL-STD-2167"
+      ],
+      "answer": "a",
+      "explanation": "ISO/IEC 15504 is listed as Information Technology - Process Assessment (SPICE).",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And next slide shows some standards you can use to process your work with this standard. The first one is the DOD standard and also it talks about the ISO standards. If you take some other course related to these standards, probably you can learn more about this standard. The last slide tells the most important management review system is conducted by project management"
+      }
+    },
+    {
+      "question": "Which standard is associated with system life cycle processes?",
+      "options": [
+        "ISO/IEC 15288",
+        "ISO/IEC 12207",
+        "MIL-STD-498",
+        "ISO 9000"
+      ],
+      "answer": "a",
+      "explanation": "ISO/IEC 15288 is listed as Systems and Software Engineering - System Life Cycle Processes.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And next slide shows some standards you can use to process your work with this standard. The first one is the DOD standard and also it talks about the ISO standards. If you take some other course related to these standards, probably you can learn more about this standard. The last slide tells the most important management review system is conducted by project management"
+      }
+    },
+    {
+      "question": "What are the ISO 9000 series standards associated with in this lecture?",
+      "options": [
+        "Quality management systems",
+        "Network communication protocols",
+        "Source code configuration",
+        "Database security"
+      ],
+      "answer": "a",
+      "explanation": "The lecture lists ISO 9000 as standards related to quality management systems.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And next slide shows some standards you can use to process your work with this standard. The first one is the DOD standard and also it talks about the ISO standards. If you take some other course related to these standards, probably you can learn more about this standard. The last slide tells the most important management review system is conducted by project management"
+      }
+    },
+    {
+      "question": "What does the lecture identify as the most important management review system?",
+      "options": [
+        "An external customer audit",
+        "The review system conducted by the project management team itself",
+        "A yearly financial review",
+        "A programming-language standards committee that meets once a year to audit coding style"
+      ],
+      "answer": "b",
+      "explanation": "The chapter says the most important management review system is the one conducted by the project management team itself.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "The last slide tells the most important management review system is conducted by project management team itself. So if project management is not aware of actively involved in the project issues, nobody can understand what's going on in your project."
+      }
+    },
+    {
+      "question": "If project management is not aware of and actively involved in project issues, other management systems can still be fully effective.",
+      "type": "boolean",
+      "answer": false,
+      "explanation": "The lecture says no other management system can be fully effective if project management is not aware of and actively involved in project issues.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "So if project management is not aware of actively involved in the project issues, nobody can understand what's going on in your project. So you should know what the problem, what the issues are in your project first. And with effective and involved project managers, however, project management system is still"
+      }
+    },
+    {
+      "question": "Even with strong and involved project managers, why is a broader management system still necessary?",
+      "options": [
+        "To resolve conflicts between projects and between line and staff organizations",
+        "To eliminate the need for project plans",
+        "To prevent all requirement changes",
+        "To remove responsibility from project managers so they no longer need to track project issues"
+      ],
+      "answer": "a",
+      "explanation": "A broader management system is still needed to resolve cross-project and line-versus-staff conflicts.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "needed to resolve conflict between projects and between line and step members in the organizations. Okay, we are done for this chapter. So the key issue in this chapter is what?"
+      }
+    },
+    {
+      "question": "Which statement best summarizes the lecture's key message?",
+      "options": [
+        "Project management is mainly about choosing better development tools",
+        "Project management is largely the management of commitments, supported by sound estimation, planning, review, tracking, conflict resolution, and resource allocation",
+        "Project management ends once the first plan is written",
+        "Software organizations should avoid formal commitments because change is inevitable, making estimation, planning, review, tracking, and resource allocation unnecessary"
+      ],
+      "answer": "b",
+      "explanation": "The lecture closes by emphasizing project management in terms of commitments, supported by good estimation and planning, resource orchestration, and mechanisms such as reviews and the contention system.",
+      "reference": {
+        "book": "Chapter 5 — Managing Software Organizations",
+        "lecture": "And this project management is described in terms of commitment, okay, making commitment. And the working commitment should be done based on good, well done estimation and planning. And also you have to consider how to resolve the issues you will have using like the contention systems and also you should have good mechanisms to allocate the resource and orchestrate all"
+      }
+    }
+  ]
+}

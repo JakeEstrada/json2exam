@@ -1,0 +1,1477 @@
+cpsc544_03_v_ProcessAssessment.mp4
+
+[00:01] Okay, let's talk about chapter 3 today, software process assessment.
+
+[00:08] In this chapter, we have some topics like this, overview of assessment and phases of assessment,
+
+[00:16] and principles of assessment, and assessment process, we talk about process,
+
+[00:22] and assessment conduct, and implementation considerations.
+
+[00:28] Okay, and what we like to do in the process assessment.
+
+[00:33] We have talked many things before so far.
+
+[00:37] You've got some ideas in
+
+[00:41] software process and software process improvement.
+
+[00:45] And how we talk about the software process, so how
+
+[00:49] this software process is related to the goal
+
+[00:53] or topic we like to learn here, software improvement in this class.
+
+[00:57] So how can you use this software process improvement at which point we can use this software process?
+
+[01:09] Initial?
+
+[01:11] In the very beginning of a
+
+[01:14] process improvement step. Okay, so what do you like to do? As the title says, assessment.
+
+[01:23] What do we like to do here? Why we like to learn? We like to learn assessment, right?
+
+[01:30] Okay, so from this assessment
+
+[01:32] what do you like to get? What we do right now what is the current status of our
+
+[01:50] organization and our organizational process what we do right now okay and
+
+[01:56] what else you like to know what what is good to improve what is a bet we have to
+
+[02:06] improve. So we like to learn where we are at and also we have to know where we like
+
+[02:15] to go. Where like to go. So we can also find out then gaps between the target
+
+[02:24] we like to go and the current location we are at right now. Okay so we have we
+
+[02:30] can find out what is the gap between these two okay so not only we assess the
+
+[02:37] current status of process but also we like to find some something you know we
+
+[02:44] can improve okay so this these are the what we have to do what we have to do
+
+[02:51] in the assessment okay so basic assessment objectives are to learn how
+
+[02:58] the organization works okay where we are at right now and to identify is major
+
+[03:04] problems and also a side effect we may have a good you know the leaders in this
+
+[03:10] area okay and then are who will perform this assessment anybody so if your boss
+
+[03:33] ask you okay why don't you join the assessment team so what you like to tell
+
+[03:38] I'm yes, man, so I always say yes. Whatever my boss asks me, I will always say yes.
+
+[03:46] Okay, then probably you have a question. Okay, am I capable to do this? Or what I
+
+[03:55] have to learn? What I have to know to join this team? Before I join this team,
+
+[04:01] what I have to study? Right? What I have to prepare for that? So what kind of
+
+[04:07] you have to prepare for first of all or you have to know how to how to review
+
+[04:16] your process right you have to know some kind of techniques to review your
+
+[04:20] process and you have to know against the rich base you know though you you can
+
+[04:30] access your current status when you like to access your current status you have
+
+[04:37] to know some kind of basis to compare your current status with that, okay?
+
+[04:46] So it's good to have a certain model, okay, for benchmarking.
+
+[04:52] I can, I like to compare with this model, okay?
+
+[04:56] I like to compare the practices we are doing every day with this model's practices
+
+[05:01] and then we can find out whether we do this or not, okay?
+
+[05:05] And then we can easily find out the gaps between this, okay?
+
+[05:08] So we need some kind of, those kind of techniques for the assessment itself, right?
+
+[05:16] And also we need some preparation, okay, for assessment without knowing that kind of knowledge,
+
+[05:23] modern knowledge is very hard to do it, okay?
+
+[05:26] Even though you like to do it but if you don't know much about the model, it's very hard to do it, okay?
+
+[05:31] And also, what do you need?
+
+[05:34] Okay, you're just a college graduate and you study about the CMMI now from this class.
+
+[05:42] And then can you go into the network directly?
+
+[05:46] Why not? You can do it.
+
+[05:47] As long as you have a strong will to do it, yeah, you can do it.
+
+[05:50] But to become a good assessment team members, okay, you will have something,
+
+[05:56] you will have to know what you have to have, probably some experience in that field.
+
+[06:03] Without having experience in that field, it's very hard to judge
+
+[06:10] whenever you have a situation whether this applies to this case or that case.
+
+[06:17] Can I interpret this in this way or that way?
+
+[06:21] You have a question, many questions, right?
+
+[06:23] You don't have any experience at all.
+
+[06:26] It talks about something about testing but you have not had any experience in testing before.
+
+[06:32] So you don't know what even the testing is, then it causes a problem.
+
+[06:37] You may not perform your job well, even though you are willing to do it, but you don't know
+
+[06:46] actually what you have to do in many places, right?
+
+[06:49] Okay, so you need some experience in that field as engineers.
+
+[06:54] Okay, it could be a software engineer or hardware engineer, you need some experience.
+
+[07:00] And also, what do you need, or what your team members need at least, even though you don't
+
+[07:10] have the capability, your team members, some of your team members have this, because you
+
+[07:17] cannot cover all engineering field, so you're good in design, but your team member, other
+
+[07:23] team members in your assessment, he is good in programming, okay, and he is good in testing,
+
+[07:30] it is helpful, right? You can collaboratively work. So you don't know that kind of field,
+
+[07:37] he may explain to you what it is. So he may explain to you to help you to interpret the model
+
+[07:45] appropriately. Also, you need some kind of skills for management. If you don't have any
+
+[07:57] management experience skills, if you don't know knowledge in the management at all,
+
+[08:03] It's very hard to understand why the practice is needed in the management area,
+
+[08:08] why it is used in the service area, why this resource is important in this organization,
+
+[08:13] why it is important in the environment.
+
+[08:16] You cannot imagine at all, right?
+
+[08:19] So still your imagination is very good, you know, inherently,
+
+[08:24] but still you have something, you know, the tackle always.
+
+[08:30] You have problems with something.
+
+[08:32] So even though you don't have that experience,
+
+[08:36] your team members, assessment team members,
+
+[08:38] some of them should have that experience,
+
+[08:41] so you can collaboratively do the work.
+
+[08:47] So we talk about what kind of things we need,
+
+[08:50] what kind of things we have to prepare
+
+[08:53] to become a good assessment team and team members, okay?
+
+[09:03] We give some training for the assessment techniques
+
+[09:11] and assessment experience.
+
+[09:13] So once we form assessment training,
+
+[09:16] it's a good idea to have a...
+
+[09:18] Once we form an assessment team,
+
+[09:20] it's a good idea to have assessment team training, okay?
+
+[09:24] So give teaching some skills for the needed assessment.
+
+[09:31] And tell them how to judge certain aspects
+
+[09:36] and let them know how to interpret the model sphere,
+
+[09:40] how to interpret practices defined in the assessment method itself, okay?
+
+[09:48] So in the assessment we have usually three phases in different assessment techniques, okay?
+
+[09:57] Mostly we need some...
+
+[10:00] preparation time, okay, before we go into the main phase of assessment, we need some preparation,
+
+[10:11] and also we should have assessment main, okay, and we have a phase to recommend companies
+
+[10:24] to report, to present our findings, okay, from the assessment.
+
+[10:31] So in the preparation time we spend time to prepare for all this knowledge and the techniques
+
+[10:40] we need in the assessment and also we plan the assessment and also we train the team
+
+[10:49] and we find out whether they are ready to perform assessment.
+
+[10:56] And then we perform assessment, and then we find something from there, okay?
+
+[11:03] Some good things, bad things, and what kind of thing we can improve.
+
+[11:07] And then we have the rev up time, the recommendations.
+
+[11:11] Okay.
+
+[11:12] So in the next slide, it talks about training for the assessment team, okay?
+
+[11:18] Training for the assessment team.
+
+[11:22] And one of the most important things to perform assessment, getting commitment from the high
+
+[11:32] managers.
+
+[11:33] This manager is very, very high in the organization, as much as high as he is, because this assessment
+
+[11:49] itself needs a resource to do.
+
+[11:52] And to do this assessment, the organization should do some preparation too, right?
+
+[11:58] Not only assessment team does preparation, but also the organization itself do some preparation
+
+[12:07] because many assessment technique is based on the document-based, object-based assessment.
+
+[12:18] So they should have objective evidence, documents to show to the assessor.
+
+[12:28] So they need a resource to prepare for that, to get an assessment.
+
+[12:35] So who will provide this resource without having any interference in the organization?
+
+[12:41] The manager, okay, the highest manager can help this really.
+
+[12:48] And also, why we do this assessment?
+
+[12:58] Because we are free, we don't have anything to do, we don't have a project right now.
+
+[13:04] So for the HR, we perform assessment, no, right?
+
+[13:08] Everything is money, whatever we do in the organization, it takes money.
+
+[13:12] So we have to effectively use time, money, effort, or paper.
+
+[13:18] We like to improve our work or we like to maintain the level of work at least.
+
+[13:25] That's why we like to do, we like to judge whether we are doing well right now and how
+
+[13:30] can you do better in the future.
+
+[13:34] That's why we do this assessment.
+
+[13:38] You have done assessment, but what happened?
+
+[13:41] Now you know what kind of thing you have to improve.
+
+[13:44] Now you know the gaps you have to fit in.
+
+[13:49] And then what you have to do?
+
+[13:51] You have to do action.
+
+[13:53] You have to do action to fill in the gap,
+
+[13:56] to improve your process, okay?
+
+[13:59] Or to maintain at least or improve your quality level
+
+[14:03] or service quality level of a product.
+
+[14:05] That's why we do this.
+
+[14:07] If you don't do it, you don't need to do this assessment.
+
+[14:11] Why we spend money, time, effort, okay?
+
+[14:15] So, who will help you to implement this action plan
+
+[14:21] once you got idea from this assessment?
+
+[14:28] High manager, someone who has the power
+
+[14:31] to distribute resource, to allocate resource properly,
+
+[14:36] to allow you to use resource to do this action,
+
+[14:39] to implement action, okay?
+
+[14:42] So that's why the senior management commitment
+
+[14:46] is very important to succeed.
+
+[14:48] without having that, it's very hard to succeed, okay?
+
+[14:53] Even though your law manager has a lot of energy
+
+[14:57] and the effort to do it,
+
+[14:58] but he doesn't have a power to allocate the resource,
+
+[15:02] so he cannot do many things, okay?
+
+[15:16] So, after preparation time,
+
+[15:18] probably you go into the assessment,
+
+[15:21] usually assessment itself is done onsite assessment, okay?
+
+[15:25] Preparation can be done outside.
+
+[15:28] That's not necessary to do it in the campus, in the organization.
+
+[15:36] And also, what about the team members?
+
+[15:39] Team members can come from the outside or inside, right?
+
+[15:46] So make your work more objectively done or fairly done.
+
+[15:52] Probably it's a good idea to invite outside people, but there are problems here.
+
+[16:00] to invite them and how can you guarantee outside people will be more fail to do
+
+[16:12] their job nobody knows right it's not guaranteed actually and also how do you
+
+[16:19] know they wear a well all the practices so they can make a better judgment then
+
+[16:25] you're inside people the kitchen right then probably they are some people like
+
+[16:32] consulting companies who are expert in this area okay so you can invite them
+
+[16:37] okay but again it takes money see okay so you have money you can do it but
+
+[16:47] there is another problem here what kind of problem you have
+
+[16:51] you have to release your whole process work practices resource tools methods
+
+[16:59] you are using product you are using quality level everything right okay so
+
+[17:05] So they will look at everything in your organization.
+
+[17:08] Without looking at that, they cannot judge it properly.
+
+[17:16] So you have to decide which way you go.
+
+[17:20] If you select all the people from your inside of the organization, what happens?
+
+[17:26] They may be experienced people, they may be good in the assessment experience, they may
+
+[17:31] be good in the judgment, and they can be fair, why not?
+
+[17:38] They can be affected by some other teams or higher managers
+
+[17:44] affected by this result of assessment
+
+[17:47] So, you know, there could be some bias to the result
+
+[17:50] Right. So so there are many factors what pre-pitch way you the belt you go
+
+[17:57] You always have issues risk problems you have to solve
+
+[18:01] Okay, there is a no no and one answer, you know to resolve everything. So if each way you decide
+
+[18:08] You have to consider all of the things I mentioned so far, okay, and then you can, you can decide.
+
+[18:15] So some organizations form a group with all internal people. Some organizations form a group
+
+[18:22] with half pan-half, or some organizations just invite a few from outside and the rest of them
+
+[18:28] come from the inside. So it depends on the, on your decision, okay, what is the best way to go.
+
+[18:36] And then once you go into the assessment phase, then we have to go there and perform assessment.
+
+[18:50] But sometimes certain situations happen like this situation.
+
+[18:59] Most of the project members are in the Pluton campus here, but some of them are working in the San Francisco.
+
+[19:12] This is usual, right? Many organizations are working in that way.
+
+[19:20] You have two choices. You may exclude that part of the organization in this assessment.
+
+[19:27] So in the assessment report, you may say, okay, we include this, this, this, but we exclude that branch in the San Francisco.
+
+[19:34] That's one way. But sometimes you have to include it, right?
+
+[19:38] Sometimes you like to include it. So in that case, two ways to do it.
+
+[19:45] do, you can go there, but if it is too far away to go, it takes a resource, time, money.
+
+[19:53] You have to pay for that expenses again, right?
+
+[19:58] So it is possible.
+
+[20:00] to have the interview with online, okay? Why not, right? So we have a good online
+
+[20:12] facilities nowadays, so you can perform this assessment using online tools.
+
+[20:18] First of all, for the document assessment, okay, document review, you
+
+[20:26] can easily get online documents, right? You can arrange them, but also you need
+
+[20:32] to do some interviews. In that case probably you use online techniques to
+
+[20:37] interview them. Okay so there is a rule here. You can do it but there is a rule
+
+[20:42] you should be able to control this online interview. They should not have
+
+[20:51] power to control you know these mechanisms. Our assessment team should be
+
+[20:56] able to control all this, write this and should be able to see what's going on
+
+[21:00] there and control all the mechanisms, all that happen in this online remote interview.
+
+[21:14] And then once you have an assessment phase, what do you have?
+
+[21:25] You have find out some problems there, so you have findings, so you report the findings.
+
+[21:31] If you like to have some kind of rating, okay, you like to rate also.
+
+[21:36] You like to rate virtually everyone to 34 in this organization.
+
+[21:41] It depends on what the sponsor wants, like a senior manager as a sponsor wants, what
+
+[21:47] he wants, and then probably you can rate them too, okay.
+
+[21:52] So rating is just based on what they want, but the most important thing we have to produce
+
+[22:00] as a result of assessment is the findings.
+
+[22:03] What are good? What are bad?
+
+[22:04] Okay, what are the incremental points here?
+
+[22:07] Okay? So, in the last phase,
+
+[22:14] we provide a presentation of our findings.
+
+[22:19] Okay? So, in the formal techniques defined by,
+
+[22:28] like, Scampi method,
+
+[22:31] We perform some preliminary finding presentations
+
+[22:36] and then let them know what we have found.
+
+[22:39] And then we give us a chance to fix it
+
+[22:43] if there is a problem in our findings.
+
+[22:48] And then we have a final finding presentation
+
+[22:51] to present to all the engineers involved in here.
+
+[22:56] And also, we have some meetings with the high managers
+
+[23:02] who are sponsor of the assessment.
+
+[23:05] And then we discuss.
+
+[23:07] We let them know.
+
+[23:13] They know what are good, what are bad.
+
+[23:17] And then they like to use this assessment
+
+[23:20] research to improve their process.
+
+[23:24] And then what they have to do is to build the action item
+
+[23:28] list, okay, to perform process improvement. And then they need to implement this.
+
+[23:35] Probably they did better with some, or do this with some pilot implementation
+
+[23:40] rather than, rather than, you know, implementing this entirely of the
+
+[23:44] organization. They may select one or two projects to, as a pilot, okay, to test
+
+[23:51] their ideas, if it works well, and then probably they spread out this to the
+
+[23:57] entire organization to implement, to improve. And then probably a good idea to
+
+[24:04] have a follow-up assessment to see whether they succeed to succeed in
+
+[24:10] implementation of improvement point we suggested last time. So we have a
+
+[24:20] five assessment principles here. The need for process model as a basis for
+
+[24:33] assessment. I talked about this in the beginning of this class, okay, on which
+
+[24:40] base we can make assessments. We need a model, right? So for example, we may
+
+[24:48] use the CMMI model as our model base to compare our practices with that model, so
+
+[24:56] find out certain gaps. And the requirement for confidentiality, if you do not do
+
+[25:07] this work with the confidentiality, what happened? The members interviewed in the
+
+[25:16] assessment and then they realized, organization people, they realized
+
+[25:19] whatever I talk is recorded and probably my manager will use this later so I'll
+
+[25:26] get some disadvantage from these penalties. They will not tell the truth,
+
+[25:31] right? So then, you know, you spend time, money, people, you use
+
+[25:37] There are resources, but you will get the wrong result,
+
+[25:40] just this result.
+
+[25:46] And senior management involvement is important, I told you,
+
+[25:48] and the attitude of respect for abuse of people
+
+[25:52] in the organization being assessed is also important
+
+[25:54] because many people can be, you know,
+
+[26:00] sometimes they are very scared,
+
+[26:02] or sometimes they are very angry at you,
+
+[26:06] assessment, you know.
+
+[26:08] There are many different types of people you can see.
+
+[26:11] If you work as an assessment team, you will meet many different situations you didn't expect.
+
+[26:17] So you should be able to handle many different situations well.
+
+[26:24] And action orientation means if you will not do the action afterward
+
+[26:29] with this assessment result, it's not necessary to do this.
+
+[26:34] Okay, so we will see one by one these principles.
+
+[26:37] Start with a process model.
+
+[26:40] So whatever we do the standard, the assessment, we have some kind of standard to compare with,
+
+[26:48] okay, to compare our practices with the standard practices, okay, so it is called the model.
+
+[27:01] And again, if you do not maintain this confidentiality, probably people may not tell the truth,
+
+[27:09] so the information you collect cannot be the truth, okay.
+
+[27:14] So then easily the result could be wrong.
+
+[27:19] So we have two types of rules related to this.
+
+[27:24] One is a confidentiality rule, okay?
+
+[27:28] So whatever you learn from this assessment,
+
+[27:31] don't tell this outside, okay?
+
+[27:34] And don't tell this to your manager.
+
+[27:37] Don't tell this specific people, okay?
+
+[27:40] And whatever you learn, you destroy when you complete this assessment, okay?
+
+[27:47] Whatever you take a memo in the assessment, during the assessment, throw it out, okay?
+
+[27:57] And also we have another rule, non-attribution rule, okay?
+
+[28:02] Non-attribution rule.
+
+[28:04] Do not attribute past big people, past big fat you found, okay?
+
+[28:14] So time, you say time says this, okay?
+
+[28:19] In the assessment process, probably you need it
+
+[28:23] because later we should have some consensus
+
+[28:29] among assessment team members
+
+[28:31] to characterize their level of implementation
+
+[28:37] to rate their goals, to rate their maturity, okay?
+
+[28:41] and to conclude their findings.
+
+[28:45] Each member may find different things,
+
+[28:48] so we collect all this information
+
+[28:49] and we finalize these findings to report them.
+
+[28:55] Probably your opinion could be different from other members.
+
+[28:58] So then we have to find out the source, actually.
+
+[29:03] So probably we can ask more one more time
+
+[29:07] or we can refer to the documents again,
+
+[29:10] something like that.
+
+[29:11] So we put the notes there, actually.
+
+[29:13] But whenever we present it, we don't care who tell this,
+
+[29:19] who told this, okay?
+
+[29:21] We just say we found this, this, this in some projects
+
+[29:27] in these organizations, not project A in this organization,
+
+[29:33] not time deeply, okay?
+
+[29:35] We don't say that.
+
+[29:36] So we do not use, we have some kind of non-television role.
+
+[29:41] we do not associate certain information with the specific person or specific project.
+
+[29:47] So it is prohibited.
+
+[29:50] And also at the end of the assessment, we have to destroy all the information here
+
+[29:55] so nobody can see about that.
+
+[29:57] So while we are doing that, we'd like to know...
+
+[30:00] the truth, fact, right, fact in the organization. So without having without
+
+[30:05] guarantee this, it is very hard to get the truth from the organization. That's why
+
+[30:10] we keep this and also we tell this to the sponsor and the senior manager who
+
+[30:17] sponsored this assessment. You have to know this, again, we will not tell you
+
+[30:24] this confidential things and activation things, we will not tell you. Don't ask us
+
+[30:31] to have a better result. Okay, so we do some kind of a contract with signing
+
+[30:40] signature, so we to make sure we each understand what's going on here.
+
+[30:45] Sir, if you do not report the problems with the higher management, then what is the use of the system?
+
+[30:55] We will tell to the high manager, but we will not tell things, like which is related to the confidential day or activities associated with the person.
+
+[31:12] The high manager should know what's going on and what is wrong in his organization because
+
+[31:21] to support the improvement action plan.
+
+[31:28] He should not try to know why he had this, who caused this result of assessment.
+
+[31:37] Who made the assessment result wrong or bad or wrong.
+
+[31:44] should know only something is wrong in his organization. That's it. Okay? This
+
+[31:50] this is this this are wrong. That's it. But he should should not try to know which
+
+[31:58] team post this trouble or if he's tried to know this sometimes he knows. Yes.
+
+[32:05] Practically. But but this is a kind of rule here. As long as he keeps this rule
+
+[32:14] Do not give penalty based on their findings.
+
+[32:19] In the next assessment, in the next improvement activities, she will get the result she likes
+
+[32:28] to get.
+
+[32:30] But if she violates this easily, then she will easily get the wrong result and the wrong
+
+[32:38] findings.
+
+[32:39] So he will start from the beginning, he will start with the wrong things.
+
+[32:46] So it's up to, up to the boss always.
+
+[32:50] Up to the boss is always, right?
+
+[32:52] Everywhere.
+
+[32:54] So that's why we have a good boss, good prison,
+
+[32:58] and then we will live alone.
+
+[32:59] Well, if we have a bad leader, we cannot live well, right?
+
+[33:04] The same thing happen here.
+
+[33:06] Why we are doing this?
+
+[33:08] Why we are doing this?
+
+[33:09] We like to improve a set of projects
+
+[33:12] and the entire organization well, okay?
+
+[33:15] Not a specific person, not a specific project.
+
+[33:18] So based on this computationality rule or non-attribution rules, we would work.
+
+[33:29] So computationality is required at all organizational levels.
+
+[33:41] And again, involve senior management.
+
+[33:48] From the beginning I told you the importance of involvement of senior manager.
+
+[33:54] Why? Because senior managers have power to
+
+[33:59] to perform this assessment properly and to allocate the resource to improve
+
+[34:06] from the findings we have from this assessment, okay?
+
+[34:11] So, senior manager should understand why we are doing this
+
+[34:17] and he should understand what he needs to support afterward.
+
+[34:21] And I told you, you will meet many different situations in assessment.
+
+[34:37] Once you perform some reviews for the document and then you like to perform your findings
+
+[34:50] with having some interviews with the engineers and the project managers, okay?
+
+[34:57] Some people are doing well but some people are very in stress, it's natural, right?
+
+[35:03] It's natural.
+
+[35:04] They may easily feel I'm in the examination now, so I'm sure whenever I go into the exam it's very nervous.
+
+[35:14] Within a short time you have to solve all the problems. Sometimes I cannot remember what I memorized yesterday.
+
+[35:21] It happens always.
+
+[35:23] In the same way, they are scared whether they tell something which caused wrong their organization,
+
+[35:32] make their organization wrong, and then probably he will get penalty for that, you know, something
+
+[35:38] like that. So, there are many regions there. Or he likes something. I'm kidding, but, you
+
+[35:43] know, it happens sometimes, okay. So, they did, they do not want to review that kind
+
+[35:49] of things, something, you know, hidden. There are many, many regions there, and based on
+
+[35:55] different characteristics, okay, their responses are different. So as team
+
+[36:02] members, so more importantly, as a team leader, team leader should be able to
+
+[36:09] handle all different situations smoothly, okay, and also it's good to educate them,
+
+[36:16] you know, in the presentation, in the often presentation in the briefing, you
+
+[36:21] know, let them know why we are doing this, why it will happen to you. So eventually we
+
+[36:28] will get better quality organization, better quality service, better quality product, and
+
+[36:34] then you will become better quality engineer, okay, while working in the better company.
+
+[36:42] So that's why we do this, okay, something like that. And also senior manager should
+
+[36:47] appear and the convinced people you know the don't worry about this
+
+[36:52] research and we go through this assessment and find out the good
+
+[36:55] findings here and use this findings to improve our organization okay that's why
+
+[37:01] we we do this something like that and also far before far before they perform
+
+[37:08] assessment people should know this they will have our assessment and they need
+
+[37:15] to prepare for that, and what they have to prepare for that, what's the reason we
+
+[37:20] perform assessment, so based on that course we are preparing for the
+
+[37:25] assessment. We prepare for this document. We collect this data, something like that, okay.
+
+[37:31] Without knowing the goal exactly, they write some document, they collect the
+
+[37:37] document to show to the assessment team, they don't know what's going on there,
+
+[37:42] So how do you think which quality could be better?
+
+[37:47] Do you know something in advance and the goal and prepare for it?
+
+[37:52] Or in other cases you don't know anything about it, you're just told by folks to write something and submit it.
+
+[37:59] Probably the guarantee better quality, right?
+
+[38:06] So far before the assessment, they should know and always they have to know this will happen.
+
+[38:12] So when they do the work, they have to prepare for this while they are working.
+
+[38:18] So the goal is not to pass the assessment or this is not a passive and fair game.
+
+[38:25] The goal is not to pass.
+
+[38:28] The goal is to institutionalize this good practice in our organization.
+
+[38:35] organization okay institutionalize means we practice this the rework based on
+
+[38:42] this practice every day naturally okay so if somebody asks do you do this yes
+
+[38:51] that is our practice we do every day okay so we like to make it in that way okay
+
+[39:06] and then focus on action so again why we perform assessment to find out good
+
+[39:14] things to improve okay so once you find out what you have to do improve it right
+
+[39:21] you have to do action so the action it the is very important assessment
+
+[39:31] followed by action is very important without without doing action if you do
+
+[39:38] not do action you don't need to do assessment okay then we talk about the
+
+[39:49] assessment process, first thing for the assessment we have to do is to find out
+
+[40:00] assessment team and the assessment team leader, okay?
+
+[40:04] And also we have to find out the sponsor
+
+[40:08] who will support this assessment in the organization.
+
+[40:12] Okay, should be somewhat side manager, high manager deal.
+
+[40:19] So assessment team leader should be selected.
+
+[40:23] This is just informal assessment in your organization
+
+[40:27] you are performing.
+
+[40:28] You may select certain people you like to do, as long as he has a good experience in the engineering,
+
+[40:38] as long as he has a good experience in the project management, and as long as he is a good opinion leader in your organization,
+
+[40:45] as long as he is a reputed good by many engineers in your organization, okay, here we go.
+
+[40:51] But if you like to go by formal appraisal method, certified by some organization like SCI,
+
+[41:00] then you have to hire the certified appraiser to perform this. So it depends on the situation.
+
+[41:08] So many companies are performing just informal appraisers to find out problems and to improve their work.
+
+[41:17] Okay, that's good. That's great. Okay, but some organizations need some kind of
+
+[41:22] certified result to submit to the
+
+[41:29] companies who you supply the work for them. So in that case probably you have to go through this
+
+[41:42] formal appraisal, okay, every three years or something like that, right? So it depends on
+
+[41:47] on the situation and your need.
+
+[41:53] And you may have one, two, three, four members, okay?
+
+[41:57] So it depends on the, again, situations,
+
+[42:02] and it depends on the size of a project,
+
+[42:06] size of organization.
+
+[42:07] If you have a lot of things to assess,
+
+[42:10] then you need more people.
+
+[42:12] If you have a small number of projects to assess,
+
+[42:15] you need less people.
+
+[42:16] If you have more people, it's convenient
+
+[42:18] and the complexity, communication and complexity goes on and most of the thing is done by consensus,
+
+[42:25] okay? So some people like to have a number of members as order number, okay?
+
+[42:35] We recommend the consensus rather than voting, but still, some people like to have a kind
+
+[42:41] of order number, something like that, with some reasons, okay?
+
+[42:44] Anyway, so depending on the magnitude of the work, you can decide the size of people in your member.
+
+[42:55] And then each assessment team member should have these requirements.
+
+[43:02] So each different method, assessment method suggests or requires different requirements for assessment team.
+
+[43:13] team. So this is one of the examples. They started from this to build the CMM, CMM model, and the
+
+[43:22] SCAMPI techniques to assessment, for assessment. So we just go by the textbook. So it suggests,
+
+[43:35] have at least eight to ten years of professional software experience. Okay. I told you they need
+
+[43:42] some experience to judge many infants properly.
+
+[43:47] And the well-respected organizations,
+
+[43:49] because they need to interview people,
+
+[43:52] they need to collect the data, to look at the data.
+
+[43:55] They really have some people who are respected
+
+[43:58] by many people in the organizations,
+
+[44:00] rather than the people, many people don't like, right?
+
+[44:05] Okay, so they believe they trust them.
+
+[44:08] They can tell the truth,
+
+[44:10] and they can smoothly manage this interview.
+
+[44:17] And be able to deal with people in informal
+
+[44:22] and non-threatening manner.
+
+[44:26] Really, some people are scared, you know,
+
+[44:29] and some people are almost crying, you know, to answer.
+
+[44:32] It depends on the, you know, characteristics of people.
+
+[44:36] So it is very important to have a good mood,
+
+[44:41] good environment to let them be comfortable and to be a team player
+
+[44:51] Because if you have always the different opinions always that's fine to discuss
+
+[44:57] fully and correctly
+
+[44:59] But sometimes people are arguing based on their opinions
+
+[45:05] They do not want to broken up, you know by other people so they insist on their
+
+[45:12] their opinion forever, then we have a hard time to go on, right?
+
+[45:19] We have to decide many things in the middle of assessment.
+
+[45:23] So if you start with that kind of trouble for two hours or three hours or one day,
+
+[45:28] then it's not good.
+
+[45:32] And have attended assessment training.
+
+[45:34] So it's good to have assessment training, and some formal methods,
+
+[45:39] assessment method requires having a training in advance of assessment. And the
+
+[45:50] low assessment team members should be like team manager who are under
+
+[46:00] assessment cannot serve a team member. It doesn't make sense, right? He
+
+[46:08] his work, so it doesn't make sense. So we try to avoid that kind of situation,
+
+[46:13] something like that, okay? And we do not want to have some line manager got
+
+[46:20] interviewed, okay, by the team members, or by his team members, something like that.
+
+[46:29] We do not have that kind of situation, okay? Something like that. So to make this
+
+[46:35] objective affair, you know, we have something to consider to form a team
+
+[46:42] member. Yes? Yeah, if the working directly on any of project being assessed or
+
+[47:02] working on their direct support, if you are an engineer to produce the
+
+[47:10] product in that project you cannot feel under assessment you cannot be a good
+
+[47:16] cannot cannot be a good member candidate because you you will assess your your
+
+[47:24] your your product that's not good idea to do so if if in if he assessed the
+
+[47:40] entire organization here, we have tens of objects, other projects, and then
+
+[47:45] minimum requirements for sampling of project is a three, then probably we
+
+[47:52] selected this project, she is involved in, select the project you are involved in,
+
+[47:56] select the project you are involved in, then probably you three cannot be a good
+
+[48:00] candidate for the assessment team members. Others could be better than you
+
+[48:06] as a member of assessment, because your work is under the assessment directly,
+
+[48:13] it's not a good idea to become a member, okay?
+
+[48:18] And he became a member here, assessment team member,
+
+[48:24] and you can influence him in the line of organization somehow,
+
+[48:33] then it's not a good idea to meet you each other in the interview.
+
+[48:37] So even though he is working as a team member, we arrange an interview, do not meet directly,
+
+[48:43] do not interview directly by him, and then we set up the other member, you know,
+
+[48:49] to interview you, something like that.
+
+[48:52] So this has about many different cases you consider.
+
+[48:57] Is that outsourcing?
+
+[49:00] Yes, again, outsourcing is good as long as that outsourced people are the rare, experienced people.
+
+[49:07] people, we need good people, right, always, so as long as good people.
+
+[49:14] So there are many experienced consulting companies and performing this service, yes.
+
+[49:22] But we have to consider cost and confidentiality.
+
+[49:28] Those many of the other companies do not want to release their military information to the outside.
+
+[49:34] They have a contract with the Department of Defense or military, something like that.
+
+[49:38] so they have to consider many different factors here.
+
+[49:43] So yes, they invite people outside,
+
+[49:47] but after considering all of them, they invite.
+
+[50:00] And then, when we, so we relate to his question, and few organizations can afford
+
+[50:10] the stable assessment experts, okay? So you have good managers and you have
+
+[50:15] good experienced engineers here, but you don't have assessment experience at all.
+
+[50:20] In that case, probably we cannot guarantee his assessment team doesn't
+
+[50:29] work well, right? So in that case, probably have to consider some outsourcing, something like that,
+
+[50:35] okay? And probably we invite team leader from outside, but we organize all team members by
+
+[50:43] all internet people, something like that. So it depends on the case. Okay, so we should have
+
+[50:54] some kind of some assessment rule here, and then sponsors and high managers who sponsor this
+
+[51:03] this assessment and team leader, assessment team leader and assessment team members, okay,
+
+[51:10] should understand these rules and should have some kind of formal contract agreement, you know,
+
+[51:20] and have some signatures on it to express their understanding of these rules. And the one
+
+[51:31] The non-assessment team is formed, members must serve this work until the end.
+
+[51:39] If they start, probably we have less resource to perform this on time to complete, or we
+
+[51:49] have some kind of discontinuity of work, so it's not good, right?
+
+[51:55] So it's important to have an agreement, commitment from the team members to serve entirely.
+
+[52:03] Sometimes it depends on the different types of assessment, different levels of assessment,
+
+[52:10] and different size of organization.
+
+[52:14] So if it is informal assessment and if you use the very informal method to do it, probably
+
+[52:22] it takes just one, two days of assessment.
+
+[52:24] But if you would like to go with more formally the schedule, the organized assessment, then
+
+[52:33] it takes one week, two weeks, or sometimes more than two weeks, okay?
+
+[52:38] So it is not easy, you know, actually, to hold people for two weeks entirely whole day.
+
+[52:44] So you need this kind of a commitment from the beginning.
+
+[52:53] So these are the assessment schedule we usually have.
+
+[52:57] says day one, day two, day three, day four, don't misunderstand the unit only four
+
+[53:03] days to complete this. If day one, two, three, four shows only order of work, so
+
+[53:11] the day two may be two weeks. Day two may take two weeks, so don't miss
+
+[53:19] it with just day one, day two. As a real physical, the calendar date, it just
+
+[53:26] that shows the steps you go through.
+
+[53:29] So in the first day, we usually perform a briefing
+
+[53:34] to the organization and express what is the goal of this
+
+[53:39] and the assessment and what we will do in the assessment,
+
+[53:43] what is our schedule.
+
+[53:45] So they should have already agreement, you know,
+
+[53:47] to be in the organization to get interview
+
+[53:51] on the designated date.
+
+[53:53] already we have planned in advance in the preparation time.
+
+[53:57] This talks about the on-site schedule, okay?
+
+[54:01] So we already have done preparation,
+
+[54:04] and we complete the planning in the preparation,
+
+[54:08] and in the planning we already got all the commitment
+
+[54:12] from the old engineers and the project managers
+
+[54:15] who will get interviewed or who will bring
+
+[54:18] the resource to us.
+
+[54:19] And also we have two different types of mode of assessment.
+
+[54:26] One is discovery mode.
+
+[54:28] Another one is the verification mode.
+
+[54:31] Discovery mode is the assessment team discovers all the evidences.
+
+[54:38] But in the verification mode,
+
+[54:40] organization provide the resources to review
+
+[54:44] and the assessment team verify the correctness
+
+[54:47] of the validity of this evidence.
+
+[54:52] So we can go by two different modes, in either mode.
+
+[54:58] The organization should decide which way they go.
+
+[55:00] Mostly people like to go with the verification mode
+
+[55:04] rather than discovery mode.
+
+[55:06] Because discovery mode takes more time and more resources,
+
+[55:09] more people to do.
+
+[55:11] So to save money, they usually prepare for this insight mostly
+
+[55:16] and then give this to the operator team.
+
+[55:20] So this assessment team just verify all the initial days, okay?
+
+[55:27] Okay, go back to the day one and we performed all of you.
+
+[55:33] We do some briefing.
+
+[55:35] And in the day two, we have to, in the session area
+
+[55:42] and the project discussions probably,
+
+[55:44] we have to perform already, check the documentation check
+
+[55:49] and check all the evidences they provide.
+
+[55:52] The function, before we have a functional interview,
+
+[55:56] we have to complete all the checking of all documents,
+
+[56:03] okay, the verify all the documents they provide.
+
+[56:08] And then we start the interview because without having,
+
+[56:12] knowing that, you know, even though we do interview,
+
+[56:15] we may not have much questions to really ask.
+
+[56:19] And once we do this, we find out, oh, evidence is missed.
+
+[56:22] But then we have to have another interview again, again.
+
+[56:25] So the resources, you know, the use of resources is not effective.
+
+[56:30] So we will perform all the document findings first, and then we perform the interview.
+
+[56:37] And then we prepare for the preliminary findings, okay?
+
+[56:41] We prepare for presentation on preliminary findings.
+
+[56:45] And then day three, we perform some finding formulations.
+
+[56:51] here project discussions. Once we have a preliminary findings, we usually provide
+
+[56:58] a presentation of preliminary findings to the managers and to the engineers
+
+[57:04] involved in this assessment, provided all the resources, and then we confirm
+
+[57:10] our finding is a good shape. And then we have another discussion and we
+
+[57:17] We formalize the final findings and then we provide a presentation for the final findings.
+
+[57:26] To the engineers, managers, and also usually we meet the high managers too, not to tell
+
+[57:36] the who said that or who did it, but to tell them what is generally our findings and we
+
+[57:42] We already talked this to the project managers and engineers.
+
+[57:46] They know, they are aware of all the problems we found, okay?
+
+[57:51] So the only thing you need is to support them to improve your organization.
+
+[58:03] So we perform assessment, and when we are in the discovery mode, we have to collect
+
+[58:11] all the evidences.
+
+[58:12] But in the verification mode, again, they collect evidences and they give us the list
+
+[58:18] of evidence.
+
+[58:20] And then it is called the PIID table.
+
+[58:23] And then we check it and also when we get the interview, it's a good idea to have interview
+
+[58:31] questions in other ways before we perform interview.
+
+[58:35] So we may have a, we can create somewhat standardized interview questions, but also once we perform
+
+[58:43] some verification of evidence and then we may have good questions to ask, to verify
+
+[58:50] and then we build the captions in the captions list
+
+[58:54] before we perform the interview.
+
+[58:56] So in the interview, we should not forget
+
+[58:59] to ask some important captions to verify all.
+
+[59:07] Okay, and then probably we select this idea
+
+[59:18] in the described in Humpbryong is not that
+
+[59:21] exactly 100% matched to the current practices
+
+[59:25] we are using Scampi here, it's not necessary to use only Scampi, right?
+
+[59:31] You can use any other method or you can build your own assessment method as long as you
+
+[59:35] don't need any certification from their organization, you can go through the other method here.
+
+[59:42] So this is just kind of suggestions here.
+
+[59:44] So it tells about when you have verified the evidences and when you get interview
+
+[59:53] with engineers, you'd better consider, you know, the interviewees are from
+
+[1:00:00] all different various areas.
+
+[1:00:03] Some of them should be good engineers,
+
+[1:00:06] and some of them should be quality assurance people
+
+[1:00:10] who can talk about the support functions.
+
+[1:00:13] Some of them should come from the testing area.
+
+[1:00:17] Some of them should come from the analysis and design phase.
+
+[1:00:21] So we should interview with all different types of engineers
+
+[1:00:28] engineers involved in this project, so they can cover all entire work of the
+
+[1:00:33] project, also including manager too. Okay, sometimes in the assessment we
+
+[1:00:48] have a hard time to verify certain things, not only because they didn't
+
+[1:00:54] provide good or enough resource of the evidence, but also probably we are
+
+[1:01:02] talking differently. Okay, so assessment team members and the interviewees are in
+
+[1:01:10] different domains of work, so even though they are using the one terminology, they
+
+[1:01:16] interpret it different ways. For example, you ask about what about outsourcing of
+
+[1:01:23] the team members, that's good, but sometimes their terminology they are
+
+[1:01:28] using are different from the terminology you are using in your
+
+[1:01:32] So there could be some misunderstanding there.
+
+[1:01:35] So many good experience that people can easily interpret
+
+[1:01:39] this French language to the English easily
+
+[1:01:44] in hardware terminology to the system
+
+[1:01:48] or software terminology easily, but some people don't.
+
+[1:01:51] So that kind of thing should be considered
+
+[1:01:54] in the questions and answers.
+
+[1:01:56] And we should have a group of people
+
+[1:01:58] who are capable to interpret this
+
+[1:02:01] this all, you know, properly, too. Okay, and then we provide the initial finding
+
+[1:02:13] presentation and get reviewed from the engineers and the project managers and
+
+[1:02:23] we find out the final findings. Okay, so if you look at the tables in the textbook
+
+[1:02:32] you can see the all types of, you know, the outlines, you know, that we talked so
+
+[1:02:39] So, for example, table 3.5 shows a typical outline of finding presentation, so it talks
+
+[1:02:45] about what kind of thing you will consider in findings, okay?
+
+[1:02:52] And whenever you talk about the findings, you don't need to list 100 of findings, okay?
+
+[1:02:58] Because once you go to the 11th chair of the training, 30 findings, everybody will sleep,
+
+[1:03:03] right?
+
+[1:03:04] So it's a good idea to present the most important 10 findings, okay?
+
+[1:03:12] Sometimes they ask you to write the report afterward,
+
+[1:03:17] get to submit the report after assessment,
+
+[1:03:19] but then probably you can write whatever you found there.
+
+[1:03:23] But when you present it, you summarize it,
+
+[1:03:25] and you will focus on the most important findings.
+
+[1:03:31] Some people like to start good findings,
+
+[1:03:33] then something wrong.
+
+[1:03:37] Some people select to talk what are wrong
+
+[1:03:40] in their organization, and then finally say,
+
+[1:03:43] you are not always wrong, you are doing well
+
+[1:03:46] in this area, something like that.
+
+[1:03:48] So it depends on your presentation skills, okay?
+
+[1:03:52] And you have to talk less than 10 findings.
+
+[1:03:56] Also, you'd better emphasize on the three or four,
+
+[1:04:00] the most important prioritized findings,
+
+[1:04:03] You better emphasize on that so they can immediately,
+
+[1:04:08] exactly understand what is the major problem
+
+[1:04:10] in our organization to fix, okay?
+
+[1:04:16] So table 3.5 shows the typical outline of finding presentation
+
+[1:04:21] and it shows the outline so you can see that.
+
+[1:04:26] And again, assessment team can be asked to write reports
+
+[1:04:34] after that in addition to the finding presentation.
+
+[1:04:37] So we usually submit the final presentation files also if asked, we present a written report, you know, with that.
+
+[1:04:49] Or after the assessment.
+
+[1:04:53] And the table 3.6 shows typical final report outline if you write.
+
+[1:05:01] right and through these findings the important thing the organization should
+
+[1:05:11] do to develop action plans right how to improve improve how to implement action
+
+[1:05:18] plans to improve their organizations based on the findings we got from the
+
+[1:05:22] assessment and then it's good idea to have a follow-up assessment to assess
+
+[1:05:32] whether we properly improved our process based on their findings after one to two years from
+
+[1:05:42] this. So the greatest assessment risk is that we don't do any actions from these findings.
+
+[1:06:02] It's not good. We don't need to do it then. And also it's a good idea to have some kind of
+
+[1:06:10] a long-term goal to find out what we have to do and also we have to have some
+
+[1:06:16] kind of midterm point to milestone to check okay and also it's good to have a
+
+[1:06:22] senior management quarterly review session so the senior manager should show
+
+[1:06:28] exhibit his willingness to fix the problems okay to meet the goal and also
+
+[1:06:39] there are some risks not to succeed in process improvement with the good
+
+[1:06:45] assessment, even with good assessment. We have some factors like this, schedule
+
+[1:06:50] conflicts or inadequate support or lack of follow-through, okay? So then you will
+
+[1:06:59] miss all the benefits you can get from this assessment. Okay, so the rest of
+
+[1:07:08] talks about it and also we have to consider staffing to succeed this because
+
+[1:07:14] everything is done by people okay so it's good idea to leave some people
+
+[1:07:20] joined in the assessment team as a staff to implement this action plan of
+
+[1:07:26] improvement so they they know already what the problem is they they learn what
+
+[1:07:31] they have to do okay and also they can be able to monitor and control all the
+
+[1:07:37] in assessment action plan, the improvement action plan.
+
+[1:07:43] So you cannot hold all of them because of resource,
+
+[1:07:47] use of the effective use of resource.
+
+[1:07:49] So you may have one or two active full-time members
+
+[1:07:53] to do this and then you need to get some part-time partnership
+
+[1:07:58] or collaboration from each project assessed
+
+[1:08:02] and each project to be assessed in the future too, right?
+
+[1:08:08] So in that way, they collaboratively work
+
+[1:08:10] to implement this action plan, you know, to improve their work.
+
+[1:08:15] Okay, we are done and the time is good.
+
+[1:08:19] Perfect. Any questions for them?
+
+[1:08:24] Okay. Good.
+
+[1:08:25] Is this one?
+
+[1:08:28] Okay.
+
+[1:08:29] In the assessment process, the business analyst can be joined here as a team member or being
+
+[1:08:40] assessed.
+
+[1:08:41] Both of them.
+
+[1:08:42] As a team member, yes, why not?
+
+[1:08:45] We need many people in different domains who can cover something under assessment.
+
+[1:08:53] So yeah, that's a good candidate, too.
+
+[1:08:56] Why not?
+
+[1:08:57] Also, the whole work in your organization, including the analysis and design included
+
+[1:09:08] in the assessment, mostly, okay?
+
+[1:09:10] So to build the project, we need the business analysis, product analysis, and recovery analysis,
+
+[1:09:18] and designing high-level design, low-level design, all steps we have to go through.
+
+[1:09:23] So we need to check all steps are doing well, okay?
+
+[1:09:27] So yes, it should be assessed, and sometimes if you need, we call interview for that, too.
+
+[1:09:34] Is it answered to your question?
+
+[1:09:36] Okay, good.
+
+[1:09:37] Any other questions?
+
+[1:09:40] Okay, good.
+
+[1:09:42] Thank you.
+
+[1:09:43] See you next week.

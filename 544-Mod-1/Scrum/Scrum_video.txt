@@ -1,0 +1,1507 @@
+Scrum_video.mp4
+
+[00:00] Okay, today we talked about an agile method. Last time we talked about the basic idea of
+
+[00:12] agile process, concepts, and some stories about how to use this agile process. And we talked
+
+[00:21] about the motivation and we saw some evidence why we will go with this agile process,
+
+[00:28] evolutionary and iterative approach rather than sequential approach.
+
+[00:34] Today we will study one exemplary AI process, Scrum, which is well used in the current market.
+
+[00:53] And scrum is like a scrum in the rugby game,
+
+[00:57] the whole team together, again,
+
+[01:03] go together under the same shared vision, okay?
+
+[01:12] So directed, personalized team,
+
+[01:17] go together with the vision, okay?
+
+[01:24] It's one of the split.
+
+[01:27] like to tell you. Okay. So these are the, this is scrum like to promote. Okay. Your members
+
+[01:48] to do some specific things. Okay. Just giving guide by vision. Okay. This is where we have
+
+[01:58] to go. Okay. And then let your members do the work to accomplish the goal. Okay. Team
+
+[02:14] It promotes, you collect data every day and share this data with your members to see your
+
+[02:26] program.
+
+[02:28] And avoidance over prescriptive, Chrome doesn't talk much about activities and input and output
+
+[02:44] and work products you produce.
+
+[02:50] Kind of management skill, how to manage your project.
+
+[02:56] in the spirit of the agile process. It doesn't specifically say you have to be there, you have to be there on time.
+
+[03:07] This is the phase you have to follow. What you have to do and we have to go this way.
+
+[03:16] But again, this is one of the agile process, which means we follow evolutionally and iterative.
+
+[03:26] Okay? So we have iteration here.
+
+[03:28] Okay? Practices, or practices of scrum, self-directed
+
+[03:41] and the self-organizing team.
+
+[03:44] We've talked this many times already,
+
+[03:48] so I believe you understand by reading that book.
+
+[03:51] You'll catch what it means, right?
+
+[03:54] No extra additional work to an iteration once chosen.
+
+[03:59] So once you choose certain amount of work to do
+
+[04:02] in this situation and then we avoid to have more work,
+
+[04:07] additionally, in the middle of the situation, okay?
+
+[04:12] You will both come here and, oh, why don't you do this work more?
+
+[04:19] Why don't you have this?
+
+[04:21] Let us see this feature implemented together in this situation,
+
+[04:26] practice we like to avoid, okay?
+
+[04:31] Daily stand-up meeting.
+
+[04:33] Their meeting title is famous.
+
+[04:38] famous. You have heard this several times before, right? Okay. So they, you meet every day, every
+
+[04:51] morning, like 20 minutes, every morning. End up meeting, not sitting, or some other miscellaneous
+
+[05:00] things before you stop, business, very business, or something else. They just ask you to meet,
+
+[05:13] only ask you to ask more than 23 minutes, okay, to do this. Sometimes you may have something
+
+[05:35] board to talk individually or again to make something clear to ask somebody but
+
+[05:46] it is out of the the recording answers in this SCRM meeting. In that case you
+
+[05:58] just post SCRM meeting at this meeting and then you may talk personally or with
+
+[06:10] the sub team so whatever. Okay so usually SCRM team goes by some small number of
+
+[06:17] people, like seven people. If you have a more larger work and then you have a team over team,
+
+[06:31] you have a Chrome team, under this Chrome team you have several Chrome teams, okay,
+
+[06:37] and then you take care of the features of the system. For this team, you meet, okay, like this.
+
+[06:51] If you have more than one scrum team, and then the presenters from each scrum team will
+
+[06:58] meet together just like this scrum team.
+
+[07:01] And they recommend also to practice this in any level of the organization.
+
+[07:07] Not only the developer levels, but also management level and high management level as well.
+
+[07:18] usually 30 calendar day iterations. We recommend 30 days of iteration, four weeks, a little bit
+
+[07:26] longer than other practices, okay? That was their recommendation. Demo to external stakeholders
+
+[07:41] at the end of each iteration, okay? They ask you to demonstrate your work and the iteration
+
+[07:53] and show this to your customers and ask what you do next time, okay? So let them,
+
+[08:00] let customers go in this project and drive this project, okay? And each
+
+[08:08] iteration client driven or they're up to your planning, okay? So client will drive
+
+[08:16] this project and they decide, okay, let's go this way, we put this thing in the
+
+[08:24] next time, something like that. So your customer client representative and your
+
+[08:32] leader will meet this, okay, together to do this job. Okay then, let's look at some
+
+[08:43] method overview here. Diagram tells you how much scum covers in terms of
+
+[08:52] ceremony, the amount of work you have to produce, document, and the site
+
+[09:00] okay, iteration size, okay. So scrum is here, right. It's going to be here. It covers this much. So as
+
+[09:18] you can see this is very wide, right, okay. So they may cover very high ceremony, okay.
+
+[09:25] They formalize documentation work as well. So very low ceremony as well. Scrum doesn't
+
+[09:45] officially saying how much you have to do the work, how much you have to produce,
+
+[09:49] okay, how much amount, and what types of artifacts you produce. They require a
+
+[09:54] very minimum number of work products you produce. We will see later.
+
+[10:00] Other than that, they don't tell anything about it.
+
+[10:04] You decide, depending on the scale of your project, size of your project,
+
+[10:12] and the criticality of your project.
+
+[10:17] Your system is a very life-critical system,
+
+[10:21] and then you should be very careful not to miss anything at all.
+
+[10:27] You should make it 100 percent perfect.
+
+[10:30] In that case, you may go with very heavy formal documentation, okay,
+
+[10:37] and probably you need to have some kind of a very heavy traceability, right?
+
+[10:43] But if your system is very small and this is not much critical,
+
+[10:50] if you fail some functions there, it doesn't matter much,
+
+[10:56] it doesn't hurt much your business.
+
+[10:59] In that case, you may have a ceremony.
+
+[11:06] You don't need to spend time to do that much things.
+
+[11:08] to do that kind of things. You have to think always that does not mean you can make a mistake or you can make error, right?
+
+[11:17] That means you have to think of balancing in cost and benefit. You have to think how much you invest, how much you can get, okay?
+
+[11:27] Another method from recommended you have this much of a cycle, like 4 weeks, 30 calendar days.
+
+[11:52] We saw from the previous figure, scrum is flexible on the ceremony scale.
+
+[12:09] Recommendation is you'd better go with as a leader ceremony as part. It's simple, as much as you can.
+
+[12:24] On the Scrum project, they recommend the whole team, a manager, okay,
+
+[12:35] will decide how much it is appropriate to do.
+
+[12:41] So it is driven by your team members.
+
+[12:43] And rather than pointing out, you know, the, your members, you really have to,
+
+[12:50] all the responsibilities together to think, oh, we are team.
+
+[12:57] Okay, we are responsible for everything with the team, okay?
+
+[13:00] So if something is short from your one member and then other members should have to resolve the issues.
+
+[13:11] So our goal is the success of our entire team and all team members, not individual here.
+
+[13:19] Okay, so based on the cook-bound covers this much, covers almost all types of projects.
+
+[13:38] Very small project with very less critical project to the very large project, the high
+
+[13:47] critical project.
+
+[13:48] We will see later, at the end of this chapter, we will see some sample project they performed
+
+[13:57] using Scrum.
+
+[14:00] So they recommend one Scrum team has seven or less members.
+
+[14:09] you need more people, then you will have a separate Scrum team. So each Scrum team will
+
+[14:14] have seven or less team members. Scrum also recommend to work in the common project room.
+
+[14:27] So we will have Scrum over Scrum. Scrum is complementary enough to other practices, so
+
+[14:43] it may be applied across all domains of software applications, from the right clicker to the
+
+[14:51] schedule.
+
+[14:54] So Scrum is iterative, evolutionary iterative method that emphasizes a set of opposing management
+
+[15:05] values and practices, rather than saying any specific things for specific phase.
+
+[15:13] the requirements what you have to do in the for the design what you have to do.
+
+[15:18] They don't tell that kind of things. So it is easily combined with or
+
+[15:25] complementary to other methods. So you may use a scrum, this is with practices
+
+[15:33] from FP, practices from UP. You can combine them, okay, easily. So key
+
+[15:43] scheme is its emphasis on empirical rather than a defined path. They don't
+
+[15:51] define any past piece, those two powerful work products to produce for each phase, each
+
+[16:01] step of a process.
+
+[16:11] Ken Schwabler is one of the scrum founders we received, and this shows lifecycle of scrum
+
+[16:25] staging and developmental release, okay?
+
+[16:29] So they roughly say, okay, what kind of thing you have to do in the pregame and the development
+
+[16:34] than the village, many have asked you to keep this minimal thing to do, okay?
+
+[16:50] So what do we do in the planning?
+
+[16:52] The planning is to establish vision.
+
+[16:56] Vision is very important in the scrum, and once it is established, it will be, okay,
+
+[17:07] enforced, okay, for members to know this vision, okay, to members.
+
+[17:19] So all of our co-users come in reinforcing this vision
+
+[17:35] to their members.
+
+[17:36] That's it.
+
+[17:37] OK, this is our goal.
+
+[17:40] This is what we have to do.
+
+[17:42] Do you know this?
+
+[17:42] Do you remember this?
+
+[17:44] Don't ask, OK, you do implement this feature one.
+
+[17:50] You implement this feature two.
+
+[17:51] They don't tell that kind of things.
+
+[17:53] They tell just, this is our vision.
+
+[17:57] What we have to build, OK?
+
+[17:59] You have to know this.
+
+[18:00] That's it.
+
+[18:03] will help you to remove any obstacle you find and they cannot do, they cannot
+
+[18:11] resolve that issue and then you as a leader should have them to resolve all
+
+[18:18] those issues. That's a project leader should do in the scrum, okay? It's a kind
+
+[18:25] of helper, okay? Get the resource and reserve all the issues for the team. That's
+
+[18:30] what they have to do. And let your members decide and do everything. Expectations, set
+
+[18:45] expectations and secure capital funding, succeed this project. What activities include in this
+
+[18:55] planning is right vision and budget initial. So this is one of the important work products
+
+[19:06] you use in the scope. There are not many work products that require vision and product backlog
+
+[19:15] is a very important work product they use. So among only a few of the work products,
+
+[19:22] they are very important work products you have to keep. With other products like a sprint backlog,
+
+[19:30] Sprint back lobe is developed for every iteration, okay?
+
+[19:36] And so for others, it is very, your team members can decide
+
+[19:55] what you produce, whatever you do, okay?
+
+[19:59] As long as you keep...
+
+[20:00] purpose and the activities in this each phase. So in the planning you perform
+
+[20:08] exploratory the design and the prototype. In the pre-game
+
+[20:18] here staging you identify more requirements privatized enough for the first
+
+[20:27] iteration. So from the planning you find out oh this is worth to do okay so let's
+
+[20:32] go let's do this work and then in the staging you prepare for the next
+
+[20:38] So you, at least you find out what you have to do for the first iteration.
+
+[20:46] For activities in this staging, that include planning and exploratory design and code types.
+
+[20:57] Then you go to the development phase.
+
+[21:01] Perports for development include implementation of the system ready for the release in situation.
+
+[21:11] That kind of intuition is called by Sprint in Scrum.
+
+[21:22] And then TVC have to do here, Sprint Planning meeting, each iteration.
+
+[21:30] And then defining the Sprint.
+
+[21:36] So from the product, all the bunch of the system features you have to build for the
+
+[21:45] entire system.
+
+[21:48] And then spring, only the features you and your client decide to implement in this situation,
+
+[22:03] each iteration.
+
+[22:07] Define spring backlog and also you can perform estimation.
+
+[22:11] By having this system feature, number of features in your spring backlog, you can identify how
+
+[22:19] many people you need, how much time you need to do, okay?
+
+[22:24] So it's a kind of estimation and planning as well.
+
+[22:29] They ask you to meet every day, daily meeting, daily scrum meeting, and you need to perform
+
+[22:36] spring review.
+
+[22:37] So in each iteration, you demonstrate your work, like working software you developed
+
+[22:44] in this 30 days, so the time back iteration of scrum, and then demonstrate this your
+
+[22:50] customers and get the feedback and also with your customer involved in planning
+
+[22:58] for the next spring. Okay? And then once you form this several times, okay, and then
+
+[23:06] you iteratively and then you build a system to release. In the release phase
+
+[23:14] you need to have operational deployment and the documentation training and the
+
+[23:20] marketing sales for that. So this is lifecycle scope. The talk is about work
+
+[23:34] products and roles and practices as much as we can talk to this
+
+[23:41] scrum. So you can see here there are many empty spots here because scrum do not
+
+[23:45] require too much of work products you do. So we have some roles here. We
+
+[23:53] have some work products for the different disciplines like work product for
+
+[23:59] work product for the design, work product for the implementation,
+
+[24:02] work product for the test and dedication,
+
+[24:05] and work product for the project management,
+
+[24:07] and work product for the computation and change management,
+
+[24:09] some supporting process areas.
+
+[24:12] As you can see here, all other parts are empty
+
+[24:15] except this project management and the requirements in the scope.
+
+[24:20] So this means you are free, you are flexible to decide
+
+[24:26] what you will do at this point.
+
+[24:31] But here, they recommend to have those work products as minimum.
+
+[24:39] So for the requirements, they ask you to have a product
+
+[24:47] and release backlog.
+
+[24:49] So you put all the system features
+
+[24:51] you have to build for the system into this product backlog.
+
+[24:55] And to use in project management, for spring backlog,
+
+[25:05] and the product and release backlogs
+
+[25:07] recommended to use. So backload shows the activation of the work and the remaining
+
+[25:17] versus days. So it shows how much of work you have left to do. And the spring
+
+[25:30] backload has all the tasks for this iteration. And the granularity of this
+
+[25:38] task is to 16 hours. And for the implementation design, you should do
+
+[25:46] You have to produce something like code and probably something related to the testing
+
+[25:51] variable.
+
+[25:52] But Scrum does not specifically say what you have to do for that part.
+
+[25:59] Your team members will decide based on your project.
+
+[26:03] So you can see from this diagram shows you have a product backlog you will produce for
+
+[26:13] the entire system.
+
+[26:15] When you put this, you bring this to the itchy sprint, okay, to implement, so the first sprint
+
+[26:22] you will implement this, second sprint you will implement this, third sprint you will
+
+[26:26] implement that, okay?
+
+[26:28] And then you implement this for 30 days and show some working products to your customers
+
+[26:34] and get feedback and with your customers decide which one you will choose for the next sprint
+
+[26:41] and do this iteration, okay?
+
+[26:45] for 30 days and she'll demonstrate and get feedback and then come here and decide this.
+
+[26:53] So when you decide this, read your cut, decide this so it is kind of a client-driven approach
+
+[27:01] and an adaptive approach based on your progress, based on certain situations, you can adaptively
+
+[27:08] change your plan.
+
+[27:14] famous story are chickens and pigs. And all chicken and all pigs like to have a
+
+[27:25] new business, restaurant. Chicken said okay let's make a restaurant and the pig
+
+[27:36] says okay and then what is title of our restaurant? And then says what about ham
+
+[27:45] and egg? Oh no no no no that's not good idea. Why do you think not good idea? He
+
+[27:58] So chicken can create eggs without sacrificing much, right?
+
+[28:08] It can create eggs every day.
+
+[28:10] But it doesn't hurt him much.
+
+[28:13] But what about the pig?
+
+[28:15] To make a ham, you need to be killed.
+
+[28:21] It's very serious, serious work.
+
+[28:24] So there are some people in your organization,
+
+[28:27] including all the stakeholders here for the project.
+
+[28:33] There are some people who are picks or very serious who are involved a little bit but not much serious.
+
+[28:45] So they like to separate them by picks and chicken. We have a customer role and development role and management role and some others.
+
+[29:01] Okay? So who are pigs include? Developers, customers, and scrummers too.
+
+[29:10] Other management parts do not interfere with this work seriously.
+
+[29:23] Okay? So they are chickens.
+
+[29:26] When they have a team meeting, pigs can seriously, heavily,
+
+[29:36] but we don't recommend the chickens involved in this unless some extreme cases, special cases.
+
+[29:48] Otherwise, they can observe what they cannot participate directly.
+
+[29:57] So, for example, you'll see...
+
+[30:02] Scrum tells you are chicken, okay?
+
+[30:06] You cannot talk.
+
+[30:12] CEO finds something very serious issue in business.
+
+[30:17] You have to know, okay?
+
+[30:19] All members know.
+
+[30:20] Then he can have a chance to talk, something like that.
+
+[30:24] So it is not much serious like that, okay?
+
+[30:27] They cannot just interfere, okay, with your talking,
+
+[30:31] your discussion, your meeting, okay?
+
+[30:34] So that much we give value to the team work and all the power to the team members to do this work, you know.
+
+[30:46] And even manager of that team is a kind of he does not assign or she does not assign the job.
+
+[30:59] Assigning job is done by among team members and this team leader will listen to the problems
+
+[31:08] And he needs to think how I solve this problem for them.
+
+[31:12] That's what he had to do.
+
+[31:15] Okay?
+
+[31:17] So get the resource and them to resolve issues.
+
+[31:24] One thing.
+
+[31:27] Then for customers, yeah,
+
+[31:30] customers who likes to build this, okay?
+
+[31:33] And give a fund for you.
+
+[31:37] And this customer is called the product
+
+[31:42] in the Scrum project, product owner.
+
+[31:46] So this owner and the developers
+
+[31:53] called scrum team, scrum team members.
+
+[31:59] And the management of this project is called scrum master.
+
+[32:08] So this shows what like 50% of developer
+
+[32:16] not just management.
+
+[32:18] So then much, they do not want
+
+[32:25] very heavy-weighted management.
+
+[32:28] They don't need that much heavy-weighted management here.
+
+[32:31] Only thing they need is kind of ability, capability to bring some funds
+
+[32:38] or some resources to resolve the issues in the team, okay?
+
+[32:44] Otherwise, okay, we solve all the problems among team members, okay?
+
+[32:50] And most and the reinforces the project and the iteration vision and goals.
+
+[32:57] So this is come after team leader should think, what is our goal?
+
+[33:03] and reinforce this to the members, you know, what is the vision, you know, what is the vision, okay?
+
+[33:10] They don't do it this way, but they try to reinforce this, like in the SCRM meetings and each iteration, okay?
+
+[33:21] And several times during the iteration, okay, they have a chance to talk about this vision, okay?
+
+[33:28] Okay, so scrum leaders should tell this to the members.
+
+[33:31] Let them know, okay, what is the vision.
+
+[33:34] Okay, don't forget the goal, we have to go.
+
+[33:39] Okay, ensure scrum values and the practices followed.
+
+[33:46] So all we have talked include most of the practices
+
+[33:52] we have to keep.
+
+[33:53] There are not many practices here, okay,
+
+[33:55] but those practices should be kept
+
+[33:58] to make scrum successful.
+
+[34:00] So the failure story of the SCRM is mostly from the situation they do not apply this practice as well.
+
+[34:10] That's what happened. As long as they follow this practice well, most of the results probably successful.
+
+[34:21] That's why the SCRM is one of the popular practices they are using in the market right now.
+
+[34:28] and mediates between management and SCROM team.
+
+[34:33] Okay? So you need to have this kind of capability.
+
+[34:38] And reason to progress and remove impediments, okay?
+
+[34:43] And if something's on here and the track, what can I do?
+
+[34:51] Okay? What is your stalker?
+
+[34:54] Okay? It's SCROM meeting.
+
+[35:01] And conduct the spring review demonstration.
+
+[35:04] Okay, so the developer is working on this scrum, and they work on the sprint iteration
+
+[35:17] of backlog, and there is explicitly no other than, little other title than team members.
+
+[35:27] That's it.
+
+[35:28] Any questions for this?
+
+[35:33] You understand the chickens and pigs?
+
+[35:35] I've seen some discussions about whether the scrum master is the project manager or
+
+[35:44] the Scrum Master is definitely project manager. You may assign other people project Scrum Master
+
+[35:56] as well, but it's not necessary. So your team manager can, as long as he understands well
+
+[36:02] about the Scrum practice, that's the basic minimum condition for this. So if your reader
+
+[36:11] doesn't understand the SCROM well, actually, and this practice, it will change this guy.
+
+[36:19] So bring a pro play person as your SCROM manager also as a project manager.
+
+[36:28] And SCROM manager doesn't assign job or doesn't match the project management work,
+
+[36:39] comparing with other practices, some other practices.
+
+[36:45] I think managers do a lot, almost things, right?
+
+[36:52] And take care of all the estimation planning and assigning job
+
+[36:55] and reviewing all the job every day, something like that.
+
+[36:59] But scrum master doesn't do that kind of work.
+
+[37:04] Scrum master just come here and look at how it's going
+
+[37:09] and I'll help you.
+
+[37:12] And this is even done in the scrum meeting every day.
+
+[37:16] You don't need to go everywhere to meet your members.
+
+[37:19] You just meet once, in the morning, every morning,
+
+[37:23] and they have a chance to talk about it,
+
+[37:24] and you know what problem you and you solve it.
+
+[37:28] Okay? That's what you do.
+
+[37:31] Any other questions?
+
+[37:38] Make everybody clear.
+
+[37:43] Okay? Understand the chickens and the pigs.
+
+[37:50] Understand the 15% of the list for school.
+
+[37:56] Okay? So it tells about what kind of responsibilities.
+
+[38:02] who are responsible for this and who will read this project, okay?
+
+[38:08] They will do this job. Okay, next one is practices.
+
+[38:14] What types of practices they promote?
+
+[38:17] For the requirements, sprint planning and having pregame planning and sprint review.
+
+[38:25] For the area of design, high-level design work,
+
+[38:32] work, but they don't specifically say what kind of thing, what types of tools on the method you use.
+
+[38:40] And for the test and verification areas, print review is used, okay.
+
+[38:46] And other test cases, whatever, it is up to you, okay.
+
+[38:51] You may go with them or without them, okay, you can decide.
+
+[38:55] For the Compilation Management environment, common room is preferred to use
+
+[39:03] and the daily build is recommended.
+
+[39:07] And as you can see here, there are a lot of things
+
+[39:12] for the project management because the SCOM is more related
+
+[39:17] to the project management skill, okay,
+
+[39:21] other than telling some specific design
+
+[39:24] or implementation method, okay.
+
+[39:26] So don't add a situation, okay.
+
+[39:31] Your SCOM master team leader, okay,
+
+[39:36] do not ask your members to do. Additionally, on the plan, spring or backlog, they decided
+
+[39:46] the beginning for this situation, so you're going to keep them to do. You should be kind
+
+[39:57] of work as a firework.
+
+[40:00] Anybody outside you have to do this to your members. You should work as a firework here.
+
+[40:12] So you should keep your members to work a fine job fully.
+
+[40:19] Chicken and pigs story, we have to keep that kind of practice so we invite and only the pigs
+
+[40:31] involved in this meeting
+
+[40:33] heavily, and others could be just the chickens.
+
+[40:37] They can observe, but they cannot directly.
+
+[40:42] And the pregame planning and sprint planning,
+
+[40:45] and sprint, sprint is a kind of iteration,
+
+[40:48] and they require a team of over seven people or less.
+
+[40:52] And whenever you ask to remove the...
+
+[40:59] to...you get to report any problem from your team,
+
+[41:04] you just spend only one day to solve it.
+
+[41:07] Again, that much you need to solve the problem very fast, okay?
+
+[41:12] So let them work properly.
+
+[41:16] And this isn't in one hour.
+
+[41:19] Don't spend too much time to decide something,
+
+[41:21] and this isn't quickly, and do it,
+
+[41:23] and if something, it doesn't go well, and then fix it.
+
+[41:29] And the daily scrum meeting is recommended.
+
+[41:33] and I already talked about the Scrum Master Firewall Road.
+
+[41:38] Okay, so next tables
+
+[41:44] discuss where about each practice.
+
+[41:51] So if you read them well,
+
+[41:55] then you can understand all this practice,
+
+[41:58] pregame planning or spring planning,
+
+[42:00] that kind of system.
+
+[42:01] I explained very briefly to you already,
+
+[42:04] so you probably understand briefly what it goes.
+
+[42:11] So by reading them, you can more understand better.
+
+[42:18] So for example, for the pregame planning and the staging,
+
+[42:22] during pregame planning, all stakeholders
+
+[42:26] can contribute to creating a list of features,
+
+[42:31] use KCS, NES, SMUNTS, and defects, and so forth.
+
+[42:36] Record it in the product backlog.
+
+[42:40] So one product owner is a designated product owner,
+
+[42:46] and the recast are mediated through.
+
+[42:51] During this session, at least enough work
+
+[42:53] for the first session is generated
+
+[42:55] and likely much more, something like that.
+
+[42:58] And starting at this meeting and the evolving over time
+
+[43:02] is identification of the release backlog
+
+[43:05] and the subset of a product backlog
+
+[43:08] that will make the next operational or product release.
+
+[43:15] And so this is description of the practice
+
+[43:17] of pregame planning and staging.
+
+[43:20] And the next column is about the spring planning.
+
+[43:25] So before the start of it is iteration.
+
+[43:28] Iteration is called as sprint in the scrum.
+
+[43:31] Two consecutive meetings are held.
+
+[43:33] The first one is, stakeholders meet to refine and re-prioritize
+
+[43:38] the product backlog and the release backlog,
+
+[43:40] and choose goals for the next iteration.
+
+[43:44] And the second meeting, the second meeting, scrum team
+
+[43:50] And the product owner may consider
+
+[43:53] how to achieve this request
+
+[43:55] and to create spring backlog or tasks,
+
+[43:59] which are within the four to 16 hours of range of work.
+
+[44:06] We already talked this, right?
+
+[44:11] What is a spring?
+
+[44:14] It's a kind of iteration, time-box iteration,
+
+[44:17] which is 30 days.
+
+[44:21] And the self-directed and the self-onaging team.
+
+[44:26] I believe you've already done this concept several times in the previous chapters.
+
+[44:32] At school meetings, we meet every day, 20 minutes for 20 minutes, short time meeting, standing.
+
+[44:41] And don't add to the iteration, okay?
+
+[44:44] So the product owner will play it all as a firewall not to add the extra work
+
+[44:53] to the iteration, okay, beyond their plan, okay?
+
+[45:00] described in the spring backlog. Okay so that is, that practice, the file over practice is
+
+[45:08] described in the next column. Scrum master file. And decision in one hour, okay,
+
+[45:16] roughly put it at the Scrum manager in the meeting and that required decision by
+
+[45:23] the Scrum master are ideally decided immediately or within one hour. The
+
+[45:31] The value of better decisions are better than more decisions, and they can be reversed, is promoted.
+
+[45:37] If that is a very serious problem, they cannot do this within short time, or they shouldn't make any mistake.
+
+[45:47] But that is just a general practice they promote.
+
+[45:53] And the blocks reported at the scrum meetings are ideally removed before the next meeting.
+
+[45:58] So that means every day when they meet the problem,
+
+[46:03] within the day, they need to solve this problem, okay?
+
+[46:06] Okay, and then our chicken-set picks story.
+
+[46:12] You'll understand this.
+
+[46:15] Teams of seven person and common project room practice.
+
+[46:21] You already know.
+
+[46:23] And the daily build, we are familiar with this,
+
+[46:27] with the expert practice, and we will talk about this
+
+[46:31] in the, when you talk about XP more seriously.
+
+[46:34] And spring review, so at the end of each iteration,
+
+[46:37] there is a review meeting, maximum of four hours,
+
+[46:40] tells you how, what is the size of the meeting, okay,
+
+[46:45] amount of time for the meeting.
+
+[46:49] Hosted by scrum master and team, product owner,
+
+[46:51] and other stakeholders attend.
+
+[46:54] There is a demo of the product and the goals including,
+
+[46:58] improving stakeholders of the system function design.
+
+[47:01] thanks to weakness, something in future troubles.
+
+[47:05] And the feedback and the brainstorming for future direction is encouraged
+
+[47:10] for no commitments made during that meeting.
+
+[47:13] Later, at the next spring planning meeting, stakeholders and the team make commitments.
+
+[47:20] And the PowerPoint slides, the presentations are forbidden,
+
+[47:26] then much in time to do this kind of paperwork.
+
+[47:32] preparation emphasis on showing the product, show working product, spending
+
+[47:39] time to do that, rather than building a good presentation, something like that.
+
+[47:47] Well, that's good recommendation, but sometimes in the real situations, in many
+
+[47:53] organizations, good presentation is very, very important, actually, from my
+
+[48:00] experience. I saw many, many instances, good preparations, the guarantee your
+
+[48:09] success, your role in your business. But this tells for the iteration
+
+[48:21] meeting and the demonstration of iteration don't spend that much to do
+
+[48:28] that kind of thing. That's what it tells you. That does not tell the value of
+
+[48:33] presentation, okay? It's not important. Okay, the SCRM meeting is the heart of
+
+[48:47] the SCRM and the project. Each work day at the same time at place like
+
+[48:54] nine in the morning, nine thirty in the morning, every day. So you may spend
+
+[48:59] the half hour or one and half hour, okay, for your individual work and in the
+
+[49:06] 9.30, we meet all together, okay, for 20 minutes to the desk.
+
+[49:13] So hold the meeting with the team members standing in a circle
+
+[49:17] at which time the same special questions are answered
+
+[49:21] by each member, okay?
+
+[49:24] So these are recommended questions, okay?
+
+[49:27] And the answers you have to consider for those questions.
+
+[49:33] What have you done since the last school?
+
+[49:36] So for one day, what is true, okay?
+
+[49:39] What will you do between now and the next scrum?
+
+[49:48] What will you do today?
+
+[49:50] Right? And what is getting in the way of meeting the iteration goals?
+
+[49:57] What is the off-track?
+
+[50:00] help, not to achieve your goal. Okay? So you're the Scrum manager, project leader,
+
+[50:08] we listen to you. Okay, oh, that's problem. Okay, I solve it. Okay? Within a day. And
+
+[50:16] the author of the text suggests two more questions to ask in the meeting. Okay? Any
+
+[50:28] tasks to add to the spring backlog, any missed task you find, but this is not new
+
+[50:37] requirements itself. New requirements is from the... you cannot add a new
+
+[50:43] requirements to your spring backlog. It is not recommended, right? You do not want
+
+[50:47] to resize or re-plan your work, okay? You have work. But sometimes you find out
+
+[50:54] something missed to implement that feature system, feature
+
+[51:02] you decide to implement in this iteration.
+
+[51:07] Because you may have several tasks
+
+[51:11] to achieve goals over this sprint.
+
+[51:15] So that kind of thing they ask.
+
+[51:16] Do you have anything you have to consider more
+
+[51:20] to achieve this goal for the sprint,
+
+[51:23] not bring outside requirements, okay, to this spring.
+
+[51:30] And have you learned or decided anything new or relevant to some
+
+[51:35] of the team members, technical or requirements, okay,
+
+[51:39] helps you to improve your process?
+
+[51:44] Do you have anything learned, okay, to show your members?
+
+[51:49] So you discuss this and improve your work.
+
+[51:57] Other points may include related discrimination,
+
+[52:02] The meeting is ideally held in a stand-up circle to encourage the brevity.
+
+[52:07] Every 15 to 20 minutes for 7 to 10 people,
+
+[52:13] and probably you may have longer meetings at the end of,
+
+[52:20] at the start of each situation.
+
+[52:23] Probably there are many things not clear yet, so you may spend more time.
+
+[52:28] And once you really know about these tasks you have to do in this sprint,
+
+[52:34] then you can just do the work and discuss what is the problem and solve it and go.
+
+[52:39] Non-technical members, chickens are outside the circle,
+
+[52:45] and it is held next to the whiteboard at which all tusks and blocks are written when reported.
+
+[52:52] So we meet here, just next to the wall with the whiteboard,
+
+[52:56] and whatever we talk, we just make a memo here.
+
+[53:00] The skull metal erases blocks only once they've been removed.
+
+[53:07] You can use a speakerphone for an outside member.
+
+[53:18] So your member is kind of working from outside or remotely,
+
+[53:23] and then you can arrange this online tools like a speakerphone to talk together.
+
+[53:30] And you can be used in other practices like XP as well.
+
+[53:43] So, you may like to invite on-site customers, but it's very hard to actually hold your customer
+
+[53:52] representative 24 hours on on-site if the customer representative is a very important
+
+[54:01] person in that organization in case you have to arrange this kind of meeting online to
+
+[54:10] talk.
+
+[54:13] The FP practices can be combined with the scrum practices together.
+
+[54:16] So XP does not require to have a SCRUM meeting, but many expert practitioners use SCRUM meetings
+
+[54:26] also.
+
+[54:27] They recommend this to you.
+
+[54:34] And the SCRUM master issues, the rules are followed and prepares the location for the
+
+[54:38] efficient meeting.
+
+[54:42] So the rules meet the SCRUM meeting rules.
+
+[54:44] We have a talk so far.
+
+[54:46] So if other talks are involved here, other issues are involved here, then SCRUM is very
+
+[54:52] limited here and we will talk the main issues here first.
+
+[54:56] And then let them talk and resolve those issues later.
+
+[55:04] And the must keep watch your members are keeping the SCRUM practice to make the project success
+
+[55:15] using SCRUM.
+
+[55:20] must start on time and you may use some kind of rate fine and then probably I
+
+[55:25] have to pay this fine every day, I think. Because you will need very short time, right?
+
+[55:34] If somebody is late, then probably he may not talk or he may not listen much.
+
+[55:41] That's why it is very important. And the chicken's text is very important.
+
+[55:51] No other discussion is allowed beyond the three or five sessions we recommended before in the previous slide.
+
+[56:00] If other issues need discussion, secondary meeting can be
+
+[56:06] arranged. So in addition to the work products we talked before,
+
+[56:15] SCROM allows any other work products of value to the project. If your member think it is good to have
+
+[56:22] and then, yes, you can do it.
+
+[56:24] So, for example, it can be combined with some UP practices, like in the UP practice they
+
+[56:32] explicitly say have some product like vision and risk list, something like that.
+
+[56:40] So probably you can incorporate those work products.
+
+[56:45] And anyway, the vision is necessary to construct in the scrum as well.
+
+[56:50] Okay, this is an example of, example table for the product bank.
+
+[56:58] You have a requirement numbers here and the requirements and it says how much, our estimations
+
+[57:14] tells how much it is and this may be just numbering for that requirement.
+
+[57:29] Low credit payment is a system feature in the system feature category.
+
+[57:35] Part of the simple case scenario is a user case,
+
+[57:39] something like that.
+
+[57:40] So it tells about the criteria of those.
+
+[57:44] And this shows the status of this thing.
+
+[57:48] So this is underway, which means it
+
+[57:50] may be included in the current spring backlog.
+
+[57:54] And it is implemented in this situation.
+
+[57:58] And tells about the estimate of this work.
+
+[58:04] Next table shows a spring backlog.
+
+[58:07] So among this, the product backlog,
+
+[58:10] we pick up this to the sprint backlog for each iteration.
+
+[58:17] So in this particular sprint backlog, we like to do this.
+
+[58:21] So we list the tasks here.
+
+[58:24] We need to discuss goals and something,
+
+[58:27] and move the calculation out of something.
+
+[58:33] This column shows who are the originator of this task
+
+[58:39] and who are responsible for this task.
+
+[58:42] The originator can be, and what it is, right?
+
+[58:52] And responsible test, who will implement this task?
+
+[58:59] And this column shows status.
+
+[59:03] This task is completed, and this task
+
+[59:06] is not yet started in this print.
+
+[59:11] And this shows hours of work remaining, hours of work.
+
+[59:16] So this task is completed.
+
+[59:19] They spent 20 hours.
+
+[59:27] I believe they accumulate these numbers.
+
+[59:31] And 6, 7, I believe it's, so 6 days you have this state.
+
+[59:43] In the 7th state, you have this state.
+
+[59:46] OK?
+
+[1:00:00] build your own springback log and the product back in this way.
+
+[1:00:05] So you spread the shape in this way.
+
+[1:00:10] And then use a graph to draw this as chart to see easily how much work you have left.
+
+[1:00:22] So in the Scrum team, we will have a person playing all this daily tracker.
+
+[1:00:37] The tracker will digit each member these numbers.
+
+[1:00:44] Have you done this?
+
+[1:00:45] Have you done this?
+
+[1:00:48] And then build all this printback look every day
+
+[1:00:52] and show this result every day.
+
+[1:00:54] So you use a certain common word.
+
+[1:00:57] Every member can see easily every day
+
+[1:01:02] and show this every day, update this every day
+
+[1:01:06] and they can understand the progress of the work.
+
+[1:01:10] Okay? So this tells total hours remaining over each day.
+
+[1:01:19] Okay? So here this much remains, this much remains, this much remains.
+
+[1:01:24] And if you like to see the details, this shows, okay, how much you have to do.
+
+[1:01:32] Recessions for this. So now you understand how you construct a product log and the spring back log.
+
+[1:01:44] Okay? From the previous diagram here.
+
+[1:01:48] so you see how this book looks like and the straight back look looks like, okay?
+
+[1:01:55] And this bio chart shows a back-look graph, okay? So in the sixth day you have
+
+[1:02:05] left 30, 160 something and in the seventh day you have a 30, 320 something like this,
+
+[1:02:18] Okay? The sixth day you have a 362, 362 and the seventh day you have a 322 which is
+
+[1:02:30] represented by this chart. Okay? So by looking at this you can see oh you are
+
+[1:02:38] done. Alright? So recommendation is post an updated version of this chart
+
+[1:02:50] every day each day on the world by the SCRUM meeting. Okay? So it is a kind of
+
+[1:02:58] video, somebody overestimated the task hours remaining in the sprint backlog.
+
+[1:03:02] Okay, other practices and values include workers daily update the sprint backlog,
+
+[1:03:14] daily tracker will track this and build this sprint backlog in the chart.
+
+[1:03:21] Scrum master reinforces vision. So Scrum master needs to daily share and
+
+[1:03:29] and to clarify all the project vision and goals.
+
+[1:03:32] Probably they will have forced vision.
+
+[1:03:35] Okay?
+
+[1:03:37] In summary and then probably you may share it.
+
+[1:03:42] So at the start of each SCRM meeting,
+
+[1:03:46] then you share your vision.
+
+[1:03:48] And replace in effective a SCRM master.
+
+[1:03:52] Oops.
+
+[1:03:54] If you are not doing well at the SCRM master,
+
+[1:03:57] you will be replaced.
+
+[1:03:59] Okay?
+
+[1:04:01] So the manager's scrum master is the servant of the developers, not master, as he said.
+
+[1:04:13] Scrum master is not removing blocks promptly, acting a firewall, and he cannot provide a resource well.
+
+[1:04:24] Then scrum founders encourage replacing the scrum master.
+
+[1:04:30] Okay, so these are all the values of SCRUM described in one of SCRUM commitment, okay.
+
+[1:04:48] So the SCRUM team commits to a defined goal for intuition and is given to authority and autonomy
+
+[1:04:54] to decide themselves how best to meet it.
+
+[1:04:57] So they decide the task they will perform and they will do this work.
+
+[1:05:05] So management and the SCRUM master commits to not to introduce new work
+
+[1:05:11] during the iteration and avoid directing team and the work to provide the
+
+[1:05:19] resources they need and the typically remove blocks that the team members
+
+[1:05:28] report in the daily scrum meeting and product owner who is customer okay
+
+[1:05:35] commits to define the privatized product backlog and the guide choice over next
+
+[1:05:42] situations goes and the review and provide feedback on the result of each situation.
+
+[1:05:51] And focus.
+
+[1:05:54] The SCURM team has to be able to focus on the stated goals or iteration.
+
+[1:06:00] Thus, management and SCURM master focus on providing team with the resources they need
+
+[1:06:07] and the removing blocks they need and avoiding interrupting the team with additional work
+
+[1:06:12] request.
+
+[1:06:15] Another value is openness.
+
+[1:06:16] The question is, we almost talked about this before actually with the practices.
+
+[1:06:21] So they just summarize all these values and principles of SCRUM.
+
+[1:06:30] The openly accessible product backlog makes visible the work and the priorities.
+
+[1:06:35] So we post the split backlog and chart every day so we can see the progress of the work.
+
+[1:06:45] trend and velocity are made visible with the back-loop grip. And this is about team
+
+[1:06:56] responsibility rather than scapegoating. So, rather than pinpointing, we think, okay,
+
+[1:07:04] we are all team, everything is about the whole team, okay, whole team together. So,
+
+[1:07:11] individual members on team are respected for their different strengths and
+
+[1:07:15] and weakness, and not singled out for iteration of failure.
+
+[1:07:22] The whole team, rather than manager
+
+[1:07:24] through self-realizing and detection,
+
+[1:07:26] adopt attitude of solving individual problems
+
+[1:07:29] through group exploration of problems, solutions.
+
+[1:07:37] We like to have one.
+
+[1:07:40] Management has the courage to plan, guide, adaptively,
+
+[1:07:43] and to trust individuals and the team
+
+[1:07:46] by avoiding telling them how to do it.
+
+[1:07:49] And the team has the courage to take responsibility
+
+[1:07:52] for self-direction and self-management.
+
+[1:07:56] And also, the college is interpreted in different,
+
+[1:08:01] in similar ways and different ways.
+
+[1:08:03] And the kind of meaning of this college in the XP case
+
+[1:08:07] is kind of just like openness.
+
+[1:08:09] So they open the powers and status, something like that.
+
+[1:08:13] So that kind of openness can be also called the courage.
+
+[1:08:17] They have a college to open this and discuss this open.
+
+[1:08:26] This shows a sample project, large size, medium size,
+
+[1:08:29] small size.
+
+[1:08:31] The large size IDX web-enabled benefits suit program.
+
+[1:08:38] Three years of struggling to deliver one application,
+
+[1:08:42] they use this SCRM, and they developed this successfully
+
+[1:08:50] using SCRM.
+
+[1:08:52] So this project is a very large project.
+
+[1:08:55] one year, and 330 people across the multi-probability project.
+
+[1:09:01] So it is a kind of E300 project.
+
+[1:09:05] So E means criticality of the project.
+
+[1:09:09] You may lose essential money if you fail this project.
+
+[1:09:13] E means that.
+
+[1:09:14] And the 300 means the size of project involved in this.
+
+[1:09:22] The example of using this scrum is a medium project, a car-caromark project.
+
+[1:09:30] It is a four-month project, 20 people, and it is E-20 project.
+
+[1:09:34] It is essential money, so it is a little bit critical, but size is 20, so medium size.
+
+[1:09:42] After two years of travel, okay, 160 steps at this height and no delivery, crumb was introduced,
+
+[1:09:56] And we reduced the team size of 20 developers.
+
+[1:10:00] and 10 new hires even.
+
+[1:10:03] And in four months, a successful production release
+
+[1:10:07] was created, okay?
+
+[1:10:13] And then probably they may have a more release
+
+[1:10:16] left to work, I think.
+
+[1:10:20] And the next sample is a small size project,
+
+[1:10:23] which is a personal news page application.
+
+[1:10:30] Developer is individual incorporated.
+
+[1:10:33] This is one month project, eight people, and the C-20 project.
+
+[1:10:39] After nine months without delivery,
+
+[1:10:47] SCRUM was adopted, and the usual production release
+
+[1:10:55] emerged after one 30-day switch.
+
+[1:11:00] Then much, they like to emphasize
+
+[1:11:03] on success of using this SCRUM.
+
+[1:11:08] After five months of releases, most of the original goals
+
+[1:11:10] were achieved.
+
+[1:11:13] It's great, right?
+
+[1:11:14] compared with this prior nine months without delivery,
+
+[1:11:19] which is failure of the project, almost.
+
+[1:11:27] So we sold some sample projects
+
+[1:11:30] that used Scrum for the method.
+
+[1:11:36] Process mixtures, so what happen if you mix Scrum
+
+[1:11:44] with other processes?
+
+[1:11:46] Most Scrum practices are compatible with FP or refinements,
+
+[1:11:50] like Scrum meetings, okay?
+
+[1:11:53] The XP also recommends to have a stand-up meeting.
+
+[1:11:56] So actually the camp back, who first the XP,
+
+[1:12:04] the practice, why we talk about XP,
+
+[1:12:08] why we talk about the UP here anyway,
+
+[1:12:12] and then they recommend this, they follow this concept,
+
+[1:12:16] stand-up meeting concept from the SCURM meeting, okay?
+
+[1:12:21] Okay, here we have XP.
+
+[1:12:25] The SCURM practice of a demo to explore stakeholders
+
+[1:12:28] at the end of each iteration enhances XP feedback
+
+[1:12:31] and the communication goes.
+
+[1:12:37] Compact up and the post-tracking approaches
+
+[1:12:39] are minor variation of XP practices.
+
+[1:12:42] So our simple depth, they are well with the XP speed
+
+[1:12:46] or will do the simplest thing that could possibly work.
+
+[1:12:50] So one of the split over the XP we will see later
+
+[1:12:54] is the simplistic, make it simple.
+
+[1:12:57] If you go, if you can go simple way,
+
+[1:12:59] go the simple way rather than complex way to go.
+
+[1:13:02] And the SCROM's 30-day time-box situation length is not completely consistent with XP.
+
+[1:13:09] XP is more flexible to six weeks' length.
+
+[1:13:13] And then each pre-pulse shows to even one week.
+
+[1:13:18] Sometimes it asks one week.
+
+[1:13:22] And Mike Bieder, one of the original SCROM contributors, has developed X-Bread, a combination
+
+[1:13:28] of SCROM and XP practices.
+
+[1:13:30] So you may use that kind of combination from there.
+
+[1:13:33] Okay, what is history?
+
+[1:13:38] Rudolf Skurm are found in well-known article here,
+
+[1:13:43] one of the article of Harvard Business Review,
+
+[1:13:46] and they introduced term over facimi,
+
+[1:13:49] which they meant slice over iterations,
+
+[1:13:56] and Skurm of the adaptive self-directed team practices.
+
+[1:14:02] And Jeff Sotland is one of the Skurm creators
+
+[1:14:06] or the vice-president of a company
+
+[1:14:09] that introduced some practices.
+
+[1:14:12] He was approached by a report on the project
+
+[1:14:19] at the Boent Corporation.
+
+[1:14:22] So they used structured daily meetings.
+
+[1:14:25] So he got idea from here, and he built the idea of a scrum
+
+[1:14:30] meeting.
+
+[1:14:32] And Ken Swabble worked with this guy Sutherland at Israel.
+
+[1:14:37] And then they formulated this scrum idea better.
+
+[1:14:42] And their result is published in this workshop paper.
+
+[1:14:46] And you can see their article from this reference.
+
+[1:14:50] In 1996, Sutherland joined individual
+
+[1:14:54] and asked Ken Swarb to assist the adoption of a Scrum idea.
+
+[1:14:57] And the Swarb defined extended Scrum
+
+[1:15:01] in collaboration with Sutherland
+
+[1:15:02] into version of what was described in those papers.
+
+[1:15:05] As you can see here, so they coined these ideas
+
+[1:15:09] and most of the fixed space ideas in 1995, 1996, not far away.
+
+[1:15:21] That's it.
+
+[1:15:25] That's it for scope.
+
+[1:15:27] Any questions for the scope?

@@ -1,0 +1,741 @@
+cpsc544_05_v_ManagingSWorg.mp4
+
+[00:00] Okay, let's talk about chapter 5, just managing software organization. As you can see from this title,
+
+[00:09] it talks about management, project management process area, okay?
+
+[00:15] So these are all the chapters we will look at in this part 2. So we completed the part 1 last time
+
+[00:24] from the chapter 1 to 4, and now we are starting the topics in the part 2 and
+
+[00:30] And the topics, in part, to actually include all the topics we have to know to advance
+
+[00:39] from Moturational Development 1 to the Moturational Development 2, okay?
+
+[00:44] So as you can see here, the chapters, Managing Software Innovation and the Chapter 6 Project
+
+[00:51] Plan and the Software Computational Management and the Software Quality Assurance in each
+
+[00:56] chapters covers the four basic control topics we talk about to advance from
+
+[01:05] Machu Picabra 1 to 2. We will look at this one by one more specifically.
+
+[01:16] So first the chapters talk about management of a project and it is
+
+[01:25] talk about manual project in terms of work commitment, okay? So once you have a plan
+
+[01:35] and the people commit to this plan to do work, and then the actual management is a
+
+[01:43] management of a commitment of people because the project is done by people, okay? So then
+
+[01:54] Why we address only four chapters in this part to talk about the process areas to go
+
+[02:03] up to the workstation table two from workstation table one, there are many other process areas
+
+[02:07] we have to consider.
+
+[02:09] The reason is because those four process areas, the main key points we have to consider at
+
+[02:15] at this point to facilitate the process management properly.
+
+[02:25] So without having that, we cannot add any other process
+
+[02:28] areas properly.
+
+[02:30] So with having these basic control mechanisms,
+
+[02:34] we can be able to add more other,
+
+[02:38] we can be able to implement other process areas.
+
+[02:46] So we have three topics here in this chapter.
+
+[02:49] commitment discipline and the management system establishing project management system, okay?
+
+[02:56] So the role of management system is to ensure the projects are successfully completed, okay?
+
+[03:04] So in that case, we have to define what is the success and what is the completion, okay?
+
+[03:09] So first of all, we have to define the success criteria and the completion criteria of the
+
+[03:14] entire project.
+
+[03:15] So once you start the project, when you say it is completed, it is successful, we succeed
+
+[03:24] in completion of this project, when we say that.
+
+[03:29] In your organization, when do you officially say we are done with this project?
+
+[03:43] the project product with requirements by having validation testing in that case
+
+[03:52] you say you're done deployment project okay good yeah so one company use a
+
+[04:05] validation as a the completion the work to say this project is completed and
+
+[04:12] another company use a diploma date as a completion date of the project and what
+
+[04:18] After you get the positive feedback from users, okay, so still you keep your team up to that point, right?
+
+[04:39] But still we have to think of many things like this.
+
+[04:41] The first case, when we perform the system testing validation and then say, okay, we are done.
+
+[04:47] are done. Safely, we can say it's done and we just dissolve all the members to get into
+
+[04:56] the other teams, other project, so they may not come back anymore. They will forget about
+
+[05:02] this project. And then what happens? If something happens in the project and you have to do
+
+[05:08] some redo work or you have to do some maintenance, what happens? Who will do it? We have to
+
+[05:16] considered. And after delivery, once you deliver it and if there are some
+
+[05:20] complaints from the customers, what happens? And then we have to wait until
+
+[05:24] the good feedback from the customer when we get it. So we have many
+
+[05:32] different choices here and then also we have to think of many different
+
+[05:36] considerations here. So probably we have to keep a minimum number of people who
+
+[05:42] can maintain the project later so whenever something happens to that
+
+[05:47] product, those people are key people, you know, to handle that kind of instance, right?
+
+[05:53] So you can choose different organizations may have a different strategy to do it based
+
+[05:59] on their resources, human and money or time based on any or the business strategy, business
+
+[06:07] goals.
+
+[06:08] So, and also not only we have to consider the completion of a project itself, but also
+
+[06:16] we have to consider the completion of different phases,
+
+[06:21] each phase is in development, okay?
+
+[06:24] So we may have several phases like analysis phase,
+
+[06:28] design phase, and the high-level design,
+
+[06:33] low-level design, and the coding phase,
+
+[06:36] you know, the integration phase, testing phase, review phase.
+
+[06:40] There are many, many phases there, many activities there.
+
+[06:44] So, when do we say design is done?
+
+[06:47] When is the completion of, what is completion,
+
+[06:50] definition of completion of design?
+
+[06:57] There is.
+
+[06:58] There is.
+
+[06:59] It depends on the company.
+
+[07:01] Depends on the company, okay.
+
+[07:04] So, the best answer in software engineering area is depends on.
+
+[07:08] So, when the requirements are stable?
+
+[07:13] Requirement is stable.
+
+[07:15] You are saying, okay, design is done.
+
+[07:17] Okay, that's a good idea too.
+
+[07:19] But what happens if a customer wants to change it, you have to design, re-design, okay, or
+
+[07:25] you have to modify your design again.
+
+[07:27] So it's not complete yet, then, if you look at it later, okay?
+
+[07:32] So something like that.
+
+[07:34] So you have to consider also many other things to define what is the completion of a certain
+
+[07:40] activity or certain phase, okay?
+
+[07:44] So some companies are using the review, the inspection, formal review or inspection, peer
+
+[07:52] reviews.
+
+[07:53] If they are done peer review successfully and then they are signing, okay, this phase is
+
+[08:00] done, okay, or some companies have user iterative approach or incremental approach at more and
+
+[08:08] more gain-or-gain, then it is more complex then, so how select that?
+
+[08:13] So it depends on the organization, they have their own rules, okay, they have own criteria
+
+[08:20] for this success and the completion of the work.
+
+[08:25] So we should have this to clearly say, somehow we should have this kind of things, say,
+
+[08:34] have you done your work or not, have you done your work as promised, so when you do your
+
+[08:38] homework, how can you judge, oh, this student has done his work, her work, okay?
+
+[08:47] If he or she submitted the report to you, partial report to you, is done, that's all?
+
+[08:56] Probably, sometimes yes, sometimes not, right?
+
+[08:59] If there's too much early version of drop, then probably they have to work again.
+
+[09:04] It's like that.
+
+[09:06] So, your team should have that kind of rules
+
+[09:09] in your team charter when we say you're done.
+
+[09:14] Okay, so to objectively evaluate your performance
+
+[09:19] in team evaluation, okay, based on this evidence,
+
+[09:23] you are done this work, you are done this work.
+
+[09:25] Okay, you have not done it.
+
+[09:27] So, you are probably, they are arguing
+
+[09:29] why I'm not done yet, okay, because of this.
+
+[09:33] This is a criteria of success or completion of the completion of your part of work,
+
+[09:39] but you haven't made this, okay?
+
+[09:44] So, whenever you promise to do something, not only we consider how it is done
+
+[09:53] or what should be done, but also we have to clarify those kind of things.
+
+[09:59] You
+
+[10:00] So basic principles of a project, many of them include this.
+
+[10:02] Each project has a plan that is based on hierarchy of commitments.
+
+[10:07] So you make a commitment to do something,
+
+[10:10] and then your team make a commitment to do something.
+
+[10:13] And the entire, your site makes commitment to do something,
+
+[10:18] and your entire organization should have a commitment, okay?
+
+[10:25] So not only we define the work activities,
+
+[10:27] deliverables and the timing and the completion criteria to the project, but also we have
+
+[10:34] to consider resource to provide, to complete this work.
+
+[10:43] So the commitment is on agreement by one person to do something for another.
+
+[10:49] So if the three people are in the same team and then you have to make a commitment what
+
+[10:56] you like to do.
+
+[10:57] And once you produce output and who will use this as input to do something, the next work.
+
+[11:06] So management system reserves the natural conflicts between the project and between
+
+[11:11] line and step organizations.
+
+[11:14] So if it can be done by alone, until the end, it's much simpler.
+
+[11:20] But if there should be some kind of organization orchestrating, we should have some kind
+
+[11:25] the orchestration of work and the arrangement of the resource.
+
+[11:32] Okay? Then there is some conflicts there.
+
+[11:35] Probably somebody wants to use it.
+
+[11:36] At the same time, other people want to use it as resource.
+
+[11:39] So the management should consider this the relation of the conflicts.
+
+[11:47] And the oversight and the review system audits
+
+[11:50] and the tracks progress against the plans.
+
+[11:52] Without having plan, we don't know how to monitor
+
+[11:57] and control your project.
+
+[11:59] So you should have at least a certain plan to start with.
+
+[12:02] Even though plan is not complete,
+
+[12:05] you can revise it while we are doing the work.
+
+[12:08] And then you compare with that and find out the good way
+
+[12:13] to allocate the resources to a proper team
+
+[12:17] and appropriate at the proper time, okay?
+
+[12:20] And also, you'd better have a regular,
+
+[12:22] not only immediate review of work as a manager,
+
+[12:27] but also you'd better have a certain way
+
+[12:29] to regularly manage the project,
+
+[12:33] review the process of a project, okay?
+
+[12:38] Okay, so next topic is commitment discipline.
+
+[12:40] So we talk about commitment here.
+
+[12:42] So the foundation for software project management
+
+[12:46] is the commitment discipline, okay?
+
+[12:49] So, please think, okay, the most important thing here is coming month and meeting the
+
+[12:55] coming month.
+
+[12:57] So, this is supported by plans and estimates, reviews, and tracking systems, okay?
+
+[13:02] So, to properly perform this project management, we need to be able to make a good estimation.
+
+[13:11] We should be able to build a good plan, okay, and we should have a certain mechanism to
+
+[13:16] review and the track control the project,
+
+[13:19] progress of the process, okay?
+
+[13:23] So commitments are not met by reviews, procedures,
+
+[13:26] tools, however, they met by the committed people, okay?
+
+[13:29] So eventually, in this kind of work,
+
+[13:32] like software development, which involves
+
+[13:35] a lot of human intensive effort, okay?
+
+[13:38] So people should keep this commitment, okay?
+
+[13:42] So managing the people who are committing
+
+[13:45] and who are meeting their commitment
+
+[13:47] is the most important thing to consider.
+
+[13:51] So, commitment involves a planned completion date
+
+[13:54] and some consideration or payment.
+
+[13:58] So, we should consider certain date to complete
+
+[14:00] and certain criteria of completion
+
+[14:03] and how to pay for that.
+
+[14:06] And when the coordinated efforts,
+
+[14:08] so many professionals involved,
+
+[14:11] virtual commitment center, okay?
+
+[14:13] If it is teamwork, you have to consider how to orchestrate their work, okay,
+
+[14:20] by providing the resource, proper resource at the proper time they need.
+
+[14:27] And the person, these are elements of an effective commitment, okay.
+
+[14:33] So the person making the commitment does so willingly, okay.
+
+[14:37] So they like to do this, okay, at a certain time.
+
+[14:41] That means they think it can be done, okay,
+
+[14:46] with the resource assigned and with the designated time assigned.
+
+[14:52] And the commitment is not made lightly.
+
+[14:54] Don't say, I can do it without considering carefully, okay?
+
+[15:01] So you should consider how much work you have to do,
+
+[15:04] how long does it take, and what are the resources I need,
+
+[15:07] when the resources are available to use,
+
+[15:09] And the schedule is the regional work to do things like that.
+
+[15:17] And there is agreement between the parties on what is done by whom and when.
+
+[15:22] So in the planning we have to exactly define who will do what and by when they have
+
+[15:31] to complete the work.
+
+[15:33] and the output from one, when or where,
+
+[15:38] how output from one work is used for another.
+
+[15:46] And the coming month is openly and publicly stated.
+
+[15:50] Okay, so plan should be publicly publicized
+
+[15:53] so everybody can see it happen.
+
+[15:56] And as long as the open society is more sound,
+
+[16:01] more healthy than the close to work, right?
+
+[16:05] Okay. So they should know exactly what I have to do
+
+[16:09] and who will do what for me, again, or what I use
+
+[16:15] by the work done by whom and when it is available
+
+[16:21] and when the resource is available for me sometimes.
+
+[16:25] And the person responsible tries to meet the commitment,
+
+[16:29] even if help is needed, okay?
+
+[16:32] Sometimes you haven't estimated something happened
+
+[16:39] because of your limited experience or something happened
+
+[16:44] in your organizations externally
+
+[16:47] or some user requirements externally added and the changes
+
+[16:52] so you have more time or you need
+
+[16:54] to change your schedule, something like that.
+
+[16:55] It may happen, but still you are responsible
+
+[16:58] to complete this work so whenever you have a certain need
+
+[17:02] You're the better tell it in other events rather than at the last say you you have a problem
+
+[17:08] So when you expect something's wrong in your schedule, you're the better carry it to your boss
+
+[17:13] Okay, and your colleague us care. I need your help
+
+[17:16] Okay, because of these changes here probably I may not meet my my schedule
+
+[17:22] So we have to reschedule or we have to relocate the resources
+
+[17:26] I was like this you have to ask so let them know to help you to have a chance
+
+[17:31] we have for you. So that means that that is described in the next sentence here.
+
+[17:40] To the committee, the date, if it is clear that it cannot be met,
+
+[17:45] advance notice is given and the new commitment should be negotiated. Okay, so
+
+[17:55] commitment should be treated as seriously and the management team should
+
+[18:04] put the external effort to make them meet the commitment.
+
+[18:14] And to be effective, the software commitment process must be reached to the top.
+
+[18:18] So we start from the bottom here, and we build the plan, and we have to make a commitment,
+
+[18:25] and then it goes off.
+
+[18:27] And this requires that all commitments for future software delivery are personally made
+
+[18:32] by the organization's senior executive.
+
+[18:34] So eventually your senior management executive should sign for all of this and make a promise
+
+[18:42] to deliver the project on time with the expected quality to customers.
+
+[18:49] So the senior management manager should be aware of this.
+
+[18:55] And these commitments are made only after successful completion of the formal review
+
+[18:59] and the concurrence process.
+
+[19:02] So before you make a commitment formally, you have to perform some serious formality
+
+[19:09] review and the conference effort to schedule all things properly.
+
+[19:21] And establishing commitment process.
+
+[19:25] So basically, the company is a senior executive who is willing to insist that the required
+
+[19:30] planning be done before any commitment is made.
+
+[19:34] So the next slide, the next census says in addition, since the people must know how to
+
+[19:41] make schedule estimate properly and training courses are required as are past the estimation
+
+[19:49] and reviewing and approval procedures.
+
+[19:52] So to make good planning and make good estimation, they have to learn how to estimate.
+
+[20:00] So they have to learn some certain techniques for estimation and form a way to estimate,
+
+[20:09] and they have to learn how to build a good plan, and also they have to know how to review
+
+[20:16] it.
+
+[20:17] Okay?
+
+[20:18] So we need some kind of training to make it smoothly.
+
+[20:26] So management system.
+
+[20:30] So while every organization will have unique objectives,
+
+[20:34] there are generally four components for this,
+
+[20:38] to have a technical and the business strategy, okay?
+
+[20:44] And to provide the quality products to meet,
+
+[20:46] sounds like this.
+
+[20:48] So when we produce a product,
+
+[20:53] we should have a certain strategy of organizations.
+
+[20:56] These are the very common objectives,
+
+[20:59] the organizations mostly have, okay?
+
+[21:02] They usually have one.
+
+[21:04] They like to build a good quality product.
+
+[21:06] They like to deliver the project on time on the market
+
+[21:10] and they like to have the appropriate market share, okay?
+
+[21:17] And they like to produce a better quality product
+
+[21:21] than previously and they like to incorporate
+
+[21:25] the new technology to become more competitive
+
+[21:29] in their area or something like that.
+
+[21:31] So those are very common objectives most organizations have
+
+[21:37] as they are business objectives.
+
+[21:39] And this slide talks about some of the general objectives.
+
+[21:46] Like technical business strategy that aims such long-term goals
+
+[21:51] as a growth rate and the market position.
+
+[21:55] And to provide the quality products,
+
+[21:57] then meet the customer's requirements.
+
+[21:59] and to perform the assigned mission competitively
+
+[22:02] and economically, and to improve continually
+
+[22:05] organizational ability to handle more
+
+[22:08] the technically difficult work sometimes, okay?
+
+[22:14] Okay, and to resolve the inherent conflict
+
+[22:21] and to establish framework for operations,
+
+[22:23] most organizations produce their annual operating plans, okay?
+
+[22:28] So based on that plan, we specify the resources used so we can orchestrate all the work properly.
+
+[22:43] And also, management oversight is very important to monitor and review their plans
+
+[22:51] and monitor their progress against the plan.
+
+[22:59] the plan. So on effective management system typical users reviews and the
+
+[23:06] contention system to resolve product and period conflicts and to have a good
+
+[23:12] balancing. If there are some issues among the different
+
+[23:23] different parts of organization then probably we should have a certain way to
+
+[23:29] to resolve those issues, and then let them build separate plans,
+
+[23:35] and then we consolidate all those plans
+
+[23:39] and rebuild the entire business plans, okay?
+
+[23:48] And also, we have to periodically do,
+
+[23:52] we have to perform the reviews for that.
+
+[23:57] And also, effective review system requires a parallel
+
+[24:02] contention systems to encourage the open expression of differences and their
+
+[24:07] racial resolution. So whenever they do the project, they have many
+
+[24:13] decisions to do, okay, they have many different alternatives. So in that case
+
+[24:18] they should be able to express their opinions which way we will go to have
+
+[24:23] a better work, okay. So the principle behind this contention system is the
+
+[24:32] best decisions are based on full understanding of relevant issues.
+
+[24:37] So if you do not allow people to discuss about any issues that might be happen later or you
+
+[24:45] do not have any chance to discuss about different alternatives to decide something, then they
+
+[24:52] may not think of this problem carefully so you will have trouble later.
+
+[24:56] So the Alfred Sloan as a founder of General Motors suggested this, told this, no important
+
+[25:06] decision should be made unless there is some contention, which means he suggests to have
+
+[25:11] good contention system in the organization so anybody can freely express what their concerns.
+
+[25:19] So based on those kinds of discussions, we can create a better solution, okay?
+
+[25:28] So it shouldn't be done by subjective opinions of certain group of people in the organization,
+
+[25:35] okay?
+
+[25:36] It's one way to go to the worker in the wrong way, okay?
+
+[25:43] So whether we have a good contention system to be open to anybody can express the issues
+
+[25:50] and provide a better solution, better alternatives we can discuss.
+
+[25:55] Okay, then principle of contention system includes this.
+
+[26:03] All major decisions are reviewed with the involved parties in advance and the parties
+
+[26:12] are requested to agree.
+
+[26:16] And if it is resolved with issues, the issue is resolved is good, but if it is not, then
+
+[26:26] when the time comes for the decision, all dissenting parties are present and asked to
+
+[26:31] state their views.
+
+[26:33] So invite all the dissenting parties, and why you think in that way, why you think in
+
+[26:38] this way.
+
+[26:39] So let them have a chance to discuss all different alternatives.
+
+[26:47] And when there is a disagreement, the senior manager determines if there is a knowledgeable
+
+[26:52] agreement, if any disagreeing parties are absent, or if more preparation is needed.
+
+[27:00] So if a regional issue is good, but if there is a still disagreement, they have to find
+
+[27:08] out whether all dissenting parties are present in the meeting.
+
+[27:14] So we listen to all the different alternatives here or probably we need more time for survey
+
+[27:23] or study to have a better idea, something like that.
+
+[27:27] So based on that, decision can be deferred rather than decided quickly with short time
+
+[27:41] and you will give more chance to think of it
+
+[27:46] or to prepare for other, to study or other alternatives
+
+[27:50] and let them meet again, okay, and you can decide it later.
+
+[27:58] And many organizations have a quarterly review, okay,
+
+[28:03] so periodically they perform the review to monitor
+
+[28:08] and control their progress or project against their plans.
+
+[28:14] And the topics of this quarterly review typically include these issues.
+
+[28:20] An assessment of a project performance against the plan.
+
+[28:25] And organization's performance against the goal.
+
+[28:29] Like, so, performance, if you have a certain performance goal,
+
+[28:34] you like to check those goals are fulfilled.
+
+[28:38] So, next slide shows the quarterly review agenda, okay?
+
+[28:43] So you may this is not absolute different organizations have a different form as you can use it and
+
+[28:51] the next slide shows a typical
+
+[28:53] organization
+
+[28:54] organization or a structure, so
+
+[28:57] every different organizations have a different organization
+
+[29:00] structures and the next slide shows table for the simple project schedule checkpoint
+
+[29:08] Okay, so if you don't have any idea how to perform the monitoring control over your project. This is a good example
+
+[29:15] for the project monitoring control.
+
+[29:19] And so, very one must also assess project progress periodically,
+
+[29:28] and this is typically accomplished through a sequence of reviews
+
+[29:32] at a key point in each project.
+
+[29:37] And next slide shows some standards you can use to process your work
+
+[29:45] with this standard. The first one is the DOD standard and also it talks about the ISO standards.
+
+[29:53] If you take some other course related to these standards, probably you can learn more about this standard.
+
+[30:00] The last slide tells the most important management review system is conducted by project management
+
+[30:12] team itself.
+
+[30:13] So if project management is not aware of actively involved in the project issues, nobody can
+
+[30:21] understand what's going on in your project.
+
+[30:23] So you should know what the problem, what the issues are in your project first.
+
+[30:31] And with effective and involved project managers, however, project management system is still
+
+[30:35] needed to resolve conflict between projects and between line and step members in the
+
+[30:42] organizations.
+
+[30:43] Okay, we are done for this chapter.
+
+[30:47] So the key issue in this chapter is what?
+
+[30:51] Project management.
+
+[30:53] And this project management is described in terms of commitment, okay, making commitment.
+
+[31:00] And the working commitment should be done based on good, well done estimation and planning.
+
+[31:08] And also you have to consider how to resolve the issues you will have using like the contention
+
+[31:16] systems and also you should have good mechanisms to allocate the resource and orchestrate all
+
+[31:24] the members in your organization.
+
+[31:29] So this is the party we talk today.
+
+[31:31] Any questions?
+
+[31:32] Okay, we are done.
+
+[31:35] and see you next time.
+
+[31:37] Thank you.

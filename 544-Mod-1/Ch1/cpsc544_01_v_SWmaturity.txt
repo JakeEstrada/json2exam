@@ -1,0 +1,3375 @@
+cpsc544_01_v_SWmaturity.mp4
+
+[00:00] software maturity framework as you can see we are here we have part one part
+
+[00:06] two part three and part four five and then right now we are at part one
+
+[00:11] software process maturity so we will discuss about basic concept of this
+
+[00:16] maturity framework today okay so what kind of things you may learn from this
+
+[00:22] class first what is the process what is the process you think software
+
+[00:29] developed the process what is a software developed the process or any other
+
+[00:34] process how can you define a process procedures procedures and what else if I
+
+[00:48] ask you define a process to do something like to produce a software steps actions
+
+[00:56] and what else you need. Life cycles, phases, so probably we can group tasks, actions,
+
+[01:07] okay, together and make some grouping and then we may call them phases. So we may
+
+[01:13] have three phases, four phases, five phases, okay, throughout the development.
+
+[01:19] and the what else what what kind of thing you will do to achieve a goal okay
+
+[01:31] so what is the goal what is the goal and what kind of thing to do to achieve the
+
+[01:37] goal goal could be a business goal could be a project go specific project go or
+
+[01:45] both. And what else? You have to consider? A systematic approach. Yes? Probably some kind of failure recovery procedures.
+
+[01:58] Failure recovery procedures. Good. And some of the risks we can expect and how can you avoid from this risk or what
+
+[02:11] we do whenever we have a risk. Yes. We may include it in the process. What else? Whenever we perform
+
+[02:20] something based on the actions activities tasks in each phase we defined we have to do something
+
+[02:29] by producing something right so we have to produce work art work product okay so we need to include
+
+[02:38] the work product in a process what we will produce in our process okay whenever we say oh I complete
+
+[02:47] this face, I complete this action, I complete this activity I had in the schedule, how can
+
+[02:55] you say it is completed or not, how can you judge it?
+
+[02:59] So we should have some kind of milestone there.
+
+[03:03] And we should produce something to show all as evidence to complete this work.
+
+[03:10] And if you just produce something, can you say it is completed, really?
+
+[03:15] Probably we should have a certain way to declare this is done or not, okay?
+
+[03:23] For example, like having a peer review for the work product at the end of each phase,
+
+[03:31] so we can formally say, oh, this is done, once it is passed from this review, something
+
+[03:37] like that.
+
+[03:39] And whenever you produce something, can you do it from nothing?
+
+[03:45] From the pain?
+
+[03:46] We should have some input we get to use to produce output throughout this activity, okay?
+
+[03:56] So we need to define what should be input, prediction, okay?
+
+[04:03] And what is output?
+
+[04:07] So that kind of thing we have to decide.
+
+[04:09] And what else we can consider in a process?
+
+[04:19] Using the existing complex, so we have to consider whether we develop or entire parts
+
+[04:25] product or we buy some parts or we reuse some parts from the existing software we
+
+[04:34] developed or somebody developed and sell it in the market okay that kind of
+
+[04:41] thing have to consider too that's good and what else you can consider if you
+
+[04:48] need a certain technology you should know to develop this product and then
+
+[04:56] you need to study. You need to include the training here, right? So when you have to
+
+[05:02] have a train, that kind of thing should be also considered, right? Then what kind of
+
+[05:09] thing we need to do these kind of things? We need a plan and schedule, right? So we
+
+[05:17] have to perform some planning and scheduling activity. And what else we need to consider?
+
+[05:26] documentation how can you document how much document okay so we perform heavy
+
+[05:35] documentation or do we go with the lightweight documentation that kind of
+
+[05:41] thing you should decide from the beginning right yes sometimes we can
+
+[05:46] change you can change the plan and time if we think we think it is necessary
+
+[05:50] but you should have a certain plan to make planning and scheduling and the
+
+[05:56] training, okay? We need an outline of the software. Outline of software, we need to find what the
+
+[06:04] problem is to solve. So we need to have some kind of problem definition phase still. So in our phase
+
+[06:11] defining the process, okay, we should have a certain phase to analyze the problem, to define
+
+[06:17] the problem. Okay. And what else we can consider here? Feasibility study. Right. Okay. So probably
+
+[06:27] in the early phase we should consider feasibility study. Whether it is feasible to do this.
+
+[06:34] Is it good for the business? Is it good to achieve our business goal? Okay. Does it
+
+[06:40] create any money to the benefit to the company? Or even though it will not create any money
+
+[06:47] but this is good for the society, whatever,
+
+[06:50] depending on your business' goal,
+
+[06:52] I probably can decide, right?
+
+[06:55] So we should have the kind of activity in the early phase.
+
+[06:59] So we need to define some phases
+
+[07:01] to include that kind of activity there.
+
+[07:04] And what else we can consider in the process?
+
+[07:06] The expenses.
+
+[07:08] Expenses, okay?
+
+[07:09] So we have to consider how much we need.
+
+[07:11] So that's why we can ask the customers,
+
+[07:14] I need this much, can you afford?
+
+[07:16] Okay? And what else?
+
+[07:21] If you need any technology, certain technology,
+
+[07:23] you have to get the training.
+
+[07:26] The software personnel.
+
+[07:27] And we need a...
+
+[07:29] Software personnel who can...
+
+[07:30] Who will do this one?
+
+[07:32] So we have to consider some more resource, right?
+
+[07:34] Okay, so in the planning, scheduling,
+
+[07:36] we should consider that.
+
+[07:37] So if we go through sequential process, okay,
+
+[07:41] so once we define phases in our process,
+
+[07:45] phase one, phase two, phase three,
+
+[07:47] and then that's it.
+
+[07:48] And then, if you go this sequentially,
+
+[07:50] probably we have to consider this on the early phase.
+
+[07:54] Sometimes we take another approach,
+
+[07:56] like iterative approach, okay?
+
+[07:58] We have a phase one, phase two, phase three.
+
+[08:01] Then go back to the phase one and the phase two, phase three.
+
+[08:04] Iteratively, we can perform this, too.
+
+[08:06] So in that case, probably we make a plan
+
+[08:09] and change this plan in each iteration
+
+[08:12] for the next iteration.
+
+[08:14] So that's possible, too.
+
+[08:16] Also, we need to define what kind of methods we use.
+
+[08:19] For example, you are required to use
+
+[08:22] object-oriented technology to do this.
+
+[08:24] Then you have to learn some object-oriented methods,
+
+[08:27] analysis and design methods to use.
+
+[08:30] And what about the tools?
+
+[08:32] Tools help us to automate our work, right?
+
+[08:36] And standardize the work, okay?
+
+[08:39] So we may define methods, tools you will use.
+
+[08:43] So when you produce a ton of work product, what is input?
+
+[08:46] So provide the input to this tool and produce output,
+
+[08:49] what we expect, okay?
+
+[08:52] Something like that.
+
+[08:54] And also everybody should know, not everyone,
+
+[08:57] but the people, engineers who are related
+
+[08:59] to those activities and tools,
+
+[09:01] should know how to use these tools, okay?
+
+[09:05] And what kind of things are expected
+
+[09:08] whenever you use certain tools, something like that.
+
+[09:11] So all these kind of things are related to the process,
+
+[09:15] Whenever we define a process, we have to consider those.
+
+[09:20] So mainly, we define a set of those steps.
+
+[09:24] And work products, we produce from each step.
+
+[09:29] And we define the method of tools.
+
+[09:33] Who will produce what, and who will use that work product
+
+[09:37] I produced.
+
+[09:39] So it should be defined.
+
+[09:42] So systematically, they can do this work.
+
+[09:47] Okay, so now we have idea what is the process.
+
+[09:53] And then in this class we will study
+
+[09:56] how to define a process,
+
+[09:58] what kind of things we have to consider.
+
+[10:00] to define process, to define effective process,
+
+[10:06] to define a mature process, capable process,
+
+[10:10] to produce worker product, quality product repeatedly.
+
+[10:17] You may produce a worker product one time,
+
+[10:21] very good product, but next time you produce poor product,
+
+[10:25] then your customers will not like it.
+
+[10:28] So you would like to have a capability
+
+[10:31] to produce the same quality, at least the same quality,
+
+[10:34] or better quality product every time you produce.
+
+[10:40] So to make your process capable to do it,
+
+[10:44] what kind of thing we'd better consider?
+
+[10:46] The kind of things we like to learn in this class.
+
+[10:52] So what is the software development process?
+
+[10:55] How can I develop software through a software process?
+
+[10:58] Once you define your process, then also you
+
+[11:02] have to monitor, control your process.
+
+[11:08] Monitor your people.
+
+[11:09] Your engineers follow your process.
+
+[11:11] If they don't follow what happens,
+
+[11:13] it's a process useless.
+
+[11:15] You spend the time to define a process.
+
+[11:17] You spend the resources to define process.
+
+[11:20] You don't use it.
+
+[11:21] It's useless.
+
+[11:25] That means eventually you will not
+
+[11:27] produce good quality product repeatedly. If you have a hero in your organization
+
+[11:34] one time probably he solved all the problems that's great but he may move to
+
+[11:41] another company because he are very capable so somebody will like him right
+
+[11:45] so they will hire him with a very good salary so they will move. So then what
+
+[11:51] happen next year you will not produce that much then it is not repeatable
+
+[11:57] process okay it is a poor process and how good is my current software process
+
+[12:04] then another issue here is okay you have process you define a process okay but
+
+[12:14] how do you know my process is a good or at least okay for if the process is
+
+[12:24] Retreat? Okay. So, iterative does not mean you will produce a good product. Call it product.
+
+[12:32] If you repeatedly produce good quality, yes. But how can you measure your process is good or not?
+
+[12:40] Testing.
+
+[12:41] By testing what?
+
+[12:43] Prototype. By looking at prototype, you think, okay, you will produce good product and your process is good.
+
+[12:54] I'm asking about the process.
+
+[12:58] checked output and then it's too late. It's gone already.
+
+[13:03] You produce something. If it is not good product, it's late.
+
+[13:07] Yes?
+
+[13:08] Maybe you should at least be meeting your milestones.
+
+[13:11] Checking your process and meeting the milestone.
+
+[13:15] If it doesn't meet the milestone, what happens?
+
+[13:18] What do you do in the middle of time? Production time.
+
+[13:22] Yes, you have an opinion?
+
+[13:25] Produce them in each phase.
+
+[13:28] them again demo produce demo can can they prove your process is a good as
+
+[13:42] always no errors your process is good before building it make a good good
+
+[13:55] study only yes it may help to produce good product again we go back to the
+
+[14:01] The question was how can you say your current process is good or bad?
+
+[14:09] Big bad.
+
+[14:11] How about feedback from the customers?
+
+[14:14] So if customers say, I'm satisfied with that,
+
+[14:18] if they say I'm not satisfied with that, what will you do?
+
+[14:23] It's too late again.
+
+[14:24] Keep track of each and every step.
+
+[14:28] Keep track of each step.
+
+[14:30] Yeah, that's good approach.
+
+[14:32] But again, it is too late.
+
+[14:34] Change your focus a little bit to consider, not only consider product, but consider process view.
+
+[14:47] In the process view, yes?
+
+[14:51] Wouldn't you only be able to see it by having a history of projects?
+
+[14:54] History of a project and your computer study, history of a project and what you will do for the current process.
+
+[15:05] Yeah, so you finish one project and you use a particular process, you trouble that.
+
+[15:12] Choosing an appropriate method.
+
+[15:15] Choosing, is it identical?
+
+[15:18] Choosing an appropriate method.
+
+[15:20] We produced good quality product in history.
+
+[15:26] Okay, so we have idea, okay.
+
+[15:29] Here we choose good method.
+
+[15:31] and we choose good practice we need to produce good quality work.
+
+[15:40] We have several practices. We have many practices.
+
+[15:44] Some of them are very effective to produce good quality product.
+
+[15:48] Some of them may not be good to use.
+
+[15:53] So we can see that. So we select those several practices
+
+[15:58] And then we may consider it, adopt it into our current process.
+
+[16:05] And also we can compare our current process with those set of practices.
+
+[16:13] And then if our process matches where we conform to this set of good practices,
+
+[16:22] we may guess our process is okay.
+
+[16:27] Because if they follow those practices, they did a good job.
+
+[16:33] If you follow the same practices, we may do the similar job, right?
+
+[16:38] Okay, then we need that set of practices to adapt or to compare with our current practice.
+
+[16:47] So where can you get it? Probably some models, process improvement models published.
+
+[16:57] Or from your experience, you have it.
+
+[17:01] or you have a documentation of all good practices in your organization,
+
+[17:06] or you can check any publications, published work related to set of practices.
+
+[17:13] So one thing you can do is you may use a standardized process,
+
+[17:22] standardized by the international standardization organization, right?
+
+[17:26] Why not?
+
+[17:27] Okay, and probably you may use some other set of processing products like CMMI, something like that.
+
+[17:35] So, consult with those models and then compare those models with your current process and you can customize your process.
+
+[17:46] You may adopt some practices there or you may not adopt all of them.
+
+[17:52] you may adopt some of them you think it is very valuable to your case, to your case,
+
+[17:58] okay, or to specific project you're doing.
+
+[18:02] And then you have a higher chance to produce good quality product, okay?
+
+[18:08] So not only you need to know how to define a process, how to monitor
+
+[18:14] and control your project based on this process, but also you have to know how
+
+[18:20] how to access your current process, how to evaluate your current process.
+
+[18:26] So that's what we like to learn from this class.
+
+[18:31] So what must I do to improve it?
+
+[18:36] Okay, next issue, so we know how to define process, how to access process,
+
+[18:41] now we have a question. Still it is good.
+
+[18:45] Is there any way to improve or wait to do?
+
+[18:50] There are always, we have a chance to improve it.
+
+[18:53] It's something we can improve it.
+
+[18:55] So, we have to know how to improve it.
+
+[18:58] How to improve it?
+
+[19:01] Go team.
+
+[19:07] Have good teams.
+
+[19:09] How do you know you have a good team?
+
+[19:15] That's a good opinion, yes.
+
+[19:18] How can we know how to improve?
+
+[19:25] What kind of thing we can improve?
+
+[19:27] which point we can improve.
+
+[19:31] Time consumed.
+
+[19:33] Time consumed.
+
+[19:35] Time consumed to develop a certain part of work.
+
+[19:41] So, from here we have idea.
+
+[19:44] We can use a measurement.
+
+[19:46] We measure the time,
+
+[19:49] and then we compare this time with the previous project,
+
+[19:55] which produced a similar work,
+
+[19:58] and then see how much
+
+[20:00] we are productive or we compare with the industry standard and see how much we are doing well.
+
+[20:14] So to say this objectively, not by feeling, not by just the personal feeling, but by some
+
+[20:21] numbers, some statistical methods, some mathematical techniques to say, oh, this is objectively
+
+[20:31] When you evaluate them, this is better than the other
+
+[20:34] something like that.
+
+[20:34] So we may need a measurement and analysis to do this job.
+
+[20:41] We collect data by measuring measurement
+
+[20:44] and also we need to analyze this well.
+
+[20:49] You may collect many data and you produce some numbers
+
+[20:53] from certain equations you think are useful.
+
+[20:56] But if you just look at those numbers, how do you know?
+
+[21:00] Large number is good, small number is good, how do you know?
+
+[21:04] So we need to have a certain way to analyze this,
+
+[21:08] okay, measured data.
+
+[21:12] So by having, this is just one technique.
+
+[21:15] You can use measurement analysis can be a technique to use
+
+[21:18] to find out improvement point in your process, okay?
+
+[21:24] So all, for this part, I think I need,
+
+[21:26] I can improve this much more, something like that.
+
+[21:32] So there are many techniques you can improve your process
+
+[21:37] and some others you can use to improve process.
+
+[21:40] So in this class, we may discuss some basic ideas for those.
+
+[21:48] So where do I start?
+
+[21:51] You already started.
+
+[21:52] You took this class.
+
+[21:54] So you are sitting here, so you already started.
+
+[21:57] So first, you have to learn basic framework,
+
+[22:00] Vedic principles, Vedic theories published.
+
+[22:04] And many people already say, OK, this is a good approach.
+
+[22:09] So you'd better learn this first.
+
+[22:12] Once you learn this basics, and then you
+
+[22:14] have to really use this in your job.
+
+[22:18] So before you really apply this to your job,
+
+[22:23] because it is dangerous, if it is successful, it's good.
+
+[22:26] If it's not successful, probably you'll be fired.
+
+[22:30] So before you adopt this into your real job,
+
+[22:34] we will go through homework practice.
+
+[22:38] So we make some small toy project,
+
+[22:43] but realistic one to practice this idea there.
+
+[22:49] And then if you find out the value
+
+[22:50] to adopt this to your job, then you can use this.
+
+[22:57] So in this book, we will learn basis for this process,
+
+[23:02] definition, process, assessment, process improvement.
+
+[23:06] And those ideas basis for the many good models,
+
+[23:11] like semi-modals, and then also ISO models, again.
+
+[23:17] And then once we learn it,
+
+[23:19] and then probably we look at those good models
+
+[23:24] and practice them in the homework.
+
+[23:26] So you learn principles from the lecture
+
+[23:30] and you will practice these principles
+
+[23:32] to the real problem through homework.
+
+[23:36] That's what we will do, okay?
+
+[23:40] So even though this is small problem to solve,
+
+[23:43] small project to practice,
+
+[23:45] but I like to make it realistic, okay?
+
+[23:49] So do the homework seriously and professionally
+
+[23:53] to practice your useful principles to your work.
+
+[23:59] So if you are working in the organization right now,
+
+[24:02] from this class you may understand
+
+[24:04] why your boss asked you something.
+
+[24:07] Okay, so far, right there, okay.
+
+[24:10] And you become more familiar with many activities
+
+[24:13] done in your organization,
+
+[24:15] even though you produced something
+
+[24:17] and it was produced to do something,
+
+[24:20] you know, partially for certain activity in your organization.
+
+[24:24] You didn't know the reason, you just did it because you both asked you.
+
+[24:28] But from this class, many students are saying after class,
+
+[24:33] oh, now I understand why my organization asked me to do certain things.
+
+[24:38] Okay, so you can see the view.
+
+[24:40] You can have a view, a global view of the organization and
+
+[24:46] project management and process.
+
+[24:49] And also, you may get idea how to become a good project manager
+
+[24:56] by knowing this.
+
+[24:58] So once you move up, and then you become a project manager,
+
+[25:04] middle manager, high manager, and then
+
+[25:07] you should be competitive by knowing
+
+[25:11] good techniques, good principles, and good practices
+
+[25:15] to apply to manage your project better than other people.
+
+[25:21] So that's why you are here, and you
+
+[25:24] will learn these techniques from this class.
+
+[25:29] So by looking at that, you may learn
+
+[25:32] a lot of the basic concepts used in the processing
+
+[25:36] promote model, and like the CMM model, for example,
+
+[25:39] the CMM model originally was born to access the providers.
+
+[25:46] Okay, so if you do the job very big project and it cannot be doable by alone, by yourself,
+
+[25:55] and then you need helpers, okay, so you need some providers of each component.
+
+[26:02] First of all, for your system, you have a hardware component, software component.
+
+[26:07] So you need to have some expert in hardware, expert in software.
+
+[26:12] And in software, sometimes you need many providers for certain part of the components of this
+
+[26:18] entire software.
+
+[26:21] You may have all people in your organization if your company is very big and they are free.
+
+[26:28] They don't do anything right now.
+
+[26:29] Then you can ask them help.
+
+[26:31] But most of them have their work, existing project, okay, they are doing existing project.
+
+[26:38] It's very hard to get them always.
+
+[26:42] And if you hire too many people for this project, and the next year for the next project, you
+
+[26:49] have a fund cut, budget cut, and you cannot feed all these people, engineers in your organization.
+
+[26:58] What do you do?
+
+[26:59] You lay off all paper, okay?
+
+[27:04] It's very hard, right, it's hard to get laid up, okay, then hiring, right?
+
+[27:11] So you cannot hire and lay up in this way or ways.
+
+[27:17] So what can you do?
+
+[27:18] If you cannot do it, probably you may ask somebody else outside of your organization
+
+[27:24] help you.
+
+[27:27] But how do you know?
+
+[27:28] How do you know your helpers are good quality?
+
+[27:34] It's not easy, right?
+
+[27:35] So if you know him well, okay, I give a project to you and build a compliment for me.
+
+[27:41] Okay, that's one way to do or it may work
+
+[27:46] But sometimes you don't know in that area people in that area and it is not objective way to do
+
+[27:54] Right if somebody else can do better
+
+[27:57] But just to give him because of a cadence
+
+[28:02] On only and then it's not good approach to do right
+
+[28:05] So we should have a certain way to
+
+[28:10] assess
+
+[28:11] the capability and the maturity of organizations who like to supply the product to you.
+
+[28:20] So DOD asks to have a certain model to access organizations to give a job to them
+
+[28:33] and they decide, okay, you should have a certain level to get this job
+
+[28:39] to become a supplier for this, okay?
+
+[28:45] Then they know how much they have to,
+
+[28:48] in which level they have to produce the work,
+
+[28:50] and in which way they have to work, they know,
+
+[28:52] based on this assessment and improvement of the model,
+
+[28:55] they can know it, okay?
+
+[28:57] So it has a good impact on this,
+
+[28:59] so they define a model like a CMM model,
+
+[29:04] a soft capability, maturity model there,
+
+[29:07] to say, if you do this, this, this,
+
+[29:09] and then you are level one.
+
+[29:11] If you do this, this, this additionally,
+
+[29:12] then you are level two.
+
+[29:15] If you do this, this, this, more than this,
+
+[29:17] and then you will at level three,
+
+[29:20] at level three, something like that.
+
+[29:21] So they know how to access organizations
+
+[29:27] to access their quality.
+
+[29:29] So this task consists of five parts.
+
+[29:32] Actually, it talks about those level over maturity.
+
+[29:37] So in the first part, we will talk about the general idea of social maturity and if you
+
+[29:46] would like to go up to the next higher level of maturity, what we have to do.
+
+[29:52] That's what we like to discuss first.
+
+[29:54] And then, in the next part, part two, we like to say,
+
+[29:59] if you would like to-
+
+[30:00] go up to next level, like level two, what kind of thing we do? More specifically, by
+
+[30:06] talking about the specific set of practices, by talking about the specific process areas,
+
+[30:14] then we will let you know what you have to consider first to go up to the next level.
+
+[30:22] We may not discuss all types of process areas, but we may talk about more important processes,
+
+[30:29] The more basic process areas you need to consider immediately right now.
+
+[30:33] With having them, you may have improvement.
+
+[30:36] Without having them, you cannot do anything.
+
+[30:39] It's just like without having them, it's like many storage buildings on the set.
+
+[30:45] So you should have a good soil from Earth before we build houses.
+
+[30:51] So in each part, we will talk about what kind of process areas
+
+[30:57] areas and the practices you have to consider to go up to the next high level.
+
+[31:03] So in part one we talk about the general idea of process maturity, part two we will talk
+
+[31:09] about what kind of thing you have to consider to become the repeatable process, part three
+
+[31:16] we will talk about what kind of thing you have to consider to become to make your process
+
+[31:20] as define the process.
+
+[31:23] And the part four, we will talk about the managed process.
+
+[31:26] And the part five, we will talk about the kind of thing
+
+[31:29] you have to consider to bring your process
+
+[31:32] to the optimizing process.
+
+[31:37] So that's what I've talked so far.
+
+[31:43] And then, next slide talks about what is process.
+
+[31:47] We already discussed about the process in the beginning.
+
+[31:51] And this is the definition of that.
+
+[31:52] The process is the set of tools, methods, and the practices
+
+[31:57] we use to produce or software product.
+
+[32:01] And this should include what we produce, who produce,
+
+[32:08] when produce.
+
+[32:11] So we have to talk about what, and who, and when.
+
+[32:16] And we talk about the practice, practice, good practice,
+
+[32:18] adapt to good practice.
+
+[32:19] What is a practice?
+
+[32:21] A practice is a broad array of concepts, principles,
+
+[32:26] methods, and tools you consider as software is planned
+
+[32:32] and developed.
+
+[32:33] So it is defined in a basic foundation of software
+
+[32:38] engineering text book, pressman's book, like that.
+
+[32:43] And I talk about the product product.
+
+[32:45] What is product?
+
+[32:47] Product, work product.
+
+[32:49] Work product is anything you produce
+
+[32:53] from each activity you define in your process.
+
+[32:57] It could be code, simply, or it could be,
+
+[33:00] and it could be just written document.
+
+[33:04] Analysis specification, design specification,
+
+[33:08] or design model, or diagram, whatever you produce.
+
+[33:13] From each activity defined in your process,
+
+[33:15] it is a work product, and the work product
+
+[33:18] sometimes called artifact in some books okay artifact you put this artifact so
+
+[33:27] in this book we will talk it as a work product okay and then when do we say
+
+[33:35] your your process is truly effective okay if your process is predictable then
+
+[33:46] and we say your process is an effective process, okay?
+
+[33:51] Repeatable, repeatable means I already told this,
+
+[33:55] you produce, repeatedly you produce at least the same
+
+[34:01] or higher quality product, regardless your members,
+
+[34:06] regardless of any specific environment you have.
+
+[34:10] You always repeatedly produce same or better quality product.
+
+[34:15] then it is repeated process.
+
+[34:20] The reality of people, what it means,
+
+[34:23] even though some of your engineers are moving
+
+[34:27] to another department or to another organization,
+
+[34:31] still your organization is working well.
+
+[34:35] And your organization repeatedly produce
+
+[34:39] same quality product.
+
+[34:42] It is repeated process.
+
+[34:45] If somebody in your team moves to another team
+
+[34:50] and then suddenly your team is collapsed,
+
+[34:53] you cannot produce same quality product.
+
+[34:56] It is not a repeatable process.
+
+[34:57] Your process is not repeatable, okay?
+
+[35:01] You don't have a repeatable process.
+
+[35:03] That's what it happened.
+
+[35:05] That's what it happened.
+
+[35:07] If you have a repeated process,
+
+[35:10] then even though something happened in your organization still,
+
+[35:13] you have a capability to produce good quality product
+
+[35:20] by following your process.
+
+[35:22] If you just follow your process,
+
+[35:24] you will produce good product.
+
+[35:27] Anybody, if anybody follow your process,
+
+[35:31] they will produce same product.
+
+[35:35] Ideally, in principle, realistically may not work sometimes
+
+[35:42] because different engineers have different skills,
+
+[35:45] So we cannot guarantee that, but ideally, process dominates,
+
+[35:54] or not a specific person or a specific way
+
+[35:58] to do in your organization, dominate your quality work.
+
+[36:05] And if cost, estimate, and schedule commitment
+
+[36:09] meet the reasonable consistency and the resulting products
+
+[36:14] generally meet the user's functional and quality expectations,
+
+[36:17] then we say your process is effective, okay?
+
+[36:23] So eventually, what do we have to do?
+
+[36:27] We have to produce good quality product
+
+[36:29] and it meets functional and quality requirements.
+
+[36:37] Now we talk about the functional and the quality requirements.
+
+[36:39] What is the functional requirements
+
+[36:40] and what is the quality requirements?
+
+[36:42] How they are different?
+
+[36:44] So if I say something A,
+
+[36:46] and then is A functional requirement
+
+[36:48] or quality requirements.
+
+[36:50] We have to know that, right?
+
+[36:52] And all of them are requirements, actually.
+
+[36:54] So you have to fulfill all of them.
+
+[36:57] But sometimes you may not fulfill all of them, mostly.
+
+[37:01] You may not fulfill all of them.
+
+[37:02] Why?
+
+[37:03] They recast.
+
+[37:05] Why?
+
+[37:06] Because of money, time.
+
+[37:10] If you ask many things, even though you're
+
+[37:13] capable to produce it, it takes time.
+
+[37:17] It takes cost.
+
+[37:20] So they are giving you only $100 and asking you to work more than $100.
+
+[37:26] You cannot survive in the market, right?
+
+[37:31] So you cannot do it.
+
+[37:34] So you have to know which one is more important.
+
+[37:36] And how do you know which one is more important?
+
+[37:39] By feeling, again, you have something here, okay, to judge which one is more important.
+
+[37:49] Okay, go back to the topic, original topic.
+
+[37:52] What is the functional requirements and the quality requirements?
+
+[37:55] First, what is the functional requirements then?
+
+[37:58] It says we need to meet users, customers, functional requirements.
+
+[38:07] What is the functional requirements?
+
+[38:10] Some function you recast.
+
+[38:16] Defines all the product should function.
+
+[38:18] All the product should.
+
+[38:20] Should exhibit.
+
+[38:22] All the product should.
+
+[38:25] Product can exhibit both functional and non-functional requirements.
+
+[38:29] So what is the function?
+
+[38:31] Behavior.
+
+[38:32] behavior of a system, behavior of a system,
+
+[38:36] some part of a behavior can be categorized
+
+[38:38] by non-functionary cameras too.
+
+[38:44] Function is a kind of a certain service
+
+[38:46] you're expecting from the system.
+
+[38:50] Whenever, okay, for example, we use this,
+
+[38:53] the PowerPoint software and we are building
+
+[38:56] a software like PowerPoint.
+
+[38:58] And what is a function?
+
+[39:01] For example, an open or file could be a function.
+
+[39:07] right? Open of file. Save of file is a function. It is a kind of function. Print
+
+[39:16] function. Yes, print is a function for this case. It will print but printing will
+
+[39:29] take one hour to print one page and it is due to this software not the other
+
+[39:40] part of a system. Functionally, it is fine, right? It will preach, but it will take
+
+[39:49] too much time than we expect. That part of a property speed is non-functionally
+
+[39:58] current.
+
+[40:00] Can you see the difference between functional and non-functional requirements?
+
+[40:06] When you develop a web software, web page, or web service, and you click a link and it
+
+[40:18] will show up on other page, functionally it is fine.
+
+[40:25] But when it show up next page, it will take one hour.
+
+[40:31] Do you expect your customers will use the software anymore?
+
+[40:37] They will not visit this software anymore, right?
+
+[40:41] So it's a non-functional quality is very bad.
+
+[40:46] So that kind of quality issues are
+
+[40:48] included in the non-functional requirements.
+
+[40:52] And all the basic services you are doing,
+
+[40:56] you are expecting from the system is functional requirements.
+
+[40:59] So you may have a functional requirements
+
+[41:01] and non-functional requirements.
+
+[41:02] If functionally it has thousands of functions
+
+[41:06] they are expecting to implement,
+
+[41:09] again, it is fine to do, but it takes time,
+
+[41:12] time, cost, resources, okay?
+
+[41:15] So you have to negotiate with your customers.
+
+[41:18] Do you really need this?
+
+[41:19] Because it takes more time, it takes more money.
+
+[41:23] Will you pay for that?
+
+[41:24] If you pay for that, I'm fine.
+
+[41:26] Because I can feed my employers for more years.
+
+[41:31] So I like it.
+
+[41:33] But probably after three, four years,
+
+[41:36] this idea will not be valid anymore.
+
+[41:40] It will be obsolete in this computer science area.
+
+[41:44] If it goes five, 10 years, probably new technology comes.
+
+[41:48] So this technique will be obsolete.
+
+[41:51] So nobody will buy your software then.
+
+[41:55] So then rather than doing that,
+
+[41:57] probably they start with only 10 functions
+
+[42:00] and then enhance more capabilities,
+
+[42:03] functionalities next time,
+
+[42:04] in the next version, next release,
+
+[42:07] and get a market first.
+
+[42:10] That's better, okay, sometimes.
+
+[42:13] Most of times, I think.
+
+[42:15] So you have to consider that.
+
+[42:17] And also non-functional requirements too, like quality.
+
+[42:22] Then, okay, I like to have a fast response.
+
+[42:25] how much faster response you're expecting.
+
+[42:29] If they just say fast, it's very, very, how do you know?
+
+[42:33] What is fast means here, okay?
+
+[42:36] Sometimes one second is very fast in some cases,
+
+[42:39] but sometimes it's very slow,
+
+[42:41] so we cannot say just fast.
+
+[42:44] So you have to specify exactly with certain numbers
+
+[42:48] to measure, okay?
+
+[42:49] I like to show this page within one second.
+
+[42:54] One second, this is much clearer, okay.
+
+[42:59] And then, yeah, I can do it, that's fine.
+
+[43:01] And then in that case, probably we need a more larger server
+
+[43:04] or larger memory to handle this.
+
+[43:08] Can you afford this?
+
+[43:09] Yes, and then you can do it.
+
+[43:11] But if it takes a cost, probably you cannot do it.
+
+[43:14] You cannot provide that service.
+
+[43:15] Probably it may take two seconds rather than one second.
+
+[43:20] And then you have a negotiation here.
+
+[43:22] Is it okay to have two seconds rather than one second?
+
+[43:26] For this service, is it endurable by customer?
+
+[43:30] If the customer say okay, then you can do it.
+
+[43:35] And also customer and users can be different, right?
+
+[43:39] Your customer may say two second is okay,
+
+[43:41] but the users of the product,
+
+[43:45] the customer will get product from you
+
+[43:48] and sell this to users.
+
+[43:51] And the users say, oh, two seconds is too long.
+
+[43:55] We cannot wait two seconds.
+
+[43:56] And then it's bad.
+
+[44:00] So we have to get all the input from the customers, users,
+
+[44:05] and the market, some standards, and the conventional way
+
+[44:08] to do.
+
+[44:09] We collect all these informations,
+
+[44:11] and then we have to decide which way you go.
+
+[44:14] Do we go with one second with more money
+
+[44:17] to have a larger memory or to have a faster hardware
+
+[44:23] or whatever.
+
+[44:24] Or we have less money with less money
+
+[44:27] and we just go by two seconds.
+
+[44:30] So we have a trace here.
+
+[44:33] Not only you may have an issue with only speed,
+
+[44:36] but also you may have other issues, okay?
+
+[44:41] What about the scalability?
+
+[44:43] You consider I may have 10,000 people maximum.
+
+[44:48] But what happened?
+
+[44:49] your business is very good and the next year you have millions, millions, millions of people
+
+[44:55] and then your service is done.
+
+[44:59] And then at that time you would like to serve more people than your system may just say
+
+[45:05] oh we cannot do it because of the inherent problem of software.
+
+[45:09] Software cannot allow scalability.
+
+[45:13] Then you have to consider scalability from the beginning before you produce this product.
+
+[45:19] the design time, you have to consider that, right?
+
+[45:22] What about the modifiability?
+
+[45:25] Now we like to build an application for the Android,
+
+[45:29] but next time we have Jetroid technology,
+
+[45:33] and we like to support that.
+
+[45:36] And then can you modify the software
+
+[45:38] to adapt into this new hardware?
+
+[45:42] Sometimes yes, sometimes not.
+
+[45:45] Depending on your design currently
+
+[45:46] you are adopting right now.
+
+[45:49] If you consider modifiability into operatorability
+
+[45:55] with other systems from the beginning,
+
+[45:59] and then your software architecture
+
+[46:01] may easily allow that adoption.
+
+[46:04] If your system was not designed by considering that
+
+[46:10] from the beginning, probably it made more time
+
+[46:13] or it made more resource to change the code
+
+[46:17] to adapt into the new hardware or to accept
+
+[46:21] new technology. We may use a different protocol rather than HTTP in five years and we have
+
+[46:28] to support the different protocols and we find out all our, we should code many places
+
+[46:34] to adapt this technology. Or then it may be better to build a new software rather than
+
+[46:41] changing it. Because sometimes and most times changing code creates more errors than building
+
+[46:48] a new code, okay, they have a higher chance.
+
+[46:52] So you have to consider that.
+
+[46:55] And then, okay, then I will consider speed,
+
+[46:59] I will consider performance, I will consider availability,
+
+[47:03] I will consider modifiability, I will consider scalability.
+
+[47:06] What about the security, security is also important.
+
+[47:08] Okay, I'll consider security.
+
+[47:10] While too many things I have to consider,
+
+[47:13] it takes resource, time, money, engineers to the,
+
+[47:18] Again, cost will be high, and then your final product cost will be high too, and the customer
+
+[47:27] will not buy it.
+
+[47:29] Your users will not pay for that much money.
+
+[47:33] Then you cannot make it successful.
+
+[47:39] So then you have to decide which one is better at this time.
+
+[47:44] You have to prioritize them.
+
+[47:47] I like to go buy security first.
+
+[47:50] I like to go by speed first, depending on the product.
+
+[47:57] OK, so even though it says very simple thing, OK,
+
+[48:00] you need to meet the functional and quality
+
+[48:03] expectations of customers, there are many things
+
+[48:06] actually to consider here.
+
+[48:09] So once you learn software engineering technologies
+
+[48:11] in many different practices, and then you
+
+[48:15] are knowledgeable with this.
+
+[48:17] And then whenever you have a chance to read your project,
+
+[48:22] and then you can easily find out what I have to consider
+
+[48:25] in my project plan, what I have to consider
+
+[48:28] in my project monitoring and control, okay?
+
+[48:31] But without knowing the basic background principles here,
+
+[48:35] you have nothing to start with.
+
+[48:40] Okay, fortunately I become project manager.
+
+[48:44] How can I manage my project?
+
+[48:46] How can I manage people?
+
+[48:47] What I have to do?
+
+[48:49] Just have lunch every day, get familiar with them,
+
+[48:54] Make them happy.
+
+[48:56] That's a good approach, too.
+
+[48:59] I met some project leaders, actually,
+
+[49:02] who do not know about your technology.
+
+[49:05] When I talk, we can easily catch, right?
+
+[49:08] But still, they manage well their people.
+
+[49:12] They have some talents in somehow, in some way.
+
+[49:16] So yeah, as long as you have it, that's good.
+
+[49:18] You have many ways to control your people
+
+[49:21] and manage your project and produce good quality product.
+
+[49:25] But if you don't have any kind of inherent talent,
+
+[49:31] you better learn good principles and practice it
+
+[49:36] and apply it to your project.
+
+[49:40] An objective of software process management
+
+[49:44] are to produce product quality plan
+
+[49:47] while simultaneously improving organizations
+
+[49:49] capability to product better.
+
+[49:51] That's what we talk about.
+
+[49:56] And this slide talks about the statistical process culture.
+
+[50:00] How can he make our process capable and mature,
+
+[50:04] and also repeatable by following the good practices,
+
+[50:11] instead of good practice?
+
+[50:13] That's why we talk so far.
+
+[50:15] Okay, if you just follow it,
+
+[50:17] do you know you produce the good quality product
+
+[50:21] as you did last time?
+
+[50:23] How do you know?
+
+[50:26] You need to measure, collect data,
+
+[50:30] and analyze this data, okay,
+
+[50:33] performing some statistical analysis,
+
+[50:37] and then find out whether you are in good shape or not.
+
+[50:41] Okay, so is it good to have your measured
+
+[50:46] and analyzed data in your desk every morning
+
+[50:52] and see what's going on yesterday?
+
+[50:57] And then it is better than nothing, right?
+
+[51:01] If you look at that, you may get an idea yesterday or last week, last month, what we did, what
+
+[51:08] my engineers did, what is the quality of current product, current or phase of product, what
+
+[51:16] is the productivity, what is error rate, defect rate.
+
+[51:21] You can compare this defect rate with the historical data.
+
+[51:26] And if defect rate is very low then comparing with the defect you found is very low, number
+
+[51:33] of defects are very low, comparing with similar product project you did last time, is it good?
+
+[51:41] Yes or no?
+
+[51:43] One of the escape answer, the two escape in software engineering is it depends.
+
+[51:51] So you usually answer using this escape statement, it depends.
+
+[52:01] So if the number of defects you found from yesterday's review is very low, then the number
+
+[52:08] of defects you found from the last project, which are very similar, is it good?
+
+[52:14] It depends, yes or no?
+
+[52:17] The number is decreased because you have better engineers right now to produce good
+
+[52:23] quality product. That's why they didn't make erroneous work. That's one possibility, but
+
+[52:29] if you look at this in other side, what happened? Probably your reviewers did not catch all
+
+[52:36] errors. You must have that much error, but unfortunately your reviewers did not just
+
+[52:45] catch it by mistake or by neglect, whatever. And then you have to also investigate what
+
+[52:53] happen. Okay, so you may have many scenarios here. Okay, probably you have
+
+[52:59] one scenario I have a better quality engineers this year. Second scenario
+
+[53:04] probably reviewers didn't do job well. Okay, this is a sample, examples. So you may
+
+[53:12] have one, two, three, four, five scenarios you can imagine. And then what do you do?
+
+[53:21] As I say, I think this is true.
+
+[53:24] If you have a good institution, inherently talented from the beginning, from when you
+
+[53:31] was born, that's good.
+
+[53:32] But most of people cannot do it, right?
+
+[53:36] Cannot make a good decision.
+
+[53:38] So by reading this data and having some statistical analysis, they're probably performing some
+
+[53:47] from statistical testing, regression testing, or whatever,
+
+[53:52] or T test, F test, depending on the different issues.
+
+[53:57] And then you may find, oh, this region could be true
+
+[54:02] with 95% of probability.
+
+[54:07] Still you have a 5%, you can make a mistake.
+
+[54:11] But you have a high probability to say,
+
+[54:13] oh, this scenario is true, so your engineer is good.
+
+[54:17] say that you have to perform some analysis with other type of data to to
+
+[54:23] say to find any is there any evidence you can really prove the current engineers
+
+[54:31] are better than the old engineers then probably that guess could be true still
+
+[54:38] it cannot be true with 5% right okay but it could be true something like that so
+
+[54:45] So by performing this measurement analysis and then you can have a higher chance to make
+
+[54:54] objective decision, not the subjective decision.
+
+[54:58] Okay, so if you are adopting this static process control, then probably you can make your process
+
+[55:06] repeatable and a higher retreat.
+
+[55:10] That's what it does.
+
+[55:12] So there are many factors to consider in measuring the process, and the number must appropriately
+
+[55:17] present the process being controlled.
+
+[55:19] What kind of data you have to collect?
+
+[55:21] There are many datas you can collect.
+
+[55:23] If you collect data and then you, many datas, probably you will spend your time to collect
+
+[55:28] data rather than building software, right?
+
+[55:35] So it could be helpful, but eventually you will fail the project because it took too
+
+[55:40] Too much money, too much time, too much engineers to complete.
+
+[55:45] So you have to decide.
+
+[55:47] And also, what kind of data you have to collect, you have to clearly define it.
+
+[55:54] And every members who are involved in this measurement analysis should know how it is
+
+[55:59] used.
+
+[56:00] And also they may need the training too.
+
+[56:04] And you need to adopt some automated tools to do.
+
+[56:09] Because if, even though you actively collect all the necessary data, but if you mistype,
+
+[56:17] you just put one more zero here.
+
+[56:19] So it makes 100 to 1000, and then it will be sometimes digested, right?
+
+[56:27] So you can easily make a mistake, because we are human, you can make an easily mistake,
+
+[56:31] even though we don't intend to do it, but you can make a mistake.
+
+[56:36] So not only you have to define the necessary data you collect and how can you use this
+
+[56:41] data, but also you have to collect this data and input this data very carefully.
+
+[56:48] And also not only you just ask, please, please be careful to key in the data, but also you
+
+[56:56] have to provide a good resource like software hardware to collect the data properly without
+
+[57:02] errors.
+
+[57:05] And also, you have to say this measurement is used to improve our organizational process,
+
+[57:14] not decide to raise your salary.
+
+[57:20] This should be clear.
+
+[57:23] If you use this type of data to judge a certain person, certain engineer personally, you will
+
+[57:32] get easily wrong data.
+
+[57:37] Okay, erroneous input or wrong input, false input, okay?
+
+[57:46] Then it is useless.
+
+[57:48] You spend a lot of time to educate people,
+
+[57:51] to train people, provide the tools,
+
+[57:54] methods to do this job and spend the time to do this.
+
+[57:59] And you get the wrong reject eventually.
+
+[58:02] Everything's useless here.
+
+[58:05] You cannot get any benefit from this.
+
+[58:08] So people should know, oh, this is good for the organizational level.
+
+[58:12] This will not be used personally.
+
+[58:15] This should be very clear.
+
+[58:17] Not only you say that if you're a higher manager,
+
+[58:21] you have to make a subtle way to do this job.
+
+[58:26] So only people who are qualified to see it
+
+[58:32] should be able to see it.
+
+[58:34] Other people should not access some part of data,
+
+[58:38] not to misuse data.
+
+[58:43] OK, so improvement of software development organizations
+
+[58:46] follows six steps.
+
+[58:49] First, what it talks about first without looking at that?
+
+[58:54] It talks about how to improve a process.
+
+[58:58] So you like to build your process.
+
+[59:01] You have a process already, and you like to access process.
+
+[59:04] And you have a process definition,
+
+[59:06] you access the process, and you
+
+[59:08] like to know how to improve process.
+
+[59:12] You have a question how to do this job,
+
+[59:14] how to define or assess and improve process.
+
+[59:17] What is a systematic way to do this job?
+
+[59:21] This tells you certain steps to go through
+
+[59:24] to improve your process.
+
+[59:26] First, understand the current status
+
+[59:27] of the development process.
+
+[59:30] Even though you did not define or process,
+
+[59:33] probably you are performing work based on certain process,
+
+[59:38] conventional process, your people have been done,
+
+[59:42] have been doing, okay?
+
+[59:44] So you have to find out that.
+
+[59:46] So you have to define process, okay,
+
+[59:49] and describe process in an appropriate manner,
+
+[59:52] and then you are evaluating your process.
+
+[59:57] How can you evaluate your process?
+
+[1:00:00] computing a certain set of good practices
+
+[1:00:03] like standard models, okay?
+
+[1:00:07] IS models or CMI models, something like that.
+
+[1:00:10] So those, you can compare your current process
+
+[1:00:13] to see whether you do those good practices
+
+[1:00:17] in your organization or not, okay?
+
+[1:00:21] And then you can diagnose your current process.
+
+[1:00:25] Which one is good, which one is in short?
+
+[1:00:27] You know that, right?
+
+[1:00:30] and then develop a vision of the design process.
+
+[1:00:32] And then what kind of a process I like to have then.
+
+[1:00:37] And then you have a current process,
+
+[1:00:40] you have a desired process, you can compare them,
+
+[1:00:44] and then you see the gap here, right?
+
+[1:00:46] You see the gaps between this.
+
+[1:00:49] So to make your current process
+
+[1:00:52] to desired process level,
+
+[1:00:55] you have to fill in some gaps here to move.
+
+[1:00:59] That's what you have to find.
+
+[1:01:01] Based on that, you have to publish a list of record process
+
+[1:01:05] improvement actions, make some action plan, okay?
+
+[1:01:09] What kind of thing you have to do
+
+[1:01:11] to improve your process, okay?
+
+[1:01:14] And then produce plan to accomplish the record actions
+
+[1:01:17] and then provide the resource to do it, okay?
+
+[1:01:21] And then perform it, execute the plan.
+
+[1:01:25] And then this could be done iteratively.
+
+[1:01:30] even though you did all of them
+
+[1:01:32] and you go up to the next level at this time,
+
+[1:01:36] but if you don't reinforce this activity again
+
+[1:01:40] and again continuously,
+
+[1:01:42] you can easily go back to all the process level
+
+[1:01:49] because it is a nature, okay?
+
+[1:01:53] Nature goes in that way.
+
+[1:01:57] So if you like to keep your current process
+
+[1:02:00] and if you like to improve the process
+
+[1:02:02] And even though you are thinking,
+
+[1:02:04] I'm now at the highest level, okay, defined here,
+
+[1:02:09] but still you have to reinforce this again, again, again
+
+[1:02:13] to keep it.
+
+[1:02:15] Next topic is about the process of maturity levels.
+
+[1:02:19] This will suggest five maturity levels.
+
+[1:02:22] We consider initial, repeatable, defined,
+
+[1:02:26] managed, optimizing, okay?
+
+[1:02:27] So we have a initial level just in the chaos state
+
+[1:02:32] And the way that we have some basic control management
+
+[1:02:35] mechanism, then you may go up to the next process
+
+[1:02:39] maturity level, repeatable level.
+
+[1:02:41] And then if you have some way to define your standard
+
+[1:02:46] procedures, and then probably, and then you have a way to
+
+[1:02:51] customize it, tailor it to adapt into a new project, and
+
+[1:02:55] then probably you go up to the next level, like define the
+
+[1:02:58] And then if you use a quantitative approach to manage your project, and then you may go up to the next level for a managed level,
+
+[1:03:07] it is called a computatively managed level in another model like CMMI.
+
+[1:03:13] And then the highest level is optimizing.
+
+[1:03:16] So, CMM adopts this concept, and then they use the levels as their maturity levels.
+
+[1:03:24] So, CMM has initial repeatable defined managed optimizing level, and then later model, CMM
+
+[1:03:33] might change their levels slightly, like they have same initial level in the level one.
+
+[1:03:41] In the level two, they change the name from repeatable to the managed.
+
+[1:03:46] And then accordingly, they change this managed to the computatively managed, and others are
+
+[1:03:52] same.
+
+[1:03:53] Okay.
+
+[1:03:55] So in the initial level, probably most organizations are starting from this initial level, and
+
+[1:04:03] then in this level, probably you don't have any good idea how to manage the project.
+
+[1:04:08] You're doing the project, but sometimes it's good, sometimes bad, depending on your engineers
+
+[1:04:15] you have or currently have.
+
+[1:04:18] So it is not repeatable, sometimes very good, sometimes not.
+
+[1:04:21] It's not guaranteed.
+
+[1:04:22] Whenever you go up to the next level, then you are expected to have a certain way to
+
+[1:04:28] estimate your project and plan your project and oversight your project, okay, like that.
+
+[1:04:36] And then you can go to the next level, then probably you can expect probably your process
+
+[1:04:42] is repeatable, probably you can repeatedly produce a certain quality of product.
+
+[1:04:49] The defined level organization is expected to define
+
+[1:04:53] their standardized procedures and guidelines
+
+[1:04:58] and the methods and tools they are using, okay?
+
+[1:05:02] And then, next level, they performing some measurement
+
+[1:05:06] analysis to use in project monitoring control.
+
+[1:05:09] It does not mean you don't do anything
+
+[1:05:12] about the measurement analysis in the low levels.
+
+[1:05:15] Still, you can use this measurement analysis
+
+[1:05:18] in the level one and level two organizations,
+
+[1:05:20] level three organizations,
+
+[1:05:22] but many of you like to say,
+
+[1:05:24] okay, we are at the level four at least,
+
+[1:05:26] and then you should do this, okay?
+
+[1:05:30] Doesn't cover all process areas,
+
+[1:05:32] but some process areas,
+
+[1:05:33] you should perform some measurement analysis, okay?
+
+[1:05:37] To show counter-tatively, you can manage it, okay?
+
+[1:05:41] So you can manage your project more objectively.
+
+[1:05:45] In the optimizing level,
+
+[1:05:47] the highest level, you're expected to have everything we discussed so far.
+
+[1:05:52] In addition to that, you are capable to know what is good,
+
+[1:05:57] what is bad in your process, and how to fix the problem in your process.
+
+[1:06:04] So they decided about tree-treading this way,
+
+[1:06:07] because those tree-treading shows some kind of historical phases
+
+[1:06:11] of evolutionary improvement.
+
+[1:06:14] So you may go by and group of process areas
+
+[1:06:19] by group of process areas,
+
+[1:06:21] whenever you go up to the next level to consider, okay?
+
+[1:06:26] And it presents a measure of improvement.
+
+[1:06:31] How do I know at which level you are at?
+
+[1:06:33] We may be on level two, we may be level three,
+
+[1:06:37] how can you judge, how can you access the kind of levels?
+
+[1:06:41] So based on the information we discussed
+
+[1:06:43] in this maturity level, whenever you have characteristics
+
+[1:06:47] that exhibit the characteristics we
+
+[1:06:50] record for a certain level, then we say,
+
+[1:06:53] oh, you're at that level right now.
+
+[1:06:57] And also, this maturity level suggests
+
+[1:06:59] your interim improvement goals and the progress measures.
+
+[1:07:02] You may not go up to the highest level at once
+
+[1:07:05] without having good foundations in your organizations.
+
+[1:07:09] So this maturity level suggests you in which way,
+
+[1:07:13] step-by-step you can go up to the high maturity level, okay? And it suggests a set of immediate
+
+[1:07:22] improvement priorities. You have tons of process areas you need to consider in your organization.
+
+[1:07:30] You cannot consider all of them at once because of resource, because of time, because of money,
+
+[1:07:37] of your human resources, it's hard to resolve all the issues, solve all the problems to
+
+[1:07:44] enhance everything in your organization.
+
+[1:07:46] So you should think which one is first to consider.
+
+[1:07:51] So this maturity level suggests you what kind of thing you have to consider.
+
+[1:07:55] So we will learn about the process areas and the characteristics of this in chapter by
+
+[1:08:01] chapter later.
+
+[1:08:03] So you can learn what kind of thing you have to consider in each level of maturity.
+
+[1:08:09] So next slide summarizes characteristics of a particular maturity level and also they
+
+[1:08:15] suggest what kind of things immediately you have to consider if you like to go up to the
+
+[1:08:22] immediate next level.
+
+[1:08:25] So what is the first level?
+
+[1:08:27] level is initial level and the typical characteristic of this initial level organization is chaotic.
+
+[1:08:38] Which means we cannot effectively characterize that organization in a certain way.
+
+[1:08:46] It looks like sometimes they are good, sometimes not good.
+
+[1:08:51] It's very hard to judge at once.
+
+[1:08:55] And with the last project, they didn't make any problem.
+
+[1:08:59] They made all the requirements and the milestones, and they produced a certain quality of product
+
+[1:09:06] which is satisfied.
+
+[1:09:09] But in this project, current project, they don't look like good, something like this.
+
+[1:09:16] In this type of organization, the management have some experience, may have experience,
+
+[1:09:23] They have some knowledge in project management, but it's not well organized and it is not
+
+[1:09:31] exposed to in the project well.
+
+[1:09:35] So one thing you can find out, one way you can find out whether your organization, your
+
+[1:09:41] current organization, your country working right now to access your organization, you
+
+[1:09:46] may ask this question.
+
+[1:09:48] What happens if somebody in your organization who is a very good engineer right now, leave
+
+[1:09:54] tomorrow?
+
+[1:09:55] What will happen?
+
+[1:10:00] your lead project leaves your project or your organization tomorrow, immediately.
+
+[1:10:08] What will happen? Can you continuously do the work without having them?
+
+[1:10:13] Can you continuously produce good quality work you produced as you did so far?
+
+[1:10:20] If you answer it is yes, then probably you're safe.
+
+[1:10:24] If you can say no, probably you are in the level one right now.
+
+[1:10:29] Why not? That's what happened, yes.
+
+[1:10:31] My company is kind of like that.
+
+[1:10:33] So we're a small company, so we don't actually have a management thing.
+
+[1:10:36] Right.
+
+[1:10:37] One of the developers that was working on a particular feature was gone.
+
+[1:10:41] That moment pretty much stopped momentarily.
+
+[1:10:44] Stopped.
+
+[1:10:45] We hired someone else to get to fill in his role,
+
+[1:10:47] because everyone else had their own work.
+
+[1:10:49] They had their work.
+
+[1:10:50] We couldn't just give it to them and tell them just to do more.
+
+[1:10:53] And then if you engineer...
+
+[1:10:55] And learn what he did or didn't do to be able to do it.
+
+[1:10:57] If he is good to do this work, well, probably it's good, but sometimes mostly it is not.
+
+[1:11:05] The projects are different, and you may use different technology and the skills and the
+
+[1:11:10] tools, so probably he needs to learn something.
+
+[1:11:13] And also if you have a certain way to collaborate, to do the work, and then he should have a
+
+[1:11:20] certain time to be accustomed to this type of work, something like that.
+
+[1:11:26] And then probably you have other.
+
+[1:11:28] Yeah.
+
+[1:11:29] Does the ability to maintain or continue development presume training by a new employee
+
+[1:11:37] who is leaving, providing training to the new employee, or should everybody just get
+
+[1:11:42] plugged in without...
+
+[1:11:45] There are many possibilities you can resolve this issue.
+
+[1:11:50] As long as you can reach over this issue within a certain amount of time, over time, then it
+
+[1:11:56] will be fine, probably.
+
+[1:11:58] Your organization may have some certain basic management mechanism.
+
+[1:12:02] We will discuss a little bit later.
+
+[1:12:05] Okay.
+
+[1:12:06] Probably you have it.
+
+[1:12:07] That's what happened.
+
+[1:12:08] Probably you are capable to do this work.
+
+[1:12:11] But if you delay your work for a certain amount of time, which is not enjoyable, okay,
+
+[1:12:18] And if you have a problem with your customers because of that, something like that, then
+
+[1:12:23] probably you are not in the higher level, probably you are in this level right now.
+
+[1:12:30] So training can be included here, but if you have a good way to handle this training, and
+
+[1:12:37] you have a scheduled training, and you cannot make certain money to make training for certain
+
+[1:12:44] people for certain amount of time.
+
+[1:12:46] And another problem is training will not be offered always.
+
+[1:12:51] Some training agencies, they have their own schedules, so you need to fit into their schedules
+
+[1:12:58] rather than asking some special training for your organization, particularly, probably
+
+[1:13:03] this expensive to do that.
+
+[1:13:06] And some expert trainers may not be available at that time, something like that.
+
+[1:13:11] So it is not easy to get training immediately, even though you hire new people to dispatch
+
+[1:13:19] into this project, it is not an easy problem actually.
+
+[1:13:23] So training is fine, but you have to consider many things in training.
+
+[1:13:27] Probably you have other comments you share.
+
+[1:13:31] Is there any other experience you'd like to share?
+
+[1:13:34] And if you see any organizations like this in your current work or in your past work
+
+[1:13:43] experience, okay, so something like this.
+
+[1:13:47] So it doesn't matter whether your organization is very small or middle size or larger size.
+
+[1:13:56] It depends on what types of process you have right now, what kind of process you're adopting
+
+[1:14:02] right now.
+
+[1:14:03] That's the problem, okay?
+
+[1:14:05] So you can easily find out from this question if your organization is capable to handle
+
+[1:14:12] all these issues even though you have some crisis in the human resource or technology,
+
+[1:14:18] new technology comes out or new methods you have to use immediately or your customers
+
+[1:14:24] are asking something, you know, immediately in terms of technology and new tools, new
+
+[1:14:29] methods, something like that, if you are capable to handle this immediately in an appropriate
+
+[1:14:35] way then probably you are higher level than this one but if you have a problem
+
+[1:14:41] with that type of crisis then you are in this level level one right now okay so
+
+[1:14:49] probably you can assess yourself what types of process between the level okay bio
+
+[1:14:55] originations at right now okay then so if you think okay oh this is my
+
+[1:15:04] Okay, and then how can you improve it? So if you become a lead, or project leader, or
+
+[1:15:12] leader manager, or high manager sometimes, okay, and then you like to improve a way
+
+[1:15:19] you're working, or to produce better quality work, or to meet the requirements
+
+[1:15:24] better, okay, to meet the deadline better, okay, what kind of thing I have to
+
+[1:15:28] consider? If you become a manager, you should be different from the previous
+
+[1:15:34] managers, right, to show all your capability. Whether it's the same thing or the worse,
+
+[1:15:43] it's not good. So you have to know, how can I improve my organization, my team, to make
+
+[1:15:53] better work, okay? And then this slide shows the answer, one answer for that. So if you
+
+[1:16:05] like to go up to the next level, you may consider these basic things. You may
+
+[1:16:12] consider something else here, but without having those four listed here, you may
+
+[1:16:20] not succeed to implement other practices in your organization. So these are the
+
+[1:16:27] basic practices, set of practices you have to consider first to make your
+
+[1:16:33] organization to organize your organization well, okay, to make a good
+
+[1:16:38] basis for the management. So what are they? Project management skills. You should have
+
+[1:16:46] a certain way to manage the project. You should know how to estimate project, make
+
+[1:16:54] plan based on this estimation of the work, okay. Probably you may use your
+
+[1:17:02] historical data and you may use your experience or you may use a certain
+
+[1:17:08] tools to estimate certain methods okay but some methods are saying you may have
+
+[1:17:17] thirty hundred percent of deviation from your estimation gain from the result
+
+[1:17:25] you use with this tool. They don't guarantee that much. 300 percent you may
+
+[1:17:32] have a deviation from the estimation. Isn't it too much? Okay, so not only one
+
+[1:17:43] method or tools can solve your problem in estimation, others you have to consider
+
+[1:17:48] many other things including your experience with similar project. And also
+
+[1:17:55] So you have to know how to make a good plan.
+
+[1:17:59] How do you plan?
+
+[1:18:00] You can make a plan from the beginning for six months project, it's feasible.
+
+[1:18:07] What about one year project?
+
+[1:18:09] You build a plan for one year project.
+
+[1:18:12] I think I can make a good plan for one year and then probably you can meet this plan.
+
+[1:18:20] Well, what about the two years old project?
+
+[1:18:23] What do you expect next year? Your plan will match with the real situation.
+
+[1:18:31] What about the three years project? Four years of project, five years, ten years.
+
+[1:18:37] Another case, if your customer knows where about the problem to solve,
+
+[1:18:44] they know exactly what they like to build from the beginning.
+
+[1:18:48] That's one case.
+
+[1:18:51] I think another case, they may not know.
+
+[1:18:55] Even they don't know what they will make.
+
+[1:18:59] They have some idea.
+
+[1:19:00] They should have certain things, but they don't know exactly
+
+[1:19:04] what types of product they can hold right now.
+
+[1:19:10] That's another possibility here.
+
+[1:19:13] It happens, really.
+
+[1:19:14] And also, technology is changing.
+
+[1:19:19] 20 years ago, have you heard about the web?
+
+[1:19:24] Nobody, see?
+
+[1:19:26] But right now, everything is done by web, right?
+
+[1:19:29] With the web, at least with web, right?
+
+[1:19:33] Most of services consider web service.
+
+[1:19:37] Whatever it is, something like this.
+
+[1:19:40] So who knows, after five, 10 years,
+
+[1:19:42] what types of technology we will meet,
+
+[1:19:45] we don't know, we cannot imagine right now,
+
+[1:19:47] even imagine we don't know right now.
+
+[1:19:50] And then after, so this project is a three years project,
+
+[1:19:53] five years project. At the end of your project you find out the new technology comes out to
+
+[1:20:00] the market, and you find out, oh, this is great to use.
+
+[1:20:04] Web is not any more good technology.
+
+[1:20:08] I have to use another technology, new technology.
+
+[1:20:12] But you already spent all money to build this project.
+
+[1:20:15] You don't have any more resource to change this.
+
+[1:20:19] Changing does not take only a few months.
+
+[1:20:22] Sometimes it may take a few years and a lot of money.
+
+[1:20:26] and sometimes change creates more errors
+
+[1:20:30] than creating new product, okay?
+
+[1:20:34] There are many, many issues you admit, actually, okay?
+
+[1:20:42] So many things you have to consider here.
+
+[1:20:47] Key is, key point here is,
+
+[1:20:50] do you have a certain way to do this?
+
+[1:20:54] Okay, a certain systematic way to do this, okay?
+
+[1:20:58] What about the management oversight?
+
+[1:21:01] Do you have a systematic way to review the work?
+
+[1:21:05] And regularly you meet the people regularly.
+
+[1:21:09] You discuss about your project, your plan,
+
+[1:21:12] and you perform some project monitoring
+
+[1:21:15] and control regularly.
+
+[1:21:18] Or you're just a good person and say,
+
+[1:21:20] okay, do whatever you do.
+
+[1:21:22] I believe you, I trust you.
+
+[1:21:24] I believe you can produce good product.
+
+[1:21:26] I know that.
+
+[1:21:27] Okay, do your work.
+
+[1:21:29] And then I just buy dinner for you to encourage you who occurred.
+
+[1:21:34] Is that all?
+
+[1:21:36] Is it all you have as a good manager?
+
+[1:21:41] And also, we need to have some other practices
+
+[1:21:46] to support this management, project management.
+
+[1:21:51] Like change control, we discussed about some requirements,
+
+[1:21:55] unstable requirements, unclear requirements,
+
+[1:21:58] which means requirements will be changing, changing,
+
+[1:22:02] changing, okay?
+
+[1:22:04] And then how can you handle this change?
+
+[1:22:06] If requirements are changed,
+
+[1:22:09] then your design should be changed,
+
+[1:22:10] your code should be changed,
+
+[1:22:12] your testing cases should be changed, okay?
+
+[1:22:15] So it affects all of them.
+
+[1:22:18] So how can you handle this?
+
+[1:22:20] And currently with what version of requirements
+
+[1:22:23] you're working with in your design?
+
+[1:22:25] What version of requirements you're working
+
+[1:22:28] with your testing.
+
+[1:22:29] See, probably they are working with
+
+[1:22:31] the different version of requirements.
+
+[1:22:34] So how can you control these versions?
+
+[1:22:37] Versions of requirements, versions of design,
+
+[1:22:40] models, versions of code, okay?
+
+[1:22:44] Different releases, okay?
+
+[1:22:47] And the test cases.
+
+[1:22:49] Once you perform testing, you should have test data,
+
+[1:22:53] test procedure, test case, and the testing tools,
+
+[1:22:57] Compilers, developers, all different types of versions.
+
+[1:23:01] So you have to keep record all of them,
+
+[1:23:03] and if you have any problem with the current release,
+
+[1:23:05] and then you have to go back to the previous,
+
+[1:23:08] immediate previous release,
+
+[1:23:11] and find out what sets of code you had at that time,
+
+[1:23:16] what was changed from the previous release,
+
+[1:23:21] and then find out what's wrong there,
+
+[1:23:23] and what types of compilers you use,
+
+[1:23:25] What types of developers use at that time?
+
+[1:23:28] Testing tools you use.
+
+[1:23:30] You have to keep record all of this
+
+[1:23:33] to go back to the original source, previous source,
+
+[1:23:37] if you have any problem.
+
+[1:23:39] And also, if many engineers are working together,
+
+[1:23:43] you should have a way to handle this.
+
+[1:23:46] Probably you're working with the different versions
+
+[1:23:48] and then can handle them.
+
+[1:23:51] How do you know which version is current version?
+
+[1:23:55] So you should consider some kind of baseline
+
+[1:23:57] to put all the official work products there
+
+[1:24:01] so everybody should know, okay,
+
+[1:24:03] this is official version currently we have.
+
+[1:24:08] And also should have a certain practice
+
+[1:24:12] related to quality assurance called the QA.
+
+[1:24:17] And the middle organizations are using this QA
+
+[1:24:20] to knowledge QA as for testing,
+
+[1:24:23] which is not exactly correct.
+
+[1:24:26] Trays are not for testing.
+
+[1:24:29] Trays to find conformance to your standardized procedures
+
+[1:24:35] or rules or guidelines.
+
+[1:24:37] And then if there are deviations
+
+[1:24:40] and then you should have a way to report
+
+[1:24:44] to your high enough higher manager
+
+[1:24:46] who can support resources to fix those problems.
+
+[1:24:51] So that kind of activity should be done.
+
+[1:24:53] neuralization under the title by this QA.
+
+[1:24:59] So these four set of practices are the basic practices
+
+[1:25:03] you should have to implement all other practices
+
+[1:25:06] where neuralization.
+
+[1:25:09] So if you have those mechanisms, basically,
+
+[1:25:14] and then you can go to the next level,
+
+[1:25:16] level two, from level one in the KS level
+
+[1:25:19] to the next level.
+
+[1:25:21] And so the next slide is to discuss about what I explained so far.
+
+[1:25:26] And then if you go to the next level, it is called the repeatable process, the repeatable
+
+[1:25:31] process.
+
+[1:25:32] So by having those basic mechanisms, you have a capability to handle all issues in your organization.
+
+[1:25:42] And then your process level is repeatable, which can repeatedly produce very similar
+
+[1:25:48] quality of product by having this basic mechanism. So now you know how to make
+
+[1:25:55] estimation and how to plan the project, how to monitor and control your project
+
+[1:26:01] based on the plan you built, and you have a certain way for change control and
+
+[1:26:10] quality assurance. Okay, then is it enough? We have other practices, actually,
+
+[1:26:20] needed in our organization to guarantee to produce a quality product and to manage
+
+[1:26:27] a project much better. So what kind of thing we can consider? Do we have a
+
+[1:26:33] process right now? Probably, yes. Okay, even though we didn't define it,
+
+[1:26:41] Describe it formally, precisely.
+
+[1:26:45] Probably we have a process.
+
+[1:26:46] We have a certain way to do work, right?
+
+[1:26:50] And then what about now?
+
+[1:26:52] What about define our process then?
+
+[1:26:56] Now we know how to do some estimation
+
+[1:26:59] and the planning and the project monitoring control
+
+[1:27:02] and how to do quality assurance, how to manage change.
+
+[1:27:06] Okay, and then what about we define a process
+
+[1:27:10] in the organizational level, okay?
+
+[1:27:13] In the low level, probably each project
+
+[1:27:15] may have their own processes
+
+[1:27:18] and they are performing their work by themselves.
+
+[1:27:21] They have their own way to do, to go, okay?
+
+[1:27:27] But if you like to go up to the next level,
+
+[1:27:29] then you will have definition of standardized process,
+
+[1:27:36] procedure, methods, and tools.
+
+[1:27:40] So anybody in the organization should be able to know
+
+[1:27:44] what types of process we have to follow,
+
+[1:27:46] what types of methods we have to use,
+
+[1:27:49] if you use this tool, what input expected for using this tool,
+
+[1:27:53] what output we are expecting to produce from this tool,
+
+[1:27:57] what is input for this task, what is output from this task.
+
+[1:28:02] So we can define this and make standard procedure
+
+[1:28:07] in our organization, okay?
+
+[1:28:10] So but different projects may have different characteristics,
+
+[1:28:15] different needs, different requirements,
+
+[1:28:17] different types of results.
+
+[1:28:19] So it is very hard to follow exactly same
+
+[1:28:22] as the other project, always.
+
+[1:28:27] So you should provide a certain way
+
+[1:28:30] to customize the project.
+
+[1:28:32] So each project may customize their own project,
+
+[1:28:36] but they should define their customized process also.
+
+[1:28:40] Okay, based on the guidelines, customizing guidelines defined in the organization.
+
+[1:28:49] So whoever customizes, they consider these standardized guidelines to customize a project.
+
+[1:28:58] So from the standardized project in the organization level to the project level.
+
+[1:29:03] So each project may have their own process defined by customizing from the standardized
+
+[1:29:11] process in the organizational level.
+
+[1:29:15] So anybody can understand what they are doing and what they are saying.
+
+[1:29:21] So last time I asked a question, what happens if your engineers move to other project or
+
+[1:29:28] to other organizations suddenly?
+
+[1:29:30] What will happen in your organization?
+
+[1:29:32] If you are working in this type of organization, what will happen?
+
+[1:29:37] Everybody knows what is the process they are using, what types of tasks they will perform
+
+[1:29:44] in each phase, and what kind of input they need, what kind of output they will produce
+
+[1:29:50] while performing certain tasks.
+
+[1:29:53] Everybody knows it.
+
+[1:29:54] So if he replaces another engineer from another team, it should be more easier.
+
+[1:30:00] It's not always immediately solved, but if you compare two different types of organization,
+
+[1:30:08] this level of organization and the lowest level of organization, which one do you expect
+
+[1:30:14] solve the problem better?
+
+[1:30:17] This level, right?
+
+[1:30:18] Level two or level three, at least.
+
+[1:30:20] If you are at the level two and level three, you're capable to solve that type of problem
+
+[1:30:26] easily, much easier.
+
+[1:30:32] So to go up to the level two, from level two to level three, define the process level and
+
+[1:30:39] then you need to establish development of process.
+
+[1:30:46] To build this organizational process is a good idea to have a process architecture which
+
+[1:30:56] defines all components of a process,
+
+[1:31:01] all sets of components there, like phases, steps, tasks,
+
+[1:31:08] and input outputs, method tools.
+
+[1:31:11] And then from this set of components, process components,
+
+[1:31:17] you can build any process architecture, like Lego.
+
+[1:31:25] And you have Lego block, each Lego block is a step or task or method and tools.
+
+[1:31:33] And then whenever you do a certain project, looking at this Lego block over Lego, okay,
+
+[1:31:40] and then you choose some of them and build your process for that project.
+
+[1:31:47] And you should be able to introduce your software engineering method and technology
+
+[1:31:52] to your organization well, and to do this kind of job is good idea to establish a group
+
+[1:32:01] of team, okay, a team to take care of this work, okay, take care of this process work.
+
+[1:32:08] So they are called the process group, and it is called the engineering process group
+
+[1:32:13] or software engineering process group, okay?
+
+[1:32:17] Okay, so next slide discuss about all the issues we've talked so far.
+
+[1:32:24] And then now you have a basic mechanism of project management, quality assurance,
+
+[1:32:31] and the change control.
+
+[1:32:33] And you have a group of people who work with the process initiation
+
+[1:32:43] and process improvement, process implementation,
+
+[1:32:48] and also you have a standardized set of process,
+
+[1:32:52] procedures, guidelines, methods, tools in your organization,
+
+[1:32:56] well-defined.
+
+[1:32:59] And then what else you need from this level?
+
+[1:33:03] If you are at level three, your organization is very good,
+
+[1:33:07] actually, okay?
+
+[1:33:10] It is working fine.
+
+[1:33:15] Sometimes you have a question.
+
+[1:33:18] Can I go this way or not?
+
+[1:33:22] You have a chance to judge.
+
+[1:33:24] You make a judgment.
+
+[1:33:27] Make a decision.
+
+[1:33:29] As a project manager, you have to decide certain way to go.
+
+[1:33:34] Is this way to go?
+
+[1:33:36] Do you have to go this way?
+
+[1:33:38] Who will answer?
+
+[1:33:40] You're a good boss.
+
+[1:33:43] You have a good boss.
+
+[1:33:44] He answers everything.
+
+[1:33:46] He perfectly answers the correct things.
+
+[1:33:49] they give the correct answer for you.
+
+[1:33:52] If you have them, great, great, that's great,
+
+[1:33:56] but sometimes it doesn't work, right?
+
+[1:33:59] You have to decide, okay?
+
+[1:34:02] Then how can you decide?
+
+[1:34:04] By instinct, oh, I have good instinct.
+
+[1:34:07] Inherently, I was born with this instinct.
+
+[1:34:11] So I'm using my instinct, if I go say this is good,
+
+[1:34:14] and then that is good, always.
+
+[1:34:18] Do you succeed in investing in stock market?
+
+[1:34:21] Do you earn always money in stock exchange?
+
+[1:34:25] Always 100%?
+
+[1:34:27] Probably you have good instinct.
+
+[1:34:30] But mostly it doesn't work, right?
+
+[1:34:32] In my case, anyway, I think I like to buy.
+
+[1:34:35] And then next day, in the newspaper,
+
+[1:34:38] I can see the market is collapsed.
+
+[1:34:43] It always happened, so I shouldn't do it.
+
+[1:34:47] So I have no instinct in that area.
+
+[1:34:52] So if you have good instinct and you are talented
+
+[1:34:55] in management, so if you think, oh, we should go
+
+[1:34:59] with this language, we should go with this technology,
+
+[1:35:02] we should use this method and tools.
+
+[1:35:04] If it is always good, that's good,
+
+[1:35:06] but mostly it doesn't work well, right?
+
+[1:35:10] Okay, so how can you do it?
+
+[1:35:12] And also in designing, and there are many different
+
+[1:35:15] alternatives in design.
+
+[1:35:17] And you have a different software architecture you can
+
+[1:35:20] choose in the early design of work.
+
+[1:35:23] Once you choose it, probably it's very hard to change your
+
+[1:35:26] design or your code to another architecture if you find
+
+[1:35:29] something is wrong later.
+
+[1:35:31] So you should make a good decision here.
+
+[1:35:34] So what kind of thing you need?
+
+[1:35:36] So one thing, one technique we use is mathematics.
+
+[1:35:42] Statistics.
+
+[1:35:44] With a certain probability and with a certain chance,
+
+[1:35:49] we can say, we can perform some testing
+
+[1:35:51] and we can conclude, oh, we can go this way,
+
+[1:35:56] but the success rate is 95%.
+
+[1:36:00] Still, we have 5% of a failure possibility,
+
+[1:36:05] but we have 95% of a success possibility.
+
+[1:36:11] possibility. Then we will go this way rather than another way.
+
+[1:36:15] So if you use statistics, it doesn't tell you the real answer, the correct answer always.
+
+[1:36:21] But this is a technique we developed to make
+
+[1:36:26] objective decisions, not subjective decisions, not by your instinct
+
+[1:36:31] but by certain number, measurement, data collection,
+
+[1:36:36] and performing certain testing, performing analysis, and then decide a certain thing
+
+[1:36:43] using this objective data, okay?
+
+[1:36:47] And also, whether you have a chance to explain your decision to your boss
+
+[1:36:52] and sometimes ask your boss, okay, hi, how are you doing?
+
+[1:36:56] And what's going on with your project?
+
+[1:36:58] I'm doing fine.
+
+[1:37:00] And, oh, I've heard that you have certain, certain things, and how did you decide it?
+
+[1:37:05] And then you say, I decided because I dreamed it yesterday.
+
+[1:37:10] Last time in my dream, somebody told me,
+
+[1:37:16] you should go this way.
+
+[1:37:18] Take this opportunity.
+
+[1:37:20] Or if you say, okay, I collect some data from,
+
+[1:37:25] I collect some process data and the project data,
+
+[1:37:28] and I analyze it using a certain statistical testing method.
+
+[1:37:34] And then, with certain probability, we decided to go this way, based on that analysis.
+
+[1:37:42] Does it look better? Right? Okay. That kind of thing.
+
+[1:37:49] So, when you are at level 3, and if you like to go up to another higher level of maturity,
+
+[1:37:56] and then you can consider this quantitative approach in your management. Okay?
+
+[1:38:03] So what kind of thing you can do, establish minimum basic set of process measurement and establish process database,
+
+[1:38:13] collect all data for the process data and the product data and the resources to do it.
+
+[1:38:21] To do this, probably you need some training and you need some expertise in this type of work.
+
+[1:38:29] and you have to have a database to collect all this data permanently and
+
+[1:38:35] You should have a good tools to use to analysis in analysis
+
+[1:38:41] If you calculate this over by hands with the calculator is very tedious and this paper
+
+[1:38:47] But there are many good statistical tools nowadays developed for this purpose
+
+[1:38:53] So, once you collect data and if you clean the data and then they will perform all the
+
+[1:38:58] analysis and they give you a result.
+
+[1:39:00] Definitely, humans should read these numbers and the result data and should be able to
+
+[1:39:06] interpret.
+
+[1:39:08] They should know how to interpret it.
+
+[1:39:10] But at least we can get some help from these tools.
+
+[1:39:14] And provide sufficient process resources together and maintain this process data.
+
+[1:39:19] Gathering data is not easy and it takes cost.
+
+[1:39:23] It takes the time of your engineers.
+
+[1:39:28] Your engineers may do better work there.
+
+[1:39:31] So whether one or the other is good, but it takes cost.
+
+[1:39:36] So you have to consider this.
+
+[1:39:38] And also, if what happened, if they key in wrong data,
+
+[1:39:44] they should key in 10, but they just mistakenly
+
+[1:39:48] just key in one more zero, 100.
+
+[1:39:53] It may change your average lot deviation a lot, right?
+
+[1:40:00] So, not only collecting data, but also keying the data correctly is very important.
+
+[1:40:09] And assess the relative quality of each product and the inform management where quality targets
+
+[1:40:15] are not being met.
+
+[1:40:17] And also you should know what kind of indicators you will use and what kind of data you need
+
+[1:40:21] to collect.
+
+[1:40:22] You cannot collect all hundreds or thousands of data available because it takes cost.
+
+[1:40:28] So you should know what kind of indicators you will use in your judgment.
+
+[1:40:33] And then to build the kind of indicators, what kind of data you have to collect minimally.
+
+[1:40:39] And what kind of measurement analysis pop on to do this.
+
+[1:40:44] And the measurement should be able to read and understand what's going on and what is
+
+[1:40:50] wrong and what should be improved.
+
+[1:40:53] Okay, then it looks good, but again, it takes cost, so it is good to have a certain way
+
+[1:41:04] to automate this collecting data.
+
+[1:41:08] Before we consider automation of the collecting data, also you have to have a good practice
+
+[1:41:14] for the measurement analysis, so everybody should understand what kind of data should
+
+[1:41:18] be collected and why it is collected.
+
+[1:41:23] And the managers and engineers should understand that this data will not be used to assess
+
+[1:41:30] personal the engineers, persons.
+
+[1:41:34] It will be used to measure the quality of product and the process and organization level.
+
+[1:41:43] It will not be used personally to assess quality of certain engineer.
+
+[1:41:51] So, for example, if you collect a number of defects in a code, for example, what will happen?
+
+[1:42:00] Number of defects you produce will be affected by with your salary.
+
+[1:42:05] It may affect your salary level.
+
+[1:42:08] Next month, next year, what to expect from here?
+
+[1:42:14] Do you think you will collect meaningful data or correct data always?
+
+[1:42:20] Absolutely not.
+
+[1:42:23] Okay, that's why no one starts here. See?
+
+[1:42:26] If you cannot collect correct data,
+
+[1:42:31] what is the result of your measurement analysis?
+
+[1:42:36] It could be wrong. Wrong result.
+
+[1:42:39] Because wrong data, wrong result is nature, right?
+
+[1:42:44] If you have a garbage in and then you have a garbage out.
+
+[1:42:49] So you spend a lot of time for this measurement analysis
+
+[1:42:54] collect data and you appreciate the engineers to do this work, but you
+
+[1:42:59] collect wrong data, you produce wrong result, you spend money useless. Okay, you have
+
+[1:43:06] to think this very seriously. So if you like to go up to the next level, you
+
+[1:43:14] better have a way to automate this data collection and everyone should
+
+[1:43:20] understand how this will be used and this data should be protected. It's the
+
+[1:43:27] only the person who allow to use a certain type of data can access that
+
+[1:43:33] data and this data should be used to improve quality of product and the
+
+[1:43:38] process only. And this data should be collected automatically as much as you
+
+[1:43:47] can so you can reduce errors in data collection and the manipulation of data
+
+[1:43:54] and the testing analysis of data okay and also whenever you like to go up to
+
+[1:44:01] the highest level not only you collect and use analyzed data in your decision
+
+[1:44:08] making but also and also to produce better quality work to find you have a
+
+[1:44:15] good quality of work or you produce a good quality of product. Not only we
+
+[1:44:21] consider product, quality of product, but also we like to consider quality of
+
+[1:44:26] process. Okay, what about the process? Can you use this data to improve our process?
+
+[1:44:33] So for example, you find out certain things to continuously make the very
+
+[1:44:40] similar error and that result in poor quality of product. Okay and then why
+
+[1:44:49] don't you perform some causal analysis? What is the cause of the problem, certain
+
+[1:44:57] problem? That problem occurs every time and what is the cause to make certain
+
+[1:45:03] problem and perform some causal analysis and then why don't you prevent them
+
+[1:45:10] rather than finding and fixing. Why don't you prevent them from
+
+[1:45:17] occurring? So if you go to the highest level your organization is expected to
+
+[1:45:26] have not only quantitative management which should be shown in the
+
+[1:45:32] level four but in the level five you should have a capability to prevent
+
+[1:45:40] those problems. Okay to analyze causal problems and to prevent problems and to
+
+[1:45:47] improve your process not only quality of product but also you enhance your
+
+[1:45:54] quality of work. Okay and also whenever you go up to this level your engineers
+
+[1:46:02] are good in this. So your engineers understand all the mechanisms and the terminologies you're
+
+[1:46:13] using here and they know how to build a good product and also they know how to improve their
+
+[1:46:21] process. And the managers should understand all this too. So it provides a framework for the
+
+[1:46:37] professionals to understand their work performance and to see how to improve it, how to improve
+
+[1:46:44] their process.
+
+[1:46:46] And it lets the professionals communicate in concise, quantitative terms.
+
+[1:46:51] Rather than qualitative languages, they can use concise and quantitative term terminologies
+
+[1:46:58] to communicate, to find out the problems, to discuss the problems, and to find out the
+
+[1:47:04] solutions to improve their process.
+
+[1:47:08] And it helps managers understand where help is needed.
+
+[1:47:14] So by looking at this order chart indicators
+
+[1:47:18] they have on the desk every day, every week, every month,
+
+[1:47:22] they should be able to see immediately
+
+[1:47:23] see what is the problem.
+
+[1:47:26] Oh, they have a defect rate this much,
+
+[1:47:28] and comparing with the historical data,
+
+[1:47:31] and then probably something is wrong in this area.
+
+[1:47:34] and also how best to provide the people
+
+[1:47:38] with the support they require.
+
+[1:47:40] Now they just find a problem,
+
+[1:47:41] but also they have to know how to fix it
+
+[1:47:44] by providing resource, by helping them.
+
+[1:47:48] If you don't help them, they can do the same thing.
+
+[1:47:52] They like to do best always,
+
+[1:47:55] but they produce this type of work.
+
+[1:47:58] That means they are not capable to do right now
+
+[1:48:02] in terms of many things.
+
+[1:48:04] One thing may be, probably they have short of engineers
+
+[1:48:08] to handle all these issues.
+
+[1:48:10] They have limited time to do this.
+
+[1:48:13] They need training to get rid of this issue.
+
+[1:48:18] So there are many things you can consider to help, to support.
+
+[1:48:25] So from the experience, we found transition
+
+[1:48:29] from level one to level two, or transition
+
+[1:48:32] from level two to level three take from one to three years,
+
+[1:48:38] depending on different organizations,
+
+[1:48:39] different types of organizations,
+
+[1:48:41] and the size of different organizations,
+
+[1:48:43] different type of work, but usually take at least one
+
+[1:48:46] year and sometimes to three years
+
+[1:48:49] to go up to the next higher level.
+
+[1:48:52] And if you would like to go up to the level four and five,
+
+[1:48:55] it should take more than this.
+
+[1:48:58] And the next slide shows all different types
+
+[1:49:01] of the process levels.
+
+[1:49:03] The first one is a CMMI maturity level.
+
+[1:49:05] So, initially, Peter will define the managed optimizing.
+
+[1:49:08] And the second column shows CMMI maturity level.
+
+[1:49:13] So, they have slightly different titles
+
+[1:49:15] with the level two, like manage the level
+
+[1:49:18] rather than repeatable level in CMMI.
+
+[1:49:20] And the computatively manage it in the level four.
+
+[1:49:25] And the next column shows CMMI 1.2 capability level.
+
+[1:49:30] So this talks about the maturity levels, and this talks about capability levels, and in the capability levels they have 6 levels, from 0 to 5, and in complete perform the values defined, contractatively managed optimizing.
+
+[1:49:45] They are very similar except these first two with the maturity level.
+
+[1:49:50] and the next column shows new version CMMI version 1.3 and then they have only
+
+[1:49:58] level
+
+[1:50:00] 0.2, 0.3 here, incomplete, performed, managed, and defined.
+
+[1:50:05] And the ISO, international standard capability model
+
+[1:50:09] shows this 0.2.5 with different names,
+
+[1:50:14] like incomplete, performed, managed, established,
+
+[1:50:17] and predictable, and optimizing.
+
+[1:50:19] So they are calling the arbitrary levels
+
+[1:50:22] and the capability levels slightly differently,
+
+[1:50:25] but the concepts are very similar.
+
+[1:50:29] So you will have a chance to learn more about this
+
+[1:50:33] maturity driven capability whenever you study more
+
+[1:50:35] about CMM or the ISO models, okay?
+
+[1:50:39] Okay, that's all for this chapter.
+
+[1:50:41] Any questions?
+
+[1:50:46] It's understandable.
+
+[1:50:48] So now you understand what is a process maturity
+
+[1:50:52] and the framework of this process maturity
+
+[1:50:54] towards basic concept.
+
+[1:50:56] So from the next class,
+
+[1:50:59] we will study about related issues
+
+[1:51:04] with this process of maturity and also we will study about the process areas
+
+[1:51:09] set of practices
+
+[1:51:12] so what is the quality assurance and what kind of thing you have to consider for the
+
+[1:51:15] quality assurance
+
+[1:51:16] and project management, what kind of thing you have to consider for the project management
+
+[1:51:20] something like that
+
+[1:51:23] any questions
+
+[1:51:26] we completed
+
+[1:51:28] chapter one in part one
+
+[1:51:31] so the process maturity framework
+
+[1:51:34] And we will study process change next time.
+
+[1:51:39] In chapter three, we will study about process assessment.
+
+[1:51:43] Can you assess your maturity level?
+
+[1:51:46] Are you at maturity level one or two or three?
+
+[1:51:49] Can you assess what kind of thing we
+
+[1:51:51] have to consider, what kind of steps
+
+[1:51:52] we go through to do this assessment?
+
+[1:51:56] And then we will discuss about the basic characteristic
+
+[1:51:58] of initial process more precisely we discussed today
+
+[1:52:02] a little bit.
+
+[1:52:03] And from part two, we will discuss
+
+[1:52:06] about the basic concepts, characteristics,
+
+[1:52:09] a set of practices we should consider
+
+[1:52:12] to become virtual retrieval too.
+
+[1:52:15] So we discussed the four things
+
+[1:52:18] to go up to the virtual retrieval too, right?
+
+[1:52:21] First one is project management, project oversight,
+
+[1:52:25] quality assurance, and change management
+
+[1:52:29] to go up to the next level.
+
+[1:52:32] And then here, as you can see here, in part two,
+
+[1:52:36] we will discuss those practices, okay?
+
+[1:52:39] Like managing organization and project plan
+
+[1:52:45] and configuration management, which is same name
+
+[1:52:48] with the change management and the collector assurance.
+
+[1:52:53] Can you see that?
+
+[1:52:54] And then if you like to go up to the next level,
+
+[1:52:58] level three, then what do you have to consider?
+
+[1:53:01] Standardized process, definition of standardized process and method and tools.
+
+[1:53:07] So in the part three, we will study about that.
+
+[1:53:09] We will study about the standards, and we need to discuss about the method and
+
+[1:53:15] tools.
+
+[1:53:16] So we discuss about the inspection and testing as a method and tools.
+
+[1:53:21] And another version of configuration management.
+
+[1:53:26] And how to define process in the software engineering process group.
+
+[1:53:32] Okay, so we will study about it.
+
+[1:53:34] If you'd like to go up to the next level,
+
+[1:53:36] level four, confrontatively manage the project
+
+[1:53:39] in the same way term, or same term is a managed project,
+
+[1:53:43] we have to consider a confrontative approach, right?
+
+[1:53:45] So that's why we will study about the data gathering
+
+[1:53:48] and analysis and the managing software quality.
+
+[1:53:52] How to use measurement analysis in software quality issue.
+
+[1:53:57] And then, if you'd like to go up to the next level,
+
+[1:54:00] Okay, what do we have to consider?
+
+[1:54:02] So defect prevention, okay, problem closure analysis, okay,
+
+[1:54:07] and then we like to prevent a problem before they occur,
+
+[1:54:11] okay, so that's why we like to discuss
+
+[1:54:12] about the defect prevention issue, okay,
+
+[1:54:16] and the automating of the process
+
+[1:54:19] and some other issues like contracting issue
+
+[1:54:24] and the conclusion.
+
+[1:54:26] So can you see the map here, the entire map,
+
+[1:54:30] why we will study about all those chapters,
+
+[1:54:33] issues, topics shown in each chapter,
+
+[1:54:36] what types of issues are taught from each chapter, okay?
+
+[1:54:42] So can you see the entire picture here, okay?
+
+[1:54:48] Why we are studying this, okay?
+
+[1:54:50] You should know right now why we are studying this,
+
+[1:54:54] why you are sitting in this class to learn this, okay?
+
+[1:54:57] And whenever we discuss about chapter by chapter next time,
+
+[1:55:01] You have to know where I am, why I'm
+
+[1:55:04] learning this topic in this chapter.
+
+[1:55:07] They are related all together to the topic we discussed today.
+
+[1:55:15] Is it clear?
+
+[1:55:17] Any question?
+
+[1:55:18] Anything unclear right now?
+
+[1:55:23] So ask yourself, what, when, where, how?
+
+[1:55:26] What you are learning?
+
+[1:55:28] What you like to learn?
+
+[1:55:29] What you are learning?
+
+[1:55:31] And when you can use this, where you can apply this,
+
+[1:55:36] how you can do this, something like that.
+
+[1:55:38] So using this W and H, you ask yourself and answer yourself.
+
+[1:55:45] Yes?
+
+[1:55:46] Actually, where we can do this or where it's applicable,
+
+[1:55:51] I was wondering different maturity levels
+
+[1:55:54] assume different complexity of management skills.
+
+[1:55:58] So can we say that, let's say, a team size from 5 to 10
+
+[1:56:03] only needs to go this far?
+
+[1:56:05] And if we have, let's say, up to 50 people on the project,
+
+[1:56:08] then this is how complex our management should get.
+
+[1:56:11] Right.
+
+[1:56:12] It can be applied to many different types
+
+[1:56:16] of organization differently in terms of size of organization
+
+[1:56:22] and the quality level of engineers.
+
+[1:56:25] And the budget you have.
+
+[1:56:29] As you said, it takes resource, money,
+
+[1:56:35] because it's complex to implement in the organization.
+
+[1:56:38] So it looks good, but you cannot adopt them immediately.
+
+[1:56:44] So with having this maturity level,
+
+[1:56:47] you can go by step by step to minimize risk
+
+[1:56:51] and to invest minimally to go advance to the next level.
+
+[1:56:57] And also, you will start here is very basic set of practices
+
+[1:57:02] you have to consider to go up to the next level.
+
+[1:57:05] And there are many other process areas, practices
+
+[1:57:09] you can consider, actually.
+
+[1:57:12] Not only with this, but also you
+
+[1:57:13] may have something else here.
+
+[1:57:15] But minimally, this textbook discusses
+
+[1:57:18] about minimum set of practices that you
+
+[1:57:21] can consider at this level.
+
+[1:57:24] So by learning this, you should do some kind of customization
+
+[1:57:29] to implement this or to institutionalize this
+
+[1:57:33] in your organization, actually.
+
+[1:57:36] You may not adopt all of them at once,
+
+[1:57:39] and you may not need all of them.
+
+[1:57:42] Depends on your different needs.
+
+[1:57:44] In your project, particular project,
+
+[1:57:46] or different environment of your organization and characteristics.
+
+[1:57:50] So you just run page principles here and see if it is good or bad to take.
+
+[1:58:00] Probably you feel at least it looks good idea to improve my organization in this way by
+
+[1:58:06] considering this.
+
+[1:58:08] Probably there is no doubt with that.
+
+[1:58:10] Then what is the problem?
+
+[1:58:11] Which way I have to go?
+
+[1:58:14] Method or way to go?
+
+[1:58:16] And by what time I have to do this?
+
+[1:58:19] What is the budget?
+
+[1:58:20] What is the current status of my organization?
+
+[1:58:24] And what is the target process maturity level to go?
+
+[1:58:27] Something like that.
+
+[1:58:28] So there are many different combinations of input here.
+
+[1:58:32] So using this input and then decide your process to produce good output from this technique.
+
+[1:58:39] So depending on your own environment, organization environment, you can implement this in many
+
+[1:58:45] different ways.
+
+[1:58:47] And if you should go with a formal process to approve by a formal assessment, like a
+
+[1:58:53] semi-assessment or ISO assessment, you should do it and then you have to ejectly follow
+
+[1:58:59] what they require by their model, by their descriptions, as it is.
+
+[1:59:05] But if you don't consider about that kind of formal assessment, you just like to improve
+
+[1:59:10] the quality of work, improve the quality of product, improve the good satisfaction
+
+[1:59:15] of your customers, then you may or may not choose some of them from here.
+
+[1:59:21] So by running this, you have to find out which one is good for my case.
+
+[1:59:26] Then I'd like to implement this first in my own agenda.
+
+[1:59:29] But rather than implementing something here,
+
+[1:59:32] you'd better consider this part first, okay?
+
+[1:59:36] Because this was suggested by the experienced practitioners.

@@ -40,6 +40,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), askApiPlugin()],
-    assetsInclude: ['**/*.pdf', '**/*.mp3'],
+    assetsInclude: ['**/*.pdf', '**/*.mp3', '**/*.mp4'],
   };
 });

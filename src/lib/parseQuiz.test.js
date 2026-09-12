@@ -126,6 +126,64 @@ test('loads every Module 1 bank with nothing skipped', async () => {
   }
 });
 
+test('loads every 544 Module 1 bank with video quotes that hit the transcript', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../544-Mod-1');
+  const files = [
+    ['Ch1/SWmaturity.json', 'Ch1/cpsc544_01_v_SWmaturity.txt', 50],
+    ['Ch2/processChange.json', 'Ch2/cpsc544_02_v_ProcessChange(2).txt', 49],
+    ['Ch3/processAssessment.json', 'Ch3/cpsc544_03_v_ProcessAssessment.txt', 62],
+    ['Ch4/cpsc544_04_initial_process_quiz.json', 'Ch4/cpsc544_04_v_InitialProcess.txt', 44],
+    ['Ch5/cpsc544_ch5_managing_software_organizations_quiz.json', 'Ch5/cpsc544_05_v_ManagingSWorg.txt', 52],
+    ['Agile_XP/agile_xp_quiz.json', 'Agile_XP/Agile_XP_video.txt', 64],
+    ['Scrum/Scrum.json', 'Scrum/Scrum_video.txt', 53],
+  ];
+  for (const [jsonRel, txtRel, count] of files) {
+    const deck = JSON.parse(await readFile(path.join(root, jsonRel), 'utf8'));
+    const txt = await readFile(path.join(root, txtRel), 'utf8');
+    const paras = lectureParagraphs(txt);
+    const bank = normalizeQuiz(deck);
+    assert.equal(bank.questions.length, count, jsonRel);
+    assert.equal(bank.skipped.length, 0, jsonRel);
+    for (const q of bank.questions) {
+      const quote = q.reference && q.reference.lecture;
+      assert.ok(quote, jsonRel + ' missing video quote: ' + q.text.slice(0, 72));
+      const hits = matchingLectureIndexes(paras, quote);
+      assert.ok(hits.length, jsonRel + ' unmatched video quote for: ' + q.text.slice(0, 72));
+    }
+  }
+});
+
+test('544 Module 1 single-choice answers are not uniquely longest by a wide margin', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../544-Mod-1');
+  const files = [
+    'Ch1/SWmaturity.json',
+    'Ch2/processChange.json',
+    'Ch3/processAssessment.json',
+    'Ch4/cpsc544_04_initial_process_quiz.json',
+    'Ch5/cpsc544_ch5_managing_software_organizations_quiz.json',
+    'Agile_XP/agile_xp_quiz.json',
+    'Scrum/Scrum.json',
+  ];
+  for (const rel of files) {
+    const deck = JSON.parse(await readFile(path.join(root, rel), 'utf8'));
+    const bank = normalizeQuiz(deck);
+    for (const q of bank.questions) {
+      if (q.type !== 'single' || q.options.length < 3) continue;
+      const lens = q.options.map((o) => o.length);
+      const max = Math.max(...lens);
+      const next = Math.max(...lens.filter((_, i) => i !== q.answers[0]));
+      const uniqueMax = lens[q.answers[0]] === max && lens.filter((n) => n === max).length === 1;
+      assert.ok(!uniqueMax || max - next < 12, rel + ' longest-correct giveaway: ' + q.text.slice(0, 72));
+    }
+  }
+});
+
 test('lecture quotes, when present, hit a transcript paragraph', async () => {
   const { readFile } = await import('node:fs/promises');
   const { fileURLToPath } = await import('node:url');

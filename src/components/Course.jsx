@@ -64,6 +64,9 @@ function DeckCard({ deck, onStart, onPreview }) {
             {deck.lectureFile}
           </button>
         )}
+        {deck.lectureVideoFile && (
+          <span className="deck-file">{deck.lectureVideoFile}</span>
+        )}
         {deck.file && (
           <button
             type="button"
@@ -90,6 +93,8 @@ function DeckCard({ deck, onStart, onPreview }) {
           lectureFile: deck.lectureFile,
           lectureAudio: deck.lectureAudio,
           lectureAudioFile: deck.lectureAudioFile,
+          lectureVideo: deck.lectureVideo,
+          lectureVideoFile: deck.lectureVideoFile,
         })}
       >
         Start this deck
