@@ -32,6 +32,14 @@ function withLectureMedia(qz) {
     qz.lectureVideo = deck.lectureVideo;
     qz.lectureVideoFile = deck.lectureVideoFile;
   }
+  if (deck.slidesUrl) {
+    qz.slidesUrl = deck.slidesUrl;
+    qz.slidesFile = deck.slidesFile;
+  }
+  if (deck.bookUrl) {
+    qz.bookUrl = deck.bookUrl;
+    qz.bookFile = deck.bookFile;
+  }
   return qz;
 }
 
@@ -55,14 +63,16 @@ function sessionView(s) {
   };
 }
 
-function StudyPane({ quiz, sidePane, studyFocus, onClose }) {
+function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
   if (!sidePane) return null;
-  const bookHref = sidePane === 'book' && quiz.bookUrl
-    ? (studyFocus && studyFocus.page ? quiz.bookUrl + '#page=' + studyFocus.page : quiz.bookUrl)
-    : '';
+  const pdfUrl = sidePane === 'slides' ? quiz.slidesUrl : sidePane === 'book' ? quiz.bookUrl : '';
+  const pdfPage = sidePane === 'slides'
+    ? (studyFocus && studyFocus.slide)
+    : (studyFocus && studyFocus.page);
+  const bookHref = pdfUrl ? (pdfPage ? pdfUrl + '#page=' + pdfPage : pdfUrl) : '';
   return (
     <SidePane
-      title={paneTitle(sidePane, quiz.lectureVideo)}
+      title={paneTitle(sidePane, quiz)}
       ask={sidePane === 'ask'}
       onClose={onClose}
       bookHref={bookHref}
@@ -71,11 +81,13 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose }) {
         <QuizNotes
           source={quiz.notes}
           bookUrl={quiz.bookUrl}
+          slidesUrl={quiz.slidesUrl}
           lecture={quiz.lecture}
           lectureAudio={quiz.lectureAudio}
           lectureVideo={quiz.lectureVideo}
           focus={studyFocus}
           mode={sidePane}
+          onOpenSlide={onOpenSlide}
         />
       )}
     </SidePane>
@@ -144,6 +156,10 @@ export default function App() {
       qz.bookUrl = extra.bookUrl;
       qz.bookFile = extra.bookFile || 'chapter.pdf';
     }
+    if (extra && extra.slidesUrl) {
+      qz.slidesUrl = extra.slidesUrl;
+      qz.slidesFile = extra.slidesFile || 'slides.pdf';
+    }
     if (extra && extra.lecture) {
       qz.lecture = extra.lecture;
       qz.lectureFile = extra.lectureFile || 'lecture.txt';
@@ -183,9 +199,23 @@ export default function App() {
 
   function openReference(focus) {
     setStudyFocus(focus || null);
-    if (focus && focus.lecture && !(focus.page > 0) && !focus.heading) setSidePane('lecture');
-    else if (focus && focus.page > 0) setSidePane('book');
-    else setSidePane('notes');
+    if (focus && focus.slide > 0 && !focus.lecture && !(focus.page > 0) && !focus.heading) {
+      setSidePane('slides');
+    } else if (focus && focus.lecture && !(focus.page > 0) && !(focus.slide > 0) && !focus.heading) {
+      setSidePane('lecture');
+    } else if (focus && focus.page > 0) {
+      setSidePane('book');
+    } else if (focus && focus.slide > 0) {
+      setSidePane('slides');
+    } else {
+      setSidePane('notes');
+    }
+  }
+
+  function openSlide(slide) {
+    const page = Number(slide) || 1;
+    setStudyFocus({ slide: page });
+    setSidePane('slides');
   }
 
   function resumeSaved() {
@@ -349,7 +379,7 @@ export default function App() {
               maxBox={settings.maxBox}
               onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
             />
-            {(quiz.notes || quiz.lecture || quiz.bookUrl) && (
+            {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl) && (
               <div className="row quiz-study-open" style={{ marginTop: '14px' }}>
                 {quiz.notes && (
                   <button type="button" className="text-link" onClick={() => setSidePane('notes')}>
@@ -361,9 +391,14 @@ export default function App() {
                     {quiz.lectureVideo ? 'Video' : 'Lecture'}
                   </button>
                 )}
-                {quiz.bookUrl && (
+                {quiz.slidesUrl && (
+                  <button type="button" className="text-link" onClick={() => setSidePane('slides')}>
+                    Slides
+                  </button>
+                )}
+                {quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl && (
                   <button type="button" className="text-link" onClick={() => setSidePane('book')}>
-                    {quiz.lectureVideo ? 'Slides' : 'Book'}
+                    Book
                   </button>
                 )}
               </div>
@@ -375,6 +410,7 @@ export default function App() {
             sidePane={sidePane}
             studyFocus={studyFocus}
             onClose={closePane}
+            onOpenSlide={openSlide}
           />
         </div>
       </div>
@@ -428,7 +464,8 @@ export default function App() {
               onOpenReference={openReference}
               hasLecture={!!quiz.lecture}
               hasVideo={!!quiz.lectureVideo}
-              hasBook={!!quiz.bookUrl}
+              hasSlides={!!quiz.slidesUrl}
+              hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl)}
             />
           )}
 
@@ -457,6 +494,7 @@ export default function App() {
           sidePane={sidePane}
           studyFocus={studyFocus}
           onClose={closePane}
+          onOpenSlide={openSlide}
         />
       </div>
     </div>

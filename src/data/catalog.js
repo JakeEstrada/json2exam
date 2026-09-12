@@ -24,6 +24,11 @@ import book541Ch2 from '../../541-Mod1/Ch2/Book-chapter 2.pdf?url';
 import book541Ch3 from '../../541-Mod1/Ch3/Book-chapter 3.pdf?url';
 import book541Ch4 from '../../541-Mod1/Ch4/Book-chapter 4.pdf?url';
 import book541Ch5 from '../../541-Mod1/Ch5/Book-chapter 5.pdf?url';
+import slides541Ch1 from '../../541-Mod1/Ch1/chapter 1.pdf?url';
+import slides541Ch2 from '../../541-Mod1/Ch2/chapter 2V2.pdf?url';
+import slides541Ch3 from '../../541-Mod1/Ch3/chapter 3.pdf?url';
+import slides541Ch4 from '../../541-Mod1/Ch4/chapter 4.pdf?url';
+import slides541Ch5 from '../../541-Mod1/Ch5/chapter 5.pdf?url';
 import deck544Ch1 from '../../544-Mod-1/Ch1/SWmaturity.json';
 import deck544Ch2 from '../../544-Mod-1/Ch2/processChange.json';
 import deck544Ch3 from '../../544-Mod-1/Ch3/processAssessment.json';
@@ -93,6 +98,8 @@ export const COURSES = [
             lectureAudio: audio541Ch1,
             bookFile: 'Book-chapter 1.pdf',
             bookUrl: book541Ch1,
+            slidesFile: 'chapter 1.pdf',
+            slidesUrl: slides541Ch1,
           },
           {
             id: '541-ch2',
@@ -108,6 +115,8 @@ export const COURSES = [
             lectureAudio: audio541Ch2,
             bookFile: 'Book-chapter 2.pdf',
             bookUrl: book541Ch2,
+            slidesFile: 'chapter 2V2.pdf',
+            slidesUrl: slides541Ch2,
           },
           {
             id: '541-ch3',
@@ -123,6 +132,8 @@ export const COURSES = [
             lectureAudio: audio541Ch3,
             bookFile: 'Book-chapter 3.pdf',
             bookUrl: book541Ch3,
+            slidesFile: 'chapter 3.pdf',
+            slidesUrl: slides541Ch3,
           },
           {
             id: '541-ch4',
@@ -138,6 +149,8 @@ export const COURSES = [
             lectureAudio: audio541Ch4,
             bookFile: 'Book-chapter 4.pdf',
             bookUrl: book541Ch4,
+            slidesFile: 'chapter 4.pdf',
+            slidesUrl: slides541Ch4,
           },
           {
             id: '541-ch5',
@@ -153,6 +166,8 @@ export const COURSES = [
             lectureAudio: audio541Ch5,
             bookFile: 'Book-chapter 5.pdf',
             bookUrl: book541Ch5,
+            slidesFile: 'chapter 5.pdf',
+            slidesUrl: slides541Ch5,
           },
         ],
       },
@@ -179,6 +194,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Ch1/cpsc544_01_v_SWmaturity.mp4'),
             bookFile: 'cpsc544-01-SWmaturity.pdf',
             bookUrl: slides544Ch1,
+            slidesFile: 'cpsc544-01-SWmaturity.pdf',
+            slidesUrl: slides544Ch1,
           },
           {
             id: '544-ch2',
@@ -192,6 +209,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Ch2/cpsc544_02_v_ProcessChange.mp4'),
             bookFile: 'cpsc544-02-ProcessChange.pdf',
             bookUrl: slides544Ch2,
+            slidesFile: 'cpsc544-02-ProcessChange.pdf',
+            slidesUrl: slides544Ch2,
           },
           {
             id: '544-ch3',
@@ -205,6 +224,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Ch3/cpsc544_03_v_ProcessAssessment.mp4'),
             bookFile: 'cpsc544-03-ProcessAssessment.pdf',
             bookUrl: slides544Ch3,
+            slidesFile: 'cpsc544-03-ProcessAssessment.pdf',
+            slidesUrl: slides544Ch3,
           },
           {
             id: '544-ch4',
@@ -218,6 +239,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Ch4/cpsc544_04_v_InitialProcess.mp4'),
             bookFile: 'cpsc544-04-InitialProcess.pdf',
             bookUrl: slides544Ch4,
+            slidesFile: 'cpsc544-04-InitialProcess.pdf',
+            slidesUrl: slides544Ch4,
           },
           {
             id: '544-ch5',
@@ -231,6 +254,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Ch5/cpsc544_05_v_ManagingSWorg.mp4'),
             bookFile: 'Ch.pdf',
             bookUrl: slides544Ch5,
+            slidesFile: 'Ch.pdf',
+            slidesUrl: slides544Ch5,
           },
           {
             id: '544-agile',
@@ -244,6 +269,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Agile_XP/Agile_XP_video.mp4'),
             bookFile: 'Agile_XP.pdf',
             bookUrl: slides544Agile,
+            slidesFile: 'Agile_XP.pdf',
+            slidesUrl: slides544Agile,
           },
           {
             id: '544-scrum',
@@ -257,6 +284,8 @@ export const COURSES = [
             lectureVideo: lectureVideo('Scrum/Scrum_video.mp4'),
             bookFile: 'Scrum.pdf',
             bookUrl: slides544Scrum,
+            slidesFile: 'Scrum.pdf',
+            slidesUrl: slides544Scrum,
           },
         ],
       },

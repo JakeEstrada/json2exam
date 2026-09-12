@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
+import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
 
 function speakText(text) {
   const synth = typeof window !== 'undefined' && window.speechSynthesis;
@@ -84,7 +85,7 @@ function SpeakButton({ text }) {
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasBook }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -137,7 +138,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasBook={hasBook} />
+      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
     </div>
   );
 }
@@ -159,17 +160,26 @@ function Verdict({ q, correct }) {
   );
 }
 
-function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasBook }) {
+function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook }) {
   const ref = q && q.reference;
   const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
+  const fromLecture = firstSlideRange(lectureQuote);
+  const slideStart = (ref && ref.slide) || (fromLecture && fromLecture.start) || 0;
+  const slideLabel = formatSlideRange(
+    slideStart
+      ? { start: slideStart, end: (fromLecture && fromLecture.end) || slideStart }
+      : null
+  );
   const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
+  const canSlides = hasSlides || slideStart > 0;
   const canBook = hasBook || (ref && ref.page > 0);
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canBook)) return null;
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canSlides && !canBook)) return null;
   return (
     <div className="q-source">
       <p className="q-source-label">Chapter reference</p>
       {ref.book && <p className="q-source-book">{ref.book}</p>}
       {ref.section && <p className="q-source-notes">Notes: {ref.section}</p>}
+      {slideLabel && <p className="q-source-notes">{slideLabel}</p>}
       {ref.excerpt && <blockquote className="q-source-excerpt">{ref.excerpt}</blockquote>}
       <div className="q-source-actions">
         {ref.section && onOpen && (
@@ -182,9 +192,14 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasBook }) {
             {hasVideo ? 'Show in video' : 'Show in lecture'}
           </button>
         )}
+        {canSlides && onOpen && (
+          <button type="button" className="text-link" onClick={() => onOpen({ slide: slideStart || 1 })}>
+            Show in slides
+          </button>
+        )}
         {canBook && onOpen && (
           <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page || 1, excerpt: ref.excerpt, book: ref.book })}>
-            {hasVideo ? 'Show in slides' : 'Show in book'}
+            Show in book
           </button>
         )}
       </div>

@@ -5,15 +5,17 @@ import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
 
 export default function QuizNotes({
-  source, bookUrl, lecture, lectureAudio, lectureVideo, focus, mode,
+  source, bookUrl, slidesUrl, lecture, lectureAudio, lectureVideo, focus, mode, onOpenSlide,
 }) {
   const page = focus && focus.page ? focus.page : 0;
+  const slide = focus && focus.slide ? focus.slide : 0;
   const heading = focus && focus.heading ? focus.heading : '';
   const lectureQuote = focus && focus.lecture ? focus.lecture : '';
   const bookQuery = focus && (focus.excerpt || focus.book)
     ? [focus.excerpt, focus.book].filter(Boolean).join(' ')
     : '';
-  const active = mode || (lecture && lectureQuote ? 'lecture' : source ? 'notes' : 'book');
+  const active = mode
+    || (slidesUrl && slide ? 'slides' : lecture && lectureQuote ? 'lecture' : source ? 'notes' : 'book');
 
   useEffect(() => {
     if (active !== 'notes' || !heading) return;
@@ -33,7 +35,18 @@ export default function QuizNotes({
       )}
       {active === 'lecture' && lecture && (
         <div className="quiz-notes-body is-lecture">
-          <LectureView source={lecture} highlight={lectureQuote} audioUrl={lectureAudio} videoUrl={lectureVideo} />
+          <LectureView
+            source={lecture}
+            highlight={lectureQuote}
+            audioUrl={lectureAudio}
+            videoUrl={lectureVideo}
+            onOpenSlide={onOpenSlide}
+          />
+        </div>
+      )}
+      {active === 'slides' && slidesUrl && (
+        <div className="quiz-notes-body is-pdf">
+          <PdfPage url={slidesUrl} page={slide || 1} query="" />
         </div>
       )}
       {active === 'book' && bookUrl && (

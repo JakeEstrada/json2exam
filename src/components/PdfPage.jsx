@@ -68,7 +68,7 @@ export default function PdfPage({ url, page, query }) {
   return (
     <div className="pdf-page-wrap" ref={wrapRef}>
       {status === 'loading' && <p className="pdf-page-status">Loading this page…</p>}
-      {status === 'error' && <p className="pdf-page-status">Could not open the book page.</p>}
+      {status === 'error' && <p className="pdf-page-status">Could not open this page.</p>}
       <div className="pdf-page" style={{ width: size.w || '100%', height: size.h || undefined }}>
         <canvas ref={canvasRef} className="pdf-page-canvas" />
         {rects.map((r, i) => (

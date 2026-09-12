@@ -17,10 +17,11 @@ export default function SidePane({ title, onClose, ask, bookHref, children }) {
   );
 }
 
-function paneTitle(mode, video) {
+function paneTitle(mode, quiz) {
   if (mode === 'ask') return 'AskGPT';
-  if (mode === 'lecture') return video ? 'Video' : 'Lecture';
-  if (mode === 'book') return video ? 'Slides' : 'Book';
+  if (mode === 'lecture') return quiz && quiz.lectureVideo ? 'Video' : 'Lecture';
+  if (mode === 'slides') return 'Slides';
+  if (mode === 'book') return 'Book';
   return 'Notes';
 }
 

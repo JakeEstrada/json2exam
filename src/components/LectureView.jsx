@@ -5,6 +5,7 @@ import {
   matchingLectureIndexes,
   parseLecture,
 } from '../lib/lecture.js';
+import { slideParts } from '../lib/slides.js';
 
 function seekAndPlay(el, seconds) {
   const go = () => {
@@ -16,7 +17,7 @@ function seekAndPlay(el, seconds) {
   else el.addEventListener('loadedmetadata', go, { once: true });
 }
 
-export default function LectureView({ source, highlight, audioUrl, videoUrl }) {
+export default function LectureView({ source, highlight, audioUrl, videoUrl, onOpenSlide }) {
   const parsed = parseLecture(source);
   const cues = parsed.cues;
   const hits = matchingLectureIndexes(cues, highlight);
@@ -80,9 +81,8 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl }) {
       )}
       <article className="lecture-text">
         {cues.map((c, i) => (
-          <button
+          <div
             key={i}
-            type="button"
             id={indexes[0] === i ? 'lecture-hit' : undefined}
             className={
               'lecture-cue'
@@ -97,8 +97,26 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl }) {
             }}
           >
             <span className="lecture-time">{formatLectureTime(c.start)}</span>
-            <span>{c.text}</span>
-          </button>
+            <span>
+              {slideParts(c.text).map((part, p) => (
+                part.slide && onOpenSlide ? (
+                  <button
+                    key={p}
+                    type="button"
+                    className="slide-ref"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenSlide(part.slide);
+                    }}
+                  >
+                    {part.text}
+                  </button>
+                ) : (
+                  <span key={p}>{part.text}</span>
+                )
+              ))}
+            </span>
+          </div>
         ))}
       </article>
     </div>

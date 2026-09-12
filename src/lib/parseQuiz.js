@@ -191,8 +191,10 @@ function readReference(raw) {
   const lecture = String(firstDefined(refRaw.lecture, refRaw.transcript, '')).trim();
   const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
   const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
-  if (!section && !book && !excerpt && !page && !lecture) return null;
-  return { section, book, excerpt, page, lecture };
+  const slideNum = Number(firstDefined(refRaw.slide, refRaw.slides, 0));
+  const slide = slideNum >= 1 && isFinite(slideNum) ? Math.trunc(slideNum) : 0;
+  if (!section && !book && !excerpt && !page && !lecture && !slide) return null;
+  return { section, book, excerpt, page, lecture, slide };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {

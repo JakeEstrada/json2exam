@@ -1075,8 +1075,24 @@
     color: inherit;
     font: inherit;
     text-align: left;
+    cursor: pointer;
   }
   .lecture-cue:hover { background: color-mix(in srgb, var(--study-strong) 10%, transparent); }
+  .slide-ref {
+    display: inline;
+    margin: 0;
+    padding: 0 2px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font: inherit;
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  .slide-ref:hover { filter: brightness(1.08); }
   .lecture-time {
     color: var(--study-ink);
     font-size: 12px;

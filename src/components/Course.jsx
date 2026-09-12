@@ -38,7 +38,7 @@ function DeckCard({ deck, onStart, onPreview }) {
             {deck.notesFile}
           </button>
         )}
-        {deck.bookFile && deck.bookUrl && (
+        {deck.bookFile && deck.bookUrl && deck.bookUrl !== deck.slidesUrl && (
           <button
             type="button"
             className="text-link deck-file"
@@ -49,6 +49,19 @@ function DeckCard({ deck, onStart, onPreview }) {
             })}
           >
             {deck.bookFile}
+          </button>
+        )}
+        {deck.slidesFile && deck.slidesUrl && (
+          <button
+            type="button"
+            className="text-link deck-file"
+            onClick={() => onPreview({
+              kind: 'pdf',
+              filename: deck.slidesFile,
+              url: deck.slidesUrl,
+            })}
+          >
+            {deck.slidesFile}
           </button>
         )}
         {deck.lectureFile && (
@@ -89,6 +102,8 @@ function DeckCard({ deck, onStart, onPreview }) {
           notesFile: deck.notesFile,
           bookFile: deck.bookFile,
           bookUrl: deck.bookUrl,
+          slidesFile: deck.slidesFile,
+          slidesUrl: deck.slidesUrl,
           lecture: deck.lecture,
           lectureFile: deck.lectureFile,
           lectureAudio: deck.lectureAudio,
