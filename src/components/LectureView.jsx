@@ -99,7 +99,7 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl, onO
             <span className="lecture-time">{formatLectureTime(c.start)}</span>
             <span>
               {slideParts(c.text).map((part, p) => (
-                part.slide && onOpenSlide ? (
+                (part.slide || part.auto) && onOpenSlide ? (
                   <button
                     key={p}
                     type="button"

@@ -53,11 +53,12 @@ export default function QuizNotes({
         <div className="quiz-notes-body is-pdf">
           <PdfPage
             url={slidesUrl}
-            page={slide || 1}
+            page={slide}
             pageEnd={slideEnd}
             query={slideQuery}
             label="Slide"
             stack
+            auto={!slide}
           />
         </div>
       )}

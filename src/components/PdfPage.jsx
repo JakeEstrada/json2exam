@@ -1,8 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import { highlightItemIndexes, highlightSlideIndexes, itemRect } from '../lib/pdfHighlight.js';
-import { formatSlideRange, slidePageList } from '../lib/slides.js';
+import { findBestSlidePages, formatSlideRange, slidePageList } from '../lib/slides.js';
 
 const docs = {};
+const textCache = {};
+
+async function pageTexts(url, pdf) {
+  if (textCache[url]) return textCache[url];
+  const out = [];
+  for (let i = 1; i <= pdf.numPages; i += 1) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    out.push(content.items.map((it) => (it && it.str) || '').join(' '));
+  }
+  textCache[url] = out;
+  return out;
+}
 
 async function loadEngine() {
   const pdfjs = await import('pdfjs-dist');
@@ -97,15 +110,17 @@ function PdfSheet({ pdf, page, width, query, slideMode }) {
   );
 }
 
-export default function PdfPage({ url, page, pageEnd, query, label, stack }) {
+export default function PdfPage({ url, page, pageEnd, query, label, stack, auto }) {
   const wrapRef = useRef(null);
   const [pdf, setPdf] = useState(null);
   const [pages, setPages] = useState(0);
   const [status, setStatus] = useState('loading');
   const [width, setWidth] = useState(0);
   const [pageNo, setPageNo] = useState(() => Math.max(1, page || 1));
+  const [located, setLocated] = useState(null);
   const slideMode = !!stack;
   const kind = label || (slideMode ? 'Slide' : 'Page');
+  const search = !!(auto && slideMode && query);
 
   useEffect(() => {
     setPageNo(Math.max(1, page || 1));
@@ -148,6 +163,18 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack }) {
   }, [url]);
 
   useEffect(() => {
+    let gone = false;
+    setLocated(null);
+    if (!pdf || !search) return undefined;
+    pageTexts(url, pdf).then((texts) => {
+      if (!gone) setLocated(findBestSlidePages(texts, query));
+    }, () => {
+      if (!gone) setLocated({ start: 1, end: 3 });
+    });
+    return () => { gone = true; };
+  }, [pdf, url, search, query]);
+
+  useEffect(() => {
     if (!slideMode) return undefined;
     const t = window.setTimeout(() => {
       const hit = wrapRef.current && (
@@ -157,10 +184,14 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack }) {
       if (hit) hit.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 80);
     return () => window.clearTimeout(t);
-  }, [slideMode, url, page, pageEnd, query, pdf]);
+  }, [slideMode, url, page, pageEnd, query, pdf, located]);
 
   const list = slideMode
-    ? slidePageList(page || 1, pageEnd || 0, pages)
+    ? slidePageList(
+      (located && located.start) || page || 1,
+      (located && located.end) || pageEnd || 0,
+      pages
+    )
     : [Math.min(Math.max(1, pageNo), pages || pageNo || 1)];
   const rangeLabel = slideMode
     ? formatSlideRange({ start: list[0], end: list[list.length - 1] }) || kind
@@ -192,9 +223,12 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack }) {
         )}
       </div>
       {status === 'loading' && <p className="pdf-page-status">Loading…</p>}
+      {search && !located && status === 'ready' && (
+        <p className="pdf-page-status">Finding the matching slides…</p>
+      )}
       {status === 'error' && <p className="pdf-page-status">Could not open this page.</p>}
       <div className="pdf-page-scroll">
-        {pdf && width > 0 && list.map((n) => (
+        {pdf && width > 0 && !(search && !located) && list.map((n) => (
           <PdfSheet
             key={url + ':' + n}
             pdf={pdf}

@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  findBestSlidePages,
   firstSlideMention,
   firstSlideRange,
   formatSlideRange,
@@ -44,4 +45,26 @@ test('slidePageList stacks a range and fills in neighbors for a single slide', (
   assert.deepEqual(slidePageList(4, 7, 12), [4, 5, 6, 7]);
   assert.deepEqual(slidePageList(10, 10, 12), [10, 11, 12]);
   assert.equal(slideHighlightQuery('Look at slide 8, then the feature tree').indexOf('slide'), -1);
+});
+
+test('findBestSlidePages prefers distinctive lecture words over the outline slide', () => {
+  const pages = [
+    'CPSC 544 Advanced Software Process A Software Maturity Framework',
+    'Outlines Part I Software Process Maturity Initial Repeatable Defined Managed Optimizing',
+    'Introduction the textbook describes a generic software process',
+    'Process Maturity Levels Five levels of process maturity Initial Repeatable Defined Managed Optimizing',
+    'Process Maturity Levels CMM Initial Repeatable Defined Managed Optimizing names',
+    'The People better people do better work',
+  ];
+  const found = findBestSlidePages(
+    pages,
+    'One is initial, okay, and two is repeatable, three is defined, four is managed, five is optimizing. The reason to have these names'
+  );
+  assert.ok(found.start >= 4, 'expected maturity-level slides, got ' + found.start);
+  assert.ok(found.end <= 6);
+});
+
+test('slideParts highlights next/this slide when the teacher does not say a number', () => {
+  const parts = slideParts('Okay, so next slide discuss about all the issues we have talked so far.');
+  assert.ok(parts.some((p) => p.auto && /next slide/i.test(p.text)));
 });

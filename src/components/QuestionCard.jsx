@@ -197,8 +197,9 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
             type="button"
             className="text-link"
             onClick={() => onOpen({
-              slide: slideStart || 1,
-              slideEnd: (fromLecture && fromLecture.end) || slideStart || 1,
+              slide: slideStart,
+              slideEnd: fromLecture && fromLecture.end > slideStart ? fromLecture.end : 0,
+              autoSlides: !slideStart,
               excerpt: ref.excerpt,
               lecture: lectureQuote,
             })}

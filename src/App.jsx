@@ -199,25 +199,24 @@ export default function App() {
 
   function openReference(focus) {
     setStudyFocus(focus || null);
-    if (focus && focus.slide > 0 && !focus.lecture && !(focus.page > 0) && !focus.heading) {
+    if (focus && (focus.autoSlides || focus.slide > 0) && !(focus.page > 0) && !focus.heading) {
       setSidePane('slides');
     } else if (focus && focus.lecture && !(focus.page > 0) && !(focus.slide > 0) && !focus.heading) {
       setSidePane('lecture');
     } else if (focus && focus.page > 0) {
       setSidePane('book');
-    } else if (focus && focus.slide > 0) {
-      setSidePane('slides');
     } else {
       setSidePane('notes');
     }
   }
 
   function openSlide(slide, slideEnd, quote) {
-    const page = Number(slide) || 1;
+    const page = Number(slide) || 0;
     const last = Number(slideEnd) || 0;
     setStudyFocus({
       slide: page,
       slideEnd: last > page ? last : 0,
+      autoSlides: page < 1,
       lecture: quote || '',
     });
     setSidePane('slides');
