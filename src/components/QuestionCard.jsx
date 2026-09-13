@@ -2,9 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
-import { cardSpeechParts, speakText, speechSupported, stopSpeech } from '../lib/speech.js';
+import { cardSpeechParts, prefetchSpeechParts, speakText, speechSupported, stopSpeech } from '../lib/speech.js';
 
-function SpeechTools({ parts, on, onToggle, onStep }) {
+function SpeechTools({ parts, on, wait, onToggle, onStep }) {
   const canSpeak = speechSupported();
   if (!canSpeak || !parts.length) return null;
 
@@ -23,9 +23,10 @@ function SpeechTools({ parts, on, onToggle, onStep }) {
       </button>
       <button
         type="button"
-        className={'speak-btn' + (on ? ' is-on' : '')}
-        aria-label={on ? 'Stop reading' : 'Read question aloud'}
-        title={on ? 'Stop reading' : 'Read question aloud'}
+        className={'speak-btn' + (on ? ' is-on' : '') + (wait ? ' is-wait' : '')}
+        aria-busy={wait}
+        aria-label={wait ? 'Loading voice' : on ? 'Stop reading' : 'Read question aloud'}
+        title={wait ? 'Loading voice…' : on ? 'Stop reading' : 'Read question aloud'}
         onClick={onToggle}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -58,6 +59,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   const parts = useMemo(() => cardSpeechParts(q, order), [q, order]);
   const [at, setAt] = useState(0);
   const [on, setOn] = useState(false);
+  const [wait, setWait] = useState(false);
   const atRef = useRef(0);
   const onRef = useRef(false);
   const partsRef = useRef(parts);
@@ -75,6 +77,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
     onRef.current = true;
     setAt(next);
     setOn(true);
+    setWait(true);
     speakText(list[next].text, () => {
       if (!onRef.current) return;
       const after = atRef.current + 1;
@@ -84,8 +87,10 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         atRef.current = 0;
         setAt(0);
         setOn(false);
+        setWait(false);
       }
     }, voiceRef.current, rateRef.current).then((started) => {
+      setWait(false);
       if (!started && onRef.current && atRef.current === next) {
         onRef.current = false;
         setOn(false);
@@ -96,6 +101,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   function stop() {
     onRef.current = false;
     setOn(false);
+    setWait(false);
     stopSpeech();
   }
 
@@ -107,8 +113,9 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
     stop();
     atRef.current = 0;
     setAt(0);
+    prefetchSpeechParts(parts, voice);
     return () => stopSpeech();
-  }, [q, order, voice]);
+  }, [q, order, voice, parts]);
 
   useEffect(() => {
     function onKey(e) {
@@ -132,6 +139,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <SpeechTools
           parts={parts}
           on={on}
+          wait={wait}
           onToggle={() => (on ? stop() : playFrom(atRef.current))}
           onStep={step}
         />

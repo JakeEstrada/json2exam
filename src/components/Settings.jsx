@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { QUIZ_VOICES, SPEECH_RATES, normalizeRate, normalizeVoice, speakText, stopSpeech } from '../lib/speech.js';
+import { useEffect, useState } from 'react';
+import { QUIZ_VOICES, SPEECH_RATES, normalizeRate, normalizeVoice, prefetchSpeech, speakText, stopSpeech } from '../lib/speech.js';
 
 const SAMPLE = 'This is how this voice will read your quiz questions.';
 
@@ -7,6 +7,11 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
   const voice = normalizeVoice(settings.voice);
   const rate = normalizeRate(settings.speechRate);
   const [previewing, setPreviewing] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    prefetchSpeech(SAMPLE, voice);
+  }, [voice]);
 
   return (
     <div className="sheet panel">
@@ -46,37 +51,37 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
         </div>
       </div>
       <div className="grp">
-        <span>Read-aloud voice</span>
-        <div className="voice-picks">
+        <label htmlFor="voice-pick">Read-aloud voice</label>
+        <select
+          id="voice-pick"
+          className="voice-combo"
+          value={voice}
+          onChange={(e) => onChange({ voice: e.target.value })}
+        >
           {QUIZ_VOICES.map((v) => (
-            <button
-              key={v.id}
-              type="button"
-              className={voice === v.id ? 'on' : ''}
-              onClick={() => onChange({ voice: v.id })}
-            >
-              <b>{v.label}</b>
-              <span>{v.hint}</span>
-            </button>
+            <option key={v.id} value={v.id}>{v.label} — {v.hint}</option>
           ))}
-        </div>
+        </select>
         <button
           type="button"
           className="text-link"
           style={{ marginTop: '8px' }}
           onClick={() => {
-            if (previewing) {
+            if (previewing || loading) {
               stopSpeech();
               setPreviewing(false);
+              setLoading(false);
               return;
             }
+            setLoading(true);
             setPreviewing(true);
-            speakText(SAMPLE, () => setPreviewing(false), voice, rate).then((started) => {
+            speakText(SAMPLE, () => { setPreviewing(false); setLoading(false); }, voice, rate).then((started) => {
+              setLoading(false);
               if (!started) setPreviewing(false);
             });
           }}
         >
-          {previewing ? 'Stop preview' : 'Preview this voice'}
+          {loading ? 'Loading voice…' : previewing ? 'Stop preview' : 'Preview this voice'}
         </button>
       </div>
       <div className="row">

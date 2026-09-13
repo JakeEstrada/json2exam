@@ -65,6 +65,49 @@ const AVOID = /compact|espeak|novelty|bad news|good news|jester|organ|whisper|za
 let currentAudio = null;
 let speakGen = 0;
 const clipCache = {};
+const inflight = {};
+
+function clipKey(voiceId, text) {
+  return normalizeVoice(voiceId) + '\n' + String(text || '').replace(/\s+/g, ' ').trim();
+}
+
+export function speechCached(text, voiceId) {
+  return !!clipCache[clipKey(voiceId, text)];
+}
+
+export function prefetchSpeech(text, voiceId) {
+  const clean = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!clean) return Promise.resolve('');
+  const voice = normalizeVoice(voiceId);
+  const key = clipKey(voice, clean);
+  if (clipCache[key]) return Promise.resolve(clipCache[key]);
+  if (inflight[key]) return inflight[key];
+
+  inflight[key] = fetch('/api/speak', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: clean, voice }),
+  }).then(async (res) => {
+    if (!res.ok) return '';
+    const blob = await res.blob();
+    if (!blob || blob.size < 40) return '';
+    const url = URL.createObjectURL(blob);
+    clipCache[key] = url;
+    return url;
+  }).catch(() => '').finally(() => {
+    delete inflight[key];
+  });
+
+  return inflight[key];
+}
+
+export function prefetchSpeechParts(parts, voiceId) {
+  const list = (parts || []).filter((p) => p && p.text);
+  if (!list.length) return Promise.resolve();
+  return prefetchSpeech(list[0].text, voiceId).then(() =>
+    Promise.all(list.slice(1).map((p) => prefetchSpeech(p.text, voiceId)))
+  );
+}
 
 export function pickBestVoice(voices, lang) {
   const list = (voices || []).filter((v) => v && v.name);
@@ -128,24 +171,9 @@ export async function speakText(text, onEnded, voiceId, rate) {
   const gen = speakGen;
   const voice = normalizeVoice(voiceId);
   const speed = normalizeRate(rate);
-  const cacheKey = voice + '\n' + text;
 
   try {
-    let url = clipCache[cacheKey];
-    if (!url) {
-      const res = await fetch('/api/speak', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, voice }),
-      });
-      if (res.ok) {
-        const blob = await res.blob();
-        if (blob && blob.size > 40) {
-          url = URL.createObjectURL(blob);
-          clipCache[cacheKey] = url;
-        }
-      }
-    }
+    const url = await prefetchSpeech(text, voice);
     if (gen !== speakGen) return false;
     if (url) {
       const audio = new Audio(url);

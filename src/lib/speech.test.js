@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cardSpeechParts, normalizeRate, normalizeVoice, pickBestVoice } from './speech.js';
+import { cardSpeechParts, normalizeRate, normalizeVoice, pickBestVoice, prefetchSpeechParts, speechCached } from './speech.js';
 
 test('pickBestVoice prefers a natural English voice over a novelty one', () => {
   const voices = [
@@ -40,4 +40,9 @@ test('cardSpeechParts splits the title and each choice', () => {
   ]);
   assert.equal(parts[0].kind, 'title');
   assert.equal(parts[1].option, 1);
+});
+
+test('prefetchSpeechParts no-ops on empty input', async () => {
+  await prefetchSpeechParts([], 'coral');
+  assert.equal(speechCached('', 'coral'), false);
 });
