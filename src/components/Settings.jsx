@@ -13,8 +13,33 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
     prefetchSpeech(SAMPLE, voice);
   }, [voice]);
 
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        onClose();
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
   return (
-    <div className="sheet panel">
+    <div
+      className="settings-layer"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="settings-window" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div className="settings-window-bar">
+          <h3 id="settings-title">Settings</h3>
+          <button type="button" className="settings-window-close" onClick={onClose} aria-label="Close settings">
+            ×
+          </button>
+        </div>
+        <div className="settings-window-body panel">
       <div className="grp">
         <span>Right answers in a row before a card retires</span>
         <div className="seg">
@@ -87,6 +112,8 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
       <div className="row">
         <button className="btn" onClick={onReset}>Start this deck over</button>
         <button className="btn quiet" onClick={onClose}>Close</button>
+      </div>
+        </div>
       </div>
     </div>
   );

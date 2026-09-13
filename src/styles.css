@@ -551,7 +551,7 @@
   }
   .pdf-page-wrap {
     overflow: hidden;
-    max-height: min(62vh, 640px);
+    max-height: min(78vh, 860px);
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -599,6 +599,12 @@
   .pdf-page-wrap.is-stack .pdf-page-scroll {
     padding: 12px 0 20px;
     background: var(--desk-2);
+  }
+  .pdf-page-ph {
+    min-height: 280px;
+    margin: 8px 10px 12px;
+    background: color-mix(in srgb, var(--desk-2) 70%, #fff);
+    border-radius: 2px;
   }
   .pdf-page {
     position: relative;
@@ -1009,6 +1015,63 @@
   .voice-combo:focus {
     outline: 2px solid var(--focus);
     outline-offset: 1px;
+  }
+
+  .settings-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(16, 22, 30, 0.46);
+  }
+  .settings-window {
+    width: min(440px, 100%);
+    max-height: min(86vh, 740px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--card-edge);
+    border-radius: 10px;
+    box-shadow: 0 24px 64px var(--card-shadow);
+  }
+  .settings-window-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex: none;
+    padding: 10px 12px 10px 16px;
+    border-bottom: 1px solid var(--card-edge);
+    background: var(--chip);
+  }
+  .settings-window-bar h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+  }
+  .settings-window-close {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .settings-window-close:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .settings-window-body {
+    overflow: auto;
+    margin: 0;
   }
 
   /* ---------- question card ---------- */

@@ -326,7 +326,14 @@ export default function App() {
         else if (picked.length) check(picked);
         return;
       }
-      if (e.key === 'Escape') { e.preventDefault(); stopSpeech(); setSidePane(null); setScreen('done'); return; }
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (showSettings) { setShowSettings(false); return; }
+        stopSpeech();
+        setSidePane(null);
+        setScreen('done');
+        return;
+      }
       if (phase === 'review') { return; }
 
       const n = current.order.length;

@@ -39,16 +39,10 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl, onO
     const el = mediaRef.current;
     if (!el || !mediaUrl || !range) return undefined;
     seekAndPlay(el, range.start);
-    const onTime = () => {
-      setNow(el.currentTime || 0);
-      if (!videoUrl && range.end != null && el.currentTime >= range.end - 0.05) {
-        el.pause();
-        try { el.currentTime = range.end; } catch (err) { /* ignore */ }
-      }
-    };
+    const onTime = () => setNow(el.currentTime || 0);
     el.addEventListener('timeupdate', onTime);
     return () => el.removeEventListener('timeupdate', onTime);
-  }, [mediaUrl, videoUrl, playKey, range && range.start, range && range.end]);
+  }, [mediaUrl, playKey, range && range.start]);
 
   useEffect(() => {
     if (!indexes.length) return;
@@ -72,9 +66,7 @@ export default function LectureView({ source, highlight, audioUrl, videoUrl, onO
           )}
           {range && (
             <p className="lecture-clip">
-              {videoUrl ? 'Starting at ' : 'Playing '}
-              {formatLectureTime(range.start)}
-              {!videoUrl && (range.end != null ? '–' + formatLectureTime(range.end) : ' to end')}
+              Starting at {formatLectureTime(range.start)}. Keeps playing until you pause.
             </p>
           )}
         </div>
