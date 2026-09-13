@@ -524,6 +524,9 @@ export default function App() {
               voice={settings.voice}
               speechRate={settings.speechRate}
               autoSpeak={speakTick}
+              canPrev={trail.length > 0}
+              onPrev={goPrev}
+              onNext={goNext}
             />
           )}
 
@@ -533,15 +536,9 @@ export default function App() {
             </div>
           )}
 
-          {current && (
-            <div className="q-nav">
-              <button type="button" className="btn quiet" disabled={!trail.length} onClick={goPrev}>
-                Previous
-              </button>
-              <button type="button" className={phase === 'review' ? 'btn primary' : 'btn quiet'} onClick={goNext}>
-                {phase === 'review' ? 'Next question' : 'Next'}
-              </button>
-              <p className="q-nav-hint">← → skip or replay. Skipping does not score the card.</p>
+          {phase === 'review' && (
+            <div className="row" style={{ marginTop: '14px' }}>
+              <button className="btn primary" onClick={goNext}>Next question</button>
             </div>
           )}
 

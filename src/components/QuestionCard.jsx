@@ -66,7 +66,29 @@ function SpeakButton({ text, voice, rate, autoSpeak }) {
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, autoSpeak }) {
+function NavArrow({ dir, disabled, onClick }) {
+  const back = dir === 'prev';
+  return (
+    <button
+      type="button"
+      className="speak-btn q-skip"
+      disabled={disabled}
+      aria-label={back ? 'Previous question' : 'Next question'}
+      title={back ? 'Previous question' : 'Next question'}
+      onClick={onClick}
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        {back ? (
+          <path d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4L6 12l8-8z" fill="currentColor" />
+        ) : (
+          <path d="M8.6 5.4 16.2 12l-7.6 6.6 1.4 1.4L19 12l-9-8z" fill="currentColor" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, autoSpeak, onPrev, onNext, canPrev }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -76,7 +98,11 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
       <p className="kind">{KIND_LABEL[q.type]}</p>
       <div className="q-head">
         <div className="q-text">{q.text}</div>
-        <SpeakButton text={cardSpeech(q, order)} voice={voice} rate={speechRate} autoSpeak={autoSpeak} />
+        <div className="q-tools">
+          <NavArrow dir="prev" disabled={!canPrev} onClick={onPrev} />
+          <SpeakButton text={cardSpeech(q, order)} voice={voice} rate={speechRate} autoSpeak={autoSpeak} />
+          <NavArrow dir="next" onClick={onNext} />
+        </div>
       </div>
 
       <div className="opts" role={multi ? 'group' : 'radiogroup'}>

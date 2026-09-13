@@ -1199,11 +1199,17 @@
       var(--rule) 31px 32px
     );
   }
+  .q-tools {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+  }
   .speak-btn {
     flex: none;
     width: 40px;
     height: 40px;
-    margin-top: 2px;
     padding: 0;
     border: 1px solid var(--rule);
     border-radius: 999px;
@@ -1220,19 +1226,14 @@
     color: var(--accent);
     background: var(--accent-soft);
   }
-
-  .q-nav {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 14px;
+  .speak-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
   }
-  .q-nav-hint {
-    margin: 0;
-    flex: 1 1 180px;
-    font-size: 13px;
-    color: var(--ink-faint);
+  .speak-btn:disabled:hover {
+    border-color: var(--rule);
+    color: var(--ink);
+    background: var(--paper);
   }
 
   .opts { display: flex; flex-direction: column; gap: 7px; }
