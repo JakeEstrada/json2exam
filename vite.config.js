@@ -3,6 +3,7 @@ import path from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { readJsonBody, runAsk } from './api/ask-core.js';
+import { runSpeak } from './api/speak-core.js';
 
 function pdfStandardFontsPlugin() {
   const src = path.resolve('node_modules/pdfjs-dist/standard_fonts');
@@ -34,6 +35,32 @@ function askApiPlugin() {
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         const path = (req.url || '').split('?')[0];
+        if (path === '/api/speak') {
+          if (req.method !== 'POST') {
+            res.statusCode = 405;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'method', detail: 'POST only.' }));
+            return;
+          }
+          try {
+            const body = await readJsonBody(req);
+            const out = await runSpeak(body);
+            res.statusCode = out.status;
+            if (out.body) {
+              res.setHeader('Content-Type', out.contentType || 'audio/mpeg');
+              res.end(out.body);
+              return;
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(out.json));
+          } catch (err) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'server', detail: err.message || 'Speak failed.' }));
+          }
+          return;
+        }
+
         if (path !== '/api/ask') return next();
 
         if (req.method !== 'POST') {
@@ -63,6 +90,8 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   if (env.OPENAI_API_KEY) process.env.OPENAI_API_KEY = env.OPENAI_API_KEY;
   if (env.OPENAI_MODEL) process.env.OPENAI_MODEL = env.OPENAI_MODEL;
+  if (env.OPENAI_TTS_VOICE) process.env.OPENAI_TTS_VOICE = env.OPENAI_TTS_VOICE;
+  if (env.OPENAI_TTS_MODEL) process.env.OPENAI_TTS_MODEL = env.OPENAI_TTS_MODEL;
 
   return {
     plugins: [react(), askApiPlugin(), pdfStandardFontsPlugin()],

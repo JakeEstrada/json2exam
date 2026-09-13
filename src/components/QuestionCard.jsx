@@ -1,23 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
-
-function speakText(text) {
-  const synth = typeof window !== 'undefined' && window.speechSynthesis;
-  if (!synth || !text) return false;
-  synth.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.rate = 0.95;
-  // iOS Safari drops the first speak() if it runs in the same turn as cancel().
-  window.setTimeout(() => synth.speak(utter), 60);
-  return true;
-}
-
-function stopSpeech() {
-  const synth = typeof window !== 'undefined' && window.speechSynthesis;
-  if (synth) synth.cancel();
-}
+import { speakText, speechSupported, stopSpeech } from '../lib/speech.js';
 
 function cardSpeech(q, order) {
   let text = q.text || '';
@@ -30,20 +15,25 @@ function cardSpeech(q, order) {
   return text;
 }
 
-function SpeakButton({ text }) {
+function SpeakButton({ text, voice, rate, autoSpeak }) {
   const [on, setOn] = useState(false);
-  const tick = useRef(0);
-  const canSpeak = typeof window !== 'undefined' && !!window.speechSynthesis;
+  const canSpeak = speechSupported();
 
   useEffect(() => {
     stopSpeech();
     setOn(false);
-    if (tick.current) window.clearInterval(tick.current);
-    return () => {
-      stopSpeech();
-      if (tick.current) window.clearInterval(tick.current);
-    };
-  }, [text]);
+    return () => stopSpeech();
+  }, [text, voice]);
+
+  useEffect(() => {
+    if (!autoSpeak) return undefined;
+    let gone = false;
+    setOn(true);
+    speakText(text, () => { if (!gone) setOn(false); }, voice, rate).then((started) => {
+      if (!gone && !started) setOn(false);
+    });
+    return () => { gone = true; };
+  }, [autoSpeak]);
 
   if (!canSpeak) return null;
 
@@ -56,22 +46,13 @@ function SpeakButton({ text }) {
       onClick={() => {
         if (on) {
           stopSpeech();
-          if (tick.current) window.clearInterval(tick.current);
           setOn(false);
           return;
         }
-        const started = speakText(text);
-        setOn(started);
-        if (!started) return;
-        const synth = window.speechSynthesis;
-        if (tick.current) window.clearInterval(tick.current);
-        tick.current = window.setInterval(() => {
-          if (!synth.speaking) {
-            window.clearInterval(tick.current);
-            tick.current = 0;
-            setOn(false);
-          }
-        }, 250);
+        setOn(true);
+        speakText(text, () => setOn(false), voice, rate).then((started) => {
+          if (!started) setOn(false);
+        });
       }}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -85,7 +66,7 @@ function SpeakButton({ text }) {
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, autoSpeak }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -95,7 +76,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
       <p className="kind">{KIND_LABEL[q.type]}</p>
       <div className="q-head">
         <div className="q-text">{q.text}</div>
-        <SpeakButton text={cardSpeech(q, order)} />
+        <SpeakButton text={cardSpeech(q, order)} voice={voice} rate={speechRate} autoSpeak={autoSpeak} />
       </div>
 
       <div className="opts" role={multi ? 'group' : 'radiogroup'}>

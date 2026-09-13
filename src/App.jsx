@@ -15,6 +15,7 @@ import Summary from './components/Summary.jsx';
 import AskGPT from './components/AskGPT.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
+import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -43,7 +44,14 @@ function withLectureMedia(qz) {
   return qz;
 }
 
-const DEFAULT_SETTINGS = { maxBox: 3, shuffle: true, instant: true };
+const DEFAULT_SETTINGS = { maxBox: 3, shuffle: true, instant: true, voice: 'coral', speechRate: 1 };
+
+function mergeSettings(raw) {
+  const merged = Object.assign({}, DEFAULT_SETTINGS, raw || {});
+  merged.voice = normalizeVoice(merged.voice);
+  merged.speechRate = normalizeRate(merged.speechRate);
+  return merged;
+}
 
 function sessionView(s) {
   if (!s || !s.quiz || !Array.isArray(s.quiz.questions)) return null;
@@ -106,6 +114,9 @@ export default function App() {
   const [current, setCurrent] = useState(null);   // { q, order }
   const [picked, setPicked] = useState([]);
   const [phase, setPhase] = useState('answer');   // 'answer' | 'review'
+  const [trail, setTrail] = useState([]);
+  const [ahead, setAhead] = useState([]);
+  const [speakTick, setSpeakTick] = useState(0);
   const lastIdRef = useRef(null);
 
   const [saved, setSaved] = useState(() => sessionView(loadSession()));
@@ -132,6 +143,9 @@ export default function App() {
     setShowSettings(false);
     setStudyFocus(null);
     setSidePane(null);
+    setTrail([]);
+    setAhead([]);
+    setSpeakTick(0);
     lastIdRef.current = null;
     setScreen('quiz');
     deal(qz, bx, cfg);
@@ -185,12 +199,51 @@ export default function App() {
   }
 
   function goHome() {
+    stopSpeech();
     persist();
     setQuiz(null);
     setCurrent(null);
     setSidePane(null);
     setStudyFocus(null);
     setScreen('load');
+  }
+
+  function cardSnap() {
+    return { q: current.q, order: current.order, picked: picked.slice(), phase };
+  }
+
+  function showCard(card, readAloud) {
+    lastIdRef.current = card.q.id;
+    setCurrent({ q: card.q, order: card.order });
+    setPicked(card.picked || []);
+    setPhase(card.phase || 'answer');
+    setStudyFocus(null);
+    setSidePane((pane) => (pane === 'ask' ? 'ask' : null));
+    if (readAloud) setSpeakTick((n) => n + 1);
+  }
+
+  function goNext() {
+    if (!current) return;
+    stopSpeech();
+    const snap = cardSnap();
+    setTrail((t) => t.concat(snap));
+    if (ahead.length) {
+      const next = ahead[ahead.length - 1];
+      setAhead((a) => a.slice(0, -1));
+      showCard(next, true);
+      return;
+    }
+    deal(quiz, boxes, settings);
+    setSpeakTick((n) => n + 1);
+  }
+
+  function goPrev() {
+    if (!current || !trail.length) return;
+    stopSpeech();
+    const prev = trail[trail.length - 1];
+    setTrail((t) => t.slice(0, -1));
+    setAhead((a) => a.concat(cardSnap()));
+    showCard(prev, true);
   }
 
   function closePane() {
@@ -225,7 +278,7 @@ export default function App() {
   function resumeSaved() {
     if (!saved) return;
     if (saved.courseId) setCourseId(saved.courseId);
-    begin(saved.quiz, saved.boxes, saved.stats, saved.settings || DEFAULT_SETTINGS);
+    begin(saved.quiz, saved.boxes, saved.stats, mergeSettings(saved.settings));
   }
 
   function forgetSaved() {
@@ -260,11 +313,6 @@ export default function App() {
     }));
   }, [current, phase, settings.maxBox]);
 
-  const advance = useCallback(() => {
-    if (phase !== 'review') return;
-    deal(quiz, boxes, settings);
-  }, [phase, quiz, boxes, settings, deal]);
-
   function toggle(idx) {
     if (phase === 'review') return;
     const q = current.q;
@@ -286,6 +334,7 @@ export default function App() {
       });
     }
     setSettings((prev) => Object.assign({}, prev, patch));
+    if (patch.speechRate != null) applySpeechRate(patch.speechRate);
   }
 
   useEffect(() => {
@@ -311,11 +360,13 @@ export default function App() {
 
       if (e.key === 'Enter') {
         e.preventDefault();
-        if (phase === 'review') advance();
+        if (phase === 'review') goNext();
         else if (picked.length) check(picked);
         return;
       }
-      if (e.key === 'Escape') { e.preventDefault(); setSidePane(null); setScreen('done'); return; }
+      if (e.key === 'Escape') { e.preventDefault(); stopSpeech(); setSidePane(null); setScreen('done'); return; }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); return; }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); return; }
       if (phase === 'review') { return; }
 
       const n = current.order.length;
@@ -437,7 +488,7 @@ export default function App() {
                 <b>{stats.right}</b> right, <b>{stats.wrong}</b> wrong, <b>{pct}%</b> mastered
               </span>
               <button className="btn quiet" onClick={() => setShowSettings((s) => !s)}>Settings</button>
-              <button className="btn quiet" onClick={() => { setSidePane(null); setScreen('done'); }}>Finish</button>
+              <button className="btn quiet" onClick={() => { stopSpeech(); setSidePane(null); setScreen('done'); }}>Finish</button>
             </div>
           </div>
 
@@ -470,6 +521,9 @@ export default function App() {
               hasVideo={!!quiz.lectureVideo}
               hasSlides={!!quiz.slidesUrl}
               hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl)}
+              voice={settings.voice}
+              speechRate={settings.speechRate}
+              autoSpeak={speakTick}
             />
           )}
 
@@ -479,9 +533,15 @@ export default function App() {
             </div>
           )}
 
-          {phase === 'review' && (
-            <div className="row" style={{ marginTop: '14px' }}>
-              <button className="btn primary" onClick={advance}>Next question</button>
+          {current && (
+            <div className="q-nav">
+              <button type="button" className="btn quiet" disabled={!trail.length} onClick={goPrev}>
+                Previous
+              </button>
+              <button type="button" className={phase === 'review' ? 'btn primary' : 'btn quiet'} onClick={goNext}>
+                {phase === 'review' ? 'Next question' : 'Next'}
+              </button>
+              <p className="q-nav-hint">← → skip or replay. Skipping does not score the card.</p>
             </div>
           )}
 

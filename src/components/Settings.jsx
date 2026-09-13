@@ -1,4 +1,13 @@
+import { useState } from 'react';
+import { QUIZ_VOICES, SPEECH_RATES, normalizeRate, normalizeVoice, speakText, stopSpeech } from '../lib/speech.js';
+
+const SAMPLE = 'This is how this voice will read your quiz questions.';
+
 export default function Settings({ settings, onChange, onReset, onClose }) {
+  const voice = normalizeVoice(settings.voice);
+  const rate = normalizeRate(settings.speechRate);
+  const [previewing, setPreviewing] = useState(false);
+
   return (
     <div className="sheet panel">
       <div className="grp">
@@ -20,6 +29,55 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
           <input type="checkbox" checked={settings.instant} onChange={(e) => onChange({ instant: e.target.checked })} />
           Check the answer the moment I pick one
         </label>
+      </div>
+      <div className="grp">
+        <span>Read-aloud speed</span>
+        <div className="seg">
+          {SPEECH_RATES.map((n) => (
+            <button
+              key={n}
+              type="button"
+              className={rate === n ? 'on' : ''}
+              onClick={() => onChange({ speechRate: n })}
+            >
+              {n === 1 ? '1×' : n + '×'}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="grp">
+        <span>Read-aloud voice</span>
+        <div className="voice-picks">
+          {QUIZ_VOICES.map((v) => (
+            <button
+              key={v.id}
+              type="button"
+              className={voice === v.id ? 'on' : ''}
+              onClick={() => onChange({ voice: v.id })}
+            >
+              <b>{v.label}</b>
+              <span>{v.hint}</span>
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          className="text-link"
+          style={{ marginTop: '8px' }}
+          onClick={() => {
+            if (previewing) {
+              stopSpeech();
+              setPreviewing(false);
+              return;
+            }
+            setPreviewing(true);
+            speakText(SAMPLE, () => setPreviewing(false), voice, rate).then((started) => {
+              if (!started) setPreviewing(false);
+            });
+          }}
+        >
+          {previewing ? 'Stop preview' : 'Preview this voice'}
+        </button>
       </div>
       <div className="row">
         <button className="btn" onClick={onReset}>Start this deck over</button>
