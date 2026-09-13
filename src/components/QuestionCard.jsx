@@ -1,108 +1,140 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
-import { speakText, speechSupported, stopSpeech } from '../lib/speech.js';
+import { cardSpeechParts, speakText, speechSupported, stopSpeech } from '../lib/speech.js';
 
-function cardSpeech(q, order) {
-  let text = q.text || '';
-  if (q.options && order && order.length) {
-    text += '. The choices are. ';
-    order.forEach((idx, i) => {
-      text += LETTERS[i].toUpperCase() + '. ' + q.options[idx] + '. ';
-    });
-  }
-  return text;
-}
-
-function SpeakButton({ text, voice, rate, autoSpeak }) {
-  const [on, setOn] = useState(false);
+function SpeechTools({ parts, on, onToggle, onStep }) {
   const canSpeak = speechSupported();
-
-  useEffect(() => {
-    stopSpeech();
-    setOn(false);
-    return () => stopSpeech();
-  }, [text, voice]);
-
-  useEffect(() => {
-    if (!autoSpeak) return undefined;
-    let gone = false;
-    setOn(true);
-    speakText(text, () => { if (!gone) setOn(false); }, voice, rate).then((started) => {
-      if (!gone && !started) setOn(false);
-    });
-    return () => { gone = true; };
-  }, [autoSpeak]);
-
-  if (!canSpeak) return null;
+  if (!canSpeak || !parts.length) return null;
 
   return (
-    <button
-      type="button"
-      className={'speak-btn' + (on ? ' is-on' : '')}
-      aria-label={on ? 'Stop reading' : 'Read question aloud'}
-      title={on ? 'Stop reading' : 'Read question aloud'}
-      onClick={() => {
-        if (on) {
-          stopSpeech();
-          setOn(false);
-          return;
-        }
-        setOn(true);
-        speakText(text, () => setOn(false), voice, rate).then((started) => {
-          if (!started) setOn(false);
-        });
-      }}
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        {on ? (
-          <path d="M6 6h4v12H6zm8 0h4v12h-4z" fill="currentColor" />
-        ) : (
-          <path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.3-3.9v7.8A4.5 4.5 0 0 0 17.5 12zm2.5 0c0 2.5-1.1 4.7-2.8 6.2l1.4 1.4A10 10 0 0 0 22 12a10 10 0 0 0-3.4-7.6l-1.4 1.4A8 8 0 0 1 20 12z" fill="currentColor" />
-        )}
-      </svg>
-    </button>
-  );
-}
-
-function NavArrow({ dir, disabled, onClick }) {
-  const back = dir === 'prev';
-  return (
-    <button
-      type="button"
-      className="speak-btn q-skip"
-      disabled={disabled}
-      aria-label={back ? 'Previous question' : 'Next question'}
-      title={back ? 'Previous question' : 'Next question'}
-      onClick={onClick}
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        {back ? (
+    <div className="q-tools">
+      <button
+        type="button"
+        className="speak-btn"
+        aria-label="Read previous line"
+        title="Read previous line"
+        onClick={() => onStep(-1)}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.4 5.4 8.8 12l6.6 6.6-1.4 1.4L6 12l8-8z" fill="currentColor" />
-        ) : (
+        </svg>
+      </button>
+      <button
+        type="button"
+        className={'speak-btn' + (on ? ' is-on' : '')}
+        aria-label={on ? 'Stop reading' : 'Read question aloud'}
+        title={on ? 'Stop reading' : 'Read question aloud'}
+        onClick={onToggle}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          {on ? (
+            <path d="M6 6h4v12H6zm8 0h4v12h-4z" fill="currentColor" />
+          ) : (
+            <path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.3-3.9v7.8A4.5 4.5 0 0 0 17.5 12zm2.5 0c0 2.5-1.1 4.7-2.8 6.2l1.4 1.4A10 10 0 0 0 22 12a10 10 0 0 0-3.4-7.6l-1.4 1.4A8 8 0 0 1 20 12z" fill="currentColor" />
+          )}
+        </svg>
+      </button>
+      <button
+        type="button"
+        className="speak-btn"
+        aria-label="Read next line"
+        title="Read next line"
+        onClick={() => onStep(1)}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8.6 5.4 16.2 12l-7.6 6.6 1.4 1.4L19 12l-9-8z" fill="currentColor" />
-        )}
-      </svg>
-    </button>
+        </svg>
+      </button>
+    </div>
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, autoSpeak, onPrev, onNext, canPrev }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate }) {
   const reviewing = phase === 'review';
   const correct = reviewing && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
+  const parts = useMemo(() => cardSpeechParts(q, order), [q, order]);
+  const [at, setAt] = useState(0);
+  const [on, setOn] = useState(false);
+  const atRef = useRef(0);
+  const onRef = useRef(false);
+  const partsRef = useRef(parts);
+  const voiceRef = useRef(voice);
+  const rateRef = useRef(speechRate);
+  partsRef.current = parts;
+  voiceRef.current = voice;
+  rateRef.current = speechRate;
+
+  function playFrom(i) {
+    const list = partsRef.current;
+    if (!list.length) return;
+    const next = ((i % list.length) + list.length) % list.length;
+    atRef.current = next;
+    onRef.current = true;
+    setAt(next);
+    setOn(true);
+    speakText(list[next].text, () => {
+      if (!onRef.current) return;
+      const after = atRef.current + 1;
+      if (after < partsRef.current.length) playFrom(after);
+      else {
+        onRef.current = false;
+        atRef.current = 0;
+        setAt(0);
+        setOn(false);
+      }
+    }, voiceRef.current, rateRef.current).then((started) => {
+      if (!started && onRef.current && atRef.current === next) {
+        onRef.current = false;
+        setOn(false);
+      }
+    });
+  }
+
+  function stop() {
+    onRef.current = false;
+    setOn(false);
+    stopSpeech();
+  }
+
+  function step(delta) {
+    playFrom(atRef.current + delta);
+  }
+
+  useEffect(() => {
+    stop();
+    atRef.current = 0;
+    setAt(0);
+    return () => stopSpeech();
+  }, [q, order, voice]);
+
+  useEffect(() => {
+    function onKey(e) {
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const reading = on ? parts[at] : null;
 
   return (
     <div className="sheet qcard">
       <p className="kind">{KIND_LABEL[q.type]}</p>
       <div className="q-head">
-        <div className="q-text">{q.text}</div>
-        <div className="q-tools">
-          <NavArrow dir="prev" disabled={!canPrev} onClick={onPrev} />
-          <SpeakButton text={cardSpeech(q, order)} voice={voice} rate={speechRate} autoSpeak={autoSpeak} />
-          <NavArrow dir="next" onClick={onNext} />
-        </div>
+        <div className={'q-text' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>{q.text}</div>
+        <SpeechTools
+          parts={parts}
+          on={on}
+          onToggle={() => (on ? stop() : playFrom(atRef.current))}
+          onStep={step}
+        />
       </div>
 
       <div className="opts" role={multi ? 'group' : 'radiogroup'}>
@@ -118,6 +150,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
           } else if (isPicked) {
             cls += ' picked';
           }
+          if (reading && reading.option === realIdx) cls += ' is-reading';
           return (
             <button
               key={realIdx}

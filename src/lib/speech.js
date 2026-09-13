@@ -17,6 +17,22 @@ export const QUIZ_VOICES = [
 export const DEFAULT_VOICE = 'coral';
 export const SPEECH_RATES = [0.75, 1, 1.25, 1.5, 2];
 
+export function cardSpeechParts(q, order) {
+  const parts = [];
+  const title = String((q && q.text) || '').replace(/\s+/g, ' ').trim();
+  if (title) parts.push({ kind: 'title', option: -1, text: title });
+  (order || []).forEach((idx, i) => {
+    const label = String((q && q.options && q.options[idx]) || '').replace(/\s+/g, ' ').trim();
+    if (!label) return;
+    parts.push({
+      kind: 'option',
+      option: idx,
+      text: String.fromCharCode(65 + i) + '. ' + label,
+    });
+  });
+  return parts;
+}
+
 export function normalizeRate(rate) {
   const n = Number(rate);
   if (!isFinite(n)) return 1;

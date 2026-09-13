@@ -114,9 +114,6 @@ export default function App() {
   const [current, setCurrent] = useState(null);   // { q, order }
   const [picked, setPicked] = useState([]);
   const [phase, setPhase] = useState('answer');   // 'answer' | 'review'
-  const [trail, setTrail] = useState([]);
-  const [ahead, setAhead] = useState([]);
-  const [speakTick, setSpeakTick] = useState(0);
   const lastIdRef = useRef(null);
 
   const [saved, setSaved] = useState(() => sessionView(loadSession()));
@@ -143,9 +140,6 @@ export default function App() {
     setShowSettings(false);
     setStudyFocus(null);
     setSidePane(null);
-    setTrail([]);
-    setAhead([]);
-    setSpeakTick(0);
     lastIdRef.current = null;
     setScreen('quiz');
     deal(qz, bx, cfg);
@@ -206,44 +200,6 @@ export default function App() {
     setSidePane(null);
     setStudyFocus(null);
     setScreen('load');
-  }
-
-  function cardSnap() {
-    return { q: current.q, order: current.order, picked: picked.slice(), phase };
-  }
-
-  function showCard(card, readAloud) {
-    lastIdRef.current = card.q.id;
-    setCurrent({ q: card.q, order: card.order });
-    setPicked(card.picked || []);
-    setPhase(card.phase || 'answer');
-    setStudyFocus(null);
-    setSidePane((pane) => (pane === 'ask' ? 'ask' : null));
-    if (readAloud) setSpeakTick((n) => n + 1);
-  }
-
-  function goNext() {
-    if (!current) return;
-    stopSpeech();
-    const snap = cardSnap();
-    setTrail((t) => t.concat(snap));
-    if (ahead.length) {
-      const next = ahead[ahead.length - 1];
-      setAhead((a) => a.slice(0, -1));
-      showCard(next, true);
-      return;
-    }
-    deal(quiz, boxes, settings);
-    setSpeakTick((n) => n + 1);
-  }
-
-  function goPrev() {
-    if (!current || !trail.length) return;
-    stopSpeech();
-    const prev = trail[trail.length - 1];
-    setTrail((t) => t.slice(0, -1));
-    setAhead((a) => a.concat(cardSnap()));
-    showCard(prev, true);
   }
 
   function closePane() {
@@ -337,6 +293,12 @@ export default function App() {
     if (patch.speechRate != null) applySpeechRate(patch.speechRate);
   }
 
+  const advance = useCallback(() => {
+    if (phase !== 'review') return;
+    stopSpeech();
+    deal(quiz, boxes, settings);
+  }, [phase, quiz, boxes, settings, deal]);
+
   useEffect(() => {
     if (!sidePane) return;
     function onKey(e) {
@@ -360,13 +322,11 @@ export default function App() {
 
       if (e.key === 'Enter') {
         e.preventDefault();
-        if (phase === 'review') goNext();
+        if (phase === 'review') advance();
         else if (picked.length) check(picked);
         return;
       }
       if (e.key === 'Escape') { e.preventDefault(); stopSpeech(); setSidePane(null); setScreen('done'); return; }
-      if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); return; }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); return; }
       if (phase === 'review') { return; }
 
       const n = current.order.length;
@@ -523,10 +483,6 @@ export default function App() {
               hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl)}
               voice={settings.voice}
               speechRate={settings.speechRate}
-              autoSpeak={speakTick}
-              canPrev={trail.length > 0}
-              onPrev={goPrev}
-              onNext={goNext}
             />
           )}
 
@@ -538,7 +494,7 @@ export default function App() {
 
           {phase === 'review' && (
             <div className="row" style={{ marginTop: '14px' }}>
-              <button className="btn primary" onClick={goNext}>Next question</button>
+              <button className="btn primary" onClick={advance}>Next question</button>
             </div>
           )}
 

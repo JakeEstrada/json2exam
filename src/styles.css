@@ -1199,6 +1199,7 @@
       var(--rule) 31px 32px
     );
   }
+  .q-text.is-reading { color: var(--accent); }
   .q-tools {
     flex: none;
     display: flex;
@@ -1254,6 +1255,10 @@
   }
   .opt:hover:not(:disabled) { border-color: var(--accent); }
   .opt:disabled { cursor: default; }
+  .opt.is-reading {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
 
   .opt .key {
     flex: none;

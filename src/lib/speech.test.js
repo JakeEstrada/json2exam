@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeRate, normalizeVoice, pickBestVoice } from './speech.js';
+import { cardSpeechParts, normalizeRate, normalizeVoice, pickBestVoice } from './speech.js';
 
 test('pickBestVoice prefers a natural English voice over a novelty one', () => {
   const voices = [
@@ -25,4 +25,19 @@ test('normalizeRate snaps to a supported playback speed', () => {
   assert.equal(normalizeRate(1.5), 1.5);
   assert.equal(normalizeRate(1.4), 1.5);
   assert.equal(normalizeRate('fast'), 1);
+});
+
+test('cardSpeechParts splits the title and each choice', () => {
+  const parts = cardSpeechParts(
+    { text: 'What is Agile?', options: ['A plan', 'A mindset', 'A tool'] },
+    [1, 0, 2]
+  );
+  assert.deepEqual(parts.map((p) => p.text), [
+    'What is Agile?',
+    'A. A mindset',
+    'B. A plan',
+    'C. A tool',
+  ]);
+  assert.equal(parts[0].kind, 'title');
+  assert.equal(parts[1].option, 1);
 });
