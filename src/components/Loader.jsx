@@ -2,9 +2,11 @@ import { useState, useRef } from 'react';
 import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
 import FileWindow from './FileWindow.jsx';
+import LearningLog from './LearningLog.jsx';
 import { SAMPLE } from '../data/sample.js';
 import { COURSES, courseDecks } from '../data/catalog.js';
 import { COURSE_GROUPS } from '../data/appliedClassroom.js';
+import { courseRollup } from '../lib/learningLog.js';
 import aiFileGuide from '../data/aiFileGuide.md?raw';
 
 function courseBlurb(course) {
@@ -28,7 +30,8 @@ function courseBlurb(course) {
   return qLabel + ' · ' + labels;
 }
 
-function CourseCard({ course, onOpen }) {
+function CourseCard({ course, onOpen, log }) {
+  const roll = courseRollup(course, log);
   return (
     <button
       type="button"
@@ -38,12 +41,15 @@ function CourseCard({ course, onOpen }) {
       <strong>{course.title}</strong>
       {course.tagline && <span className="subtitle">{course.tagline}</span>}
       <p>{courseBlurb(course)}</p>
+      {roll && roll.started > 0 && (
+        <span className="course-progress">{roll.mastered}/{roll.total} mastered</span>
+      )}
       <span className="go">Open course</span>
     </button>
   );
 }
 
-export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget }) {
+export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget, log, owner }) {
   const [over, setOver] = useState(false);
   const [error, setError] = useState(null);
   const [warn, setWarn] = useState(null);
@@ -94,6 +100,8 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
           to know why an answer is wrong.
         </p>
       </div>
+
+      <LearningLog log={log} />
 
       <div
         className={'upload-panel sheet' + (over ? ' is-over' : '')}
@@ -181,7 +189,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
         </div>
       )}
 
-      <ResumeBar resumable={resumable} onResume={onResume} onForget={onForget} />
+      <ResumeBar resumable={owner ? resumable : null} onResume={onResume} onForget={onForget} />
 
       {COURSE_GROUPS.map((group) => {
         const list = COURSES.filter((course) => course.group === group.id);
@@ -191,7 +199,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
             <h3 className="course-group-label">{group.label}</h3>
             <div className="start-grid course-grid">
               {list.map((course) => (
-                <CourseCard key={course.id} course={course} onOpen={onOpenCourse} />
+                <CourseCard key={course.id} course={course} onOpen={onOpenCourse} log={log} />
               ))}
             </div>
           </section>

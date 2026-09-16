@@ -1,6 +1,6 @@
 import ThemeToggle from './ThemeToggle.jsx';
 
-export default function Masthead({ onHome }) {
+export default function Masthead({ onHome, owner, onSignIn, onSignOut }) {
   return (
     <div className="masthead">
       {onHome ? (
@@ -12,6 +12,18 @@ export default function Masthead({ onHome }) {
       )}
       <div className="masthead-actions">
         <ThemeToggle />
+        {owner ? (
+          <>
+            <span className="owner-chip">{owner.name}</span>
+            {onSignOut && (
+              <button type="button" className="btn quiet" onClick={onSignOut}>Sign out</button>
+            )}
+          </>
+        ) : (
+          onSignIn && (
+            <button type="button" className="btn quiet" onClick={onSignIn}>Sign in</button>
+          )
+        )}
         {onHome && (
           <button type="button" className="btn quiet" onClick={onHome}>Home</button>
         )}

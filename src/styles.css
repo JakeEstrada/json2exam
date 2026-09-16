@@ -219,13 +219,18 @@
     overflow: hidden;
     background: #0b0b0b;
   }
+  .lesson-wrap {
+    width: min(920px, 100%);
+    margin: 0 auto;
+  }
   .lesson-lead {
-    margin: 0 0 18px;
+    margin: 0 0 22px;
     color: var(--ink-soft);
-    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.55;
   }
   .lesson-page {
-    max-width: 72ch;
+    max-width: none;
   }
   .lesson-notes {
     margin: 0 0 28px;
@@ -234,7 +239,11 @@
     border-radius: var(--radius);
   }
   .lesson-notes .md-preview {
-    padding: 22px 24px 28px;
+    max-width: none;
+    margin: 0;
+    padding: 40px 52px 48px;
+    font-size: 18px;
+    line-height: 1.65;
   }
   .cheatsheet-box {
     margin: 0 0 24px;
@@ -280,6 +289,11 @@
     align-items: center;
     gap: 4px;
     margin-left: auto;
+  }
+  .owner-chip {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding: 0 8px;
   }
   .theme-toggle {
     display: inline-flex;
@@ -364,6 +378,107 @@
     text-underline-offset: 3px;
   }
   .welcome a:hover { color: var(--ink); }
+
+  .learning-log {
+    margin: 0 0 20px;
+    padding: 24px 28px 22px;
+  }
+  .learning-log-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .learning-log-head h2 {
+    margin: 2px 0 0;
+    font-size: 22px;
+    letter-spacing: -.02em;
+  }
+  .learning-updated {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  .learning-headline {
+    margin: 0 0 14px;
+    color: var(--ink-soft);
+  }
+  .learning-now {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0 0 12px;
+  }
+  .learning-now strong { font-size: 16px; }
+  .learning-now span { color: var(--ink-soft); font-size: 15px; }
+  .learning-meter {
+    height: 8px;
+    background: var(--chip);
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 0 0 14px;
+  }
+  .learning-meter span {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+  }
+  .learning-decks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .learning-decks li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .learning-deck-pct { color: var(--ink-soft); }
+  .course-progress {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  .login-card {
+    width: min(420px, 100%);
+    padding: 28px 28px 24px;
+    position: relative;
+    z-index: 41;
+  }
+  .login-card h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+  }
+  .login-card p {
+    margin: 0 0 16px;
+    color: var(--ink-soft);
+  }
+  .login-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .login-card input {
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--desk);
+    color: var(--ink);
+    font: inherit;
+  }
+  .login-error {
+    color: var(--wrong) !important;
+  }
 
   .start-grid {
     display: grid;
@@ -2124,6 +2239,10 @@
     .askgpt-log {
       min-height: 140px;
       max-height: 220px;
+    }
+    .lesson-notes .md-preview {
+      padding: 24px 20px 28px;
+      font-size: 16px;
     }
   }
 

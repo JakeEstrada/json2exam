@@ -37,7 +37,7 @@ function uniqueBooks(course) {
   return [...seen.values()];
 }
 
-function startExtra(deck) {
+function startExtra(deck, course) {
   return {
     notes: deck.notes,
     notesFile: deck.notesFile,
@@ -55,10 +55,14 @@ function startExtra(deck) {
     cheatsheet: deck.cheatsheet,
     sheet: deck.sheet,
     jsIntro: deck.jsIntro,
+    courseId: course && course.id,
+    courseTitle: course && course.title,
+    deckId: deck.id,
+    deckLabel: deck.label,
   };
 }
 
-function DeckCard({ deck, onStart, onPreview, step, ramp }) {
+function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
   const count = deck.data && Array.isArray(deck.data.questions)
     ? deck.data.questions.length
     : 0;
@@ -106,7 +110,9 @@ function DeckCard({ deck, onStart, onPreview, step, ramp }) {
       <p>
         {coming
           ? 'Coming next'
-          : (ramp ? 'Lesson, then practice' : (count + ' questions'))}
+          : (progress
+            ? (progress.done ? 'Done' : (progress.pct + '% mastered'))
+            : (ramp ? 'Lesson, then practice' : (count + ' questions')))}
       </p>
       {files.length > 0 && (
         <div className="deck-links">
@@ -130,7 +136,7 @@ function DeckCard({ deck, onStart, onPreview, step, ramp }) {
         <button
           type="button"
           className="go"
-          onClick={() => onStart(deck.data, deck.label, startExtra(deck))}
+          onClick={() => onStart(deck.data, deck.label, startExtra(deck, course))}
         >
           {ramp ? 'Learn' : 'Start this deck'}
         </button>
@@ -169,7 +175,7 @@ function Resources({ books, onPreview }) {
   );
 }
 
-function DeckGrid({ decks, onStart, onPreview, ramp, numbered }) {
+function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log }) {
   return (
     <ul className="start-grid deck-grid">
       {decks.map((deck, i) => (
@@ -180,6 +186,8 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered }) {
             onPreview={onPreview}
             step={numbered ? i + 1 : 0}
             ramp={ramp}
+            course={course}
+            progress={log && log.decks && log.decks[deck.id]}
           />
         </li>
       ))}
@@ -187,7 +195,7 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered }) {
   );
 }
 
-export default function Course({ course, onStart }) {
+export default function Course({ course, onStart, log }) {
   const [preview, setPreview] = useState(null);
   const modules = Array.isArray(course.modules) && course.modules.length
     ? course.modules
@@ -248,6 +256,8 @@ export default function Course({ course, onStart }) {
                   onPreview={setPreview}
                   ramp={ramp}
                   numbered={ramp && ready.length > 0}
+                  course={course}
+                  log={log}
                 />
                 {ready.length > 0 && later.length > 0 && (
                   <details className="later-topics">
@@ -260,6 +270,8 @@ export default function Course({ course, onStart }) {
                       onStart={onStart}
                       onPreview={setPreview}
                       ramp={ramp}
+                      course={course}
+                      log={log}
                     />
                   </details>
                 )}

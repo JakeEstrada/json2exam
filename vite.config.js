@@ -3,6 +3,7 @@ import path from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { readJsonBody, runAsk } from './api/ask-core.js';
+import { bearerToken, runLogin, runProgressGet, runProgressPost } from './api/owner-core.js';
 import { runSpeak } from './api/speak-core.js';
 
 function pdfStandardFontsPlugin() {
@@ -61,6 +62,45 @@ function askApiPlugin() {
           return;
         }
 
+        if (path === '/api/login') {
+          if (req.method !== 'POST') {
+            res.statusCode = 405;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'method', detail: 'POST only.' }));
+            return;
+          }
+          try {
+            const body = await readJsonBody(req);
+            const out = runLogin(body);
+            res.statusCode = out.status;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(out.json));
+          } catch (err) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'server', detail: err.message || 'Login failed.' }));
+          }
+          return;
+        }
+
+        if (path === '/api/progress') {
+          try {
+            const out = req.method === 'GET'
+              ? runProgressGet()
+              : req.method === 'POST'
+                ? runProgressPost(await readJsonBody(req), bearerToken(req))
+                : { status: 405, json: { error: 'method', detail: 'GET or POST.' } };
+            res.statusCode = out.status;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(out.json));
+          } catch (err) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'server', detail: err.message || 'Progress failed.' }));
+          }
+          return;
+        }
+
         if (path !== '/api/ask') return next();
 
         if (req.method !== 'POST') {
@@ -92,6 +132,9 @@ export default defineConfig(({ mode }) => {
   if (env.OPENAI_MODEL) process.env.OPENAI_MODEL = env.OPENAI_MODEL;
   if (env.OPENAI_TTS_VOICE) process.env.OPENAI_TTS_VOICE = env.OPENAI_TTS_VOICE;
   if (env.OPENAI_TTS_MODEL) process.env.OPENAI_TTS_MODEL = env.OPENAI_TTS_MODEL;
+  if (env.OWNER_USERNAME) process.env.OWNER_USERNAME = env.OWNER_USERNAME;
+  if (env.OWNER_PASSWORD) process.env.OWNER_PASSWORD = env.OWNER_PASSWORD;
+  if (env.SESSION_SECRET) process.env.SESSION_SECRET = env.SESSION_SECRET;
 
   return {
     plugins: [react(), askApiPlugin(), pdfStandardFontsPlugin()],

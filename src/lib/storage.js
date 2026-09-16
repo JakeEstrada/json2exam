@@ -1,3 +1,4 @@
+const AUTH_KEY = 'json2exam.owner';
 const STORE_KEY = 'cardbox.session.v1';
 const THEME_KEY = 'json2exam.theme';
 
@@ -44,4 +45,27 @@ export function resolvedTheme(theme) {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   return 'light';
+}
+
+export function loadOwner() {
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.token || !parsed.name) return null;
+    return { name: String(parsed.name), token: String(parsed.token) };
+  } catch (e) {
+    return null;
+  }
+}
+
+export function saveOwner(owner) {
+  try {
+    if (!owner || !owner.token) localStorage.removeItem(AUTH_KEY);
+    else localStorage.setItem(AUTH_KEY, JSON.stringify({ name: owner.name, token: owner.token }));
+  } catch (e) { /* ignore */ }
+}
+
+export function clearOwner() {
+  try { localStorage.removeItem(AUTH_KEY); } catch (e) { /* ignore */ }
 }

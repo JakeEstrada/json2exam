@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { LETTERS, normalizeQuiz } from './lib/parseQuiz.js';
 import { boxOf, pickNext, shuffled, sameSet } from './lib/leitner.js';
-import { saveSession, loadSession, clearSession } from './lib/storage.js';
+import { saveSession, loadSession, clearSession, loadOwner, saveOwner, clearOwner } from './lib/storage.js';
 import { BRAINS } from './brains/index.js';
 import { findBrain } from './lib/ask.js';
 import Masthead from './components/Masthead.jsx';
@@ -13,11 +13,15 @@ import Settings from './components/Settings.jsx';
 import QuestionCard from './components/QuestionCard.jsx';
 import Summary from './components/Summary.jsx';
 import AskGPT from './components/AskGPT.jsx';
+import Login from './components/Login.jsx';
+import QuizNotes from './components/QuizNotes.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
+import publishedLog from './data/learningLog.json';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 import { resolveBook } from './lib/books.js';
 import { formatAskNotes, resolveReading } from './lib/reading.js';
+import { emptyLog, mergeLog, withDeck } from './lib/learningLog.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -144,6 +148,12 @@ export default function App() {
   const [studyFocus, setStudyFocus] = useState(null);
   const [sidePane, setSidePane] = useState(null);
   const [codeWork, setCodeWork] = useState({});
+  const [owner, setOwner] = useState(() => loadOwner());
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [log, setLog] = useState(() => mergeLog(emptyLog(), publishedLog));
+  const logTimer = useRef(null);
+  const logRef = useRef(log);
+  logRef.current = log;
 
   const deal = useCallback((qz, bx, cfg) => {
     const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current);
@@ -220,6 +230,10 @@ export default function App() {
     if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
       qz.sheet = [].concat(extra.sheet).filter(Boolean);
     }
+    if (extra && extra.courseId) qz.courseId = extra.courseId;
+    if (extra && extra.courseTitle) qz.courseTitle = extra.courseTitle;
+    if (extra && extra.deckId) qz.deckId = extra.deckId;
+    if (extra && extra.deckLabel) qz.deckLabel = extra.deckLabel;
     startFresh(qz);
   }
 
@@ -237,12 +251,41 @@ export default function App() {
   }
 
   function persist() {
-    if (!quiz) return saved;
+    if (!quiz || !owner) return saved;
     const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     const view = sessionView(state);
     setSaved(view);
     return view;
+  }
+
+  function signedIn(next) {
+    saveOwner(next);
+    setOwner(next);
+    setLoginOpen(false);
+  }
+
+  function signOut() {
+    clearOwner();
+    setOwner(null);
+  }
+
+  function pushLog(next) {
+    setLog(next);
+    if (!owner || !owner.token) return;
+    if (logTimer.current) clearTimeout(logTimer.current);
+    logTimer.current = setTimeout(() => {
+      fetch('/api/progress', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + owner.token,
+        },
+        body: JSON.stringify(next),
+      }).then((res) => res.json()).then((data) => {
+        if (data && data.decks) setLog(mergeLog(emptyLog(), data));
+      }).catch(() => {});
+    }, 700);
   }
 
   function goHome() {
@@ -320,11 +363,26 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (!quiz) return;
+    fetch('/api/progress')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.owner) setLog(mergeLog(emptyLog(), data));
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (!quiz || !owner) return;
     const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     setSaved(sessionView(state));
-  }, [quiz, boxes, stats, settings, courseId, codeWork]);
+    pushLog(withDeck(logRef.current, {
+      courseId: quiz.courseId || courseId,
+      courseTitle: quiz.courseTitle || '',
+      deckId: quiz.deckId,
+      deckLabel: quiz.deckLabel || quiz.title,
+    }, quiz, boxes, stats, settings.maxBox));
+  }, [quiz, boxes, stats, settings, courseId, codeWork, owner]);
 
   const check = useCallback((chosen, selfRight) => {
     if (!current || phase === 'review') return;
@@ -434,17 +492,29 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey);
   });
 
+  const authHead = {
+    owner,
+    onSignIn: () => setLoginOpen(true),
+    onSignOut: signOut,
+  };
+  const loginUi = loginOpen ? (
+    <Login onClose={() => setLoginOpen(false)} onSignedIn={signedIn} />
+  ) : null;
+
   if (screen === 'load') {
     return (
       <div className="shell shell-wide">
-        <Masthead />
+        <Masthead {...authHead} />
         <Loader
           onStart={startFresh}
           onOpenCourse={openCourse}
           resumable={saved}
           onResume={resumeSaved}
           onForget={forgetSaved}
+          log={log}
+          owner={owner}
         />
+        {loginUi}
       </div>
     );
   }
@@ -453,11 +523,13 @@ export default function App() {
     const course = COURSES.find((c) => c.id === courseId) || COURSES[0];
     return (
       <div className="shell shell-wide">
-        <Masthead onHome={goHome} />
+        <Masthead onHome={goHome} {...authHead} />
         <Course
           course={course}
           onStart={startDeck}
+          log={log}
         />
+        {loginUi}
       </div>
     );
   }
@@ -465,12 +537,13 @@ export default function App() {
   if (screen === 'lesson' && quiz) {
     return (
       <div className="shell shell-wide">
-        <Masthead onHome={goHome} />
+        <Masthead onHome={goHome} {...authHead} />
         <Lesson
           quiz={quiz}
           onStart={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
           onHome={goHome}
         />
+        {loginUi}
       </div>
     );
   }
@@ -489,7 +562,7 @@ export default function App() {
   if (screen === 'done') {
     return (
       <div className={'shell shell-wide' + (sidePane ? ' is-split' : '')}>
-        <Masthead onHome={goHome} />
+        <Masthead onHome={goHome} {...authHead} />
         <div className={'quiz-split' + (sidePane ? ' is-split' : '')}>
           <div className="quiz-main">
             <Summary
@@ -538,6 +611,7 @@ export default function App() {
             onOpenSlide={openSlide}
           />
         </div>
+        {loginUi}
       </div>
     );
   }
@@ -547,7 +621,7 @@ export default function App() {
 
   return (
     <div className={'shell shell-wide' + (sidePane ? ' is-split' : '')}>
-      <Masthead onHome={goHome} />
+      <Masthead onHome={goHome} {...authHead} />
 
       <div className={'quiz-split' + (sidePane ? ' is-split' : '')}>
         <div className="quiz-main">
@@ -648,6 +722,7 @@ export default function App() {
           onOpenSlide={openSlide}
         />
       </div>
+      {loginUi}
     </div>
   );
 }

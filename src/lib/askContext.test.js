@@ -21,6 +21,17 @@ test('buildAskPrompt hides the key until review', () => {
   assert.match(after, /Bank explanation: It narrows design choices/);
 });
 
+test('buildAskPrompt tutors the lesson without a card', () => {
+  const prompt = buildAskPrompt({
+    message: 'Is JavaScript compiled?',
+    phase: 'lesson',
+    notes: 'JavaScript is a scripting language.',
+  });
+  assert.match(prompt, /reading the lesson/);
+  assert.match(prompt, /Do not reveal quiz answers/);
+  assert.match(prompt, /scripting language/);
+});
+
 test('buildAskPrompt includes deck study notes when present', () => {
   const prompt = buildAskPrompt({
     message: 'What is vision vs scope?',

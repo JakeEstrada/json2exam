@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { lookupCheatsheet } from '../lib/cheatsheet.js';
+import { formatAskNotes } from '../lib/reading.js';
 import { MarkdownView } from './FileWindow.jsx';
+import AskGPT from './AskGPT.jsx';
 
 export const JS_SHAPE = [
   '# What JavaScript is',
@@ -60,13 +62,21 @@ export function CheatsheetLookup({ source, topic, heading }) {
   );
 }
 
+export function lessonAskNotes(quiz) {
+  const parts = [];
+  if (quiz && quiz.jsIntro) parts.push(JS_SHAPE);
+  const rest = formatAskNotes(quiz);
+  if (rest) parts.push(rest);
+  return parts.join('\n\n');
+}
+
 export default function Lesson({ quiz, onStart, onHome }) {
   const sheet = quiz && quiz.cheatsheet;
   const topic = Array.isArray(quiz && quiz.sheet) ? quiz.sheet[0] : (quiz && quiz.sheet);
   const showShape = !!(quiz && quiz.jsIntro);
 
   return (
-    <div className="shell shell-wide">
+    <div className="lesson-wrap">
       <div className="bar">
         <h2>{(quiz && quiz.title) || 'Lesson'}</h2>
         <div className="row">
@@ -93,6 +103,14 @@ export default function Lesson({ quiz, onStart, onHome }) {
           <button type="button" className="btn primary" onClick={onStart}>Start the quiz</button>
         </div>
       </div>
+
+      <AskGPT
+        phase="lesson"
+        card={null}
+        picked={[]}
+        notes={lessonAskNotes(quiz)}
+        hello="Ask about this reading. I can unpack a sentence, compare it to C++, or point you at the chapter."
+      />
     </div>
   );
 }

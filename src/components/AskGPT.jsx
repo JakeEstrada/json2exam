@@ -22,6 +22,12 @@ function OpenAIMark({ className }) {
 
 function suggestionChips(card, phase, picked, brain) {
   const chips = [];
+  if (phase === 'lesson') {
+    chips.push('Explain this in C++ terms');
+    chips.push('What should I remember from this reading?');
+    chips.push('What is a scripting language?');
+    return chips;
+  }
   if (phase === 'review' && card) {
     if (card.q && card.q.type === 'code') {
       chips.push('Walk through a solution approach');
@@ -94,8 +100,8 @@ async function askModel({ message, phase, card, picked, history, notes }) {
   return data.text;
 }
 
-export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen, onClose, fill, hideFab }) {
-  const hello = (brain && brain.greeting) || FALLBACK_HELLO;
+export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen, onClose, fill, hideFab, hello: helloProp, placeholder }) {
+  const hello = helloProp || (brain && brain.greeting) || FALLBACK_HELLO;
   const [innerOpen, setInnerOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [pending, setPending] = useState(false);
@@ -197,7 +203,9 @@ export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen
           id="askgpt-input"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
-          placeholder="Ask why an option isn’t also right…"
+          placeholder={placeholder || (phase === 'lesson'
+            ? 'Ask about this reading…'
+            : 'Ask why an option isn’t also right…')}
           autoComplete="off"
         />
         <button type="submit" className="askgpt-send" disabled={pending || !draft.trim()}>
