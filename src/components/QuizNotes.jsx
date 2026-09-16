@@ -6,7 +6,7 @@ import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
 
 export default function QuizNotes({
-  source, bookUrl, slidesUrl, lecture, lectureAudio, lectureVideo, focus, mode, onOpenSlide,
+  source, bookUrl, bookMissing, bookWanted, slidesUrl, lecture, lectureAudio, lectureVideo, focus, mode, onOpenSlide,
 }) {
   const page = focus && focus.page ? focus.page : 0;
   const slide = focus && focus.slide ? focus.slide : 0;
@@ -70,6 +70,17 @@ export default function QuizNotes({
       {active === 'book' && bookUrl && (
         <div className="quiz-notes-body is-pdf">
           <PdfPage url={bookUrl} page={page || 1} query={bookQuery} label="Page" />
+        </div>
+      )}
+      {active === 'book' && !bookUrl && (
+        <div className="quiz-notes-body">
+          <p className="pdf-page-status">
+            {bookWanted
+              ? 'No local PDF matched “' + bookWanted + '”. The quiz still works; add the file under this course’s sources folder.'
+              : (bookMissing
+                ? 'This book is not available in the local sources folder. The quiz still works.'
+                : 'Book is not available for this deck.')}
+          </p>
         </div>
       )}
     </div>

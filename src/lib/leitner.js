@@ -34,4 +34,5 @@ export const KIND_LABEL = {
   single: 'pick one',
   boolean: 'true or false',
   multi: 'pick every right answer',
+  code: 'code practice · self-assessed',
 };

@@ -51,6 +51,8 @@ import deck544Scrum from '../../544-Mod-1/Scrum/Scrum.json';
 import lecture544Scrum from '../../544-Mod-1/Scrum/Scrum_video.txt?raw';
 import slides544Scrum from '../../544-Mod-1/Scrum/Scrum.pdf?url';
 
+import { APPLIED_COURSES } from './appliedClassroom.js';
+
 const lectureVideos = import.meta.glob('../../544-Mod-1/**/*.mp4', {
   query: '?url',
   import: 'default',
@@ -65,6 +67,62 @@ function lectureVideo(rel) {
   return lectureVideos['../../544-Mod-1/' + rel] || '';
 }
 
+const appliedQuizzes = import.meta.glob('../../applied-classroom/**/quiz.json', { eager: true });
+const appliedNotes = import.meta.glob('../../applied-classroom/**/notes.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const appliedBookFiles = import.meta.glob('../../applied-classroom/javascript/sources/*.pdf', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+});
+
+function appliedQuiz(folder) {
+  const mod = appliedQuizzes['../../' + folder + '/quiz.json'];
+  return (mod && mod.default) || mod || null;
+}
+
+function booksIn(folder) {
+  const prefix = '../../' + folder + '/sources/';
+  const list = [];
+  Object.keys(appliedBookFiles).forEach((key) => {
+    if (!key.startsWith(prefix) || !key.toLowerCase().endsWith('.pdf')) return;
+    const file = key.slice(prefix.length);
+    list.push({
+      title: file.replace(/\.pdf$/i, ''),
+      file,
+      url: appliedBookFiles[key],
+    });
+  });
+  list.sort((a, b) => a.title.localeCompare(b.title));
+  return list;
+}
+
+function hydrateApplied(course) {
+  const books = booksIn(course.folder);
+  return Object.assign({}, course, {
+    books,
+    modules: (course.modules || []).map((mod) => Object.assign({}, mod, {
+      decks: (mod.decks || []).map((deck) => {
+        const data = appliedQuiz(deck.folder);
+        const questions = data && Array.isArray(data.questions) ? data.questions : [];
+        const notes = appliedNotes['../../' + deck.folder + '/notes.md'] || '';
+        return Object.assign({}, deck, {
+          file: 'quiz.json',
+          data: data,
+          notesFile: 'notes.md',
+          notes: notes,
+          books,
+          comingSoon: questions.length === 0,
+          subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
+        });
+      }),
+    })),
+  });
+}
+
 export function courseDecks(course) {
   if (course && Array.isArray(course.modules) && course.modules.length) {
     return course.modules.flatMap((mod) => mod.decks || []);
@@ -77,6 +135,9 @@ export const COURSES = [
     id: '541',
     code: '541',
     title: 'Requirements Engineering',
+    program: true,
+    group: 'process',
+    tagline: 'Software requirements, from need to specification.',
     modules: [
       {
         id: '541-mod1',
@@ -177,6 +238,9 @@ export const COURSES = [
     id: '544',
     code: '544',
     title: 'Advanced Software Process',
+    program: true,
+    group: 'process',
+    tagline: 'Process maturity, change, assessment, Agile, and Scrum.',
     modules: [
       {
         id: '544-mod1',
@@ -291,4 +355,5 @@ export const COURSES = [
       },
     ],
   },
+  ...APPLIED_COURSES.map(hydrateApplied),
 ];

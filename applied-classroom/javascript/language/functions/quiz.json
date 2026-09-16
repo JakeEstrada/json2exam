@@ -1,0 +1,353 @@
+{
+  "title": "JavaScript — Functions, scope, and closures",
+  "questions": [
+    {
+      "question": "What is a function in JavaScript?",
+      "type": "multiple",
+      "options": [
+        "A value you can bind, pass, and return.",
+        "A statement that cannot be stored in a binding.",
+        "A C++-style nested function that must be declared inside main.",
+        "A type of number used only for callbacks."
+      ],
+      "answer": "a",
+      "explanation": "Functions are values. That is what makes closures and higher-order helpers possible.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 75,
+        "excerpt": "A function definition is a regular binding where the value of the binding is a function."
+      }
+    },
+    {
+      "question": "A function body has no return. What does a call yield?",
+      "type": "multiple",
+      "options": [
+        "0",
+        "undefined",
+        "null",
+        "a ReferenceError"
+      ],
+      "answer": "b",
+      "explanation": "Missing return produces undefined. That is not an error by itself.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 75,
+        "excerpt": "Functions have a set of parameters (in this case, only x) and a body, which contains the statements that are to be executed when the function is called."
+      }
+    },
+    {
+      "question": "function make() { let n = 0; return () => { n += 1; return n; }; } const f = make(); What is f(), f(), make()()?",
+      "type": "multiple",
+      "options": [
+        "1 2 3 because all counters share one global n.",
+        "0 0 0 because n is reset on every inner call.",
+        "1 2 1 because make()() is a new closure.",
+        "1 1 1 because arrows cannot close over let."
+      ],
+      "answer": "c",
+      "explanation": "f keeps one n. A separate make() call creates a new n starting at 0.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "The ability to treat functions as values, combined with the fact that local bindings are re-created every time a function is called, brings up an interesting question."
+      }
+    },
+    {
+      "question": "Find the bug: for (var i = 0; i < 3; i++) fns.push(function () { return i; }); then fns[0]().",
+      "type": "multiple",
+      "options": [
+        "The functions cannot be stored in an array.",
+        "The call throws because i is const.",
+        "i is block-scoped so each function returns undefined.",
+        "All three return 3 because var i is one binding."
+      ],
+      "answer": "d",
+      "explanation": "var is function-scoped. After the loop i is 3. Use let i or bind i in its own closure.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 19,
+        "excerpt": "Working with variables is one of the most foundational things we do in programming!"
+      }
+    },
+    {
+      "question": "Lexical scope means which of these?",
+      "type": "multiple",
+      "options": [
+        "A function sees bindings from where it is written.",
+        "A function sees bindings from where it is called, like a dynamic scope.",
+        "A function sees only globals, never parameters.",
+        "A function copies all outer values at parse time and never sees updates."
+      ],
+      "answer": "a",
+      "explanation": "JS is lexically scoped. Closures still see live bindings, not snapshots.",
+      "reference": {
+        "section": "Bindings and scopes",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 19,
+        "excerpt": "how does JS know which variables are accessible by any given statement, and how does it handle two variables of the same name?"
+      }
+    },
+    {
+      "question": "Why can you return an inner function that uses a local let without a dangling pointer?",
+      "type": "multiple",
+      "options": [
+        "Locals live on a C++-style stack and JS copies them into registers.",
+        "Bindings live as long as something still references them.",
+        "Inner functions are inlined, so no environment remains.",
+        "You cannot return inner functions; the engine throws."
+      ],
+      "answer": "b",
+      "explanation": "That is the heap-based model behind closures. C++ lambdas that capture stack by reference can dangle; JS locals do not.",
+      "reference": {
+        "section": "From C++",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 149,
+        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+      }
+    },
+    {
+      "question": "makeStatusMachine should hide status. Which design does that?",
+      "type": "multiple",
+      "options": [
+        "Put status on the returned object so tests can read machine.status.",
+        "Use a global let status so every machine shares one value.",
+        "Close over a let status and only expose get and set.",
+        "Store status in window.status for the debugger."
+      ],
+      "answer": "c",
+      "explanation": "A closed-over binding is not a public property. Callers cannot assign machine.status.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "This is allowed and works as you’d hope"
+      }
+    },
+    {
+      "question": "Which are true of parameters?",
+      "type": "multi",
+      "options": [
+        "They are local bindings for that call.",
+        "Extra arguments throw a TypeError by default.",
+        "Missing arguments are undefined unless you set a default.",
+        "They are always copied by value, including objects."
+      ],
+      "answer": [
+        "a",
+        "c"
+      ],
+      "explanation": "Extra args are ignored. Objects are passed as references (the binding is local; the object is shared).",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 75,
+        "excerpt": "A function is created with an expression that starts with the keyword function."
+      }
+    },
+    {
+      "question": "function declarations vs const fn = function () {} hoist how?",
+      "type": "multiple",
+      "options": [
+        "Both can be called on the line above their source.",
+        "Only arrows are hoisted.",
+        "Neither can be called before the line.",
+        "Declarations are hoisted; the const binding is not initialized yet."
+      ],
+      "answer": "d",
+      "explanation": "A function declaration can be called earlier in the same scope. A const function lives in the temporal dead zone until its line.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 74,
+        "excerpt": "Functions are one of the most central tools in JavaScript programming."
+      }
+    },
+    {
+      "question": "A closure keeps a live link. If the inner function reads a let that is later assigned, what happens?",
+      "type": "multiple",
+      "options": [
+        "It sees the new value on later calls.",
+        "It still sees the original snapshot from creation time.",
+        "The assignment throws because closed bindings are frozen.",
+        "It sees undefined after the outer function returns."
+      ],
+      "answer": "a",
+      "explanation": "YDKJS: live link, not a snapshot. Reassignment is visible.",
+      "reference": {
+        "section": "Closure",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 149,
+        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+      }
+    },
+    {
+      "question": "applyDiscount(0.1)(100) should be 90. Which shape is that?",
+      "type": "multiple",
+      "options": [
+        "A global rate variable set by applyDiscount.",
+        "A function that returns another function closing over rate.",
+        "A prototype method on Number.",
+        "A switch on rate inside a single function with two parameters only."
+      ],
+      "answer": "b",
+      "explanation": "The outer function captures rate. The inner multiplies amount.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "With a slight change, we can turn the previous example into a way to create functions that multiply by an arbitrary amount."
+      }
+    },
+    {
+      "question": "var vs let inside an if block inside a function: which leaks to the whole function?",
+      "type": "multiple",
+      "options": [
+        "let, because it is older than var.",
+        "both, because JS has no block scope.",
+        "var, because it is function-scoped.",
+        "neither, because if bodies are separate modules."
+      ],
+      "answer": "c",
+      "explanation": "let/const honor the block. var does not.",
+      "reference": {
+        "section": "Bindings and scopes",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 19,
+        "excerpt": "The answers to questions like these take the form of welldefined rules called scope."
+      }
+    },
+    {
+      "question": "makeIdFactory(\"inv\")() then again should yield inv-1 then inv-2. Where does the counter live?",
+      "type": "multiple",
+      "options": [
+        "On the returned function as fn.n so callers can reset it.",
+        "In Math.random so ids are unique without state.",
+        "In localStorage so it survives refresh.",
+        "In a closed-over let, incremented on each call."
+      ],
+      "answer": "d",
+      "explanation": "A private counter is the point of the factory. Do not put n on the function unless you want it public.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "The explicit local binding from the wrapValue example isn’t really needed since a parameter is itself a local binding."
+      }
+    },
+    {
+      "question": "Which call is a closure in the observable sense?",
+      "type": "multiple",
+      "options": [
+        "A returned inner function that still reads an outer let after that call finished.",
+        "A function that only uses its own parameters and locals, called in the same scope it was defined.",
+        "Any function declared with function, even at global scope.",
+        "console.log, because it is built in."
+      ],
+      "answer": "a",
+      "explanation": "YDKJS: you observe closure when a function uses an outer binding from a scope that has already finished.",
+      "reference": {
+        "section": "Closure",
+        "book": "You Don't Know JS Yet by Kyle Simpson",
+        "page": 149,
+        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+      }
+    },
+    {
+      "question": "set on a status machine should ignore undefined. Why?",
+      "type": "multiple",
+      "options": [
+        "undefined is the only falsy value status can have.",
+        "undefined means “no change” if a caller omitted the next status.",
+        "JSON cannot store strings, only undefined.",
+        "set must throw whenever the argument is not a boolean."
+      ],
+      "answer": "b",
+      "explanation": "Missing arguments arrive as undefined. Ignoring them keeps the last real status.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 75,
+        "excerpt": "A function definition is a regular binding where the value of the binding is a function."
+      }
+    },
+    {
+      "question": "Write applyDiscount(rate) returning a function that multiplies amount by (1 - rate).",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function applyDiscount(rate) {\n  // return a function\n}\n",
+      "tests": [
+        {
+          "input": "applyDiscount(0.1)(100)",
+          "output": "90"
+        }
+      ],
+      "hints": [
+        "Return an arrow that closes over rate."
+      ],
+      "solution": "function applyDiscount(rate) {\n  return (amount) => amount * (1 - rate);\n}\n",
+      "explanation": "Each rate gets its own closed-over binding.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "function multiplier(factor) {"
+      }
+    },
+    {
+      "question": "Write makeStatusMachine(initial) with get() and set(next). Ignore set(undefined).",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function makeStatusMachine(initial) {\n  // return { get, set }\n}\n",
+      "tests": [
+        {
+          "input": "get after set(\"paid\")",
+          "output": "\"paid\""
+        },
+        {
+          "input": "set(undefined) keeps previous",
+          "output": "unchanged"
+        }
+      ],
+      "hints": [
+        "let status = initial in the outer function.",
+        "if (next === undefined) return status."
+      ],
+      "solution": "function makeStatusMachine(initial) {\n  let status = initial;\n  return {\n    get() { return status; },\n    set(next) {\n      if (next === undefined) return status;\n      status = next;\n      return status;\n    },\n  };\n}\n",
+      "explanation": "status is not a public field. undefined means omit.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "A function that references bindings from local scopes around it is called a closure."
+      }
+    },
+    {
+      "question": "Write makeIdFactory(prefix) so successive calls return prefix-1, prefix-2, …",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function makeIdFactory(prefix) {\n  // return a function\n}\n",
+      "tests": [
+        {
+          "input": "makeIdFactory(\"inv\") twice",
+          "output": "inv-1 then inv-2"
+        }
+      ],
+      "hints": [
+        "Close over a counter starting at 0.",
+        "Increment before concatenating."
+      ],
+      "solution": "function makeIdFactory(prefix) {\n  let n = 0;\n  return function nextId() {\n    n += 1;\n    return prefix + \"-\" + n;\n  };\n}\n",
+      "explanation": "Each factory has its own counter. Two factories do not share n.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "This is allowed and works as you’d hope"
+      }
+    }
+  ]
+}

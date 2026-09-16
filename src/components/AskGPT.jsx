@@ -23,14 +23,19 @@ function OpenAIMark({ className }) {
 function suggestionChips(card, phase, picked, brain) {
   const chips = [];
   if (phase === 'review' && card) {
-    let wrongLetter = null;
-    card.order.forEach((realIdx, shown) => {
-      const isAnswer = card.q.answers.indexOf(realIdx) !== -1;
-      const isPicked = picked.indexOf(realIdx) !== -1;
-      if (!wrongLetter && isPicked && !isAnswer) wrongLetter = LETTERS[shown];
-    });
-    if (wrongLetter) chips.push('Why isn\'t ' + wrongLetter.toUpperCase() + ' right?');
-    chips.push('Explain this question');
+    if (card.q && card.q.type === 'code') {
+      chips.push('Walk through a solution approach');
+      chips.push('What should I watch for here?');
+    } else if (card.order) {
+      let wrongLetter = null;
+      card.order.forEach((realIdx, shown) => {
+        const isAnswer = card.q.answers.indexOf(realIdx) !== -1;
+        const isPicked = picked.indexOf(realIdx) !== -1;
+        if (!wrongLetter && isPicked && !isAnswer) wrongLetter = LETTERS[shown];
+      });
+      if (wrongLetter) chips.push('Why isn\'t ' + wrongLetter.toUpperCase() + ' right?');
+      chips.push('Explain this question');
+    }
   }
   if (brain) {
     chips.push('What is a user requirement?');
@@ -41,13 +46,27 @@ function suggestionChips(card, phase, picked, brain) {
 
 function cardPayload(card) {
   if (!card || !card.q) return null;
+  const q = card.q;
+  if (q.type === 'code') {
+    return {
+      text: q.text,
+      type: 'code',
+      language: q.language || 'javascript',
+      starter: q.starter || '',
+      tests: q.tests || [],
+      options: [],
+      answers: [],
+      explanation: q.explanation || '',
+      order: [],
+    };
+  }
   return {
-    text: card.q.text,
-    options: card.q.options,
-    answers: card.q.answers,
-    explanation: card.q.explanation || '',
+    text: q.text,
+    options: q.options,
+    answers: q.answers,
+    explanation: q.explanation || '',
     order: card.order,
-    type: card.q.type,
+    type: q.type,
   };
 }
 

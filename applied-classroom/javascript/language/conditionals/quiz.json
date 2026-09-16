@@ -1,0 +1,382 @@
+{
+  "title": "JavaScript — Comparisons, truthiness, and control flow",
+  "questions": [
+    {
+      "question": "0 == false is true. 0 === false is false. What should you use in new code?",
+      "type": "multiple",
+      "options": [
+        "=== unless you have a specific reason to coerce.",
+        "== so that 0, \"\", and false all mean the same missing value.",
+        "Boolean(left) == Boolean(right) for every comparison.",
+        "!= only, because !== cannot compare numbers to booleans."
+      ],
+      "answer": "a",
+      "explanation": "== coerces. === compares type and value. 0 is a real amount, not false.",
+      "reference": {
+        "section": "Strict equality and coercion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "This is called type coercion."
+      }
+    },
+    {
+      "question": "What does console.log(null || \"x\", 0 || \"x\", 0 ?? \"x\") print?",
+      "type": "multiple",
+      "options": [
+        "x x x — all three operators treat 0 as missing.",
+        "x x 0 — || skips 0; ?? only substitutes null or undefined.",
+        "null x 0 — || keeps null and ?? keeps 0.",
+        "x 0 0 — || keeps 0 because 0 is a number."
+      ],
+      "answer": "b",
+      "explanation": "|| uses truthiness, so 0 is replaced. ?? is nullish, so 0 stays.",
+      "reference": {
+        "section": "Logical operators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 42,
+        "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
+      }
+    },
+    {
+      "question": "Which values are falsy?",
+      "type": "multi",
+      "options": [
+        "0",
+        "\"0\"",
+        "\"\"",
+        "[]"
+      ],
+      "answer": [
+        "a",
+        "c"
+      ],
+      "explanation": "0 and \"\" are falsy. \"0\" is a non-empty string. [] is a truthy object.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+      }
+    },
+    {
+      "question": "if (amount) skips a zero-dollar payment. What is the better gate?",
+      "type": "multiple",
+      "options": [
+        "if (amount || amount === false) so that 0 is still skipped.",
+        "if (amount == false) because 0 equals false under ==.",
+        "if (amount != null && Number.isFinite(Number(amount))) including 0.",
+        "if (Boolean(amount) === true) which still drops 0."
+      ],
+      "answer": "c",
+      "explanation": "A missing amount and a zero amount are different. Test nullish and finite separately.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 56,
+        "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+      }
+    },
+    {
+      "question": "Find the bug: function firstPaid(rows) { for (const row of rows) { if (row.amount) return row; } } on [{amount:0},{amount:20}].",
+      "type": "multiple",
+      "options": [
+        "for...of cannot walk arrays of objects.",
+        "amount 20 is a number so the function never returns.",
+        "return inside for is a syntax error.",
+        "The first row is skipped because 0 is falsy."
+      ],
+      "answer": "d",
+      "explanation": "if (row.amount) treats 0 as missing. Check finite numbers instead.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 57,
+        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+      }
+    },
+    {
+      "question": "let s = \"pending\"; switch (s) { case \"paid\": console.log(\"a\"); case \"pending\": console.log(\"b\"); default: console.log(\"c\"); } What prints?",
+      "type": "multiple",
+      "options": [
+        "b then c, because case pending has no break.",
+        "a b c, because pending also matches paid.",
+        "b only, because switch stops after a matching case.",
+        "c only, because pending is not listed before default."
+      ],
+      "answer": "a",
+      "explanation": "Without break or return, execution falls through into default.",
+      "reference": {
+        "section": "Control flow",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 79,
+        "excerpt": "This chapter documents JavaScript expressions and the operators with which many of those expressions are built."
+      }
+    },
+    {
+      "question": "customer.name || \"guest\" vs customer.name ?? \"guest\" when name is \"\".",
+      "type": "multiple",
+      "options": [
+        "Both yield \"guest\" because empty string is nullish.",
+        "|| yields \"guest\" and ?? keeps \"\" because empty string is not nullish.",
+        "|| keeps \"\" and ?? yields \"guest\".",
+        "Both throw because \"\" is not a valid string."
+      ],
+      "answer": "b",
+      "explanation": "?? only replaces null or undefined. Empty string is a defined value.",
+      "reference": {
+        "section": "Logical operators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 42,
+        "excerpt": "The || operator denotes logical or."
+      }
+    },
+    {
+      "question": "&& and || in JavaScript return what?",
+      "type": "multiple",
+      "options": [
+        "Always a boolean true or false, like C++ && on bool.",
+        "Always 1 or 0 so they can be added.",
+        "One of the operands, which may be a string, number, or object.",
+        "A Promise, because they are asynchronous."
+      ],
+      "answer": "c",
+      "explanation": "\"Ada\" && customer returns customer. They short-circuit, but the result is an operand.",
+      "reference": {
+        "section": "Logical operators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 42,
+        "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
+      }
+    },
+    {
+      "question": "Why is for...in a poor choice for walking payment rows in an array?",
+      "type": "multiple",
+      "options": [
+        "It freezes the array so push cannot run afterward.",
+        "It is the only loop that can see array length.",
+        "It skips index 0 the same way if (amount) skips 0.",
+        "It walks keys as strings and can include inherited names."
+      ],
+      "answer": "d",
+      "explanation": "Use for...of or a numeric index. for...in is for enumerable keys.",
+      "reference": {
+        "section": "Control flow",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 56,
+        "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+      }
+    },
+    {
+      "question": "C++ if (p) on a pointer means non-null. What is the JS trap for if (order.amount)?",
+      "type": "multiple",
+      "options": [
+        "0, \"\", and NaN are falsy, so real data can look missing.",
+        "There is no trap; 0 is truthy in JavaScript.",
+        "Objects are always falsy until you call Boolean.",
+        "if cannot test numbers; you must use switch."
+      ],
+      "answer": "a",
+      "explanation": "JS if tests truthiness, not nullness. Amounts need an explicit numeric check.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "It is often useful to have a value that distinguishes between only two possibilities, like “yes” and “no” or “on” and “off”."
+      }
+    },
+    {
+      "question": "Which checkoutState result is correct for { status: \"open\", amount: 0 }?",
+      "type": "multiple",
+      "options": [
+        "missing, because 0 means there is no order.",
+        "zero, because a finite amount of 0 is its own state.",
+        "blocked, because 0 is not greater than 0.",
+        "ready, because status is open and any amount counts."
+      ],
+      "answer": "b",
+      "explanation": "The notes treat zero as a distinct payable state, not as missing or ready.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 57,
+        "excerpt": "Not all programs are straight roads."
+      }
+    },
+    {
+      "question": "[] is truthy. What does if (rows) hide when rows is an empty list of appointments?",
+      "type": "multiple",
+      "options": [
+        "JavaScript throws because arrays cannot be used as conditions.",
+        "The branch is skipped, so empty lists are handled automatically.",
+        "The branch still runs, so you must also check rows.length.",
+        "if (rows) converts the array to 0 because length is 0."
+      ],
+      "answer": "c",
+      "explanation": "Empty arrays are truthy objects. Check length when emptiness matters.",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+      }
+    },
+    {
+      "question": "value == null is sometimes used on purpose. What does it match?",
+      "type": "multiple",
+      "options": [
+        "Only null, not undefined.",
+        "Every falsy value including NaN.",
+        "null, undefined, 0, and false.",
+        "null and undefined, not 0 or \"\"."
+      ],
+      "answer": "d",
+      "explanation": "That is the one common == idiom: a combined nullish check. It does not catch 0.",
+      "reference": {
+        "section": "Strict equality and coercion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
+      }
+    },
+    {
+      "question": "Which loop is the default for walking an array of appointment objects?",
+      "type": "multiple",
+      "options": [
+        "for...of so you get each element value in order.",
+        "for...in so you get each object’s prototype keys too.",
+        "do...while, required whenever length might be zero.",
+        "while (true) with break on undefined, because arrays are infinite."
+      ],
+      "answer": "a",
+      "explanation": "for...of yields values. for...in yields keys. Empty arrays simply do not enter the body.",
+      "reference": {
+        "section": "Control flow",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 56,
+        "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+      }
+    },
+    {
+      "question": "const n = 0; console.log(n ? \"yes\" : \"no\"); prints what?",
+      "type": "multiple",
+      "options": [
+        "yes, because 0 is a valid number.",
+        "no, because 0 is falsy in the condition.",
+        "0, because the ternary returns the tested value.",
+        "undefined, because n is const."
+      ],
+      "answer": "b",
+      "explanation": "The ternary uses truthiness. 0 picks the else branch.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 42,
+        "excerpt": "This one is called the conditional operator (or sometimes just the ternary operator since it is the only such operator in the language)."
+      }
+    },
+    {
+      "question": "isOpenStatus should accept only \"open\" and \"pending\". Which implementation is safest?",
+      "type": "multiple",
+      "options": [
+        "return status == true || status == \"open\".",
+        "return Boolean(status) && status !== \"closed\".",
+        "return status === \"open\" || status === \"pending\".",
+        "return status.includes(\"open\") so \"reopen\" also passes."
+      ],
+      "answer": "c",
+      "explanation": "Strict equality to an allow-list. Loose checks treat unexpected strings as open.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 57,
+        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+      }
+    },
+    {
+      "question": "Write isOpenStatus(status): true only for \"open\" or \"pending\" using ===.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function isOpenStatus(status) {\n  // boolean\n}\n",
+      "tests": [
+        {
+          "input": "\"open\"",
+          "output": "true"
+        },
+        {
+          "input": "\"closed\"",
+          "output": "false"
+        }
+      ],
+      "hints": [
+        "Use === twice, combined with ||."
+      ],
+      "solution": "function isOpenStatus(status) {\n  return status === \"open\" || status === \"pending\";\n}\n",
+      "explanation": "Do not use == or truthiness. Unexpected strings stay closed.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 57,
+        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+      }
+    },
+    {
+      "question": "Write checkoutState(order): missing / zero / ready / blocked as in the notes. Empty-string amount is blocked. 0 is zero.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function checkoutState(order) {\n  // return a string label\n}\n",
+      "tests": [
+        {
+          "input": "null",
+          "output": "\"missing\""
+        },
+        {
+          "input": "{status:\"open\",amount:0}",
+          "output": "\"zero\""
+        },
+        {
+          "input": "{status:\"open\",amount:10}",
+          "output": "\"ready\""
+        }
+      ],
+      "hints": [
+        "Test order == null first.",
+        "Reject \"\" before treating Number(\"\") as 0."
+      ],
+      "solution": "function checkoutState(order) {\n  if (order == null) return \"missing\";\n  if (order.amount === \"\") return \"blocked\";\n  const amount = Number(order.amount);\n  if (!Number.isFinite(amount)) return \"blocked\";\n  if (amount === 0) return \"zero\";\n  if (amount > 0 && order.status === \"open\") return \"ready\";\n  return \"blocked\";\n}\n",
+      "explanation": "Zero is payable but not \"ready\" in this design. Empty string is not zero.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 56,
+        "excerpt": "The function Number converts a value to a number."
+      }
+    },
+    {
+      "question": "Write countTruthyFlags(flags): how many entries are truthy.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function countTruthyFlags(flags) {\n  // return a number\n}\n",
+      "tests": [
+        {
+          "input": "[true,0,\"x\", \"\"]",
+          "output": "2"
+        },
+        {
+          "input": "[]",
+          "output": "0"
+        }
+      ],
+      "hints": [
+        "for...of and if (flag) increment."
+      ],
+      "solution": "function countTruthyFlags(flags) {\n  let n = 0;\n  for (const flag of flags) if (flag) n += 1;\n  return n;\n}\n",
+      "explanation": "true and \"x\" count. 0 and \"\" do not. Do not stringify the counter.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+      }
+    }
+  ]
+}

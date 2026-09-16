@@ -52,9 +52,9 @@ function SpeechTools({ parts, on, wait, onToggle, onStep }) {
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork }) {
   const reviewing = phase === 'review';
-  const correct = reviewing && sameSet(picked, q.answers);
+  const correct = reviewing && q.type !== 'code' && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
   const parts = useMemo(() => cardSpeechParts(q, order), [q, order]);
   const [at, setAt] = useState(0);
@@ -131,6 +131,35 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
 
   const reading = on ? parts[at] : null;
 
+  if (q.type === 'code') {
+    return (
+      <div className="sheet qcard">
+        <p className="kind">{KIND_LABEL[q.type] || 'code practice'}</p>
+        <div className="q-head">
+          <div className="q-text">{q.text}</div>
+          <SpeechTools
+            parts={parts}
+            on={on}
+            wait={wait}
+            onToggle={() => (on ? stop() : playFrom(atRef.current))}
+            onStep={step}
+          />
+        </div>
+        <CodePractice
+          q={q}
+          reviewing={reviewing}
+          work={codeWork}
+          onWork={onCodeWork}
+          onAssess={onAssess}
+        />
+        {reviewing && (
+          <CodeVerdict gotIt={picked[0] === 1} explanation={q.explanation} />
+        )}
+        <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
+      </div>
+    );
+  }
+
   return (
     <div className="sheet qcard">
       <p className="kind">{KIND_LABEL[q.type]}</p>
@@ -191,6 +220,118 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   );
 }
 
+function CodeVerdict({ gotIt, explanation }) {
+  return (
+    <div className="verdict" role="status">
+      <div>
+        <p className={'said ' + (gotIt ? 'yes' : 'no')}>
+          {gotIt
+            ? 'Self-assessed: you marked this as understood.'
+            : 'Self-assessed: more practice needed.'}
+        </p>
+        {explanation && <p className="why">{explanation}</p>}
+        <p className="moved">
+          {gotIt ? 'Moved up a box. ' : 'Back to box 1, you will see it again soon. '}
+          The app did not run or grade your code.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function CodePractice({ q, reviewing, work, onWork, onAssess }) {
+  const draft = work && work.draft != null ? work.draft : (q.starter || '');
+  const hintsShown = (work && work.hints) || 0;
+  const showSolution = !!(work && work.solution);
+  const hints = Array.isArray(q.hints) ? q.hints : [];
+  const tests = Array.isArray(q.tests) ? q.tests : [];
+
+  function setDraft(value) {
+    if (onWork) onWork({ draft: value });
+  }
+
+  return (
+    <div className="code-practice">
+      {q.starter ? (
+        <div className="code-block">
+          <p className="code-label">Starter</p>
+          <pre><code>{q.starter}</code></pre>
+        </div>
+      ) : null}
+
+      {tests.length > 0 && (
+        <div className="code-tests">
+          <p className="code-label">Example inputs and outputs</p>
+          <ul>
+            {tests.map((row, i) => (
+              <li key={i}>
+                <span className="code-test-name">{row.label || ('Example ' + (i + 1))}</span>
+                <pre><code>{'in  ' + (row.input || '') + '\nout ' + (row.output || '')}</code></pre>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <label className="code-label" htmlFor="code-draft">Your answer</label>
+      <textarea
+        id="code-draft"
+        className="code-draft"
+        spellCheck="false"
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        placeholder="Write your solution here. It is not executed."
+      />
+
+      <div className="code-reveal">
+        {hintsShown < hints.length && (
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => onWork && onWork({ hints: hintsShown + 1 })}
+          >
+            Show hint {hintsShown + 1} of {hints.length}
+          </button>
+        )}
+        {q.solution && !showSolution && (
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => onWork && onWork({ solution: true })}
+          >
+            Show solution
+          </button>
+        )}
+      </div>
+
+      {hints.slice(0, hintsShown).map((hint, i) => (
+        <p key={i} className="code-hint"><strong>Hint {i + 1}.</strong> {hint}</p>
+      ))}
+
+      {showSolution && q.solution && (
+        <div className="code-block">
+          <p className="code-label">Worked solution</p>
+          <pre><code>{q.solution}</code></pre>
+        </div>
+      )}
+
+      {!reviewing && (
+        <div className="code-assess">
+          <p className="why">This is self-assessed. The app does not run your code.</p>
+          <div className="row">
+            <button type="button" className="btn primary" onClick={() => onAssess && onAssess(true)}>
+              I got it
+            </button>
+            <button type="button" className="btn quiet" onClick={() => onAssess && onAssess(false)}>
+              I need more practice
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Verdict({ q, correct }) {
   const names = q.answers.map((i) => q.options[i]).join(', ');
   return (
@@ -220,7 +361,7 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
   );
   const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
   const canSlides = hasSlides || slideStart > 0;
-  const canBook = hasBook || (ref && ref.page > 0);
+  const canBook = hasBook || (ref && ref.page > 0) || (ref && ref.book);
   if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canSlides && !canBook)) return null;
   return (
     <div className="q-source">

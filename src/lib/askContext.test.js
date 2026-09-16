@@ -30,3 +30,21 @@ test('buildAskPrompt includes deck study notes when present', () => {
   assert.match(prompt, /Study notes for this deck/);
   assert.match(prompt, /Vision = destination/);
 });
+
+test('buildAskPrompt hides a code solution until review', () => {
+  const card = {
+    type: 'code',
+    text: 'Write paidTotals(payments).',
+    language: 'javascript',
+    starter: 'function paidTotals(payments) {}',
+    tests: [{ input: '[{amount:2}]', output: '2' }],
+    explanation: 'Add the amounts.',
+  };
+  const before = buildAskPrompt({ message: 'how do I start?', phase: 'answer', card });
+  assert.match(before, /self-assessed/);
+  assert.match(before, /Do not reveal the worked solution/);
+  assert.doesNotMatch(before, /Add the amounts/);
+
+  const after = buildAskPrompt({ message: 'how do I start?', phase: 'review', card });
+  assert.match(after, /Bank explanation: Add the amounts/);
+});

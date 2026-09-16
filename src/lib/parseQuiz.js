@@ -9,6 +9,7 @@ const TYPE_ALIASES = {
   multi: ['multi', 'multi_select', 'multiselect', 'multiple_select', 'select_all', 'selectall',
           'select_all_that_apply', 'checkbox', 'many', 'multiple_answer', 'multiple_answers'],
   boolean: ['boolean', 'bool', 'tf', 't/f', 'true_false', 'truefalse', 'true-false', 'yesno', 'yes_no'],
+  code: ['code', 'coding', 'exercise', 'practice', 'code_exercise', 'code-exercise'],
 };
 
 export function normType(raw) {
@@ -113,6 +114,55 @@ export function resolveOne(value, clean, rawTexts) {
   return -1;
 }
 
+function jsonPreview(value) {
+  if (value === undefined) return '';
+  if (typeof value === 'string') return value;
+  try { return JSON.stringify(value); } catch (e) { return String(value); }
+}
+
+function normalizeTests(raw) {
+  if (!Array.isArray(raw)) return [];
+  return raw.map((row, i) => {
+    if (row == null) return null;
+    if (typeof row !== 'object') {
+      return { label: 'Example ' + (i + 1), input: String(row), output: '' };
+    }
+    const input = jsonPreview(firstDefined(row.input, row.args, row.call, ''));
+    const output = jsonPreview(firstDefined(row.output, row.expected, row.result, ''));
+    if (!input && !output) return null;
+    return {
+      label: String(firstDefined(row.label, row.name, 'Example ' + (i + 1))),
+      input,
+      output,
+    };
+  }).filter(Boolean);
+}
+
+function normalizeCodeQuestion(raw, i, text) {
+  const language = String(firstDefined(raw.language, raw.lang, 'javascript')).trim() || 'javascript';
+  const starter = String(firstDefined(raw.starter, raw.starterCode, raw.template, ''));
+  const solution = String(firstDefined(raw.solution, raw.model, ''));
+  const hints = Array.isArray(raw.hints)
+    ? raw.hints.map((h) => String(h || '').trim()).filter(Boolean)
+    : [];
+  return {
+    question: {
+      id: i + '::' + text.slice(0, 90),
+      text,
+      type: 'code',
+      language,
+      starter,
+      tests: normalizeTests(firstDefined(raw.tests, raw.examples, [])),
+      solution,
+      hints,
+      options: [],
+      answers: [],
+      explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
+      reference: readReference(raw),
+    },
+  };
+}
+
 export function normalizeQuestion(raw, i) {
   const label = 'Question ' + (i + 1);
 
@@ -124,6 +174,9 @@ export function normalizeQuestion(raw, i) {
   if (!text) return { error: label + ' has no question text.' };
 
   const shortLabel = text.length > 52 ? text.slice(0, 52) + '…' : text;
+  const earlyType = normType(raw.type);
+  if (earlyType === 'code') return normalizeCodeQuestion(raw, i, text);
+
   const answerRaw = firstDefined(raw.answer, raw.correct, raw.correctAnswer,
                                  raw.correct_answer, raw.answers, raw.key);
   if (answerRaw === undefined) return { error: '"' + shortLabel + '" has no answer.' };

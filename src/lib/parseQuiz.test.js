@@ -41,6 +41,91 @@ test('skips broken questions instead of dropping the whole file', () => {
   assert.equal(bank.skipped.length, 2);
 });
 
+test('reads a code practice card without treating it as multiple choice', () => {
+  const bank = normalizeQuiz({
+    title: 'mix',
+    questions: [
+      { question: 'Pick let', options: ['var', 'let', 'with', 'class'], answer: 'b' },
+      {
+        question: 'Write paidTotals(payments).',
+        type: 'code',
+        language: 'javascript',
+        starter: 'function paidTotals(payments) {\n  // ...\n}\n',
+        tests: [{ input: '[{amount: 10}]', output: '10' }],
+        solution: 'function paidTotals(payments) {\n  return payments.reduce((n, p) => n + p.amount, 0);\n}\n',
+        hints: ['Use reduce.'],
+        explanation: 'Sum the amount field.',
+      },
+      { question: 'broken', options: ['only-one'] },
+    ],
+  }, 'mix');
+  assert.equal(bank.questions.length, 2);
+  assert.equal(bank.skipped.length, 1);
+  assert.equal(bank.questions[0].type, 'single');
+  const code = bank.questions[1];
+  assert.equal(code.type, 'code');
+  assert.equal(code.starter.includes('paidTotals'), true);
+  assert.equal(code.tests.length, 1);
+  assert.equal(code.hints[0], 'Use reduce.');
+  assert.deepEqual(code.options, []);
+  assert.deepEqual(code.answers, []);
+  assert.equal(code.id.startsWith('1::'), true);
+});
+
+test('stable code ids survive option shuffling of other cards', () => {
+  const a = normalizeQuiz([{
+    question: 'Write label(status).',
+    type: 'code',
+    starter: 'function label(status) {}\n',
+    tests: [{ input: '"open"', output: '"open"' }],
+    solution: 'function label(status) { return status; }\n',
+  }], 't');
+  const b = normalizeQuiz([{
+    question: 'Write label(status).',
+    type: 'code',
+    starter: 'function label(status) {}\n',
+    tests: [{ input: '"open"', output: '"open"' }],
+    solution: 'function label(status) { return status; }\n',
+  }], 't');
+  assert.equal(a.questions[0].id, b.questions[0].id);
+});
+
+test('loads the six ready JavaScript language banks', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { headingId } = await import('./parseQuiz.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/javascript/language');
+  const mods = [
+    'variables-and-data-types',
+    'conditionals',
+    'functions',
+    'arrays',
+    'objects',
+    'maps-and-sets',
+  ];
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const notes = await readFile(path.join(root, mod, 'notes.md'), 'utf8');
+    const headings = new Set([...notes.matchAll(/^#{1,3} (.+)$/gm)].map((m) => headingId(m[1])));
+    const bank = normalizeQuiz(quiz);
+    assert.equal(bank.skipped.length, 0, mod);
+    const code = bank.questions.filter((q) => q.type === 'code');
+    const choice = bank.questions.filter((q) => q.type !== 'code');
+    assert.ok(choice.length >= 15, mod + ' choice count');
+    assert.equal(code.length, 3, mod + ' code count');
+    for (const q of choice) {
+      if (q.type === 'boolean') continue;
+      assert.ok(q.options.length <= 4, mod);
+    }
+    for (const q of bank.questions) {
+      if (q.reference && q.reference.section) {
+        assert.ok(headings.has(headingId(q.reference.section)), mod + ' ' + q.reference.section);
+      }
+    }
+  }
+});
+
 test('rejects a payload that is not a question list', () => {
   assert.throws(() => normalizeQuiz({ foo: 1 }, 't'));
 });

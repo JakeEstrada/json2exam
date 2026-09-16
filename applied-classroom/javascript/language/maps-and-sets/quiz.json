@@ -1,0 +1,353 @@
+{
+  "title": "JavaScript — Maps, Sets, and choosing a collection",
+  "questions": [
+    {
+      "question": "\"toString\" in { Boris: 39 } is true. Why is that dangerous for a dictionary?",
+      "type": "multiple",
+      "options": [
+        "toString is inherited from Object.prototype, so it looks like a key.",
+        "in always returns true for any string.",
+        "Boris is a reserved word.",
+        "Numbers cannot be values in objects."
+      ],
+      "answer": "a",
+      "explanation": "Plain objects are not safe maps. Use Map, Object.create(null), or Object.hasOwn.",
+      "reference": {
+        "section": "Why not a plain object as a dictionary",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Here, the object’s property names are the people’s names and the property values are their ages. But we certainly didn’t list anybody named toString in our map."
+      }
+    },
+    {
+      "question": "When should you pick Map instead of a plain object?",
+      "type": "multiple",
+      "options": [
+        "The keys are a fixed set of field names like id and status.",
+        "The keys are unknown names, non-strings, or you add and delete often.",
+        "You only need uniqueness, not values.",
+        "You need ordered numeric indexes."
+      ],
+      "answer": "b",
+      "explanation": "Records with known fields stay objects. Dynamic dictionaries belong in Map.",
+      "reference": {
+        "section": "Choosing a collection",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
+      }
+    },
+    {
+      "question": "new Map(); m.set(\"toString\", 1); m.has(\"toString\") vs \"toString\" in {}:",
+      "type": "multiple",
+      "options": [
+        "false and true — Map still has the prototype trap.",
+        "true and false — in never sees toString.",
+        "true and true — has sees a real entry; in sees inheritance.",
+        "both false."
+      ],
+      "answer": "c",
+      "explanation": "Map.has only looks at entries. in on {} sees the prototype.",
+      "reference": {
+        "section": "Predict the output",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Yet because plain objects derive from Object.prototype, it looks like the property is there."
+      }
+    },
+    {
+      "question": "Find the bug: const out = {}; if (!out[k]) out[k] = 0; out[k] += 1; when k is \"toString\".",
+      "type": "multiple",
+      "options": [
+        "toString cannot be a string key.",
+        "The object is frozen after the first assignment.",
+        "+= cannot run on objects.",
+        "out[k] is a truthy function, so you skip 0 and then += misbehaves."
+      ],
+      "answer": "d",
+      "explanation": "Use a Map or Object.create(null) so keys cannot collide with methods.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "For this reason, using plain objects as maps is dangerous."
+      }
+    },
+    {
+      "question": "Set is the right tool when you need:",
+      "type": "multiple",
+      "options": [
+        "uniqueness and membership tests.",
+        "key/value pairs with object keys.",
+        "a record with name and id fields.",
+        "a stack with push and pop only."
+      ],
+      "answer": "a",
+      "explanation": "Set stores membership. Map stores pairs. Objects store fixed fields.",
+      "reference": {
+        "section": "Set",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+      }
+    },
+    {
+      "question": "unique([3,1,3,2]) preserving first-seen order is best as:",
+      "type": "multiple",
+      "options": [
+        "filter with indexOf, which is easy to get wrong on objects.",
+        "[...new Set(ids)], which keeps insertion order.",
+        "sort then dedupe, which reorders.",
+        "an object used as a set with in."
+      ],
+      "answer": "b",
+      "explanation": "JS Set iterates in insertion order.",
+      "reference": {
+        "section": "Set",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "It stores a mapping and allows any type of keys."
+      }
+    },
+    {
+      "question": "m[key] = value on a Map instance (not m.set):",
+      "type": "multiple",
+      "options": [
+        "stores an entry you can later get with m.get(key).",
+        "throws in all engines.",
+        "sets a property on the Map object, not a map entry.",
+        "converts the Map into a plain object."
+      ],
+      "answer": "c",
+      "explanation": "Use set/get/has/delete. Bracket assignment is not the Map API.",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+      }
+    },
+    {
+      "question": "array.map and Map — what is the mix-up?",
+      "type": "multiple",
+      "options": [
+        "They are the same type; new Map is an array method.",
+        "You must import Map from a package; map is built in.",
+        "Map is only for numbers; map is only for strings.",
+        "array.map transforms a list; Map is a key/value collection."
+      ],
+      "answer": "d",
+      "explanation": "The word is overloaded. Do not construct Map to double a list.",
+      "reference": {
+        "section": "Map",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "We saw the word map used in the previous chapter for an operation that transforms a data structure by applying a function to its elements."
+      }
+    },
+    {
+      "question": "Object keys vs Map keys:",
+      "type": "multiple",
+      "options": [
+        "Object keys are strings (or symbols); Map keys may be any value.",
+        "Both allow object keys compared by identity.",
+        "Map keys are always numbers.",
+        "Object keys can be objects if you quote them."
+      ],
+      "answer": "a",
+      "explanation": "Using an object as an object-key stringifies it to \"[object Object]\". Map keeps the reference.",
+      "reference": {
+        "section": "Map",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Object property names must be strings. If you need a map whose keys can’t easily be converted to strings—such as objects—you cannot use an object as your map."
+      }
+    },
+    {
+      "question": "groupAppointments should use Map from providerId to arrays. Why not a plain object?",
+      "type": "multiple",
+      "options": [
+        "Arrays cannot be object values.",
+        "providerId might collide with inherited names or be a non-string.",
+        "Map is required by the language to group anything.",
+        "Objects cannot hold arrays until ES2024."
+      ],
+      "answer": "b",
+      "explanation": "Even numeric ids become strings on objects. Map keeps the key you set and avoids prototype keys.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
+      }
+    },
+    {
+      "question": "std::unordered_map in C++ is closest to:",
+      "type": "multiple",
+      "options": [
+        "Array",
+        "plain object with a prototype",
+        "Map",
+        "Set"
+      ],
+      "answer": "c",
+      "explanation": "Map is the dictionary. Watch prototype traps if you fake it with {}.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+      }
+    },
+    {
+      "question": "Which need maps to which collection?",
+      "type": "multiple",
+      "options": [
+        "list → Map, unique → array",
+        "everything → object, because it is universal",
+        "record → Set, dict → array",
+        "record → object, unique → Set, dict → Map, list → array"
+      ],
+      "answer": "d",
+      "explanation": "That is the table in the notes. Do not force one type.",
+      "reference": {
+        "section": "Choosing a collection",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "It is possible to use objects for this."
+      }
+    },
+    {
+      "question": "Object.create(null) as a dictionary:",
+      "type": "multiple",
+      "options": [
+        "has no Object.prototype, so in is safer, but keys are still strings.",
+        "still has toString on the prototype.",
+        "allows object keys like Map.",
+        "is the same as new Map()."
+      ],
+      "answer": "a",
+      "explanation": "It avoids inherited keys. Map is still better for non-string keys and a clear API.",
+      "reference": {
+        "section": "Why not a plain object as a dictionary",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "If you pass null to Object.create, the resulting object will not derive from Object.prototype and can be safely used as a map."
+      }
+    },
+    {
+      "question": "seen.add(3); seen.add(3); seen.size is:",
+      "type": "multiple",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "Set keeps unique values. Size stays 1.",
+      "reference": {
+        "section": "Set",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "It stores a mapping and allows any type of keys."
+      }
+    },
+    {
+      "question": "Which are good Map operations for grouping?",
+      "type": "multi",
+      "options": [
+        "get a list or start []",
+        "push the appointment",
+        "set the list back on the Map",
+        "m[providerId].push without set"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "Bracket assignment is not get/set. Use the Map methods.",
+      "reference": {
+        "section": "Map",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "let ages = new Map();"
+      }
+    },
+    {
+      "question": "Write unique(ids): unique values in first-seen order.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function unique(ids) {\n}\n",
+      "tests": [
+        {
+          "input": "[3,1,3,2]",
+          "output": "[3,1,2]"
+        }
+      ],
+      "hints": [
+        "[...new Set(ids)]"
+      ],
+      "solution": "function unique(ids) {\n  return [...new Set(ids)];\n}\n",
+      "explanation": "Set drops duplicates and keeps insertion order.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+      }
+    },
+    {
+      "question": "Write groupAppointments(appts): Map from providerId to an array of appointments.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function groupAppointments(appts) {\n}\n",
+      "tests": [
+        {
+          "input": "two rows, same providerId",
+          "output": "Map size 1, array length 2"
+        }
+      ],
+      "hints": [
+        "const groups = new Map()",
+        "get or [appt], then set"
+      ],
+      "solution": "function groupAppointments(appts) {\n  const groups = new Map();\n  for (const appt of appts) {\n    const list = groups.get(appt.providerId);\n    if (list) list.push(appt);\n    else groups.set(appt.providerId, [appt]);\n  }\n  return groups;\n}\n",
+      "explanation": "Do not use {}. Avoid in and prototype keys.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
+      }
+    },
+    {
+      "question": "Write chooseCollection(need): \"list\"→array, \"record\"→object, \"dict\"→map, \"unique\"→set, else array.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function chooseCollection(need) {\n}\n",
+      "tests": [
+        {
+          "input": "\"dict\"",
+          "output": "\"map\""
+        },
+        {
+          "input": "\"unique\"",
+          "output": "\"set\""
+        }
+      ],
+      "hints": [
+        "switch on need. Default to array."
+      ],
+      "solution": "function chooseCollection(need) {\n  switch (need) {\n    case \"list\": return \"array\";\n    case \"record\": return \"object\";\n    case \"dict\": return \"map\";\n    case \"unique\": return \"set\";\n    default: return \"array\";\n  }\n}\n",
+      "explanation": "The need strings are your keys, not user data, so a switch is fine.",
+      "reference": {
+        "section": "Choosing a collection",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
+      }
+    }
+  ]
+}

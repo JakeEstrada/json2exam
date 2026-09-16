@@ -1,0 +1,420 @@
+{
+  "title": "JavaScript — Variables, primitives, and conversion",
+  "questions": [
+    {
+      "question": "A binding created with const cannot be retargeted. What else is true of that binding?",
+      "type": "multiple",
+      "options": [
+        "It is block-scoped, and a grasped object may still mutate.",
+        "The value it grasps is frozen; object fields cannot change.",
+        "It is function-scoped like var and may be redeclared.",
+        "It is hoisted as undefined and can be used before the line."
+      ],
+      "answer": "a",
+      "explanation": "const prevents assignment to the name. Objects remain mutable unless you freeze them. const is block-scoped, not function-scoped.",
+      "reference": {
+        "section": "Bindings: let, const, and var",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 50,
+        "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
+      }
+    },
+    {
+      "question": "What does console.log(Boolean(0), Boolean(\"0\")) print?",
+      "type": "multiple",
+      "options": [
+        "true true, because both look like zero-ish values that convert to true.",
+        "false true, because 0 is falsy and a non-empty string is truthy.",
+        "true false, because 0 is an object and \"0\" is empty.",
+        "false false, because both represent the number zero."
+      ],
+      "answer": "b",
+      "explanation": "The only falsy number among ordinary numbers is 0. Any non-empty string is truthy, including \"0\".",
+      "reference": {
+        "section": "Type conversion",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+      }
+    },
+    {
+      "question": "What is the result of \"5\" + 1 compared with \"5\" - 1?",
+      "type": "multiple",
+      "options": [
+        "Both are 6, because both operators convert to number first.",
+        "6 and \"51\", because - concatenates and + subtracts.",
+        "\"51\" and 4, because + concatenates while - forces numbers.",
+        "NaN and NaN, because mixed types always produce NaN."
+      ],
+      "answer": "c",
+      "explanation": "+ is addition or concatenation and prefers strings. - has no concatenation meaning, so \"5\" becomes 5.",
+      "reference": {
+        "section": "Type conversion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "This is called type coercion."
+      }
+    },
+    {
+      "question": "typeof null is \"object\". How should you test for null?",
+      "type": "multiple",
+      "options": [
+        "Use typeof value === \"object\" and treat arrays as null too.",
+        "Use value == 0, which is true for null after coercion.",
+        "Use !value, which is unique to null and not to 0 or \"\".",
+        "Use value === null, which does not also match undefined."
+      ],
+      "answer": "d",
+      "explanation": "typeof null is a historical bug. Strict equality to null is the precise check. !value also catches 0, \"\", and false.",
+      "reference": {
+        "section": "Values and primitive types",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
+      }
+    },
+    {
+      "question": "Number(\"\") and Number(null) and Number(undefined) are:",
+      "type": "multiple",
+      "options": [
+        "0, 0, and NaN — empty string and null become 0; undefined does not.",
+        "NaN, NaN, and NaN — nothing without digits becomes a number.",
+        "0, NaN, and 0 — only null fails while empty string is zero.",
+        "undefined, null, and NaN — Number leaves empty values unchanged."
+      ],
+      "answer": "a",
+      "explanation": "Number(\"\") is 0, which is why payment parsers must reject empty strings before converting. Number(undefined) is NaN.",
+      "reference": {
+        "section": "Type conversion",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+      }
+    },
+    {
+      "question": "let p = { amount: 10 }; const q = p; q.amount = 3; What is p.amount?",
+      "type": "multiple",
+      "options": [
+        "10, because const q copied the object into a new binding.",
+        "3, because p and q grasp the same object.",
+        "undefined, because q.amount hid the original field.",
+        "10, because numbers inside objects are passed by value."
+      ],
+      "answer": "b",
+      "explanation": "Assignment copies the reference. Mutating through either name changes the one object. const only blocks q = somethingElse.",
+      "reference": {
+        "section": "Bindings: let, const, and var",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 51,
+        "excerpt": "You should imagine bindings as tentacles rather than boxes."
+      }
+    },
+    {
+      "question": "Which values are primitives in everyday JavaScript?",
+      "type": "multi",
+      "options": [
+        "string",
+        "array",
+        "boolean",
+        "plain object"
+      ],
+      "answer": [
+        "a",
+        "c"
+      ],
+      "explanation": "string and boolean are primitives. Arrays and plain objects are objects with identity.",
+      "reference": {
+        "section": "Values and primitive types",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 31,
+        "excerpt": "All this data is stored as long sequences of bits and is thus fundamentally alike."
+      }
+    },
+    {
+      "question": "Why is var a bad default compared with let?",
+      "type": "multiple",
+      "options": [
+        "var cannot be reassigned, so loops cannot update an index.",
+        "var is block-scoped and cannot be seen inside if bodies.",
+        "var is function-scoped and leaks out of blocks such as for and if.",
+        "var is the only way to bind a number; let is only for objects."
+      ],
+      "answer": "c",
+      "explanation": "var ignores block braces and attaches to the enclosing function. let and const stop at the nearest { }.",
+      "reference": {
+        "section": "Bindings: let, const, and var",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 74,
+        "excerpt": "Although var and let have the same syntax, there are important differences in the way they work."
+      }
+    },
+    {
+      "question": "A C++ const int x cannot have its bits changed. What is the closest JS mistake?",
+      "type": "multiple",
+      "options": [
+        "Avoiding Number() because C++ const forbids conversion.",
+        "Using let for numbers because const cannot hold numbers.",
+        "Using === because C++ const requires bitwise identity.",
+        "Expecting const customer to freeze customer.id as well."
+      ],
+      "answer": "d",
+      "explanation": "JS const protects the binding, not the object’s fields. Freeze separately if you need immutability.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 50,
+        "excerpt": "That gives us a second kind of statement. The special word (keyword) let indicates that this sentence is going to define a binding."
+      }
+    },
+    {
+      "question": "What does Number.isNaN(Number(\"due\")) tell you when cleaning payment rows?",
+      "type": "multiple",
+      "options": [
+        "The amount cannot be used as a finite number and should be skipped.",
+        "The string was empty, because only \"\" becomes NaN.",
+        "The amount is zero, because invalid money becomes 0.",
+        "Number threw, so you must wrap the call in try/catch."
+      ],
+      "answer": "a",
+      "explanation": "Number(\"due\") is NaN. Number never throws on ordinary strings. Skip or flag the row; do not add NaN into a total.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "When something that doesn’t map to a number in an obvious way (such as \"five\" or undefined) is converted to a number, you get the value NaN."
+      }
+    },
+    {
+      "question": "Which check treats a missing amount and a zero amount as the same?",
+      "type": "multiple",
+      "options": [
+        "amount === 0, which is true only for numeric zero.",
+        "if (amount), which skips 0 as well as null, \"\", and undefined.",
+        "amount == null, which matches null and undefined only.",
+        "Number.isFinite(amount), which is true for 0."
+      ],
+      "answer": "b",
+      "explanation": "0 is falsy. A zero-dollar payment is a real business value. Test nullish and finite-number separately.",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+      }
+    },
+    {
+      "question": "Find the bug: function total(rows) { let sum = 0; for (const row of rows) sum += row.amount; } on [{amount:\"10\"},{amount:\"4\"}].",
+      "type": "multiple",
+      "options": [
+        "The loop cannot iterate objects; it only works on numbers.",
+        "row.amount is undefined because amount must be Amount.",
+        "sum starts at 0, then + concatenates strings, producing \"0104\".",
+        "let sum cannot hold a number after the first addition."
+      ],
+      "answer": "c",
+      "explanation": "0 + \"10\" becomes the string \"010\", then \"0104\". Convert with Number and reject non-finite values first.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "Yet in the third expression, + tries string concatenation before numeric addition, so the 1 is converted to \"1\"."
+      }
+    },
+    {
+      "question": "Which conversion is the right first step for a payment amount that may be a string?",
+      "type": "multiple",
+      "options": [
+        "Boolean(raw), because money is true or false.",
+        "String(raw), then add it, because totals are text.",
+        "raw + 0, because + always yields a number.",
+        "Reject \"\", then Number(raw), then Number.isFinite."
+      ],
+      "answer": "d",
+      "explanation": "Empty string would become 0. After Number, isFinite drops NaN and infinities.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+      }
+    },
+    {
+      "question": "false == 0 is true. false === 0 is false. What rule should you take from that?",
+      "type": "multiple",
+      "options": [
+        "Use === unless you have a specific reason to coerce.",
+        "Use == for numbers and === for strings only.",
+        "Use == always so null and 0 match the same way.",
+        "Avoid both and compare with Boolean() on each side."
+      ],
+      "answer": "a",
+      "explanation": "== coerces and makes 0, false, and \"\" look interchangeable. === compares type and value.",
+      "reference": {
+        "section": "Type conversion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 44,
+        "excerpt": "console.log(false == 0)"
+      }
+    },
+    {
+      "question": "Which statement about JavaScript numbers is accurate for someone used to C++ int and double?",
+      "type": "multiple",
+      "options": [
+        "Integer literals are 32-bit ints until they overflow into double.",
+        "Everyday arithmetic uses one IEEE-754 number type, not a separate int.",
+        "Bigint is the default type for loop indices and array lengths.",
+        "Division of two integers always truncates toward zero."
+      ],
+      "answer": "b",
+      "explanation": "1/2 is 0.5. Array length is a number, not bigint. There is no C++-style int default.",
+      "reference": {
+        "section": "From C++",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 41,
+        "excerpt": "Computer programs work by manipulating values, such as the number 3.14 or the text “Hello World.”"
+      }
+    },
+    {
+      "question": "Strings in JavaScript cannot have a character overwritten in place. What follows?",
+      "type": "multiple",
+      "options": [
+        "You must use a StringBuilder class from the standard library.",
+        "task[0] = \"X\" mutates a string the same way as a C++ std::string.",
+        "Methods such as replace return a new string; the original is unchanged.",
+        "const s = \"paid\" prevents reading s[0] because the string is frozen."
+      ],
+      "answer": "c",
+      "explanation": "Primitives are immutable. String methods return new values. Index assignment on a string does not change it in ordinary code.",
+      "reference": {
+        "section": "Values and primitive types",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 31,
+        "excerpt": "In the computer’s world, there is only data."
+      }
+    },
+    {
+      "question": "You need a flag from mixed API values: true, \"true\", \"1\", \"yes\", 1. Which design matches asBooleanFlag in the notes?",
+      "type": "multiple",
+      "options": [
+        "Treat any truthy value as true, so \"no\" is also true.",
+        "Use JSON.parse on every value so \"true\" becomes boolean automatically.",
+        "Use Number(value) === 1 only, so true becomes false.",
+        "Accept boolean true and the strings true and 1 after a case-insensitive trim."
+      ],
+      "answer": "d",
+      "explanation": "A narrow allow-list avoids treating arbitrary strings as true. JSON.parse(\"yes\") throws.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+      }
+    },
+    {
+      "question": "describeCustomer({ name: \"Ada\" }) should not print \"Ada (#undefined)\". What should missing id become?",
+      "type": "multiple",
+      "options": [
+        "A placeholder such as \"?\" after an explicit nullish check.",
+        "0, because missing numbers should be zero.",
+        "null, concatenated into the template as \"null\".",
+        "The string \"undefined\", so the caller sees a JS type name."
+      ],
+      "answer": "a",
+      "explanation": "Template literals stringify undefined as \"undefined\". Check id !== undefined && id !== null before interpolating.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 50,
+        "excerpt": "After a binding has been defined, its name can be used as an expression."
+      }
+    },
+    {
+      "question": "Write asBooleanFlag(value): true only for boolean true or the strings \"true\" / \"1\" (trim, case-insensitive).",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function asBooleanFlag(value) {\n  // return true or false\n}\n",
+      "tests": [
+        {
+          "input": "true",
+          "output": "true"
+        },
+        {
+          "input": "\"1\"",
+          "output": "true"
+        },
+        {
+          "input": "\" no \"",
+          "output": "false"
+        }
+      ],
+      "hints": [
+        "If value === true, return true before converting.",
+        "String(value).trim().toLowerCase() then compare to \"true\" and \"1\"."
+      ],
+      "solution": "function asBooleanFlag(value) {\n  if (value === true) return true;\n  const s = String(value).trim().toLowerCase();\n  return s === \"true\" || s === \"1\";\n}\n",
+      "explanation": "Do not use if (value). \"no\" is truthy as a string. Keep an allow-list.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+      }
+    },
+    {
+      "question": "Write normalizePayments(rows). Keep {id, amount:number} when amount is a finite number. Treat \"\" as invalid. Skip missing ids.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function normalizePayments(rows) {\n  // return a new array of { id, amount }\n}\n",
+      "tests": [
+        {
+          "input": "[{id:1,amount:\"10\"},{id:2,amount:\"\"}]",
+          "output": "[{id:1,amount:10}]"
+        },
+        {
+          "input": "[{id:3,amount:0}]",
+          "output": "[{id:3,amount:0}]"
+        }
+      ],
+      "hints": [
+        "Reject null, undefined, and \"\" before Number.",
+        "Keep 0; Number.isFinite(0) is true."
+      ],
+      "solution": "function normalizePayments(rows) {\n  const out = [];\n  for (const row of rows) {\n    if (row.id === undefined || row.id === null) continue;\n    const raw = row.amount;\n    if (raw === null || raw === undefined || raw === \"\") continue;\n    const amount = Number(raw);\n    if (!Number.isFinite(amount)) continue;\n    out.push({ id: row.id, amount });\n  }\n  return out;\n}\n",
+      "explanation": "Empty string must not become 0. Zero is a real payment and must survive.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 43,
+        "excerpt": "This is called type coercion."
+      }
+    },
+    {
+      "question": "Write describeCustomer(c) returning \"Name (#id)\". Missing name → \"customer\". Missing id → \"?\".",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function describeCustomer(c) {\n  // return a string\n}\n",
+      "tests": [
+        {
+          "input": "{name:\"Ada\",id:12}",
+          "output": "\"Ada (#12)\""
+        },
+        {
+          "input": "{}",
+          "output": "\"customer (#?)\""
+        }
+      ],
+      "hints": [
+        "Use (c && c.name) || \"customer\".",
+        "Check id with !== undefined && !== null so 0 still prints."
+      ],
+      "solution": "function describeCustomer(c) {\n  const name = (c && c.name) || \"customer\";\n  const id = c && c.id !== undefined && c.id !== null ? c.id : \"?\";\n  return `${name} (#${id})`;\n}\n",
+      "explanation": "Avoid interpolating undefined. Keep 0 as a possible id.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 50,
+        "excerpt": "After a binding has been defined, its name can be used as an expression."
+      }
+    }
+  ]
+}

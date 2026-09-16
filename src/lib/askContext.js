@@ -19,6 +19,24 @@ export function buildAskPrompt({ message, phase, card, notes }) {
     lines.push('', 'Study notes for this deck:', guide);
   }
 
+  if (card && card.type === 'code') {
+    lines.push('', 'Current card (code practice, self-assessed):', card.text || '');
+    if (card.language) lines.push('Language: ' + card.language);
+    if (card.starter) lines.push('Starter:\n' + String(card.starter).slice(0, 2000));
+    if (Array.isArray(card.tests) && card.tests.length) {
+      lines.push('Example inputs and outputs:');
+      card.tests.slice(0, 6).forEach((row) => {
+        lines.push('- in ' + String((row && row.input) || '') + ' → out ' + String((row && row.output) || ''));
+      });
+    }
+    if (reviewed) {
+      if (card.explanation) lines.push('Bank explanation: ' + String(card.explanation));
+    } else {
+      lines.push('The student has not self-assessed this card yet. Do not reveal the worked solution.');
+    }
+    return lines.join('\n');
+  }
+
   if (card && card.text && Array.isArray(card.options) && Array.isArray(card.order)) {
     lines.push('', 'Current card:', card.text);
     lines.push('Options:');

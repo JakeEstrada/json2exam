@@ -1,0 +1,347 @@
+{
+  "title": "JavaScript — Objects, references, mutation, and copying",
+  "questions": [
+    {
+      "question": "let object1 = {value:10}; let object2 = object1; let object3 = {value:10}; object1 == object3 is:",
+      "type": "multiple",
+      "options": [
+        "false, because they are different objects.",
+        "true, because the fields are equal.",
+        "true, because == compares fields for objects.",
+        "false, because object3 used const."
+      ],
+      "answer": "a",
+      "explanation": "== / === on objects test identity. Same fields do not make one object.",
+      "reference": {
+        "section": "Mutability and identity",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "When we have two numbers, 120 and 120, we can consider them precisely the same number, whether or not they refer to the same physical bits."
+      }
+    },
+    {
+      "question": "object1.value = 15 after object2 = object1. object2.value is:",
+      "type": "multiple",
+      "options": [
+        "10, because assignment copied the fields.",
+        "15, because both names grasp the same object.",
+        "undefined, because value was replaced on object1 only.",
+        "15 on object1 and 10 on object2."
+      ],
+      "answer": "b",
+      "explanation": "Mutation is visible through every alias.",
+      "reference": {
+        "section": "Mutability and identity",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
+      }
+    },
+    {
+      "question": "const task = { status: \"open\" }; task.status = \"done\". Does that throw?",
+      "type": "multiple",
+      "options": [
+        "Yes; const freezes the object.",
+        "Yes in strict mode only.",
+        "No; const blocks rebinding task, not field writes.",
+        "No, but status stays \"open\" because strings are const."
+      ],
+      "answer": "c",
+      "explanation": "task = {} would throw. task.status = \"done\" is allowed.",
+      "reference": {
+        "section": "Objects",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 62,
+        "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
+      }
+    },
+    {
+      "question": "const copy = { ...task }; copy.tags.push(\"late\") when tags is nested. What happens to task.tags?",
+      "type": "multiple",
+      "options": [
+        "Unchanged; spread deep-clones arrays.",
+        "The push throws because copy is frozen.",
+        "tags becomes undefined on task.",
+        "It also gains \"late\" because the array is shared."
+      ],
+      "answer": "d",
+      "explanation": "Shallow copy. Nested arrays stay aliased.",
+      "reference": {
+        "section": "Copying",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "Objects work differently. You can change their properties, causing a single object value to have different content at different times."
+      }
+    },
+    {
+      "question": "updateTask should leave unmatched tasks as the same references. Why?",
+      "type": "multiple",
+      "options": [
+        "So React-style identity checks and tests can see what actually changed.",
+        "Because JavaScript forbids copying objects.",
+        "So JSON.stringify ignores them.",
+        "Because map cannot return new objects."
+      ],
+      "answer": "a",
+      "explanation": "Return task unchanged when id does not match. Spread a new object only for the match.",
+      "reference": {
+        "section": "Copying",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "They are said to have the same identity."
+      }
+    },
+    {
+      "question": "Find the bug: function setStatus(tasks, id, status) { const t = tasks.find(x => x.id === id); t.status = status; return tasks; }",
+      "type": "multiple",
+      "options": [
+        "find cannot locate numbers.",
+        "It mutates the caller’s objects in place.",
+        "return tasks is illegal after find.",
+        "status must be written with Object.freeze."
+      ],
+      "answer": "b",
+      "explanation": "If the API is immutable, map to a new array instead of assigning t.status.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The object1 and object2 bindings grasp the same object"
+      }
+    },
+    {
+      "question": "row.customer?.name when customer is null:",
+      "type": "multiple",
+      "options": [
+        "throws TypeError.",
+        "is null.name as a string.",
+        "is undefined.",
+        "creates a customer object."
+      ],
+      "answer": "c",
+      "explanation": "Optional chaining short-circuits to undefined. It does not invent data.",
+      "reference": {
+        "section": "Objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+      }
+    },
+    {
+      "question": "Two appointments share one customer object. Renaming through appointment B:",
+      "type": "multiple",
+      "options": [
+        "leaves A’s customer name unchanged.",
+        "copies the customer automatically on write.",
+        "throws, because objects cannot be shared.",
+        "changes A as well, because the nested object is aliased."
+      ],
+      "answer": "d",
+      "explanation": "Give each appointment its own nested copy if they must diverge.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life."
+      }
+    },
+    {
+      "question": "C++ struct passed by value copies fields. JS function (task) { task.status = \"done\" }:",
+      "type": "multiple",
+      "options": [
+        "receives a reference; the caller’s object mutates.",
+        "copies the struct; the caller is unchanged.",
+        "freezes task because parameters are const.",
+        "passes a pointer you must delete."
+      ],
+      "answer": "a",
+      "explanation": "The local binding task grasps the same object the caller passed.",
+      "reference": {
+        "section": "From C++",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 62,
+        "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
+      }
+    },
+    {
+      "question": "const t = {id:1,status:\"open\"}; const u = {...t, status:\"done\"}; t === u is:",
+      "type": "multiple",
+      "options": [
+        "true, because id is the same.",
+        "false, because spread made a new object.",
+        "true in strict mode only.",
+        "false because status is a string."
+      ],
+      "answer": "b",
+      "explanation": "t.status stays \"open\". u is a different object.",
+      "reference": {
+        "section": "Predict the output",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
+      }
+    },
+    {
+      "question": "Numbers and strings are immutable. Objects are not. Which assignment mutates?",
+      "type": "multiple",
+      "options": [
+        "s[0] = \"X\" on a string s, which updates the literal.",
+        "n++ on a number binding, which changes that number value in the heap.",
+        "task.status = \"done\" on an object.",
+        "const n = 1, which freezes the integer 1 globally."
+      ],
+      "answer": "c",
+      "explanation": "Rebinding a number is not mutating the number 1. Object fields change in place.",
+      "reference": {
+        "section": "Mutability and identity",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The types of values discussed in earlier chapters, such as numbers, strings, and Booleans, are all immutable"
+      }
+    },
+    {
+      "question": "Which copy is shallow?",
+      "type": "multi",
+      "options": [
+        "{ ...task }",
+        "Object.assign({}, task)",
+        "structuredClone(task) for a JSON-like task",
+        "const copy = task"
+      ],
+      "answer": [
+        "a",
+        "b"
+      ],
+      "explanation": "Spread and Object.assign copy one level. const copy = task is an alias, not a copy. structuredClone is deep for many values.",
+      "reference": {
+        "section": "Copying",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "You can change their properties, causing a single object value to have different content at different times."
+      }
+    },
+    {
+      "question": "for...in on a task object without Object.hasOwn can pick up:",
+      "type": "multiple",
+      "options": [
+        "only own fields, always.",
+        "array indexes even when it is not an array.",
+        "symbol keys only.",
+        "inherited enumerable keys from the prototype."
+      ],
+      "answer": "d",
+      "explanation": "Prefer Object.keys or Object.entries, or hasOwn inside for...in.",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+      }
+    },
+    {
+      "question": "renameCustomer should not mutate the input appointment. Which return value is right?",
+      "type": "multiple",
+      "options": [
+        "A new appointment whose customer is also a new object.",
+        "The same appt after appt.customer.name = name.",
+        "A new appointment that still shares customer by reference.",
+        "undefined after deleting appt.customer."
+      ],
+      "answer": "a",
+      "explanation": "{ ...appt, customer: { ...appt.customer, name } } copies both levels you change.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The binding object3 points to a different object"
+      }
+    },
+    {
+      "question": "task.assignee when the field was never set is:",
+      "type": "multiple",
+      "options": [
+        "null",
+        "undefined",
+        "a ReferenceError",
+        "\"\""
+      ],
+      "answer": "b",
+      "explanation": "Missing properties are undefined, not a throw (unless you opted into extra strict tools).",
+      "reference": {
+        "section": "Objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+      }
+    },
+    {
+      "question": "Write withStatus(task, status): new object, other fields copied shallowly.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function withStatus(task, status) {\n}\n",
+      "tests": [
+        {
+          "input": "{id:1,status:\"open\"}, \"done\"",
+          "output": "{id:1,status:\"done\"}"
+        }
+      ],
+      "hints": [
+        "{ ...task, status }"
+      ],
+      "solution": "function withStatus(task, status) {\n  return { ...task, status };\n}\n",
+      "explanation": "Do not assign task.status. Return a new object.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
+      }
+    },
+    {
+      "question": "Write updateTask(tasks, id, patch): new array; unmatched tasks keep identity.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function updateTask(tasks, id, patch) {\n}\n",
+      "tests": [
+        {
+          "input": "update id 2 with {status:\"done\"}",
+          "output": "new object only for id 2"
+        }
+      ],
+      "hints": [
+        "map. If task.id !== id return task. Else { ...task, ...patch }."
+      ],
+      "solution": "function updateTask(tasks, id, patch) {\n  return tasks.map((task) => (task.id === id ? { ...task, ...patch } : task));\n}\n",
+      "explanation": "Unmatched elements must be the same reference, not a spread copy.",
+      "reference": {
+        "section": "Copying",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "They are said to have the same identity."
+      }
+    },
+    {
+      "question": "Write renameCustomer(appt, name): new appointment and new customer; do not mutate input.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function renameCustomer(appt, name) {\n}\n",
+      "tests": [
+        {
+          "input": "{when:\"9am\",customer:{id:1,name:\"Ada\"}}, \"Ada L.\"",
+          "output": "new nested customer"
+        }
+      ],
+      "hints": [
+        "Copy appt and copy customer in the same expression."
+      ],
+      "solution": "function renameCustomer(appt, name) {\n  return { ...appt, customer: { ...appt.customer, name } };\n}\n",
+      "explanation": "One spread is not enough; the nested customer would still be shared.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 110,
+        "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
+      }
+    }
+  ]
+}

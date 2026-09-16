@@ -16,6 +16,7 @@ import AskGPT from './components/AskGPT.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
+import { resolveBook } from './lib/books.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -41,6 +42,7 @@ function withLectureMedia(qz) {
     qz.bookUrl = deck.bookUrl;
     qz.bookFile = deck.bookFile;
   }
+  if (deck.books && deck.books.length) qz.books = deck.books;
   return qz;
 }
 
@@ -67,20 +69,33 @@ function sessionView(s) {
     },
     settings: s.settings,
     courseId: s.courseId || null,
+    codeWork: s.codeWork || {},
     mastered,
   };
 }
 
 function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
   if (!sidePane) return null;
-  const pdfUrl = sidePane === 'slides' ? quiz.slidesUrl : sidePane === 'book' ? quiz.bookUrl : '';
+  const resolved = sidePane === 'book'
+    ? (studyFocus && studyFocus.bookUrl
+      ? { title: studyFocus.bookTitle || 'Book', url: studyFocus.bookUrl }
+      : resolveBook(quiz, studyFocus && studyFocus.book))
+    : null;
+  const pdfUrl = sidePane === 'slides'
+    ? quiz.slidesUrl
+    : sidePane === 'book'
+      ? ((resolved && resolved.url) || '')
+      : '';
   const pdfPage = sidePane === 'slides'
     ? (studyFocus && studyFocus.slide)
     : (studyFocus && studyFocus.page);
   const bookHref = pdfUrl ? (pdfPage ? pdfUrl + '#page=' + pdfPage : pdfUrl) : '';
+  const bookTitle = sidePane === 'book' && resolved && resolved.title
+    ? resolved.title
+    : paneTitle(sidePane, quiz);
   return (
     <SidePane
-      title={paneTitle(sidePane, quiz)}
+      title={bookTitle}
       ask={sidePane === 'ask'}
       onClose={onClose}
       bookHref={bookHref}
@@ -88,7 +103,9 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
       {sidePane !== 'ask' && (
         <QuizNotes
           source={quiz.notes}
-          bookUrl={quiz.bookUrl}
+          bookUrl={pdfUrl}
+          bookMissing={sidePane === 'book' && !pdfUrl}
+          bookWanted={studyFocus && studyFocus.book}
           slidesUrl={quiz.slidesUrl}
           lecture={quiz.lecture}
           lectureAudio={quiz.lectureAudio}
@@ -119,24 +136,27 @@ export default function App() {
   const [saved, setSaved] = useState(() => sessionView(loadSession()));
   const [studyFocus, setStudyFocus] = useState(null);
   const [sidePane, setSidePane] = useState(null);
+  const [codeWork, setCodeWork] = useState({});
 
   const deal = useCallback((qz, bx, cfg) => {
     const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current);
     if (!next) { setCurrent(null); setSidePane(null); setScreen('done'); return; }
     lastIdRef.current = next.id;
-    const mix = cfg.shuffle && next.type !== 'boolean';
-    setCurrent({ q: next, order: mix ? shuffled(next.options.length) : next.options.map((_, i) => i) });
+    const opts = Array.isArray(next.options) ? next.options : [];
+    const mix = cfg.shuffle && next.type !== 'boolean' && next.type !== 'code' && opts.length > 1;
+    setCurrent({ q: next, order: mix ? shuffled(opts.length) : opts.map((_, i) => i) });
     setPicked([]);
     setPhase('answer');
     setStudyFocus(null);
     setSidePane((pane) => (pane === 'ask' ? 'ask' : null));
   }, []);
 
-  function begin(qz, bx, st, cfg) {
+  function begin(qz, bx, st, cfg, work) {
     setQuiz(withLectureMedia(qz));
     setBoxes(bx);
     setStats(st);
     setSettings(cfg);
+    setCodeWork(work || {});
     setShowSettings(false);
     setStudyFocus(null);
     setSidePane(null);
@@ -164,6 +184,7 @@ export default function App() {
       qz.bookUrl = extra.bookUrl;
       qz.bookFile = extra.bookFile || 'chapter.pdf';
     }
+    if (extra && extra.books) qz.books = extra.books;
     if (extra && extra.slidesUrl) {
       qz.slidesUrl = extra.slidesUrl;
       qz.slidesFile = extra.slidesFile || 'slides.pdf';
@@ -185,7 +206,7 @@ export default function App() {
 
   function persist() {
     if (!quiz) return saved;
-    const state = { quiz, boxes, stats, settings, courseId };
+    const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     const view = sessionView(state);
     setSaved(view);
@@ -207,16 +228,30 @@ export default function App() {
   }
 
   function openReference(focus) {
-    setStudyFocus(focus || null);
-    if (focus && (focus.autoSlides || focus.slide > 0) && !(focus.page > 0) && !focus.heading) {
-      setSidePane('slides');
-    } else if (focus && focus.lecture && !(focus.page > 0) && !(focus.slide > 0) && !focus.heading) {
-      setSidePane('lecture');
-    } else if (focus && focus.page > 0) {
-      setSidePane('book');
-    } else {
-      setSidePane('notes');
+    const next = Object.assign({}, focus || {});
+    if (next.book || next.page > 0) {
+      const found = resolveBook(quiz, next.book);
+      if (found) {
+        next.bookUrl = found.url;
+        next.bookTitle = found.title;
+      }
     }
+    setStudyFocus(next);
+    if (next.autoSlides || next.slide > 0) {
+      if (!(next.page > 0) && !next.heading && !next.book) {
+        setSidePane('slides');
+        return;
+      }
+    }
+    if (next.lecture && !(next.page > 0) && !(next.slide > 0) && !next.heading && !next.book) {
+      setSidePane('lecture');
+      return;
+    }
+    if (next.page > 0 || next.book) {
+      setSidePane('book');
+      return;
+    }
+    setSidePane('notes');
   }
 
   function openSlide(slide, slideEnd, quote) {
@@ -234,7 +269,7 @@ export default function App() {
   function resumeSaved() {
     if (!saved) return;
     if (saved.courseId) setCourseId(saved.courseId);
-    begin(saved.quiz, saved.boxes, saved.stats, mergeSettings(saved.settings));
+    begin(saved.quiz, saved.boxes, saved.stats, mergeSettings(saved.settings), saved.codeWork);
   }
 
   function forgetSaved() {
@@ -244,18 +279,19 @@ export default function App() {
 
   useEffect(() => {
     if (!quiz) return;
-    const state = { quiz, boxes, stats, settings, courseId };
+    const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     setSaved(sessionView(state));
-  }, [quiz, boxes, stats, settings, courseId]);
+  }, [quiz, boxes, stats, settings, courseId, codeWork]);
 
-  const check = useCallback((chosen) => {
+  const check = useCallback((chosen, selfRight) => {
     if (!current || phase === 'review') return;
-    if (!chosen.length) return;
     const q = current.q;
-    const right = sameSet(chosen, q.answers);
+    const isCode = q.type === 'code';
+    if (!isCode && !chosen.length) return;
+    const right = isCode ? !!selfRight : sameSet(chosen, q.answers);
 
-    setPicked(chosen);
+    setPicked(isCode ? [right ? 1 : 0] : chosen);
     setPhase('review');
     setBoxes((prev) => {
       const at = prev[q.id] || 1;
@@ -268,6 +304,12 @@ export default function App() {
       misses: right ? prev.misses : Object.assign({}, prev.misses, { [q.id]: (prev.misses[q.id] || 0) + 1 }),
     }));
   }, [current, phase, settings.maxBox]);
+
+  function patchCodeWork(id, patch) {
+    setCodeWork((prev) => Object.assign({}, prev, {
+      [id]: Object.assign({ hints: 0, solution: false }, prev[id], patch),
+    }));
+  }
 
   function toggle(idx) {
     if (phase === 'review') return;
@@ -319,11 +361,12 @@ export default function App() {
       const tag = (e.target && e.target.tagName) || '';
       if (tag === 'INPUT' || tag === 'TEXTAREA') return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const isCode = current.q && current.q.type === 'code';
 
       if (e.key === 'Enter') {
         e.preventDefault();
         if (phase === 'review') advance();
-        else if (picked.length) check(picked);
+        else if (!isCode && picked.length) check(picked);
         return;
       }
       if (e.key === 'Escape') {
@@ -334,7 +377,7 @@ export default function App() {
         setScreen('done');
         return;
       }
-      if (phase === 'review') { return; }
+      if (phase === 'review' || isCode) { return; }
 
       const n = current.order.length;
       let shown = -1;
@@ -399,9 +442,9 @@ export default function App() {
               boxes={boxes}
               stats={stats}
               maxBox={settings.maxBox}
-              onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
+              onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {})}
             />
-            {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl) && (
+            {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl || (quiz.books && quiz.books.length)) && (
               <div className="row quiz-study-open" style={{ marginTop: '14px' }}>
                 {quiz.notes && (
                   <button type="button" className="text-link" onClick={() => setSidePane('notes')}>
@@ -418,8 +461,11 @@ export default function App() {
                     Slides
                   </button>
                 )}
-                {quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl && (
-                  <button type="button" className="text-link" onClick={() => setSidePane('book')}>
+                {(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl || (quiz.books && quiz.books.length)) && (
+                  <button type="button" className="text-link" onClick={() => {
+                    setStudyFocus({ book: quiz.books && quiz.books.length === 1 ? quiz.books[0].title : '' });
+                    setSidePane('book');
+                  }}>
                     Book
                   </button>
                 )}
@@ -463,7 +509,7 @@ export default function App() {
             <Settings
               settings={settings}
               onChange={updateSettings}
-              onReset={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings)}
+              onReset={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {})}
               onClose={() => setShowSettings(false)}
             />
           )}
@@ -483,17 +529,20 @@ export default function App() {
               phase={phase}
               onToggle={toggle}
               onCheck={() => check(picked)}
+              onAssess={(right) => check([], right)}
               onOpenReference={openReference}
               hasLecture={!!quiz.lecture}
               hasVideo={!!quiz.lectureVideo}
               hasSlides={!!quiz.slidesUrl}
-              hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl)}
+              hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl) || !!(quiz.books && quiz.books.length)}
               voice={settings.voice}
               speechRate={settings.speechRate}
+              codeWork={codeWork[current.q.id] || null}
+              onCodeWork={(patch) => patchCodeWork(current.q.id, patch)}
             />
           )}
 
-          {phase === 'answer' && current && current.q.type !== 'multi' && !settings.instant && (
+          {phase === 'answer' && current && current.q.type !== 'multi' && current.q.type !== 'code' && !settings.instant && (
             <div className="row" style={{ marginTop: '14px' }}>
               <button className="btn primary" disabled={!picked.length} onClick={() => check(picked)}>Check answer</button>
             </div>

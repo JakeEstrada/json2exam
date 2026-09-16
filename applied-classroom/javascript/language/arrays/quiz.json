@@ -1,0 +1,356 @@
+{
+  "title": "JavaScript — Arrays and common array methods",
+  "questions": [
+    {
+      "question": "filter vs map: you want paid customer objects only. Which is correct?",
+      "type": "multiple",
+      "options": [
+        "filter with a test on status, which returns a shorter array.",
+        "map, then drop undefined later if you remember.",
+        "reduce without an initial value on a possibly empty list.",
+        "for...in so inherited keys become extra rows."
+      ],
+      "answer": "a",
+      "explanation": "filter keeps elements that pass. map always returns the same length.",
+      "reference": {
+        "section": "map, filter, reduce",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass the test."
+      }
+    },
+    {
+      "question": "const src = [1,2,3]; src.map(n => n*2); src.filter(n => n>1); What is src.length?",
+      "type": "multiple",
+      "options": [
+        "6, because both methods append to src.",
+        "3, because map and filter return new arrays.",
+        "2, because filter deleted from src.",
+        "0, because map empties the source."
+      ],
+      "answer": "b",
+      "explanation": "The standard map/filter implementations do not mutate the source.",
+      "reference": {
+        "section": "Predict the output",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "This function is pure. It does not modify the array it is given."
+      }
+    },
+    {
+      "question": "Find the bug: return rows.map(row => { if (row.status === \"paid\") return row; });",
+      "type": "multiple",
+      "options": [
+        "map cannot return objects, only numbers.",
+        "The arrow needs function keyword or it will not run.",
+        "Unpaid slots become undefined; the length does not shrink.",
+        "status must be compared with == so paid matches Paid."
+      ],
+      "answer": "c",
+      "explanation": "Use filter. map is a transform of every index.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "The function uses the argument named test, a function value, to fill a “gap” in the computation"
+      }
+    },
+    {
+      "question": "if (arr.indexOf(x)) when x is at index 0 — what happens?",
+      "type": "multiple",
+      "options": [
+        "The check succeeds because 0 means found.",
+        "indexOf returns true instead of 0.",
+        "indexOf throws if x is at the start.",
+        "The check fails because 0 is falsy; missing is -1."
+      ],
+      "answer": "d",
+      "explanation": "Use indexOf(x) !== -1 or includes(x).",
+      "reference": {
+        "section": "Arrays are objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+      }
+    },
+    {
+      "question": "slice(2, 4) on [0,1,2,3,4] yields what?",
+      "type": "multiple",
+      "options": [
+        "[2, 3] — start inclusive, end exclusive.",
+        "[2, 3, 4] — both ends inclusive.",
+        "[0, 1] — slice takes a length, not an end.",
+        "[2, 4] — it picks those two indices only."
+      ],
+      "answer": "a",
+      "explanation": "Same convention as Python slicing and substring end indexes.",
+      "reference": {
+        "section": "Arrays are objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "The start index is inclusive and the end index is exclusive."
+      }
+    },
+    {
+      "question": "reduce on [] without an initial value:",
+      "type": "multiple",
+      "options": [
+        "returns 0.",
+        "throws, so pass an initial 0 for sums.",
+        "returns undefined quietly.",
+        "returns [] ."
+      ],
+      "answer": "b",
+      "explanation": "Always seed reduce when the array might be empty.",
+      "reference": {
+        "section": "map, filter, reduce",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "From now on, we’ll use it like this instead"
+      }
+    },
+    {
+      "question": "typeof [] is \"object\". How do you test for an array?",
+      "type": "multiple",
+      "options": [
+        "typeof value === \"array\"",
+        "value instanceof String",
+        "Array.isArray(value)",
+        "value === []"
+      ],
+      "answer": "c",
+      "explanation": "[] === [] is false (different objects). Array.isArray is the right test.",
+      "reference": {
+        "section": "Arrays are objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "Numbers, Booleans, and strings are the atoms from which data structures are built."
+      }
+    },
+    {
+      "question": "push vs concat when you must not mutate the caller’s payments array?",
+      "type": "multiple",
+      "options": [
+        "push returns a new array; concat mutates.",
+        "neither can add elements.",
+        "both mutate, so you must copy with JSON first.",
+        "concat (or spread) returns a new array; push mutates."
+      ],
+      "answer": "d",
+      "explanation": "push changes length in place. concat/[...arr, x] copy.",
+      "reference": {
+        "section": "Arrays are objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "We saw push and pop, which add and remove elements at the end of an array, earlier in this chapter."
+      }
+    },
+    {
+      "question": "arr[-1] in JavaScript is:",
+      "type": "multiple",
+      "options": [
+        "a property named \"-1\", usually undefined, not the last slot.",
+        "the last element, like Python.",
+        "a thrown RangeError.",
+        "the same as arr.at(0)."
+      ],
+      "answer": "a",
+      "explanation": "Use arr[arr.length - 1] or arr.at(-1).",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+      }
+    },
+    {
+      "question": "paidTotals should ignore pending rows. Which pipeline matches the notes?",
+      "type": "multiple",
+      "options": [
+        "map to amounts first, then hope pending is 0.",
+        "filter status === \"paid\", then reduce with initial 0.",
+        "reduce without filter so pending amounts still add.",
+        "sort by status, then take index 0."
+      ],
+      "answer": "b",
+      "explanation": "Filter then sum, or one reduce that adds only paid rows. Seed 0.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array"
+      }
+    },
+    {
+      "question": "A C++ vector at() throws on overflow. arr[99] on a short JS array is:",
+      "type": "multiple",
+      "options": [
+        "a RangeError",
+        "null",
+        "undefined, not an exception.",
+        "0"
+      ],
+      "answer": "c",
+      "explanation": "Missing indices are undefined. Check length before assuming a row exists.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 100,
+        "excerpt": "The programs we have built so far have been limited by the fact that they were operating only on simple data types."
+      }
+    },
+    {
+      "question": "Which methods return a new array without deleting from the source?",
+      "type": "multi",
+      "options": [
+        "map",
+        "filter",
+        "push",
+        "slice"
+      ],
+      "answer": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": "push mutates. map, filter, and slice produce new arrays.",
+      "reference": {
+        "section": "map, filter, reduce",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "This function is pure. It does not modify the array it is given."
+      }
+    },
+    {
+      "question": "groupCount(rows, \"paid\") with reduce should start the accumulator at:",
+      "type": "multiple",
+      "options": [
+        "undefined so the first row becomes the count.",
+        "[] so you can push matching rows.",
+        "null so missing data is obvious.",
+        "0 so an empty list yields 0."
+      ],
+      "answer": "d",
+      "explanation": "A numeric seed makes empty input safe and the callback simple.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
+      }
+    },
+    {
+      "question": "Shallow copy with slice() copies nested objects how?",
+      "type": "multiple",
+      "options": [
+        "By reference; nested objects are shared.",
+        "Deeply; nested objects are cloned.",
+        "Not at all; slice only copies numbers.",
+        "By JSON, dropping functions always."
+      ],
+      "answer": "a",
+      "explanation": "Same as object spread. Nested mutation is visible through both arrays.",
+      "reference": {
+        "section": "Arrays are objects",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "Another fundamental array method is slice, which takes start and end indices and returns an array that has only the elements between them."
+      }
+    },
+    {
+      "question": "last([]) should return:",
+      "type": "multiple",
+      "options": [
+        "0",
+        "undefined",
+        "null",
+        "-1"
+      ],
+      "answer": "b",
+      "explanation": "On an empty array, length - 1 is -1, and arr[-1] is a missing property (undefined), not a C++-style last element.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+      }
+    },
+    {
+      "question": "Write last(arr): last element, or undefined if empty.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function last(arr) {\n}\n",
+      "tests": [
+        {
+          "input": "[1,2,3]",
+          "output": "3"
+        },
+        {
+          "input": "[]",
+          "output": "undefined"
+        }
+      ],
+      "hints": [
+        "arr[arr.length - 1]"
+      ],
+      "solution": "function last(arr) {\n  return arr[arr.length - 1];\n}\n",
+      "explanation": "Empty arrays yield undefined. Do not return -1.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 121,
+        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+      }
+    },
+    {
+      "question": "Write paidTotals(payments): sum amount where status is \"paid\". Empty list is 0.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function paidTotals(payments) {\n}\n",
+      "tests": [
+        {
+          "input": "[{status:\"paid\",amount:10},{status:\"pending\",amount:4}]",
+          "output": "10"
+        },
+        {
+          "input": "[]",
+          "output": "0"
+        }
+      ],
+      "hints": [
+        "filter then reduce with 0, or one reduce."
+      ],
+      "solution": "function paidTotals(payments) {\n  return payments\n    .filter((p) => p.status === \"paid\")\n    .reduce((n, p) => n + p.amount, 0);\n}\n",
+      "explanation": "Pending rows must not add. Seed reduce at 0.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array"
+      }
+    },
+    {
+      "question": "Write groupCount(rows, status) with reduce: how many rows have that status.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function groupCount(rows, status) {\n}\n",
+      "tests": [
+        {
+          "input": "rows=[{status:\"a\"},{status:\"b\"},{status:\"a\"}] status=\"a\"",
+          "output": "2"
+        }
+      ],
+      "hints": [
+        "Start at 0. Add 1 when row.status === status."
+      ],
+      "solution": "function groupCount(rows, status) {\n  return rows.reduce((n, row) => n + (row.status === status ? 1 : 0), 0);\n}\n",
+      "explanation": "Do not use map. A count is a number.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "The map method transforms an array by applying a function to all of its elements"
+      }
+    }
+  ]
+}
