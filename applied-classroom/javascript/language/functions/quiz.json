@@ -2,24 +2,24 @@
   "title": "JavaScript — Functions, scope, and closures",
   "questions": [
     {
-      "question": "How do you write a function that adds two numbers?",
+      "question": "Which definition makes `add(2, 3)` return 5?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "def add(a, b): return a + b",
+        "function add(a, b) return a + b;",
         "function add(a, b) { return a + b; }",
-        "int add(int a, int b) { return a + b; }",
-        "#define add(a, b) ((a)+(b))"
+        "const add(a, b) { return a + b; }",
+        "function add(a, b) => a + b;"
       ],
       "answer": "b",
-      "explanation": "function keyword, braces, return. No types on the parameters. No def, no #define.",
+      "explanation": "A function declaration needs `function`, a parameter list, braces, and `return`. `=>` belongs on an arrow function (`const add = (a, b) => a + b`), not after `function`.",
       "reference": {
         "section": "Defining a function",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
       },
-      "code": "function add(a, b) {\n  return a + b;\n}"
+      "code": "console.log(add(2, 3));"
     },
     {
       "question": "What is a function in JavaScript?",
@@ -27,7 +27,7 @@
       "options": [
         "A value you can bind, pass, and return.",
         "A statement that cannot be stored in a binding.",
-        "A C++-style nested function that must be declared inside main.",
+        "A keyword, so you cannot put one in an array or pass it as an argument.",
         "A type of number used only for callbacks."
       ],
       "answer": "a",

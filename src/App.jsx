@@ -14,6 +14,7 @@ import QuestionCard from './components/QuestionCard.jsx';
 import Summary from './components/Summary.jsx';
 import AskGPT from './components/AskGPT.jsx';
 import Login from './components/Login.jsx';
+import ProgressRing from './components/ProgressRing.jsx';
 import QuizNotes from './components/QuizNotes.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
@@ -617,6 +618,7 @@ export default function App() {
   }
 
   const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= settings.maxBox).length;
+  const seen = quiz.questions.filter((q) => boxes[q.id]).length;
   const pct = Math.round((mastered / quiz.questions.length) * 100);
 
   return (
@@ -628,6 +630,12 @@ export default function App() {
           <div className="bar">
             <h2>{quiz.title}</h2>
             <div className="row">
+              <ProgressRing
+                value={seen}
+                max={quiz.questions.length}
+                size={56}
+                label="Deck progress"
+              />
               <span className="tally">
                 <b>{stats.right}</b> right, <b>{stats.wrong}</b> wrong, <b>{pct}%</b> mastered
               </span>

@@ -28,37 +28,37 @@
   ],
   "questions": [
     {
-      "question": "A counting loop in JavaScript looks like which of these?",
+      "question": "How many times does this log?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "for i in range(n): with indentation as the block",
-        "for (let i = 0; i < n; i++) { ... }",
-        "for (int i = 0; i < n; i++) with a required type on i",
-        "#pragma loop i 0 n"
+        "2, because i starts at 1 in a for loop",
+        "3, for i = 0, 1, and 2",
+        "4, because the test is i <= n after n is 3",
+        "1, because let i is frozen after the first pass"
       ],
       "answer": "b",
-      "explanation": "Same three-part for as C. let i, not int i. Braces, not indentation.",
+      "explanation": "`i` starts at 0. The loop continues while `i < 3`, so the body runs three times: 0, 1, and 2.",
       "reference": {
         "section": "for loops",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "code": "for (let i = 0; i < n; i++) {\n  console.log(i);\n}"
+      "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
     {
-      "question": "How do you walk each value in an array?",
+      "question": "What does this log, in order?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "for (const item of items) { ... }",
-        "for (const item in items) { ... } — that is the documented way to get values",
-        "foreach (var item in items)",
-        "items.each do |item|"
+        "0, then 1, then 2 — `of` yields each value",
+        "\"0\", then \"1\", then \"2\" — `of` yields keys as strings",
+        "a, then b, then c — `of` yields each value",
+        "undefined three times — `of` skips the first index"
       ],
-      "answer": "a",
-      "explanation": "for...of yields values. for...in yields keys. Use of for arrays.",
+      "answer": "c",
+      "explanation": "`for...of` yields values. `for...in` yields keys (as strings). For arrays, use `of`.",
       "reference": {
         "section": "Walking arrays",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
@@ -74,8 +74,8 @@
       "options": [
         "After the body, so the body always runs once.",
         "Before each pass. If the test is already false, the body never runs.",
-        "Only at compile time.",
-        "Never; while is not valid JavaScript."
+        "Only at parse time, so a later assignment to i is ignored.",
+        "Never; while cannot be used with a comparison."
       ],
       "answer": "b",
       "explanation": "while tests first. do/while tests after and is rare.",
@@ -128,13 +128,13 @@
       "code": "let n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);"
     },
     {
-      "question": "The three parts of this header are:",
+      "question": "The three parts of `for (let i = 0; i < n; i++)` are:",
       "type": "multiple",
       "options": [
-        "A C++-only syntax; JavaScript has only `while`.",
+        "The callback, the seed, and the step size — the same three slots as reduce.",
         "Bind a counter, test whether to keep going, then update after the body.",
-        "Map, filter, and reduce.",
-        "Start page, end page, and excerpt."
+        "The return type, the index type, and the element type.",
+        "Only a condition. The other two slots are comments the engine ignores."
       ],
       "answer": "b",
       "explanation": "`for` is the compact form of a counting `while`.",

@@ -1,7 +1,9 @@
 import { boxOf } from '../lib/leitner.js';
+import ProgressRing from './ProgressRing.jsx';
 
 export default function Summary({ quiz, boxes, stats, maxBox, onAgain }) {
   const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= maxBox).length;
+  const seen = quiz.questions.filter((q) => boxes[q.id]).length;
   const answered = stats.right + stats.wrong;
   const accuracy = answered ? Math.round((stats.right / answered) * 100) : 0;
   const missed = quiz.questions
@@ -11,12 +13,17 @@ export default function Summary({ quiz, boxes, stats, maxBox, onAgain }) {
 
   return (
     <div className="sheet summary">
-      <h2>{finished ? 'Every card retired.' : 'Session ended.'}</h2>
-      <p>
-        {finished
-          ? 'You answered every question right ' + (maxBox - 1) + (maxBox - 1 === 1 ? ' time.' : ' times in a row.')
-          : 'You can pick this deck up again later, or start it fresh.'}
-      </p>
+      <div className="summary-head">
+        <div>
+          <h2>{finished ? 'Every card retired.' : 'Session ended.'}</h2>
+          <p>
+            {finished
+              ? 'You answered every question right ' + (maxBox - 1) + (maxBox - 1 === 1 ? ' time.' : ' times in a row.')
+              : 'You can pick this deck up again later, or start it fresh.'}
+          </p>
+        </div>
+        <ProgressRing value={seen} max={quiz.questions.length} size={88} label="Deck progress" />
+      </div>
 
       <div className="figures">
         <div><b>{mastered}/{quiz.questions.length}</b><span>mastered</span></div>

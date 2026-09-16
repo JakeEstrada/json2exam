@@ -2,17 +2,17 @@
   "title": "JavaScript — Variables, primitives, and conversion",
   "questions": [
     {
-      "question": "What kind of language is this?",
+      "question": "What happens when the engine loads this file?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "A compiled language: you run a preprocessor, then a linker, like C++.",
-        "A scripting language: the engine reads the source and runs it. There is no #include and no separate compile step.",
-        "A Python dialect that uses indentation instead of braces.",
-        "A typed assembly language for WebAssembly."
+        "Nothing runs until you add a main() function.",
+        "It prints hello. The engine reads the file and runs it.",
+        "It fails because console.log needs a type annotation.",
+        "It only works after TypeScript rewrites it; plain .js cannot log."
       ],
       "answer": "b",
-      "explanation": "The JS engine interprets (or JIT-compiles internally) the .js file. You do not ship object files. TypeScript is an optional compile-to-JS step.",
+      "explanation": "The engine reads the .js file and runs it. There is no required main(), and types are not declared on ordinary names.",
       "reference": {
         "section": "What JavaScript is",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
@@ -22,37 +22,37 @@
       "code": "// main.js — the engine reads this file and runs it\nconsole.log(\"hello\");"
     },
     {
-      "question": "How do you pull in another JavaScript file?",
+      "question": "Which statement makes `total` available to this file?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "#include \"util.js\" at the top of the file.",
-        "using Util;",
-        "import { foo } from \"./util.js\"; (or require in older Node).",
-        "from util import foo, the same as Python."
+        "import total { from \"./payments.js\" };",
+        "import { total } \"./payments.js\";",
+        "import { total } from \"./payments.js\";",
+        "require { total } from \"./payments.js\";"
       ],
       "answer": "c",
-      "explanation": "No #include, no #define, no using. Built-ins are global. Your files load with import or require.",
+      "explanation": "Named ESM imports use `import { name } from \"./file.js\"`. The braces, `from`, and quotes are all required. Older Node used `require(\"./file.js\")`, which is a function call, not `require { }`.",
       "reference": {
         "section": "What JavaScript is",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "Values"
       },
-      "code": "import { total } from \"./payments.js\";"
+      "code": "console.log(total([{ amount: 10 }]));"
     },
     {
-      "question": "Which of these is legal JavaScript?",
+      "question": "What values does this log, in order?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "Python-style: for i in range(3) then an indented print(i)",
-        "C-like braces: for (let i = 0; i < 3; i++) { console.log(i); }",
-        "int i = 0; with a required type on every name.",
-        "A .js file must start with #pragma once."
+        "1, then 2, then 3",
+        "0, then 1, then 2",
+        "0, then 1, then 2, then 3",
+        "3, then 3, then 3"
       ],
       "answer": "b",
-      "explanation": "JS uses braces like C/Java/C#. Indentation is not syntax. Types are not declared on ordinary variables.",
+      "explanation": "`i` starts at 0. The test is `i < n` with n = 3, so the body runs for 0, 1, and 2. After i becomes 3 the test fails.",
       "reference": {
         "section": "What JavaScript is",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
@@ -62,17 +62,17 @@
       "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
     {
-      "question": "Which pair matches how you declare names?",
+      "question": "After this runs, which is true?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "var for both; const is only for classes.",
-        "let for a name you reassign; const for a name you will not retarget. Skip var.",
-        "int and const int, like C++.",
-        "def and final, like Python."
+        "Both names can be retargeted because const only applies to objects.",
+        "count is 1 and name is still \"Ada\".",
+        "This throws, because const cannot hold a string.",
+        "name can be retargeted; count cannot, because let freezes numbers."
       ],
       "answer": "b",
-      "explanation": "Default to const. Use let when the name must be retargeted. var is function-scoped and the wrong default.",
+      "explanation": "`const` blocks retargeting `name`. `let` allows `count = count + 1`. The string value is still a string; const does not mean \"only objects\".",
       "reference": {
         "section": "Bindings: let, const, and var",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",

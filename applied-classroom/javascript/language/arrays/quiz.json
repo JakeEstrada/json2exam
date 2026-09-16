@@ -166,7 +166,7 @@
       "type": "multiple",
       "options": [
         "a property named \"-1\", usually undefined, not the last slot.",
-        "the last element, like Python.",
+        "the last element, because negative indexes count from the end.",
         "a thrown RangeError.",
         "the same as arr.at(0)."
       ],

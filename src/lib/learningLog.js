@@ -23,6 +23,7 @@ export function deckStats(quiz, boxes, stats, maxBox) {
     right: (stats && stats.right) || 0,
     wrong: (stats && stats.wrong) || 0,
     pct: total ? Math.round((mastered / total) * 100) : 0,
+    seenPct: total ? Math.round((seen / total) * 100) : 0,
     done: total > 0 && mastered >= total,
   };
 }
@@ -97,17 +98,49 @@ export function courseRollup(course, log) {
   if (!ready.length) return null;
   let total = 0;
   let mastered = 0;
+  let seen = 0;
   ready.forEach((deck) => {
     const saved = log && log.decks && log.decks[deck.id];
     const n = (saved && saved.total) || deck.data.questions.length;
     total += n;
     mastered += (saved && saved.mastered) || 0;
+    seen += saved ? (Number(saved.seen) || Number(saved.mastered) || 0) : 0;
   });
   return {
     total,
     mastered,
+    seen,
     pct: total ? Math.round((mastered / total) * 100) : 0,
+    seenPct: total ? Math.round((seen / total) * 100) : 0,
     started: ready.filter((d) => log && log.decks && log.decks[d.id]).length,
     ready: ready.length,
   };
+}
+
+export function logTotals(log) {
+  const decks = log && log.decks && typeof log.decks === 'object' ? Object.keys(log.decks).map((id) => log.decks[id]) : [];
+  const out = { total: 0, mastered: 0, seen: 0, pct: 0, seenPct: 0 };
+  decks.forEach((row) => {
+    if (!row || typeof row !== 'object') return;
+    out.total += Number(row.total) || 0;
+    out.mastered += Number(row.mastered) || 0;
+    out.seen += Number(row.seen) || 0;
+  });
+  out.pct = out.total ? Math.round((out.mastered / out.total) * 100) : 0;
+  out.seenPct = out.total ? Math.round((out.seen / out.total) * 100) : 0;
+  return out;
+}
+
+export function catalogTotals(courses, log) {
+  const out = { total: 0, mastered: 0, seen: 0, pct: 0, seenPct: 0 };
+  (courses || []).forEach((course) => {
+    const roll = courseRollup(course, log);
+    if (!roll) return;
+    out.total += roll.total;
+    out.mastered += roll.mastered;
+    out.seen += roll.seen;
+  });
+  out.pct = out.total ? Math.round((out.mastered / out.total) * 100) : 0;
+  out.seenPct = out.total ? Math.round((out.seen / out.total) * 100) : 0;
+  return out;
 }

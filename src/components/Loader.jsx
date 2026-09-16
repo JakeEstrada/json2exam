@@ -2,11 +2,11 @@ import { useState, useRef } from 'react';
 import { normalizeQuiz, describeJsonError } from '../lib/parseQuiz.js';
 import ResumeBar from './ResumeBar.jsx';
 import FileWindow from './FileWindow.jsx';
-import LearningLog from './LearningLog.jsx';
+import ProgressRing from './ProgressRing.jsx';
 import { SAMPLE } from '../data/sample.js';
 import { COURSES, courseDecks } from '../data/catalog.js';
 import { COURSE_GROUPS } from '../data/appliedClassroom.js';
-import { courseRollup } from '../lib/learningLog.js';
+import { catalogTotals, courseRollup } from '../lib/learningLog.js';
 import aiFileGuide from '../data/aiFileGuide.md?raw';
 
 function courseBlurb(course) {
@@ -32,17 +32,21 @@ function courseBlurb(course) {
 
 function CourseCard({ course, onOpen, log }) {
   const roll = courseRollup(course, log);
+  const ringValue = roll ? roll.seen : 0;
+  const ringMax = roll ? roll.total : 0;
   return (
     <button
       type="button"
-      className="course-card sheet"
+      className={'course-card sheet' + (roll ? ' has-ring' : '')}
       onClick={() => onOpen(course.id)}
     >
-      <strong>{course.title}</strong>
-      {course.tagline && <span className="subtitle">{course.tagline}</span>}
-      <p>{courseBlurb(course)}</p>
-      {roll && roll.started > 0 && (
-        <span className="course-progress">{roll.mastered}/{roll.total} mastered</span>
+      <div className="course-card-copy">
+        <strong>{course.title}</strong>
+        {course.tagline && <span className="subtitle">{course.tagline}</span>}
+        <p>{courseBlurb(course)}</p>
+      </div>
+      {roll && (
+        <ProgressRing value={ringValue} max={ringMax} size={72} label={course.title + ' progress'} />
       )}
       <span className="go">Open course</span>
     </button>
@@ -55,6 +59,7 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
   const [warn, setWarn] = useState(null);
   const [preview, setPreview] = useState(null);
   const fileRef = useRef(null);
+  const totals = catalogTotals(COURSES, log);
 
   function accept(text, name) {
     setError(null);
@@ -88,20 +93,32 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
   return (
     <div className="landing">
       <div className="sheet welcome">
-        <p>
-          Hey, this is something I am creating to fill the gaps in my own knowledge.
-          I will use data I find online to fill these modules. Free sources, all put in
-          one place in a consumable way for myself and anyone who would like.
-        </p>
-        <p>
-          The original idea was a super easy way to build quizzes with the OpenAI API
-          and learn CS. Paste a chapter or notes into a model, get JSON back, upload
-          it here, and drill it. Misses come back sooner. AskGPT is there if you want
-          to know why an answer is wrong.
-        </p>
+        <div className="welcome-copy">
+          <p>
+            Hey, this is something I am creating to fill the gaps in my own knowledge.
+            I will use data I find online to fill these modules. Free sources, all put in
+            one place in a consumable way for myself and anyone who would like.
+          </p>
+          <p>
+            This site is meant to serve me, but anyone is welcome to study with it.
+            As of now it only tracks my progress.
+          </p>
+          <p>
+            The original idea was a super easy way to build quizzes with the OpenAI API
+            and learn CS. Paste a chapter or notes into a model, get JSON back, upload
+            it here, and drill it. Misses come back sooner. AskGPT is there if you want
+            to know why an answer is wrong.
+          </p>
+        </div>
+        <div className="welcome-ring">
+          <ProgressRing
+            value={totals.seen}
+            max={totals.total}
+            size={112}
+            label="Overall progress"
+          />
+        </div>
       </div>
-
-      <LearningLog log={log} />
 
       <div
         className={'upload-panel sheet' + (over ? ' is-over' : '')}

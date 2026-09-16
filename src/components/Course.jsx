@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FileWindow from './FileWindow.jsx';
 import { courseDecks } from '../data/catalog.js';
+import ProgressRing from './ProgressRing.jsx';
 
 function isReady(deck) {
   return !!(deck && deck.data && Array.isArray(deck.data.questions) && deck.data.questions.length);
@@ -102,18 +103,31 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
     }
   }
 
+  const seen = (progress && progress.seen) || 0;
+  const total = (progress && progress.total) || count;
+
   return (
-    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '')}>
-      {step ? <span className="kicker">Step {step}</span> : null}
-      <strong>{deck.label}</strong>
-      {deck.subtitle && !ramp && !coming ? <span className="subtitle">{deck.subtitle}</span> : null}
-      <p>
-        {coming
-          ? 'Coming next'
-          : (progress
-            ? (progress.done ? 'Done' : (progress.pct + '% mastered'))
-            : (ramp ? 'Lesson, then practice' : (count + ' questions')))}
-      </p>
+    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (!coming ? ' has-ring' : '')}>
+      <div className="course-card-copy">
+        {step ? <span className="kicker">Step {step}</span> : null}
+        <strong>{deck.label}</strong>
+        {deck.subtitle && !ramp && !coming ? <span className="subtitle">{deck.subtitle}</span> : null}
+        <p>
+          {coming
+            ? 'Coming next'
+            : (seen
+              ? (seen + ' of ' + total + ' seen')
+              : (ramp ? 'Lesson, then practice' : (count + ' questions')))}
+        </p>
+      </div>
+      {!coming && (
+        <ProgressRing
+          value={seen}
+          max={total}
+          size={64}
+          label={deck.label + ' progress'}
+        />
+      )}
       {files.length > 0 && (
         <div className="deck-links">
           {files.map((file) => (

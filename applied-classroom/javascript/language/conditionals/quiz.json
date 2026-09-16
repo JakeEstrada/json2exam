@@ -2,17 +2,17 @@
   "title": "JavaScript — Comparisons, truthiness, and control flow",
   "questions": [
     {
-      "question": "How should you compare two values in new JavaScript?",
+      "question": "Why do these two logs disagree?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "Always == so that 0 and false count as equal.",
-        "=== which compares type and value with no conversion.",
-        "Python `is`.",
-        "A preprocessor #eq directive."
+        "=== coerces and == does not, so the second log is the sloppy one.",
+        "== coerces, so 0 matches false. === does not coerce, so the types stay different.",
+        "false is not a JavaScript value; only 0 is, so === cannot run.",
+        "Both are syntax errors until you import an equals helper."
       ],
       "answer": "b",
-      "explanation": "=== does not coerce. == does, and that is where the surprises live.",
+      "explanation": "== converts before comparing. === compares type and value. Prefer === unless you have a specific reason to coerce.",
       "reference": {
         "section": "Strict equality and coercion",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
@@ -22,24 +22,24 @@
       "code": "console.log(0 == false);\nconsole.log(0 === false);"
     },
     {
-      "question": "An if block in JavaScript looks like which of these?",
+      "question": "Which if-header is valid JavaScript?",
       "type": "multiple",
       "level": 1,
       "options": [
-        "if score >= 90: then indented lines, Python-style.",
-        "if (score >= 90) { grade = \"A\"; }",
-        "if score >= 90 then grade := \"A\" fi",
-        "#if score >= 90"
+        "if score >= 90 { console.log(\"A\"); }",
+        "if (score >= 90) { console.log(\"A\"); }",
+        "if (score >= 90) then { console.log(\"A\"); }",
+        "if (score >= 90): { console.log(\"A\"); }"
       ],
       "answer": "b",
-      "explanation": "Parentheses around the test, braces around the body. Same idea as C and C#.",
+      "explanation": "The test goes in parentheses. The body goes in braces. There is no `then`, and `:` is not the block marker.",
       "reference": {
         "section": "Control flow",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
       },
-      "code": "const score = 90;\nif (score >= 90) {\n  console.log(\"A\");\n}"
+      "code": "const score = 90;"
     },
     {
       "question": "What should you use in new code?",

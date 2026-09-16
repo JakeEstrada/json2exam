@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { courseRollup, deckStats, emptyLog, mergeLog, withDeck } from './learningLog.js';
+import { catalogTotals, courseRollup, deckStats, emptyLog, logTotals, mergeLog, withDeck } from './learningLog.js';
 
 test('deckStats counts mastered cards from Leitner boxes', () => {
   const quiz = { questions: [{ id: 'a' }, { id: 'b' }, { id: 'c' }] };
@@ -48,4 +48,32 @@ test('courseRollup uses saved mastery against ready decks', () => {
   assert.equal(out.mastered, 2);
   assert.equal(out.total, 3);
   assert.equal(out.pct, 67);
+});
+
+test('logTotals sums seen cards across started decks', () => {
+  const out = logTotals({
+    decks: {
+      a: { total: 10, mastered: 2, seen: 6 },
+      b: { total: 10, mastered: 0, seen: 4 },
+    },
+  });
+  assert.equal(out.total, 20);
+  assert.equal(out.seen, 10);
+  assert.equal(out.seenPct, 50);
+  assert.equal(out.pct, 10);
+});
+
+test('catalogTotals scores seen cards against every ready question', () => {
+  const courses = [{
+    modules: [{
+      decks: [
+        { id: 'one', data: { questions: [1, 2, 3, 4] } },
+        { id: 'two', data: { questions: [1, 2] } },
+      ],
+    }],
+  }];
+  const out = catalogTotals(courses, { decks: { one: { total: 4, seen: 2, mastered: 1 } } });
+  assert.equal(out.total, 6);
+  assert.equal(out.seen, 2);
+  assert.equal(out.seenPct, 33);
 });
