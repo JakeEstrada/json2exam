@@ -18,10 +18,11 @@
         "page": 146,
         "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass the test."
       },
-      "level": 1
+      "level": 1,
+      "code": "const rows = [\n  { status: \"paid\", amount: 10 },\n  { status: \"pending\", amount: 4 },\n];"
     },
     {
-      "question": "What is `src.length` after this runs?\n\n```js\nconst src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);\n```",
+      "question": "What is `src.length` after this runs?",
       "type": "multiple",
       "options": [
         "6, because both methods append to src.",
@@ -37,10 +38,11 @@
         "page": 146,
         "excerpt": "This function is pure. It does not modify the array it is given."
       },
-      "level": 1
+      "level": 1,
+      "code": "const src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);"
     },
     {
-      "question": "Find the bug:\n\n```js\nreturn rows.map(row => {\n  if (row.status === \"paid\") return row;\n});\n```",
+      "question": "Find the bug:",
       "type": "multiple",
       "options": [
         "map cannot return objects, only numbers.",
@@ -56,10 +58,11 @@
         "page": 146,
         "excerpt": "The function uses the argument named test, a function value, to fill a “gap” in the computation"
       },
-      "level": 3
+      "level": 3,
+      "code": "return rows.map(row => {\n  if (row.status === \"paid\") return row;\n});"
     },
     {
-      "question": "if (arr.indexOf(x)) when x is at index 0 — what happens?",
+      "question": "What happens when x is at index 0?",
       "type": "multiple",
       "options": [
         "The check succeeds because 0 means found.",
@@ -75,10 +78,11 @@
         "page": 121,
         "excerpt": "To search for a specific value, arrays provide an indexOf method."
       },
-      "level": 1
+      "level": 1,
+      "code": "const arr = [\"a\", \"b\", \"c\"];\nconst x = \"a\";\nif (arr.indexOf(x)) {\n  console.log(\"found\");\n}"
     },
     {
-      "question": "slice(2, 4) on [0,1,2,3,4] yields what?",
+      "question": "What does this yield?",
       "type": "multiple",
       "options": [
         "[2, 3] — start inclusive, end exclusive.",
@@ -94,7 +98,8 @@
         "page": 121,
         "excerpt": "The start index is inclusive and the end index is exclusive."
       },
-      "level": 2
+      "level": 2,
+      "code": "const nums = [0, 1, 2, 3, 4];\nnums.slice(2, 4);"
     },
     {
       "question": "reduce on [] without an initial value:",
@@ -113,7 +118,8 @@
         "page": 146,
         "excerpt": "From now on, we’ll use it like this instead"
       },
-      "level": 2
+      "level": 2,
+      "code": "[].reduce((sum, n) => sum + n);"
     },
     {
       "question": "typeof [] is \"object\". How do you test for an array?",
@@ -132,7 +138,8 @@
         "page": 100,
         "excerpt": "Numbers, Booleans, and strings are the atoms from which data structures are built."
       },
-      "level": 2
+      "level": 2,
+      "code": "console.log(typeof []);\nconst value = [];"
     },
     {
       "question": "push vs concat when you must not mutate the caller’s payments array?",
@@ -151,7 +158,8 @@
         "page": 121,
         "excerpt": "We saw push and pop, which add and remove elements at the end of an array, earlier in this chapter."
       },
-      "level": 2
+      "level": 2,
+      "code": "const payments = [{ amount: 10 }];\npayments.push({ amount: 4 });\npayments.concat({ amount: 7 });"
     },
     {
       "question": "arr[-1] in JavaScript is:",
@@ -170,7 +178,8 @@
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
       },
-      "level": 2
+      "level": 2,
+      "code": "const arr = [\"a\", \"b\", \"c\"];\nconsole.log(arr[-1]);"
     },
     {
       "question": "paidTotals should ignore pending rows. Which pipeline matches the notes?",
@@ -189,10 +198,11 @@
         "page": 146,
         "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array"
       },
-      "level": 2
+      "level": 2,
+      "code": "payments.filter(p => p.status === \"paid\")\n  .reduce((n, p) => n + p.amount, 0);"
     },
     {
-      "question": "A C++ vector at() throws on overflow. arr[99] on a short JS array is:",
+      "question": "A C++ vector at() throws on overflow. This JS read is:",
       "type": "multiple",
       "options": [
         "a RangeError",
@@ -208,7 +218,8 @@
         "page": 100,
         "excerpt": "The programs we have built so far have been limited by the fact that they were operating only on simple data types."
       },
-      "level": 2
+      "level": 2,
+      "code": "const arr = [10, 20];\nconsole.log(arr[99]);"
     },
     {
       "question": "Which methods return a new array without deleting from the source?",
@@ -231,7 +242,8 @@
         "page": 146,
         "excerpt": "This function is pure. It does not modify the array it is given."
       },
-      "level": 2
+      "level": 2,
+      "code": "const src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);\nsrc.push(4);\nsrc.slice(1);"
     },
     {
       "question": "groupCount(rows, \"paid\") with reduce should start the accumulator at:",
@@ -250,7 +262,8 @@
         "page": 146,
         "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
       },
-      "level": 2
+      "level": 2,
+      "code": "rows.reduce((n, row) => n + (row.status === \"paid\" ? 1 : 0), 0);"
     },
     {
       "question": "Shallow copy with slice() copies nested objects how?",
@@ -269,7 +282,8 @@
         "page": 121,
         "excerpt": "Another fundamental array method is slice, which takes start and end indices and returns an array that has only the elements between them."
       },
-      "level": 2
+      "level": 2,
+      "code": "const src = [{ id: 1 }];\nconst copy = src.slice();\ncopy[0].id = 2;"
     },
     {
       "question": "last([]) should return:",
@@ -288,7 +302,8 @@
         "page": 121,
         "excerpt": "To search for a specific value, arrays provide an indexOf method."
       },
-      "level": 2
+      "level": 2,
+      "code": "last([]);"
     },
     {
       "question": "Write last(arr): last element, or undefined if empty.",

@@ -18,7 +18,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "This is called type coercion."
-      }
+      },
+      "code": "console.log(0 == false);\nconsole.log(0 === false);"
     },
     {
       "question": "An if block in JavaScript looks like which of these?",
@@ -37,10 +38,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
-      }
+      },
+      "code": "const score = 90;\nif (score >= 90) {\n  console.log(\"A\");\n}"
     },
     {
-      "question": "0 == false is true. 0 === false is false. What should you use in new code?",
+      "question": "What should you use in new code?",
       "type": "multiple",
       "options": [
         "=== unless you have a specific reason to coerce.",
@@ -56,10 +58,11 @@
         "page": 43,
         "excerpt": "This is called type coercion."
       },
-      "level": 3
+      "level": 3,
+      "code": "console.log(0 == false);\nconsole.log(0 === false);"
     },
     {
-      "question": "What does console.log(null || \"x\", 0 || \"x\", 0 ?? \"x\") print?",
+      "question": "What does this print?",
       "type": "multiple",
       "options": [
         "x x x — all three operators treat 0 as missing.",
@@ -75,7 +78,8 @@
         "page": 42,
         "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
       },
-      "level": 1
+      "level": 1,
+      "code": "console.log(null || \"x\", 0 || \"x\", 0 ?? \"x\");"
     },
     {
       "question": "Which values are falsy?",
@@ -97,7 +101,8 @@
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
       },
-      "level": 3
+      "level": 3,
+      "code": "Boolean(0);\nBoolean(\"\");\nBoolean(\"0\");\nBoolean([]);"
     },
     {
       "question": "if (amount) skips a zero-dollar payment. What is the better gate?",
@@ -116,10 +121,11 @@
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
       },
-      "level": 1
+      "level": 1,
+      "code": "const amount = 0;\nif (amount) {\n  charge(amount);\n}"
     },
     {
-      "question": "Find the bug. What happens for `[{amount:0},{amount:20}]`?\n\n```js\nfunction firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}\n```",
+      "question": "Find the bug. What happens for `[{amount:0},{amount:20}]`?",
       "type": "multiple",
       "options": [
         "for...of cannot walk arrays of objects.",
@@ -135,10 +141,11 @@
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
       },
-      "level": 3
+      "level": 3,
+      "code": "function firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}"
     },
     {
-      "question": "What prints?\n\n```js\nlet s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}\n```",
+      "question": "What prints?",
       "type": "multiple",
       "options": [
         "b then c, because case pending has no break.",
@@ -154,10 +161,11 @@
         "page": 79,
         "excerpt": "This chapter documents JavaScript expressions and the operators with which many of those expressions are built."
       },
-      "level": 2
+      "level": 2,
+      "code": "let s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}"
     },
     {
-      "question": "customer.name || \"guest\" vs customer.name ?? \"guest\" when name is \"\".",
+      "question": "What happens when name is \"\"?",
       "type": "multiple",
       "options": [
         "Both yield \"guest\" because empty string is nullish.",
@@ -173,7 +181,8 @@
         "page": 42,
         "excerpt": "The || operator denotes logical or."
       },
-      "level": 2
+      "level": 2,
+      "code": "const customer = { name: \"\" };\ncustomer.name || \"guest\";\ncustomer.name ?? \"guest\";"
     },
     {
       "question": "&& and || in JavaScript return what?",
@@ -192,10 +201,11 @@
         "page": 42,
         "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
       },
-      "level": 2
+      "level": 2,
+      "code": "console.log(\"Ada\" || \"guest\");\nconsole.log(0 && \"x\");"
     },
     {
-      "question": "Why is for...in a poor choice for walking payment rows in an array?",
+      "question": "Why is for...in a poor choice for walking payment rows?",
       "type": "multiple",
       "options": [
         "It freezes the array so push cannot run afterward.",
@@ -211,10 +221,11 @@
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
       },
-      "level": 3
+      "level": 3,
+      "code": "const rows = [{ amount: 10 }, { amount: 20 }];\nfor (const i in rows) {\n  console.log(i, rows[i]);\n}"
     },
     {
-      "question": "C++ if (p) on a pointer means non-null. What is the JS trap for if (order.amount)?",
+      "question": "C++ if (p) means non-null. What is the JS trap?",
       "type": "multiple",
       "options": [
         "0, \"\", and NaN are falsy, so real data can look missing.",
@@ -230,10 +241,11 @@
         "page": 40,
         "excerpt": "It is often useful to have a value that distinguishes between only two possibilities, like “yes” and “no” or “on” and “off”."
       },
-      "level": 2
+      "level": 2,
+      "code": "const order = { amount: 0 };\nif (order.amount) {\n  charge(order.amount);\n}"
     },
     {
-      "question": "Which checkoutState result is correct for { status: \"open\", amount: 0 }?",
+      "question": "Which checkoutState result is correct for this order?",
       "type": "multiple",
       "options": [
         "missing, because 0 means there is no order.",
@@ -249,10 +261,11 @@
         "page": 57,
         "excerpt": "Not all programs are straight roads."
       },
-      "level": 2
+      "level": 2,
+      "code": "checkoutState({ status: \"open\", amount: 0 });"
     },
     {
-      "question": "[] is truthy. What does if (rows) hide when rows is an empty list of appointments?",
+      "question": "[] is truthy. What does if (rows) hide when the list is empty?",
       "type": "multiple",
       "options": [
         "JavaScript throws because arrays cannot be used as conditions.",
@@ -268,7 +281,8 @@
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
       },
-      "level": 2
+      "level": 2,
+      "code": "const rows = [];\nif (rows) {\n  console.log(\"has appointments\");\n}"
     },
     {
       "question": "value == null is sometimes used on purpose. What does it match?",
@@ -287,7 +301,8 @@
         "page": 43,
         "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
       },
-      "level": 2
+      "level": 2,
+      "code": "console.log(null == null);\nconsole.log(undefined == null);\nconsole.log(0 == null);"
     },
     {
       "question": "Which loop is the default for walking an array of appointment objects?",
@@ -306,10 +321,11 @@
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (const row of rows) {\n  console.log(row.id);\n}"
     },
     {
-      "question": "const n = 0; console.log(n ? \"yes\" : \"no\"); prints what?",
+      "question": "What does this print?",
       "type": "multiple",
       "options": [
         "yes, because 0 is a valid number.",
@@ -325,10 +341,11 @@
         "page": 42,
         "excerpt": "This one is called the conditional operator (or sometimes just the ternary operator since it is the only such operator in the language)."
       },
-      "level": 2
+      "level": 2,
+      "code": "const n = 0;\nconsole.log(n ? \"yes\" : \"no\");"
     },
     {
-      "question": "isOpenStatus should accept only \"open\" and \"pending\". Which implementation is safest?",
+      "question": "isOpenStatus should accept only \"open\" and \"pending\". Which is safest?",
       "type": "multiple",
       "options": [
         "return status == true || status == \"open\".",
@@ -344,7 +361,8 @@
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
       },
-      "level": 2
+      "level": 2,
+      "code": "function isOpenStatus(status) {\n  return status === \"open\" || status === \"pending\";\n}"
     },
     {
       "question": "Write isOpenStatus(status): true only for \"open\" or \"pending\" using ===.",

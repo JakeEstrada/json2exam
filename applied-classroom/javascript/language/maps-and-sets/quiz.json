@@ -18,7 +18,8 @@
         "page": 173,
         "excerpt": "Here, the object’s property names are the people’s names and the property values are their ages. But we certainly didn’t list anybody named toString in our map."
       },
-      "level": 1
+      "level": 1,
+      "code": "const ages = { Boris: 39 };\nconsole.log(\"toString\" in ages);\nconsole.log(\"Boris\" in ages);"
     },
     {
       "question": "When should you pick Map instead of a plain object?",
@@ -37,10 +38,11 @@
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
       },
-      "level": 1
+      "level": 1,
+      "code": "const ages = new Map();\nages.set(\"Boris\", 39);\nages.set({ id: 1 }, \"Ada\");"
     },
     {
-      "question": "Compare `m.has(\"toString\")` with `\"toString\" in {}`:\n\n```js\nconst m = new Map();\nm.set(\"toString\", 1);\n```",
+      "question": "Compare `m.has(\"toString\")` with `\"toString\" in {}`:",
       "type": "multiple",
       "options": [
         "false and true — Map still has the prototype trap.",
@@ -56,10 +58,11 @@
         "page": 173,
         "excerpt": "Yet because plain objects derive from Object.prototype, it looks like the property is there."
       },
-      "level": 1
+      "level": 1,
+      "code": "const m = new Map();\nm.set(\"toString\", 1);"
     },
     {
-      "question": "Find the bug when `k` is `\"toString\"`:\n\n```js\nconst out = {};\nif (!out[k]) out[k] = 0;\nout[k] += 1;\n```",
+      "question": "Find the bug when `k` is `\"toString\"`:",
       "type": "multiple",
       "options": [
         "toString cannot be a string key.",
@@ -75,7 +78,8 @@
         "page": 173,
         "excerpt": "For this reason, using plain objects as maps is dangerous."
       },
-      "level": 3
+      "level": 3,
+      "code": "const out = {};\nif (!out[k]) out[k] = 0;\nout[k] += 1;"
     },
     {
       "question": "Set is the right tool when you need:",
@@ -94,10 +98,11 @@
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
       },
-      "level": 2
+      "level": 2,
+      "code": "const seen = new Set();\nseen.add(3);\nseen.add(3);\nconsole.log(seen.size);"
     },
     {
-      "question": "unique([3,1,3,2]) preserving first-seen order is best as:",
+      "question": "unique([3, 1, 3, 2]) preserving first-seen order is best as:",
       "type": "multiple",
       "options": [
         "filter with indexOf, which is easy to get wrong on objects.",
@@ -113,7 +118,8 @@
         "page": 173,
         "excerpt": "It stores a mapping and allows any type of keys."
       },
-      "level": 2
+      "level": 2,
+      "code": "unique([3, 1, 3, 2]);"
     },
     {
       "question": "m[key] = value on a Map instance (not m.set):",
@@ -132,7 +138,8 @@
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
       },
-      "level": 2
+      "level": 2,
+      "code": "const m = new Map();\nm[\"toString\"] = 1;\nconsole.log(m.get(\"toString\"));"
     },
     {
       "question": "array.map and Map — what is the mix-up?",
@@ -151,7 +158,8 @@
         "page": 173,
         "excerpt": "We saw the word map used in the previous chapter for an operation that transforms a data structure by applying a function to its elements."
       },
-      "level": 2
+      "level": 2,
+      "code": "const nums = [1, 2, 3].map(n => n * 2);\nconst ages = new Map();"
     },
     {
       "question": "Object keys vs Map keys:",
@@ -170,7 +178,8 @@
         "page": 173,
         "excerpt": "Object property names must be strings. If you need a map whose keys can’t easily be converted to strings—such as objects—you cannot use an object as your map."
       },
-      "level": 2
+      "level": 2,
+      "code": "const obj = { 1: \"a\" };\nconst m = new Map();\nm.set(1, \"a\");\nm.set({ id: 1 }, \"b\");"
     },
     {
       "question": "groupAppointments should use Map from providerId to arrays. Why not a plain object?",
@@ -189,7 +198,8 @@
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
       },
-      "level": 2
+      "level": 2,
+      "code": "groupAppointments([\n  { providerId: \"toString\", at: \"9am\" },\n]);"
     },
     {
       "question": "std::unordered_map in C++ is closest to:",
@@ -208,7 +218,8 @@
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
       },
-      "level": 2
+      "level": 2,
+      "code": "const ages = new Map();\nages.set(\"Boris\", 39);"
     },
     {
       "question": "Which need maps to which collection?",
@@ -227,7 +238,8 @@
         "page": 173,
         "excerpt": "It is possible to use objects for this."
       },
-      "level": 2
+      "level": 2,
+      "code": "chooseCollection(\"list\");\nchooseCollection(\"record\");\nchooseCollection(\"dict\");\nchooseCollection(\"unique\");"
     },
     {
       "question": "Object.create(null) as a dictionary:",
@@ -246,10 +258,11 @@
         "page": 173,
         "excerpt": "If you pass null to Object.create, the resulting object will not derive from Object.prototype and can be safely used as a map."
       },
-      "level": 2
+      "level": 2,
+      "code": "const dict = Object.create(null);\ndict.Boris = 39;\nconsole.log(\"toString\" in dict);"
     },
     {
-      "question": "seen.add(3); seen.add(3); seen.size is:",
+      "question": "What is seen.size after this?",
       "type": "multiple",
       "options": [
         "2",
@@ -265,7 +278,8 @@
         "page": 173,
         "excerpt": "It stores a mapping and allows any type of keys."
       },
-      "level": 2
+      "level": 2,
+      "code": "const seen = new Set();\nseen.add(3);\nseen.add(3);"
     },
     {
       "question": "Which are good Map operations for grouping?",
@@ -288,7 +302,8 @@
         "page": 173,
         "excerpt": "let ages = new Map();"
       },
-      "level": 2
+      "level": 2,
+      "code": "const groups = new Map();\nconst list = groups.get(id) || [];\nlist.push(appt);\ngroups.set(id, list);"
     },
     {
       "question": "Write unique(ids): unique values in first-seen order.",

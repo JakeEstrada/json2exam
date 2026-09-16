@@ -1,6 +1,7 @@
 // Turns whatever JSON a person hands us into a normalized question bank.
 // Pure functions, no React: easy to unit test on its own.
 
+import { extractFence } from './highlight.js';
 import { normalizeReading } from './reading.js';
 
 export const LETTERS = 'abcdefghij';
@@ -161,6 +162,20 @@ function readLevel(raw, type) {
   return 1;
 }
 
+function takePromptAndCode(raw, text) {
+  const extracted = extractFence(text);
+  const code = String(firstDefined(raw.code, raw.snippet, extracted.code, '')).trim();
+  const prompt = extracted.code ? (extracted.prompt || text) : text;
+  return { text: prompt || text, code };
+}
+
+function withCode(question, raw, originalText) {
+  const taken = takePromptAndCode(raw, originalText);
+  question.text = taken.text;
+  if (taken.code) question.code = taken.code;
+  return question;
+}
+
 function normalizeCodeQuestion(raw, i, text) {
   const language = String(firstDefined(raw.language, raw.lang, 'javascript')).trim() || 'javascript';
   const starter = String(firstDefined(raw.starter, raw.starterCode, raw.template, ''));
@@ -169,7 +184,7 @@ function normalizeCodeQuestion(raw, i, text) {
     ? raw.hints.map((h) => String(h || '').trim()).filter(Boolean)
     : [];
   return {
-    question: {
+    question: withCode({
       id: i + '::' + text.slice(0, 90),
       text,
       type: 'code',
@@ -184,7 +199,7 @@ function normalizeCodeQuestion(raw, i, text) {
       reference: readReference(raw),
       level: readLevel(raw, 'code'),
       index: i,
-    },
+    }, raw, text),
   };
 }
 
@@ -240,7 +255,7 @@ export function normalizeQuestion(raw, i) {
   if (type !== 'multi' && indices.length > 1) type = 'multi';
 
   return {
-    question: {
+    question: withCode({
       id: i + '::' + text.slice(0, 90),
       text,
       type,
@@ -250,7 +265,7 @@ export function normalizeQuestion(raw, i) {
       reference: readReference(raw),
       level: readLevel(raw, type),
       index: i,
-    },
+    }, raw, text),
   };
 }
 

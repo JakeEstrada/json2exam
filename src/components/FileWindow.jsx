@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+import { highlightJs, looksLikeCode } from '../lib/highlight.js';
 import { headingId } from '../lib/parseQuiz.js';
+import CodeBlock from './CodeBlock.jsx';
 import LectureView from './LectureView.jsx';
 
 function escapeHtml(s) {
@@ -56,7 +58,17 @@ function inlineMd(s) {
   const parts = String(s).split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
     if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
-      return <code key={i}>{part.slice(1, -1)}</code>;
+      const inner = part.slice(1, -1);
+      if (looksLikeCode(inner) || /[(){};=<>]|^(const|let|var|function|typeof|return)$/.test(inner)) {
+        return (
+          <code
+            key={i}
+            className="is-js"
+            dangerouslySetInnerHTML={{ __html: highlightJs(inner) }}
+          />
+        );
+      }
+      return <code key={i}>{inner}</code>;
     }
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={i}>{part.slice(2, -2)}</strong>;
@@ -184,6 +196,10 @@ export function MarkdownView({ source, focusHeading, compact }) {
           return <Tag key={i} id={id} className={cls}>{inlineMd(block.text)}</Tag>;
         }
         if (block.type === 'pre') {
+          const lang = String(block.lang || '').toLowerCase();
+          if (!lang || lang === 'js' || lang === 'javascript' || lang === 'ts' || lang === 'typescript') {
+            return <CodeBlock key={i} code={block.text} />;
+          }
           return (
             <pre key={i} className={block.lang ? 'lang-' + block.lang : undefined}>
               <code>{block.text}</code>

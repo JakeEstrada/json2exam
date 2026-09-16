@@ -2,7 +2,7 @@
   "title": "JavaScript — Objects, references, mutation, and copying",
   "questions": [
     {
-      "question": "Is `object1 == object3` true?\n\n```js\nlet object1 = { value: 10 };\nlet object2 = object1;\nlet object3 = { value: 10 };\n```",
+      "question": "Is `object1 == object3` true?",
       "type": "multiple",
       "options": [
         "false, because they are different objects.",
@@ -18,7 +18,8 @@
         "page": 110,
         "excerpt": "When we have two numbers, 120 and 120, we can consider them precisely the same number, whether or not they refer to the same physical bits."
       },
-      "level": 1
+      "level": 1,
+      "code": "let object1 = { value: 10 };\nlet object2 = object1;\nlet object3 = { value: 10 };"
     },
     {
       "question": "object1.value = 15 after object2 = object1. object2.value is:",
@@ -37,10 +38,11 @@
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
       },
-      "level": 1
+      "level": 1,
+      "code": "let object1 = { value: 10 };\nlet object2 = object1;\nobject1.value = 15;"
     },
     {
-      "question": "const task = { status: \"open\" }; task.status = \"done\". Does that throw?",
+      "question": "Does this throw?",
       "type": "multiple",
       "options": [
         "Yes; const freezes the object.",
@@ -56,10 +58,11 @@
         "page": 62,
         "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
       },
-      "level": 1
+      "level": 1,
+      "code": "const task = { status: \"open\" };\ntask.status = \"done\";"
     },
     {
-      "question": "const copy = { ...task }; copy.tags.push(\"late\") when tags is nested. What happens to task.tags?",
+      "question": "copy.tags.push(\"late\") when tags is nested. What happens to task.tags?",
       "type": "multiple",
       "options": [
         "Unchanged; spread deep-clones arrays.",
@@ -75,7 +78,8 @@
         "page": 110,
         "excerpt": "Objects work differently. You can change their properties, causing a single object value to have different content at different times."
       },
-      "level": 1
+      "level": 1,
+      "code": "const task = { status: \"open\", tags: [\"home\"] };\nconst copy = { ...task };\ncopy.tags.push(\"late\");"
     },
     {
       "question": "updateTask should leave unmatched tasks as the same references. Why?",
@@ -94,10 +98,11 @@
         "page": 110,
         "excerpt": "They are said to have the same identity."
       },
-      "level": 2
+      "level": 2,
+      "code": "const next = tasks.map((task) =>\n  task.id === id ? { ...task, ...patch } : task\n);"
     },
     {
-      "question": "Find the bug:\n\n```js\nfunction setStatus(tasks, id, status) {\n  const t = tasks.find(x => x.id === id);\n  t.status = status;\n  return tasks;\n}\n```",
+      "question": "Find the bug:",
       "type": "multiple",
       "options": [
         "find cannot locate numbers.",
@@ -113,10 +118,11 @@
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object"
       },
-      "level": 3
+      "level": 3,
+      "code": "function setStatus(tasks, id, status) {\n  const t = tasks.find(x => x.id === id);\n  t.status = status;\n  return tasks;\n}"
     },
     {
-      "question": "row.customer?.name when customer is null:",
+      "question": "What is row.customer?.name when customer is null?",
       "type": "multiple",
       "options": [
         "throws TypeError.",
@@ -132,7 +138,8 @@
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
       },
-      "level": 2
+      "level": 2,
+      "code": "const row = { customer: null };\nconsole.log(row.customer?.name);"
     },
     {
       "question": "Two appointments share one customer object. Renaming through appointment B:",
@@ -151,10 +158,11 @@
         "page": 110,
         "excerpt": "The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life."
       },
-      "level": 2
+      "level": 2,
+      "code": "const customer = { name: \"Ada\" };\nconst a = { customer };\nconst b = { customer };\nb.customer.name = \"Grace\";"
     },
     {
-      "question": "C++ struct passed by value copies fields. JS function (task) { task.status = \"done\" }:",
+      "question": "C++ struct passed by value copies fields. This JS function:",
       "type": "multiple",
       "options": [
         "receives a reference; the caller’s object mutates.",
@@ -170,10 +178,11 @@
         "page": 62,
         "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
       },
-      "level": 2
+      "level": 2,
+      "code": "function close(task) {\n  task.status = \"done\";\n}\nconst task = { status: \"open\" };\nclose(task);"
     },
     {
-      "question": "Is `t === u`?\n\n```js\nconst t = { id: 1, status: \"open\" };\nconst u = { ...t, status: \"done\" };\n```",
+      "question": "Is `t === u`?",
       "type": "multiple",
       "options": [
         "true, because id is the same.",
@@ -189,7 +198,8 @@
         "page": 110,
         "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
       },
-      "level": 2
+      "level": 2,
+      "code": "const t = { id: 1, status: \"open\" };\nconst u = { ...t, status: \"done\" };"
     },
     {
       "question": "Numbers and strings are immutable. Objects are not. Which assignment mutates?",
@@ -208,7 +218,8 @@
         "page": 110,
         "excerpt": "The types of values discussed in earlier chapters, such as numbers, strings, and Booleans, are all immutable"
       },
-      "level": 2
+      "level": 2,
+      "code": "let s = \"paid\";\ns[0] = \"X\";\nconst task = { status: \"open\" };\ntask.status = \"done\";"
     },
     {
       "question": "Which copy is shallow?",
@@ -230,7 +241,8 @@
         "page": 110,
         "excerpt": "You can change their properties, causing a single object value to have different content at different times."
       },
-      "level": 2
+      "level": 2,
+      "code": "const copy = { ...task };\nObject.assign({}, task);\nconst alias = task;"
     },
     {
       "question": "for...in on a task object without Object.hasOwn can pick up:",
@@ -249,7 +261,8 @@
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
       },
-      "level": 3
+      "level": 3,
+      "code": "for (const key in task) {\n  console.log(key, task[key]);\n}"
     },
     {
       "question": "renameCustomer should not mutate the input appointment. Which return value is right?",
@@ -268,7 +281,8 @@
         "page": 110,
         "excerpt": "The binding object3 points to a different object"
       },
-      "level": 2
+      "level": 2,
+      "code": "renameCustomer(appt, \"Grace\");"
     },
     {
       "question": "task.assignee when the field was never set is:",
@@ -287,7 +301,8 @@
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
       },
-      "level": 2
+      "level": 2,
+      "code": "const task = { id: 1, status: \"open\" };\nconsole.log(task.assignee);"
     },
     {
       "question": "Write withStatus(task, status): new object, other fields copied shallowly.",

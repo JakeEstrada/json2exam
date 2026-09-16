@@ -18,7 +18,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
-      }
+      },
+      "code": "function add(a, b) {\n  return a + b;\n}"
     },
     {
       "question": "What is a function in JavaScript?",
@@ -37,7 +38,8 @@
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
       },
-      "level": 1
+      "level": 1,
+      "code": "const add = function (a, b) {\n  return a + b;\n};\nconsole.log(typeof add);"
     },
     {
       "question": "A function body has no return. What does a call yield?",
@@ -56,10 +58,11 @@
         "page": 75,
         "excerpt": "Functions have a set of parameters (in this case, only x) and a body, which contains the statements that are to be executed when the function is called."
       },
-      "level": 1
+      "level": 1,
+      "code": "function greet(name) {\n  console.log(\"hi \" + name);\n}\nconsole.log(greet(\"Ada\"));"
     },
     {
-      "question": "What is `f()`, `f()`, `make()()` after this runs?\n\n```js\nfunction make() {\n  let n = 0;\n  return () => { n += 1; return n; };\n}\nconst f = make();\n```",
+      "question": "What is `f()`, `f()`, `make()()` after this runs?",
       "type": "multiple",
       "options": [
         "1 2 3 because all counters share one global n.",
@@ -75,10 +78,11 @@
         "page": 86,
         "excerpt": "The ability to treat functions as values, combined with the fact that local bindings are re-created every time a function is called, brings up an interesting question."
       },
-      "level": 1
+      "level": 1,
+      "code": "function make() {\n  let n = 0;\n  return () => { n += 1; return n; };\n}\nconst f = make();"
     },
     {
-      "question": "Find the bug. What does `fns[0]()` return?\n\n```js\nconst fns = [];\nfor (var i = 0; i < 3; i++) {\n  fns.push(function () { return i; });\n}\n```",
+      "question": "Find the bug. What does `fns[0]()` return?",
       "type": "multiple",
       "options": [
         "The functions cannot be stored in an array.",
@@ -94,7 +98,8 @@
         "page": 19,
         "excerpt": "Working with variables is one of the most foundational things we do in programming!"
       },
-      "level": 3
+      "level": 3,
+      "code": "const fns = [];\nfor (var i = 0; i < 3; i++) {\n  fns.push(function () { return i; });\n}"
     },
     {
       "question": "Lexical scope means which of these?",
@@ -113,10 +118,11 @@
         "page": 19,
         "excerpt": "how does JS know which variables are accessible by any given statement, and how does it handle two variables of the same name?"
       },
-      "level": 2
+      "level": 2,
+      "code": "function outer() {\n  const n = 1;\n  function inner() {\n    return n;\n  }\n  return inner();\n}"
     },
     {
-      "question": "Why can you return an inner function that uses a local let without a dangling pointer?",
+      "question": "Why can you return an inner function that uses a local let?",
       "type": "multiple",
       "options": [
         "Locals live on a C++-style stack and JS copies them into registers.",
@@ -132,7 +138,8 @@
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
       },
-      "level": 2
+      "level": 2,
+      "code": "function make() {\n  let n = 0;\n  return function () {\n    n += 1;\n    return n;\n  };\n}"
     },
     {
       "question": "makeStatusMachine should hide status. Which design does that?",
@@ -151,7 +158,8 @@
         "page": 86,
         "excerpt": "This is allowed and works as you’d hope"
       },
-      "level": 2
+      "level": 2,
+      "code": "function makeStatusMachine(initial) {\n  let status = initial;\n  return {\n    get() { return status; },\n    set(next) { status = next; },\n  };\n}"
     },
     {
       "question": "Which are true of parameters?",
@@ -173,7 +181,8 @@
         "page": 75,
         "excerpt": "A function is created with an expression that starts with the keyword function."
       },
-      "level": 2
+      "level": 2,
+      "code": "function label(status) {\n  status = status || \"open\";\n  return status;\n}"
     },
     {
       "question": "function declarations vs const fn = function () {} hoist how?",
@@ -192,10 +201,11 @@
         "page": 74,
         "excerpt": "Functions are one of the most central tools in JavaScript programming."
       },
-      "level": 2
+      "level": 2,
+      "code": "console.log(declared());\nfunction declared() { return 1; }\nconsole.log(expr());\nconst expr = function () { return 2; };"
     },
     {
-      "question": "A closure keeps a live link. If the inner function reads a let that is later assigned, what happens?",
+      "question": "A closure keeps a live link. If the inner function reads a let that is later assigned:",
       "type": "multiple",
       "options": [
         "It sees the new value on later calls.",
@@ -211,7 +221,8 @@
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
       },
-      "level": 2
+      "level": 2,
+      "code": "function make() {\n  let n = 1;\n  const read = () => n;\n  n = 2;\n  return read;\n}"
     },
     {
       "question": "applyDiscount(0.1)(100) should be 90. Which shape is that?",
@@ -230,10 +241,11 @@
         "page": 86,
         "excerpt": "With a slight change, we can turn the previous example into a way to create functions that multiply by an arbitrary amount."
       },
-      "level": 2
+      "level": 2,
+      "code": "function applyDiscount(rate) {\n  return function (amount) {\n    return amount * (1 - rate);\n  };\n}"
     },
     {
-      "question": "var vs let inside an if block inside a function: which leaks to the whole function?",
+      "question": "var vs let inside an if block inside a function: which leaks?",
       "type": "multiple",
       "options": [
         "let, because it is older than var.",
@@ -249,7 +261,8 @@
         "page": 19,
         "excerpt": "The answers to questions like these take the form of welldefined rules called scope."
       },
-      "level": 2
+      "level": 2,
+      "code": "function demo(ok) {\n  if (ok) {\n    var leaked = 1;\n    let blocked = 2;\n  }\n  return leaked;\n}"
     },
     {
       "question": "makeIdFactory(\"inv\")() then again should yield inv-1 then inv-2. Where does the counter live?",
@@ -268,7 +281,8 @@
         "page": 86,
         "excerpt": "The explicit local binding from the wrapValue example isn’t really needed since a parameter is itself a local binding."
       },
-      "level": 2
+      "level": 2,
+      "code": "const next = makeIdFactory(\"inv\");\nnext();\nnext();"
     },
     {
       "question": "Which call is a closure in the observable sense?",
@@ -287,7 +301,8 @@
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
       },
-      "level": 2
+      "level": 2,
+      "code": "function make() {\n  let n = 0;\n  return function () {\n    n += 1;\n    return n;\n  };\n}\nconst f = make();\nf();"
     },
     {
       "question": "set on a status machine should ignore undefined. Why?",
@@ -306,7 +321,8 @@
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
       },
-      "level": 2
+      "level": 2,
+      "code": "machine.set(undefined);\nmachine.set(\"paid\");"
     },
     {
       "question": "Write applyDiscount(rate) returning a function that multiplies amount by (1 - rate).",

@@ -2,7 +2,7 @@
   "title": "JavaScript — Variables, primitives, and conversion",
   "questions": [
     {
-      "question": "JavaScript in the browser (and Node) is which kind of language?",
+      "question": "What kind of language is this?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -18,10 +18,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "Values"
-      }
+      },
+      "code": "// main.js — the engine reads this file and runs it\nconsole.log(\"hello\");"
     },
     {
-      "question": "How do you pull in another file of JavaScript? There is no C preprocessor.",
+      "question": "How do you pull in another JavaScript file?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -37,10 +38,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "Values"
-      }
+      },
+      "code": "import { total } from \"./payments.js\";"
     },
     {
-      "question": "Which snippet is legal JavaScript?",
+      "question": "Which of these is legal JavaScript?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -56,10 +58,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "Values"
-      }
+      },
+      "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
     {
-      "question": "How do you declare a name you will reassign, and a name you will not?",
+      "question": "Which pair matches how you declare names?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -75,10 +78,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 50,
         "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
-      }
+      },
+      "code": "const name = \"Ada\";\nlet count = 0;\ncount = count + 1;"
     },
     {
-      "question": "A binding created with const cannot be retargeted. What else is true of that binding?",
+      "question": "A const binding cannot be retargeted. What else is true?",
       "type": "multiple",
       "options": [
         "It is block-scoped, and a grasped object may still mutate.",
@@ -94,10 +98,11 @@
         "page": 50,
         "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
       },
-      "level": 1
+      "level": 1,
+      "code": "const customer = { id: 7 };\ncustomer.id = 8;"
     },
     {
-      "question": "What does console.log(Boolean(0), Boolean(\"0\")) print?",
+      "question": "What does this print?",
       "type": "multiple",
       "options": [
         "true true, because both look like zero-ish values that convert to true.",
@@ -113,10 +118,11 @@
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
       },
-      "level": 1
+      "level": 1,
+      "code": "console.log(Boolean(0), Boolean(\"0\"));"
     },
     {
-      "question": "What is the result of \"5\" + 1 compared with \"5\" - 1?",
+      "question": "What is the result of each expression?",
       "type": "multiple",
       "options": [
         "Both are 6, because both operators convert to number first.",
@@ -132,7 +138,8 @@
         "page": 43,
         "excerpt": "This is called type coercion."
       },
-      "level": 1
+      "level": 1,
+      "code": "console.log(\"5\" + 1);\nconsole.log(\"5\" - 1);"
     },
     {
       "question": "typeof null is \"object\". How should you test for null?",
@@ -151,10 +158,11 @@
         "page": 43,
         "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
       },
-      "level": 3
+      "level": 3,
+      "code": "console.log(typeof null);\nconst value = null;"
     },
     {
-      "question": "Number(\"\") and Number(null) and Number(undefined) are:",
+      "question": "What do these three conversions yield?",
       "type": "multiple",
       "options": [
         "0, 0, and NaN — empty string and null become 0; undefined does not.",
@@ -170,10 +178,11 @@
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
       },
-      "level": 2
+      "level": 2,
+      "code": "Number(\"\");\nNumber(null);\nNumber(undefined);"
     },
     {
-      "question": "What is `p.amount` after this runs?\n\n```js\nlet p = { amount: 10 };\nconst q = p;\nq.amount = 3;\n```",
+      "question": "What is `p.amount` after this runs?",
       "type": "multiple",
       "options": [
         "10, because const q copied the object into a new binding.",
@@ -189,10 +198,11 @@
         "page": 51,
         "excerpt": "You should imagine bindings as tentacles rather than boxes."
       },
-      "level": 2
+      "level": 2,
+      "code": "let p = { amount: 10 };\nconst q = p;\nq.amount = 3;"
     },
     {
-      "question": "Which values are primitives in everyday JavaScript?",
+      "question": "Which of these values are primitives?",
       "type": "multi",
       "options": [
         "string",
@@ -211,7 +221,8 @@
         "page": 31,
         "excerpt": "All this data is stored as long sequences of bits and is thus fundamentally alike."
       },
-      "level": 2
+      "level": 2,
+      "code": "const name = \"Ada\";\nconst ok = true;\nconst nums = [1, 2];\nconst row = { id: 1 };"
     },
     {
       "question": "Why is var a bad default compared with let?",
@@ -230,10 +241,11 @@
         "page": 74,
         "excerpt": "Although var and let have the same syntax, there are important differences in the way they work."
       },
-      "level": 2
+      "level": 2,
+      "code": "function demo() {\n  for (var i = 0; i < 3; i++) {}\n  console.log(i);\n}"
     },
     {
-      "question": "A C++ const int x cannot have its bits changed. What is the closest JS mistake?",
+      "question": "C++ const int x cannot change bits. What is the closest JS mistake?",
       "type": "multiple",
       "options": [
         "Avoiding Number() because C++ const forbids conversion.",
@@ -249,10 +261,11 @@
         "page": 50,
         "excerpt": "That gives us a second kind of statement. The special word (keyword) let indicates that this sentence is going to define a binding."
       },
-      "level": 2
+      "level": 2,
+      "code": "const customer = { id: 1 };\ncustomer.id = 2;"
     },
     {
-      "question": "What does Number.isNaN(Number(\"due\")) tell you when cleaning payment rows?",
+      "question": "What does this tell you when cleaning a payment row?",
       "type": "multiple",
       "options": [
         "The amount cannot be used as a finite number and should be skipped.",
@@ -268,7 +281,8 @@
         "page": 43,
         "excerpt": "When something that doesn’t map to a number in an obvious way (such as \"five\" or undefined) is converted to a number, you get the value NaN."
       },
-      "level": 2
+      "level": 2,
+      "code": "Number.isNaN(Number(\"due\"));"
     },
     {
       "question": "Which check treats a missing amount and a zero amount as the same?",
@@ -287,10 +301,11 @@
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
       },
-      "level": 2
+      "level": 2,
+      "code": "const amount = 0;\nif (amount) {\n  console.log(\"charged\");\n}"
     },
     {
-      "question": "Find the bug. What goes wrong for `[{amount:\"10\"},{amount:\"4\"}]`?\n\n```js\nfunction total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}\n```",
+      "question": "Find the bug. What goes wrong for `[{amount:\"10\"},{amount:\"4\"}]`?",
       "type": "multiple",
       "options": [
         "The loop cannot iterate objects; it only works on numbers.",
@@ -306,10 +321,11 @@
         "page": 43,
         "excerpt": "Yet in the third expression, + tries string concatenation before numeric addition, so the 1 is converted to \"1\"."
       },
-      "level": 3
+      "level": 3,
+      "code": "function total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}"
     },
     {
-      "question": "Which conversion is the right first step for a payment amount that may be a string?",
+      "question": "Which conversion is the first step for a payment amount that may be a string?",
       "type": "multiple",
       "options": [
         "Boolean(raw), because money is true or false.",
@@ -325,10 +341,11 @@
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
       },
-      "level": 2
+      "level": 2,
+      "code": "const raw = \"12.50\";\nconst amount = Number(raw);"
     },
     {
-      "question": "false == 0 is true. false === 0 is false. What rule should you take from that?",
+      "question": "What rule should you take from this?",
       "type": "multiple",
       "options": [
         "Use === unless you have a specific reason to coerce.",
@@ -344,10 +361,11 @@
         "page": 44,
         "excerpt": "console.log(false == 0)"
       },
-      "level": 2
+      "level": 2,
+      "code": "console.log(false == 0);\nconsole.log(false === 0);"
     },
     {
-      "question": "Which statement about JavaScript numbers is accurate for someone used to C++ int and double?",
+      "question": "Which statement about JavaScript numbers is accurate?",
       "type": "multiple",
       "options": [
         "Integer literals are 32-bit ints until they overflow into double.",
@@ -363,10 +381,11 @@
         "page": 41,
         "excerpt": "Computer programs work by manipulating values, such as the number 3.14 or the text “Hello World.”"
       },
-      "level": 2
+      "level": 2,
+      "code": "const n = 1;\nconsole.log(n / 2);\nconsole.log(typeof n);"
     },
     {
-      "question": "Strings in JavaScript cannot have a character overwritten in place. What follows?",
+      "question": "Strings cannot be overwritten in place. What follows?",
       "type": "multiple",
       "options": [
         "You must use a StringBuilder class from the standard library.",
@@ -382,10 +401,11 @@
         "page": 31,
         "excerpt": "In the computer’s world, there is only data."
       },
-      "level": 2
+      "level": 2,
+      "code": "let status = \"paid\";\nstatus[0] = \"X\";\nconsole.log(status);"
     },
     {
-      "question": "You need a flag from mixed API values: true, \"true\", \"1\", \"yes\", 1. Which design matches asBooleanFlag in the notes?",
+      "question": "You need a flag from mixed API values. Which design matches asBooleanFlag?",
       "type": "multiple",
       "options": [
         "Treat any truthy value as true, so \"no\" is also true.",
@@ -401,7 +421,8 @@
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
       },
-      "level": 2
+      "level": 2,
+      "code": "asBooleanFlag(true);\nasBooleanFlag(\"true\");\nasBooleanFlag(\"1\");\nasBooleanFlag(\"yes\");"
     },
     {
       "question": "describeCustomer({ name: \"Ada\" }) should not print \"Ada (#undefined)\". What should missing id become?",
@@ -420,7 +441,8 @@
         "page": 50,
         "excerpt": "After a binding has been defined, its name can be used as an expression."
       },
-      "level": 2
+      "level": 2,
+      "code": "describeCustomer({ name: \"Ada\" });"
     },
     {
       "question": "Write asBooleanFlag(value): true only for boolean true or the strings \"true\" / \"1\" (trim, case-insensitive).",

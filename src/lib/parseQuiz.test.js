@@ -41,6 +41,27 @@ test('skips broken questions instead of dropping the whole file', () => {
   assert.equal(bank.skipped.length, 2);
 });
 
+test('lifts a fenced listing onto question.code and leaves a short prompt', () => {
+  const q = one({
+    question: 'What prints?\n\n```js\nlet n = 1;\nconsole.log(n);\n```',
+    options: ['1', '2'],
+    answer: 'a',
+  });
+  assert.equal(q.code, 'let n = 1;\nconsole.log(n);');
+  assert.equal(q.text, 'What prints?');
+});
+
+test('keeps an explicit code field on a sentence prompt', () => {
+  const q = one({
+    question: 'What kind of language is this?',
+    code: 'console.log("hello");',
+    options: ['scripting', 'compiled'],
+    answer: 'a',
+  });
+  assert.equal(q.code, 'console.log("hello");');
+  assert.equal(q.text, 'What kind of language is this?');
+});
+
 test('reads a code practice card without treating it as multiple choice', () => {
   const bank = normalizeQuiz({
     title: 'mix',
@@ -132,6 +153,7 @@ test('loads the six ready JavaScript language banks', async () => {
     for (const q of choice) {
       if (q.type === 'boolean') continue;
       assert.ok(q.options.length <= 4, mod);
+      assert.ok(q.code && q.code.length > 0, mod + ' missing code: ' + q.text.slice(0, 48));
     }
     for (const q of bank.questions) {
       if (q.reference && q.reference.section) {

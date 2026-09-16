@@ -44,10 +44,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
-      }
+      },
+      "code": "for (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
     {
-      "question": "How do you walk each **value** in an array?",
+      "question": "How do you walk each value in an array?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -63,10 +64,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
-      }
+      },
+      "code": "const items = [\"a\", \"b\", \"c\"];\nfor (const item of items) {\n  console.log(item);\n}"
     },
     {
-      "question": "`while (i < n) { ... }` tests the condition when?",
+      "question": "When does this test the condition?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -82,10 +84,11 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 59,
         "excerpt": "while and do loops"
-      }
+      },
+      "code": "while (i < n) {\n  i += 1;\n}"
     },
     {
-      "question": "Which loop runs the body **before** it tests the condition?",
+      "question": "Which loop runs the body before it tests the condition?",
       "type": "multiple",
       "options": [
         "`while (test) { ... }`",
@@ -101,10 +104,11 @@
         "page": 59,
         "excerpt": "while and do loops"
       },
-      "level": 1
+      "level": 1,
+      "code": "do {\n  n += 1;\n} while (n < 3);"
     },
     {
-      "question": "What does this print?\n\n```js\nlet n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);\n```",
+      "question": "What does this print?",
       "type": "multiple",
       "options": [
         "`0` because the test fails immediately",
@@ -120,10 +124,11 @@
         "page": 59,
         "excerpt": "Consider a program that outputs all even numbers from 0 to 12."
       },
-      "level": 1
+      "level": 1,
+      "code": "let n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);"
     },
     {
-      "question": "The three parts of `for (init; test; update)` are:",
+      "question": "The three parts of this header are:",
       "type": "multiple",
       "options": [
         "A C++-only syntax; JavaScript has only `while`.",
@@ -139,7 +144,8 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 1
+      "level": 1,
+      "code": "for (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
     {
       "question": "What is the default loop for walking an array of appointment objects?",
@@ -158,10 +164,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 1
+      "level": 1,
+      "code": "for (const row of rows) {\n  console.log(row.status);\n}"
     },
     {
-      "question": "Find the bug:\n\n```js\nfunction firstPaid(rows) {\n  for (const i in rows) {\n    if (rows[i].status === \"paid\") return rows[i];\n  }\n}\n```",
+      "question": "Find the bug:",
       "type": "multiple",
       "options": [
         "`for...in` is the documented way to walk arrays in Eloquent JavaScript.",
@@ -177,10 +184,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 3
+      "level": 3,
+      "code": "function firstPaid(rows) {\n  for (const i in rows) {\n    if (rows[i].status === \"paid\") return rows[i];\n  }\n}"
     },
     {
-      "question": "What does `break` do?",
+      "question": "What does break do?",
       "type": "multiple",
       "options": [
         "Skips the rest of this iteration and tests again.",
@@ -196,10 +204,11 @@
         "page": 65,
         "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (const row of rows) {\n  if (row.id === id) break;\n}"
     },
     {
-      "question": "What does this print?\n\n```js\nfor (let current = 20; ; current = current + 1) {\n  if (current % 7 == 0) {\n    console.log(current);\n    break;\n  }\n}\n```",
+      "question": "What does this print?",
       "type": "multiple",
       "options": [
         "`20`",
@@ -215,10 +224,11 @@
         "page": 65,
         "excerpt": "Having the looping condition produce false is not the only way a loop can finish."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (let current = 20; ; current = current + 1) {\n  if (current % 7 == 0) {\n    console.log(current);\n    break;\n  }\n}"
     },
     {
-      "question": "`rows.forEach((row) => { if (row.id === id) break; })` — what happens?",
+      "question": "What happens here?",
       "type": "multiple",
       "options": [
         "It stops at the matching row, same as `for...of`.",
@@ -234,10 +244,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "rows.forEach((row) => {\n  if (row.id === id) break;\n});"
     },
     {
-      "question": "In C++, `v.at(i)` throws if `i` is out of range. In JavaScript, `rows[rows.length]` is:",
+      "question": "In C++, v.at(i) throws if i is out of range. In JavaScript this is:",
       "type": "multiple",
       "options": [
         "A `RangeError`",
@@ -253,10 +264,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "const rows = [\"a\", \"b\"];\nconsole.log(rows[rows.length]);"
     },
     {
-      "question": "Which are true of `for (let i = 0; i < rows.length; i++)`?",
+      "question": "Which are true of this loop?",
       "type": "multi",
       "options": [
         "`i` is block-scoped to the loop.",
@@ -275,10 +287,11 @@
         "page": 63,
         "excerpt": "First a “counter” binding is created to track the progress of the loop."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (let i = 0; i < rows.length; i++) {\n  console.log(rows[i]);\n}"
     },
     {
-      "question": "What does this yield?\n\n```js\nconst out = [];\nfor (let i = 0; i < 3; i++) out.push(i);\nout;\n```",
+      "question": "What does this yield?",
       "type": "multiple",
       "options": [
         "`[0, 1, 2]`",
@@ -294,10 +307,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "const out = [];\nfor (let i = 0; i < 3; i++) out.push(i);\nout;"
     },
     {
-      "question": "`continue` in a `for` loop:",
+      "question": "continue in a for loop:",
       "type": "multiple",
       "options": [
         "Exits the function.",
@@ -313,10 +327,11 @@
         "page": 65,
         "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (let i = 0; i < 5; i++) {\n  if (i % 2 === 1) continue;\n  console.log(i);\n}"
     },
     {
-      "question": "Why is `while (true) { ... }` dangerous without `break`?",
+      "question": "Why is this dangerous without break?",
       "type": "multiple",
       "options": [
         "JavaScript forbids `true` in a test.",
@@ -332,10 +347,11 @@
         "page": 65,
         "excerpt": "This means that the loop will never stop unless the break statement inside is executed."
       },
-      "level": 2
+      "level": 2,
+      "code": "while (true) {\n  // wait for a matching row\n}"
     },
     {
-      "question": "`for (const row of rows)` when `rows` is empty:",
+      "question": "What happens when rows is empty?",
       "type": "multiple",
       "options": [
         "Throws",
@@ -351,7 +367,8 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "const rows = [];\nfor (const row of rows) {\n  console.log(row);\n}"
     },
     {
       "question": "Which loop test is the usual off-by-one trap on an array?",
@@ -370,10 +387,11 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (let i = 0; i <= rows.length; i++) {\n  console.log(rows[i]);\n}"
     },
     {
-      "question": "A C++ range-for copies or refs each element. `for (const row of rows)` in JS:",
+      "question": "A C++ range-for copies or refs each element. This JS loop:",
       "type": "multiple",
       "options": [
         "Always copies the object, so mutating `row` cannot change `rows`.",
@@ -389,7 +407,8 @@
         "page": 63,
         "excerpt": "Many loops follow the pattern shown in the while examples."
       },
-      "level": 2
+      "level": 2,
+      "code": "for (const row of rows) {\n  row.status = \"seen\";\n}"
     },
     {
       "question": "Write `sumTo(n)`: add 1 through `n` with a `for` loop. If `n < 1`, return `0`.",

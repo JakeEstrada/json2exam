@@ -6,6 +6,8 @@ import { formatTest, previewValue, runJavascript } from '../lib/runCode.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
 import { cardSpeechParts, prefetchSpeechParts, speakText, speechSupported, stopSpeech } from '../lib/speech.js';
 import { MarkdownView, MdInline } from './FileWindow.jsx';
+import CodeBlock from './CodeBlock.jsx';
+import { looksLikeCode } from '../lib/highlight.js';
 
 function SpeechTools({ parts, on, wait, onToggle, onStep }) {
   const canSpeak = speechSupported();
@@ -133,15 +135,14 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   }, []);
 
   const reading = on ? parts[at] : null;
+  const showHero = !!(q.code && q.code !== q.starter);
 
   if (q.type === 'code') {
     return (
       <div className="sheet qcard">
         <p className="kind">{KIND_LABEL[q.type] || 'code practice'}</p>
         <div className="q-head">
-        <div className={'q-text is-md' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>
-          <MarkdownView source={q.text} compact />
-        </div>
+        <QuestionPrompt q={q} showHero={showHero} reading={reading && reading.kind === 'title'} />
           <SpeechTools
             parts={parts}
             on={on}
@@ -169,9 +170,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
     <div className="sheet qcard">
       <p className="kind">{KIND_LABEL[q.type]}</p>
       <div className="q-head">
-        <div className={'q-text is-md' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>
-          <MarkdownView source={q.text} compact />
-        </div>
+        <QuestionPrompt q={q} showHero={showHero} reading={reading && reading.kind === 'title'} />
         <SpeechTools
           parts={parts}
           on={on}
@@ -195,16 +194,22 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
             cls += ' picked';
           }
           if (reading && reading.option === realIdx) cls += ' is-reading';
+          const option = q.options[realIdx];
+          const codeOpt = looksLikeCode(option);
           return (
             <button
               key={realIdx}
-              className={cls}
+              className={cls + (codeOpt ? ' is-code' : '')}
               disabled={reviewing}
               aria-pressed={isPicked}
               onClick={() => onToggle(realIdx)}
             >
               <span className="key" aria-hidden="true">{LETTERS[shown]}</span>
-              <span className="txt"><MdInline source={q.options[realIdx]} /></span>
+              <span className="txt">
+                {codeOpt
+                  ? <CodeBlock code={String(option).replace(/^`|`$/g, '')} compact />
+                  : <MdInline source={option} />}
+              </span>
               {mark && <span className="mark">{mark}</span>}
             </button>
           );
@@ -295,7 +300,7 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
       {q.starter ? (
         <div className="code-block">
           <p className="code-label">Starter</p>
-          <pre><code>{q.starter}</code></pre>
+          <CodeBlock code={q.starter} />
         </div>
       ) : null}
 
@@ -354,7 +359,7 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
       {showSolution && q.solution && (
         <div className="code-block">
           <p className="code-label">Worked solution</p>
-          <pre><code>{q.solution}</code></pre>
+          <CodeBlock code={q.solution} />
         </div>
       )}
 
@@ -379,6 +384,22 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function QuestionPrompt({ q, showHero, reading }) {
+  return (
+    <div className={'q-prompt' + (reading ? ' is-reading' : '')}>
+      {showHero && (
+        <>
+          <p className="code-kicker">Read this JavaScript</p>
+          <CodeBlock code={q.code} />
+        </>
+      )}
+      <div className="q-text is-md">
+        <MarkdownView source={q.text} compact />
+      </div>
     </div>
   );
 }

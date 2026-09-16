@@ -2,6 +2,10 @@ import { useState } from 'react';
 import FileWindow from './FileWindow.jsx';
 import { courseDecks } from '../data/catalog.js';
 
+function isReady(deck) {
+  return !!(deck && deck.data && Array.isArray(deck.data.questions) && deck.data.questions.length);
+}
+
 function moduleBlurb(mod) {
   const decks = (mod && mod.decks) || [];
   const questions = decks.reduce(
@@ -9,135 +13,177 @@ function moduleBlurb(mod) {
     0
   );
   const n = decks.length;
-  const ready = decks.filter((d) => d.data && Array.isArray(d.data.questions) && d.data.questions.length).length;
+  const ready = decks.filter(isReady).length;
   const chapters = n + ' topic' + (n === 1 ? '' : 's');
-  if (!ready) return chapters + ' · folders ready';
+  if (!ready) return chapters + ' · coming next';
   const qLabel = questions + ' question' + (questions === 1 ? '' : 's');
-  return chapters + ' · ' + qLabel;
+  return ready + ' of ' + n + ' · ' + qLabel;
 }
 
-function DeckCard({ deck, onStart, onPreview }) {
+function uniqueBooks(course) {
+  const seen = new Map();
+  function add(book) {
+    if (!book || !book.url) return;
+    const key = book.url || book.file || book.title;
+    if (!seen.has(key)) seen.set(key, book);
+  }
+  (course.books || []).forEach(add);
+  courseDecks(course).forEach((deck) => {
+    if (deck.bookFile && deck.bookUrl && deck.bookUrl !== deck.slidesUrl) {
+      add({ title: deck.bookFile.replace(/\.pdf$/i, ''), file: deck.bookFile, url: deck.bookUrl });
+    }
+    (deck.books || []).forEach(add);
+  });
+  return [...seen.values()];
+}
+
+function startExtra(deck) {
+  return {
+    notes: deck.notes,
+    notesFile: deck.notesFile,
+    bookFile: deck.bookFile,
+    bookUrl: deck.bookUrl,
+    books: deck.books,
+    slidesFile: deck.slidesFile,
+    slidesUrl: deck.slidesUrl,
+    lecture: deck.lecture,
+    lectureFile: deck.lectureFile,
+    lectureAudio: deck.lectureAudio,
+    lectureAudioFile: deck.lectureAudioFile,
+    lectureVideo: deck.lectureVideo,
+    lectureVideoFile: deck.lectureVideoFile,
+    cheatsheet: deck.cheatsheet,
+    sheet: deck.sheet,
+    jsIntro: deck.jsIntro,
+  };
+}
+
+function DeckCard({ deck, onStart, onPreview, step, ramp }) {
   const count = deck.data && Array.isArray(deck.data.questions)
     ? deck.data.questions.length
     : 0;
   const coming = !!(deck.comingSoon || !count);
+  const files = [];
+  if (!ramp) {
+    if (deck.notesFile && deck.notes) {
+      files.push({
+        key: 'notes',
+        label: deck.notesFile,
+        onClick: () => onPreview({ kind: 'md', filename: deck.notesFile, source: deck.notes }),
+      });
+    }
+    if (deck.slidesFile && deck.slidesUrl) {
+      files.push({
+        key: 'slides',
+        label: deck.slidesFile,
+        onClick: () => onPreview({ kind: 'pdf', filename: deck.slidesFile, url: deck.slidesUrl }),
+      });
+    }
+    if (deck.lectureFile) {
+      files.push({
+        key: 'lecture',
+        label: deck.lectureFile,
+        onClick: () => onPreview({ kind: 'txt', filename: deck.lectureFile, source: deck.lecture }),
+      });
+    }
+    if (deck.lectureVideoFile) {
+      files.push({ key: 'video', label: deck.lectureVideoFile });
+    }
+    if (deck.file && deck.data) {
+      files.push({
+        key: 'quiz',
+        label: deck.file,
+        onClick: () => onPreview({ kind: 'json', filename: deck.file, data: deck.data }),
+      });
+    }
+  }
 
   return (
-    <div className="course-card sheet">
+    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '')}>
+      {step ? <span className="kicker">Step {step}</span> : null}
       <strong>{deck.label}</strong>
-      {deck.subtitle && <span className="subtitle">{deck.subtitle}</span>}
-      <p>{coming ? 'Paste questions into quiz.json, then refresh.' : (count + ' questions')}</p>
-      <div className="deck-links">
-        {deck.notesFile && (
-          <button
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'md',
-              filename: deck.notesFile,
-              source: deck.notes,
-            })}
-          >
-            {deck.notesFile}
-          </button>
-        )}
-        {deck.bookFile && deck.bookUrl && deck.bookUrl !== deck.slidesUrl && (
-          <button
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'pdf',
-              filename: deck.bookFile,
-              url: deck.bookUrl,
-            })}
-          >
-            {deck.bookFile}
-          </button>
-        )}
-        {(deck.books || []).map((book) => (
-          <button
-            key={book.file}
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'pdf',
-              filename: book.file,
-              url: book.url,
-            })}
-          >
-            {book.file}
-          </button>
-        ))}
-        {deck.slidesFile && deck.slidesUrl && (
-          <button
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'pdf',
-              filename: deck.slidesFile,
-              url: deck.slidesUrl,
-            })}
-          >
-            {deck.slidesFile}
-          </button>
-        )}
-        {deck.lectureFile && (
-          <button
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'txt',
-              filename: deck.lectureFile,
-              source: deck.lecture,
-            })}
-          >
-            {deck.lectureFile}
-          </button>
-        )}
-        {deck.lectureVideoFile && (
-          <span className="deck-file">{deck.lectureVideoFile}</span>
-        )}
-        {deck.file && (
-          <button
-            type="button"
-            className="text-link deck-file"
-            onClick={() => onPreview({
-              kind: 'json',
-              filename: deck.file,
-              data: deck.data,
-            })}
-          >
-            {deck.file}
-          </button>
-        )}
-      </div>
+      {deck.subtitle && !ramp && !coming ? <span className="subtitle">{deck.subtitle}</span> : null}
+      <p>
+        {coming
+          ? 'Coming next'
+          : (ramp ? 'Lesson, then practice' : (count + ' questions'))}
+      </p>
+      {files.length > 0 && (
+        <div className="deck-links">
+          {files.map((file) => (
+            file.onClick ? (
+              <button
+                key={file.key}
+                type="button"
+                className="text-link deck-file"
+                onClick={file.onClick}
+              >
+                {file.label}
+              </button>
+            ) : (
+              <span key={file.key} className="deck-file">{file.label}</span>
+            )
+          ))}
+        </div>
+      )}
       {!coming && (
-      <button
-        type="button"
-        className="go"
-        onClick={() => onStart(deck.data, deck.label, {
-          notes: deck.notes,
-          notesFile: deck.notesFile,
-          bookFile: deck.bookFile,
-          bookUrl: deck.bookUrl,
-          books: deck.books,
-          slidesFile: deck.slidesFile,
-          slidesUrl: deck.slidesUrl,
-          lecture: deck.lecture,
-          lectureFile: deck.lectureFile,
-          lectureAudio: deck.lectureAudio,
-          lectureAudioFile: deck.lectureAudioFile,
-          lectureVideo: deck.lectureVideo,
-          lectureVideoFile: deck.lectureVideoFile,
-          cheatsheet: deck.cheatsheet,
-          sheet: deck.sheet,
-          jsIntro: deck.jsIntro,
-        })}
-      >
-        Start this deck
-      </button>
+        <button
+          type="button"
+          className="go"
+          onClick={() => onStart(deck.data, deck.label, startExtra(deck))}
+        >
+          {ramp ? 'Learn' : 'Start this deck'}
+        </button>
       )}
     </div>
+  );
+}
+
+function Resources({ books, onPreview }) {
+  if (!books.length) return null;
+  return (
+    <details className="module-block resources-block">
+      <summary className="module-head">
+        <span className="module-caret" aria-hidden="true" />
+        <h3>Resources</h3>
+        <span className="module-meta">{books.length} book{books.length === 1 ? '' : 's'}</span>
+      </summary>
+      <ul className="resource-list">
+        {books.map((book) => (
+          <li key={book.url || book.file}>
+            <button
+              type="button"
+              className="text-link"
+              onClick={() => onPreview({
+                kind: 'pdf',
+                filename: book.file || (book.title + '.pdf'),
+                url: book.url,
+              })}
+            >
+              {book.title || book.file}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
+function DeckGrid({ decks, onStart, onPreview, ramp, numbered }) {
+  return (
+    <ul className="start-grid deck-grid">
+      {decks.map((deck, i) => (
+        <li key={deck.id}>
+          <DeckCard
+            deck={deck}
+            onStart={onStart}
+            onPreview={onPreview}
+            step={numbered ? i + 1 : 0}
+            ramp={ramp}
+          />
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -147,9 +193,13 @@ export default function Course({ course, onStart }) {
     ? course.modules
     : [{ id: course.id, label: null, decks: courseDecks(course) }];
   const empty = courseDecks(course).length === 0 && !(course.modules && course.modules.length);
+  const books = uniqueBooks(course);
+  const rampCourse = course.id === 'js';
   const [openIds, setOpenIds] = useState(() => {
-    const first = modules.find((mod) => mod.label);
-    return first ? { [first.id]: true } : {};
+    const first = modules.find((mod) => mod.label && (mod.decks || []).some(isReady));
+    const fallback = modules.find((mod) => mod.label);
+    const pick = first || fallback;
+    return pick ? { [pick.id]: true } : {};
   });
 
   function setModuleOpen(id, open) {
@@ -168,67 +218,85 @@ export default function Course({ course, onStart }) {
 
       {empty ? (
         <p className="leitner-note">No exams in this course yet.</p>
-      ) : modules.map((mod) => {
-        const decks = (
-          <>
-            {mod.overviewFile && (
-              <div className="module-tools">
-                <button
-                  type="button"
-                  className="text-link"
-                  onClick={() => setPreview({
-                    kind: 'md',
-                    filename: mod.overviewFile,
-                    source: mod.overview,
-                  })}
+      ) : (
+        <>
+          <Resources books={books} onPreview={setPreview} />
+          {modules.map((mod) => {
+            const ramp = rampCourse && mod.label === 'Language';
+            const ready = (mod.decks || []).filter(isReady);
+            const later = (mod.decks || []).filter((d) => !isReady(d));
+            const body = (
+              <>
+                {mod.overviewFile && (
+                  <div className="module-tools">
+                    <button
+                      type="button"
+                      className="text-link"
+                      onClick={() => setPreview({
+                        kind: 'md',
+                        filename: mod.overviewFile,
+                        source: mod.overview,
+                      })}
+                    >
+                      {mod.overviewFile}
+                    </button>
+                  </div>
+                )}
+                <DeckGrid
+                  decks={ready.length ? ready : later}
+                  onStart={onStart}
+                  onPreview={setPreview}
+                  ramp={ramp}
+                  numbered={ramp && ready.length > 0}
+                />
+                {ready.length > 0 && later.length > 0 && (
+                  <details className="later-topics">
+                    <summary className="later-head">
+                      Later topics
+                      <span>{later.length}</span>
+                    </summary>
+                    <DeckGrid
+                      decks={later}
+                      onStart={onStart}
+                      onPreview={setPreview}
+                      ramp={ramp}
+                    />
+                  </details>
+                )}
+              </>
+            );
+
+            if (!mod.label) {
+              return (
+                <section key={mod.id} className="module-block">
+                  {body}
+                </section>
+              );
+            }
+
+            return (
+              <details
+                key={mod.id}
+                className="module-block"
+                open={!!openIds[mod.id]}
+              >
+                <summary
+                  className="module-head"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setModuleOpen(mod.id, !openIds[mod.id]);
+                  }}
                 >
-                  {mod.overviewFile}
-                </button>
-              </div>
-            )}
-            <ul className="start-grid deck-grid">
-              {mod.decks.map((deck) => (
-                <li key={deck.id}>
-                  <DeckCard
-                    deck={deck}
-                    onStart={onStart}
-                    onPreview={setPreview}
-                  />
-                </li>
-              ))}
-            </ul>
-          </>
-        );
-
-        if (!mod.label) {
-          return (
-            <section key={mod.id} className="module-block">
-              {decks}
-            </section>
-          );
-        }
-
-        return (
-          <details
-            key={mod.id}
-            className="module-block"
-            open={!!openIds[mod.id]}
-          >
-            <summary
-              className="module-head"
-              onClick={(e) => {
-                e.preventDefault();
-                setModuleOpen(mod.id, !openIds[mod.id]);
-              }}
-            >
-              <span className="module-caret" aria-hidden="true" />
-              <h3>{mod.label}</h3>
-              <span className="module-meta">{moduleBlurb(mod)}</span>
-            </summary>
-            {decks}
-          </details>
-        );
-      })}
+                  <span className="module-caret" aria-hidden="true" />
+                  <h3>{mod.label}</h3>
+                  <span className="module-meta">{moduleBlurb(mod)}</span>
+                </summary>
+                {body}
+              </details>
+            );
+          })}
+        </>
+      )}
 
       {preview && (
         <FileWindow
