@@ -53,8 +53,11 @@ function JsonCode({ data }) {
 }
 
 function inlineMd(s) {
-  const parts = String(s).split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
+  const parts = String(s).split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
+    if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
+      return <code key={i}>{part.slice(1, -1)}</code>;
+    }
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={i}>{part.slice(2, -2)}</strong>;
     }
@@ -104,6 +107,7 @@ function parseMd(source) {
     const line = lines[i];
     if (!line.trim()) { i += 1; continue; }
     if (isFence(line)) {
+      const lang = line.trim().replace(/^```/, '').trim();
       const body = [];
       i += 1;
       while (i < lines.length && !isFence(lines[i])) {
@@ -111,7 +115,7 @@ function parseMd(source) {
         i += 1;
       }
       if (i < lines.length) i += 1;
-      blocks.push({ type: 'pre', text: body.join('\n') });
+      blocks.push({ type: 'pre', text: body.join('\n'), lang });
       continue;
     }
     if (line.startsWith('# ')) { blocks.push({ type: 'h1', text: line.slice(2) }); i += 1; continue; }
@@ -163,11 +167,15 @@ function parseMd(source) {
   return blocks;
 }
 
-export function MarkdownView({ source, focusHeading }) {
+export function MdInline({ source }) {
+  return <>{inlineMd(source)}</>;
+}
+
+export function MarkdownView({ source, focusHeading, compact }) {
   const blocks = parseMd(source);
   const focusId = headingId(focusHeading);
   return (
-    <article className="md-preview">
+    <article className={'md-preview' + (compact ? ' is-compact' : '')}>
       {blocks.map((block, i) => {
         if (block.type === 'h1' || block.type === 'h2' || block.type === 'h3') {
           const Tag = block.type;
@@ -175,7 +183,13 @@ export function MarkdownView({ source, focusHeading }) {
           const cls = focusId && id === focusId ? 'is-focus' : undefined;
           return <Tag key={i} id={id} className={cls}>{inlineMd(block.text)}</Tag>;
         }
-        if (block.type === 'pre') return <pre key={i}>{block.text}</pre>;
+        if (block.type === 'pre') {
+          return (
+            <pre key={i} className={block.lang ? 'lang-' + block.lang : undefined}>
+              <code>{block.text}</code>
+            </pre>
+          );
+        }
         if (block.type === 'ul') {
           return (
             <ul key={i}>

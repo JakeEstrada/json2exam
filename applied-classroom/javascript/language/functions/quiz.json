@@ -38,7 +38,7 @@
       }
     },
     {
-      "question": "function make() { let n = 0; return () => { n += 1; return n; }; } const f = make(); What is f(), f(), make()()?",
+      "question": "What is `f()`, `f()`, `make()()` after this runs?\n\n```js\nfunction make() {\n  let n = 0;\n  return () => { n += 1; return n; };\n}\nconst f = make();\n```",
       "type": "multiple",
       "options": [
         "1 2 3 because all counters share one global n.",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "question": "Find the bug: for (var i = 0; i < 3; i++) fns.push(function () { return i; }); then fns[0]().",
+      "question": "Find the bug. What does `fns[0]()` return?\n\n```js\nconst fns = [];\nfor (var i = 0; i < 3; i++) {\n  fns.push(function () { return i; });\n}\n```",
       "type": "multiple",
       "options": [
         "The functions cannot be stored in an array.",
@@ -281,8 +281,9 @@
       "starter": "function applyDiscount(rate) {\n  // return a function\n}\n",
       "tests": [
         {
-          "input": "applyDiscount(0.1)(100)",
-          "output": "90"
+          "label": "10% off 100",
+          "call": "applyDiscount(0.1)(100)",
+          "expected": 90
         }
       ],
       "hints": [
@@ -304,12 +305,16 @@
       "starter": "function makeStatusMachine(initial) {\n  // return { get, set }\n}\n",
       "tests": [
         {
-          "input": "get after set(\"paid\")",
-          "output": "\"paid\""
+          "label": "set then get",
+          "setup": "const m = makeStatusMachine(\"open\"); m.set(\"paid\");",
+          "call": "m.get()",
+          "expected": "paid"
         },
         {
-          "input": "set(undefined) keeps previous",
-          "output": "unchanged"
+          "label": "ignore undefined",
+          "setup": "const m = makeStatusMachine(\"open\"); m.set(undefined);",
+          "call": "m.get()",
+          "expected": "open"
         }
       ],
       "hints": [
@@ -332,8 +337,13 @@
       "starter": "function makeIdFactory(prefix) {\n  // return a function\n}\n",
       "tests": [
         {
-          "input": "makeIdFactory(\"inv\") twice",
-          "output": "inv-1 then inv-2"
+          "label": "inv-1 then inv-2",
+          "setup": "const next = makeIdFactory(\"inv\");",
+          "call": "[next(), next()]",
+          "expected": [
+            "inv-1",
+            "inv-2"
+          ]
         }
       ],
       "hints": [
@@ -348,6 +358,40 @@
         "page": 86,
         "excerpt": "This is allowed and works as you’d hope"
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 3 — Functions",
+      "page": 74,
+      "pageEnd": 99,
+      "sections": [
+        {
+          "heading": "Defining a function",
+          "page": 75
+        },
+        {
+          "heading": "Closure",
+          "page": 86
+        }
+      ]
+    },
+    {
+      "book": "You Don't Know JS Yet by Kyle Simpson",
+      "chapter": "Chapter 1 — What’s the Scope? / Chapter 7 — Using Closures",
+      "page": 19,
+      "pageEnd": 175,
+      "sections": [
+        {
+          "heading": "Find the bug",
+          "page": 19
+        },
+        {
+          "heading": "Closure",
+          "page": 149
+        }
+      ]
     }
   ]
 }

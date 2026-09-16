@@ -2,9 +2,9 @@
 
 Ordered path through the existing Applied Classroom topics. No extra courses. Practical work sits inside each subject, not in a separate capstone.
 
-**Status:** a module is *ready* when it has notes, a real `quiz.json`, and (for JavaScript) self-assessed code cards. Everything else is *planned*: folders exist, books are listed, quizzes are empty.
+**Status:** a module is *ready* when it has notes, a real `quiz.json`, and (for JavaScript) code cards whose tests run in the browser. Everything else is *planned*: folders exist, books are listed, quizzes are empty.
 
-Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file positions** (what Json2Exam opens), not printed folio numbers.
+Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file positions** (what Json2Exam opens), not printed folio numbers. Each JS language deck lists a `reading` map (chapter + section pages). **Show in book** opens that module’s chapter, not a random page of another topic.
 
 ---
 
@@ -13,27 +13,28 @@ Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file
 1. Read the module notes.
 2. Do the assigned reading in the local `sources/` PDF.
 3. Work the predict-the-output / find-the-bug drills in the notes.
-4. Start the deck. Mixed multiple-choice and code cards use Leitner boxes. Code cards are **self-assessed**; the app does not run your code.
-5. Open **Show in book** on a card to jump to the cited PDF page.
+4. Start the deck. Mixed multiple-choice and code cards use Leitner boxes. Code cards **run your JavaScript** against the card’s tests.
+5. Open **Show in book** on a card to jump to that module’s chapter (functions → Functions, loops → while/for, and so on).
 
 You already know CS and C++. Treat JavaScript as a different machine: values vs bindings, coercion, reference identity, and lexical closures.
 
 ---
 
-## 1. JavaScript — ready (first six)
+## 1. JavaScript — ready language decks
 
 **Books:** Eloquent JavaScript, 4th Edition by Marijn Haverbeke; JavaScript: The Definitive Guide, 7th Edition by David Flanagan; You Don't Know JS Yet by Kyle Simpson (local file is *Scope & Closures, 2nd Edition*); JavaScript: The Good Parts by Douglas Crockford.
 
 | # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
 |---|---|---|---|---|---|
 | 1 | `javascript/language/variables-and-data-types` **ready** | Declare `let`/`const`, name primitives vs objects, convert with `Number`/`String`/`Boolean` without surprise coercion. | None | EJS ch. 1 *Values, Types, and Operators* + *Bindings* in ch. 2; DG ch. 3 *Types, Values, and Variables* | Normalize mixed payment fields (`"40"`, `40`, `null`) into numbers and drop unusable rows. |
-| 2 | `javascript/language/conditionals` **ready** | Use `===`, truthiness, `&&`/`\|\|`/`??`, `if`/`else`/`switch`, and loops as control flow. | Module 1 | EJS *Comparison*, *Boolean values*, *Control flow*, *Conditional execution*; DG ch. 4 operators | Gate a checkout: paid vs pending vs missing customer, including `0` as a real amount. |
+| 2 | `javascript/language/conditionals` **ready** | Use `===`, truthiness, `&&`/`\|\|`/`??`, `if`/`else`/`switch`. | Module 1 | EJS *Comparison*, *Boolean values*, *Control flow*, *Conditional execution*; DG ch. 4 operators | Gate a checkout: paid vs pending vs missing customer, including `0` as a real amount. |
+| 2b | `javascript/language/loops` **ready** | `while` / `for` / `for...of`, `break`, and walking arrays. | Module 2 | EJS *while and do loops* (PDF p. 59), *for loops* (PDF p. 63), *Breaking Out of a Loop* (PDF p. 65) | `sumTo`, `firstEven`, `countPaid`. |
 | 3 | `javascript/language/functions` **ready** | Write functions, explain scope vs C++ stack objects, and use closures for private state. | Modules 1–2 | EJS ch. 3 *Functions*, *Bindings and scopes*, *Closure*; YDKJS ch. 1 *What’s the Scope?*, ch. 7 *Using Closures* | Build `makeStatusMachine(initial)` that returns `{ get, set }` closed over private state. |
 | 4 | `javascript/language/arrays` **ready** | Index, mutate vs copy, and use `map`/`filter`/`reduce`/`slice` without confusing them with `Map`. | Modules 1–3 | EJS ch. 4 arrays + *Further arrayology*; ch. 5 *Filtering arrays*, *map*, *reduce* | Filter paid customers, total amounts, and return a new array (do not mutate the source). |
 | 5 | `javascript/language/objects` **ready** | Treat objects as references; copy shallow vs nested; update nested task fields without alias bugs. | Modules 1–4 | EJS ch. 4 *Objects*, *Mutability*; DG object mutability in ch. 3 | `updateTask(tasks, id, patch)` returns a new array; other tasks keep identity. |
 | 6 | `javascript/language/maps-and-sets` **ready** | Choose array vs object vs `Map` vs `Set`; avoid `in` on objects used as dictionaries. | Modules 4–5 | EJS ch. 6 *Maps*; DG standard library Map/Set when you reach it | Group appointments by `providerId` with `Map`; unique patient ids with `Set`. |
 
-**Later JS topics (planned, same course):** `loops` (extra loop drills), `array-methods` (more method practice), `closures` (extra closure drills), `recursion`, `classes`, `error-handling`, `asynchronous-javascript`, plus *Interactive exercises*.
+**Later JS topics (planned, same course):** `array-methods` (more method practice), `closures` (extra closure drills), `recursion`, `classes`, `error-handling`, `asynchronous-javascript`, plus *Interactive exercises*.
 
 ---
 

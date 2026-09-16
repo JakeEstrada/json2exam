@@ -17,6 +17,7 @@ import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 import { resolveBook } from './lib/books.js';
+import { formatAskNotes, resolveReading } from './lib/reading.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -90,8 +91,10 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
     ? (studyFocus && studyFocus.slide)
     : (studyFocus && studyFocus.page);
   const bookHref = pdfUrl ? (pdfPage ? pdfUrl + '#page=' + pdfPage : pdfUrl) : '';
-  const bookTitle = sidePane === 'book' && resolved && resolved.title
-    ? resolved.title
+  const bookTitle = sidePane === 'book'
+    ? ((studyFocus && studyFocus.chapter)
+      || (resolved && resolved.title)
+      || paneTitle(sidePane, quiz))
     : paneTitle(sidePane, quiz);
   return (
     <SidePane
@@ -204,6 +207,19 @@ export default function App() {
     startFresh(qz);
   }
 
+  function openModuleBook() {
+    const located = resolveReading(quiz, {});
+    setStudyFocus({
+      book: located.book,
+      page: located.page,
+      pageEnd: located.pageEnd,
+      chapter: located.chapter,
+      bookUrl: located.bookUrl,
+      bookTitle: located.bookTitle,
+    });
+    setSidePane('book');
+  }
+
   function persist() {
     if (!quiz) return saved;
     const state = { quiz, boxes, stats, settings, courseId, codeWork };
@@ -230,10 +246,20 @@ export default function App() {
   function openReference(focus) {
     const next = Object.assign({}, focus || {});
     if (next.book || next.page > 0) {
-      const found = resolveBook(quiz, next.book);
-      if (found) {
-        next.bookUrl = found.url;
-        next.bookTitle = found.title;
+      const located = resolveReading(quiz, next);
+      if (located.book && !next.book) next.book = located.book;
+      if (located.chapter) next.chapter = located.chapter;
+      if (!(next.page > 0) && located.page) next.page = located.page;
+      if (!(next.pageEnd > 0) && located.pageEnd) next.pageEnd = located.pageEnd;
+      if (located.bookUrl) {
+        next.bookUrl = located.bookUrl;
+        next.bookTitle = located.bookTitle;
+      } else {
+        const found = resolveBook(quiz, next.book);
+        if (found) {
+          next.bookUrl = found.url;
+          next.bookTitle = found.title;
+        }
       }
     }
     setStudyFocus(next);
@@ -423,7 +449,7 @@ export default function App() {
   const brain = findBrain(quiz, BRAINS);
   const askProps = {
     brain,
-    notes: quiz.notes,
+    notes: formatAskNotes(quiz) || quiz.notes,
     fill: sidePane === 'ask',
     open: sidePane === 'ask',
     hideFab: !!sidePane,
@@ -462,10 +488,7 @@ export default function App() {
                   </button>
                 )}
                 {(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl || (quiz.books && quiz.books.length)) && (
-                  <button type="button" className="text-link" onClick={() => {
-                    setStudyFocus({ book: quiz.books && quiz.books.length === 1 ? quiz.books[0].title : '' });
-                    setSidePane('book');
-                  }}>
+                  <button type="button" className="text-link" onClick={openModuleBook}>
                     Book
                   </button>
                 )}
@@ -505,6 +528,21 @@ export default function App() {
             </div>
           </div>
 
+          {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl || (quiz.books && quiz.books.length) || (quiz.reading && quiz.reading.length)) && (
+            <div className="row quiz-study-open">
+              {quiz.notes && (
+                <button type="button" className="text-link" onClick={() => setSidePane('notes')}>
+                  Chapter notes
+                </button>
+              )}
+              {(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl || (quiz.books && quiz.books.length) || (quiz.reading && quiz.reading.length)) && (
+                <button type="button" className="text-link" onClick={openModuleBook}>
+                  Book chapter
+                </button>
+              )}
+            </div>
+          )}
+
           {showSettings && (
             <Settings
               settings={settings}
@@ -535,6 +573,7 @@ export default function App() {
               hasVideo={!!quiz.lectureVideo}
               hasSlides={!!quiz.slidesUrl}
               hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl) || !!(quiz.books && quiz.books.length)}
+              bookReading={quiz.reading || []}
               voice={settings.voice}
               speechRate={settings.speechRate}
               codeWork={codeWork[current.q.id] || null}

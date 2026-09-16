@@ -1,6 +1,8 @@
 // Turns whatever JSON a person hands us into a normalized question bank.
 // Pure functions, no React: easy to unit test on its own.
 
+import { normalizeReading } from './reading.js';
+
 export const LETTERS = 'abcdefghij';
 const PREFIX_RE = /^\s*(?:[a-jA-J]|\d{1,2})\s*[).:\-]\s+/;
 
@@ -127,14 +129,28 @@ function normalizeTests(raw) {
     if (typeof row !== 'object') {
       return { label: 'Example ' + (i + 1), input: String(row), output: '' };
     }
-    const input = jsonPreview(firstDefined(row.input, row.args, row.call, ''));
-    const output = jsonPreview(firstDefined(row.output, row.expected, row.result, ''));
-    if (!input && !output) return null;
-    return {
+    const call = String(firstDefined(row.call, row.expr, '')).trim();
+    const setup = String(firstDefined(row.setup, '')).trim();
+    const assert = String(firstDefined(row.assert, row.check, '')).trim();
+    const args = Array.isArray(row.args) ? row.args : undefined;
+    const hasExpected = Object.prototype.hasOwnProperty.call(row, 'expected')
+      || Object.prototype.hasOwnProperty.call(row, 'result');
+    const expected = hasExpected ? firstDefined(row.expected, row.result) : undefined;
+    const input = jsonPreview(firstDefined(row.input, call, args, ''));
+    const output = jsonPreview(firstDefined(row.output, hasExpected ? expected : ''));
+    if (!input && !output && !call && !setup && !assert && !args) return null;
+    const out = {
       label: String(firstDefined(row.label, row.name, 'Example ' + (i + 1))),
       input,
       output,
     };
+    if (call) out.call = call;
+    if (setup) out.setup = setup;
+    if (assert) out.assert = assert;
+    if (args) out.args = args;
+    if (hasExpected) out.expected = expected;
+    if (row.fn) out.fn = String(row.fn);
+    return out;
   }).filter(Boolean);
 }
 
@@ -244,16 +260,20 @@ function readReference(raw) {
   const lecture = String(firstDefined(refRaw.lecture, refRaw.transcript, '')).trim();
   const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
   const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
+  const pageEndNum = Number(firstDefined(refRaw.pageEnd, refRaw.endPage, 0));
+  const pageEnd = pageEndNum >= 1 && isFinite(pageEndNum) ? Math.trunc(pageEndNum) : 0;
+  const chapter = String(firstDefined(refRaw.chapter, '')).trim();
   const slideNum = Number(firstDefined(refRaw.slide, refRaw.slides, 0));
   const slide = slideNum >= 1 && isFinite(slideNum) ? Math.trunc(slideNum) : 0;
-  if (!section && !book && !excerpt && !page && !lecture && !slide) return null;
-  return { section, book, excerpt, page, lecture, slide };
+  if (!section && !book && !excerpt && !page && !lecture && !slide && !chapter) return null;
+  return { section, book, chapter, excerpt, page, pageEnd, lecture, slide };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {
   let list = null;
   let title = fallbackTitle || 'Untitled deck';
   let brain = null;
+  let reading = [];
 
   if (Array.isArray(data)) {
     list = data;
@@ -263,6 +283,7 @@ export function normalizeQuiz(data, fallbackTitle) {
     else if (data.name) title = String(data.name);
     const tagged = firstDefined(data.brain, data.brainId, data.assistant);
     if (tagged) brain = String(tagged);
+    reading = normalizeReading(firstDefined(data.reading, data.chapters, data.sources, []));
   }
 
   if (!Array.isArray(list)) {
@@ -281,7 +302,7 @@ export function normalizeQuiz(data, fallbackTitle) {
   if (!questions.length) {
     throw new Error('None of the ' + list.length + ' questions could be read. ' + skipped[0]);
   }
-  return { title, questions, skipped, brain };
+  return { title, questions, skipped, brain, reading };
 }
 
 // JSON.parse errors are terse; point at the line instead of the byte offset.

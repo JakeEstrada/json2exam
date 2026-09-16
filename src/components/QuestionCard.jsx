@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
+import { matchReading } from '../lib/reading.js';
+import { formatTest, previewValue, runJavascript } from '../lib/runCode.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
 import { cardSpeechParts, prefetchSpeechParts, speakText, speechSupported, stopSpeech } from '../lib/speech.js';
+import { MarkdownView, MdInline } from './FileWindow.jsx';
 
 function SpeechTools({ parts, on, wait, onToggle, onStep }) {
   const canSpeak = speechSupported();
@@ -52,7 +55,7 @@ function SpeechTools({ parts, on, wait, onToggle, onStep }) {
   );
 }
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading }) {
   const reviewing = phase === 'review';
   const correct = reviewing && q.type !== 'code' && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -136,7 +139,9 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
       <div className="sheet qcard">
         <p className="kind">{KIND_LABEL[q.type] || 'code practice'}</p>
         <div className="q-head">
-          <div className="q-text">{q.text}</div>
+        <div className={'q-text is-md' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>
+          <MarkdownView source={q.text} compact />
+        </div>
           <SpeechTools
             parts={parts}
             on={on}
@@ -153,9 +158,9 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
           onAssess={onAssess}
         />
         {reviewing && (
-          <CodeVerdict gotIt={picked[0] === 1} explanation={q.explanation} />
+          <CodeVerdict gotIt={picked[0] === 1} explanation={q.explanation} run={codeWork && codeWork.run} />
         )}
-        <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
+        <QuestionSource q={q} bookReading={bookReading} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
       </div>
     );
   }
@@ -164,7 +169,9 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
     <div className="sheet qcard">
       <p className="kind">{KIND_LABEL[q.type]}</p>
       <div className="q-head">
-        <div className={'q-text' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>{q.text}</div>
+        <div className={'q-text is-md' + (reading && reading.kind === 'title' ? ' is-reading' : '')}>
+          <MarkdownView source={q.text} compact />
+        </div>
         <SpeechTools
           parts={parts}
           on={on}
@@ -197,7 +204,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
               onClick={() => onToggle(realIdx)}
             >
               <span className="key" aria-hidden="true">{LETTERS[shown]}</span>
-              <span className="txt">{q.options[realIdx]}</span>
+              <span className="txt"><MdInline source={q.options[realIdx]} /></span>
               {mark && <span className="mark">{mark}</span>}
             </button>
           );
@@ -215,27 +222,51 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
+      <QuestionSource q={q} bookReading={bookReading} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
     </div>
   );
 }
 
-function CodeVerdict({ gotIt, explanation }) {
+function CodeVerdict({ gotIt, explanation, run }) {
+  const failed = run && Array.isArray(run.results) ? run.results.filter((row) => !row.ok) : [];
   return (
     <div className="verdict" role="status">
       <div>
         <p className={'said ' + (gotIt ? 'yes' : 'no')}>
           {gotIt
-            ? 'Self-assessed: you marked this as understood.'
-            : 'Self-assessed: more practice needed.'}
+            ? 'All tests passed.'
+            : (failed.length ? failed.length + ' test' + (failed.length === 1 ? '' : 's') + ' failed.' : 'Needs more practice.')}
         </p>
-        {explanation && <p className="why">{explanation}</p>}
-        <p className="moved">
-          {gotIt ? 'Moved up a box. ' : 'Back to box 1, you will see it again soon. '}
-          The app did not run or grade your code.
-        </p>
+        {explanation && (
+          <div className="why">
+            <MarkdownView source={explanation} compact />
+          </div>
+        )}
+        <p className="moved">{gotIt ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
       </div>
     </div>
+  );
+}
+
+function TestResults({ run }) {
+  if (!run || !Array.isArray(run.results) || !run.results.length) return null;
+  return (
+    <ul className="code-results">
+      {run.results.map((row, i) => (
+        <li key={i} className={row.ok ? 'is-pass' : 'is-fail'}>
+          <span className="code-test-name">
+            {row.ok ? 'Pass' : 'Fail'}{row.label ? ' · ' + row.label : ''}
+          </span>
+          {row.call ? <pre><code>{row.call}</code></pre> : null}
+          {row.error ? <p className="code-test-error">{row.error}</p> : (
+            <p className="code-test-io">
+              expected {previewValue(row.expected)}
+              {row.ok ? '' : ' · got ' + previewValue(row.actual)}
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -243,11 +274,20 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
   const draft = work && work.draft != null ? work.draft : (q.starter || '');
   const hintsShown = (work && work.hints) || 0;
   const showSolution = !!(work && work.solution);
+  const run = work && work.run;
   const hints = Array.isArray(q.hints) ? q.hints : [];
   const tests = Array.isArray(q.tests) ? q.tests : [];
+  const runnable = String(q.language || 'javascript').toLowerCase().indexOf('javascript') !== -1
+    || String(q.language || '').toLowerCase() === 'js';
 
   function setDraft(value) {
     if (onWork) onWork({ draft: value });
+  }
+
+  function runTests() {
+    const result = runJavascript(draft, tests);
+    if (onWork) onWork({ draft, run: result });
+    if (result.passed && onAssess) onAssess(true);
   }
 
   return (
@@ -261,14 +301,17 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
 
       {tests.length > 0 && (
         <div className="code-tests">
-          <p className="code-label">Example inputs and outputs</p>
+          <p className="code-label">Tests</p>
           <ul>
-            {tests.map((row, i) => (
-              <li key={i}>
-                <span className="code-test-name">{row.label || ('Example ' + (i + 1))}</span>
-                <pre><code>{'in  ' + (row.input || '') + '\nout ' + (row.output || '')}</code></pre>
-              </li>
-            ))}
+            {tests.map((row, i) => {
+              const shown = formatTest(row, draft || q.starter);
+              return (
+                <li key={i}>
+                  <span className="code-test-name">{shown.label}</span>
+                  <pre><code>{'in  ' + shown.input + '\nout ' + shown.output}</code></pre>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -280,7 +323,7 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
         spellCheck="false"
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
-        placeholder="Write your solution here. It is not executed."
+        placeholder="Write a working function. Run tests to check it."
       />
 
       <div className="code-reveal">
@@ -315,13 +358,21 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
         </div>
       )}
 
+      <TestResults run={run} />
+
       {!reviewing && (
         <div className="code-assess">
-          <p className="why">This is self-assessed. The app does not run your code.</p>
+          <p className="why">
+            {runnable
+              ? 'Run the tests against your code. Passing moves the card up a box.'
+              : 'This language is not executed in the browser.'}
+          </p>
           <div className="row">
-            <button type="button" className="btn primary" onClick={() => onAssess && onAssess(true)}>
-              I got it
-            </button>
+            {runnable && (
+              <button type="button" className="btn primary" onClick={runTests}>
+                Run tests
+              </button>
+            )}
             <button type="button" className="btn quiet" onClick={() => onAssess && onAssess(false)}>
               I need more practice
             </button>
@@ -342,15 +393,20 @@ function Verdict({ q, correct }) {
             ? 'Right.'
             : (q.answers.length > 1 ? 'The full answer is ' : 'The answer is ') + names + '.'}
         </p>
-        {q.explanation && <p className="why">{q.explanation}</p>}
+        {q.explanation && (
+          <div className="why">
+            <MarkdownView source={q.explanation} compact />
+          </div>
+        )}
         <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
       </div>
     </div>
   );
 }
 
-function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook }) {
+function QuestionSource({ q, bookReading, onOpen, hasLecture, hasVideo, hasSlides, hasBook }) {
   const ref = q && q.reference;
+  const chapter = matchReading(bookReading, ref && ref.book);
   const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
   const fromLecture = firstSlideRange(lectureQuote);
   const slideStart = (ref && ref.slide) || (fromLecture && fromLecture.start) || 0;
@@ -361,17 +417,21 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
   );
   const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
   const canSlides = hasSlides || slideStart > 0;
-  const canBook = hasBook || (ref && ref.page > 0) || (ref && ref.book);
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canSlides && !canBook)) return null;
+  const canBook = hasBook || (ref && ref.page > 0) || (ref && ref.book) || !!(bookReading && bookReading.length);
+  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canSlides && !canBook)) {
+    if (!(bookReading && bookReading.length) || !canBook) return null;
+  }
+  const chapterLabel = (ref && ref.chapter) || (chapter && chapter.chapter) || '';
   return (
     <div className="q-source">
       <p className="q-source-label">Chapter reference</p>
-      {ref.book && <p className="q-source-book">{ref.book}</p>}
-      {ref.section && <p className="q-source-notes">Notes: {ref.section}</p>}
+      {ref && ref.book && <p className="q-source-book">{ref.book}</p>}
+      {chapterLabel && <p className="q-source-chapter">{chapterLabel}</p>}
+      {ref && ref.section && <p className="q-source-notes">Notes: {ref.section}</p>}
       {slideLabel && <p className="q-source-notes">{slideLabel}</p>}
-      {ref.excerpt && <blockquote className="q-source-excerpt">{ref.excerpt}</blockquote>}
+      {ref && ref.excerpt && <blockquote className="q-source-excerpt">{ref.excerpt}</blockquote>}
       <div className="q-source-actions">
-        {ref.section && onOpen && (
+        {ref && ref.section && onOpen && (
           <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: 0 })}>
             Show in chapter notes
           </button>
@@ -389,7 +449,7 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
               slide: slideStart,
               slideEnd: fromLecture && fromLecture.end > slideStart ? fromLecture.end : 0,
               autoSlides: !slideStart,
-              excerpt: ref.excerpt,
+              excerpt: ref && ref.excerpt,
               lecture: lectureQuote,
             })}
           >
@@ -397,7 +457,17 @@ function QuestionSource({ q, onOpen, hasLecture, hasVideo, hasSlides, hasBook })
           </button>
         )}
         {canBook && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: ref.page || 1, excerpt: ref.excerpt, book: ref.book })}>
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => onOpen({
+              heading: ref && ref.section,
+              page: (ref && ref.page) || 0,
+              pageEnd: (ref && ref.pageEnd) || (chapter && chapter.pageEnd) || 0,
+              excerpt: ref && ref.excerpt,
+              book: (ref && ref.book) || (chapter && chapter.book) || '',
+            })}
+          >
             Show in book
           </button>
         )}

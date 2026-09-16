@@ -20,7 +20,7 @@
       }
     },
     {
-      "question": "const src = [1,2,3]; src.map(n => n*2); src.filter(n => n>1); What is src.length?",
+      "question": "What is `src.length` after this runs?\n\n```js\nconst src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);\n```",
       "type": "multiple",
       "options": [
         "6, because both methods append to src.",
@@ -38,7 +38,7 @@
       }
     },
     {
-      "question": "Find the bug: return rows.map(row => { if (row.status === \"paid\") return row; });",
+      "question": "Find the bug:\n\n```js\nreturn rows.map(row => {\n  if (row.status === \"paid\") return row;\n});\n```",
       "type": "multiple",
       "options": [
         "map cannot return objects, only numbers.",
@@ -282,12 +282,20 @@
       "starter": "function last(arr) {\n}\n",
       "tests": [
         {
-          "input": "[1,2,3]",
-          "output": "3"
+          "label": "last of three",
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expected": 3
         },
         {
-          "input": "[]",
-          "output": "undefined"
+          "label": "empty",
+          "call": "last([])",
+          "assert": "actual === undefined"
         }
       ],
       "hints": [
@@ -309,12 +317,27 @@
       "starter": "function paidTotals(payments) {\n}\n",
       "tests": [
         {
-          "input": "[{status:\"paid\",amount:10},{status:\"pending\",amount:4}]",
-          "output": "10"
+          "label": "paid only",
+          "args": [
+            [
+              {
+                "status": "paid",
+                "amount": 10
+              },
+              {
+                "status": "pending",
+                "amount": 4
+              }
+            ]
+          ],
+          "expected": 10
         },
         {
-          "input": "[]",
-          "output": "0"
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": 0
         }
       ],
       "hints": [
@@ -336,8 +359,22 @@
       "starter": "function groupCount(rows, status) {\n}\n",
       "tests": [
         {
-          "input": "rows=[{status:\"a\"},{status:\"b\"},{status:\"a\"}] status=\"a\"",
-          "output": "2"
+          "label": "two a",
+          "args": [
+            [
+              {
+                "status": "a"
+              },
+              {
+                "status": "b"
+              },
+              {
+                "status": "a"
+              }
+            ],
+            "a"
+          ],
+          "expected": 2
         }
       ],
       "hints": [
@@ -351,6 +388,24 @@
         "page": 146,
         "excerpt": "The map method transforms an array by applying a function to all of its elements"
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 4–5 — Arrays, map, filter, reduce",
+      "page": 100,
+      "pageEnd": 148,
+      "sections": [
+        {
+          "heading": "Arrays are objects",
+          "page": 100
+        },
+        {
+          "heading": "map, filter, reduce",
+          "page": 121
+        }
+      ]
     }
   ]
 }

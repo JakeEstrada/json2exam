@@ -9,6 +9,8 @@ export default function QuizNotes({
   source, bookUrl, bookMissing, bookWanted, slidesUrl, lecture, lectureAudio, lectureVideo, focus, mode, onOpenSlide,
 }) {
   const page = focus && focus.page ? focus.page : 0;
+  const pageEnd = focus && focus.pageEnd ? focus.pageEnd : 0;
+  const chapter = focus && focus.chapter ? focus.chapter : '';
   const slide = focus && focus.slide ? focus.slide : 0;
   const slideEnd = focus && focus.slideEnd ? focus.slideEnd : 0;
   const heading = focus && focus.heading ? focus.heading : '';
@@ -69,7 +71,12 @@ export default function QuizNotes({
       )}
       {active === 'book' && bookUrl && (
         <div className="quiz-notes-body is-pdf">
-          <PdfPage url={bookUrl} page={page || 1} query={bookQuery} label="Page" />
+          {chapter && (
+            <p className="pdf-chapter-label">
+              {chapter}{heading ? ' · ' + heading : ''}{page ? ' · PDF p. ' + page : ''}
+            </p>
+          )}
+          <PdfPage url={bookUrl} page={page || 1} pageEnd={pageEnd} query={bookQuery} label="Page" />
         </div>
       )}
       {active === 'book' && !bookUrl && (

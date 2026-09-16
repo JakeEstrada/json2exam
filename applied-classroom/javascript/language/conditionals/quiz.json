@@ -77,7 +77,7 @@
       }
     },
     {
-      "question": "Find the bug: function firstPaid(rows) { for (const row of rows) { if (row.amount) return row; } } on [{amount:0},{amount:20}].",
+      "question": "Find the bug. What happens for `[{amount:0},{amount:20}]`?\n\n```js\nfunction firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}\n```",
       "type": "multiple",
       "options": [
         "for...of cannot walk arrays of objects.",
@@ -95,7 +95,7 @@
       }
     },
     {
-      "question": "let s = \"pending\"; switch (s) { case \"paid\": console.log(\"a\"); case \"pending\": console.log(\"b\"); default: console.log(\"c\"); } What prints?",
+      "question": "What prints?\n\n```js\nlet s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}\n```",
       "type": "multiple",
       "options": [
         "b then c, because case pending has no break.",
@@ -299,12 +299,18 @@
       "starter": "function isOpenStatus(status) {\n  // boolean\n}\n",
       "tests": [
         {
-          "input": "\"open\"",
-          "output": "true"
+          "label": "open",
+          "args": [
+            "open"
+          ],
+          "expected": true
         },
         {
-          "input": "\"closed\"",
-          "output": "false"
+          "label": "closed",
+          "args": [
+            "closed"
+          ],
+          "expected": false
         }
       ],
       "hints": [
@@ -326,16 +332,31 @@
       "starter": "function checkoutState(order) {\n  // return a string label\n}\n",
       "tests": [
         {
-          "input": "null",
-          "output": "\"missing\""
+          "label": "null",
+          "args": [
+            null
+          ],
+          "expected": "missing"
         },
         {
-          "input": "{status:\"open\",amount:0}",
-          "output": "\"zero\""
+          "label": "zero",
+          "args": [
+            {
+              "status": "open",
+              "amount": 0
+            }
+          ],
+          "expected": "zero"
         },
         {
-          "input": "{status:\"open\",amount:10}",
-          "output": "\"ready\""
+          "label": "ready",
+          "args": [
+            {
+              "status": "open",
+              "amount": 10
+            }
+          ],
+          "expected": "ready"
         }
       ],
       "hints": [
@@ -358,12 +379,23 @@
       "starter": "function countTruthyFlags(flags) {\n  // return a number\n}\n",
       "tests": [
         {
-          "input": "[true,0,\"x\", \"\"]",
-          "output": "2"
+          "label": "mixed",
+          "args": [
+            [
+              true,
+              0,
+              "x",
+              ""
+            ]
+          ],
+          "expected": 2
         },
         {
-          "input": "[]",
-          "output": "0"
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": 0
         }
       ],
       "hints": [
@@ -377,6 +409,34 @@
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 2 — Control flow and conditionals",
+      "page": 56,
+      "pageEnd": 58,
+      "sections": [
+        {
+          "heading": "Strict equality and coercion",
+          "page": 40
+        },
+        {
+          "heading": "Truthiness",
+          "page": 40
+        },
+        {
+          "heading": "Control flow",
+          "page": 56
+        }
+      ]
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "chapter": "Chapter 4 — Expressions and Operators",
+      "page": 79,
+      "pageEnd": 110
     }
   ]
 }

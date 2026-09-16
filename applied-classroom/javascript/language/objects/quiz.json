@@ -2,7 +2,7 @@
   "title": "JavaScript — Objects, references, mutation, and copying",
   "questions": [
     {
-      "question": "let object1 = {value:10}; let object2 = object1; let object3 = {value:10}; object1 == object3 is:",
+      "question": "Is `object1 == object3` true?\n\n```js\nlet object1 = { value: 10 };\nlet object2 = object1;\nlet object3 = { value: 10 };\n```",
       "type": "multiple",
       "options": [
         "false, because they are different objects.",
@@ -92,7 +92,7 @@
       }
     },
     {
-      "question": "Find the bug: function setStatus(tasks, id, status) { const t = tasks.find(x => x.id === id); t.status = status; return tasks; }",
+      "question": "Find the bug:\n\n```js\nfunction setStatus(tasks, id, status) {\n  const t = tasks.find(x => x.id === id);\n  t.status = status;\n  return tasks;\n}\n```",
       "type": "multiple",
       "options": [
         "find cannot locate numbers.",
@@ -164,7 +164,7 @@
       }
     },
     {
-      "question": "const t = {id:1,status:\"open\"}; const u = {...t, status:\"done\"}; t === u is:",
+      "question": "Is `t === u`?\n\n```js\nconst t = { id: 1, status: \"open\" };\nconst u = { ...t, status: \"done\" };\n```",
       "type": "multiple",
       "options": [
         "true, because id is the same.",
@@ -281,8 +281,18 @@
       "starter": "function withStatus(task, status) {\n}\n",
       "tests": [
         {
-          "input": "{id:1,status:\"open\"}, \"done\"",
-          "output": "{id:1,status:\"done\"}"
+          "label": "copy + status",
+          "args": [
+            {
+              "id": 1,
+              "status": "open"
+            },
+            "done"
+          ],
+          "expected": {
+            "id": 1,
+            "status": "done"
+          }
         }
       ],
       "hints": [
@@ -304,8 +314,10 @@
       "starter": "function updateTask(tasks, id, patch) {\n}\n",
       "tests": [
         {
-          "input": "update id 2 with {status:\"done\"}",
-          "output": "new object only for id 2"
+          "label": "identity of unmatched",
+          "setup": "const a = {id:1,status:\"open\"}; const b = {id:2,status:\"open\"}; const tasks = [a,b];",
+          "call": "updateTask(tasks, 2, {status:\"done\"})",
+          "assert": "actual[0] === a && actual[1] !== b && actual[1].status === \"done\" && actual[1].id === 2"
         }
       ],
       "hints": [
@@ -327,8 +339,15 @@
       "starter": "function renameCustomer(appt, name) {\n}\n",
       "tests": [
         {
-          "input": "{when:\"9am\",customer:{id:1,name:\"Ada\"}}, \"Ada L.\"",
-          "output": "new nested customer"
+          "label": "no mutate nested",
+          "setup": "const appt = {when:\"9am\",customer:{id:1,name:\"Ada\"}}; const out = renameCustomer(appt, \"Ada L.\");",
+          "call": "[out.customer.name, appt.customer.name, out !== appt, out.customer !== appt.customer]",
+          "expected": [
+            "Ada L.",
+            "Ada",
+            true,
+            true
+          ]
         }
       ],
       "hints": [
@@ -342,6 +361,30 @@
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 4 — Objects and mutability",
+      "page": 100,
+      "pageEnd": 116,
+      "sections": [
+        {
+          "heading": "Objects",
+          "page": 100
+        },
+        {
+          "heading": "Mutability and identity",
+          "page": 110
+        }
+      ]
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "chapter": "Chapter 3 — object mutability",
+      "page": 62,
+      "pageEnd": 78
     }
   ]
 }

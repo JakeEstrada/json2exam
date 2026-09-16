@@ -1,4 +1,376 @@
 {
   "title": "JavaScript — Loops",
-  "questions": []
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 2 — Program Structure (loops)",
+      "page": 59,
+      "pageEnd": 66,
+      "sections": [
+        { "heading": "while and do loops", "page": 59 },
+        { "heading": "for loops", "page": 63 },
+        { "heading": "Breaking Out of a Loop", "page": 65 },
+        { "heading": "Walking arrays", "page": 63 }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question": "Which loop runs the body **before** it tests the condition?",
+      "type": "multiple",
+      "options": [
+        "`while (test) { ... }`",
+        "`for (let i = 0; i < n; i++) { ... }`",
+        "`do { ... } while (test)`",
+        "`for (const row of rows) { ... }`"
+      ],
+      "answer": "c",
+      "explanation": "`do`/`while` always runs once. `while` and `for` test first.",
+      "reference": {
+        "section": "while and do loops",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 59,
+        "excerpt": "while and do loops"
+      }
+    },
+    {
+      "question": "What does this print?\n\n```js\nlet n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);\n```",
+      "type": "multiple",
+      "options": [
+        "`0` because the test fails immediately",
+        "`2` because the last increment is skipped",
+        "`3`",
+        "`undefined`"
+      ],
+      "answer": "c",
+      "explanation": "The loop body runs for 0, 1, and 2. After the last increment `n` is 3 and the test fails.",
+      "reference": {
+        "section": "while and do loops",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 59,
+        "excerpt": "Consider a program that outputs all even numbers from 0 to 12."
+      }
+    },
+    {
+      "question": "The three parts of `for (init; test; update)` are:",
+      "type": "multiple",
+      "options": [
+        "A C++-only syntax; JavaScript has only `while`.",
+        "Bind a counter, test whether to keep going, then update after the body.",
+        "Map, filter, and reduce.",
+        "Start page, end page, and excerpt."
+      ],
+      "answer": "b",
+      "explanation": "`for` is the compact form of a counting `while`.",
+      "reference": {
+        "section": "for loops",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "What is the default loop for walking an array of appointment objects?",
+      "type": "multiple",
+      "options": [
+        "`for...in`, so you get indexes as numbers",
+        "`for...of`, so you get each element",
+        "`while (arr)`, because a non-empty array is a number",
+        "`do...while` so the empty list still runs once"
+      ],
+      "answer": "b",
+      "explanation": "`for...of` yields values. `for...in` yields keys, including inherited ones.",
+      "reference": {
+        "section": "Walking arrays",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "Find the bug:\n\n```js\nfunction firstPaid(rows) {\n  for (const i in rows) {\n    if (rows[i].status === \"paid\") return rows[i];\n  }\n}\n```",
+      "type": "multiple",
+      "options": [
+        "`for...in` is the documented way to walk arrays in Eloquent JavaScript.",
+        "`i` is always a number, so `rows[i]` cannot fail.",
+        "`for...in` walks keys (strings, plus inherited names), not a safe list of elements.",
+        "The function cannot `return` from inside a loop."
+      ],
+      "answer": "c",
+      "explanation": "Use `for...of` or a numeric `for`. `for...in` is for object keys.",
+      "reference": {
+        "section": "Find the bug",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "What does `break` do?",
+      "type": "multiple",
+      "options": [
+        "Skips the rest of this iteration and tests again.",
+        "Immediately leaves the innermost loop.",
+        "Leaves the function, like `return`.",
+        "Pauses until the next event."
+      ],
+      "answer": "b",
+      "explanation": "`continue` skips the rest of the iteration. `break` exits the loop. `return` exits the function.",
+      "reference": {
+        "section": "Breaking Out of a Loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 65,
+        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+      }
+    },
+    {
+      "question": "What does this print?\n\n```js\nfor (let current = 20; ; current = current + 1) {\n  if (current % 7 == 0) {\n    console.log(current);\n    break;\n  }\n}\n```",
+      "type": "multiple",
+      "options": [
+        "`20`",
+        "`21`",
+        "It never prints; there is no loop test.",
+        "`0` because `20 % 7` is leftover."
+      ],
+      "answer": "b",
+      "explanation": "20 is not divisible by 7. 21 is. The empty test would run forever without `break`.",
+      "reference": {
+        "section": "Breaking Out of a Loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 65,
+        "excerpt": "Having the looping condition produce false is not the only way a loop can finish."
+      }
+    },
+    {
+      "question": "`rows.forEach((row) => { if (row.id === id) break; })` — what happens?",
+      "type": "multiple",
+      "options": [
+        "It stops at the matching row, same as `for...of`.",
+        "`break` is a `SyntaxError` here; `forEach` is not a loop you can break.",
+        "It `continue`s automatically.",
+        "It throws if `id` is missing."
+      ],
+      "answer": "b",
+      "explanation": "`break` only works in `for`/`while`/`switch`. Use `for...of` or `Array.prototype.find`.",
+      "reference": {
+        "section": "Walking arrays",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "In C++, `v.at(i)` throws if `i` is out of range. In JavaScript, `rows[rows.length]` is:",
+      "type": "multiple",
+      "options": [
+        "A `RangeError`",
+        "`undefined`",
+        "The last element",
+        "`null`"
+      ],
+      "answer": "b",
+      "explanation": "Missing indexes are `undefined`. A loop test `i <= rows.length` reads one extra hole.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "Which are true of `for (let i = 0; i < rows.length; i++)`?",
+      "type": "multi",
+      "options": [
+        "`i` is block-scoped to the loop.",
+        "`rows.length` is re-read each test, so a `push` inside can extend the loop.",
+        "`i` is a string key like `for...in`.",
+        "You cannot `break` from it."
+      ],
+      "answer": ["a", "b"],
+      "explanation": "`let` is per-iteration/block. Length is live. It is a numeric index loop, and `break` works.",
+      "reference": {
+        "section": "for loops",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "First a “counter” binding is created to track the progress of the loop."
+      }
+    },
+    {
+      "question": "What does this yield?\n\n```js\nconst out = [];\nfor (let i = 0; i < 3; i++) out.push(i);\nout;\n```",
+      "type": "multiple",
+      "options": [
+        "`[0, 1, 2]`",
+        "`[1, 2, 3]`",
+        "`[0, 1, 2, 3]`",
+        "`[]`"
+      ],
+      "answer": "a",
+      "explanation": "`i < 3` with `i` starting at 0 is three iterations: 0, 1, 2.",
+      "reference": {
+        "section": "Predict the output",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "`continue` in a `for` loop:",
+      "type": "multiple",
+      "options": [
+        "Exits the function.",
+        "Runs `update` (the `i++`) and tests again, skipping the rest of the body.",
+        "Is the same as `break`.",
+        "Removes the current array element."
+      ],
+      "answer": "b",
+      "explanation": "`continue` does not skip the `for` update. The counter still moves.",
+      "reference": {
+        "section": "Breaking Out of a Loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 65,
+        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+      }
+    },
+    {
+      "question": "Why is `while (true) { ... }` dangerous without `break`?",
+      "type": "multiple",
+      "options": [
+        "JavaScript forbids `true` in a test.",
+        "The loop never ends on its own.",
+        "It only runs once.",
+        "It skips the first element."
+      ],
+      "answer": "b",
+      "explanation": "Same as a `for` with an empty test. You must `break` or `return`.",
+      "reference": {
+        "section": "Breaking Out of a Loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 65,
+        "excerpt": "This means that the loop will never stop unless the break statement inside is executed."
+      }
+    },
+    {
+      "question": "`for (const row of rows)` when `rows` is empty:",
+      "type": "multiple",
+      "options": [
+        "Throws",
+        "Runs the body once with `row === undefined`",
+        "Does not run the body",
+        "Runs with `row === null`"
+      ],
+      "answer": "c",
+      "explanation": "Zero elements, zero iterations. Seed counters at 0 before the loop.",
+      "reference": {
+        "section": "Walking arrays",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "Which loop test is the usual off-by-one trap on an array?",
+      "type": "multiple",
+      "options": [
+        "`i < rows.length`",
+        "`i <= rows.length`",
+        "`i < rows.length - 0`",
+        "`for (const row of rows)`"
+      ],
+      "answer": "b",
+      "explanation": "`i <= rows.length` reads `rows[length]`, which is `undefined`.",
+      "reference": {
+        "section": "Common mistakes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "A C++ range-for copies or refs each element. `for (const row of rows)` in JS:",
+      "type": "multiple",
+      "options": [
+        "Always copies the object, so mutating `row` cannot change `rows`.",
+        "Binds `row` to each element value; objects are still references.",
+        "Yields indexes, not elements.",
+        "Freezes each row."
+      ],
+      "answer": "b",
+      "explanation": "Primitives are copied by value. Object elements are still the same objects.",
+      "reference": {
+        "section": "From C++",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "Write `sumTo(n)`: add 1 through `n` with a `for` loop. If `n < 1`, return `0`.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function sumTo(n) {\n  // return a number\n}\n",
+      "tests": [
+        { "label": "1..4", "args": [4], "expected": 10 },
+        { "label": "n < 1", "args": [0], "expected": 0 }
+      ],
+      "hints": [
+        "Start sum at 0.",
+        "for (let i = 1; i <= n; i++) sum += i;"
+      ],
+      "solution": "function sumTo(n) {\n  let sum = 0;\n  for (let i = 1; i <= n; i++) sum += i;\n  return sum;\n}\n",
+      "explanation": "A counting `for` is the right shape. Do not use `n * (n + 1) / 2` unless you also handle `n < 1`.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    },
+    {
+      "question": "Write `firstEven(nums)`: the first even number, or `undefined` if none.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function firstEven(nums) {\n  // return a number or undefined\n}\n",
+      "tests": [
+        { "label": "finds 4", "args": [[1, 4, 6]], "expected": 4 },
+        { "label": "none", "call": "firstEven([1, 3])", "assert": "actual === undefined" }
+      ],
+      "hints": [
+        "for...of, then if (n % 2 === 0) return n.",
+        "Fall off the end with return undefined (or nothing)."
+      ],
+      "solution": "function firstEven(nums) {\n  for (const n of nums) {\n    if (n % 2 === 0) return n;\n  }\n  return undefined;\n}\n",
+      "explanation": "Stop at the first hit. Do not return `-1`.",
+      "reference": {
+        "section": "Worked examples",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 65,
+        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+      }
+    },
+    {
+      "question": "Write `countPaid(rows)`: how many objects have `status === \"paid\"`. Empty list is `0`.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function countPaid(rows) {\n  // return a number\n}\n",
+      "tests": [
+        {
+          "label": "one paid",
+          "args": [[{ "status": "paid" }, { "status": "pending" }]],
+          "expected": 1
+        },
+        { "label": "empty", "args": [[]], "expected": 0 }
+      ],
+      "hints": [
+        "let n = 0; for (const row of rows) if (row.status === \"paid\") n += 1;"
+      ],
+      "solution": "function countPaid(rows) {\n  let n = 0;\n  for (const row of rows) {\n    if (row.status === \"paid\") n += 1;\n  }\n  return n;\n}\n",
+      "explanation": "A running count. Seed at 0 so the empty list is 0.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 63,
+        "excerpt": "Many loops follow the pattern shown in the while examples."
+      }
+    }
+  ]
 }

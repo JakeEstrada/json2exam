@@ -92,7 +92,7 @@
       }
     },
     {
-      "question": "let p = { amount: 10 }; const q = p; q.amount = 3; What is p.amount?",
+      "question": "What is `p.amount` after this runs?\n\n```js\nlet p = { amount: 10 };\nconst q = p;\nq.amount = 3;\n```",
       "type": "multiple",
       "options": [
         "10, because const q copied the object into a new binding.",
@@ -203,7 +203,7 @@
       }
     },
     {
-      "question": "Find the bug: function total(rows) { let sum = 0; for (const row of rows) sum += row.amount; } on [{amount:\"10\"},{amount:\"4\"}].",
+      "question": "Find the bug. What goes wrong for `[{amount:\"10\"},{amount:\"4\"}]`?\n\n```js\nfunction total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}\n```",
       "type": "multiple",
       "options": [
         "The loop cannot iterate objects; it only works on numbers.",
@@ -335,16 +335,25 @@
       "starter": "function asBooleanFlag(value) {\n  // return true or false\n}\n",
       "tests": [
         {
-          "input": "true",
-          "output": "true"
+          "label": "boolean true",
+          "args": [
+            true
+          ],
+          "expected": true
         },
         {
-          "input": "\"1\"",
-          "output": "true"
+          "label": "string 1",
+          "args": [
+            "1"
+          ],
+          "expected": true
         },
         {
-          "input": "\" no \"",
-          "output": "false"
+          "label": "no",
+          "args": [
+            " no "
+          ],
+          "expected": false
         }
       ],
       "hints": [
@@ -367,12 +376,42 @@
       "starter": "function normalizePayments(rows) {\n  // return a new array of { id, amount }\n}\n",
       "tests": [
         {
-          "input": "[{id:1,amount:\"10\"},{id:2,amount:\"\"}]",
-          "output": "[{id:1,amount:10}]"
+          "label": "coerce and drop empty",
+          "args": [
+            [
+              {
+                "id": 1,
+                "amount": "10"
+              },
+              {
+                "id": 2,
+                "amount": ""
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "id": 1,
+              "amount": 10
+            }
+          ]
         },
         {
-          "input": "[{id:3,amount:0}]",
-          "output": "[{id:3,amount:0}]"
+          "label": "keep zero",
+          "args": [
+            [
+              {
+                "id": 3,
+                "amount": 0
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "id": 3,
+              "amount": 0
+            }
+          ]
         }
       ],
       "hints": [
@@ -395,12 +434,21 @@
       "starter": "function describeCustomer(c) {\n  // return a string\n}\n",
       "tests": [
         {
-          "input": "{name:\"Ada\",id:12}",
-          "output": "\"Ada (#12)\""
+          "label": "named",
+          "args": [
+            {
+              "name": "Ada",
+              "id": 12
+            }
+          ],
+          "expected": "Ada (#12)"
         },
         {
-          "input": "{}",
-          "output": "\"customer (#?)\""
+          "label": "missing fields",
+          "args": [
+            {}
+          ],
+          "expected": "customer (#?)"
         }
       ],
       "hints": [
@@ -415,6 +463,48 @@
         "page": 50,
         "excerpt": "After a binding has been defined, its name can be used as an expression."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 1 — Values, Types, and Operators",
+      "page": 31,
+      "pageEnd": 49,
+      "sections": [
+        {
+          "heading": "Values and primitive types",
+          "page": 31
+        },
+        {
+          "heading": "Bindings: let, const, and var",
+          "page": 50
+        }
+      ]
+    },
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 2 — Bindings",
+      "page": 50,
+      "pageEnd": 55,
+      "sections": [
+        {
+          "heading": "Bindings: let, const, and var",
+          "page": 50
+        }
+      ]
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "chapter": "Chapter 3 — Types, Values, and Variables",
+      "page": 41,
+      "pageEnd": 78,
+      "sections": [
+        {
+          "heading": "Values and primitive types",
+          "page": 65
+        }
+      ]
     }
   ]
 }

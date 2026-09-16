@@ -41,7 +41,7 @@ test('buildAskPrompt hides a code solution until review', () => {
     explanation: 'Add the amounts.',
   };
   const before = buildAskPrompt({ message: 'how do I start?', phase: 'answer', card });
-  assert.match(before, /self-assessed/);
+  assert.match(before, /code practice/);
   assert.match(before, /Do not reveal the worked solution/);
   assert.doesNotMatch(before, /Add the amounts/);
 

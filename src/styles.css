@@ -219,7 +219,7 @@
     overflow: hidden;
     background: #0b0b0b;
   }
-  .quiz-study-open { gap: 14px; }
+  .quiz-study-open { gap: 14px; margin: 0 0 12px; }
 
   button { font: inherit; color: inherit; cursor: pointer; }
 
@@ -1278,6 +1278,71 @@
     );
   }
   .q-text.is-reading { color: var(--accent); }
+  .q-text.is-md {
+    background-image: none;
+    line-height: 1.45;
+  }
+  .q-text.is-md .md-preview {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  .q-text.is-md .md-preview p {
+    margin: 0 0 10px;
+  }
+  .q-text.is-md .md-preview p:last-child {
+    margin-bottom: 0;
+  }
+  .q-text.is-md .md-preview pre {
+    margin: 10px 0;
+    padding: 10px 12px;
+    background: var(--study-paper);
+    color: var(--study-ink);
+    border: 1px solid var(--rule);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .md-preview code,
+  .opt .txt code,
+  .why code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86em;
+    padding: 0.08em 0.35em;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--study-ink, #111) 8%, transparent);
+  }
+  .md-preview pre code {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+  }
+  .md-preview.is-compact {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .md-preview.is-compact p:last-child {
+    margin-bottom: 0;
+  }
+  .q-source-chapter {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--paper-strong);
+  }
+  .pdf-chapter-label {
+    margin: 0 0 10px;
+    padding: 0 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
   .q-tools {
     flex: none;
     display: flex;
@@ -1441,6 +1506,32 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+  }
+  .code-results {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .code-results li {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+  .code-results .is-pass {
+    border-color: var(--right);
+    background: var(--right-soft);
+  }
+  .code-results .is-fail {
+    border-color: var(--wrong);
+    background: var(--wrong-soft);
+  }
+  .code-test-error,
+  .code-test-io {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--ink-soft);
   }
 
   .verdict {

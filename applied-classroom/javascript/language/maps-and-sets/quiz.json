@@ -38,7 +38,7 @@
       }
     },
     {
-      "question": "new Map(); m.set(\"toString\", 1); m.has(\"toString\") vs \"toString\" in {}:",
+      "question": "Compare `m.has(\"toString\")` with `\"toString\" in {}`:\n\n```js\nconst m = new Map();\nm.set(\"toString\", 1);\n```",
       "type": "multiple",
       "options": [
         "false and true — Map still has the prototype trap.",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "question": "Find the bug: const out = {}; if (!out[k]) out[k] = 0; out[k] += 1; when k is \"toString\".",
+      "question": "Find the bug when `k` is `\"toString\"`:\n\n```js\nconst out = {};\nif (!out[k]) out[k] = 0;\nout[k] += 1;\n```",
       "type": "multiple",
       "options": [
         "toString cannot be a string key.",
@@ -282,8 +282,20 @@
       "starter": "function unique(ids) {\n}\n",
       "tests": [
         {
-          "input": "[3,1,3,2]",
-          "output": "[3,1,2]"
+          "label": "first-seen order",
+          "args": [
+            [
+              3,
+              1,
+              3,
+              2
+            ]
+          ],
+          "expected": [
+            3,
+            1,
+            2
+          ]
         }
       ],
       "hints": [
@@ -305,8 +317,13 @@
       "starter": "function groupAppointments(appts) {\n}\n",
       "tests": [
         {
-          "input": "two rows, same providerId",
-          "output": "Map size 1, array length 2"
+          "label": "one provider, two rows",
+          "setup": "const m = groupAppointments([{providerId:1,when:\"a\"},{providerId:1,when:\"b\"}]);",
+          "call": "[m.size, m.get(1).length]",
+          "expected": [
+            1,
+            2
+          ]
         }
       ],
       "hints": [
@@ -329,12 +346,18 @@
       "starter": "function chooseCollection(need) {\n}\n",
       "tests": [
         {
-          "input": "\"dict\"",
-          "output": "\"map\""
+          "label": "dict",
+          "args": [
+            "dict"
+          ],
+          "expected": "map"
         },
         {
-          "input": "\"unique\"",
-          "output": "\"set\""
+          "label": "unique",
+          "args": [
+            "unique"
+          ],
+          "expected": "set"
         }
       ],
       "hints": [
@@ -348,6 +371,24 @@
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "chapter": "Chapter 6 — Maps",
+      "page": 173,
+      "pageEnd": 185,
+      "sections": [
+        {
+          "heading": "Map",
+          "page": 173
+        },
+        {
+          "heading": "Choosing a collection",
+          "page": 173
+        }
+      ]
     }
   ]
 }

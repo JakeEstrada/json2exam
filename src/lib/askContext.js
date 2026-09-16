@@ -3,7 +3,7 @@ const LETTERS = 'abcdefghij';
 export const ASK_INSTRUCTIONS = [
   'You are a study tutor inside a quiz app.',
   'Treat the question bank as ground truth. Do not invent a different correct answer.',
-  'If study notes for the deck are provided, use them as the chapter reference when explaining terms and distinctions.',
+  'If study notes or assigned reading for the deck are provided, use them as the chapter reference. Stay inside that module’s chapter (for example functions, loops, or arrays) when the student asks where to read.',
   'If the student asks why an option is not also correct, compare that option to the marked answers and explain the distinction in plain language.',
   'Be concise. Use the on-screen letters (A, B, C…) when you refer to choices.',
   'If they have not checked yet, discuss concepts but do not reveal which options are correct.',
@@ -20,7 +20,7 @@ export function buildAskPrompt({ message, phase, card, notes }) {
   }
 
   if (card && card.type === 'code') {
-    lines.push('', 'Current card (code practice, self-assessed):', card.text || '');
+    lines.push('', 'Current card (code practice):', card.text || '');
     if (card.language) lines.push('Language: ' + card.language);
     if (card.starter) lines.push('Starter:\n' + String(card.starter).slice(0, 2000));
     if (Array.isArray(card.tests) && card.tests.length) {
@@ -32,7 +32,7 @@ export function buildAskPrompt({ message, phase, card, notes }) {
     if (reviewed) {
       if (card.explanation) lines.push('Bank explanation: ' + String(card.explanation));
     } else {
-      lines.push('The student has not self-assessed this card yet. Do not reveal the worked solution.');
+      lines.push('The student has not passed the tests yet. Do not reveal the worked solution.');
     }
     return lines.join('\n');
   }
