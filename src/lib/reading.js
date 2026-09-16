@@ -1,4 +1,5 @@
 import { bookKey, findBook } from './books.js';
+import { lookupCheatsheet } from './cheatsheet.js';
 
 function headingId(text) {
   return String(text || '')
@@ -128,6 +129,15 @@ export function formatAskNotes(quiz) {
   if (notes) {
     lines.push('Study notes for this deck:');
     lines.push(notes);
+  }
+  const sheet = quiz && quiz.cheatsheet;
+  const topic = quiz && quiz.sheet && quiz.sheet[0];
+  if (sheet && topic) {
+    const hit = lookupCheatsheet(sheet, topic);
+    if (hit && hit.markdown) {
+      lines.push('', 'Cheat sheet section ' + hit.title + ':');
+      lines.push(hit.markdown.slice(0, 4000));
+    }
   }
   return lines.join('\n');
 }

@@ -129,6 +129,9 @@ function DeckCard({ deck, onStart, onPreview }) {
           lectureAudioFile: deck.lectureAudioFile,
           lectureVideo: deck.lectureVideo,
           lectureVideoFile: deck.lectureVideoFile,
+          cheatsheet: deck.cheatsheet,
+          sheet: deck.sheet,
+          jsIntro: deck.jsIntro,
         })}
       >
         Start this deck

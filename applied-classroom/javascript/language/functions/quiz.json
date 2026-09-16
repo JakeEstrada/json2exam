@@ -2,6 +2,25 @@
   "title": "JavaScript — Functions, scope, and closures",
   "questions": [
     {
+      "question": "How do you write a function that adds two numbers?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "def add(a, b): return a + b",
+        "function add(a, b) { return a + b; }",
+        "int add(int a, int b) { return a + b; }",
+        "#define add(a, b) ((a)+(b))"
+      ],
+      "answer": "b",
+      "explanation": "function keyword, braces, return. No types on the parameters. No def, no #define.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 75,
+        "excerpt": "A function definition is a regular binding where the value of the binding is a function."
+      }
+    },
+    {
       "question": "What is a function in JavaScript?",
       "type": "multiple",
       "options": [
@@ -17,7 +36,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
-      }
+      },
+      "level": 1
     },
     {
       "question": "A function body has no return. What does a call yield?",
@@ -35,7 +55,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "Functions have a set of parameters (in this case, only x) and a body, which contains the statements that are to be executed when the function is called."
-      }
+      },
+      "level": 1
     },
     {
       "question": "What is `f()`, `f()`, `make()()` after this runs?\n\n```js\nfunction make() {\n  let n = 0;\n  return () => { n += 1; return n; };\n}\nconst f = make();\n```",
@@ -53,7 +74,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "The ability to treat functions as values, combined with the fact that local bindings are re-created every time a function is called, brings up an interesting question."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Find the bug. What does `fns[0]()` return?\n\n```js\nconst fns = [];\nfor (var i = 0; i < 3; i++) {\n  fns.push(function () { return i; });\n}\n```",
@@ -71,7 +93,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 19,
         "excerpt": "Working with variables is one of the most foundational things we do in programming!"
-      }
+      },
+      "level": 3
     },
     {
       "question": "Lexical scope means which of these?",
@@ -89,7 +112,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 19,
         "excerpt": "how does JS know which variables are accessible by any given statement, and how does it handle two variables of the same name?"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Why can you return an inner function that uses a local let without a dangling pointer?",
@@ -107,7 +131,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
-      }
+      },
+      "level": 2
     },
     {
       "question": "makeStatusMachine should hide status. Which design does that?",
@@ -125,7 +150,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "This is allowed and works as you’d hope"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which are true of parameters?",
@@ -146,7 +172,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "A function is created with an expression that starts with the keyword function."
-      }
+      },
+      "level": 2
     },
     {
       "question": "function declarations vs const fn = function () {} hoist how?",
@@ -164,7 +191,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 74,
         "excerpt": "Functions are one of the most central tools in JavaScript programming."
-      }
+      },
+      "level": 2
     },
     {
       "question": "A closure keeps a live link. If the inner function reads a let that is later assigned, what happens?",
@@ -182,7 +210,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
-      }
+      },
+      "level": 2
     },
     {
       "question": "applyDiscount(0.1)(100) should be 90. Which shape is that?",
@@ -200,7 +229,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "With a slight change, we can turn the previous example into a way to create functions that multiply by an arbitrary amount."
-      }
+      },
+      "level": 2
     },
     {
       "question": "var vs let inside an if block inside a function: which leaks to the whole function?",
@@ -218,7 +248,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 19,
         "excerpt": "The answers to questions like these take the form of welldefined rules called scope."
-      }
+      },
+      "level": 2
     },
     {
       "question": "makeIdFactory(\"inv\")() then again should yield inv-1 then inv-2. Where does the counter live?",
@@ -236,7 +267,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "The explicit local binding from the wrapValue example isn’t really needed since a parameter is itself a local binding."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which call is a closure in the observable sense?",
@@ -254,7 +286,8 @@
         "book": "You Don't Know JS Yet by Kyle Simpson",
         "page": 149,
         "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
-      }
+      },
+      "level": 2
     },
     {
       "question": "set on a status machine should ignore undefined. Why?",
@@ -272,7 +305,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 75,
         "excerpt": "A function definition is a regular binding where the value of the binding is a function."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write applyDiscount(rate) returning a function that multiplies amount by (1 - rate).",
@@ -296,7 +330,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "function multiplier(factor) {"
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write makeStatusMachine(initial) with get() and set(next). Ignore set(undefined).",
@@ -328,7 +363,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "A function that references bindings from local scopes around it is called a closure."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write makeIdFactory(prefix) so successive calls return prefix-1, prefix-2, …",
@@ -357,7 +393,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 86,
         "excerpt": "This is allowed and works as you’d hope"
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -393,5 +430,6 @@
         }
       ]
     }
-  ]
+  ],
+  "sheet": "FUNCTIONS"
 }

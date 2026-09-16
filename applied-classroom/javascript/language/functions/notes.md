@@ -1,5 +1,15 @@
 # Functions, scope, and closures
 
+Read this first. The quiz starts with how you write a function, then scope, then closures.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+
+No `def`, no types on the parameters, no `#define`. A function is a value: you can pass it and return it. Look up **FUNCTIONS** in the cheat sheet.
+
 ## What you should be able to do
 
 - Declare functions as expressions, declarations, and arrows.

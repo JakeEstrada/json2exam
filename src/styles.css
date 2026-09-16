@@ -219,7 +219,44 @@
     overflow: hidden;
     background: #0b0b0b;
   }
-  .quiz-study-open { gap: 14px; margin: 0 0 12px; }
+  .lesson-lead {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .lesson-page {
+    max-width: 72ch;
+  }
+  .lesson-notes {
+    margin: 0 0 28px;
+    background: var(--paper);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius);
+  }
+  .lesson-notes .md-preview {
+    padding: 22px 24px 28px;
+  }
+  .cheatsheet-box {
+    margin: 0 0 24px;
+  }
+  .cheatsheet-box h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+  .cheatsheet-search {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 14px;
+  }
+  .cheatsheet-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--ink);
+  }
 
   button { font: inherit; color: inherit; cursor: pointer; }
 

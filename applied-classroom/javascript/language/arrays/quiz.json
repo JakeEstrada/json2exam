@@ -17,7 +17,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass the test."
-      }
+      },
+      "level": 1
     },
     {
       "question": "What is `src.length` after this runs?\n\n```js\nconst src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);\n```",
@@ -35,7 +36,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "This function is pure. It does not modify the array it is given."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Find the bug:\n\n```js\nreturn rows.map(row => {\n  if (row.status === \"paid\") return row;\n});\n```",
@@ -53,7 +55,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "The function uses the argument named test, a function value, to fill a “gap” in the computation"
-      }
+      },
+      "level": 3
     },
     {
       "question": "if (arr.indexOf(x)) when x is at index 0 — what happens?",
@@ -71,7 +74,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "To search for a specific value, arrays provide an indexOf method."
-      }
+      },
+      "level": 1
     },
     {
       "question": "slice(2, 4) on [0,1,2,3,4] yields what?",
@@ -89,7 +93,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "The start index is inclusive and the end index is exclusive."
-      }
+      },
+      "level": 2
     },
     {
       "question": "reduce on [] without an initial value:",
@@ -107,7 +112,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "From now on, we’ll use it like this instead"
-      }
+      },
+      "level": 2
     },
     {
       "question": "typeof [] is \"object\". How do you test for an array?",
@@ -125,7 +131,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "Numbers, Booleans, and strings are the atoms from which data structures are built."
-      }
+      },
+      "level": 2
     },
     {
       "question": "push vs concat when you must not mutate the caller’s payments array?",
@@ -143,7 +150,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "We saw push and pop, which add and remove elements at the end of an array, earlier in this chapter."
-      }
+      },
+      "level": 2
     },
     {
       "question": "arr[-1] in JavaScript is:",
@@ -161,7 +169,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
-      }
+      },
+      "level": 2
     },
     {
       "question": "paidTotals should ignore pending rows. Which pipeline matches the notes?",
@@ -179,7 +188,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array"
-      }
+      },
+      "level": 2
     },
     {
       "question": "A C++ vector at() throws on overflow. arr[99] on a short JS array is:",
@@ -197,7 +207,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "The programs we have built so far have been limited by the fact that they were operating only on simple data types."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which methods return a new array without deleting from the source?",
@@ -219,7 +230,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "This function is pure. It does not modify the array it is given."
-      }
+      },
+      "level": 2
     },
     {
       "question": "groupCount(rows, \"paid\") with reduce should start the accumulator at:",
@@ -237,7 +249,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Shallow copy with slice() copies nested objects how?",
@@ -255,7 +268,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "Another fundamental array method is slice, which takes start and end indices and returns an array that has only the elements between them."
-      }
+      },
+      "level": 2
     },
     {
       "question": "last([]) should return:",
@@ -273,7 +287,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "To search for a specific value, arrays provide an indexOf method."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write last(arr): last element, or undefined if empty.",
@@ -308,7 +323,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 121,
         "excerpt": "To search for a specific value, arrays provide an indexOf method."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write paidTotals(payments): sum amount where status is \"paid\". Empty list is 0.",
@@ -350,7 +366,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array"
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write groupCount(rows, status) with reduce: how many rows have that status.",
@@ -387,7 +404,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 146,
         "excerpt": "The map method transforms an array by applying a function to all of its elements"
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -407,5 +425,6 @@
         }
       ]
     }
-  ]
+  ],
+  "sheet": "ARRAY"
 }

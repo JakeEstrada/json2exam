@@ -22,6 +22,7 @@ function paneTitle(mode, quiz) {
   if (mode === 'lecture') return quiz && quiz.lectureVideo ? 'Video' : 'Lecture';
   if (mode === 'slides') return 'Slides';
   if (mode === 'book') return 'Book';
+  if (mode === 'sheet') return 'Cheat sheet';
   return 'Notes';
 }
 

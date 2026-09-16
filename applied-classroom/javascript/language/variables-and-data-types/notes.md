@@ -1,5 +1,23 @@
 # Variables, primitive types, and type conversion
 
+Read this page first. The quiz starts with “what JavaScript even is,” then `let` / `const`, then the sharp edges (`typeof null`, `"5" + 1`).
+
+## What JavaScript is
+
+It is a **scripting language**. The engine reads a `.js` file and runs it. No compile/link step, no `#include`, no `#define`. Built-ins (`Array`, `Math`, `console`) are already there.
+
+To use *your* other file:
+
+```js
+import { add } from "./math.js";
+```
+
+That is a module import, not a C preprocessor.
+
+The **syntax is C-like**: braces, `for (let i = 0; i < n; i++)`. It is not Python. Indentation is not syntax. You do not write types on variables (`int x`); types live on values. `let x = 1` then `x = "hi"` is legal. TypeScript is a separate cheat sheet (`tsts`) that adds types and then erases them.
+
+Look up **VARIABLES AND TYPES** in the cheat sheet (`jsjs VARIABLES`).
+
 ## What you should be able to do
 
 - Choose `let` or `const` and explain why `var` is the wrong default.

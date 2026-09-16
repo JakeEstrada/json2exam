@@ -154,6 +154,13 @@ function normalizeTests(raw) {
   }).filter(Boolean);
 }
 
+function readLevel(raw, type) {
+  const n = Number(firstDefined(raw.level, raw.stage, raw.tier, 0));
+  if (n >= 1 && n <= 3 && isFinite(n)) return Math.trunc(n);
+  if (type === 'code') return 3;
+  return 1;
+}
+
 function normalizeCodeQuestion(raw, i, text) {
   const language = String(firstDefined(raw.language, raw.lang, 'javascript')).trim() || 'javascript';
   const starter = String(firstDefined(raw.starter, raw.starterCode, raw.template, ''));
@@ -175,6 +182,8 @@ function normalizeCodeQuestion(raw, i, text) {
       answers: [],
       explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
       reference: readReference(raw),
+      level: readLevel(raw, 'code'),
+      index: i,
     },
   };
 }
@@ -239,6 +248,8 @@ export function normalizeQuestion(raw, i) {
       answers: indices,
       explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
       reference: readReference(raw),
+      level: readLevel(raw, type),
+      index: i,
     },
   };
 }
@@ -274,6 +285,7 @@ export function normalizeQuiz(data, fallbackTitle) {
   let title = fallbackTitle || 'Untitled deck';
   let brain = null;
   let reading = [];
+  let sheet = [];
 
   if (Array.isArray(data)) {
     list = data;
@@ -284,6 +296,8 @@ export function normalizeQuiz(data, fallbackTitle) {
     const tagged = firstDefined(data.brain, data.brainId, data.assistant);
     if (tagged) brain = String(tagged);
     reading = normalizeReading(firstDefined(data.reading, data.chapters, data.sources, []));
+    const sheetRaw = firstDefined(data.sheet, data.cheatsheet, []);
+    sheet = Array.isArray(sheetRaw) ? sheetRaw.map((s) => String(s || '').trim()).filter(Boolean) : (String(sheetRaw || '').trim() ? [String(sheetRaw).trim()] : []);
   }
 
   if (!Array.isArray(list)) {
@@ -302,7 +316,7 @@ export function normalizeQuiz(data, fallbackTitle) {
   if (!questions.length) {
     throw new Error('None of the ' + list.length + ' questions could be read. ' + skipped[0]);
   }
-  return { title, questions, skipped, brain, reading };
+  return { title, questions, skipped, brain, reading, sheet };
 }
 
 // JSON.parse errors are terse; point at the line instead of the byte offset.

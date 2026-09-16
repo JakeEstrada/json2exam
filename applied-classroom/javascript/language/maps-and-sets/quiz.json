@@ -17,7 +17,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Here, the object’s property names are the people’s names and the property values are their ages. But we certainly didn’t list anybody named toString in our map."
-      }
+      },
+      "level": 1
     },
     {
       "question": "When should you pick Map instead of a plain object?",
@@ -35,7 +36,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Compare `m.has(\"toString\")` with `\"toString\" in {}`:\n\n```js\nconst m = new Map();\nm.set(\"toString\", 1);\n```",
@@ -53,7 +55,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Yet because plain objects derive from Object.prototype, it looks like the property is there."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Find the bug when `k` is `\"toString\"`:\n\n```js\nconst out = {};\nif (!out[k]) out[k] = 0;\nout[k] += 1;\n```",
@@ -71,7 +74,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "For this reason, using plain objects as maps is dangerous."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Set is the right tool when you need:",
@@ -89,7 +93,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
-      }
+      },
+      "level": 2
     },
     {
       "question": "unique([3,1,3,2]) preserving first-seen order is best as:",
@@ -107,7 +112,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "It stores a mapping and allows any type of keys."
-      }
+      },
+      "level": 2
     },
     {
       "question": "m[key] = value on a Map instance (not m.set):",
@@ -125,7 +131,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
-      }
+      },
+      "level": 2
     },
     {
       "question": "array.map and Map — what is the mix-up?",
@@ -143,7 +150,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "We saw the word map used in the previous chapter for an operation that transforms a data structure by applying a function to its elements."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Object keys vs Map keys:",
@@ -161,7 +169,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Object property names must be strings. If you need a map whose keys can’t easily be converted to strings—such as objects—you cannot use an object as your map."
-      }
+      },
+      "level": 2
     },
     {
       "question": "groupAppointments should use Map from providerId to arrays. Why not a plain object?",
@@ -179,7 +188,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
-      }
+      },
+      "level": 2
     },
     {
       "question": "std::unordered_map in C++ is closest to:",
@@ -197,7 +207,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which need maps to which collection?",
@@ -215,7 +226,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "It is possible to use objects for this."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Object.create(null) as a dictionary:",
@@ -233,7 +245,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "If you pass null to Object.create, the resulting object will not derive from Object.prototype and can be safely used as a map."
-      }
+      },
+      "level": 2
     },
     {
       "question": "seen.add(3); seen.add(3); seen.size is:",
@@ -251,7 +264,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "It stores a mapping and allows any type of keys."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which are good Map operations for grouping?",
@@ -273,7 +287,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "let ages = new Map();"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write unique(ids): unique values in first-seen order.",
@@ -308,7 +323,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write groupAppointments(appts): Map from providerId to an array of appointments.",
@@ -337,7 +353,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write chooseCollection(need): \"list\"→array, \"record\"→object, \"dict\"→map, \"unique\"→set, else array.",
@@ -370,7 +387,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 173,
         "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -390,5 +408,6 @@
         }
       ]
     }
-  ]
+  ],
+  "sheet": "MAP"
 }

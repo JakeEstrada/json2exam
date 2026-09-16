@@ -7,7 +7,7 @@ import { findBrain } from './lib/ask.js';
 import Masthead from './components/Masthead.jsx';
 import Loader from './components/Loader.jsx';
 import Course from './components/Course.jsx';
-import QuizNotes from './components/QuizNotes.jsx';
+import Lesson, { CheatsheetLookup } from './components/Lesson.jsx';
 import BoxTrack from './components/BoxTrack.jsx';
 import Settings from './components/Settings.jsx';
 import QuestionCard from './components/QuestionCard.jsx';
@@ -103,7 +103,11 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
       onClose={onClose}
       bookHref={bookHref}
     >
-      {sidePane !== 'ask' && (
+      {sidePane === 'sheet' ? (
+        <div className="quiz-notes-body">
+          <CheatsheetLookup source={quiz.cheatsheet} topic={quiz.sheet && quiz.sheet[0]} />
+        </div>
+      ) : (
         <QuizNotes
           source={quiz.notes}
           bookUrl={pdfUrl}
@@ -154,8 +158,9 @@ export default function App() {
     setSidePane((pane) => (pane === 'ask' ? 'ask' : null));
   }, []);
 
-  function begin(qz, bx, st, cfg, work) {
-    setQuiz(withLectureMedia(qz));
+  function begin(qz, bx, st, cfg, work, opts) {
+    const ready = withLectureMedia(qz);
+    setQuiz(ready);
     setBoxes(bx);
     setStats(st);
     setSettings(cfg);
@@ -164,8 +169,14 @@ export default function App() {
     setStudyFocus(null);
     setSidePane(null);
     lastIdRef.current = null;
+    const hasLesson = !!(ready.jsIntro || (ready.cheatsheet && ready.notes));
+    if (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length) {
+      setCurrent(null);
+      setScreen('lesson');
+      return;
+    }
     setScreen('quiz');
-    deal(qz, bx, cfg);
+    deal(ready, bx, cfg);
   }
 
   function startFresh(qz) {
@@ -203,6 +214,11 @@ export default function App() {
     if (extra && extra.lectureVideo) {
       qz.lectureVideo = extra.lectureVideo;
       qz.lectureVideoFile = extra.lectureVideoFile || 'lecture.mp4';
+    }
+    if (extra && extra.cheatsheet) qz.cheatsheet = extra.cheatsheet;
+    if (extra && extra.jsIntro) qz.jsIntro = true;
+    if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
+      qz.sheet = [].concat(extra.sheet).filter(Boolean);
     }
     startFresh(qz);
   }
@@ -446,6 +462,19 @@ export default function App() {
     );
   }
 
+  if (screen === 'lesson' && quiz) {
+    return (
+      <div className="shell shell-wide">
+        <Masthead onHome={goHome} />
+        <Lesson
+          quiz={quiz}
+          onStart={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
+          onHome={goHome}
+        />
+      </div>
+    );
+  }
+
   const brain = findBrain(quiz, BRAINS);
   const askProps = {
     brain,
@@ -475,6 +504,11 @@ export default function App() {
                 {quiz.notes && (
                   <button type="button" className="text-link" onClick={() => setSidePane('notes')}>
                     Chapter notes
+                  </button>
+                )}
+                {quiz.cheatsheet && (
+                  <button type="button" className="text-link" onClick={() => setSidePane('sheet')}>
+                    Cheat sheet
                   </button>
                 )}
                 {quiz.lecture && (
@@ -528,11 +562,16 @@ export default function App() {
             </div>
           </div>
 
-          {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl || (quiz.books && quiz.books.length) || (quiz.reading && quiz.reading.length)) && (
+          {(quiz.notes || quiz.cheatsheet || quiz.lecture || quiz.slidesUrl || quiz.bookUrl || (quiz.books && quiz.books.length) || (quiz.reading && quiz.reading.length)) && (
             <div className="row quiz-study-open">
               {quiz.notes && (
                 <button type="button" className="text-link" onClick={() => setSidePane('notes')}>
                   Chapter notes
+                </button>
+              )}
+              {quiz.cheatsheet && (
+                <button type="button" className="text-link" onClick={() => setSidePane('sheet')}>
+                  Cheat sheet
                 </button>
               )}
               {(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl || (quiz.books && quiz.books.length) || (quiz.reading && quiz.reading.length)) && (
@@ -547,7 +586,7 @@ export default function App() {
             <Settings
               settings={settings}
               onChange={updateSettings}
-              onReset={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {})}
+              onReset={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
               onClose={() => setShowSettings(false)}
             />
           )}

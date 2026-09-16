@@ -10,8 +10,8 @@ Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file
 
 ## 0. How to use this plan
 
-1. Read the module notes.
-2. Do the assigned reading in the local `sources/` PDF.
+1. Read the lesson page (what JavaScript is, then this topic). Use the cheat sheet lookup the same way as `jsjs`.
+2. Start the quiz. Basics come first; traps and code cards come after.
 3. Work the predict-the-output / find-the-bug drills in the notes.
 4. Start the deck. Mixed multiple-choice and code cards use Leitner boxes. Code cards **run your JavaScript** against the card’s tests.
 5. Open **Show in book** on a card to jump to that module’s chapter (functions → Functions, loops → while/for, and so on).

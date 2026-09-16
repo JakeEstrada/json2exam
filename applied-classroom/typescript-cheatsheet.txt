@@ -1,0 +1,2727 @@
+================================================================================
+TYPESCRIPT-CHEATSHEET.TXT
+================================================================================
+
+    NAME
+        typescript-cheatsheet.txt -- offline TypeScript reference manual
+
+    SYNOPSIS
+        grep -A 40 "^SECTION_NAME" typescript-cheatsheet.txt
+        less typescript-cheatsheet.txt
+        grep -n "SECTION_NAME" typescript-cheatsheet.txt
+
+    DESCRIPTION
+        This file is a single flat plain-text reference manual covering the
+        TypeScript type system: the compiler and tsconfig, basic and
+        advanced types, interfaces, generics, narrowing, conditional and
+        mapped types, utility types, declaration files, and TypeScript as
+        applied to React, Node, and Express.
+
+        It covers ONLY what TypeScript adds. Runtime behavior, standard
+        library methods, algorithms, and everything else about the language
+        live in javascript-cheatsheet.txt. Every example there is valid
+        TypeScript.
+
+        It is written to be grepped, not rendered. Every major topic has a
+        large banner header made of '=' characters. Every subsection inside
+        a topic has a smaller banner made of '-' characters. There is no
+        markdown, no bullets unless natural, and no code fences. Code is
+        always indented four spaces.
+
+        Standard subsection names, greppable across the whole file:
+
+            DESCRIPTION
+            CREATE
+            COMMON METHODS
+            EXAMPLES
+            COMMON MISTAKES
+            INTERVIEW NOTES
+
+    SUGGESTED ALIAS
+        Add something like this to your shell rc file:
+
+            tsts() {
+                if [ -z "$1" ]; then
+                    less ~/typescript-cheatsheet.txt
+                else
+                    grep -n -i --color=always "$*" ~/typescript-cheatsheet.txt | less -R
+                fi
+            }
+
+        Usage:
+
+            tsts GENERICS
+            tsts CREATE
+            tsts UTILITY TYPES
+            tsts NARROWING
+            tsts TSCONFIG
+
+        Since every section header is a unique all-caps banner line, grep -n
+        will point you straight at the line number, and you can jump there
+        directly with:
+
+            less +<line number> ~/typescript-cheatsheet.txt
+
+    TABLE OF CONTENTS
+        MENTAL MODEL
+        TSC CLI
+        TSCONFIG
+        BASIC TYPES
+        ANY UNKNOWN NEVER VOID
+        ARRAYS AND TUPLES
+        OBJECT TYPES
+        INTERFACES
+        TYPE ALIASES
+        INTERFACE VS TYPE
+        UNIONS AND INTERSECTIONS
+        LITERAL TYPES
+        ENUMS
+        NARROWING
+        TYPE GUARDS
+        DISCRIMINATED UNIONS
+        FUNCTIONS
+        CLASSES
+        GENERICS
+        KEYOF TYPEOF INDEXED ACCESS
+        CONDITIONAL TYPES
+        MAPPED TYPES
+        TEMPLATE LITERAL TYPES
+        UTILITY TYPES
+        TYPE ASSERTIONS
+        SATISFIES
+        MODULES AND DECLARATION FILES
+        ASYNC TYPES
+        ERROR HANDLING
+        REACT
+        NODE AND EXPRESS
+        RUNTIME VALIDATION
+        TESTING
+        MIGRATING FROM JAVASCRIPT
+        COMMON COMPILER ERRORS
+        BEST PRACTICES
+
+================================================================================
+MENTAL MODEL
+================================================================================
+
+DESCRIPTION
+
+    Coming from C#, three differences matter more than any syntax detail.
+
+-------------------------------------------------------------------------------
+TYPES ARE ERASED
+-------------------------------------------------------------------------------
+
+    TypeScript compiles to JavaScript by deleting every type. Nothing about
+    the type system exists at runtime. There is no reflection, no typeof
+    for a type, no generic type available inside a generic function.
+
+        function f<T>(x: T) {
+            // there is no way to ask what T is here
+        }
+
+    This is the opposite of C#, where generics are reified and
+    typeof(T) works. Anything you need at runtime must be a runtime value:
+    a string tag, a schema, a constructor reference.
+
+-------------------------------------------------------------------------------
+STRUCTURAL TYPING
+-------------------------------------------------------------------------------
+
+    C# is nominal: a type matches only if it declares it implements the
+    interface. TypeScript is structural: a type matches if its shape fits.
+
+        interface Point { x: number; y: number; }
+
+        const p = { x: 1, y: 2, z: 3 };
+        const q: Point = p;            // fine, it has x and y
+
+    You never write "implements" to satisfy an interface (though the
+    keyword exists on classes as an assertion). Shape is everything.
+
+-------------------------------------------------------------------------------
+THE TYPE SYSTEM IS NOT SOUND
+-------------------------------------------------------------------------------
+
+    TypeScript deliberately allows some unsafe things for pragmatism: any,
+    type assertions, array index access returning T instead of T |
+    undefined by default, and method parameter bivariance.
+
+    It is a productivity tool that catches most mistakes, not a proof
+    system. Turn on strict and noUncheckedIndexedAccess to close the
+    largest gaps.
+
+================================================================================
+TSC CLI
+================================================================================
+
+DESCRIPTION
+
+    tsc is the TypeScript compiler. Use it to typecheck (often with
+    --noEmit) and to emit JS when you are not using a bundler. It does not
+    bundle.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    npm install -D typescript
+    npx tsc --version
+
+-------------------------------------------------------------------------------
+INITIALIZE
+-------------------------------------------------------------------------------
+
+    npx tsc --init
+    npx tsc --init --strict
+
+-------------------------------------------------------------------------------
+COMPILE
+-------------------------------------------------------------------------------
+
+    npx tsc                          // uses tsconfig.json
+    npx tsc --watch                  // recompile on change
+    npx tsc --noEmit                 // type check only, no output
+    npx tsc file.ts                  // single file, ignores tsconfig
+
+-------------------------------------------------------------------------------
+USEFUL FLAGS
+-------------------------------------------------------------------------------
+
+    --noEmit                 check only, for CI and pre-commit
+    --strict                 enable all strict checks
+    --target es2022
+    --module nodenext
+    --outDir dist
+    --declaration            emit .d.ts files
+    --sourceMap
+    --incremental            cache for faster rebuilds
+    --listFiles              which files were included
+    --traceResolution        debug module resolution
+    --showConfig             print the effective config
+
+-------------------------------------------------------------------------------
+RUNNING TYPESCRIPT DIRECTLY
+-------------------------------------------------------------------------------
+
+    node --experimental-strip-types main.ts      // Node 22+
+    npx tsx main.ts                              // tsx, no config needed
+    npx ts-node main.ts                          // older, slower
+
+-------------------------------------------------------------------------------
+TYPICAL PACKAGE.JSON
+-------------------------------------------------------------------------------
+
+    "scripts": {
+        "build":      "tsc",
+        "dev":        "tsx watch src/main.ts",
+        "typecheck":  "tsc --noEmit",
+        "test":       "vitest run"
+    }
+
+-------------------------------------------------------------------------------
+NOTES
+-------------------------------------------------------------------------------
+
+    tsc does not bundle. For applications, a bundler (Vite, esbuild, swc)
+    handles transpilation and tsc --noEmit handles type checking. They are
+    separate jobs and running both is normal.
+
+================================================================================
+TSCONFIG
+================================================================================
+
+DESCRIPTION
+
+    tsconfig.json is the compiler's configuration. strict is the default you
+    want on a new project. module and moduleResolution must agree.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    {
+      "compilerOptions": {
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": ["ES2022"],
+        "outDir": "dist",
+        "rootDir": "src",
+
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "declaration": true,
+        "sourceMap": true
+      },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules", "dist"]
+    }
+
+-------------------------------------------------------------------------------
+WHAT STRICT TURNS ON
+-------------------------------------------------------------------------------
+
+    noImplicitAny                  untyped parameters become an error
+    strictNullChecks               null and undefined are separate types
+    strictFunctionTypes            contravariant parameter checking
+    strictBindCallApply            type-checks bind/call/apply
+    strictPropertyInitialization   class fields must be assigned
+    noImplicitThis                 this must have a known type
+    useUnknownInCatchVariables     catch (e) is unknown, not any
+    alwaysStrict                   emits "use strict"
+
+    strictNullChecks is the single most valuable one. Without it, every
+    type silently includes null and undefined and the compiler catches
+    almost nothing useful.
+
+-------------------------------------------------------------------------------
+OPTIONS WORTH ENABLING BEYOND STRICT
+-------------------------------------------------------------------------------
+
+    noUncheckedIndexedAccess
+        arr[0] becomes T | undefined, and obj[key] likewise. Annoying at
+        first, correct always. This is the biggest remaining soundness gap
+        that strict does not close.
+
+    exactOptionalPropertyTypes
+        { a?: string } no longer accepts { a: undefined }. Distinguishes
+        "absent" from "explicitly undefined".
+
+    noImplicitOverride
+        requires the override keyword when overriding a base method,
+        matching C# behavior and catching renamed-base-method bugs.
+
+-------------------------------------------------------------------------------
+PATH ALIASES
+-------------------------------------------------------------------------------
+
+    "baseUrl": ".",
+    "paths": {
+        "@/*": ["src/*"],
+        "@components/*": ["src/components/*"]
+    }
+
+    import { Button } from "@/components/Button";
+
+    tsc resolves these for type checking but does NOT rewrite them in
+    output. The bundler or runtime must be configured to match (Vite
+    resolve.alias, tsconfig-paths for Node).
+
+-------------------------------------------------------------------------------
+PROJECT REFERENCES
+-------------------------------------------------------------------------------
+
+    For monorepos, split into sub-projects that build independently:
+
+        {
+          "references": [
+            { "path": "./packages/shared" },
+            { "path": "./packages/api" }
+          ]
+        }
+
+        npx tsc --build
+
+    Requires "composite": true in each referenced project.
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Leaving strict off on a new project. It is far harder to turn on later.
+
+    Setting skipLibCheck: false and then fighting errors inside third-party
+    .d.ts files you cannot change. skipLibCheck: true is the sane default.
+
+    Mismatching module and moduleResolution (for example module: ESNext
+    with moduleResolution: Node10), which produces confusing import errors.
+
+    Forgetting that tsconfig include/exclude affects which files are
+    checked, so a file outside include silently gets no checking at all.
+
+================================================================================
+BASIC TYPES
+================================================================================
+
+DESCRIPTION
+
+    The primitive types, inference, const assertions, and the places you
+    actually write annotations. Prefer inference; annotate parameters and
+    public returns.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    let s: string = "hello";
+    let n: number = 42;              // one number type, no int/float/decimal
+    let b: boolean = true;
+    let big: bigint = 10n;
+    let sym: symbol = Symbol("id");
+    let u: undefined = undefined;
+    let nl: null = null;
+
+    Always lowercase. String, Number, Boolean are the wrapper object types
+    and are almost never what you want.
+
+-------------------------------------------------------------------------------
+INFERENCE
+-------------------------------------------------------------------------------
+
+    let x = 42;                  // number
+    const y = 42;                // 42, a literal type
+    let name = "Jake";           // string
+    const arr = [1, 2, 3];       // number[]
+    const obj = { a: 1 };        // { a: number }
+
+    Do not annotate what is already inferred. Annotate function parameters,
+    function return types on public APIs, and empty containers.
+
+        const items = [];            // any[], implicitly
+        const items: string[] = [];  // annotate
+
+-------------------------------------------------------------------------------
+CONST ASSERTIONS
+-------------------------------------------------------------------------------
+
+    const config = { mode: "dark", retries: 3 } as const;
+    // { readonly mode: "dark"; readonly retries: 3 }
+
+    const roles = ["admin", "user"] as const;
+    // readonly ["admin", "user"]
+
+    type Role = typeof roles[number];        // "admin" | "user"
+
+    This is the standard way to derive a union type from a runtime array,
+    keeping one source of truth.
+
+-------------------------------------------------------------------------------
+TYPE ANNOTATION SITES
+-------------------------------------------------------------------------------
+
+    let x: string;
+    function f(a: number, b: string): boolean { }
+    const g = (a: number): string => "";
+    class C { field: string; }
+    interface I { prop: number; }
+    const h = <T,>(x: T): T => x;            // trailing comma needed in .tsx
+
+================================================================================
+ANY UNKNOWN NEVER VOID
+================================================================================
+
+DESCRIPTION
+
+    any disables checking. unknown is the safe top type. never is the empty
+    type. void is 'ignore the return'. These four are how TypeScript talks
+    about absence and escape hatches.
+
+-------------------------------------------------------------------------------
+ANY
+-------------------------------------------------------------------------------
+
+    Disables all checking on that value, and spreads: anything derived from
+    an any is also any. It is an escape hatch, not a type.
+
+        const data: any = JSON.parse(s);
+        data.whatever.at.all;             // no error, may crash
+
+    Use it only to unblock a migration, and leave a TODO.
+
+-------------------------------------------------------------------------------
+UNKNOWN
+-------------------------------------------------------------------------------
+
+    The safe version of any. Anything is assignable TO unknown, but unknown
+    is assignable to nothing without narrowing first.
+
+        const data: unknown = JSON.parse(s);
+        data.name;                        // error
+        if (typeof data === "object" && data !== null && "name" in data) {
+            // now usable
+        }
+
+    Use unknown for: JSON.parse results, catch variables, external API
+    responses, and anything you must validate before trusting.
+
+-------------------------------------------------------------------------------
+NEVER
+-------------------------------------------------------------------------------
+
+    The type with no values. Produced by a function that never returns, by
+    an impossible narrowing, and by an empty union.
+
+        function fail(msg: string): never { throw new Error(msg); }
+
+    Its most useful role is exhaustiveness checking:
+
+        function area(shape: Shape): number {
+            switch (shape.kind) {
+                case "circle": return Math.PI * shape.r ** 2;
+                case "square": return shape.side ** 2;
+                default: {
+                    const exhaustive: never = shape;
+                    throw new Error(`unhandled: ${exhaustive}`);
+                }
+            }
+        }
+
+    Add a new member to Shape and this fails to compile until handled. It
+    is the closest TypeScript comes to a sealed hierarchy with exhaustive
+    matching.
+
+-------------------------------------------------------------------------------
+VOID
+-------------------------------------------------------------------------------
+
+    The return type of a function that returns nothing useful.
+
+        function log(msg: string): void { console.log(msg); }
+
+    void as a return type in a callback position means "the return value is
+    ignored", so a function returning something is still assignable:
+
+        const nums = [1, 2, 3];
+        nums.forEach((n) => map.set(n, n));      // set returns Map, fine
+
+-------------------------------------------------------------------------------
+NULL AND UNDEFINED
+-------------------------------------------------------------------------------
+
+    With strictNullChecks, they are distinct types and must be handled:
+
+        function f(name: string | null) {
+            name.length;                   // error
+            name?.length;                  // number | undefined
+            if (name) name.length;         // narrowed to string
+            (name ?? "").length;           // number
+        }
+
+    Optional property vs union with undefined:
+
+        interface A { x?: number; }              // may be absent
+        interface B { x: number | undefined; }   // must be present
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Using any to silence an error rather than understanding it. It usually
+    moves the failure to runtime.
+
+    Typing a catch variable as any (or leaving it, pre-strict) and calling
+    err.message. With useUnknownInCatchVariables it is unknown, and you
+    must narrow:
+
+        catch (err) {
+            const msg = err instanceof Error ? err.message : String(err);
+        }
+
+    Confusing never and void. void means "returns nothing"; never means
+    "does not return at all".
+
+================================================================================
+ARRAYS AND TUPLES
+================================================================================
+
+DESCRIPTION
+
+    T[] / Array<T> is a homogeneous list. A tuple is a fixed-length array
+    with per-index types. noUncheckedIndexedAccess makes indexing honest.
+
+-------------------------------------------------------------------------------
+ARRAYS
+-------------------------------------------------------------------------------
+
+    let a: number[] = [1, 2, 3];
+    let b: Array<number> = [1, 2, 3];        // equivalent
+    let c: (string | number)[] = [1, "a"];
+    let d: readonly number[] = [1, 2, 3];
+    let e: ReadonlyArray<number> = [1, 2, 3];
+
+    readonly arrays reject push, pop, splice, sort, and index assignment at
+    compile time.
+
+-------------------------------------------------------------------------------
+TUPLES
+-------------------------------------------------------------------------------
+
+    let pair: [string, number] = ["a", 1];
+    let named: [name: string, age: number] = ["Jake", 30];
+    let optional: [string, number?] = ["a"];
+    let rest: [string, ...number[]] = ["a", 1, 2, 3];
+    let frozen: readonly [number, number] = [1, 2];
+
+    Tuples are how useState-style returns are typed:
+
+        function useToggle(): [boolean, () => void] { }
+
+-------------------------------------------------------------------------------
+NOUNCHECKEDINDEXEDACCESS
+-------------------------------------------------------------------------------
+
+    Without it:
+
+        const first = arr[0];            // number, even if arr is empty
+
+    With it:
+
+        const first = arr[0];            // number | undefined, correct
+
+    Handle it with a guard, .at(), or a non-null assertion where you have
+    genuinely proven it:
+
+        const first = arr[0];
+        if (first === undefined) return;
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Annotating an array of objects as any[] instead of defining the element
+    type, losing all checking inside map and filter callbacks.
+
+    Assuming a tuple keeps its tuple-ness after a method call. map on a
+    tuple returns an array, not a tuple, unless typed with a mapped tuple.
+
+    Expecting readonly to be deep. readonly T[] only prevents mutating the
+    array, not the objects inside it.
+
+================================================================================
+OBJECT TYPES
+================================================================================
+
+DESCRIPTION
+
+    Object types describe shapes: required and optional properties,
+    readonly, index signatures, and excess-property checking on fresh
+    literals.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    let user: { name: string; age: number };
+
+    function greet(p: { name: string }): string { return p.name; }
+
+-------------------------------------------------------------------------------
+MODIFIERS
+-------------------------------------------------------------------------------
+
+    interface User {
+        readonly id: number;           // cannot be reassigned after creation
+        name: string;
+        age?: number;                  // optional: number | undefined
+        [key: string]: unknown;        // index signature
+    }
+
+-------------------------------------------------------------------------------
+INDEX SIGNATURES
+-------------------------------------------------------------------------------
+
+    interface StringMap { [key: string]: string; }
+    interface NumberMap { [index: number]: string; }
+
+    Every declared property must be assignable to the index signature type,
+    which is why mixing them often fails:
+
+        interface Bad {
+            [key: string]: string;
+            count: number;             // error
+        }
+
+    Prefer Record<K, V> for the common case, and a Map for dynamic keys.
+
+-------------------------------------------------------------------------------
+EXCESS PROPERTY CHECKING
+-------------------------------------------------------------------------------
+
+    Object literals assigned directly get an extra check that variables do
+    not:
+
+        interface Point { x: number; y: number; }
+
+        const p: Point = { x: 1, y: 2, z: 3 };       // error, z is excess
+
+        const temp = { x: 1, y: 2, z: 3 };
+        const q: Point = temp;                        // fine, structural
+
+    This is deliberate: a literal with an unexpected key is almost always a
+    typo, while an existing wider object being narrowed is normal.
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Being surprised that an object with extra properties is assignable
+    through a variable but not as a literal. See above; it is by design.
+
+    Using an index signature to avoid defining real keys, which throws away
+    autocomplete and typo detection.
+
+================================================================================
+INTERFACES
+================================================================================
+
+DESCRIPTION
+
+    interface names an object shape that can be extended and merged. Use it
+    for public object APIs; use type for unions and computed types.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    interface User {
+        id: number;
+        name: string;
+        greet(): string;                   // method
+        onChange: (value: string) => void; // property holding a function
+    }
+
+-------------------------------------------------------------------------------
+EXTENDING
+-------------------------------------------------------------------------------
+
+    interface Admin extends User {
+        level: number;
+    }
+
+    interface Both extends User, Timestamped { }
+
+-------------------------------------------------------------------------------
+DECLARATION MERGING
+-------------------------------------------------------------------------------
+
+    Two interfaces with the same name in the same scope merge:
+
+        interface Window { myApp: App; }
+
+    This is how you augment third-party types (Express Request, the global
+    Window). Type aliases cannot do this.
+
+-------------------------------------------------------------------------------
+IMPLEMENTING IN A CLASS
+-------------------------------------------------------------------------------
+
+    class UserImpl implements User {
+        constructor(public id: number, public name: string) {}
+        greet() { return `Hi, ${this.name}`; }
+        onChange = (value: string) => {};
+    }
+
+    implements is only an assertion that the class satisfies the shape. It
+    does not change the class's type, and it is not required for the class
+    to be assignable to the interface (structural typing).
+
+-------------------------------------------------------------------------------
+CALL AND CONSTRUCT SIGNATURES
+-------------------------------------------------------------------------------
+
+    interface Formatter {
+        (value: string): string;            // callable
+        locale: string;                     // and has properties
+    }
+
+    interface UserConstructor {
+        new (name: string): User;           // constructible
+    }
+
+================================================================================
+TYPE ALIASES
+================================================================================
+
+DESCRIPTION
+
+    type names any type: unions, primitives, tuples, functions, mapped and
+    conditional types. Interfaces can only describe object shapes.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    type ID = string | number;
+    type Point = { x: number; y: number };
+    type Handler = (event: Event) => void;
+    type Pair<T> = [T, T];
+    type Nullable<T> = T | null;
+    type Keys = keyof Point;
+    type Tree<T> = { value: T; children: Tree<T>[] };     // recursive is OK
+
+    Aliases can name anything: unions, primitives, tuples, functions,
+    conditional and mapped types. Interfaces can only describe object
+    shapes.
+
+================================================================================
+INTERFACE VS TYPE
+================================================================================
+
+DESCRIPTION
+
+    Both can describe object shapes, be generic, and be implemented. Only
+    interface merges. Only type aliases unions, mapped types, and infer.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    Both can:
+        describe object shapes
+        be extended (extends vs intersection)
+        be implemented by a class
+        be generic
+
+    Only interface can:
+        merge across declarations (module augmentation)
+        produce slightly better error messages in some editors
+
+    Only type can:
+        alias a union, primitive, tuple, or function type directly
+        use conditional, mapped, and template literal types
+        use the infer keyword
+
+    Practical rule: use interface for object shapes that other code
+    implements or extends, especially public API surfaces. Use type for
+    everything else, particularly unions and computed types. Consistency
+    within a codebase matters more than the choice.
+
+================================================================================
+UNIONS AND INTERSECTIONS
+================================================================================
+
+DESCRIPTION
+
+    A union is A | B (one of). An intersection is A & B (both). Unions of
+    objects usually need a discriminant to narrow.
+
+-------------------------------------------------------------------------------
+UNIONS
+-------------------------------------------------------------------------------
+
+    type Result = string | number;
+    type Status = "idle" | "loading" | "error";
+
+    Only members common to every branch are accessible without narrowing:
+
+        function f(x: string | number) {
+            x.toString();               // fine, both have it
+            x.toUpperCase();            // error, number does not
+        }
+
+-------------------------------------------------------------------------------
+INTERSECTIONS
+-------------------------------------------------------------------------------
+
+    type Timestamped = { createdAt: Date };
+    type User = { name: string };
+    type StampedUser = User & Timestamped;       // has both
+
+    An intersection of conflicting primitive types is never:
+
+        type Impossible = string & number;       // never
+
+-------------------------------------------------------------------------------
+UNION OF OBJECTS
+-------------------------------------------------------------------------------
+
+    type Shape =
+        | { kind: "circle"; radius: number }
+        | { kind: "square"; side: number };
+
+    This is a discriminated union; see that section. It is the single most
+    useful pattern in the language.
+
+-------------------------------------------------------------------------------
+DISTRIBUTIVITY
+-------------------------------------------------------------------------------
+
+    A conditional type over a naked type parameter distributes across a
+    union:
+
+        type ToArray<T> = T extends any ? T[] : never;
+        type R = ToArray<string | number>;       // string[] | number[]
+
+    Prevent distribution by wrapping in a tuple:
+
+        type NoDist<T> = [T] extends [any] ? T[] : never;
+        type R2 = NoDist<string | number>;       // (string | number)[]
+
+================================================================================
+LITERAL TYPES
+================================================================================
+
+DESCRIPTION
+
+    A type that is one specific string, number, or boolean rather than the
+    widened primitive. as const and unions of literals are the usual
+    sources.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    type Direction = "up" | "down" | "left" | "right";
+    type Dice = 1 | 2 | 3 | 4 | 5 | 6;
+    type Flag = true;
+
+    let d: Direction = "up";
+    d = "sideways";                // error
+
+    Widening:
+
+        let a = "up";              // string, widened
+        const b = "up";            // "up", literal
+        let c: Direction = "up";   // "up", annotated
+
+    Deriving a union from a runtime array keeps one source of truth:
+
+        const DIRECTIONS = ["up", "down"] as const;
+        type Direction = typeof DIRECTIONS[number];
+
+    This pattern is usually better than an enum; see the next section.
+
+================================================================================
+ENUMS
+================================================================================
+
+DESCRIPTION
+
+    TypeScript enums exist at runtime (except const enum). A union of string
+    literals plus as const is usually the better choice.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    enum Status { Idle, Loading, Done }          // 0, 1, 2
+    enum Level { Low = 1, Mid = 5, High = 10 }
+
+    enum Role {
+        Admin = "ADMIN",
+        User  = "USER"
+    }
+
+-------------------------------------------------------------------------------
+WHY TO AVOID THEM
+-------------------------------------------------------------------------------
+
+    Enums are one of the few TypeScript features that emit runtime code,
+    which breaks the "types are erased" model and prevents isolatedModules
+    tooling from stripping types cleanly. Numeric enums also accept any
+    number in older versions, and are not type-safe in the way the name
+    suggests.
+
+    The modern replacement:
+
+        const Role = { Admin: "ADMIN", User: "USER" } as const;
+        type Role = typeof Role[keyof typeof Role];       // "ADMIN" | "USER"
+
+    You get autocomplete, exhaustiveness, no runtime object beyond a plain
+    frozen literal, and the values are just strings in the JSON you send.
+
+-------------------------------------------------------------------------------
+CONST ENUMS
+-------------------------------------------------------------------------------
+
+    const enum Direction { Up, Down }
+
+    Inlined at the call site with no runtime object, but incompatible with
+    isolatedModules and with most bundler setups. Avoid.
+
+-------------------------------------------------------------------------------
+INTERVIEW NOTES
+-------------------------------------------------------------------------------
+
+    "When would you use an enum" is a reasonable filter question. The
+    strong answer names the runtime-emit problem and the as-const union
+    alternative, rather than treating enums as the obvious C#-style choice.
+
+================================================================================
+NARROWING
+================================================================================
+
+DESCRIPTION
+
+    Narrowing is how TypeScript refines a broad type to a specific one
+    inside a block. Control flow analysis does this automatically.
+
+-------------------------------------------------------------------------------
+TYPEOF
+-------------------------------------------------------------------------------
+
+    function f(x: string | number) {
+        if (typeof x === "string") x.toUpperCase();
+        else x.toFixed(2);
+    }
+
+    Remember typeof null is "object", so a typeof check does not exclude
+    null from an object type.
+
+-------------------------------------------------------------------------------
+TRUTHINESS
+-------------------------------------------------------------------------------
+
+    function f(s?: string) {
+        if (s) s.length;              // string
+    }
+
+    Careful: this also excludes "" and 0, which may be valid values. Prefer
+    an explicit check when they are:
+
+        if (s !== undefined) { }
+
+-------------------------------------------------------------------------------
+EQUALITY
+-------------------------------------------------------------------------------
+
+    function f(x: string | number, y: string | boolean) {
+        if (x === y) {
+            // both narrowed to string
+        }
+    }
+
+    if (x != null) { }               // removes both null and undefined
+
+-------------------------------------------------------------------------------
+INSTANCEOF
+-------------------------------------------------------------------------------
+
+    if (err instanceof ValidationError) err.field;
+
+-------------------------------------------------------------------------------
+IN OPERATOR
+-------------------------------------------------------------------------------
+
+    type Fish = { swim(): void };
+    type Bird = { fly(): void };
+
+    function move(animal: Fish | Bird) {
+        if ("swim" in animal) animal.swim();
+        else animal.fly();
+    }
+
+-------------------------------------------------------------------------------
+ARRAY.ISARRAY
+-------------------------------------------------------------------------------
+
+    function f(x: string | string[]) {
+        if (Array.isArray(x)) x.join(",");
+        else x.toUpperCase();
+    }
+
+-------------------------------------------------------------------------------
+ASSIGNMENT AND CONTROL FLOW
+-------------------------------------------------------------------------------
+
+    let x: string | number = "a";
+    x.toUpperCase();                 // narrowed to string by assignment
+    x = 42;
+    x.toFixed();                     // now number
+
+    Early return narrows the rest of the function:
+
+        function f(u: User | null) {
+            if (!u) return;
+            u.name;                  // User
+        }
+
+-------------------------------------------------------------------------------
+WHERE NARROWING IS LOST
+-------------------------------------------------------------------------------
+
+    Inside a callback, because TypeScript cannot know when it runs:
+
+        if (this.user) {
+            setTimeout(() => this.user.name);      // error
+        }
+
+        const user = this.user;
+        if (user) setTimeout(() => user.name);     // fine
+
+    After any function call, if the narrowed value is a mutable property of
+    an object, since the call could have reassigned it. Copy to a const
+    first; this is the standard fix.
+
+================================================================================
+TYPE GUARDS
+================================================================================
+
+DESCRIPTION
+
+    A function whose return type is a type predicate (x is T) or an
+    assertion (asserts x is T). That is how you teach the checker a custom
+    check.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    function isString(x: unknown): x is string {
+        return typeof x === "string";
+    }
+
+    function isUser(x: unknown): x is User {
+        return (
+            typeof x === "object" &&
+            x !== null &&
+            "id" in x &&
+            typeof (x as User).id === "number"
+        );
+    }
+
+    The "x is T" return type tells the compiler to narrow at the call site.
+    It is an assertion you are responsible for getting right; a wrong guard
+    silently lies to the type system.
+
+-------------------------------------------------------------------------------
+FILTERING WITH A GUARD
+-------------------------------------------------------------------------------
+
+    const maybe: (string | null)[] = ["a", null, "b"];
+
+    const strings = maybe.filter((x): x is string => x !== null);
+    // string[]
+
+    Without the guard annotation, filter returns (string | null)[].
+
+    A reusable version:
+
+        function isDefined<T>(x: T | null | undefined): x is T {
+            return x != null;
+        }
+
+        const clean = maybe.filter(isDefined);
+
+-------------------------------------------------------------------------------
+ASSERTION FUNCTIONS
+-------------------------------------------------------------------------------
+
+    function assertIsString(x: unknown): asserts x is string {
+        if (typeof x !== "string") throw new TypeError("expected string");
+    }
+
+    function assert(condition: unknown, msg?: string): asserts condition {
+        if (!condition) throw new Error(msg ?? "assertion failed");
+    }
+
+    const value: unknown = getValue();
+    assertIsString(value);
+    value.toUpperCase();              // narrowed from here on
+
+    An assertion function must have an explicit type annotation on the
+    variable holding it if assigned to a const, which is a known rough
+    edge.
+
+================================================================================
+DISCRIMINATED UNIONS
+================================================================================
+
+DESCRIPTION
+
+    A union of object types sharing a common literal-typed property. This
+    is the workhorse pattern of TypeScript and replaces most places where
+    C# would use inheritance and polymorphism.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    type Shape =
+        | { kind: "circle"; radius: number }
+        | { kind: "square"; side: number }
+        | { kind: "rect"; w: number; h: number };
+
+    function area(shape: Shape): number {
+        switch (shape.kind) {
+            case "circle": return Math.PI * shape.radius ** 2;
+            case "square": return shape.side ** 2;
+            case "rect":   return shape.w * shape.h;
+        }
+    }
+
+    Inside each case, the union is narrowed to exactly one member and its
+    unique properties are accessible.
+
+-------------------------------------------------------------------------------
+EXHAUSTIVENESS
+-------------------------------------------------------------------------------
+
+    function area(shape: Shape): number {
+        switch (shape.kind) {
+            case "circle": return Math.PI * shape.radius ** 2;
+            case "square": return shape.side ** 2;
+            default: {
+                const _exhaustive: never = shape;
+                throw new Error(`unhandled kind: ${JSON.stringify(shape)}`);
+            }
+        }
+    }
+
+    Adding a new member to Shape now fails to compile at every switch that
+    does not handle it. This is the main reason to prefer unions over
+    optional-property grab-bag objects.
+
+-------------------------------------------------------------------------------
+ASYNC STATE
+-------------------------------------------------------------------------------
+
+    type State<T> =
+        | { status: "idle" }
+        | { status: "loading" }
+        | { status: "success"; data: T }
+        | { status: "error"; error: Error };
+
+    This makes impossible states impossible: you cannot have data and an
+    error at the same time, and you cannot read data without first checking
+    the status.
+
+-------------------------------------------------------------------------------
+RESULT TYPE
+-------------------------------------------------------------------------------
+
+    type Result<T, E = Error> =
+        | { ok: true; value: T }
+        | { ok: false; error: E };
+
+    async function safeFetch<T>(url: string): Promise<Result<T>> {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) return { ok: false, error: new Error(`${res.status}`) };
+            return { ok: true, value: (await res.json()) as T };
+        } catch (err) {
+            return { ok: false, error: err as Error };
+        }
+    }
+
+    const result = await safeFetch<User>("/api/me");
+    if (result.ok) use(result.value);
+    else handle(result.error);
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Using a boolean as the discriminant with more than two states, or using
+    a non-literal type (string instead of "circle" | "square"), which
+    defeats narrowing entirely.
+
+    Building one object type with many optional properties instead of a
+    union, then checking for undefined everywhere. The union expresses the
+    actual states.
+
+================================================================================
+FUNCTIONS
+================================================================================
+
+DESCRIPTION
+
+    Parameter, return, this, overload, and rest typing. Annotate the
+    function type or the parameters; do not do both unless they disagree on
+    purpose.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    function add(a: number, b: number): number { return a + b; }
+
+    const add = (a: number, b: number): number => a + b;
+
+    type BinaryOp = (a: number, b: number) => number;
+    const add: BinaryOp = (a, b) => a + b;      // params inferred from type
+
+    Annotating the variable rather than the parameters is often cleaner and
+    is called contextual typing.
+
+-------------------------------------------------------------------------------
+OPTIONAL, DEFAULT, REST
+-------------------------------------------------------------------------------
+
+    function f(a: number, b?: number): void { }          // b: number | undefined
+    function g(a: number, b: number = 10): void { }       // b: number
+    function h(...nums: number[]): number { }
+    function k(first: string, ...rest: number[]): void { }
+
+    Optional parameters must follow required ones.
+
+-------------------------------------------------------------------------------
+OBJECT PARAMETERS
+-------------------------------------------------------------------------------
+
+    interface CreateUserOptions {
+        name: string;
+        age?: number;
+        isAdmin?: boolean;
+    }
+
+    function createUser({ name, age = 0, isAdmin = false }: CreateUserOptions) { }
+
+    This is the TypeScript equivalent of C# named and optional arguments,
+    and the standard shape for any function with more than three inputs.
+
+-------------------------------------------------------------------------------
+OVERLOADS
+-------------------------------------------------------------------------------
+
+    function parse(input: string): object;
+    function parse(input: string, asArray: true): unknown[];
+    function parse(input: string, asArray?: boolean): object | unknown[] {
+        const result = JSON.parse(input);
+        return asArray ? [result].flat() : result;
+    }
+
+    The implementation signature is not callable from outside; only the
+    overload signatures are. Prefer a union return or generics when they
+    express the same thing, since overloads are harder to maintain.
+
+-------------------------------------------------------------------------------
+THIS PARAMETER
+-------------------------------------------------------------------------------
+
+    function handler(this: HTMLButtonElement, e: MouseEvent): void {
+        this.disabled = true;
+    }
+
+    A fake first parameter, erased at compile time, that types this.
+
+-------------------------------------------------------------------------------
+RETURN TYPE NOTES
+-------------------------------------------------------------------------------
+
+    Let return types be inferred inside a module; annotate them on exported
+    functions. An annotation is a contract that catches accidental widening
+    and produces better errors at the definition rather than at every call
+    site.
+
+    A function returning a type predicate (x is T) or asserts must always
+    be annotated; it cannot be inferred.
+
+================================================================================
+CLASSES
+================================================================================
+
+DESCRIPTION
+
+    Typed fields, parameter properties, visibility, abstract classes,
+    implements, and generic classes. strictPropertyInitialization is the
+    usual gotcha.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    class User {
+        readonly id: number;
+        name: string;
+        protected role: string = "user";
+        private secret: string;
+        static count = 0;
+        #trulyPrivate = 1;             // runtime private, not just compile
+
+        constructor(id: number, name: string, secret: string) {
+            this.id = id;
+            this.name = name;
+            this.secret = secret;
+            User.count++;
+        }
+
+        greet(): string { return `Hi, ${this.name}`; }
+
+        get display(): string { return this.name.toUpperCase(); }
+        set display(v: string) { this.name = v.toLowerCase(); }
+    }
+
+-------------------------------------------------------------------------------
+PARAMETER PROPERTIES
+-------------------------------------------------------------------------------
+
+    class User {
+        constructor(
+            public readonly id: number,
+            public name: string,
+            private secret: string
+        ) {}
+    }
+
+    A modifier on a constructor parameter declares and assigns the field in
+    one step. This is TypeScript-only syntax with no JavaScript equivalent.
+
+-------------------------------------------------------------------------------
+ACCESS MODIFIERS
+-------------------------------------------------------------------------------
+
+    public       default, accessible anywhere
+    protected    this class and subclasses
+    private      this class only, COMPILE TIME ONLY
+    #field       true runtime privacy, enforced by the engine
+    readonly     assignable only in the constructor or initializer
+
+    private is erased. At runtime the property is a normal property and can
+    be reached with obj["secret"]. Use #field when privacy must actually
+    hold, for example when handling secrets or preventing external
+    tampering.
+
+-------------------------------------------------------------------------------
+ABSTRACT CLASSES
+-------------------------------------------------------------------------------
+
+    abstract class Shape {
+        abstract area(): number;
+        abstract readonly kind: string;
+
+        describe(): string { return `${this.kind}: ${this.area()}`; }
+    }
+
+    class Circle extends Shape {
+        readonly kind = "circle";
+        constructor(private r: number) { super(); }
+        area(): number { return Math.PI * this.r ** 2; }
+    }
+
+    Unlike interfaces, abstract classes exist at runtime and can hold
+    implementation. Unlike C#, you usually reach for a discriminated union
+    instead.
+
+-------------------------------------------------------------------------------
+IMPLEMENTS AND OVERRIDE
+-------------------------------------------------------------------------------
+
+    class Service implements IService { }
+
+    class Derived extends Base {
+        override handle(): void { }        // required with noImplicitOverride
+    }
+
+-------------------------------------------------------------------------------
+GENERIC CLASSES
+-------------------------------------------------------------------------------
+
+    class Repository<T extends { id: number }> {
+        #items = new Map<number, T>();
+
+        add(item: T): void { this.#items.set(item.id, item); }
+        find(id: number): T | undefined { return this.#items.get(id); }
+        all(): T[] { return [...this.#items.values()]; }
+    }
+
+    const users = new Repository<User>();
+
+-------------------------------------------------------------------------------
+STRICT PROPERTY INITIALIZATION
+-------------------------------------------------------------------------------
+
+    Under strict, every declared field must be assigned in the constructor
+    or have an initializer. When it is assigned elsewhere (a framework,
+    a lifecycle hook), use the definite assignment assertion:
+
+        class C {
+            value!: string;            // "trust me, it gets set"
+        }
+
+    Use this sparingly; it is a promise the compiler cannot check.
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Assuming private means private at runtime. It does not.
+
+    Reaching for class hierarchies out of C# habit where a discriminated
+    union or a factory function would be simpler and easier to serialize.
+
+    Forgetting that classes are compared structurally, so two unrelated
+    classes with the same shape are mutually assignable. A private field
+    is the usual way to force nominal-like behavior:
+
+        class Brand { private __brand?: never; }
+
+================================================================================
+GENERICS
+================================================================================
+
+DESCRIPTION
+
+    A type parameter is a placeholder the caller fills in. Constrain it when
+    you need properties; default it when the common case is obvious.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    function identity<T>(value: T): T { return value; }
+
+    identity<string>("a");           // explicit
+    identity("a");                   // inferred, preferred
+
+    Multiple parameters:
+
+        function pair<K, V>(key: K, value: V): [K, V] { return [key, value]; }
+
+-------------------------------------------------------------------------------
+CONSTRAINTS
+-------------------------------------------------------------------------------
+
+    function longest<T extends { length: number }>(a: T, b: T): T {
+        return a.length >= b.length ? a : b;
+    }
+
+    longest("abc", "de");            // string
+    longest([1, 2], [3]);            // number[]
+    longest(1, 2);                   // error, number has no length
+
+-------------------------------------------------------------------------------
+KEY CONSTRAINTS
+-------------------------------------------------------------------------------
+
+    function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {
+        return obj[key];
+    }
+
+    const user = { name: "Jake", age: 30 };
+    getProp(user, "name");           // string
+    getProp(user, "nope");           // error
+
+    This is the single most useful generic pattern in application code.
+
+-------------------------------------------------------------------------------
+DEFAULTS
+-------------------------------------------------------------------------------
+
+    interface ApiResponse<T = unknown> {
+        data: T;
+        status: number;
+    }
+
+    type Result<T, E = Error> = { ok: true; value: T } | { ok: false; error: E };
+
+-------------------------------------------------------------------------------
+GENERIC CONSTRAINTS ON CONSTRUCTORS
+-------------------------------------------------------------------------------
+
+    type Constructor<T = {}> = new (...args: any[]) => T;
+
+    function Timestamped<TBase extends Constructor>(Base: TBase) {
+        return class extends Base {
+            createdAt = new Date();
+        };
+    }
+
+    class User {}
+    const TimestampedUser = Timestamped(User);
+
+    This is the mixin pattern, TypeScript's answer to multiple inheritance.
+
+-------------------------------------------------------------------------------
+WHEN NOT TO USE GENERICS
+-------------------------------------------------------------------------------
+
+    A type parameter used only once in the signature is usually a mistake:
+
+        function f<T>(x: T): void { }         // T adds nothing, use unknown
+
+    The rule of thumb: a generic earns its place when it relates two or
+    more positions (a parameter to the return type, or two parameters to
+    each other).
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Expecting T to exist at runtime. It does not; types are erased. If you
+    need runtime behavior per type, pass a value (a schema, a constructor,
+    a tag string).
+
+    Over-constraining with any: <T extends any> is not a constraint.
+
+    Adding explicit type arguments everywhere when inference already works,
+    which makes refactoring harder.
+
+================================================================================
+KEYOF TYPEOF INDEXED ACCESS
+================================================================================
+
+DESCRIPTION
+
+    keyof T is the union of keys. typeof value captures a type from a value.
+    T[K] looks up a property type. Together they type dynamic access.
+
+-------------------------------------------------------------------------------
+KEYOF
+-------------------------------------------------------------------------------
+
+    interface User { id: number; name: string; }
+
+    type UserKey = keyof User;               // "id" | "name"
+    type AnyKey = keyof any;                 // string | number | symbol
+
+-------------------------------------------------------------------------------
+TYPEOF (TYPE POSITION)
+-------------------------------------------------------------------------------
+
+    const config = { host: "localhost", port: 3000 };
+
+    type Config = typeof config;             // { host: string; port: number }
+    type ConfigKey = keyof typeof config;    // "host" | "port"
+
+    typeof in a type position queries the type of a VALUE. It is unrelated
+    to the runtime typeof operator despite the shared keyword.
+
+-------------------------------------------------------------------------------
+INDEXED ACCESS
+-------------------------------------------------------------------------------
+
+    type Name = User["name"];                    // string
+    type Either = User["id" | "name"];           // number | string
+    type Values = User[keyof User];              // number | string
+
+    Array element type:
+
+        type Item = typeof items[number];
+
+    Function return and parameter types:
+
+        type R = ReturnType<typeof loadUser>;
+        type P = Parameters<typeof loadUser>[0];
+
+-------------------------------------------------------------------------------
+THE AS-CONST PIPELINE
+-------------------------------------------------------------------------------
+
+    const ROLES = ["admin", "editor", "viewer"] as const;
+    type Role = typeof ROLES[number];            // "admin"|"editor"|"viewer"
+
+    const ROUTES = {
+        home: "/",
+        user: "/users/:id"
+    } as const;
+    type RouteName = keyof typeof ROUTES;        // "home" | "user"
+    type RoutePath = typeof ROUTES[RouteName];   // "/" | "/users/:id"
+
+    One runtime source of truth, types derived from it. This combination is
+    worth memorizing; it comes up constantly.
+
+================================================================================
+CONDITIONAL TYPES
+================================================================================
+
+DESCRIPTION
+
+    T extends U ? X : Y. Combined with infer they extract types from other
+    types. They distribute over naked unions.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    type IsString<T> = T extends string ? true : false;
+
+    type A = IsString<"hello">;              // true
+    type B = IsString<42>;                   // false
+
+-------------------------------------------------------------------------------
+INFER
+-------------------------------------------------------------------------------
+
+    infer captures a type from within a pattern:
+
+        type ElementOf<T> = T extends (infer U)[] ? U : never;
+        type E = ElementOf<string[]>;                    // string
+
+        type Unwrap<T> = T extends Promise<infer U> ? U : T;
+        type U = Unwrap<Promise<number>>;                // number
+
+        type Ret<T> = T extends (...args: any[]) => infer R ? R : never;
+        type First<T> = T extends [infer F, ...any[]] ? F : never;
+
+-------------------------------------------------------------------------------
+PRACTICAL EXAMPLES
+-------------------------------------------------------------------------------
+
+    Deep partial:
+
+        type DeepPartial<T> = T extends object
+            ? { [K in keyof T]?: DeepPartial<T[K]> }
+            : T;
+
+    Non-nullable:
+
+        type NonNull<T> = T extends null | undefined ? never : T;
+
+    Function arity:
+
+        type Awaited1<T> = T extends PromiseLike<infer U> ? Awaited1<U> : T;
+
+    Filtering a union:
+
+        type Extract2<T, U> = T extends U ? T : never;
+        type Exclude2<T, U> = T extends U ? never : T;
+
+-------------------------------------------------------------------------------
+NOTE
+-------------------------------------------------------------------------------
+
+    Conditional types are where TypeScript becomes a small functional
+    language. They are essential for library authors and rarely needed in
+    application code. If a conditional type in application code is more
+    than three lines, there is usually a simpler shape available.
+
+================================================================================
+MAPPED TYPES
+================================================================================
+
+DESCRIPTION
+
+    Build a new object type by iterating keys: { [K in keyof T]: ... }. The
+    as clause remaps keys. This is how Partial, Pick, and Readonly are
+    written.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    type Optional<T> = { [K in keyof T]?: T[K] };
+    type Immutable<T> = { readonly [K in keyof T]: T[K] };
+    type Stringify<T> = { [K in keyof T]: string };
+
+-------------------------------------------------------------------------------
+MODIFIERS
+-------------------------------------------------------------------------------
+
+    Add with + (implicit), remove with -:
+
+        type Mutable<T> = { -readonly [K in keyof T]: T[K] };
+        type Required2<T> = { [K in keyof T]-?: T[K] };
+
+-------------------------------------------------------------------------------
+KEY REMAPPING WITH AS
+-------------------------------------------------------------------------------
+
+    type Getters<T> = {
+        [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
+    };
+
+    interface User { name: string; age: number }
+    type UserGetters = Getters<User>;
+    // { getName: () => string; getAge: () => number }
+
+    Filter keys by remapping to never:
+
+        type OnlyStrings<T> = {
+            [K in keyof T as T[K] extends string ? K : never]: T[K]
+        };
+
+-------------------------------------------------------------------------------
+MAPPING A UNION OF KEYS
+-------------------------------------------------------------------------------
+
+    type Flags = { [K in "read" | "write"]: boolean };
+    // { read: boolean; write: boolean }
+
+    type Record2<K extends keyof any, V> = { [P in K]: V };
+
+================================================================================
+TEMPLATE LITERAL TYPES
+================================================================================
+
+DESCRIPTION
+
+    String types concatenated and inferred at the type level. Useful for
+    event names, CSS-ish unions, and extracting pieces of literal strings.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    type Greeting = `hello ${string}`;
+    type Event = `on${"Click" | "Hover"}`;           // "onClick" | "onHover"
+
+    type CssUnit = `${number}px` | `${number}rem`;
+
+    Intrinsic string manipulation types:
+
+        Uppercase<"abc">        // "ABC"
+        Lowercase<"ABC">        // "abc"
+        Capitalize<"abc">       // "Abc"
+        Uncapitalize<"Abc">     // "abc"
+
+    Practical: typed event names and route params.
+
+        type Route = "/users/:id/posts/:postId";
+
+        type Params<T extends string> =
+            T extends `${string}:${infer P}/${infer Rest}`
+                ? P | Params<`/${Rest}`>
+                : T extends `${string}:${infer P}`
+                    ? P
+                    : never;
+
+        type R = Params<Route>;              // "id" | "postId"
+
+    Powerful, but heavy. Deep recursive template types slow the compiler
+    noticeably in large projects.
+
+================================================================================
+UTILITY TYPES
+================================================================================
+
+DESCRIPTION
+
+    The built-in Partial, Required, Pick, Omit, Record, Exclude, Extract,
+    NonNullable, ReturnType, Parameters, Awaited, and a few you will write
+    yourself.
+
+-------------------------------------------------------------------------------
+COMMON METHODS
+-------------------------------------------------------------------------------
+
+    Partial<T>                 all properties optional
+    Required<T>                all properties required
+    Readonly<T>                all properties readonly
+    Pick<T, K>                 keep only keys K
+    Omit<T, K>                 remove keys K
+    Record<K, V>               object with keys K and values V
+
+        interface User { id: number; name: string; email: string }
+
+        type UserDraft   = Partial<User>;
+        type UserSummary = Pick<User, "id" | "name">;
+        type PublicUser  = Omit<User, "email">;
+        type UsersById   = Record<number, User>;
+        type Flags       = Record<"read" | "write", boolean>;
+
+-------------------------------------------------------------------------------
+UNION TRANSFORMS
+-------------------------------------------------------------------------------
+
+    Exclude<T, U>              remove members of T assignable to U
+    Extract<T, U>              keep members of T assignable to U
+    NonNullable<T>             remove null and undefined
+
+        type Status = "idle" | "loading" | "error";
+        type Settled = Exclude<Status, "loading">;       // "idle" | "error"
+
+-------------------------------------------------------------------------------
+FUNCTION TYPES
+-------------------------------------------------------------------------------
+
+    Parameters<F>              tuple of parameter types
+    ReturnType<F>              return type
+    ConstructorParameters<C>
+    InstanceType<C>
+    ThisParameterType<F>
+    OmitThisParameter<F>
+    Awaited<T>                 unwrap nested promises
+
+        type Args = Parameters<typeof createUser>;
+        type Res  = Awaited<ReturnType<typeof loadUser>>;
+
+    The Awaited<ReturnType<typeof fn>> combination is how you get the
+    resolved type of an async function without exporting a separate type.
+
+-------------------------------------------------------------------------------
+STRING TYPES
+-------------------------------------------------------------------------------
+
+    Uppercase<S>   Lowercase<S>   Capitalize<S>   Uncapitalize<S>
+
+-------------------------------------------------------------------------------
+USEFUL CUSTOM UTILITIES
+-------------------------------------------------------------------------------
+
+    Deep readonly:
+
+        type DeepReadonly<T> = {
+            readonly [K in keyof T]: T[K] extends object
+                ? DeepReadonly<T[K]>
+                : T[K]
+        };
+
+    At least one key required:
+
+        type RequireAtLeastOne<T, K extends keyof T = keyof T> =
+            Omit<T, K> & { [P in K]-?: Required<Pick<T, P>> }[K];
+
+    Prettify (flattens intersections in tooltips, purely cosmetic but very
+    useful when debugging types):
+
+        type Prettify<T> = { [K in keyof T]: T[K] } & {};
+
+    Nominal branding:
+
+        type Brand<T, B> = T & { readonly __brand: B };
+        type UserId = Brand<number, "UserId">;
+        type PostId = Brand<number, "PostId">;
+        // UserId and PostId are no longer interchangeable
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Omit<T, K> does not check that K is a key of T, so a typo silently
+    omits nothing. Pick does check. This is a known wart.
+
+    Using Partial<T> on a function parameter and then treating every field
+    as present. Partial makes everything optional, including things your
+    code requires.
+
+================================================================================
+TYPE ASSERTIONS
+================================================================================
+
+DESCRIPTION
+
+    as T and postfix ! tell the checker to stop. Nothing happens at runtime.
+    Prefer a guard; comment the assertion when you cannot.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    const el = document.getElementById("app") as HTMLCanvasElement;
+    const el = <HTMLCanvasElement>document.getElementById("app");   // not in .tsx
+
+    An assertion tells the compiler to stop checking. It does not convert
+    anything at runtime. If you are wrong, it fails later and further away.
+
+    Non-null assertion:
+
+        const el = document.getElementById("app")!;
+        user!.profile!.email;
+
+    Double assertion when the types do not overlap (a code smell, but
+    sometimes necessary in tests):
+
+        const mock = {} as unknown as Database;
+
+    Prefer, in order:
+        1. fix the types so no assertion is needed
+        2. a type guard that actually checks
+        3. an assertion with a comment explaining why it is safe
+
+================================================================================
+SATISFIES
+================================================================================
+
+DESCRIPTION
+
+    satisfies checks a value against a type without widening the value's
+    inferred type. Use it for config objects and as const tables you still
+    want checked.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    satisfies checks a value against a type WITHOUT widening it.
+
+        const config = {
+            host: "localhost",
+            port: 3000
+        } satisfies Record<string, string | number>;
+
+        config.port.toFixed();          // number, still narrow
+
+    Compare:
+
+        const a: Record<string, string | number> = { host: "x", port: 1 };
+        a.port.toFixed();               // error, widened to string | number
+
+    The common use: validate a config or route map against a shape while
+    keeping the literal types for autocomplete.
+
+        const routes = {
+            home: "/",
+            user: "/users/:id"
+        } satisfies Record<string, `/${string}`>;
+
+        type RouteName = keyof typeof routes;      // "home" | "user"
+
+    Rule of thumb: annotation for variables you will reassign, satisfies
+    for constant data you want both validated and precisely typed.
+
+================================================================================
+MODULES AND DECLARATION FILES
+================================================================================
+
+DESCRIPTION
+
+    Type-only imports, .d.ts files, module augmentation, and env typing.
+    isolatedModules wants import type when you only need the type.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    import type { User } from "./types";
+    import { type User, createUser } from "./api";
+    export type { User };
+
+    The type modifier guarantees the import is erased at compile time. It
+    is required under isolatedModules when importing a type from a module
+    whose runtime side you do not need, and it prevents accidental circular
+    runtime dependencies.
+
+-------------------------------------------------------------------------------
+DECLARATION FILES
+-------------------------------------------------------------------------------
+
+    A .d.ts file contains types only, no implementation.
+
+        // types/env.d.ts
+        declare module "*.svg" {
+            const content: string;
+            export default content;
+        }
+
+        declare global {
+            interface Window {
+                analytics: Analytics;
+            }
+        }
+
+        export {};        // makes the file a module, required for declare global
+
+-------------------------------------------------------------------------------
+THIRD PARTY TYPES
+-------------------------------------------------------------------------------
+
+    npm install -D @types/express
+    npm install -D @types/node
+
+    Modern packages ship their own types via a "types" field in
+    package.json. @types/* packages from DefinitelyTyped cover the rest.
+
+    For an untyped package, a minimal stub:
+
+        // types/untyped-lib.d.ts
+        declare module "untyped-lib" {
+            export function doThing(input: string): number;
+        }
+
+-------------------------------------------------------------------------------
+MODULE AUGMENTATION
+-------------------------------------------------------------------------------
+
+    Add properties to an existing third-party type:
+
+        // types/express.d.ts
+        import "express";
+
+        declare module "express-serve-static-core" {
+            interface Request {
+                user?: { id: number; role: string };
+            }
+        }
+
+    This is why interfaces support declaration merging and type aliases do
+    not.
+
+-------------------------------------------------------------------------------
+ENVIRONMENT VARIABLES
+-------------------------------------------------------------------------------
+
+    declare global {
+        namespace NodeJS {
+            interface ProcessEnv {
+                DATABASE_URL: string;
+                PORT?: string;
+                NODE_ENV: "development" | "production" | "test";
+            }
+        }
+    }
+
+    This gives autocomplete on process.env but does NOT validate at
+    runtime. Validate with a schema at startup; see RUNTIME VALIDATION.
+
+================================================================================
+ASYNC TYPES
+================================================================================
+
+DESCRIPTION
+
+    async functions return Promise<T>. res.json() is Promise<any>; assign it
+    to unknown and validate. Awaited<T> unwraps promises.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    async function loadUser(id: number): Promise<User> {
+        const res = await fetch(`/api/users/${id}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json() as Promise<User>;
+    }
+
+    An async function must be annotated Promise<T>, not T.
+
+    Typing fetch results honestly:
+
+        async function loadUser(id: number): Promise<User> {
+            const res = await fetch(`/api/users/${id}`);
+            const data: unknown = await res.json();
+            return parseUser(data);        // a real validator, see below
+        }
+
+    res.json() returns Promise<any>, which silently poisons everything
+    downstream. Assign it to unknown and validate.
+
+    Promise combinators keep their tuple types:
+
+        const [user, posts] = await Promise.all([
+            loadUser(1),
+            loadPosts(1)
+        ]);                                // [User, Post[]]
+
+        const results = await Promise.allSettled([loadUser(1)]);
+        // PromiseSettledResult<User>[]
+
+    Unwrapping:
+
+        type UserType = Awaited<ReturnType<typeof loadUser>>;      // User
+
+================================================================================
+ERROR HANDLING
+================================================================================
+
+DESCRIPTION
+
+    catch (err) is unknown under strict. Narrow with instanceof, or
+    normalize to Error. Typed failure belongs in the return type (a Result
+    union), not in a throws clause — TypeScript has none.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    With useUnknownInCatchVariables (part of strict), catch is unknown:
+
+        try {
+            risky();
+        } catch (err) {
+            if (err instanceof ValidationError) handle(err.field);
+            else if (err instanceof Error) log(err.message);
+            else log(String(err));
+        }
+
+    A reusable normalizer:
+
+        function toError(err: unknown): Error {
+            if (err instanceof Error) return err;
+            return new Error(typeof err === "string" ? err : JSON.stringify(err));
+        }
+
+    Custom error classes:
+
+        class HttpError extends Error {
+            constructor(
+                message: string,
+                public readonly status: number,
+                options?: ErrorOptions
+            ) {
+                super(message, options);
+                this.name = "HttpError";
+            }
+        }
+
+    When targeting ES5, extending built-ins like Error breaks instanceof.
+    Target ES2015 or later, or add:
+
+        Object.setPrototypeOf(this, HttpError.prototype);
+
+    Typed result instead of throwing: see the Result type in DISCRIMINATED
+    UNIONS. TypeScript has no checked exceptions and no way to express
+    "this function throws E", so a Result union is the only way to make
+    failure visible in the signature.
+
+================================================================================
+REACT
+================================================================================
+
+DESCRIPTION
+
+    Props, native element extensions, hook types, events, and generic
+    components. The component's props type is the whole public API.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    interface ButtonProps {
+        label: string;
+        variant?: "primary" | "secondary";
+        disabled?: boolean;
+        onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+        children?: React.ReactNode;
+    }
+
+    function Button({ label, variant = "primary", onClick }: ButtonProps) {
+        return <button className={variant} onClick={onClick}>{label}</button>;
+    }
+
+    Prefer a plain annotated function over React.FC. React.FC adds an
+    implicit children prop (in older versions), complicates generics, and
+    buys nothing.
+
+-------------------------------------------------------------------------------
+EXTENDING NATIVE ELEMENT PROPS
+-------------------------------------------------------------------------------
+
+    interface ButtonProps
+        extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+        variant?: "primary" | "secondary";
+    }
+
+    function Button({ variant = "primary", ...rest }: ButtonProps) {
+        return <button className={variant} {...rest} />;
+    }
+
+    Useful element prop types:
+
+        React.ComponentProps<"input">
+        React.ComponentProps<typeof MyComponent>
+        React.InputHTMLAttributes<HTMLInputElement>
+        React.HTMLAttributes<HTMLDivElement>
+
+-------------------------------------------------------------------------------
+HOOKS
+-------------------------------------------------------------------------------
+
+    const [count, setCount] = useState(0);                  // number, inferred
+    const [user, setUser] = useState<User | null>(null);    // annotate unions
+    const [items, setItems] = useState<Item[]>([]);         // annotate empties
+
+    const ref = useRef<HTMLInputElement>(null);             // for DOM refs
+    const timer = useRef<number | undefined>(undefined);    // for values
+
+    const value = useMemo<Config>(() => build(deps), [deps]);
+    const cb = useCallback((id: number) => select(id), []);
+
+    Reducer:
+
+        type Action =
+            | { type: "increment" }
+            | { type: "set"; payload: number };
+
+        function reducer(state: number, action: Action): number {
+            switch (action.type) {
+                case "increment": return state + 1;
+                case "set": return action.payload;
+            }
+        }
+
+        const [state, dispatch] = useReducer(reducer, 0);
+
+    Context:
+
+        const ThemeContext = createContext<Theme | undefined>(undefined);
+
+        function useTheme(): Theme {
+            const ctx = useContext(ThemeContext);
+            if (!ctx) throw new Error("useTheme must be used within provider");
+            return ctx;
+        }
+
+    That throw is what turns Theme | undefined into Theme for every
+    consumer, and it is the standard pattern.
+
+-------------------------------------------------------------------------------
+EVENT TYPES
+-------------------------------------------------------------------------------
+
+    React.MouseEvent<HTMLButtonElement>
+    React.ChangeEvent<HTMLInputElement>
+    React.FormEvent<HTMLFormElement>
+    React.KeyboardEvent<HTMLInputElement>
+    React.FocusEvent<HTMLInputElement>
+
+        const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            setValue(e.target.value);
+        };
+
+    Let the handler be inferred when written inline:
+
+        <input onChange={(e) => setValue(e.target.value)} />
+
+-------------------------------------------------------------------------------
+GENERIC COMPONENTS
+-------------------------------------------------------------------------------
+
+    interface ListProps<T> {
+        items: T[];
+        renderItem: (item: T) => React.ReactNode;
+        keyOf: (item: T) => string | number;
+    }
+
+    function List<T>({ items, renderItem, keyOf }: ListProps<T>) {
+        return <ul>{items.map((i) => <li key={keyOf(i)}>{renderItem(i)}</li>)}</ul>;
+    }
+
+    In a .tsx file, a bare <T> in an arrow function is parsed as JSX. Add a
+    trailing comma:
+
+        const identity = <T,>(x: T): T => x;
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Typing children as JSX.Element when it should be React.ReactNode.
+    ReactNode covers strings, numbers, arrays, null, and fragments.
+
+    Using any for event handlers instead of the React event types.
+
+    Forgetting to annotate useState when the initial value is null or an
+    empty array, which infers null or never[].
+
+================================================================================
+NODE AND EXPRESS
+================================================================================
+
+DESCRIPTION
+
+    Typing Request/Response/NextFunction, middleware, and process.env.
+    Express types are generic over locals and params; that is how you stop
+    writing any.
+
+-------------------------------------------------------------------------------
+CREATE
+-------------------------------------------------------------------------------
+
+    npm install -D typescript @types/node @types/express tsx
+
+    tsconfig: "module": "NodeNext", "moduleResolution": "NodeNext",
+    "target": "ES2022".
+
+-------------------------------------------------------------------------------
+TYPED HANDLERS
+-------------------------------------------------------------------------------
+
+    import type { Request, Response, NextFunction, RequestHandler } from "express";
+
+    interface CreateUserBody { name: string; email: string }
+    interface UserParams { id: string }
+
+    const createUser = async (
+        req: Request<unknown, unknown, CreateUserBody>,
+        res: Response
+    ) => {
+        const { name, email } = req.body;
+        res.status(201).json({ name, email });
+    };
+
+    const getUser = async (req: Request<UserParams>, res: Response) => {
+        const id = Number(req.params.id);      // params are always strings
+    };
+
+    The Request generic order is
+    Request<Params, ResBody, ReqBody, ReqQuery>.
+
+-------------------------------------------------------------------------------
+TYPED MIDDLEWARE
+-------------------------------------------------------------------------------
+
+    const requireAuth: RequestHandler = (req, res, next) => {
+        const token = req.headers.authorization?.split(" ")[1];
+        if (!token) {
+            res.status(401).json({ error: "unauthorized" });
+            return;
+        }
+        req.user = verify(token);
+        next();
+    };
+
+    req.user requires the module augmentation shown in MODULES AND
+    DECLARATION FILES.
+
+    Note the early return with no value: a handler typed as void cannot
+    return res.status(...).json(...) directly, which is a very common
+    error under strict.
+
+-------------------------------------------------------------------------------
+ERROR MIDDLEWARE
+-------------------------------------------------------------------------------
+
+    import type { ErrorRequestHandler } from "express";
+
+    const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+        const status = err instanceof HttpError ? err.status : 500;
+        res.status(status).json({ error: toError(err).message });
+    };
+
+    app.use(errorHandler);           // must be last
+
+-------------------------------------------------------------------------------
+PROCESS AND ENV
+-------------------------------------------------------------------------------
+
+    const port = Number(process.env.PORT ?? 3000);
+
+    process.env values are string | undefined. Parse and validate at
+    startup rather than casting at each use site.
+
+================================================================================
+RUNTIME VALIDATION
+================================================================================
+
+DESCRIPTION
+
+    TypeScript types vanish at compile time, so anything crossing a
+    boundary (HTTP, database, env, localStorage, user input) is unchecked.
+    A schema library gives you one definition that produces both the
+    runtime check and the static type.
+
+-------------------------------------------------------------------------------
+ZOD
+-------------------------------------------------------------------------------
+
+    import { z } from "zod";
+
+    const UserSchema = z.object({
+        id: z.number().int().positive(),
+        name: z.string().min(1),
+        email: z.string().email(),
+        role: z.enum(["admin", "user"]),
+        createdAt: z.coerce.date(),
+        tags: z.array(z.string()).default([])
+    });
+
+    type User = z.infer<typeof UserSchema>;      // the type, derived
+
+    Parsing:
+
+        const user = UserSchema.parse(data);          // throws ZodError
+
+        const result = UserSchema.safeParse(data);    // discriminated union
+        if (result.success) use(result.data);
+        else log(result.error.issues);
+
+-------------------------------------------------------------------------------
+AT THE BOUNDARIES
+-------------------------------------------------------------------------------
+
+    API response:
+
+        const res = await fetch("/api/me");
+        const user = UserSchema.parse(await res.json());
+
+    Environment:
+
+        const EnvSchema = z.object({
+            DATABASE_URL: z.string().url(),
+            PORT: z.coerce.number().default(3000),
+            NODE_ENV: z.enum(["development", "production", "test"])
+        });
+
+        export const env = EnvSchema.parse(process.env);
+
+    Request body middleware:
+
+        const validate = <S extends z.ZodTypeAny>(schema: S): RequestHandler =>
+            (req, res, next) => {
+                const result = schema.safeParse(req.body);
+                if (!result.success) {
+                    res.status(400).json({ errors: result.error.issues });
+                    return;
+                }
+                req.body = result.data;
+                next();
+            };
+
+-------------------------------------------------------------------------------
+ALTERNATIVES
+-------------------------------------------------------------------------------
+
+    valibot      much smaller bundle, similar API
+    arktype      very fast, syntax closer to TypeScript itself
+    typia        compile-time generated validators, fastest at runtime
+
+-------------------------------------------------------------------------------
+INTERVIEW NOTES
+-------------------------------------------------------------------------------
+
+    "How do you make sure API responses match your types" is a strong
+    senior-level question. The answer is that TypeScript alone cannot, and
+    the fix is a schema that generates both the validator and the type so
+    the two cannot drift.
+
+================================================================================
+TESTING
+================================================================================
+
+DESCRIPTION
+
+    Vitest/Jest with types, typed mocks, and type-level tests via
+    expect-type helpers. Tests should typecheck too.
+
+-------------------------------------------------------------------------------
+VITEST WITH TYPES
+-------------------------------------------------------------------------------
+
+    import { describe, it, expect, vi } from "vitest";
+    import type { Mock } from "vitest";
+
+    const fetchUser = vi.fn<[number], Promise<User>>();
+
+    describe("UserService", () => {
+        it("returns a user", async () => {
+            const user = await service.find(1);
+            expect(user).toEqual<User>({ id: 1, name: "Jake", email: "x@y.z" });
+        });
+    });
+
+-------------------------------------------------------------------------------
+TYPED MOCKS
+-------------------------------------------------------------------------------
+
+    const mockRepo: jest.Mocked<UserRepository> = {
+        findById: vi.fn(),
+        create: vi.fn()
+    };
+
+    A partial mock without fighting the type:
+
+        const mockReq = { params: { id: "1" } } as unknown as Request;
+
+    This is one of the legitimate uses of a double assertion.
+
+-------------------------------------------------------------------------------
+TESTING TYPES THEMSELVES
+-------------------------------------------------------------------------------
+
+    import { expectTypeOf } from "vitest";
+
+    expectTypeOf(loadUser).returns.resolves.toEqualTypeOf<User>();
+    expectTypeOf<Partial<User>>().toMatchTypeOf<{ id?: number }>();
+
+    Or a hand-rolled compile-time assertion:
+
+        type Expect<T extends true> = T;
+        type Equal<A, B> =
+            (<T>() => T extends A ? 1 : 2) extends
+            (<T>() => T extends B ? 1 : 2) ? true : false;
+
+        type _test = Expect<Equal<ReturnType<typeof add>, number>>;
+
+================================================================================
+MIGRATING FROM JAVASCRIPT
+================================================================================
+
+DESCRIPTION
+
+    allowJs, then checkJs or file-by-file rename, then strict last. Convert
+    leaves first. Prefer @ts-expect-error over @ts-ignore.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    1. Add TypeScript with allowJs: true and checkJs: false. Nothing
+       breaks; the build still works.
+
+    2. Turn on strict: false initially, then noImplicitAny only, then the
+       rest one flag at a time.
+
+    3. Convert leaf modules first (utilities with no dependencies), then
+       work up toward entry points. Types flow upward.
+
+    4. Rename .js to .ts one file at a time. Fix the errors in that file.
+       Commit. Repeat.
+
+    5. Use // @ts-expect-error rather than // @ts-ignore for anything you
+       are deferring. @ts-expect-error errors when the problem is fixed,
+       so it cleans itself up; @ts-ignore silently rots.
+
+    6. Type third-party gaps with minimal declare module stubs rather than
+       installing types you do not need.
+
+    7. Turn on strict last, file by file, then delete the any escape
+       hatches you added along the way.
+
+    JSDoc typing without converting files:
+
+        /**
+         * @param {string} name
+         * @param {number} [age]
+         * @returns {{ name: string, age: number }}
+         */
+        function createUser(name, age = 0) { }
+
+        /** @type {import("./types").User} */
+        const user = load();
+
+    With checkJs: true this gives most of the benefit with zero build
+    changes, which is often the right first step on a large codebase.
+
+================================================================================
+COMMON COMPILER ERRORS
+================================================================================
+
+DESCRIPTION
+
+    The tsc diagnostics you will actually hit, with the usual fix next to
+    each one.
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+    TS2322: Type 'X' is not assignable to type 'Y'
+        The shapes do not match. Read the nested "Types of property ... are
+        incompatible" lines at the bottom; that is where the real problem
+        is.
+
+    TS2339: Property 'x' does not exist on type 'Y'
+        Either a typo, or the value is a union that has not been narrowed,
+        or a third-party type needs augmenting.
+
+    TS2531 / TS18047: Object is possibly 'null'
+        strictNullChecks working correctly. Narrow with a guard, ?., ??,
+        or (last resort) !.
+
+    TS7006: Parameter 'x' implicitly has an 'any' type
+        noImplicitAny. Annotate the parameter, or give the enclosing
+        function a contextual type.
+
+    TS2345: Argument of type 'X' is not assignable to parameter of type 'Y'
+        Same as 2322 but at a call site.
+
+    TS2739 / TS2741: Type is missing properties
+        Usually an object literal missing required fields, or Partial<T>
+        being passed where T is required.
+
+    TS2367: This comparison appears unintentional
+        Comparing two types with no overlap, for example a narrowed literal
+        against a value it can never equal. Often a real bug.
+
+    TS7053: Element implicitly has an 'any' type because expression of type
+    'string' can't be used to index type 'X'
+        Indexing an object with a plain string. Fix with
+        key as keyof typeof obj, or add an index signature, or use a Map.
+
+    TS2551: Property 'x' does not exist. Did you mean 'y'?
+        Typo, and the compiler already told you the answer.
+
+    TS2589: Type instantiation is excessively deep
+        A recursive conditional or template literal type went too far.
+        Simplify, or add a depth limit parameter.
+
+    TS1205 / isolatedModules re-export errors
+        Re-exporting a type without the type modifier. Use
+        export type { X }.
+
+    TS2769: No overload matches this call
+        Read each listed overload; usually one argument is a near miss,
+        often string vs a literal union.
+
+================================================================================
+BEST PRACTICES
+================================================================================
+
+DESCRIPTION
+
+    Naming, what to annotate, what to avoid, and the TypeScript interview
+    questions that recycle this file.
+
+-------------------------------------------------------------------------------
+NAMING CONVENTIONS
+-------------------------------------------------------------------------------
+
+    PascalCase       types, interfaces, classes, enums, type parameters
+    camelCase        variables, functions, properties, methods
+    UPPER_SNAKE      true constants
+    T, K, V, E       conventional single-letter type parameters
+    TItem, TResult   descriptive type parameters when there are several
+
+    Do NOT prefix interfaces with I. The C# IFoo convention is not used in
+    TypeScript, because interface and type are interchangeable for most
+    shapes and the prefix leaks an implementation detail.
+
+    Avoid the Impl suffix on classes for the same reason.
+
+-------------------------------------------------------------------------------
+TYPING STYLE
+-------------------------------------------------------------------------------
+
+    Annotate function parameters and exported function return types.
+    Let local variable types be inferred.
+    Prefer unknown over any at every boundary.
+    Prefer discriminated unions over optional-property grab bags.
+    Prefer type-level derivation (typeof, keyof, as const) over duplicating
+    a shape in both a type and a runtime constant.
+    Prefer satisfies over an annotation for constant data.
+    Prefer readonly on function parameters you do not mutate.
+    Use branded types when two same-shaped values must not be mixed
+    (UserId vs PostId, Celsius vs Fahrenheit).
+
+-------------------------------------------------------------------------------
+WHAT TO AVOID
+-------------------------------------------------------------------------------
+
+    any as a habit. Each one is a hole the compiler will not check.
+    Type assertions where a guard would do.
+    Non-null ! scattered through a file; it usually means the type is wrong
+    upstream.
+    Enums, for the runtime-emit reasons in that section.
+    namespace, which predates ES modules and should not be used in new code.
+    Clever conditional types in application code. Library code earns them;
+    business logic rarely does.
+    Types that duplicate a schema. Derive one from the other.
+
+-------------------------------------------------------------------------------
+COMMON INTERVIEW QUESTIONS
+-------------------------------------------------------------------------------
+
+    Difference between interface and type, and when each is required.
+    Difference between any, unknown, and never.
+    What does strictNullChecks change.
+    Explain structural typing and how it differs from nominal typing.
+    Explain generics and constraints, with a concrete example.
+    What is a discriminated union and why is it useful.
+    How do you achieve exhaustiveness checking.
+    What are keyof, typeof, and indexed access types.
+    Explain Partial, Pick, Omit, Record, and how you would implement Pick.
+    Why do types not exist at runtime, and what do you do about it.
+    What does satisfies do that an annotation does not.
+    How do you type an API response safely.
+
+-------------------------------------------------------------------------------
+COMMON MISTAKES
+-------------------------------------------------------------------------------
+
+    Treating TypeScript as C# with different syntax. Structural typing,
+    erased generics, and discriminated unions instead of class hierarchies
+    are the three habits that need unlearning.
+
+    Trusting the type of anything that crossed a network or a parse
+    boundary. The compiler believes whatever you asserted; the data does
+    not care.
+
+    Fighting an error with an assertion instead of reading it. Most
+    TypeScript errors are correct, and the last few lines of a long error
+    message usually name the exact incompatible property.
+
+-------------------------------------------------------------------------------
+INTERVIEW NOTES
+-------------------------------------------------------------------------------
+
+    The strongest signal in a TypeScript interview is knowing the limits:
+    that types are erased, that the system is intentionally unsound in
+    specific places, and that runtime validation is a separate job. Anyone
+    can recite Partial and Pick.
+
+================================================================================
+END OF FILE
+================================================================================

@@ -1,5 +1,9 @@
 # Comparisons, truthiness, and control flow
 
+Read this first. The quiz starts with `===` and a plain `if`, then truthiness traps.
+
+JavaScript `if` looks like C: `if (test) { ... }`. Compare with `===`. `==` coerces and is the usual source of surprises. Look up **TYPE COERCION** and **CONTROL FLOW** in the cheat sheet.
+
 ## What you should be able to do
 
 - Compare with `===` / `!==` unless you can state why `==` is required.

@@ -16,6 +16,7 @@ function plannedDeck(parentId, parentFolder, label, extra) {
     subtitle: (extra && extra.subtitle) || 'Folder ready · add quiz JSON when you have it',
     comingSoon: true,
     folder: parentFolder + '/' + s,
+    sheet: extra && extra.sheet,
   };
 }
 
@@ -205,19 +206,19 @@ export const APPLIED_COURSES = [
       {
         label: 'Language',
         decks: [
-          { label: 'Variables, primitives, and conversion', slug: 'variables-and-data-types' },
-          { label: 'Comparisons, truthiness, and control flow', slug: 'conditionals' },
-          'Loops',
-          { label: 'Functions, scope, and closures', slug: 'functions' },
-          { label: 'Arrays and common array methods', slug: 'arrays' },
-          { label: 'Objects, references, mutation, and copying', slug: 'objects' },
-          { label: 'Maps, Sets, and choosing a collection', slug: 'maps-and-sets' },
-          'Array methods',
-          'Closures',
-          'Recursion',
-          'Classes',
-          'Error handling',
-          'Asynchronous JavaScript',
+          { label: 'Variables, primitives, and conversion', slug: 'variables-and-data-types', sheet: 'VARIABLES AND TYPES' },
+          { label: 'Comparisons, truthiness, and control flow', slug: 'conditionals', sheet: 'TYPE COERCION' },
+          { label: 'Loops', sheet: 'CONTROL FLOW' },
+          { label: 'Functions, scope, and closures', slug: 'functions', sheet: 'FUNCTIONS' },
+          { label: 'Arrays and common array methods', slug: 'arrays', sheet: 'ARRAY' },
+          { label: 'Objects, references, mutation, and copying', slug: 'objects', sheet: 'OBJECTS' },
+          { label: 'Maps, Sets, and choosing a collection', slug: 'maps-and-sets', sheet: 'MAP' },
+          { label: 'Array methods', sheet: 'ARRAY HIGHER ORDER METHODS' },
+          { label: 'Closures', sheet: 'CLOSURES' },
+          { label: 'Recursion', sheet: 'RECURSION AND MEMOIZATION' },
+          { label: 'Classes', sheet: 'CLASSES' },
+          { label: 'Error handling', sheet: 'ERROR HANDLING' },
+          { label: 'Asynchronous JavaScript', sheet: 'ASYNC' },
         ],
       },
       {

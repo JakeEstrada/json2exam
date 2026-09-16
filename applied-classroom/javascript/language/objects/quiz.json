@@ -17,7 +17,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "When we have two numbers, 120 and 120, we can consider them precisely the same number, whether or not they refer to the same physical bits."
-      }
+      },
+      "level": 1
     },
     {
       "question": "object1.value = 15 after object2 = object1. object2.value is:",
@@ -35,7 +36,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
-      }
+      },
+      "level": 1
     },
     {
       "question": "const task = { status: \"open\" }; task.status = \"done\". Does that throw?",
@@ -53,7 +55,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 62,
         "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
-      }
+      },
+      "level": 1
     },
     {
       "question": "const copy = { ...task }; copy.tags.push(\"late\") when tags is nested. What happens to task.tags?",
@@ -71,7 +74,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "Objects work differently. You can change their properties, causing a single object value to have different content at different times."
-      }
+      },
+      "level": 1
     },
     {
       "question": "updateTask should leave unmatched tasks as the same references. Why?",
@@ -89,7 +93,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "They are said to have the same identity."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Find the bug:\n\n```js\nfunction setStatus(tasks, id, status) {\n  const t = tasks.find(x => x.id === id);\n  t.status = status;\n  return tasks;\n}\n```",
@@ -107,7 +112,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object"
-      }
+      },
+      "level": 3
     },
     {
       "question": "row.customer?.name when customer is null:",
@@ -125,7 +131,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Two appointments share one customer object. Renaming through appointment B:",
@@ -143,7 +150,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life."
-      }
+      },
+      "level": 2
     },
     {
       "question": "C++ struct passed by value copies fields. JS function (task) { task.status = \"done\" }:",
@@ -161,7 +169,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 62,
         "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Is `t === u`?\n\n```js\nconst t = { id: 1, status: \"open\" };\nconst u = { ...t, status: \"done\" };\n```",
@@ -179,7 +188,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Numbers and strings are immutable. Objects are not. Which assignment mutates?",
@@ -197,7 +207,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The types of values discussed in earlier chapters, such as numbers, strings, and Booleans, are all immutable"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which copy is shallow?",
@@ -218,7 +229,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "You can change their properties, causing a single object value to have different content at different times."
-      }
+      },
+      "level": 2
     },
     {
       "question": "for...in on a task object without Object.hasOwn can pick up:",
@@ -236,7 +248,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
-      }
+      },
+      "level": 3
     },
     {
       "question": "renameCustomer should not mutate the input appointment. Which return value is right?",
@@ -254,7 +267,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The binding object3 points to a different object"
-      }
+      },
+      "level": 2
     },
     {
       "question": "task.assignee when the field was never set is:",
@@ -272,7 +286,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 100,
         "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write withStatus(task, status): new object, other fields copied shallowly.",
@@ -305,7 +320,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write updateTask(tasks, id, patch): new array; unmatched tasks keep identity.",
@@ -330,7 +346,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "They are said to have the same identity."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write renameCustomer(appt, name): new appointment and new customer; do not mutate input.",
@@ -360,7 +377,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 110,
         "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -386,5 +404,6 @@
       "page": 62,
       "pageEnd": 78
     }
-  ]
+  ],
+  "sheet": "OBJECTS"
 }

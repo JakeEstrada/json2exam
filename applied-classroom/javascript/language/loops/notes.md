@@ -1,27 +1,23 @@
 # Loops
 
+Read this page, then start the quiz. The first cards are these shapes. Traps come later.
+
 ## What you should be able to do
 
-- Write `while` and `for` loops and know when each shape is clearer.
-- Walk an array with `for...of` instead of `for...in`.
-- Exit early with `break` (and skip an iteration with `continue`).
-- Keep a running total or find-the-first search without off-by-one mistakes.
-- Contrast JS loops with C++ `for` over a vector (`size_t` vs `length`, no `at()` throw).
+- Write a C-style `for` and a `while`.
+- Walk an array with `for...of`.
+- Use `break` / `continue`.
+- Leave `for...in` for object keys, not arrays.
 
 ## Assigned reading
 
-Read these sections in *Eloquent JavaScript, 4th Edition by Marijn Haverbeke* (PDF file positions):
+Eloquent JavaScript, 4th Edition — *while and do loops* (PDF p. 59), *for loops* (PDF p. 63), *Breaking Out of a Loop* (PDF p. 65). Same topic in the cheat sheet: **CONTROL FLOW**.
 
-- Chapter 2 *Program Structure* — *while and do loops* (PDF p. 59)
-- *for loops* (PDF p. 63)
-- *Breaking Out of a Loop* (PDF p. 65)
-- Chapter 4 *Array loops* when you reach arrays (printed 101 → PDF p. 117)
-
-This deck is the loop chapter. **Show in book** opens those pages, not the functions or Map chapters.
+JavaScript loops look like C / C#, not Python. `{ }` is the block. There is no preprocessor and no `for i in range`.
 
 ## while and do loops
 
-A `while` loop repeats a body until the test is false.
+`while` tests **before** the body. If the test is already false, the body never runs.
 
 ```js
 let n = 0;
@@ -31,13 +27,11 @@ while (n <= 12) {
 }
 ```
 
-The test runs before each iteration. If it starts false, the body never runs.
-
-`do { ... } while (test)` runs the body once before testing. Use it rarely.
+`do { ... } while (test)` runs once first. You almost never need it on this deck.
 
 ## for loops
 
-Most counting loops follow “bind a counter, test, update.” `for` writes that on one line:
+Three parts: start, test, update.
 
 ```js
 for (let i = 0; i < rows.length; i++) {
@@ -45,50 +39,36 @@ for (let i = 0; i < rows.length; i++) {
 }
 ```
 
-Three parts: init, test, update. Any part may be empty. An empty test means “loop until `break`.”
-
-Prefer `let i` so each iteration can close over its own `i`. `var i` is one binding for the whole function (see Functions).
-
-## Breaking Out of a Loop
-
-`break` jumps out of the innermost loop immediately. `continue` skips the rest of this iteration.
-
-```js
-for (let current = 20; ; current = current + 1) {
-  if (current % 7 == 0) {
-    console.log(current);
-    break;
-  }
-}
-// → 21
-```
-
-That `for` has no end test. Without `break` it would run forever.
-
 ## Walking arrays
 
-Default for a list of payments or appointments: `for...of`.
+Default for a list of values:
 
 ```js
 for (const row of rows) {
-  if (row.status === "paid") return row;
+  console.log(row);
 }
 ```
 
-`for...in` walks **keys**, including inherited names. Do not use it on arrays.
+`for...in` yields **keys** (`"0"`, `"1"`), including inherited names. Do not use it on arrays.
 
-`rows.forEach` is fine; you cannot `break` out of it. Use `for...of` or `some`/`find` when you need to stop.
+## Breaking Out of a Loop
+
+`break` leaves the loop. `continue` skips the rest of this pass.
+
+```js
+for (const row of rows) {
+  if (row.status !== "paid") continue;
+  return row;
+}
+```
 
 ## From C++
 
-- `rows.length` is not a method. There is no `.size()`.
-- `rows[i]` on a missing index is `undefined`, not an exception.
-- `for (const row of rows)` is closer to a range-for than `for (int i = 0; ...)`.
-- Infinite loops are easier than you think: empty `for` tests, forgotten `i++`, `while (true)` without `break`.
+- `rows.length`, not `.size()`.
+- `rows[i]` off the end is `undefined`, not a throw.
+- `for (const row of rows)` is the range-for.
 
 ## Worked examples
-
-Sum paid amounts:
 
 ```js
 function paidTotal(rows) {
@@ -100,58 +80,32 @@ function paidTotal(rows) {
 }
 ```
 
-First even number, or `undefined`:
-
-```js
-function firstEven(nums) {
-  for (const n of nums) {
-    if (n % 2 === 0) return n;
-  }
-  return undefined;
-}
-```
-
 ## Common mistakes
 
-- `for (const i in rows)` — keys are strings; `i + 1` concatenates.
-- Using `forEach` when you needed `break`.
-- `==` in a loop test that coerces `"7"` and `7`.
-- Off-by-one: `i <= rows.length` reads `undefined` at the end.
+- `for (const i in rows)` on an array.
+- `forEach` when you needed `break` (`forEach` cannot break).
+- `i <= rows.length` (reads `undefined` at the end).
 
 ## Predict the output
 
 ```js
-let out = [];
+const out = [];
 for (let i = 0; i < 3; i++) out.push(i);
-console.log(out);
+// [0, 1, 2]
 ```
-
-`[0, 1, 2]`
 
 ## Find the bug
 
-```js
-function firstPaid(rows) {
-  for (const i in rows) {
-    if (rows[i].status === "paid") return rows[i];
-  }
-}
-```
-
-`for...in` can pick inherited keys. Use `for...of` or a numeric `for`.
+`for (const i in rows)` when you wanted each payment object.
 
 ## Coding tasks
 
-1. `sumTo(n)` — add 1 through `n` with a `for` loop. `n < 1` → `0`.
-2. `firstEven(nums)` — first even number, else `undefined`. Use `break` or `return`.
-3. `countPaid(rows)` — how many rows have `status === "paid"`. Empty list is `0`.
+`sumTo`, `firstEven`, `countPaid` — after the basic cards.
 
 ## Hints
 
-- `sumTo`: `for (let i = 1; i <= n; i++)`.
-- `firstEven`: `n % 2 === 0`. Return inside the loop.
-- `countPaid`: increment a counter; do not `filter` if you are practicing loops.
+Use a counting `for` or `for...of`. Seed counters at `0`.
 
 ## Worked solutions
 
-See the solution on each code card after you run the tests, or write the three functions above and check them against the tests in this deck.
+On the code card after the tests pass, or **Show solution**.

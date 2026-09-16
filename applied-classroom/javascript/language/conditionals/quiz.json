@@ -2,6 +2,44 @@
   "title": "JavaScript — Comparisons, truthiness, and control flow",
   "questions": [
     {
+      "question": "How should you compare two values in new JavaScript?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always == so that 0 and false count as equal.",
+        "=== which compares type and value with no conversion.",
+        "Python `is`.",
+        "A preprocessor #eq directive."
+      ],
+      "answer": "b",
+      "explanation": "=== does not coerce. == does, and that is where the surprises live.",
+      "reference": {
+        "section": "Strict equality and coercion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 40,
+        "excerpt": "This is called type coercion."
+      }
+    },
+    {
+      "question": "An if block in JavaScript looks like which of these?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "if score >= 90: then indented lines, Python-style.",
+        "if (score >= 90) { grade = \"A\"; }",
+        "if score >= 90 then grade := \"A\" fi",
+        "#if score >= 90"
+      ],
+      "answer": "b",
+      "explanation": "Parentheses around the test, braces around the body. Same idea as C and C#.",
+      "reference": {
+        "section": "Control flow",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 57,
+        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+      }
+    },
+    {
       "question": "0 == false is true. 0 === false is false. What should you use in new code?",
       "type": "multiple",
       "options": [
@@ -17,7 +55,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "This is called type coercion."
-      }
+      },
+      "level": 3
     },
     {
       "question": "What does console.log(null || \"x\", 0 || \"x\", 0 ?? \"x\") print?",
@@ -35,7 +74,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 42,
         "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Which values are falsy?",
@@ -56,7 +96,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
-      }
+      },
+      "level": 3
     },
     {
       "question": "if (amount) skips a zero-dollar payment. What is the better gate?",
@@ -74,7 +115,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
-      }
+      },
+      "level": 1
     },
     {
       "question": "Find the bug. What happens for `[{amount:0},{amount:20}]`?\n\n```js\nfunction firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}\n```",
@@ -92,7 +134,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
-      }
+      },
+      "level": 3
     },
     {
       "question": "What prints?\n\n```js\nlet s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}\n```",
@@ -110,7 +153,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 79,
         "excerpt": "This chapter documents JavaScript expressions and the operators with which many of those expressions are built."
-      }
+      },
+      "level": 2
     },
     {
       "question": "customer.name || \"guest\" vs customer.name ?? \"guest\" when name is \"\".",
@@ -128,7 +172,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 42,
         "excerpt": "The || operator denotes logical or."
-      }
+      },
+      "level": 2
     },
     {
       "question": "&& and || in JavaScript return what?",
@@ -146,7 +191,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 42,
         "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Why is for...in a poor choice for walking payment rows in an array?",
@@ -164,7 +210,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
-      }
+      },
+      "level": 3
     },
     {
       "question": "C++ if (p) on a pointer means non-null. What is the JS trap for if (order.amount)?",
@@ -182,7 +229,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "It is often useful to have a value that distinguishes between only two possibilities, like “yes” and “no” or “on” and “off”."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which checkoutState result is correct for { status: \"open\", amount: 0 }?",
@@ -200,7 +248,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Not all programs are straight roads."
-      }
+      },
+      "level": 2
     },
     {
       "question": "[] is truthy. What does if (rows) hide when rows is an empty list of appointments?",
@@ -218,7 +267,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
-      }
+      },
+      "level": 2
     },
     {
       "question": "value == null is sometimes used on purpose. What does it match?",
@@ -236,7 +286,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which loop is the default for walking an array of appointment objects?",
@@ -254,7 +305,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 56,
         "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
-      }
+      },
+      "level": 2
     },
     {
       "question": "const n = 0; console.log(n ? \"yes\" : \"no\"); prints what?",
@@ -272,7 +324,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 42,
         "excerpt": "This one is called the conditional operator (or sometimes just the ternary operator since it is the only such operator in the language)."
-      }
+      },
+      "level": 2
     },
     {
       "question": "isOpenStatus should accept only \"open\" and \"pending\". Which implementation is safest?",
@@ -290,7 +343,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write isOpenStatus(status): true only for \"open\" or \"pending\" using ===.",
@@ -323,7 +377,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 57,
         "excerpt": "Conditional execution is created with the if keyword in JavaScript."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write checkoutState(order): missing / zero / ready / blocked as in the notes. Empty-string amount is blocked. 0 is zero.",
@@ -370,7 +425,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 56,
         "excerpt": "The function Number converts a value to a number."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write countTruthyFlags(flags): how many entries are truthy.",
@@ -408,7 +464,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -438,5 +495,6 @@
       "page": 79,
       "pageEnd": 110
     }
-  ]
+  ],
+  "sheet": "TYPE COERCION"
 }

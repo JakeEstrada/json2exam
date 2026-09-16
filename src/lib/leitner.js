@@ -7,6 +7,17 @@ export function pickNext(questions, boxes, maxBox, lastId) {
   if (!pool.length) return null;
   const lowest = Math.min.apply(null, pool.map((q) => boxOf(boxes, q)));
   let tier = pool.filter((q) => boxOf(boxes, q) === lowest);
+  const leveled = questions.some((q) => (q.level || 1) > 1);
+  if (leveled) {
+    const minLevel = Math.min.apply(null, tier.map((q) => q.level || 1));
+    tier = tier.filter((q) => (q.level || 1) === minLevel);
+    if (lastId) {
+      const fresh = tier.filter((q) => q.id !== lastId);
+      if (fresh.length) tier = fresh;
+    }
+    tier.sort((a, b) => (a.index || 0) - (b.index || 0));
+    return tier[0];
+  }
   if (tier.length > 1 && lastId) {
     const fresh = tier.filter((q) => q.id !== lastId);
     if (fresh.length) tier = fresh;

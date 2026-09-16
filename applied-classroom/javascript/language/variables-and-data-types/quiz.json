@@ -2,6 +2,82 @@
   "title": "JavaScript — Variables, primitives, and conversion",
   "questions": [
     {
+      "question": "JavaScript in the browser (and Node) is which kind of language?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A compiled language: you run a preprocessor, then a linker, like C++.",
+        "A scripting language: the engine reads the source and runs it. There is no #include and no separate compile step.",
+        "A Python dialect that uses indentation instead of braces.",
+        "A typed assembly language for WebAssembly."
+      ],
+      "answer": "b",
+      "explanation": "The JS engine interprets (or JIT-compiles internally) the .js file. You do not ship object files. TypeScript is an optional compile-to-JS step.",
+      "reference": {
+        "section": "What JavaScript is",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 31,
+        "excerpt": "Values"
+      }
+    },
+    {
+      "question": "How do you pull in another file of JavaScript? There is no C preprocessor.",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "#include \"util.js\" at the top of the file.",
+        "using Util;",
+        "import { foo } from \"./util.js\"; (or require in older Node).",
+        "from util import foo, the same as Python."
+      ],
+      "answer": "c",
+      "explanation": "No #include, no #define, no using. Built-ins are global. Your files load with import or require.",
+      "reference": {
+        "section": "What JavaScript is",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 31,
+        "excerpt": "Values"
+      }
+    },
+    {
+      "question": "Which snippet is legal JavaScript?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Python-style: for i in range(3) then an indented print(i)",
+        "C-like braces: for (let i = 0; i < 3; i++) { console.log(i); }",
+        "int i = 0; with a required type on every name.",
+        "A .js file must start with #pragma once."
+      ],
+      "answer": "b",
+      "explanation": "JS uses braces like C/Java/C#. Indentation is not syntax. Types are not declared on ordinary variables.",
+      "reference": {
+        "section": "What JavaScript is",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 31,
+        "excerpt": "Values"
+      }
+    },
+    {
+      "question": "How do you declare a name you will reassign, and a name you will not?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "var for both; const is only for classes.",
+        "let for a name you reassign; const for a name you will not retarget. Skip var.",
+        "int and const int, like C++.",
+        "def and final, like Python."
+      ],
+      "answer": "b",
+      "explanation": "Default to const. Use let when the name must be retargeted. var is function-scoped and the wrong default.",
+      "reference": {
+        "section": "Bindings: let, const, and var",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 50,
+        "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
+      }
+    },
+    {
       "question": "A binding created with const cannot be retargeted. What else is true of that binding?",
       "type": "multiple",
       "options": [
@@ -17,7 +93,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 50,
         "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
-      }
+      },
+      "level": 1
     },
     {
       "question": "What does console.log(Boolean(0), Boolean(\"0\")) print?",
@@ -35,7 +112,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
-      }
+      },
+      "level": 1
     },
     {
       "question": "What is the result of \"5\" + 1 compared with \"5\" - 1?",
@@ -53,7 +131,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "This is called type coercion."
-      }
+      },
+      "level": 1
     },
     {
       "question": "typeof null is \"object\". How should you test for null?",
@@ -71,7 +150,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Number(\"\") and Number(null) and Number(undefined) are:",
@@ -89,7 +169,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
-      }
+      },
+      "level": 2
     },
     {
       "question": "What is `p.amount` after this runs?\n\n```js\nlet p = { amount: 10 };\nconst q = p;\nq.amount = 3;\n```",
@@ -107,7 +188,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 51,
         "excerpt": "You should imagine bindings as tentacles rather than boxes."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which values are primitives in everyday JavaScript?",
@@ -128,7 +210,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "All this data is stored as long sequences of bits and is thus fundamentally alike."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Why is var a bad default compared with let?",
@@ -146,7 +229,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 74,
         "excerpt": "Although var and let have the same syntax, there are important differences in the way they work."
-      }
+      },
+      "level": 2
     },
     {
       "question": "A C++ const int x cannot have its bits changed. What is the closest JS mistake?",
@@ -164,7 +248,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 50,
         "excerpt": "That gives us a second kind of statement. The special word (keyword) let indicates that this sentence is going to define a binding."
-      }
+      },
+      "level": 2
     },
     {
       "question": "What does Number.isNaN(Number(\"due\")) tell you when cleaning payment rows?",
@@ -182,7 +267,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "When something that doesn’t map to a number in an obvious way (such as \"five\" or undefined) is converted to a number, you get the value NaN."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which check treats a missing amount and a zero amount as the same?",
@@ -200,7 +286,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 40,
         "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Find the bug. What goes wrong for `[{amount:\"10\"},{amount:\"4\"}]`?\n\n```js\nfunction total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}\n```",
@@ -218,7 +305,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "Yet in the third expression, + tries string concatenation before numeric addition, so the 1 is converted to \"1\"."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Which conversion is the right first step for a payment amount that may be a string?",
@@ -236,7 +324,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
-      }
+      },
+      "level": 2
     },
     {
       "question": "false == 0 is true. false === 0 is false. What rule should you take from that?",
@@ -254,7 +343,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 44,
         "excerpt": "console.log(false == 0)"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Which statement about JavaScript numbers is accurate for someone used to C++ int and double?",
@@ -272,7 +362,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 41,
         "excerpt": "Computer programs work by manipulating values, such as the number 3.14 or the text “Hello World.”"
-      }
+      },
+      "level": 2
     },
     {
       "question": "Strings in JavaScript cannot have a character overwritten in place. What follows?",
@@ -290,7 +381,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
         "excerpt": "In the computer’s world, there is only data."
-      }
+      },
+      "level": 2
     },
     {
       "question": "You need a flag from mixed API values: true, \"true\", \"1\", \"yes\", 1. Which design matches asBooleanFlag in the notes?",
@@ -308,7 +400,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
-      }
+      },
+      "level": 2
     },
     {
       "question": "describeCustomer({ name: \"Ada\" }) should not print \"Ada (#undefined)\". What should missing id become?",
@@ -326,7 +419,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 50,
         "excerpt": "After a binding has been defined, its name can be used as an expression."
-      }
+      },
+      "level": 2
     },
     {
       "question": "Write asBooleanFlag(value): true only for boolean true or the strings \"true\" / \"1\" (trim, case-insensitive).",
@@ -367,7 +461,8 @@
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
         "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write normalizePayments(rows). Keep {id, amount:number} when amount is a finite number. Treat \"\" as invalid. Skip missing ids.",
@@ -425,7 +520,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 43,
         "excerpt": "This is called type coercion."
-      }
+      },
+      "level": 3
     },
     {
       "question": "Write describeCustomer(c) returning \"Name (#id)\". Missing name → \"customer\". Missing id → \"?\".",
@@ -462,7 +558,8 @@
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 50,
         "excerpt": "After a binding has been defined, its name can be used as an expression."
-      }
+      },
+      "level": 3
     }
   ],
   "reading": [
@@ -506,5 +603,6 @@
         }
       ]
     }
-  ]
+  ],
+  "sheet": "VARIABLES AND TYPES"
 }
