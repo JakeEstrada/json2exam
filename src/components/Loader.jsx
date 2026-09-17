@@ -95,20 +95,23 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
     <div className="landing">
       <div className="sheet welcome">
         <div className="welcome-copy">
+          <h2>About</h2>
           <p>
-            Hey, this is something I am creating to fill the gaps in my own knowledge.
-            I will use data I find online to fill these modules. Free sources, all put in
-            one place in a consumable way for myself and anyone who would like.
+            I built this to study for my master’s. The first version was small: paste a
+            chapter into a model, get a JSON quiz, drill it until the misses came back.
+            I dropped out pretty quickly. Rather than leave the work sitting there, I
+            kept the site and pointed it at the real problem — closing the gaps in my
+            own CS knowledge.
           </p>
           <p>
-            This site is meant to serve me, but anyone is welcome to study with it.
-            As of now it only tracks my progress.
+            That is what this place is now. It got a lot bigger than a quiz runner.
+            TypeScript, JavaScript, and the rest of these modules are the path I am
+            actually walking. Free sources, pulled into one classroom I can study.
+            Anyone is welcome to use it. As of now it only tracks my progress.
           </p>
           <p>
-            The original idea was a super easy way to build quizzes with the OpenAI API
-            and learn CS. Paste a chapter or notes into a model, get JSON back, upload
-            it here, and drill it. Misses come back sooner. AskGPT is locked to my
-            sign-in so visitors cannot run up the bill.
+            The graduate leftovers are still here at the bottom if you want them.
+            AskGPT stays locked to my sign-in so visitors cannot run up the bill.
           </p>
         </div>
         <div className="welcome-ring">
