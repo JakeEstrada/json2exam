@@ -74,7 +74,7 @@ export function deckLaunchExtra(deck, course) {
   return startExtra(deck, course);
 }
 
-function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
+function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress, showProgress }) {
   const count = deck.data && Array.isArray(deck.data.questions)
     ? deck.data.questions.length
     : 0;
@@ -114,12 +114,12 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
     }
   }
 
-  const seen = (progress && progress.seen) || 0;
+  const seen = showProgress ? ((progress && progress.seen) || 0) : 0;
   const total = (progress && progress.total) || count;
-  const done = deckDone(progress);
+  const done = !!(showProgress && deckDone(progress));
 
   return (
-    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (!coming ? ' has-ring' : '') + (done ? ' is-done' : '')}>
+    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (showProgress && !coming ? ' has-ring' : '') + (done ? ' is-done' : '')}>
       <div className="course-card-copy">
         {step ? <span className="kicker">Step {step}</span> : null}
         <strong>{deck.label}</strong>
@@ -129,12 +129,12 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
             ? 'Coming next'
             : (done
               ? 'Completed'
-              : (seen
+              : (showProgress && seen
                 ? (seen + ' of ' + total + ' seen')
                 : (ramp ? 'Lesson, then practice' : (count + ' questions'))))}
         </p>
       </div>
-      {!coming && (
+      {showProgress && !coming && (
         <ProgressRing
           value={done ? total : seen}
           max={total}
@@ -203,7 +203,7 @@ function Resources({ books, onPreview }) {
   );
 }
 
-function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log }) {
+function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log, showProgress }) {
   return (
     <ul className="start-grid deck-grid">
       {decks.map((deck, i) => (
@@ -215,7 +215,8 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log }) {
             step={numbered ? i + 1 : 0}
             ramp={ramp}
             course={course}
-            progress={log && log.decks && log.decks[deck.id]}
+            progress={showProgress && log && log.decks ? log.decks[deck.id] : null}
+            showProgress={showProgress}
           />
         </li>
       ))}
@@ -225,6 +226,7 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log }) {
 
 export default function Course({ course, onStart, log }) {
   const [preview, setPreview] = useState(null);
+  const showProgress = !!log;
   const modules = Array.isArray(course.modules) && course.modules.length
     ? course.modules
     : [{ id: course.id, label: null, decks: courseDecks(course) }];
@@ -261,7 +263,7 @@ export default function Course({ course, onStart, log }) {
             const ramp = rampCourse && mod.label === 'Language';
             const ready = (mod.decks || []).filter(isReady);
             const later = (mod.decks || []).filter((d) => !isReady(d));
-            const finished = moduleDone(mod, log);
+            const finished = showProgress && moduleDone(mod, log);
             const body = (
               <>
                 {mod.overviewFile && (
@@ -287,6 +289,7 @@ export default function Course({ course, onStart, log }) {
                   numbered={ramp && ready.length > 0}
                   course={course}
                   log={log}
+                  showProgress={showProgress}
                 />
                 {ready.length > 0 && later.length > 0 && (
                   <details className="later-topics">
@@ -301,6 +304,7 @@ export default function Course({ course, onStart, log }) {
                       ramp={ramp}
                       course={course}
                       log={log}
+                      showProgress={showProgress}
                     />
                   </details>
                 )}

@@ -369,9 +369,12 @@
     font-size: 16px;
     color: var(--ink-soft);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px 36px;
     align-items: center;
+  }
+  .welcome.has-ring {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
   .welcome-copy p { margin: 0 0 14px; }
   .welcome-copy p:last-child { margin-bottom: 0; }
@@ -476,15 +479,22 @@
   }
   .start-grid.course-grid .course-card {
     padding: 16px 14px 14px;
+    min-height: 100%;
   }
   .start-grid.course-grid .course-card strong {
     font-size: 16px;
+  }
+  .start-grid.course-grid .course-card .go {
+    width: 100%;
+    margin-top: auto;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .course-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     text-align: left;
     width: 100%;
     min-height: 0;
@@ -496,18 +506,47 @@
     cursor: default;
     transition: border-color .12s ease, background .12s ease;
   }
+  .course-card-copy {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+  }
   .course-card.has-ring {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto auto;
     align-items: start;
     column-gap: 12px;
   }
   .course-card.has-ring .course-card-copy {
-    min-width: 0;
+    grid-column: 1;
+    grid-row: 1;
   }
-  .course-card.has-ring > .deck-links,
+  .course-card.has-ring > .progress-ring {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .course-card.has-ring > .deck-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
   .course-card.has-ring > .go {
     grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  .course-card-copy strong,
+  .course-card-copy .kicker,
+  .course-card-copy .subtitle,
+  .course-card-copy p {
+    display: block;
+  }
+  .course-card-copy .subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .course-card .progress-ring {
     margin-top: 2px;
@@ -528,7 +567,7 @@
   .course-card strong {
     font-size: 22px;
     font-weight: 600;
-    letter-spacing: -.02em;
+    letter-spacing: 0;
     line-height: 1.2;
     margin: 0 0 6px;
   }
@@ -583,7 +622,7 @@
   }
   .course-card.is-ramp .go,
   .course-card.is-later .go {
-    margin-top: 14px;
+    margin-top: auto;
   }
 
   .resource-list {
@@ -901,7 +940,7 @@
   .course-card .go,
   .upload-panel .go {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: auto;
     padding: 10px 16px;
     font-size: 14px;
     font-weight: 600;
@@ -951,8 +990,10 @@
   }
   .upload-panel .go { margin-top: 0; }
 
-  .deck-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .deck-grid .course-card .go {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
   }
   .deck-grid li { min-width: 0; }
 

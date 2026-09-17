@@ -30,15 +30,15 @@ function courseBlurb(course) {
   return qLabel + ' · ' + labels;
 }
 
-function CourseCard({ course, onOpen, log }) {
-  const roll = courseRollup(course, log);
+function CourseCard({ course, onOpen, log, showProgress }) {
+  const roll = showProgress ? courseRollup(course, log) : null;
   const ringValue = roll ? (roll.done ? roll.total : roll.seen) : 0;
   const ringMax = roll ? roll.total : 0;
-  const done = !!(roll && roll.done);
+  const done = !!(showProgress && roll && roll.done);
   return (
     <button
       type="button"
-      className={'course-card sheet' + (roll ? ' has-ring' : '') + (done ? ' is-done' : '')}
+      className={'course-card sheet' + (showProgress && roll ? ' has-ring' : '') + (done ? ' is-done' : '')}
       onClick={() => onOpen(course.id)}
     >
       <div className="course-card-copy">
@@ -46,7 +46,7 @@ function CourseCard({ course, onOpen, log }) {
         {course.tagline && <span className="subtitle">{course.tagline}</span>}
         <p>{done ? 'Completed' : courseBlurb(course)}</p>
       </div>
-      {roll && (
+      {showProgress && roll && (
         <ProgressRing value={ringValue} max={ringMax} size={72} label={course.title + ' progress'} />
       )}
       <span className="go">{done ? 'Review' : 'Open course'}</span>
@@ -60,7 +60,8 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
   const [warn, setWarn] = useState(null);
   const [preview, setPreview] = useState(null);
   const fileRef = useRef(null);
-  const totals = catalogTotals(COURSES, log);
+  const showProgress = !!(owner && owner.token);
+  const totals = showProgress ? catalogTotals(COURSES, log) : null;
 
   function accept(text, name) {
     setError(null);
@@ -93,7 +94,7 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
 
   return (
     <div className="landing">
-      <div className="sheet welcome">
+      <div className={'sheet welcome' + (showProgress ? ' has-ring' : '')}>
         <div className="welcome-copy">
           <h2>About</h2>
           <p>
@@ -114,14 +115,16 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
             AskGPT stays locked to my sign-in so visitors cannot run up the bill.
           </p>
         </div>
-        <div className="welcome-ring">
-          <ProgressRing
-            value={totals.seen}
-            max={totals.total}
-            size={112}
-            label="Overall progress"
-          />
-        </div>
+        {showProgress && totals && (
+          <div className="welcome-ring">
+            <ProgressRing
+              value={totals.seen}
+              max={totals.total}
+              size={112}
+              label="Overall progress"
+            />
+          </div>
+        )}
       </div>
 
       <ResumeBar prompt={owner ? resumePrompt : null} onResume={onResume} onForget={onForget} />
@@ -220,7 +223,7 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
             <h3 className="course-group-label">{group.label}</h3>
             <div className="start-grid course-grid">
               {list.map((course) => (
-                <CourseCard key={course.id} course={course} onOpen={onOpenCourse} log={log} />
+                <CourseCard key={course.id} course={course} onOpen={onOpenCourse} log={log} showProgress={showProgress} />
               ))}
             </div>
           </section>

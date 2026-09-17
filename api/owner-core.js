@@ -68,7 +68,10 @@ export function readProgressFile() {
   return emptyLog();
 }
 
-export function runProgressGet() {
+export function runProgressGet(token) {
+  if (!checkToken(token)) {
+    return { status: 401, json: { error: 'denied', detail: 'Sign in as the owner to read the log.' } };
+  }
   return { status: 200, json: readProgressFile() };
 }
 

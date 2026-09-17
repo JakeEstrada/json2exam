@@ -86,7 +86,7 @@ function askApiPlugin() {
         if (path === '/api/progress') {
           try {
             const out = req.method === 'GET'
-              ? runProgressGet()
+              ? runProgressGet(bearerToken(req))
               : req.method === 'POST'
                 ? runProgressPost(await readJsonBody(req), bearerToken(req))
                 : { status: 405, json: { error: 'method', detail: 'GET or POST.' } };

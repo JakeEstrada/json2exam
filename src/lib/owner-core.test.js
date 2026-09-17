@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkToken, runLogin, runProgressPost } from '../../api/owner-core.js';
+import { checkToken, runLogin, runProgressGet, runProgressPost } from '../../api/owner-core.js';
 import { runAsk } from '../../api/ask-core.js';
 
 test('login rejects a wrong password and accepts the configured owner', () => {
@@ -47,6 +47,22 @@ test('progress posts require the owner token', () => {
   try {
     const denied = runProgressPost({ workingOn: { deckLabel: 'Loops' } }, '');
     assert.equal(denied.status, 401);
+  } finally {
+    if (prevPass == null) delete process.env.OWNER_PASSWORD;
+    else process.env.OWNER_PASSWORD = prevPass;
+  }
+});
+
+test('progress reads require the owner token', () => {
+  const prevPass = process.env.OWNER_PASSWORD;
+  process.env.OWNER_PASSWORD = 'test-owner-pass';
+  try {
+    const denied = runProgressGet('');
+    assert.equal(denied.status, 401);
+    const ok = runLogin({ username: 'Jake', password: 'test-owner-pass' });
+    const read = runProgressGet(ok.json.token);
+    assert.equal(read.status, 200);
+    assert.equal(read.json.owner, 'Jake');
   } finally {
     if (prevPass == null) delete process.env.OWNER_PASSWORD;
     else process.env.OWNER_PASSWORD = prevPass;

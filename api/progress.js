@@ -3,7 +3,7 @@ import { bearerToken, runProgressGet, runProgressPost } from './owner-core.js';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    const out = runProgressGet();
+    const out = runProgressGet(bearerToken(req));
     res.status(out.status).json(out.json);
     return;
   }

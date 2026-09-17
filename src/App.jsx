@@ -18,7 +18,6 @@ import ProgressRing from './components/ProgressRing.jsx';
 import QuizNotes from './components/QuizNotes.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
-import publishedLog from './data/learningLog.json';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 import { resolveBook } from './lib/books.js';
 import { formatAskNotes, resolveReading } from './lib/reading.js';
@@ -153,7 +152,7 @@ export default function App() {
   const [codeWork, setCodeWork] = useState({});
   const [owner, setOwner] = useState(() => loadOwner());
   const [loginOpen, setLoginOpen] = useState(false);
-  const [log, setLog] = useState(() => mergeLog(emptyLog(), publishedLog));
+  const [log, setLog] = useState(() => emptyLog());
   const logTimer = useRef(null);
   const logRef = useRef(log);
   logRef.current = log;
@@ -272,6 +271,7 @@ export default function App() {
   function signOut() {
     clearOwner();
     setOwner(null);
+    setLog(emptyLog());
   }
 
   function pushLog(next) {
@@ -379,13 +379,20 @@ export default function App() {
   }
 
   useEffect(() => {
-    fetch('/api/progress')
+    if (!owner || !owner.token) {
+      setLog(emptyLog());
+      return undefined;
+    }
+    fetch('/api/progress', {
+      headers: { Authorization: 'Bearer ' + owner.token },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data && data.owner) setLog(mergeLog(emptyLog(), data));
       })
       .catch(() => {});
-  }, []);
+    return undefined;
+  }, [owner]);
 
   useEffect(() => {
     if (!quiz || !owner) return;
@@ -541,7 +548,7 @@ export default function App() {
           resumePrompt={resumePrompt}
           onResume={resumeNow}
           onForget={saved ? forgetSaved : null}
-          log={log}
+          log={owner ? log : null}
           owner={owner}
         />
         {loginUi}
@@ -557,7 +564,7 @@ export default function App() {
         <Course
           course={course}
           onStart={startDeck}
-          log={log}
+          log={owner ? log : null}
         />
         {loginUi}
       </div>
