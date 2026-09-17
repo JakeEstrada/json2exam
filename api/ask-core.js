@@ -1,10 +1,15 @@
 import { generateText } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { ASK_INSTRUCTIONS, buildAskPrompt, historyText } from '../src/lib/askContext.js';
+import { checkToken } from './owner-core.js';
 
 const DEFAULT_MODEL = 'gpt-4o-mini';
 
-export async function runAsk(body) {
+export async function runAsk(body, token) {
+  if (!checkToken(token)) {
+    return { status: 401, json: { error: 'denied', detail: 'Sign in to use AskGPT.' } };
+  }
+
   const key = process.env.OPENAI_API_KEY;
   if (!key) {
     return { status: 501, json: { error: 'missing_key', detail: 'Add OPENAI_API_KEY to .env and restart the dev server.' } };

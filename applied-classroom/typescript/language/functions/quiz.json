@@ -1,0 +1,422 @@
+{
+  "title": "TypeScript — Functions",
+  "questions": [
+    {
+      "question": "Which definition makes add(2, 3) type-check as number?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "function add(a, b) { return a + b; } with no types in strict mode.",
+        "function add(a: number, b: number): number { return a + b; }",
+        "function add(a: number, b: number) return a + b;",
+        "const add(a: number, b: number) { return a + b; }"
+      ],
+      "answer": "b",
+      "explanation": "Parameters need annotations in a standalone function. Braces and return are still JavaScript.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "console.log(add(2, 3));"
+    },
+    {
+      "question": "What infers a and b here?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Nothing; a and b are any.",
+        "The BinaryOp type on add. That is contextual typing.",
+        "The return annotation : number on the arrow.",
+        "Inference from a later call site add(1, 2) in the same file."
+      ],
+      "answer": "b",
+      "explanation": "Annotating the function value fills in the parameters. You do not annotate both unless they disagree on purpose.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "type BinaryOp = (a: number, b: number) => number;\nconst add: BinaryOp = (a, b) => a + b;"
+    },
+    {
+      "question": "What is the type of b inside f?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "number",
+        "number | undefined",
+        "void",
+        "never"
+      ],
+      "answer": "b",
+      "explanation": "b?: number means the argument may be omitted, so b is number | undefined.",
+      "reference": {
+        "section": "Optional, default, rest",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function f(a: number, b?: number): void {\n  console.log(a, b);\n}"
+    },
+    {
+      "question": "What is the type of b inside g?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "number | undefined, because defaults stay optional.",
+        "number, because the default is 10.",
+        "10, a literal, because const inference applies to defaults.",
+        "any"
+      ],
+      "answer": "b",
+      "explanation": "A default parameter is a number inside the body. Callers may still omit it.",
+      "reference": {
+        "section": "Optional, default, rest",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function g(a: number, b: number = 10): number {\n  return a + b;\n}"
+    },
+    {
+      "question": "Which rest parameter annotation is correct?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "function h(...nums: number): number",
+        "function h(...nums: number[]): number",
+        "function h(nums...: number[]): number",
+        "function h(...nums: ...number): number"
+      ],
+      "answer": "b",
+      "explanation": "Rest parameters are arrays. ...nums: number[] is the usual form.",
+      "reference": {
+        "section": "Optional, default, rest",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function h(...nums: number[]): number {\n  return nums.length;\n}"
+    },
+    {
+      "question": "A function body has no return. What should the return type be if callers ignore it?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "undefined",
+        "null",
+        "void",
+        "never"
+      ],
+      "answer": "c",
+      "explanation": "void means ignore the return. The JS value is still undefined.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function logTotal(n: number): void {\n  console.log(n);\n}"
+    },
+    {
+      "question": "Optional parameters must appear where?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Anywhere; TypeScript reorders them.",
+        "After required parameters.",
+        "Before required parameters, so the defaults can fill them.",
+        "Only on arrow functions."
+      ],
+      "answer": "b",
+      "explanation": "b?: number cannot come before a required a: number.",
+      "reference": {
+        "section": "Optional, default, rest",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function bad(b?: number, a: number): void {}"
+    },
+    {
+      "question": "Which options-object parameter is the usual TypeScript shape?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "function createUser(name: string, age?: number, isAdmin?: boolean)",
+        "function createUser({ name, age = 0 }: { name: string; age?: number })",
+        "function createUser(...args: any[])",
+        "function createUser(name: string = { age: 0 })"
+      ],
+      "answer": "b",
+      "explanation": "One object parameter with a type (or interface) is the TypeScript version of named arguments.",
+      "reference": {
+        "section": "Object parameters",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function createUser({ name, age = 0 }: { name: string; age?: number }) {\n  return name + age;\n}"
+    },
+    {
+      "question": "Why prefer typing the whole function expression?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It is the only way to get a return type.",
+        "It infers parameters and keeps several functions on one alias.",
+        "It emits a different JavaScript calling convention.",
+        "It turns the function into a generic class."
+      ],
+      "answer": "b",
+      "explanation": "Item 12: apply types to entire function expressions when possible so context fills the parameters.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "type BinaryOp = (a: number, b: number) => number;\nconst mul: BinaryOp = (a, b) => a * b;"
+    },
+    {
+      "question": "What is the type of this first parameter?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A real runtime argument callers must pass.",
+        "A fake this parameter, erased at compile time.",
+        "A decorator.",
+        "A rest parameter."
+      ],
+      "answer": "b",
+      "explanation": "this: HTMLButtonElement is a compile-time this type. It is not a value you pass.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function handler(this: HTMLButtonElement, e: Event): void {\n  this.disabled = true;\n}"
+    },
+    {
+      "question": "Which call matches h(...nums: number[])?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "h([1, 2, 3]) only.",
+        "h(1, 2, 3)",
+        "h(\"1\", \"2\")",
+        "h()"
+      ],
+      "answer": "b",
+      "explanation": "Rest collects the argument list. h(1, 2, 3) is correct. Passing one array is one argument of type number[] if you wrote nums: number[] without rest.",
+      "reference": {
+        "section": "Optional, default, rest",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "function h(...nums: number[]): number {\n  return nums.reduce((n, x) => n + x, 0);\n}\nconsole.log(h(1, 2, 3));"
+    },
+    {
+      "question": "Does a missing return annotation default to void if you return a number?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. Missing return types are always void.",
+        "No. TypeScript infers number from the return statement.",
+        "Yes in strict mode only.",
+        "No. It infers any."
+      ],
+      "answer": "b",
+      "explanation": "Return types are inferred from the body. Annotate public APIs so the inferred type does not drift.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 72,
+        "excerpt": "In general, you should prefer type annotations to type assertions."
+      },
+      "code": "function add(a: number, b: number) {\n  return a + b;\n}"
+    },
+    {
+      "question": "Which is a function type alias, not a call?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "type BinaryOp = (a: number, b: number) => number;",
+        "const BinaryOp = (a: number, b: number) => number;",
+        "function BinaryOp = (a, b) => a + b;",
+        "type BinaryOp = function(a: number, b: number): number;"
+      ],
+      "answer": "a",
+      "explanation": "Type aliases use => in the type position. A value uses => in an arrow function.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "type BinaryOp = (a: number, b: number) => number;"
+    },
+    {
+      "question": "What happens if you annotate both the binding and the parameters and they disagree?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "TypeScript silently picks the parameters.",
+        "You get an error: the function is not assignable to the alias.",
+        "The runtime uses the parameter types.",
+        "tsc emits two copies of the function."
+      ],
+      "answer": "b",
+      "explanation": "Do not double-annotate unless you mean to. One source of truth: the alias or the parameters.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "code": "type BinaryOp = (a: number, b: number) => number;\nconst add: BinaryOp = (a: string, b: string) => a + b;"
+    },
+    {
+      "question": "Which JavaScript still runs for an annotated add?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The types are checked again by the engine.",
+        "function add(a, b) { return a + b; }",
+        "add is overloaded at runtime for number and string.",
+        "Calls with strings throw TypeError from TypeScript."
+      ],
+      "answer": "b",
+      "explanation": "Types are erased. At runtime add still concatenates if you pass strings. The checker is what stopped that in .ts.",
+      "reference": {
+        "section": "Defining a function",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 38,
+        "excerpt": "your types can’t affect the way your code runs."
+      },
+      "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
+    },
+    {
+      "question": "Write add(a, b) returning a + b.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function add(a, b) {\n  // return the sum\n}\n",
+      "tests": [
+        {
+          "label": "2 + 3",
+          "args": [
+            2,
+            3
+          ],
+          "expected": 5
+        },
+        {
+          "label": "zeros",
+          "args": [
+            0,
+            0
+          ],
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "return a + b;"
+      ],
+      "solution": "function add(a, b) {\n  return a + b;\n}\n",
+      "explanation": "In .ts this is (a: number, b: number) => number.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write greet(name, title) that defaults title to \"friend\" and returns title + \" \" + name.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function greet(name, title) {\n  // default title to \"friend\"\n}\n",
+      "tests": [
+        {
+          "label": "both",
+          "args": [
+            "Ada",
+            "Dr"
+          ],
+          "expected": "Dr Ada"
+        },
+        {
+          "label": "default",
+          "call": "greet(\"Ada\")",
+          "expected": "friend Ada"
+        }
+      ],
+      "hints": [
+        "function greet(name, title = \"friend\")"
+      ],
+      "solution": "function greet(name, title = \"friend\") {\n  return title + \" \" + name;\n}\n",
+      "explanation": "A default parameter is the runtime of b: number = 10.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write sumAll(...nums) returning the total of the arguments.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function sumAll() {\n  // use arguments or rest\n}\n",
+      "tests": [
+        {
+          "label": "three",
+          "call": "sumAll(1, 2, 3)",
+          "expected": 6
+        },
+        {
+          "label": "none",
+          "call": "sumAll()",
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "function sumAll(...nums) { return nums.reduce((n, x) => n + x, 0); }"
+      ],
+      "solution": "function sumAll(...nums) {\n  return nums.reduce((n, x) => n + x, 0);\n}\n",
+      "explanation": "Rest is ...nums: number[] in TypeScript.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 83,
+        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Item 12 — Type the whole function expression",
+      "page": 83,
+      "pageEnd": 86,
+      "sections": [
+        {
+          "heading": "Item 12 — Function expressions",
+          "page": 83
+        },
+        {
+          "heading": "Item 9 — Annotations vs assertions",
+          "page": 72
+        }
+      ]
+    }
+  ]
+}

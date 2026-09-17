@@ -76,10 +76,12 @@ function cardPayload(card) {
   };
 }
 
-async function askModel({ message, phase, card, picked, history, notes }) {
+async function askModel({ message, phase, card, picked, history, notes, token }) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (token) headers.Authorization = 'Bearer ' + token;
   const res = await fetch('/api/ask', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({
       message,
       phase,
@@ -100,7 +102,7 @@ async function askModel({ message, phase, card, picked, history, notes }) {
   return data.text;
 }
 
-export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen, onClose, fill, hideFab, hello: helloProp, placeholder }) {
+export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen, onClose, fill, hideFab, hello: helloProp, placeholder, allowed, token }) {
   const hello = helloProp || (brain && brain.greeting) || FALLBACK_HELLO;
   const [innerOpen, setInnerOpen] = useState(false);
   const [draft, setDraft] = useState('');
@@ -140,11 +142,15 @@ export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen
     setMessages((prev) => prev.concat({ role: 'user', text: message }));
     setPending(true);
     try {
-      const textOut = await askModel({ message, phase, card, picked, history, notes });
+      const textOut = await askModel({ message, phase, card, picked, history, notes, token });
       setMessages((prev) => prev.concat({ role: 'assistant', text: textOut }));
     } catch (err) {
       let textOut = '';
-      if (brain) textOut = reply(brain, { message, card, phase });
+      if (err.status === 401) {
+        textOut = 'Sign in to use AskGPT.';
+      } else if (brain) {
+        textOut = reply(brain, { message, card, phase });
+      }
       if (!textOut) {
         textOut = err.status === 501
           ? 'Add OPENAI_API_KEY to a .env file in the project root and restart npm run dev.'
@@ -157,6 +163,7 @@ export default function AskGPT({ brain, card, phase, picked, notes, open, onOpen
   }
 
   const chips = suggestionChips(card, phase, picked || [], brain);
+  if (!allowed) return null;
 
   const panel = isOpen && (
     <div className={'askgpt-panel' + (fill ? ' is-fill' : '')} role="dialog" aria-label="AskGPT">

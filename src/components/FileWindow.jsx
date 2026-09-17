@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { highlightJs, looksLikeCode } from '../lib/highlight.js';
 import { headingId } from '../lib/parseQuiz.js';
+import { spokenMd } from '../lib/speech.js';
 import CodeBlock from './CodeBlock.jsx';
 import LectureView from './LectureView.jsx';
 
@@ -183,16 +184,35 @@ export function MdInline({ source }) {
   return <>{inlineMd(source)}</>;
 }
 
-export function MarkdownView({ source, focusHeading, compact }) {
+export function MarkdownView({ source, focusHeading, compact, spokenIndex, speechFrom }) {
   const blocks = parseMd(source);
   const focusId = headingId(focusHeading);
+  let nextSpeech = Number(speechFrom) || 0;
+
+  function takeSpeech(raw) {
+    if (!spokenMd(raw)) return false;
+    const i = nextSpeech;
+    nextSpeech += 1;
+    return spokenIndex === i;
+  }
+
+  useEffect(() => {
+    if (spokenIndex == null || spokenIndex < 0) return undefined;
+    const el = document.querySelector('.md-preview .is-reading');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return undefined;
+  }, [spokenIndex]);
+
   return (
     <article className={'md-preview' + (compact ? ' is-compact' : '')}>
       {blocks.map((block, i) => {
         if (block.type === 'h1' || block.type === 'h2' || block.type === 'h3') {
           const Tag = block.type;
           const id = headingId(block.text);
-          const cls = focusId && id === focusId ? 'is-focus' : undefined;
+          const spoken = takeSpeech(block.text);
+          const cls = [focusId && id === focusId ? 'is-focus' : '', spoken ? 'is-reading' : '']
+            .filter(Boolean)
+            .join(' ') || undefined;
           return <Tag key={i} id={id} className={cls}>{inlineMd(block.text)}</Tag>;
         }
         if (block.type === 'pre') {
@@ -209,14 +229,18 @@ export function MarkdownView({ source, focusHeading, compact }) {
         if (block.type === 'ul') {
           return (
             <ul key={i}>
-              {block.items.map((item, j) => <li key={j}>{inlineMd(item)}</li>)}
+              {block.items.map((item, j) => (
+                <li key={j} className={takeSpeech(item) ? 'is-reading' : undefined}>{inlineMd(item)}</li>
+              ))}
             </ul>
           );
         }
         if (block.type === 'ol') {
           return (
             <ol key={i}>
-              {block.items.map((item, j) => <li key={j}>{inlineMd(item)}</li>)}
+              {block.items.map((item, j) => (
+                <li key={j} className={takeSpeech(item) ? 'is-reading' : undefined}>{inlineMd(item)}</li>
+              ))}
             </ol>
           );
         }
@@ -240,7 +264,7 @@ export function MarkdownView({ source, focusHeading, compact }) {
           );
         }
         return (
-          <p key={i}>
+          <p key={i} className={takeSpeech(block.lines.join(' ')) ? 'is-reading' : undefined}>
             {block.lines.map((row, j) => (
               <span key={j}>
                 {j > 0 && <br />}

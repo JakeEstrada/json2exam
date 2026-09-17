@@ -1,0 +1,441 @@
+{
+  "title": "TypeScript — Generics",
+  "questions": [
+    {
+      "question": "What is T in identity<T>(value: T): T?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A runtime class you can new.",
+        "A type parameter the caller (or inference) fills in.",
+        "Always string.",
+        "A runtime value you can call typeof T on."
+      ],
+      "answer": "b",
+      "explanation": "A generic is a function between types. You instantiate it; you do not new T.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "function identity<T>(value: T): T {\n  return value;\n}"
+    },
+    {
+      "question": "What does TypeScript infer for identity(\"a\")?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "T is any.",
+        "T is string.",
+        "T is \"a\" only if you used let, not a string argument.",
+        "Inference fails; you must write identity<string>(\"a\")."
+      ],
+      "answer": "b",
+      "explanation": "The argument proves T. Prefer inference over spelling the type argument.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "const x = identity(\"a\");"
+    },
+    {
+      "question": "What does identity<number>(1) do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Converts 1 to a Number object.",
+        "Sets T to number explicitly.",
+        "Fails because 1 is a bigint.",
+        "Creates a generic class."
+      ],
+      "answer": "b",
+      "explanation": "Explicit type arguments are allowed. Inference from 1 would also be number (or the literal 1 depending on context).",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "const n = identity<number>(1);"
+    },
+    {
+      "question": "What does T extends { length: number } require?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "T must be number.",
+        "T must have a length: number property.",
+        "T must be an array.",
+        "T must be a class that implements Length."
+      ],
+      "answer": "b",
+      "explanation": "A constraint is a minimum shape. string and arrays both have length.",
+      "reference": {
+        "section": "Constraints",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "function longest<T extends { length: number }>(a: T, b: T): T {\n  return a.length >= b.length ? a : b;\n}"
+    },
+    {
+      "question": "Which call to longest is a type error?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "longest(\"abc\", \"de\")",
+        "longest([1, 2], [3])",
+        "longest(1, 2)",
+        "longest(\"ab\", \"cde\")"
+      ],
+      "answer": "c",
+      "explanation": "number has no length. The constraint rejects it.",
+      "reference": {
+        "section": "Constraints",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "longest(1, 2);"
+    },
+    {
+      "question": "What does keyof T mean?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The values of T.",
+        "The union of T’s property names.",
+        "The prototype of T.",
+        "Object.keys at runtime as a type."
+      ],
+      "answer": "b",
+      "explanation": "For { name: string; age: number }, keyof T is \"name\" | \"age\".",
+      "reference": {
+        "section": "keyof",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "type User = { name: string; age: number };\ntype UserKey = keyof User;"
+    },
+    {
+      "question": "What is the return type of getProp(user, \"name\")?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "unknown",
+        "string",
+        "number",
+        "User"
+      ],
+      "answer": "b",
+      "explanation": "K extends keyof T and the return is T[K]. \"name\" indexes to string.",
+      "reference": {
+        "section": "keyof",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}"
+    },
+    {
+      "question": "Why is getProp(user, \"nope\") an error?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Because nope is a reserved word.",
+        "Because \"nope\" is not in keyof User.",
+        "Because getProp only accepts numbers.",
+        "Because user is any."
+      ],
+      "answer": "b",
+      "explanation": "The constraint K extends keyof T is the whole point of the pattern.",
+      "reference": {
+        "section": "keyof",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "const user = { name: \"Jake\", age: 30 };\ngetProp(user, \"nope\");"
+    },
+    {
+      "question": "Can you switch (T) inside identity<T>?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. T is still present at runtime as a constructor argument.",
+        "No. Types are erased. T is not a value.",
+        "Yes if T extends object.",
+        "Only with typeof T."
+      ],
+      "answer": "b",
+      "explanation": "There is no way to ask what T is at runtime. Pass a runtime tag if you need that.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+      },
+      "code": "function identity<T>(value: T): T {\n  return value;\n}"
+    },
+    {
+      "question": "What is pair<K, V>(key: K, value: V): [K, V]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A function with two type parameters, returning a tuple of those types.",
+        "A nested class.",
+        "An intersection K & V.",
+        "A rest parameter."
+      ],
+      "answer": "a",
+      "explanation": "Multiple type parameters are listed in <K, V>.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "function pair<K, V>(key: K, value: V): [K, V] {\n  return [key, value];\n}"
+    },
+    {
+      "question": "Item 50 says a generic type is like what in value-land?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A class.",
+        "A function: it takes type parameters and produces a type.",
+        "A runtime Map from type names to constructors.",
+        "A thread."
+      ],
+      "answer": "b",
+      "explanation": "You instantiate a generic type the way you call a function, but in type space.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "type MyPartial<T> = { [K in keyof T]?: T[K] };"
+    },
+    {
+      "question": "What does Partial<T> do (the built-in Item 50 shows)?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Makes all properties required.",
+        "Makes all properties optional.",
+        "Removes all properties.",
+        "Converts T to any."
+      ],
+      "answer": "b",
+      "explanation": "Partial is a mapped type that adds ? to every property. Item 50 defines MyPartial that way.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "The built-in Partial generic type makes all the properties of another type optional."
+      },
+      "code": "type MyPartial<T> = { [K in keyof T]?: T[K] };"
+    },
+    {
+      "question": "longest(\"abc\", \"de\") returns which type?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "{ length: number }",
+        "string",
+        "string | number",
+        "unknown"
+      ],
+      "answer": "b",
+      "explanation": "T is inferred as string from the arguments, so the return is string, not the constraint.",
+      "reference": {
+        "section": "Constraints",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "const w = longest(\"abc\", \"de\");"
+    },
+    {
+      "question": "Why write K extends keyof T instead of key: string?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "string keys always type-check, so it is shorter.",
+        "It keeps obj[key] typed as T[K] and rejects unknown names.",
+        "keyof is required by JavaScript.",
+        "It makes key a number."
+      ],
+      "answer": "b",
+      "explanation": "key: string would make obj[key] a wide type and allow typos.",
+      "reference": {
+        "section": "keyof",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}"
+    },
+    {
+      "question": "Is <T,> needed on an arrow in a .tsx file?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Never.",
+        "A trailing comma in <T,> tells TSX it is a type parameter, not a tag.",
+        "Always, even in .ts files.",
+        "Only for classes."
+      ],
+      "answer": "b",
+      "explanation": "TSX would parse <T> as a component. The trailing comma disambiguates.",
+      "reference": {
+        "section": "identity",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "code": "const h = <T,>(x: T): T => x;"
+    },
+    {
+      "question": "Write identity(value) that returns value.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function identity(value) {\n  // return value\n}\n",
+      "tests": [
+        {
+          "label": "string",
+          "args": [
+            "a"
+          ],
+          "expected": "a"
+        },
+        {
+          "label": "number",
+          "args": [
+            1
+          ],
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "return value;"
+      ],
+      "solution": "function identity(value) {\n  return value;\n}\n",
+      "explanation": "The TypeScript version adds <T> and : T. Runtime is the identity function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write longest(a, b) returning the value with greater .length.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function longest(a, b) {\n  // compare .length\n}\n",
+      "tests": [
+        {
+          "label": "strings",
+          "args": [
+            "abc",
+            "de"
+          ],
+          "expected": "abc"
+        },
+        {
+          "label": "arrays",
+          "args": [
+            [
+              1
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "hints": [
+        "return a.length >= b.length ? a : b;"
+      ],
+      "solution": "function longest(a, b) {\n  return a.length >= b.length ? a : b;\n}\n",
+      "explanation": "T extends { length: number } is the compile-time version of this.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write getProp(obj, key) returning obj[key].",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function getProp(obj, key) {\n  // return the property\n}\n",
+      "tests": [
+        {
+          "label": "name",
+          "args": [
+            {
+              "name": "Jake",
+              "age": 30
+            },
+            "name"
+          ],
+          "expected": "Jake"
+        },
+        {
+          "label": "age",
+          "args": [
+            {
+              "name": "Jake",
+              "age": 30
+            },
+            "age"
+          ],
+          "expected": 30
+        }
+      ],
+      "hints": [
+        "return obj[key];"
+      ],
+      "solution": "function getProp(obj, key) {\n  return obj[key];\n}\n",
+      "explanation": "K extends keyof T is what makes the TypeScript version reject unknown keys.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 242,
+        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Chapter 6 — Generics; Item 50",
+      "page": 241,
+      "pageEnd": 248,
+      "sections": [
+        {
+          "heading": "Item 50 — Generics as functions between types",
+          "page": 242
+        }
+      ]
+    }
+  ]
+}

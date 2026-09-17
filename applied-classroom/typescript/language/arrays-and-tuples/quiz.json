@@ -1,0 +1,429 @@
+{
+  "title": "TypeScript — Arrays and tuples",
+  "questions": [
+    {
+      "question": "Which annotation is a list of numbers?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let a: number = [1, 2, 3];",
+        "let a: number[] = [1, 2, 3];",
+        "let a: [number] = [1, 2, 3]; because tuples are open-ended.",
+        "let a: Array = [1, 2, 3]; with no type argument."
+      ],
+      "answer": "b",
+      "explanation": "T[] and Array<T> are homogeneous lists. [number] is a one-element tuple.",
+      "reference": {
+        "section": "Arrays",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 37,
+        "excerpt": "const tenses = ['past', 'present', 'future'];"
+      },
+      "code": "let a: number[] = [1, 2, 3];\nconsole.log(a.length);"
+    },
+    {
+      "question": "Are number[] and Array<number> the same type?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No. Array<number> is a tuple.",
+        "Yes. They are equivalent.",
+        "No. number[] is readonly.",
+        "Only if noUncheckedIndexedAccess is on."
+      ],
+      "answer": "b",
+      "explanation": "T[] is sugar for Array<T>.",
+      "reference": {
+        "section": "Arrays",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let a: number[] = [1];\nlet b: Array<number> = a;"
+    },
+    {
+      "question": "What is pair[0] when pair is [string, number]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "string | number, because arrays mix.",
+        "string",
+        "number",
+        "unknown"
+      ],
+      "answer": "b",
+      "explanation": "A tuple has a type per index. Index 0 is string.",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let pair: [string, number] = [\"Ada\", 1];\nconsole.log(pair[0]);"
+    },
+    {
+      "question": "Which assignment fails for [string, number]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let pair: [string, number] = [\"Ada\", 1];",
+        "let pair: [string, number] = [1, \"Ada\"];",
+        "let pair: [string, number] = [\"Ada\", 0];",
+        "let pair: [string, number] = [\"\", 1];"
+      ],
+      "answer": "b",
+      "explanation": "Order matters. number then string is not string then number.",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let pair: [string, number] = [1, \"Ada\"];"
+    },
+    {
+      "question": "Why is pair[2] a type error on [string, number]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Because tuples are fixed length in the type system.",
+        "Because JavaScript arrays cannot have index 2.",
+        "Because 2 is even.",
+        "Because pair is readonly."
+      ],
+      "answer": "a",
+      "explanation": "A two-tuple does not have index 2. number[] would allow it (and be undefined at runtime).",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let pair: [string, number] = [\"Ada\", 1];\nconsole.log(pair[2]);"
+    },
+    {
+      "question": "What does readonly number[] reject at compile time?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Reading a[0].",
+        "a.push(4) and a[0] = 9.",
+        "a.map(x => x).",
+        "JSON.stringify(a)."
+      ],
+      "answer": "b",
+      "explanation": "readonly arrays reject mutating methods and index assignment. Runtime still has push if you cast.",
+      "reference": {
+        "section": "Arrays",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let a: readonly number[] = [1, 2, 3];\na.push(4);"
+    },
+    {
+      "question": "With noUncheckedIndexedAccess, what is the type of arr[0] for number[]?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "number",
+        "number | undefined",
+        "never",
+        "any"
+      ],
+      "answer": "b",
+      "explanation": "Indexing may be past the end. The flag makes that honest: T | undefined.",
+      "reference": {
+        "section": "Indexing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 37,
+        "excerpt": "Object is possibly 'undefined'."
+      },
+      "code": "const arr: number[] = [];\nconst first = arr[0];"
+    },
+    {
+      "question": "Without that flag, why is tenses[3].toUpperCase() allowed?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Because index 3 exists.",
+        "Because arr[i] is typed as T even if the slot is missing.",
+        "Because tuples start at 1.",
+        "Because toUpperCase is on Array."
+      ],
+      "answer": "b",
+      "explanation": "Default TypeScript treats indexing as always in bounds. The access can still throw at runtime.",
+      "reference": {
+        "section": "Indexing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 37,
+        "excerpt": "const tenses = ['past', 'present', 'future'];"
+      },
+      "code": "const tenses = [\"past\", \"present\", \"future\"];\ntenses[3].toUpperCase();"
+    },
+    {
+      "question": "Which type describes a mixed list of strings and numbers?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let c: string[] | number[] = [1, \"a\"];",
+        "let c: (string | number)[] = [1, \"a\"];",
+        "let c: [string | number] = [1, \"a\"];",
+        "let c: string + number[] = [1, \"a\"];"
+      ],
+      "answer": "b",
+      "explanation": "(string | number)[] is an array whose elements are that union. string[] | number[] is one homogeneous array or the other.",
+      "reference": {
+        "section": "Arrays",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let c: (string | number)[] = [1, \"a\"];"
+    },
+    {
+      "question": "What does useToggle’s return type say?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "An array of unknown length.",
+        "A tuple: a boolean, then a function.",
+        "A boolean or a function, not both.",
+        "A Promise."
+      ],
+      "answer": "b",
+      "explanation": "[boolean, () => void] is the React-style tuple return.",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "function useToggle(): [boolean, () => void] {\n  return [false, () => {}];\n}"
+    },
+    {
+      "question": "How do you type a tuple with an optional second element?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "let optional: [string, number?] = [\"a\"];",
+        "let optional: [string | number] = [\"a\"];",
+        "let optional: string[] = [\"a\"]; is the only way.",
+        "let optional: [string, number | void] = [\"a\"];"
+      ],
+      "answer": "a",
+      "explanation": "[string, number?] allows [\"a\"] or [\"a\", 1].",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let optional: [string, number?] = [\"a\"];"
+    },
+    {
+      "question": "Which is a rest tuple?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "let rest: [string, ...number[]] = [\"a\", 1, 2, 3];",
+        "let rest: [...string, number] = [\"a\", 1];",
+        "let rest: string, ...number[] = [\"a\"];",
+        "let rest: [string][] = [\"a\", 1];"
+      ],
+      "answer": "a",
+      "explanation": "A leading string then any number of numbers is [string, ...number[]].",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let rest: [string, ...number[]] = [\"a\", 1, 2, 3];"
+    },
+    {
+      "question": "After if (first === undefined) return, what is first?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "number | undefined still.",
+        "number, if arr is number[] and you narrowed undefined away.",
+        "never",
+        "any"
+      ],
+      "answer": "b",
+      "explanation": "A guard is how you live with noUncheckedIndexedAccess.",
+      "reference": {
+        "section": "Indexing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 37,
+        "excerpt": "Object is possibly 'undefined'."
+      },
+      "code": "const arr: number[] = [1];\nconst first = arr[0];\nif (first === undefined) return;\nconsole.log(first + 1);"
+    },
+    {
+      "question": "Does readonly change the JavaScript array at runtime?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Yes. push throws.",
+        "No. readonly is erased. The checker is what blocked push.",
+        "Yes. The array becomes Object.freeze.",
+        "Only in strict mode of the engine."
+      ],
+      "answer": "b",
+      "explanation": "Types do not affect runtime. readonly is a compile-time restriction.",
+      "reference": {
+        "section": "Arrays",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 38,
+        "excerpt": "your types can’t affect the way your code runs."
+      },
+      "code": "let a: readonly number[] = [1, 2, 3];"
+    },
+    {
+      "question": "Which type should you use for a pair of name and age you always unpack together?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "number[]",
+        "[string, number]",
+        "{ 0: string; 1: number } only, never a tuple.",
+        "string | number"
+      ],
+      "answer": "b",
+      "explanation": "A tuple keeps position types. A list of numbers would not.",
+      "reference": {
+        "section": "Tuples",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let named: [name: string, age: number] = [\"Jake\", 30];"
+    },
+    {
+      "question": "Write first(arr) returning the first element, or null if the array is empty.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function first(arr) {\n  // return arr[0], or null if empty\n}\n",
+      "tests": [
+        {
+          "label": "one",
+          "args": [
+            [
+              7,
+              8
+            ]
+          ],
+          "expected": 7
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": null
+        }
+      ],
+      "hints": [
+        "If arr.length is 0, return null. Otherwise return arr[0]."
+      ],
+      "solution": "function first(arr) {\n  return arr.length ? arr[0] : null;\n}\n",
+      "explanation": "That is the runtime of T | undefined indexing.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 37,
+        "excerpt": "Object is possibly 'undefined'."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write pair(name, age) returning [name, age].",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function pair(name, age) {\n  // return a two-element array\n}\n",
+      "tests": [
+        {
+          "label": "Ada",
+          "args": [
+            "Ada",
+            36
+          ],
+          "expected": [
+            "Ada",
+            36
+          ]
+        }
+      ],
+      "hints": [
+        "return [name, age];"
+      ],
+      "solution": "function pair(name, age) {\n  return [name, age];\n}\n",
+      "explanation": "In .ts this is [string, number].",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write sum(arr) totaling numbers in the array.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function sum(arr) {\n  // return a total\n}\n",
+      "tests": [
+        {
+          "label": "three",
+          "args": [
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "expected": 6
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "reduce from 0"
+      ],
+      "solution": "function sum(arr) {\n  return arr.reduce((n, x) => n + x, 0);\n}\n",
+      "explanation": "number[] at the type level; a loop or reduce at runtime.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Indexed access and types as sets",
+      "page": 37,
+      "pageEnd": 59,
+      "sections": [
+        {
+          "heading": "noUncheckedIndexedAccess",
+          "page": 37
+        },
+        {
+          "heading": "Item 7 — Types as sets of values",
+          "page": 59
+        }
+      ]
+    }
+  ]
+}

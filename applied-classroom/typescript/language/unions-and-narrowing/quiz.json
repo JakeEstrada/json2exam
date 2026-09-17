@@ -1,0 +1,449 @@
+{
+  "title": "TypeScript — Unions and narrowing",
+  "questions": [
+    {
+      "question": "What does Status describe?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A string that can be anything.",
+        "A union of three string literal types.",
+        "An enum that exists at runtime as a reverse map.",
+        "An intersection of idle, loading, and error."
+      ],
+      "answer": "b",
+      "explanation": "\"idle\" | \"loading\" | \"error\" is a union of literals. Only those three strings are in the set.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type Status = \"idle\" | \"loading\" | \"error\";\nconst s: Status = \"idle\";"
+    },
+    {
+      "question": "Which call is legal on x without narrowing?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "x.toUpperCase()",
+        "x.toFixed(1)",
+        "x.toString()",
+        "x.length, because both strings and numbers have length."
+      ],
+      "answer": "c",
+      "explanation": "Only members common to every branch are visible. Both string and number have toString.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "you can think of the number type as the set of all number values."
+      },
+      "code": "function f(x: string | number) {\n  return x.toString();\n}"
+    },
+    {
+      "question": "After this check, what is the type of x in the return?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "string | number, because typeof is runtime-only and does not narrow.",
+        "string",
+        "number",
+        "unknown"
+      ],
+      "answer": "b",
+      "explanation": "typeof x === \"string\" narrows x to string in that branch.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "function upper(x: string | number) {\n  if (typeof x === \"string\") {\n    return x.toUpperCase();\n  }\n  return String(x);\n}"
+    },
+    {
+      "question": "Which helper narrows string | string[] to string[]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "typeof terms === \"object\"",
+        "terms instanceof String",
+        "Array.isArray(terms)",
+        "terms.length > 1"
+      ],
+      "answer": "c",
+      "explanation": "Array.isArray is a built-in type guard. typeof \"object\" would also match null.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "function contains(text: string, terms: string | string[]) {\n  const list = Array.isArray(terms) ? terms : [terms];\n  return list.includes(text);\n}"
+    },
+    {
+      "question": "What does kind do on this union?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It is a runtime class tag TypeScript inserts.",
+        "It is a discriminant: a shared literal field used to narrow.",
+        "It is required by implements.",
+        "It makes the union an intersection."
+      ],
+      "answer": "b",
+      "explanation": "A discriminated union shares a literal field. Switch on kind, then radius or side is legal.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "type Shape =\n  | { kind: \"circle\"; radius: number }\n  | { kind: \"square\"; side: number };"
+    },
+    {
+      "question": "After if (shape.kind === \"circle\"), which access compiles?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "shape.side",
+        "shape.radius",
+        "shape.width",
+        "Both radius and side, because the union still has both."
+      ],
+      "answer": "b",
+      "explanation": "The discriminant check narrows to the circle branch. side is not on that branch.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "function area(shape: Shape) {\n  if (shape.kind === \"circle\") {\n    return Math.PI * shape.radius ** 2;\n  }\n}"
+    },
+    {
+      "question": "What is string & number?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "string | number",
+        "any",
+        "never",
+        "unknown"
+      ],
+      "answer": "c",
+      "explanation": "An intersection of conflicting primitives is empty: never.",
+      "reference": {
+        "section": "Intersections",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type Impossible = string & number;"
+    },
+    {
+      "question": "What properties does StampedUser have?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only name, because User wins.",
+        "Only createdAt, because intersections take the last type.",
+        "name and createdAt",
+        "Neither; object intersections become never."
+      ],
+      "answer": "c",
+      "explanation": "Object intersections merge properties. You get both sides.",
+      "reference": {
+        "section": "Intersections",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type User = { name: string };\ntype Timestamped = { createdAt: Date };\ntype StampedUser = User & Timestamped;"
+    },
+    {
+      "question": "Which model is usually better for paid vs pending?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "{ status?: \"paid\" | \"pending\"; paidAt?: Date; reason?: string } with everything optional.",
+        "A union of { status: \"paid\"; paidAt: Date } | { status: \"pending\"; reason: string }.",
+        "status: string and hope the strings match.",
+        "any, then check at runtime only."
+      ],
+      "answer": "b",
+      "explanation": "A union of interfaces (or object types) makes illegal combinations unrepresentable.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type Payment =\n  | { status: \"paid\"; paidAt: Date }\n  | { status: \"pending\"; reason: string };"
+    },
+    {
+      "question": "Inside else after if (x === null), what is x?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "string | null still.",
+        "string",
+        "null",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "The true branch handled null. The else branch excludes it.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "function label(x: string | null) {\n  if (x === null) return \"none\";\n  return x.toUpperCase();\n}"
+    },
+    {
+      "question": "Does this typeof check narrow an object union to Circle?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. typeof is enough for every union.",
+        "No. typeof shape is \"object\" for both branches. Use the kind field.",
+        "Yes if you write typeof shape.radius.",
+        "No, because typeof only works on classes."
+      ],
+      "answer": "b",
+      "explanation": "Plain objects all have typeof \"object\". Discriminate with a literal tag.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "function area(shape: Shape) {\n  if (typeof shape === \"object\") {\n    return shape.radius;\n  }\n}"
+    },
+    {
+      "question": "What does | mean in a type position?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Bitwise OR, same as runtime x | y.",
+        "A union: a value assignable to one of the members.",
+        "An optional property.",
+        "A rest element in a tuple."
+      ],
+      "answer": "b",
+      "explanation": "In type space, | is union. In value space, | is bitwise OR. Know which space you are in.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type Id = string | number;\nconst id: Id = 12;"
+    },
+    {
+      "question": "Which assignment fails for type Status = \"idle\" | \"loading\"?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "const s: Status = \"idle\";",
+        "const s: Status = \"loading\";",
+        "const s: Status = \"error\";",
+        "const s: Status = \"idle\" as Status;"
+      ],
+      "answer": "c",
+      "explanation": "\"error\" is not in the union. A string assertion would silence the checker; it would not make it true.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "type Status = \"idle\" | \"loading\";\nconst s: Status = \"error\";"
+    },
+    {
+      "question": "Why is x.toUpperCase() an error on string | number?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Because toUpperCase is deprecated.",
+        "Because number has no toUpperCase, so the union does not either.",
+        "Because unions cannot call methods.",
+        "Because | means intersection here."
+      ],
+      "answer": "b",
+      "explanation": "A union only offers the overlap. Narrow first, then call string methods.",
+      "reference": {
+        "section": "What a union is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "you can think of the number type as the set of all number values."
+      },
+      "code": "function f(x: string | number) {\n  return x.toUpperCase();\n}"
+    },
+    {
+      "question": "Which control-flow check does TypeScript use here to drop null?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The assignment x = x!, a non-null assertion.",
+        "The truthiness of elem in if (elem), which excludes null and also 0.",
+        "if (elem) is not a narrowing.",
+        "typeof elem === \"object\" uniquely means HTMLElement."
+      ],
+      "answer": "b",
+      "explanation": "A truthiness check narrows away null and undefined, and also 0, \"\", and false. Prefer === null when 0 is valid.",
+      "reference": {
+        "section": "Narrowing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "code": "const elem = document.getElementById(\"app\");\nif (elem) {\n  elem.innerHTML = \"\";\n}"
+    },
+    {
+      "question": "Write asList(terms) so a string becomes a one-element array and an array is returned as-is.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function asList(terms) {\n  // return an array of strings\n}\n",
+      "tests": [
+        {
+          "label": "one string",
+          "args": [
+            "paid"
+          ],
+          "expected": [
+            "paid"
+          ]
+        },
+        {
+          "label": "already a list",
+          "args": [
+            [
+              "a",
+              "b"
+            ]
+          ],
+          "expected": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "hints": [
+        "Array.isArray(terms) ? terms : [terms]"
+      ],
+      "solution": "function asList(terms) {\n  return Array.isArray(terms) ? terms : [terms];\n}\n",
+      "explanation": "This is the runtime of narrowing string | string[].",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write area(shape) for { kind: \"circle\", radius } or { kind: \"square\", side }. Return 0 otherwise.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function area(shape) {\n  // use shape.kind\n}\n",
+      "tests": [
+        {
+          "label": "circle r=1",
+          "args": [
+            {
+              "kind": "circle",
+              "radius": 1
+            }
+          ],
+          "expected": 3.141592653589793
+        },
+        {
+          "label": "square 2",
+          "args": [
+            {
+              "kind": "square",
+              "side": 2
+            }
+          ],
+          "expected": 4
+        },
+        {
+          "label": "other",
+          "args": [
+            {
+              "kind": "other"
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "Switch on shape.kind.",
+        "Circle area is Math.PI * r * r."
+      ],
+      "solution": "function area(shape) {\n  if (shape.kind === \"circle\") return Math.PI * shape.radius * shape.radius;\n  if (shape.kind === \"square\") return shape.side * shape.side;\n  return 0;\n}\n",
+      "explanation": "The kind field is the discriminant. After the check, only that branch’s fields are safe.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write describe(x) that returns \"none\" if x is null, otherwise x in uppercase.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function describe(x) {\n  // null -> \"none\"\n}\n",
+      "tests": [
+        {
+          "label": "null",
+          "args": [
+            null
+          ],
+          "expected": "none"
+        },
+        {
+          "label": "text",
+          "args": [
+            "paid"
+          ],
+          "expected": "PAID"
+        }
+      ],
+      "hints": [
+        "if (x === null) return \"none\";"
+      ],
+      "solution": "function describe(x) {\n  if (x === null) return \"none\";\n  return String(x).toUpperCase();\n}\n",
+      "explanation": "That is the runtime of narrowing string | null.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 133,
+        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Item 7 — Types as sets; Item 22 — Type narrowing",
+      "page": 59,
+      "pageEnd": 134,
+      "sections": [
+        {
+          "heading": "Item 7 — Types as sets of values",
+          "page": 59
+        },
+        {
+          "heading": "Item 22 — Understand type narrowing",
+          "page": 133
+        }
+      ]
+    }
+  ]
+}

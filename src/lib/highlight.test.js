@@ -10,6 +10,12 @@ test('highlightJs marks keywords, strings, and numbers', () => {
   assert.doesNotMatch(html, /<script/);
 });
 
+test('highlightJs marks TypeScript keywords', () => {
+  const html = highlightJs('interface User { name: string }\ntype Id = number;');
+  assert.match(html, />interface</);
+  assert.match(html, />type</);
+});
+
 test('looksLikeCode spots snippets and ignores prose', () => {
   assert.equal(looksLikeCode('for (let i = 0; i < n; i++) { }'), true);
   assert.equal(looksLikeCode('A scripting language with no compile step.'), false);

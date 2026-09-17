@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cardSpeechParts, normalizeRate, normalizeVoice, pickBestVoice, prefetchSpeechParts, speechCached } from './speech.js';
+import { cardSpeechParts, normalizeRate, normalizeVoice, pickBestVoice, prefetchSpeechParts, readingSpeechParts, speechCached } from './speech.js';
 
 test('pickBestVoice prefers a natural English voice over a novelty one', () => {
   const voices = [
@@ -25,6 +25,29 @@ test('normalizeRate snaps to a supported playback speed', () => {
   assert.equal(normalizeRate(1.5), 1.5);
   assert.equal(normalizeRate(1.4), 1.5);
   assert.equal(normalizeRate('fast'), 1);
+});
+
+test('readingSpeechParts skips code fences and strips markdown', () => {
+  const parts = readingSpeechParts([
+    '# What TypeScript is',
+    '',
+    'Types are **erased.** They do not exist at runtime.',
+    '',
+    '```ts',
+    'let count: number = 0;',
+    '```',
+    '',
+    '- Types are erased.',
+    '- Typing is structural.',
+  ].join('\n'));
+  assert.deepEqual(parts.map((p) => p.text), [
+    'What TypeScript is',
+    'Types are erased. They do not exist at runtime.',
+    'Types are erased.',
+    'Typing is structural.',
+  ]);
+  assert.equal(parts[0].kind, 'heading');
+  assert.equal(parts[2].kind, 'item');
 });
 
 test('cardSpeechParts splits the title and each choice', () => {

@@ -75,7 +75,7 @@ const appliedNotes = import.meta.glob('../../applied-classroom/**/notes.md', {
   import: 'default',
   eager: true,
 });
-const appliedBookFiles = import.meta.glob('../../applied-classroom/javascript/sources/*.pdf', {
+const appliedBookFiles = import.meta.glob('../../applied-classroom/**/sources/*.pdf', {
   query: '?url',
   import: 'default',
   eager: true,
@@ -127,6 +127,7 @@ function hydrateApplied(course) {
           books,
           cheatsheet,
           jsIntro: course.id === 'js' && mod.label === 'Language',
+          tsIntro: course.id === 'ts' && mod.label === 'Language',
           comingSoon: questions.length === 0,
           subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
         });

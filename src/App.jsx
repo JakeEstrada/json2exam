@@ -6,7 +6,7 @@ import { BRAINS } from './brains/index.js';
 import { findBrain } from './lib/ask.js';
 import Masthead from './components/Masthead.jsx';
 import Loader from './components/Loader.jsx';
-import Course from './components/Course.jsx';
+import Course, { deckLaunchExtra } from './components/Course.jsx';
 import Lesson, { CheatsheetLookup } from './components/Lesson.jsx';
 import BoxTrack from './components/BoxTrack.jsx';
 import Settings from './components/Settings.jsx';
@@ -22,7 +22,7 @@ import publishedLog from './data/learningLog.json';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 import { resolveBook } from './lib/books.js';
 import { formatAskNotes, resolveReading } from './lib/reading.js';
-import { emptyLog, mergeLog, withDeck } from './lib/learningLog.js';
+import { emptyLog, leftoverStudy, mergeLog, withDeck } from './lib/learningLog.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -80,7 +80,7 @@ function sessionView(s) {
   };
 }
 
-function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
+function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide, voice, speechRate }) {
   if (!sidePane) return null;
   const resolved = sidePane === 'book'
     ? (studyFocus && studyFocus.bookUrl
@@ -125,6 +125,8 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide }) {
           focus={studyFocus}
           mode={sidePane}
           onOpenSlide={onOpenSlide}
+          voice={voice}
+          speechRate={speechRate}
         />
       )}
     </SidePane>
@@ -180,7 +182,7 @@ export default function App() {
     setStudyFocus(null);
     setSidePane(null);
     lastIdRef.current = null;
-    const hasLesson = !!(ready.jsIntro || (ready.cheatsheet && ready.notes));
+    const hasLesson = !!(ready.jsIntro || ready.tsIntro || (ready.cheatsheet && ready.notes));
     if (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length) {
       setCurrent(null);
       setScreen('lesson');
@@ -228,6 +230,7 @@ export default function App() {
     }
     if (extra && extra.cheatsheet) qz.cheatsheet = extra.cheatsheet;
     if (extra && extra.jsIntro) qz.jsIntro = true;
+    if (extra && extra.tsIntro) qz.tsIntro = true;
     if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
       qz.sheet = [].concat(extra.sheet).filter(Boolean);
     }
@@ -350,6 +353,18 @@ export default function App() {
       lecture: quote || '',
     });
     setSidePane('slides');
+  }
+
+  function continueLeftover() {
+    const left = leftoverStudy(log, COURSES);
+    if (!left || !left.deck || !left.deck.data) return;
+    if (left.course && left.course.id) setCourseId(left.course.id);
+    startDeck(left.deck.data, left.deck.label, deckLaunchExtra(left.deck, left.course));
+  }
+
+  function resumeNow() {
+    if (saved) resumeSaved();
+    else continueLeftover();
   }
 
   function resumeSaved() {
@@ -503,15 +518,29 @@ export default function App() {
   ) : null;
 
   if (screen === 'load') {
+    const leftover = leftoverStudy(log, COURSES);
+    let resumePrompt = null;
+    if (saved) {
+      resumePrompt = {
+        detail: saved.quiz.title + ' · ' + saved.quiz.questions.length + ' questions, ' + saved.mastered + ' already mastered',
+      };
+    } else if (leftover && leftover.deck) {
+      const title = (leftover.course && leftover.course.title ? leftover.course.title + ' · ' : '') + leftover.deck.label;
+      resumePrompt = {
+        detail: leftover.completed
+          ? title + ' is done. Open it again, or pick another module.'
+          : title,
+      };
+    }
     return (
       <div className="shell shell-wide">
         <Masthead {...authHead} />
         <Loader
           onStart={startFresh}
           onOpenCourse={openCourse}
-          resumable={saved}
-          onResume={resumeSaved}
-          onForget={forgetSaved}
+          resumePrompt={resumePrompt}
+          onResume={resumeNow}
+          onForget={saved ? forgetSaved : null}
           log={log}
           owner={owner}
         />
@@ -543,6 +572,9 @@ export default function App() {
           quiz={quiz}
           onStart={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
           onHome={goHome}
+          owner={owner}
+          voice={settings.voice}
+          speechRate={settings.speechRate}
         />
         {loginUi}
       </div>
@@ -558,6 +590,8 @@ export default function App() {
     hideFab: !!sidePane,
     onOpen: () => setSidePane('ask'),
     onClose: closePane,
+    allowed: !!(owner && owner.token),
+    token: owner && owner.token,
   };
 
   if (screen === 'done') {
@@ -610,6 +644,8 @@ export default function App() {
             studyFocus={studyFocus}
             onClose={closePane}
             onOpenSlide={openSlide}
+            voice={settings.voice}
+            speechRate={settings.speechRate}
           />
         </div>
         {loginUi}
@@ -728,6 +764,8 @@ export default function App() {
           studyFocus={studyFocus}
           onClose={closePane}
           onOpenSlide={openSlide}
+          voice={settings.voice}
+          speechRate={settings.speechRate}
         />
       </div>
       {loginUi}

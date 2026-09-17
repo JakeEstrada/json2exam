@@ -2,7 +2,7 @@
 
 Ordered path through the existing Applied Classroom topics. No extra courses. Practical work sits inside each subject, not in a separate capstone.
 
-**Status:** a module is *ready* when it has notes, a real `quiz.json`, and (for JavaScript) code cards whose tests run in the browser. Everything else is *planned*: folders exist, books are listed, quizzes are empty.
+**Status:** a module is *ready* when it has notes, a real `quiz.json`, and (for language decks) code cards whose tests run in the browser. Everything else is *planned*: folders exist, books are listed, quizzes are empty.
 
 Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file positions** (what Json2Exam opens), not printed folio numbers. Each JS language deck lists a `reading` map (chapter + section pages). **Show in book** opens that module’s chapter, not a random page of another topic.
 
@@ -10,17 +10,37 @@ Book titles below match `SOURCES.md`. PDF page numbers in quizzes are **PDF file
 
 ## 0. How to use this plan
 
-1. Read the lesson page (what JavaScript is, then this topic). Use the cheat sheet lookup the same way as `jsjs`.
+1. Read the lesson page (what TypeScript is, then this topic). Use the cheat sheet lookup the same way as `tsts`. JavaScript decks use `jsjs` the same way.
 2. Start the quiz. Basics come first; traps and code cards come after.
 3. Work the predict-the-output / find-the-bug drills in the notes.
-4. Start the deck. Mixed multiple-choice and code cards use Leitner boxes. Code cards **run your JavaScript** against the card’s tests.
-5. Open **Show in book** on a card to jump to that module’s chapter (functions → Functions, loops → while/for, and so on).
+4. Start the deck. Mixed multiple-choice and code cards use Leitner boxes. Code cards **run your JavaScript** against the card’s tests (TypeScript types are erased).
+5. Open **Show in book** on a card to jump to that module’s chapter.
 
-You already know CS and C++. Treat JavaScript as a different machine: values vs bindings, coercion, reference identity, and lexical closures.
+You already know CS and C++. Start with TypeScript if you want types on the C-like syntax first. Treat types as erased: the engine runs JavaScript.
 
 ---
 
-## 1. JavaScript — ready language decks
+## 1. TypeScript — ready language decks
+
+**Books:** Effective TypeScript, 2nd Edition by Dan Vanderkam (local PDF). TypeScript Quickly and Programming TypeScript are in `typescript/sources/` as extra reading.
+
+Start here. Types first, then the rest of the typed syntax. Each deck uses the same shape as the JavaScript language quizzes: a lesson, colorful code on every multiple-choice card, then three in-browser practice functions (JavaScript at runtime; types are erased).
+
+| # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
+|---|---|---|---|---|---|
+| 1 | `typescript/language/types-and-annotations` **ready** | Explain `.ts` → `.js` erasure, annotate primitives, prefer inference, avoid `String` / `any`. | None | ETS ch. 1 (PDF p. 27), Item 3 (p. 38), Item 7 (p. 59), Item 9 (p. 72) | `parseAmount`, `label`, `firstDefined`. |
+| 2 | `typescript/language/unions-and-narrowing` **ready** | Write `A \| B`, narrow with `typeof` / `Array.isArray` / a `kind` tag. | Module 1 | ETS Item 7 (p. 59), Item 22 (p. 133) | `asList`, `area`, `describe`. |
+| 3 | `typescript/language/functions` **ready** | Annotate parameters, optional/default/rest, type the whole function expression. | Modules 1–2 | ETS Item 12 (p. 83) | `add`, `greet`, `sumAll`. |
+| 4 | `typescript/language/arrays-and-tuples` **ready** | Distinguish `T[]` from `[string, number]`; know indexing may be `undefined`. | Modules 1–3 | ETS indexed access (p. 37), Item 7 (p. 59) | `first`, `pair`, `sum`. |
+| 5 | `typescript/language/object-types` **ready** | Shape types, optional/`readonly`, excess property checking vs structural typing. | Modules 1–4 | ETS Item 4 (p. 45), excess properties (p. 80) | `pickName`, `copyUser`, `merge`. |
+| 6 | `typescript/language/interfaces` **ready** | `interface` vs `type`, `extends`, declaration merging. | Module 5 | ETS Item 13 (p. 86) | `makeUser`, `asAdmin`, `readField`. |
+| 7 | `typescript/language/generics` **ready** | `<T>`, constraints, `keyof`. | Modules 3–6 | ETS ch. 6 / Item 50 (p. 241–242) | `identity`, `longest`, `getProp`. |
+
+**Later TS topics (planned, same course):** `typescript/studio/*` (missing types, repair errors, convert JS, compile-time vs runtime).
+
+---
+
+## 2. JavaScript — ready language decks
 
 **Books:** Eloquent JavaScript, 4th Edition by Marijn Haverbeke; JavaScript: The Definitive Guide, 7th Edition by David Flanagan; You Don't Know JS Yet by Kyle Simpson (local file is *Scope & Closures, 2nd Edition*); JavaScript: The Good Parts by Douglas Crockford.
 
@@ -38,7 +58,7 @@ You already know CS and C++. Treat JavaScript as a different machine: values vs 
 
 ---
 
-## 2. HTML and CSS — planned
+## 3. HTML and CSS — planned
 
 **Courses:** `html/`, `css/`. **Books:** HTML and CSS: Design and Build Websites by Jon Duckett; CSS in Depth (1st edition on disk); Inclusive Components by Heydon Pickering; Responsible JavaScript by Jeremy Wagner (slides/audio under `javascript/sources/`).
 
@@ -55,15 +75,13 @@ You already know CS and C++. Treat JavaScript as a different machine: values vs 
 
 ---
 
-## 3. TypeScript — planned
+## 4. TypeScript studio — planned
 
-**Books:** Effective TypeScript, 2nd Edition by Dan Vanderkam; TypeScript Quickly by Yakov Fain and Anton Moiseev; Programming TypeScript by Boris Cherny.
-
-Start after JS modules 1–6. Follow existing `typescript/studio/*` topics: missing types → type errors → interfaces → unions → generics → unknown data → convert JS → compile-time vs runtime. Practical work: add types to a payment/customer module from the JS exercises.
+Follow existing `typescript/studio/*` after the language ramp: missing types → type errors → interfaces → unions → generics → unknown data → convert JS → compile-time vs runtime.
 
 ---
 
-## 4. Data structures and algorithms — planned
+## 5. Data structures and algorithms — planned
 
 **Courses:** `data-structures/`, `algorithms/`. **Books:** Grokking Algorithms, 2nd Edition by Aditya Y. Bhargava; A Common-Sense Guide to Data Structures and Algorithms, 2nd Edition by Jay Wengrow; Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne (Chapter 1 only on disk); Introduction to Algorithms, 4th Edition by Thomas Cormen, Charles Leiserson, Ronald Rivest, and Clifford Stein.
 
@@ -71,7 +89,7 @@ Path: visualize arrays/stacks/queues/lists → trees → BST → heaps → hashi
 
 ---
 
-## 5. LeetCode-style problem solving — planned
+## 6. LeetCode-style problem solving — planned
 
 **Course:** `leetcode/`. **Books:** Cracking the Coding Interview by Gayle Laakmann McDowell (4th edition on disk); Elements of Programming Interviews (sampler on disk); plus Grokking and the Common-Sense Guide.
 
@@ -79,7 +97,7 @@ Use `leetcode/problem-format/*` as the template for every problem (statement, ex
 
 ---
 
-## 6. Databases and SQL — planned
+## 7. Databases and SQL — planned
 
 **Course:** `database/`. **Books:** Learning SQL, 3rd Edition by Alan Beaulieu; SQL Antipatterns, Volume 1 by Bill Karwin (1st edition on disk).
 
@@ -87,7 +105,7 @@ Follow `database/studio/*`: queries → tables → relationships → joins → i
 
 ---
 
-## 7. APIs and backend development — planned
+## 8. APIs and backend development — planned
 
 **Course:** `api/`. **Books (titles only until PDFs land in `api/sources/`):** Node.js Design Patterns, 4th Edition by Mario Casciaro and Luciano Mammino; Web Development with Node and Express, 2nd Edition by Ethan Brown; API Design Patterns by JJ Geewax.
 
@@ -95,7 +113,7 @@ Follow `api/studio/*`: requests → headers → methods → status codes → bod
 
 ---
 
-## 8. System design and scaling — planned
+## 9. System design and scaling — planned
 
 **Course:** `system-design/`. No dedicated design textbook in `sources/` yet. Use the API/DB books plus this app as the running example (`system-design/systems/quiz-platform`).
 
@@ -103,7 +121,7 @@ Path: small systems (URL shortener, quiz platform, timecard, …) then design ch
 
 ---
 
-## 9. Testing and debugging — planned
+## 10. Testing and debugging — planned
 
 **Courses:** `testing/`, `debugging/`. **Books:** Eloquent JavaScript ch. 8 *Bugs and Errors*; plus the JS/TS books above.
 

@@ -87,6 +87,45 @@ export function withDeck(log, meta, quiz, boxes, stats, maxBox) {
   return next;
 }
 
+export function deckDone(progress) {
+  if (!progress || typeof progress !== 'object') return false;
+  if (progress.done) return true;
+  const total = Number(progress.total) || 0;
+  const mastered = Number(progress.mastered) || 0;
+  return total > 0 && mastered >= total;
+}
+
+export function leftoverStudy(log, courses) {
+  const working = log && log.workingOn;
+  if (!working || !working.deckId) return null;
+  const list = Array.isArray(courses) ? courses : [];
+  for (let i = 0; i < list.length; i++) {
+    const course = list[i];
+    const decks = [];
+    if (course && Array.isArray(course.modules)) {
+      course.modules.forEach((mod) => { (mod.decks || []).forEach((d) => decks.push(d)); });
+    } else if (course && Array.isArray(course.decks)) {
+      course.decks.forEach((d) => decks.push(d));
+    }
+    const ready = decks.filter((d) => d && d.data && Array.isArray(d.data.questions) && d.data.questions.length);
+    if (!ready.length) continue;
+    let idx = ready.findIndex((d) => d.id === working.deckId);
+    if (idx < 0 && course.id === working.courseId) idx = 0;
+    if (idx < 0) continue;
+    let pick = ready[idx];
+    let completed = deckDone(log.decks && log.decks[pick.id]);
+    if (completed) {
+      const next = ready.slice(idx + 1).find((d) => !deckDone(log.decks && log.decks[d.id]));
+      if (next) {
+        pick = next;
+        completed = false;
+      }
+    }
+    return { course, deck: pick, completed };
+  }
+  return null;
+}
+
 export function courseRollup(course, log) {
   const decks = [];
   if (course && Array.isArray(course.modules)) {
@@ -114,6 +153,7 @@ export function courseRollup(course, log) {
     seenPct: total ? Math.round((seen / total) * 100) : 0,
     started: ready.filter((d) => log && log.decks && log.decks[d.id]).length,
     ready: ready.length,
+    done: ready.length > 0 && ready.every((d) => deckDone(log && log.decks && log.decks[d.id])),
   };
 }
 

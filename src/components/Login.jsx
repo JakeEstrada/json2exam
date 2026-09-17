@@ -39,7 +39,7 @@ export default function Login({ onClose, onSignedIn }) {
         onClick={(e) => e.stopPropagation()}
       >
         <h2 id="login-title">Owner sign-in</h2>
-        <p>This log only records Jake. Visitors can browse; they do not write progress.</p>
+        <p>AskGPT and the learning log are locked to this sign-in. Visitors can study; they cannot run the tutor or write progress.</p>
         <form onSubmit={submit}>
           <label>
             Username

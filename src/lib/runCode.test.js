@@ -42,6 +42,15 @@ test('runJavascript supports setup, call, and assert', () => {
   assert.deepEqual(out.results[0].actual, ['inv-1', 'inv-2']);
 });
 
+test('runJavascript treats expected null as a real value', () => {
+  const out = runJavascript(
+    'function first(arr) { return arr.length ? arr[0] : null; }',
+    [{ args: [[]], expected: null, label: 'empty' }]
+  );
+  assert.equal(out.passed, true);
+  assert.equal(out.results[0].actual, null);
+});
+
 test('testCall wraps a literal input as a function call', () => {
   assert.equal(testCall({ input: '"open"' }, 'function isOpenStatus(status) {}'), 'isOpenStatus("open")');
   assert.equal(testCall({ call: 'applyDiscount(0.1)(100)' }, ''), 'applyDiscount(0.1)(100)');

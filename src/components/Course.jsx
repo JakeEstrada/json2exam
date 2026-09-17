@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FileWindow from './FileWindow.jsx';
 import { courseDecks } from '../data/catalog.js';
 import ProgressRing from './ProgressRing.jsx';
+import { deckDone } from '../lib/learningLog.js';
 
 function isReady(deck) {
   return !!(deck && deck.data && Array.isArray(deck.data.questions) && deck.data.questions.length);
@@ -19,6 +20,11 @@ function moduleBlurb(mod) {
   if (!ready) return chapters + ' · coming next';
   const qLabel = questions + ' question' + (questions === 1 ? '' : 's');
   return ready + ' of ' + n + ' · ' + qLabel;
+}
+
+function moduleDone(mod, log) {
+  const ready = ((mod && mod.decks) || []).filter(isReady);
+  return ready.length > 0 && ready.every((d) => deckDone(log && log.decks && log.decks[d.id]));
 }
 
 function uniqueBooks(course) {
@@ -56,11 +62,16 @@ function startExtra(deck, course) {
     cheatsheet: deck.cheatsheet,
     sheet: deck.sheet,
     jsIntro: deck.jsIntro,
+    tsIntro: deck.tsIntro,
     courseId: course && course.id,
     courseTitle: course && course.title,
     deckId: deck.id,
     deckLabel: deck.label,
   };
+}
+
+export function deckLaunchExtra(deck, course) {
+  return startExtra(deck, course);
 }
 
 function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
@@ -105,9 +116,10 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
 
   const seen = (progress && progress.seen) || 0;
   const total = (progress && progress.total) || count;
+  const done = deckDone(progress);
 
   return (
-    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (!coming ? ' has-ring' : '')}>
+    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (!coming ? ' has-ring' : '') + (done ? ' is-done' : '')}>
       <div className="course-card-copy">
         {step ? <span className="kicker">Step {step}</span> : null}
         <strong>{deck.label}</strong>
@@ -115,14 +127,16 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
         <p>
           {coming
             ? 'Coming next'
-            : (seen
-              ? (seen + ' of ' + total + ' seen')
-              : (ramp ? 'Lesson, then practice' : (count + ' questions')))}
+            : (done
+              ? 'Completed'
+              : (seen
+                ? (seen + ' of ' + total + ' seen')
+                : (ramp ? 'Lesson, then practice' : (count + ' questions'))))}
         </p>
       </div>
       {!coming && (
         <ProgressRing
-          value={seen}
+          value={done ? total : seen}
           max={total}
           size={64}
           label={deck.label + ' progress'}
@@ -152,7 +166,7 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress }) {
           className="go"
           onClick={() => onStart(deck.data, deck.label, startExtra(deck, course))}
         >
-          {ramp ? 'Learn' : 'Start this deck'}
+          {done ? 'Review' : (ramp ? 'Learn' : 'Start this deck')}
         </button>
       )}
     </div>
@@ -216,7 +230,7 @@ export default function Course({ course, onStart, log }) {
     : [{ id: course.id, label: null, decks: courseDecks(course) }];
   const empty = courseDecks(course).length === 0 && !(course.modules && course.modules.length);
   const books = uniqueBooks(course);
-  const rampCourse = course.id === 'js';
+  const rampCourse = course.id === 'js' || course.id === 'ts';
   const [openIds, setOpenIds] = useState(() => {
     const first = modules.find((mod) => mod.label && (mod.decks || []).some(isReady));
     const fallback = modules.find((mod) => mod.label);
@@ -247,6 +261,7 @@ export default function Course({ course, onStart, log }) {
             const ramp = rampCourse && mod.label === 'Language';
             const ready = (mod.decks || []).filter(isReady);
             const later = (mod.decks || []).filter((d) => !isReady(d));
+            const finished = moduleDone(mod, log);
             const body = (
               <>
                 {mod.overviewFile && (
@@ -294,7 +309,7 @@ export default function Course({ course, onStart, log }) {
 
             if (!mod.label) {
               return (
-                <section key={mod.id} className="module-block">
+                <section key={mod.id} className={'module-block' + (finished ? ' is-done' : '')}>
                   {body}
                 </section>
               );
@@ -303,7 +318,7 @@ export default function Course({ course, onStart, log }) {
             return (
               <details
                 key={mod.id}
-                className="module-block"
+                className={'module-block' + (finished ? ' is-done' : '')}
                 open={!!openIds[mod.id]}
               >
                 <summary

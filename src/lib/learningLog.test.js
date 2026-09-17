@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { catalogTotals, courseRollup, deckStats, emptyLog, logTotals, mergeLog, withDeck } from './learningLog.js';
+import { catalogTotals, courseRollup, deckStats, emptyLog, leftoverStudy, logTotals, mergeLog, withDeck } from './learningLog.js';
 
 test('deckStats counts mastered cards from Leitner boxes', () => {
   const quiz = { questions: [{ id: 'a' }, { id: 'b' }, { id: 'c' }] };
@@ -48,6 +48,32 @@ test('courseRollup uses saved mastery against ready decks', () => {
   assert.equal(out.mastered, 2);
   assert.equal(out.total, 3);
   assert.equal(out.pct, 67);
+  assert.equal(out.done, false);
+});
+
+test('leftoverStudy resumes the unfinished deck, then the next one', () => {
+  const courses = [{
+    id: 'js',
+    title: 'JavaScript',
+    modules: [{
+      decks: [
+        { id: 'one', data: { questions: [1, 2] } },
+        { id: 'two', data: { questions: [1] } },
+      ],
+    }],
+  }];
+  const mid = leftoverStudy({
+    workingOn: { courseId: 'js', deckId: 'one' },
+    decks: { one: { total: 2, mastered: 1, seen: 1 } },
+  }, courses);
+  assert.equal(mid.deck.id, 'one');
+  assert.equal(mid.completed, false);
+  const next = leftoverStudy({
+    workingOn: { courseId: 'js', deckId: 'one' },
+    decks: { one: { total: 2, mastered: 2, seen: 2, done: true } },
+  }, courses);
+  assert.equal(next.deck.id, 'two');
+  assert.equal(next.completed, false);
 });
 
 test('logTotals sums seen cards across started decks', () => {

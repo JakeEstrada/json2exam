@@ -13,7 +13,7 @@ export default function ProgressRing({ value, max, size, label }) {
 
   return (
     <svg
-      className="progress-ring"
+      className={'progress-ring' + (shown === 100 && total > 0 ? ' is-complete' : '')}
       width={dim}
       height={dim}
       viewBox={'0 0 ' + dim + ' ' + dim}

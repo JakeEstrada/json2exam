@@ -33,6 +33,81 @@ export function cardSpeechParts(q, order) {
   return parts;
 }
 
+export function spokenMd(s) {
+  return String(s || '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isFenceLine(line) {
+  return String(line || '').trim().startsWith('```');
+}
+
+export function readingSpeechParts(markdown) {
+  const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+  const parts = [];
+  let i = 0;
+
+  function push(kind, raw) {
+    const text = spokenMd(raw);
+    if (text) parts.push({ kind, text });
+  }
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim()) { i += 1; continue; }
+    if (isFenceLine(line)) {
+      i += 1;
+      while (i < lines.length && !isFenceLine(lines[i])) i += 1;
+      if (i < lines.length) i += 1;
+      continue;
+    }
+    if (/^#{1,3} /.test(line)) {
+      push('heading', line.replace(/^#{1,3} /, ''));
+      i += 1;
+      continue;
+    }
+    if (/^\s*\|.+\|\s*$/.test(line)) {
+      while (i < lines.length && /^\s*\|.+\|\s*$/.test(lines[i])) i += 1;
+      continue;
+    }
+    if (/^\s*[-*] /.test(line)) {
+      while (i < lines.length && /^\s*[-*] /.test(lines[i])) {
+        push('item', lines[i].replace(/^\s*[-*] /, ''));
+        i += 1;
+      }
+      continue;
+    }
+    if (/^\s*\d+\. /.test(line)) {
+      while (i < lines.length && /^\s*\d+\. /.test(lines[i])) {
+        push('item', lines[i].replace(/^\s*\d+\. /, ''));
+        i += 1;
+      }
+      continue;
+    }
+    const para = [line];
+    i += 1;
+    while (
+      i < lines.length
+      && lines[i].trim()
+      && !isFenceLine(lines[i])
+      && !/^#{1,3} /.test(lines[i])
+      && !/^\s*\|.+\|\s*$/.test(lines[i])
+      && !/^\s*[-*] /.test(lines[i])
+      && !/^\s*\d+\. /.test(lines[i])
+    ) {
+      para.push(lines[i]);
+      i += 1;
+    }
+    push('p', para.join(' '));
+  }
+  return parts;
+}
+
 export function normalizeRate(rate) {
   const n = Number(rate);
   if (!isFinite(n)) return 1;

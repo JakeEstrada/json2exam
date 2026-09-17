@@ -112,7 +112,7 @@ function askApiPlugin() {
 
         try {
           const body = await readJsonBody(req);
-          const out = await runAsk(body);
+          const out = await runAsk(body, bearerToken(req));
           res.statusCode = out.status;
           res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify(out.json));

@@ -1,0 +1,418 @@
+{
+  "title": "TypeScript — Object types",
+  "questions": [
+    {
+      "question": "Which annotation types a value with name and age?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let user: name string, age number;",
+        "let user: { name: string; age: number };",
+        "let user: Object<name, age>;",
+        "let user: map[string]number;"
+      ],
+      "answer": "b",
+      "explanation": "Object type literals use braces and colons, like an interface inline.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "let user: { name: string; age: number } = { name: \"Ada\", age: 36 };"
+    },
+    {
+      "question": "Why is greet({ name: \"Ada\", age: 36 }) an error if greet takes { name: string }?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Because extra fields are never allowed.",
+        "Because a fresh literal is checked for excess properties.",
+        "Because age is the wrong type.",
+        "Because greet is generic."
+      ],
+      "answer": "b",
+      "explanation": "Excess property checking flags unknown keys on object literals. A variable with extra keys can still be assignable structurally.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 80,
+        "excerpt": "Object literal may"
+      },
+      "code": "function greet(p: { name: string }): string {\n  return p.name;\n}\ngreet({ name: \"Ada\", age: 36 });"
+    },
+    {
+      "question": "Does this assignment compile?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No. Extra z is always an error.",
+        "Yes. p already exists, so structural typing only needs x and y.",
+        "Yes only with as Point.",
+        "No unless p implements Point."
+      ],
+      "answer": "b",
+      "explanation": "NamedVector / extra fields on an existing object still match Point if x and y are there.",
+      "reference": {
+        "section": "Structural typing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "type Point = { x: number; y: number };\nconst p = { x: 1, y: 2, z: 3 };\nconst q: Point = p;"
+    },
+    {
+      "question": "What does age? mean?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "age is a getter.",
+        "age may be omitted; the property type includes undefined.",
+        "age is nullable only if strictNullChecks is off.",
+        "age is readonly."
+      ],
+      "answer": "b",
+      "explanation": "Optional properties are T | undefined and may be missing.",
+      "reference": {
+        "section": "Optional and readonly",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "type User = { name: string; age?: number };\nconst u: User = { name: \"Ada\" };"
+    },
+    {
+      "question": "What does readonly id prevent?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Reading id.",
+        "user.id = 2 through that type.",
+        "JSON serialization.",
+        "Spreading user into another object."
+      ],
+      "answer": "b",
+      "explanation": "readonly is compile-time. The object is still a plain object at runtime.",
+      "reference": {
+        "section": "Optional and readonly",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "type User = { readonly id: number; name: string };\nconst user: User = { id: 1, name: \"Ada\" };\nuser.id = 2;"
+    },
+    {
+      "question": "Which typo does excess property checking catch?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "createWindow({ title: \"Ski\", darkMode: true }) when the field is darkMode.",
+        "createWindow({ title: \"Ski\", darkmode: true }) when the field is darkMode.",
+        "Passing a variable that already has darkmode.",
+        "A missing title when title is optional."
+      ],
+      "answer": "b",
+      "explanation": "A misspelled key on a fresh literal is the classic excess-property catch.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 80,
+        "excerpt": "Object literal may"
+      },
+      "code": "type Options = { title: string; darkMode?: boolean };\ncreateWindow({ title: \"Ski\", darkmode: true });"
+    },
+    {
+      "question": "Why might an intermediate variable hide that typo?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Because TypeScript only checks literals, not variables, for excess keys.",
+        "Because variables cannot have extra keys.",
+        "Because darkmode becomes darkMode at runtime.",
+        "Because Options is any."
+      ],
+      "answer": "a",
+      "explanation": "Assign the object to a variable first and excess property checking no longer applies. Structural assignability still passes.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 80,
+        "excerpt": "Object literal may"
+      },
+      "code": "const intermediate = { darkmode: true, title: \"Ski Free\" };\nconst o: Options = intermediate;"
+    },
+    {
+      "question": "Do you need implements for a plain object to match an interface?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Yes. Extra properties on a value always make it fail the interface.",
+        "No. If the shape fits, it is assignable.",
+        "Yes for objects, no for classes.",
+        "Only with declare."
+      ],
+      "answer": "b",
+      "explanation": "Structural typing: shape is everything. implements on a class is optional assertion.",
+      "reference": {
+        "section": "Structural typing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "interface Point { x: number; y: number }\nconst p = { x: 1, y: 2, z: 3 };\nconst q: Point = p;"
+    },
+    {
+      "question": "Which index signature is the common map-of-strings type?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "{ [key: string]: string }",
+        "{ [key: string]: number; count: string }",
+        "{ key: string[] }",
+        "{ string: string }"
+      ],
+      "answer": "a",
+      "explanation": "A string index signature types dynamic keys. Mixing a number field with a string index often fails.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "interface StringMap {\n  [key: string]: string;\n}"
+    },
+    {
+      "question": "Why is count: number an error next to [key: string]: string?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Because count is reserved.",
+        "Because every named property must be assignable to the index signature type.",
+        "Because number keys are required.",
+        "Because interfaces cannot mix fields."
+      ],
+      "answer": "b",
+      "explanation": "count would also be reachable as stringMap[\"count\"], so it must be a string if values are strings.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "interface Bad {\n  [key: string]: string;\n  count: number;\n}"
+    },
+    {
+      "question": "Which call to greet is the intended extra-fields pattern?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "greet({ name: \"Ada\", age: 36 }) with a fresh literal against { name: string }.",
+        "const person = { name: \"Ada\", age: 36 }; greet(person);",
+        "greet(\"Ada\")",
+        "greet({ age: 36 })"
+      ],
+      "answer": "b",
+      "explanation": "Put extra fields on a variable, then pass it. Or widen the parameter type to include age.",
+      "reference": {
+        "section": "Structural typing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "const person = { name: \"Ada\", age: 36 };\ngreet(person);"
+    },
+    {
+      "question": "What is the type of user.age after User has age?: number?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "number",
+        "number | undefined",
+        "null",
+        "never"
+      ],
+      "answer": "b",
+      "explanation": "Optional means the value might be undefined when you read it.",
+      "reference": {
+        "section": "Optional and readonly",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "type User = { name: string; age?: number };\nfunction years(user: User) {\n  return user.age;\n}"
+    },
+    {
+      "question": "Does readonly freeze the object?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. Object.freeze is inserted.",
+        "No. It is a type-level restriction, erased at runtime.",
+        "Yes for nested objects too.",
+        "Only in production builds."
+      ],
+      "answer": "b",
+      "explanation": "Types cannot affect runtime behavior.",
+      "reference": {
+        "section": "Optional and readonly",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 38,
+        "excerpt": "your types can’t affect the way your code runs."
+      },
+      "code": "type User = { readonly id: number };\nconst user: User = { id: 1 };"
+    },
+    {
+      "question": "Which type is better than a string index mixed with other fields?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "any",
+        "Record<string, number> or a Map, depending on the keys.",
+        "Object",
+        "{}"
+      ],
+      "answer": "b",
+      "explanation": "Record<K, V> is the usual dictionary. Map is better when keys are not known strings you want checked.",
+      "reference": {
+        "section": "Object type literals",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "const counts: Record<string, number> = { paid: 3 };"
+    },
+    {
+      "question": "What does structural typing say about calculateLength({ x, y, name })?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "It fails unless the value was declared as Vector.",
+        "It works if the function takes { x: number; y: number }, because name is extra on a matching shape (when not a fresh-literal excess check).",
+        "It works only with duck typing at runtime, not in TypeScript.",
+        "It fails because name is a string."
+      ],
+      "answer": "b",
+      "explanation": "NamedVector still has x and y. That is Item 4. Fresh literals may still get excess checks.",
+      "reference": {
+        "section": "Structural typing",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "code": "function calculateLength(v: { x: number; y: number }) {\n  return Math.sqrt(v.x ** 2 + v.y ** 2);\n}"
+    },
+    {
+      "question": "Write pickName(user) returning user.name.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function pickName(user) {\n  // return the name\n}\n",
+      "tests": [
+        {
+          "label": "Ada",
+          "args": [
+            {
+              "name": "Ada",
+              "age": 36
+            }
+          ],
+          "expected": "Ada"
+        }
+      ],
+      "hints": [
+        "return user.name;"
+      ],
+      "solution": "function pickName(user) {\n  return user.name;\n}\n",
+      "explanation": "Parameter type in .ts: { name: string }.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write copyUser(user) returning a shallow copy.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function copyUser(user) {\n  // do not mutate user\n}\n",
+      "tests": [
+        {
+          "label": "fields",
+          "args": [
+            {
+              "id": 1,
+              "name": "Ada"
+            }
+          ],
+          "expected": {
+            "id": 1,
+            "name": "Ada"
+          }
+        }
+      ],
+      "hints": [
+        "return { ...user }; or Object.assign({}, user)"
+      ],
+      "solution": "function copyUser(user) {\n  return Object.assign({}, user);\n}\n",
+      "explanation": "readonly in types does not copy. If you need a new object, spread or assign.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write merge(user, patch) returning a new object with patch fields, leaving user unchanged.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function merge(user, patch) {\n  // return a new object\n}\n",
+      "tests": [
+        {
+          "label": "rename",
+          "setup": "const u = { id: 1, name: \"Ada\" }; const m = merge(u, { name: \"Grace\" });",
+          "call": "m.name",
+          "expected": "Grace"
+        },
+        {
+          "label": "original",
+          "setup": "const u = { id: 1, name: \"Ada\" }; merge(u, { name: \"Grace\" });",
+          "call": "u.name",
+          "expected": "Ada"
+        }
+      ],
+      "hints": [
+        "return Object.assign({}, user, patch);"
+      ],
+      "solution": "function merge(user, patch) {\n  return Object.assign({}, user, patch);\n}\n",
+      "explanation": "A patch type in .ts is Partial<User> or a smaller object type.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 45,
+        "excerpt": "The calculateLength function will work with NamedVectors because they"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Item 4 — Structural typing; excess property checking",
+      "page": 45,
+      "pageEnd": 82,
+      "sections": [
+        {
+          "heading": "Item 4 — Structural typing",
+          "page": 45
+        },
+        {
+          "heading": "Excess property checking",
+          "page": 80
+        }
+      ]
+    }
+  ]
+}

@@ -34,5 +34,9 @@ test('applied scaffold lists the program root and every topic folder', () => {
   const items = appliedScaffoldItems();
   assert.equal(items[0].folder, 'applied-classroom');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/javascript/language/variables-and-data-types'));
+  assert.ok(items.some((i) => i.folder === 'applied-classroom/typescript/language/types-and-annotations'));
+  const langs = APPLIED_COURSES.filter((c) => c.group === 'languages').map((c) => c.id);
+  assert.equal(langs[0], 'ts');
+  assert.equal(langs[1], 'js');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/system-design/systems/url-shortener'));
 });

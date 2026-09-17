@@ -136,7 +136,9 @@ function normalizeTests(raw) {
     const args = Array.isArray(row.args) ? row.args : undefined;
     const hasExpected = Object.prototype.hasOwnProperty.call(row, 'expected')
       || Object.prototype.hasOwnProperty.call(row, 'result');
-    const expected = hasExpected ? firstDefined(row.expected, row.result) : undefined;
+    const expected = Object.prototype.hasOwnProperty.call(row, 'expected')
+      ? row.expected
+      : (Object.prototype.hasOwnProperty.call(row, 'result') ? row.result : undefined);
     const input = jsonPreview(firstDefined(row.input, call, args, ''));
     const output = jsonPreview(firstDefined(row.output, hasExpected ? expected : ''));
     if (!input && !output && !call && !setup && !assert && !args) return null;

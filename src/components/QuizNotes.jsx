@@ -1,12 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { headingId } from '../lib/parseQuiz.js';
 import { slideHighlightQuery } from '../lib/slides.js';
+import { readingSpeechParts } from '../lib/speech.js';
 import { MarkdownView } from './FileWindow.jsx';
 import LectureView from './LectureView.jsx';
 import PdfPage from './PdfPage.jsx';
+import SpeechTools, { useSpeechReader } from './SpeechTools.jsx';
 
 export default function QuizNotes({
   source, bookUrl, bookMissing, bookWanted, slidesUrl, lecture, lectureAudio, lectureVideo, focus, mode, onOpenSlide,
+  voice, speechRate,
 }) {
   const page = focus && focus.page ? focus.page : 0;
   const pageEnd = focus && focus.pageEnd ? focus.pageEnd : 0;
@@ -23,6 +26,11 @@ export default function QuizNotes({
     .join(' ');
   const active = mode
     || (slidesUrl && slide ? 'slides' : lecture && lectureQuote ? 'lecture' : source ? 'notes' : 'book');
+  const noteParts = useMemo(
+    () => (active === 'notes' && source ? readingSpeechParts(source) : []),
+    [active, source]
+  );
+  const speech = useSpeechReader(noteParts, voice, speechRate);
 
   useEffect(() => {
     if (active !== 'notes' || !heading) return;
@@ -37,7 +45,16 @@ export default function QuizNotes({
     <div className="quiz-study is-pane">
       {active === 'notes' && source && (
         <div className="quiz-notes-body">
-          <MarkdownView source={source} focusHeading={heading} />
+          <div className="quiz-notes-speak">
+            <SpeechTools
+              parts={noteParts}
+              on={speech.on}
+              wait={speech.wait}
+              onToggle={() => (speech.on ? speech.stop() : speech.playFrom(speech.at))}
+              onStep={speech.step}
+            />
+          </div>
+          <MarkdownView source={source} focusHeading={heading} spokenIndex={speech.spoken ? speech.at : -1} />
         </div>
       )}
       {active === 'lecture' && lecture && (

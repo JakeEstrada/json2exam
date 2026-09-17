@@ -1,4 +1,5 @@
 import { readJsonBody, runAsk } from './ask-core.js';
+import { bearerToken } from './owner-core.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -14,6 +15,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  const out = await runAsk(body);
+  const out = await runAsk(body, bearerToken(req));
   res.status(out.status).json(out.json);
 }

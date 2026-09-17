@@ -396,6 +396,12 @@
     stroke: var(--accent);
     transition: stroke-dashoffset .35s ease;
   }
+  .progress-ring.is-complete .progress-ring-fill {
+    stroke: var(--right);
+  }
+  .progress-ring.is-complete .progress-ring-pct {
+    fill: var(--right);
+  }
   .progress-ring-pct {
     fill: var(--ink);
     font-weight: 650;
@@ -498,6 +504,17 @@
   .course-card .progress-ring {
     margin-top: 2px;
   }
+  .course-card.is-done {
+    background: var(--right-soft);
+    border-color: var(--right);
+  }
+  .course-card.is-done strong {
+    color: var(--right);
+  }
+  .course-card.is-done .go {
+    background: var(--right);
+  }
+  button.course-card.is-done:hover { border-color: var(--right); }
   button.course-card { cursor: pointer; }
   button.course-card:hover { border-color: var(--accent); }
   .course-card strong {
@@ -635,6 +652,16 @@
   }
   .module-block[open] > .module-head .module-caret {
     transform: rotate(45deg);
+  }
+  .module-block.is-done > .module-head {
+    border-bottom-color: var(--right);
+  }
+  .module-block.is-done > .module-head h3,
+  .module-block.is-done > .module-head .module-meta {
+    color: var(--right);
+  }
+  .module-block.is-done > .module-head .module-caret {
+    border-color: var(--right);
   }
   .quiz-notes {
     margin: 0 0 14px;
@@ -1031,6 +1058,8 @@
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
+    background: var(--accent-soft);
+    border-color: var(--accent);
   }
   .resume .who { font-weight: 600; font-size: 17px; }
   .resume .meta { color: var(--ink-soft); font-size: 14.5px; }
@@ -1343,6 +1372,21 @@
     padding: 2px 6px;
     margin-left: -6px;
     margin-right: -6px;
+  }
+  .md-preview .is-reading {
+    background: var(--accent-soft);
+    box-shadow: -8px 0 0 var(--accent-soft), 8px 0 0 var(--accent-soft);
+    border-radius: 4px;
+    color: var(--paper-strong);
+  }
+  .quiz-notes-speak {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--paper);
   }
   .lecture-view {
     display: flex;

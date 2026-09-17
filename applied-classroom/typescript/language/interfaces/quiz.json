@@ -1,0 +1,427 @@
+{
+  "title": "TypeScript — Interfaces",
+  "questions": [
+    {
+      "question": "Which declares a named object shape?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "class State { name: string; capital: string } only. interface is runtime.",
+        "interface State { name: string; capital: string }",
+        "interface State = { name: string; capital: string }",
+        "type State = interface { name: string }"
+      ],
+      "answer": "b",
+      "explanation": "interface names an object type. type can too, with a type alias.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface State {\n  name: string;\n  capital: string;\n}"
+    },
+    {
+      "question": "Is this type alias roughly the same shape as that interface?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No. type cannot describe objects.",
+        "Yes. In most everyday object cases they are interchangeable.",
+        "No. type aliases are values.",
+        "Yes, but TState exists at runtime and State does not."
+      ],
+      "answer": "b",
+      "explanation": "Item 13: the line has blurred. Either works for a simple object. Know the remaining differences.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "type TState = {\n  name: string;\n  capital: string;\n};"
+    },
+    {
+      "question": "Which can declaration-merge two blocks with the same name?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "type Window { ... } twice.",
+        "interface Window { ... } twice.",
+        "class Window twice in one file.",
+        "const Window twice."
+      ],
+      "answer": "b",
+      "explanation": "Interfaces merge. Type aliases with the same name in one scope are an error. Merging is how you augment Window.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface Window {\n  myApp: string;\n}"
+    },
+    {
+      "question": "What does Admin extend User add?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It replaces User.",
+        "level, plus the fields from User.",
+        "Only level; id and name are dropped.",
+        "A runtime prototype link."
+      ],
+      "answer": "b",
+      "explanation": "extends on interfaces is type composition, not a JS prototype.",
+      "reference": {
+        "section": "Extending",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface User { id: number; name: string }\ninterface Admin extends User { level: number }"
+    },
+    {
+      "question": "Does a class need implements User to be assignable to User?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. TypeScript is nominal.",
+        "No. If the instance shape matches, it is assignable. implements is an assertion.",
+        "Yes for public fields, no for methods.",
+        "implements emits a runtime interface object."
+      ],
+      "answer": "b",
+      "explanation": "implements checks the class against the shape. Structural typing still works without it.",
+      "reference": {
+        "section": "Extending",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface User { id: number; name: string }\nclass UserImpl {\n  constructor(public id: number, public name: string) {}\n}"
+    },
+    {
+      "question": "Which needs type, not interface?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A object with two string fields.",
+        "type Id = string | number;",
+        "A method list on a public API object.",
+        "An object you might declaration-merge later."
+      ],
+      "answer": "b",
+      "explanation": "Unions cannot be interfaces. Use type for unions, tuples, and computed types.",
+      "reference": {
+        "section": "When type is required",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "type Id = string | number;\nconst id: Id = 12;"
+    },
+    {
+      "question": "Which is a tuple alias?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "interface Pair { 0: string; 1: number } is preferred over a tuple.",
+        "type Pair = [string, number];",
+        "interface Pair extends Array<string | number> {}",
+        "type Pair = string & number;"
+      ],
+      "answer": "b",
+      "explanation": "Tuples are type aliases. Interfaces describe object shapes.",
+      "reference": {
+        "section": "When type is required",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "type Pair = [string, number];\nconst p: Pair = [\"Ada\", 1];"
+    },
+    {
+      "question": "How do you type a method on an interface?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "greet(): string;",
+        "function greet(): string;",
+        "greet: function string;",
+        "def greet() string;"
+      ],
+      "answer": "a",
+      "explanation": "Method syntax or a function property: onChange: (value: string) => void.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface User {\n  id: number;\n  greet(): string;\n}"
+    },
+    {
+      "question": "What is a function property versus a method in the interface?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "There is no difference in the type.",
+        "onChange: (value: string) => void is a property holding a function; greet() is a method.",
+        "Methods exist at runtime; properties do not.",
+        "Function properties cannot be optional."
+      ],
+      "answer": "b",
+      "explanation": "Both are callable. The syntax records whether you think of it as a method or a stored function.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface User {\n  greet(): string;\n  onChange: (value: string) => void;\n}"
+    },
+    {
+      "question": "Can two type aliases named State merge?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes, like interfaces.",
+        "No. Duplicate type names in one scope are an error.",
+        "Yes if both are object types.",
+        "Yes if you export them."
+      ],
+      "answer": "b",
+      "explanation": "Declaration merging is an interface feature.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "type State = { name: string };\ntype State = { capital: string };"
+    },
+    {
+      "question": "interface Both extends User, Timestamped means what?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A union of User and Timestamped.",
+        "All fields from both interfaces.",
+        "Only overlapping fields.",
+        "A runtime mixin class."
+      ],
+      "answer": "b",
+      "explanation": "Multiple extends lists compose like an intersection of object types.",
+      "reference": {
+        "section": "Extending",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface Both extends User, Timestamped {}"
+    },
+    {
+      "question": "Which should you pick for a public object API that others may augment?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "type, because it merges.",
+        "interface, because it can merge and extend cleanly.",
+        "any",
+        "class only."
+      ],
+      "answer": "b",
+      "explanation": "Interfaces are the usual choice for object APIs. type for unions and computed types.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface User {\n  id: number;\n  name: string;\n}"
+    },
+    {
+      "question": "Does a class also introduce a value?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "No. class is type-only, like interface.",
+        "Yes. A class is a runtime value and a type. interface is type-only.",
+        "Yes, and interface also emits a constructor.",
+        "No. class is erased completely."
+      ],
+      "answer": "b",
+      "explanation": "Item 13 mentions class as a third option that exists at runtime. interface does not.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "class User {\n  name: string = \"\";\n}"
+    },
+    {
+      "question": "Which callable interface is legal?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "interface Formatter { (value: string): string; locale: string }",
+        "interface Formatter { function(value: string): string }",
+        "type Formatter = interface (value: string): string;",
+        "interface Formatter(value: string): string;"
+      ],
+      "answer": "a",
+      "explanation": "Call signatures live in the interface body. The value is both callable and has locale.",
+      "reference": {
+        "section": "interface versus type",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "interface Formatter {\n  (value: string): string;\n  locale: string;\n}"
+    },
+    {
+      "question": "What does implements check?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "That the class is a subclass in the JS prototype chain.",
+        "That instances of the class are assignable to the interface.",
+        "That the interface exists at runtime.",
+        "Nothing; it is a comment."
+      ],
+      "answer": "b",
+      "explanation": "implements is a static assertion. It does not change the emitted JavaScript.",
+      "reference": {
+        "section": "Extending",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "code": "class UserImpl implements User {\n  constructor(public id: number, public name: string) {}\n}"
+    },
+    {
+      "question": "Write makeUser(id, name) returning { id, name }.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function makeUser(id, name) {\n  // return a user object\n}\n",
+      "tests": [
+        {
+          "label": "Ada",
+          "args": [
+            1,
+            "Ada"
+          ],
+          "expected": {
+            "id": 1,
+            "name": "Ada"
+          }
+        }
+      ],
+      "hints": [
+        "return { id, name };"
+      ],
+      "solution": "function makeUser(id, name) {\n  return { id, name };\n}\n",
+      "explanation": "That value satisfies interface User { id: number; name: string } structurally.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write asAdmin(user, level) returning a new object with level added.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function asAdmin(user, level) {\n  // add level without mutating user\n}\n",
+      "tests": [
+        {
+          "label": "fields",
+          "args": [
+            {
+              "id": 1,
+              "name": "Ada"
+            },
+            3
+          ],
+          "expected": {
+            "id": 1,
+            "name": "Ada",
+            "level": 3
+          }
+        }
+      ],
+      "hints": [
+        "return Object.assign({}, user, { level });"
+      ],
+      "solution": "function asAdmin(user, level) {\n  return Object.assign({}, user, { level: level });\n}\n",
+      "explanation": "Admin extends User with level. At runtime it is still a plain object.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write readField(obj, key) returning obj[key].",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function readField(obj, key) {\n  // return the property\n}\n",
+      "tests": [
+        {
+          "label": "name",
+          "args": [
+            {
+              "name": "Ada",
+              "id": 1
+            },
+            "name"
+          ],
+          "expected": "Ada"
+        },
+        {
+          "label": "id",
+          "args": [
+            {
+              "name": "Ada",
+              "id": 1
+            },
+            "id"
+          ],
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "return obj[key];"
+      ],
+      "solution": "function readField(obj, key) {\n  return obj[key];\n}\n",
+      "explanation": "In .ts this is the start of K extends keyof T. The next lesson makes that precise.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 86,
+        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Item 13 — type vs interface",
+      "page": 86,
+      "pageEnd": 90,
+      "sections": [
+        {
+          "heading": "Item 13 — Know the differences between type and interface",
+          "page": 86
+        }
+      ]
+    }
+  ]
+}

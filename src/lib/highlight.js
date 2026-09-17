@@ -2,6 +2,8 @@ const KEYWORDS = (
   'break case catch class const continue debugger default delete do else export extends'
   + ' false finally for function if import in instanceof let new null return super switch'
   + ' this throw true try typeof undefined var void while with yield async await of from as'
+  + ' interface type implements enum declare namespace abstract readonly satisfies infer'
+  + ' keyof never unknown any is'
 ).split(' ');
 
 const KW = new Set(KEYWORDS);
@@ -10,7 +12,7 @@ export function looksLikeCode(value) {
   const s = String(value || '').trim();
   if (!s) return false;
   if (s.indexOf('\n') !== -1) return true;
-  if (/^(const|let|var|function|class|if|for|while|return|import|export)\b/.test(s)) return true;
+  if (/^(const|let|var|function|class|if|for|while|return|import|export|interface|type)\b/.test(s)) return true;
   if (/[{};]|=>|===|!==/.test(s) && /[A-Za-z_$]/.test(s)) return true;
   if (/^[A-Za-z_$][\w$]*\s*\(/.test(s)) return true;
   return false;

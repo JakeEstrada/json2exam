@@ -1,0 +1,458 @@
+{
+  "title": "TypeScript — Types, annotations, and erasure",
+  "questions": [
+    {
+      "question": "What runs after this file is compiled?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The TypeScript VM interprets the : number annotation at runtime.",
+        "JavaScript. tsc emits .js and deletes the types.",
+        "The : number annotation stays in the .js file so the engine can type-check it.",
+        "It only runs if you keep the .ts extension in the browser."
+      ],
+      "answer": "b",
+      "explanation": "TypeScript compiles to JavaScript. The engine runs that JS. Types are erased.",
+      "reference": {
+        "section": "What TypeScript is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+      },
+      "code": "let count: number = 0;\ncount = 1;\nconsole.log(count);"
+    },
+    {
+      "question": "Which annotation compiles for a string binding?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let name: String = \"Ada\"; is the usual form; lowercase string is the wrapper.",
+        "let name: string? = \"Ada\"; the ? goes after the type name.",
+        "let name: string = \"Ada\";",
+        "let name: str = \"Ada\"; str is the primitive alias."
+      ],
+      "answer": "c",
+      "explanation": "TypeScript annotations use a colon and lowercase primitives. String is the wrapper object type.",
+      "reference": {
+        "section": "string versus String",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "TypeScript is an unusual language"
+      },
+      "code": "let name: string = \"Ada\";\nconsole.log(name);"
+    },
+    {
+      "question": "After tsc, which is the emitted JavaScript?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "function add(a, b) { return a + b; }",
+        "function add(a: number, b: number): number { return a + b; }",
+        "function add(a, b): number { return a + b; }",
+        "The compiler refuses to emit because types must remain."
+      ],
+      "answer": "a",
+      "explanation": "Code generation is independent of types. Annotations are deleted. The JS still adds two values.",
+      "reference": {
+        "section": "What TypeScript is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 38,
+        "excerpt": "your types can’t affect the way your code runs."
+      },
+      "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
+    },
+    {
+      "question": "What type does TypeScript infer for n?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "any, because there is no annotation.",
+        "number",
+        "The literal 42, because let keeps literals.",
+        "unknown, the default for unannotated lets."
+      ],
+      "answer": "b",
+      "explanation": "let n = 42 infers number. const n = 42 infers the literal 42.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "you can think of the number type as the set of all number values."
+      },
+      "code": "let n = 42;\nconsole.log(n);"
+    },
+    {
+      "question": "What type does TypeScript infer for y?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "number, same as let.",
+        "any",
+        "42, a literal type",
+        "bigint, because 42 fits in an int."
+      ],
+      "answer": "c",
+      "explanation": "const keeps the literal type 42. let widens to number.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "42 and -37.25 are in it, but 'Canada' is not."
+      },
+      "code": "const y = 42;\nconsole.log(y);"
+    },
+    {
+      "question": "Which empty array is typed as string[]?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "const items = [];",
+        "const items: string[] = [];",
+        "const items = new Array(); with no type argument.",
+        "const items = [] as any[]; is required."
+      ],
+      "answer": "b",
+      "explanation": "[] without an annotation is any[] (implicit). Annotate empty containers.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 72,
+        "excerpt": "In general, you should prefer type annotations to type assertions."
+      },
+      "code": "const items: string[] = [];\nitems.push(\"paid\");"
+    },
+    {
+      "question": "Does this compile with a strict number annotation?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Yes. Types live on values, so a string assignment is fine.",
+        "Yes, because number includes strings that look like digits.",
+        "No. x is number, so x = \"hi\" is a type error.",
+        "No, because let cannot be annotated."
+      ],
+      "answer": "c",
+      "explanation": "Unlike JavaScript, the annotation pins the binding to number. The string assignment fails at compile time.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "42 and -37.25 are in it, but 'Canada' is not."
+      },
+      "code": "let x: number = 1;\nx = \"hi\";"
+    },
+    {
+      "question": "Which line uses the wrapper object type you should avoid?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "let ok: boolean = true;",
+        "let count: number = 3;",
+        "let label: string = \"paid\";",
+        "let label: String = \"paid\";"
+      ],
+      "answer": "d",
+      "explanation": "Uppercase String is the wrapper. Use lowercase string.",
+      "reference": {
+        "section": "string versus String",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "TypeScript is an unusual language"
+      },
+      "code": "let label: String = \"paid\";\nlet ok: string = \"paid\";"
+    },
+    {
+      "question": "What does `as string` do here?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It converts raw to a string at runtime, like String(raw).",
+        "It is a type assertion: it tells the checker to treat raw as string without converting.",
+        "It is the same as annotating const name: string = raw when raw is unknown.",
+        "It throws if raw is not a string."
+      ],
+      "answer": "b",
+      "explanation": "Assertions do not convert. Prefer an annotation or a real runtime check.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 72,
+        "excerpt": "In general, you should prefer type annotations to type assertions."
+      },
+      "code": "const raw: unknown = \"Ada\";\nconst name = raw as string;"
+    },
+    {
+      "question": "Which top type still requires a check before you call .toUpperCase()?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "any — you must narrow any before calling methods.",
+        "unknown — you must narrow it first.",
+        "never — it has every method.",
+        "void — it is a string alias."
+      ],
+      "answer": "b",
+      "explanation": "unknown is the safe top type. any disables checking. never is the empty type.",
+      "reference": {
+        "section": "any, unknown, never, void",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "function label(value: unknown) {\n  return value.toUpperCase();\n}"
+    },
+    {
+      "question": "What does void mean on a function type?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The function does not return at all; it always throws.",
+        "Callers should ignore the return value.",
+        "The function returns null.",
+        "The function returns never."
+      ],
+      "answer": "b",
+      "explanation": "void means ignore the return. never means the function does not complete normally.",
+      "reference": {
+        "section": "any, unknown, never, void",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "function logName(name: string): void {\n  console.log(name);\n}"
+    },
+    {
+      "question": "Why can tsc still emit JavaScript when there is a type error?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It cannot. Type errors always block emit.",
+        "Code generation is independent of the type system unless you set noEmitOnError.",
+        "Because types are still present at runtime and get repaired there.",
+        "Because tsc rewrites the assignment to Number(\"hi\")."
+      ],
+      "answer": "b",
+      "explanation": "Type checking and emit are separate. A program with type errors can still produce JS.",
+      "reference": {
+        "section": "What TypeScript is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 38,
+        "excerpt": "your types can’t affect the way your code runs."
+      },
+      "code": "let n: number = \"hi\";\nconsole.log(n);"
+    },
+    {
+      "question": "Which import is valid TypeScript for a JS module?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "import add { from \"./math.js\" };",
+        "import { add } from \"./math.js\";",
+        "import { add } \"./math.js\";",
+        "import add from { \"./math.js\" };"
+      ],
+      "answer": "b",
+      "explanation": "Named ESM imports still use `import { name } from \"./file.js\"`. TypeScript does not invent a different module syntax.",
+      "reference": {
+        "section": "What TypeScript is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+      },
+      "code": "import { add } from \"./math.js\";\nconsole.log(add(2, 3));"
+    },
+    {
+      "question": "A type is best thought of as what?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A runtime class tag stored on the value.",
+        "A set of possible values the checker allows.",
+        "A constructor you must call with new.",
+        "A hidden .__type field on the object."
+      ],
+      "answer": "b",
+      "explanation": "Before the code runs, a variable has a type: a set (domain) of allowed values.",
+      "reference": {
+        "section": "Annotations and inference",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "code": "let amount: number = 40;\namount = 0;"
+    },
+    {
+      "question": "Which statement about types at runtime is true?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "You can switch on T inside function f<T>(x: T).",
+        "typeof x is JavaScript’s typeof, not the TypeScript type of x.",
+        "interface names survive as constructor functions.",
+        "Generic type arguments are available as values."
+      ],
+      "answer": "b",
+      "explanation": "typeof in value space is JavaScript. Type parameters are erased. You cannot ask what T is.",
+      "reference": {
+        "section": "What TypeScript is",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+      },
+      "code": "function f<T>(x: T) {\n  console.log(typeof x);\n}"
+    },
+    {
+      "question": "Write parseAmount(raw) so Number(raw) is returned when finite, otherwise 0.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function parseAmount(raw) {\n  // return a number\n}\n",
+      "tests": [
+        {
+          "label": "numeric string",
+          "args": [
+            "40"
+          ],
+          "expected": 40
+        },
+        {
+          "label": "blank",
+          "args": [
+            ""
+          ],
+          "expected": 0
+        },
+        {
+          "label": "already a number",
+          "args": [
+            12
+          ],
+          "expected": 12
+        }
+      ],
+      "hints": [
+        "Number(\"\") is 0, but Number(\"x\") is NaN.",
+        "Use Number.isFinite."
+      ],
+      "solution": "function parseAmount(raw) {\n  const n = Number(raw);\n  return Number.isFinite(n) ? n : 0;\n}\n",
+      "explanation": "The TypeScript type would be (raw: unknown) => number. The runner checks the runtime conversion.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 27,
+        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write label(value) that returns value if it is a string, otherwise String(value).",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function label(value) {\n  // return a string\n}\n",
+      "tests": [
+        {
+          "label": "string",
+          "args": [
+            "Ada"
+          ],
+          "expected": "Ada"
+        },
+        {
+          "label": "number",
+          "args": [
+            7
+          ],
+          "expected": "7"
+        },
+        {
+          "label": "null",
+          "args": [
+            null
+          ],
+          "expected": "null"
+        }
+      ],
+      "hints": [
+        "typeof value === \"string\" is the runtime check unknown needs."
+      ],
+      "solution": "function label(value) {\n  return typeof value === \"string\" ? value : String(value);\n}\n",
+      "explanation": "That typeof check is what narrowing unknown to string looks like at runtime.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 59,
+        "excerpt": "This is best thought of as a set of possible values."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write firstDefined(a, b) returning a if it is not null or undefined, otherwise b.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function firstDefined(a, b) {\n  // return a or b\n}\n",
+      "tests": [
+        {
+          "label": "keeps 0",
+          "args": [
+            0,
+            5
+          ],
+          "expected": 0
+        },
+        {
+          "label": "skips null",
+          "args": [
+            null,
+            5
+          ],
+          "expected": 5
+        },
+        {
+          "label": "skips undefined",
+          "args": [
+            null,
+            "x"
+          ],
+          "expected": "x"
+        }
+      ],
+      "hints": [
+        "Use a != null so both null and undefined are skipped, and 0 is kept."
+      ],
+      "solution": "function firstDefined(a, b) {\n  return a != null ? a : b;\n}\n",
+      "explanation": "0 is a real number. A TS type of T | null | undefined still needs this runtime check.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+        "page": 72,
+        "excerpt": "In general, you should prefer type annotations to type assertions."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+      "chapter": "Chapter 1 — Getting to Know TypeScript",
+      "page": 27,
+      "pageEnd": 50,
+      "sections": [
+        {
+          "heading": "Item 1 — TypeScript and JavaScript",
+          "page": 27
+        },
+        {
+          "heading": "Item 3 — Code generation is independent of types",
+          "page": 38
+        },
+        {
+          "heading": "Item 7 — Types as sets of values",
+          "page": 59
+        },
+        {
+          "heading": "Item 9 — Annotations vs assertions",
+          "page": 72
+        }
+      ]
+    }
+  ]
+}

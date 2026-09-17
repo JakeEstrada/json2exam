@@ -32,28 +32,29 @@ function courseBlurb(course) {
 
 function CourseCard({ course, onOpen, log }) {
   const roll = courseRollup(course, log);
-  const ringValue = roll ? roll.seen : 0;
+  const ringValue = roll ? (roll.done ? roll.total : roll.seen) : 0;
   const ringMax = roll ? roll.total : 0;
+  const done = !!(roll && roll.done);
   return (
     <button
       type="button"
-      className={'course-card sheet' + (roll ? ' has-ring' : '')}
+      className={'course-card sheet' + (roll ? ' has-ring' : '') + (done ? ' is-done' : '')}
       onClick={() => onOpen(course.id)}
     >
       <div className="course-card-copy">
         <strong>{course.title}</strong>
         {course.tagline && <span className="subtitle">{course.tagline}</span>}
-        <p>{courseBlurb(course)}</p>
+        <p>{done ? 'Completed' : courseBlurb(course)}</p>
       </div>
       {roll && (
         <ProgressRing value={ringValue} max={ringMax} size={72} label={course.title + ' progress'} />
       )}
-      <span className="go">Open course</span>
+      <span className="go">{done ? 'Review' : 'Open course'}</span>
     </button>
   );
 }
 
-export default function Loader({ onStart, onOpenCourse, resumable, onResume, onForget, log, owner }) {
+export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, onForget, log, owner }) {
   const [over, setOver] = useState(false);
   const [error, setError] = useState(null);
   const [warn, setWarn] = useState(null);
@@ -106,8 +107,8 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
           <p>
             The original idea was a super easy way to build quizzes with the OpenAI API
             and learn CS. Paste a chapter or notes into a model, get JSON back, upload
-            it here, and drill it. Misses come back sooner. AskGPT is there if you want
-            to know why an answer is wrong.
+            it here, and drill it. Misses come back sooner. AskGPT is locked to my
+            sign-in so visitors cannot run up the bill.
           </p>
         </div>
         <div className="welcome-ring">
@@ -119,6 +120,8 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
           />
         </div>
       </div>
+
+      <ResumeBar prompt={owner ? resumePrompt : null} onResume={onResume} onForget={onForget} />
 
       <div
         className={'upload-panel sheet' + (over ? ' is-over' : '')}
@@ -205,8 +208,6 @@ export default function Loader({ onStart, onOpenCourse, resumable, onResume, onF
           </div>
         </div>
       )}
-
-      <ResumeBar resumable={owner ? resumable : null} onResume={onResume} onForget={onForget} />
 
       {COURSE_GROUPS.map((group) => {
         const list = COURSES.filter((course) => course.group === group.id);
