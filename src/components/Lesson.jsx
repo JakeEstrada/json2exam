@@ -56,6 +56,56 @@ export const TS_SHAPE = [
   'This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
 ].join('\n');
 
+export const HTML_SHAPE = [
+  '# What HTML is',
+  '',
+  'HTML is a **markup language**. You wrap content in tags so the browser knows what is a heading, a paragraph, a link, or an image. It is not a programming language. There is no `for` loop, no `#include`, and no compile step.',
+  '',
+  'A page is a tree of **elements**. An element is an opening tag, optional content, and a closing tag — unless it is empty (`<img>`, `<input>`). Attributes live on the opening tag.',
+  '',
+  '```html',
+  '<html>',
+  '  <head>',
+  '    <title>Home</title>',
+  '  </head>',
+  '  <body>',
+  '    <h1>Hello</h1>',
+  '    <p>Anything in the body shows in the window.</p>',
+  '  </body>',
+  '</html>',
+  '```',
+  '',
+  'CSS is a separate language that paints those elements. This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
+].join('\n');
+
+export const CSS_SHAPE = [
+  '# What CSS is',
+  '',
+  'CSS is a **stylesheet language**. You write rules that say which HTML elements get which presentation. It is not JavaScript. Selectors are not functions. There is no `#include`.',
+  '',
+  'A rule has a **selector** and a **declaration block**. Each declaration is a property and a value, separated by a colon:',
+  '',
+  '```css',
+  'p {',
+  '  font-family: Arial;',
+  '  color: navy;',
+  '}',
+  '```',
+  '',
+  'The **cascade** picks one value when several rules target the same property. Layout is boxes: content, padding, border, margin. This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
+].join('\n');
+
+function lessonShape(quiz) {
+  if (quiz && quiz.tsIntro) return TS_SHAPE;
+  if (quiz && quiz.htmlIntro) return HTML_SHAPE;
+  if (quiz && quiz.cssIntro) return CSS_SHAPE;
+  return JS_SHAPE;
+}
+
+function hasShape(quiz) {
+  return !!(quiz && (quiz.jsIntro || quiz.tsIntro || quiz.htmlIntro || quiz.cssIntro));
+}
+
 export function CheatsheetLookup({ source, topic, heading }) {
   const starter = String(topic || '').trim();
   const [draft, setDraft] = useState(starter);
@@ -92,6 +142,8 @@ export function lessonAskNotes(quiz) {
   const parts = [];
   if (quiz && quiz.jsIntro) parts.push(JS_SHAPE);
   if (quiz && quiz.tsIntro) parts.push(TS_SHAPE);
+  if (quiz && quiz.htmlIntro) parts.push(HTML_SHAPE);
+  if (quiz && quiz.cssIntro) parts.push(CSS_SHAPE);
   const rest = formatAskNotes(quiz);
   if (rest) parts.push(rest);
   return parts.join('\n\n');
@@ -100,8 +152,8 @@ export function lessonAskNotes(quiz) {
 export default function Lesson({ quiz, onStart, onHome, owner, voice, speechRate }) {
   const sheet = quiz && quiz.cheatsheet;
   const topic = Array.isArray(quiz && quiz.sheet) ? quiz.sheet[0] : (quiz && quiz.sheet);
-  const showShape = !!(quiz && (quiz.jsIntro || quiz.tsIntro));
-  const shape = quiz && quiz.tsIntro ? TS_SHAPE : JS_SHAPE;
+  const showShape = hasShape(quiz);
+  const shape = lessonShape(quiz);
   const shapeParts = useMemo(() => readingSpeechParts(showShape ? shape : ''), [showShape, shape]);
   const notes = (quiz && quiz.notes) || '';
   const notesParts = useMemo(() => readingSpeechParts(notes), [notes]);

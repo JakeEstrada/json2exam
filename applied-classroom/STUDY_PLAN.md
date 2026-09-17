@@ -58,20 +58,37 @@ Start here. Types first, then the rest of the typed syntax. Each deck uses the s
 
 ---
 
-## 3. HTML and CSS — planned
+## 3. HTML and CSS — ready language decks
 
-**Courses:** `html/`, `css/`. **Books:** HTML and CSS: Design and Build Websites by Jon Duckett; CSS in Depth (1st edition on disk); Inclusive Components by Heydon Pickering; Responsible JavaScript by Jeremy Wagner (slides/audio under `javascript/sources/`).
+**Courses:** `html/`, `css/`. **Books:** HTML and CSS: Design and Build Websites by Jon Duckett; CSS in Depth, 1st Edition by Keith J. Grant; Inclusive Components by Heydon Pickering.
 
-| Order | Topic | Objectives | Prerequisites | Reading | Practical exercise |
+Each language deck is the same shape as JavaScript/TypeScript: a lesson, colorful markup or CSS on every multiple-choice card, then three in-browser practice functions (the runner is still JavaScript; your function **returns a string** of HTML or CSS). Studio folders stay planned.
+
+### HTML
+
+| # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
 |---|---|---|---|---|---|
-| 1 | `html/studio/construct-page-structures` | Landmark regions, headings, lists. | JS modules 1–2 | Duckett structure/text chapters | Rebuild a course landing page in semantic HTML. |
-| 2 | `html/studio/choose-semantic-elements` | `article` vs `section` vs `div`. | Previous | Duckett extra markup | Replace a `div` soup card with the right elements. |
-| 3 | `html/studio/build-accessible-forms` | Labels, names, errors. | Previous | Duckett forms; Inclusive Components forms | Appointment booking form with visible labels. |
-| 4 | `html/studio/fix-accessibility-problems` | Contrast, names, keyboard. | Previous | Inclusive Components | Repair a broken nav. |
-| 5 | `css/studio/practice-selectors-and-specificity` | Cascade, specificity. | HTML 1–2 | CSS in Depth cascade chapters | Restyle without `!important`. |
-| 6 | `css/studio/practice-flexbox` / `practice-grid` | Layout. | CSS selectors | CSS in Depth layout | Recreate a four-card module grid. |
-| 7 | `css/studio/fix-broken-responsive-designs` | Breakpoints. | Flex/grid | Duckett / CSS in Depth | Fix overflow at 375px. |
-| 8 | `css/studio/match-a-provided-visual-target` | Pixel-close layout. | Previous | Same | Match a static target. |
+| 1 | `html/language/document-and-structure` **ready** | Tags vs elements, attributes, `<html>` / `<head>` / `<body>`. | None | Duckett ch. 1 (PDF p. 19, 30, 32, 34) | `skeleton`, `paragraph`, `wrap`. |
+| 2 | `html/language/text-and-lists` **ready** | `h1`–`h6`, `<p>`, `ul` / `ol` / `dl`. | Module 1 | Duckett ch. 2–3 (PDF p. 47, 50, 69–70) | `heading`, `unordered`, `ordered`. |
+| 3 | `html/language/links-and-images` **ready** | `href` vs `src`, `alt`, `mailto:`. | Modules 1–2 | Duckett ch. 4–5 (PDF p. 81, 84, 101, 106) | `link`, `image`, `emailLink`. |
+| 4 | `html/language/semantic-elements` **ready** | `class` vs `id`, landmarks vs `div`. | Modules 1–3 | Duckett ch. 8 (PDF p. 183–191), ch. 17 (p. 435–438) | `pageHeader`, `navList`, `articleBlock`. |
+| 5 | `html/language/forms` **ready** | Named controls, radios vs checkboxes, labels. | Modules 1–4 | Duckett ch. 7 (PDF p. 151, 155–156, 170) | `labeledText`, `submitButton`, `formPost`. |
+| 6 | `html/language/tables-and-media` **ready** | `table` / `tr` / `td` / `th` for data, not layout. | Modules 1–3 | Duckett ch. 6 (PDF p. 133, 138) | `row`, `headerRow`, `simpleTable`. |
+| 7 | `html/language/accessibility` **ready** | Labels, native controls, keyboard vs hover-only UI. | Module 5 | Duckett labels (PDF p. 170); Inclusive Components toggles (p. 8–9, 39) | `labeledInput`, `namedButton`, `imgAlt`. |
+
+### CSS
+
+| # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
+|---|---|---|---|---|---|
+| 1 | `css/language/selectors-and-cascade` **ready** | Selector + declaration; origin, specificity, source order. | HTML 1–2 | Duckett ch. 10 (PDF p. 233, 238–239); CSS in Depth ch. 1 (p. 31–45) | `rule`, `idRule`, `laterWins`. |
+| 2 | `css/language/box-model` **ready** | Content / padding / border / margin; `border-box`. | CSS 1 | Duckett ch. 13 (PDF p. 307, 314, 320); CSS in Depth ch. 3 (p. 83–88) | `padded`, `gutter`, `borderBox`. |
+| 3 | `css/language/typography-and-color` **ready** | `color` / `background-color`, `font-family`, `em` vs `rem`. | CSS 1 | Duckett ch. 11–12 (PDF p. 253, 271); CSS in Depth ch. 2 (p. 56) | `textColor`, `fontStack`, `remSize`. |
+| 4 | `css/language/flexbox` **ready** | Flex container/items, main vs cross axis, `flex: 1`. | CSS 1–2 | CSS in Depth ch. 5 (PDF p. 144–158) | `flexRow`, `flexCenter`, `spaceBetween`. |
+| 5 | `css/language/grid` **ready** | Two-dimensional tracks, `1fr`, spanning. | CSS 4 | CSS in Depth ch. 6 (PDF p. 172–175) | `columns`, `spanCols`, `twoByTwo`. |
+| 6 | `css/language/positioning` **ready** | `static` vs relative/absolute/fixed/sticky; stacking. | CSS 1–2 | CSS in Depth ch. 7 (PDF p. 205–206); Duckett ch. 15 (p. 365–366) | `relativeOffset`, `fixedBar`, `stickyHead`. |
+| 7 | `css/language/responsive` **ready** | One site, `min-width` queries, mobile first. | CSS 4–6 | CSS in Depth ch. 8 (PDF p. 229–231); Duckett ch. 15 (p. 365–366) | `mediaMin`, `mobileFirst`, `fluidWidth`. |
+
+**Later (planned, same courses):** `html/studio/*`, `css/studio/*`.
 
 ---
 
@@ -137,6 +154,6 @@ Testing studio: unit tests → failing tests → async → mocks → API tests �
 
 ## Suggested weekly rhythm
 
-1. One *ready* JS module to mastery (Leitner finish).
-2. One small function from that module copied into a scratch file in your editor (real Node/browser) so you still run code, even though the app does not.
-3. After JS 1–6, start HTML or TypeScript; keep LeetCode light until arrays/objects/maps are fluent.
+1. One *ready* language module to mastery (TypeScript, JavaScript, HTML, or CSS).
+2. One small function from that module copied into a scratch file in your editor (real Node/browser) so you still run code, even though the in-app runner is JavaScript-only.
+3. After JS 1–6, start HTML or TypeScript if you have not already; keep LeetCode light until arrays/objects/maps are fluent.

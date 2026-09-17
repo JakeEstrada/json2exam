@@ -63,6 +63,8 @@ function startExtra(deck, course) {
     sheet: deck.sheet,
     jsIntro: deck.jsIntro,
     tsIntro: deck.tsIntro,
+    htmlIntro: deck.htmlIntro,
+    cssIntro: deck.cssIntro,
     courseId: course && course.id,
     courseTitle: course && course.title,
     deckId: deck.id,
@@ -232,7 +234,7 @@ export default function Course({ course, onStart, log }) {
     : [{ id: course.id, label: null, decks: courseDecks(course) }];
   const empty = courseDecks(course).length === 0 && !(course.modules && course.modules.length);
   const books = uniqueBooks(course);
-  const rampCourse = course.id === 'js' || course.id === 'ts';
+  const rampCourse = course.id === 'js' || course.id === 'ts' || course.id === 'html' || course.id === 'css';
   const [openIds, setOpenIds] = useState(() => {
     const first = modules.find((mod) => mod.label && (mod.decks || []).some(isReady));
     const fallback = modules.find((mod) => mod.label);

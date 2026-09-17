@@ -1,0 +1,459 @@
+{
+  "title": "HTML \u2014 Forms",
+  "questions": [
+    {
+      "question": "What is sent to the server on submit?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the button label.",
+        "The name of each control along with its value.",
+        "The CSS of the page.",
+        "The full HTML source."
+      ],
+      "answer": "b",
+      "explanation": "The name of each form control is sent to the server along with the value the user enters or selects.",
+      "reference": {
+        "section": "How forms work",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 156,
+        "excerpt": "The name of each form control is sent to the server along with the value the user enters or selects."
+      },
+      "code": "<input type=\"text\" name=\"user\" />"
+    },
+    {
+      "question": "When does the browser send that data?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "On every keystroke, always.",
+        "When the user presses a button to submit the form.",
+        "When CSS loads.",
+        "Never; forms are display-only."
+      ],
+      "answer": "b",
+      "explanation": "A user fills in a form and then presses a button to submit the information to the server.",
+      "reference": {
+        "section": "How forms work",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 156,
+        "excerpt": "A user fills in a form and then presses a button to submit the information to the server."
+      },
+      "code": "<button type=\"submit\">Submit</button>"
+    },
+    {
+      "question": "Which control is for a single line of text such as a name?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<textarea>",
+        "<input type=\"text\">",
+        "<input type=\"radio\">",
+        "<select>"
+      ],
+      "answer": "b",
+      "explanation": "Text input (single-line) is used for a single line of text such as email addresses and names.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "Used for a single line of text such as email addresses and names."
+      },
+      "code": "<input type=\"text\" name=\"user\" />"
+    },
+    {
+      "question": "Which control is for longer messages?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<input type=\"text\">",
+        "<textarea>",
+        "<input type=\"hidden\">",
+        "<p contenteditable>"
+      ],
+      "answer": "b",
+      "explanation": "Text area (multi-line) is for longer areas of text, such as messages and comments.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "For longer areas of text, such as messages and comments."
+      },
+      "code": "<textarea name=\"message\"></textarea>"
+    },
+    {
+      "question": "Radio buttons are for when the user must?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Select and unselect one or more options.",
+        "Select one of a number of options.",
+        "Upload a file.",
+        "Type a password."
+      ],
+      "answer": "b",
+      "explanation": "Radio buttons: one of a number of options. Checkboxes: one or more.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "For use when a user must select one of a number of options."
+      },
+      "code": "<input type=\"radio\" name=\"vote\" value=\"a\" />"
+    },
+    {
+      "question": "Checkboxes are for when the user can?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Pick only one option in the group.",
+        "Select and unselect one or more options.",
+        "Only submit the form.",
+        "Only enter a password."
+      ],
+      "answer": "b",
+      "explanation": "Checkboxes: select and unselect one or more options.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "When a user can select and unselect one or more options."
+      },
+      "code": "<input type=\"checkbox\" name=\"topics\" value=\"css\" />"
+    },
+    {
+      "question": "Why does each control need a <label>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The server rejects unlabeled names.",
+        "It makes the form accessible to vision-impaired users.",
+        "Labels replace the name attribute.",
+        "Labels are how CSS colors the input."
+      ],
+      "answer": "b",
+      "explanation": "Each form control should have its own label element as this makes the form accessible to vision-impaired users.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+      },
+      "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
+    },
+    {
+      "question": "Which label wrapping pattern does Duckett show first?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<label> wrapping the description and the input.",
+        "<caption> wrapping the form.",
+        "<legend> on every input.",
+        "A <p> before the input with no for/id."
+      ],
+      "answer": "a",
+      "explanation": "The label element can wrap around both the text description and the form input.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "Wrap around both the text description and the form input"
+      },
+      "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
+    },
+    {
+      "question": "How does <label for=\"female\"> connect to an input?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The input's name must be female.",
+        "The input's id must be female.",
+        "The input's type must be female.",
+        "The form's action must be female."
+      ],
+      "answer": "b",
+      "explanation": "for points at the control's id, as in the gender radios.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "<label for=\"female\">Female</label>"
+      },
+      "code": "<input id=\"female\" type=\"radio\" name=\"gender\" value=\"f\">\n<label for=\"female\">Female</label>"
+    },
+    {
+      "question": "What must radios in one group share?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "id",
+        "name",
+        "value",
+        "for"
+      ],
+      "answer": "b",
+      "explanation": "The gender radios share name=\"gender\" and differ by id and value. Shared name makes them one choice.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "<input id=\"female\" type=\"radio\" name=\"gender\""
+      },
+      "code": "<input id=\"female\" type=\"radio\" name=\"gender\" value=\"f\">\n<input id=\"male\" type=\"radio\" name=\"gender\" value=\"m\">"
+    },
+    {
+      "question": "Which drop-down matches 'pick one of a number of options from a list'?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<input type=\"list\">",
+        "<select>",
+        "<dropdown>",
+        "<ul type=\"select\">"
+      ],
+      "answer": "b",
+      "explanation": "Drop-down boxes: pick one of a number of options from a list. That is select, not a made-up dropdown tag.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "When a user must pick one of a number of options from a list."
+      },
+      "code": "<select name=\"city\"><option>Fullerton</option></select>"
+    },
+    {
+      "question": "A password field differs from text how?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It cannot have a name.",
+        "It masks the characters entered.",
+        "It cannot be labeled.",
+        "It submits a file."
+      ],
+      "answer": "b",
+      "explanation": "Password input is like a single line text box but it masks the characters entered.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "Like a single line text box but it masks the characters entered."
+      },
+      "code": "<input type=\"password\" name=\"secret\" />"
+    },
+    {
+      "question": "What does a submit button do?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only style the form.",
+        "Submit data from the form to another web page.",
+        "Clear localStorage.",
+        "Toggle checkboxes."
+      ],
+      "answer": "b",
+      "explanation": "Submit buttons submit data from your form to another web page.",
+      "reference": {
+        "section": "Form controls",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "To submit data from your form to another web page."
+      },
+      "code": "<button type=\"submit\">Submit</button>"
+    },
+    {
+      "question": "Why include name on an input?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Browsers refuse to paint unnamed inputs.",
+        "The server receives name=value. No name, nothing sent for that control.",
+        "name is an alias for id.",
+        "name is a CSS selector only."
+      ],
+      "answer": "b",
+      "explanation": "The name of each control is sent with the value. Skip name and that field is missing on the server.",
+      "reference": {
+        "section": "How forms work",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 156,
+        "excerpt": "The name of each form control is sent to the server along with the value"
+      },
+      "code": "<input type=\"text\" name=\"user\" />"
+    },
+    {
+      "question": "Which labeled radio pair is wired correctly?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "<input id=\"m\" type=\"radio\" name=\"g\" value=\"m\"><label for=\"g\">Male</label>",
+        "<input id=\"male\" type=\"radio\" name=\"gender\" value=\"m\"><label for=\"male\">Male</label>",
+        "<input name=\"male\" type=\"radio\"><label for=\"male\">Male</label>",
+        "<label for=\"male\"></label><input type=\"radio\">"
+      ],
+      "answer": "b",
+      "explanation": "for must match id, not name. Duckett's male radio uses id=\"male\" and label for=\"male\".",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "<label for=\"male\">Male</label>"
+      },
+      "code": "<input id=\"male\" type=\"radio\" name=\"gender\" value=\"m\">\n<label for=\"male\">Male</label>"
+    },
+    {
+      "question": "Write labeledText(id, labelText, name) that returns a label[for] plus an input#id type=text.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function labeledText(id, labelText, name) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "age",
+          "args": [
+            "age",
+            "Age",
+            "age"
+          ],
+          "expected": "<label for=\"age\">Age</label><input id=\"age\" type=\"text\" name=\"age\" />"
+        },
+        {
+          "label": "user",
+          "args": [
+            "user",
+            "Username",
+            "user"
+          ],
+          "expected": "<label for=\"user\">Username</label><input id=\"user\" type=\"text\" name=\"user\" />"
+        },
+        {
+          "label": "email",
+          "args": [
+            "em",
+            "Email",
+            "email"
+          ],
+          "expected": "<label for=\"em\">Email</label><input id=\"em\" type=\"text\" name=\"email\" />"
+        }
+      ],
+      "hints": [
+        "for and id must match. name is the field the server sees."
+      ],
+      "solution": "function labeledText(id, labelText, name) {\n  return '<label for=\"' + id + '\">' + labelText + '</label><input id=\"' + id + '\" type=\"text\" name=\"' + name + '\" />';\n}\n",
+      "explanation": "The for/id pair is the second labelling pattern in Duckett.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write submitButton(label) that returns a submit button with that text.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function submitButton(label) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "submit",
+          "args": [
+            "Submit"
+          ],
+          "expected": "<button type=\"submit\">Submit</button>"
+        },
+        {
+          "label": "send",
+          "args": [
+            "Send"
+          ],
+          "expected": "<button type=\"submit\">Send</button>"
+        },
+        {
+          "label": "vote",
+          "args": [
+            "Vote"
+          ],
+          "expected": "<button type=\"submit\">Vote</button>"
+        }
+      ],
+      "hints": [
+        "type=\"submit\" belongs on the button."
+      ],
+      "solution": "function submitButton(label) {\n  return '<button type=\"submit\">' + label + '</button>';\n}\n",
+      "explanation": "Submit buttons send the form.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 155,
+        "excerpt": "To submit data from your form to another web page."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write formPost(action, inner) that returns a post form wrapping inner.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function formPost(action, inner) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "vote",
+          "args": [
+            "/vote",
+            "<input name=\"x\" />"
+          ],
+          "expected": "<form action=\"/vote\" method=\"post\"><input name=\"x\" /></form>"
+        },
+        {
+          "label": "save",
+          "args": [
+            "/save",
+            ""
+          ],
+          "expected": "<form action=\"/save\" method=\"post\"></form>"
+        },
+        {
+          "label": "root",
+          "args": [
+            "/",
+            "<button type=\"submit\">Go</button>"
+          ],
+          "expected": "<form action=\"/\" method=\"post\"><button type=\"submit\">Go</button></form>"
+        }
+      ],
+      "hints": [
+        "action and method=\"post\" on the opening form tag."
+      ],
+      "solution": "function formPost(action, inner) {\n  return '<form action=\"' + action + '\" method=\"post\">' + inner + '</form>';\n}\n",
+      "explanation": "The form points at a server endpoint. Controls live inside it.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 156,
+        "excerpt": "A user fills in a form and then presses a button to submit the information to the server."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 7 \u2014 Forms",
+      "page": 151,
+      "pageEnd": 182,
+      "sections": [
+        {
+          "heading": "Form controls",
+          "page": 155
+        },
+        {
+          "heading": "How forms work",
+          "page": 156
+        },
+        {
+          "heading": "Labels",
+          "page": 170
+        }
+      ]
+    }
+  ]
+}

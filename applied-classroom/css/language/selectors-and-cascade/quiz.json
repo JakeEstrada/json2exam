@@ -1,0 +1,473 @@
+{
+  "title": "CSS \u2014 Selectors and cascade",
+  "questions": [
+    {
+      "question": "What is CSS?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A markup language for headings.",
+        "A stylesheet language that associates rules with HTML elements.",
+        "A database.",
+        "A compile step for HTML."
+      ],
+      "answer": "b",
+      "explanation": "CSS works by associating rules with HTML elements. Those rules govern how specified elements should be displayed.",
+      "reference": {
+        "section": "What CSS is",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "CSS works by associating rules with HTML elements."
+      },
+      "code": "p {\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "What are the two parts of a CSS rule?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A function and a return type.",
+        "A selector and a declaration.",
+        "A class and an id, always.",
+        "A media query and a loop."
+      ],
+      "answer": "b",
+      "explanation": "A CSS rule contains two parts: a selector and a declaration.",
+      "reference": {
+        "section": "Rules",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "A CSS rule contains two parts: a selector and a declaration."
+      },
+      "code": "p {\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "What does the selector do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Set the color only.",
+        "Indicate which element the rule applies to.",
+        "Compile the HTML.",
+        "Name the JavaScript file."
+      ],
+      "answer": "b",
+      "explanation": "Selectors indicate which element the rule applies to.",
+      "reference": {
+        "section": "Rules",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "Selectors indicate which element the rule applies to."
+      },
+      "code": "p {\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "A declaration is made of?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A tag and an attribute.",
+        "A property and a value, separated by a colon.",
+        "A selector and a media query.",
+        "A comment and a semicolon only."
+      ],
+      "answer": "b",
+      "explanation": "Declarations are split into two parts (a property and a value), and are separated by a colon.",
+      "reference": {
+        "section": "Rules",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 239,
+        "excerpt": "each is made up of two parts: a property and a value, separated by a colon."
+      },
+      "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
+    },
+    {
+      "question": "How do you list several properties?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Commas between properties.",
+        "Semicolons between declarations.",
+        "New files per property.",
+        "Nested functions."
+      ],
+      "answer": "b",
+      "explanation": "You can specify several properties in one declaration block, each separated by a semi-colon.",
+      "reference": {
+        "section": "Rules",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 239,
+        "excerpt": "You can specify several properties in one declaration, each separated by a semi-colon."
+      },
+      "code": "h1 {\n  font-family: Arial;\n  color: yellow;\n}"
+    },
+    {
+      "question": "What is the C in CSS, in Grant's chapter 1?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Color.",
+        "The cascade.",
+        "The container.",
+        "The compiler."
+      ],
+      "answer": "b",
+      "explanation": "In this chapter, we begin with the C in CSS\u2014the cascade.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 32,
+        "excerpt": "In this chapter, we begin with the C in CSS\u2014the cascade."
+      },
+      "code": "a:hover {\n  text-decoration: underline;\n}"
+    },
+    {
+      "question": "Author styles vs user agent styles: who wins by default?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "User agent styles, always.",
+        "Yours (author styles) override the browser defaults.",
+        "They cannot conflict.",
+        "The HTML class attribute decides."
+      ],
+      "answer": "b",
+      "explanation": "Yours are called author styles; user agent styles are the browser's defaults and have lower priority.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 36,
+        "excerpt": "Yours are called author styles; there are also user agent styles, which are the browser\u2019s default styles."
+      },
+      "code": "p {\n  margin: 0;\n}"
+    },
+    {
+      "question": "If two rules have the same specificity, which wins?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The one that was written first.",
+        "The later one in source order.",
+        "The shorter selector.",
+        "Neither; the page errors."
+      ],
+      "answer": "b",
+      "explanation": "Given the same specificity, later styles override earlier styles.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 45,
+        "excerpt": "given the same specificity, later styles override earlier styles."
+      },
+      "code": "a:visited { color: purple; }\na:hover { text-decoration: underline; }"
+    },
+    {
+      "question": "Which selector is most specific here?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "html body header h1",
+        ".page-header .title",
+        "#page-title",
+        "body header.page-header h1"
+      ],
+      "answer": "c",
+      "explanation": "The most specific selector is the one with one ID, so its declaration is applied.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 40,
+        "excerpt": "The most specific selector here is e, with one ID"
+      },
+      "code": "#page-title {\n  color: red;\n}"
+    },
+    {
+      "question": "Two classes vs one class plus three tags?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The longer tag list wins.",
+        "Two classes are more specific than one class.",
+        "They always tie.",
+        "Tags beat classes."
+      ],
+      "answer": "b",
+      "explanation": "Selector d has a higher specificity than selector c: two classes are more specific than one class.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 40,
+        "excerpt": "two classes are more specific than one class."
+      },
+      "code": ".page-header .title {\n  color: green;\n}"
+    },
+    {
+      "question": "What is a cascaded value?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Every matching declaration, stacked.",
+        "At most one winning value per property per element.",
+        "The HTML attribute value.",
+        "A JavaScript variable."
+      ],
+      "answer": "b",
+      "explanation": "There's at most one cascaded value per property per element. The cascade chooses only one when rendering.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 45,
+        "excerpt": "There's at most one cascaded value per property per element."
+      },
+      "code": "p {\n  margin-top: 1em;\n}"
+    },
+    {
+      "question": "Can one paragraph have two different top margins from CSS?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes; both apply and add.",
+        "No. The cascade chooses one top margin.",
+        "Only with !important twice.",
+        "Only in print."
+      ],
+      "answer": "b",
+      "explanation": "A particular paragraph can have a top margin and a bottom margin, but it can't have two different top margins.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 45,
+        "excerpt": "it can\u2019t have two different top margins or two different bottom margins."
+      },
+      "code": "p { margin-top: 1em; }\np { margin-top: 2em; }"
+    },
+    {
+      "question": "Which comma selector paints h1, h2, and h3 yellow Arial?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "h1 h2 h3 { color: yellow; }",
+        "h1, h2, h3 { font-family: Arial; color: yellow; }",
+        "h1+h2+h3 { font: yellow; }",
+        "heading(1,2,3) { }"
+      ],
+      "answer": "b",
+      "explanation": "The same rule can apply to more than one element if you separate the element names with commas.",
+      "reference": {
+        "section": "Rules",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 239,
+        "excerpt": "This rule indicates that all <h1>, <h2> and <h3> elements should be shown in the Arial typeface, in a yellow color."
+      },
+      "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
+    },
+    {
+      "question": "Why not fix every conflict with !important?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "!important is illegal.",
+        "It blows a hole in the cascade. Specificity and order stop being tools you can reason about.",
+        "It only works on IDs.",
+        "Browsers ignore it."
+      ],
+      "answer": "b",
+      "explanation": "Grant's cascade chapter is how to control which styles apply. !important skips that control.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 31,
+        "excerpt": "How to control which styles apply to which elements"
+      },
+      "code": ".nav a {\n  color: teal;\n}"
+    },
+    {
+      "question": "Which origin is your stylesheet?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "User agent.",
+        "Author.",
+        "User, always.",
+        "Print only."
+      ],
+      "answer": "b",
+      "explanation": "The stylesheets you add are author styles.",
+      "reference": {
+        "section": "The cascade",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 36,
+        "excerpt": "The stylesheets you add to your web page aren\u2019t the only ones the browser applies."
+      },
+      "code": "body {\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "Write rule(selector, property, value) that returns selector { property: value; }.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function rule(selector, property, value) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "p color",
+          "args": [
+            "p",
+            "color",
+            "navy"
+          ],
+          "expected": "p { color: navy; }"
+        },
+        {
+          "label": "h1 font",
+          "args": [
+            "h1",
+            "font-family",
+            "Arial"
+          ],
+          "expected": "h1 { font-family: Arial; }"
+        },
+        {
+          "label": "class",
+          "args": [
+            ".title",
+            "color",
+            "teal"
+          ],
+          "expected": ".title { color: teal; }"
+        }
+      ],
+      "hints": [
+        "Spaces: selector, space, brace, space, property, colon, space, value, semicolon, space, brace."
+      ],
+      "solution": "function rule(selector, property, value) {\n  return selector + ' { ' + property + ': ' + value + '; }';\n}\n",
+      "explanation": "A rule is a selector plus a property/value declaration.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "A CSS rule contains two parts: a selector and a declaration."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write idRule(id, property, value) that targets #id.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function idRule(id, property, value) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "title",
+          "args": [
+            "page-title",
+            "color",
+            "red"
+          ],
+          "expected": "#page-title { color: red; }"
+        },
+        {
+          "label": "nav",
+          "args": [
+            "main-nav",
+            "display",
+            "flex"
+          ],
+          "expected": "#main-nav { display: flex; }"
+        },
+        {
+          "label": "hero",
+          "args": [
+            "hero",
+            "width",
+            "100%"
+          ],
+          "expected": "#hero { width: 100%; }"
+        }
+      ],
+      "hints": [
+        "Prefix the id with #."
+      ],
+      "solution": "function idRule(id, property, value) {\n  return '#' + id + ' { ' + property + ': ' + value + '; }';\n}\n",
+      "explanation": "An ID selector is the most specific of the usual trio (id / class / tag).",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 40,
+        "excerpt": "The most specific selector here is e, with one ID"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write laterWins(first, second) that returns second \u2014 the later same-specificity rule.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function laterWins(first, second) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "color",
+          "args": [
+            "color: blue;",
+            "color: orange;"
+          ],
+          "expected": "color: orange;"
+        },
+        {
+          "label": "margin",
+          "args": [
+            "margin: 0;",
+            "margin: 1em;"
+          ],
+          "expected": "margin: 1em;"
+        },
+        {
+          "label": "same",
+          "args": [
+            "display: block;",
+            "display: block;"
+          ],
+          "expected": "display: block;"
+        }
+      ],
+      "hints": [
+        "Source order: return the second declaration."
+      ],
+      "solution": "function laterWins(first, second) {\n  return second;\n}\n",
+      "explanation": "Given the same specificity, later styles override earlier styles.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 45,
+        "excerpt": "given the same specificity, later styles override earlier styles."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 10 \u2014 Introducing CSS",
+      "page": 233,
+      "pageEnd": 245,
+      "sections": [
+        {
+          "heading": "What CSS is",
+          "page": 238
+        },
+        {
+          "heading": "Rules",
+          "page": 238
+        }
+      ]
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 1 \u2014 Cascade, specificity, and inheritance",
+      "page": 31,
+      "pageEnd": 55,
+      "sections": [
+        {
+          "heading": "The cascade",
+          "page": 32
+        }
+      ]
+    }
+  ]
+}

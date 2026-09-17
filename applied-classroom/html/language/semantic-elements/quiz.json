@@ -1,0 +1,466 @@
+{
+  "title": "HTML \u2014 Semantic elements",
+  "questions": [
+    {
+      "question": "What is class for?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A unique name that may appear only once on the page.",
+        "A way to identify several elements as a group, different from the others.",
+        "A required attribute on every tag.",
+        "The only way to make a heading."
+      ],
+      "answer": "b",
+      "explanation": "Rather than uniquely identifying one element, class identifies several elements as being different from the other elements on the page.",
+      "reference": {
+        "section": "Class and id",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 191,
+        "excerpt": "you will want a way to identify several elements as being different from the other elements on the page."
+      },
+      "code": "<p class=\"important\">For a one-year period from November 2010...</p>"
+    },
+    {
+      "question": "class and id are what kind of attributes?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Form-only attributes.",
+        "Global attributes that can be used on any element.",
+        "CSS properties.",
+        "JavaScript methods."
+      ],
+      "answer": "b",
+      "explanation": "Global attributes can be used on any element, including class and id.",
+      "reference": {
+        "section": "Extra markup",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 184,
+        "excerpt": "Global attributes, which are attributes that can be used on any element, including the class and id attributes"
+      },
+      "code": "<h1 id=\"title\" class=\"page-title\">Home</h1>"
+    },
+    {
+      "question": "Why did Duckett wait until late in the book to teach <header> and <article>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "They are illegal without CSS.",
+        "They are easier once you have seen CSS control layout.",
+        "They only work in print.",
+        "They replace HTML entirely."
+      ],
+      "answer": "b",
+      "explanation": "They are covered here because you'll find it easier to understand how they can be used now that you have seen how CSS can control the layout of a page.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "you'll find it easier to understand how they can be used now that you have seen how CSS can control the layout a page."
+      },
+      "code": "<header><h1>Site</h1></header>"
+    },
+    {
+      "question": "What problem do HTML5 layout elements address?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "They add animation.",
+        "They help define the structure of a page.",
+        "They compile to JavaScript.",
+        "They replace CSS."
+      ],
+      "answer": "b",
+      "explanation": "HTML5 is introducing a new set of elements that help define the structure of a page.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "HTML5 is introducing a new set of elements that help define the structure of a page."
+      },
+      "code": "<article><h2>Post</h2><p>Body</p></article>"
+    },
+    {
+      "question": "Before those elements, how did authors mark a header?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<header> was already required.",
+        "A <div> with class or id, such as id=\"header\".",
+        "<head> in the body.",
+        "<hgroup> only."
+      ],
+      "answer": "b",
+      "explanation": "Authors used div elements to group related elements and class or id to indicate the role.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 438,
+        "excerpt": "web page authors used <div> elements to group together related elements on the page"
+      },
+      "code": "<div id=\"header\"><h1>Logo</h1></div>"
+    },
+    {
+      "question": "Which is a helpful alternative to <div id=\"nav\">?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<navigation>",
+        "<nav>",
+        "<menu id=\"div\">",
+        "<links>"
+      ],
+      "answer": "b",
+      "explanation": "HTML5 layout elements offer helpful alternatives to the div element. nav is the navigation landmark.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "How they offer helpful alternatives to the <div> element"
+      },
+      "code": "<nav><a href=\"/\">Home</a></nav>"
+    },
+    {
+      "question": "When is <div> still the right choice?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Never; HTML5 banned it.",
+        "When you need a generic group and no landmark fits.",
+        "Only inside <title>.",
+        "Only for images."
+      ],
+      "answer": "b",
+      "explanation": "div still groups parts of the page where no other element is suitable.",
+      "reference": {
+        "section": "Extra markup",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 184,
+        "excerpt": "Elements that are used to group together parts of the page where no other element is suitable"
+      },
+      "code": "<div class=\"card\"><p>Generic group</p></div>"
+    },
+    {
+      "question": "Which id usage matches the idea of unique identification?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "id=\"item\" on every row.",
+        "id=\"page-title\" on one heading.",
+        "id=\"important\" on every paragraph.",
+        "id without a value."
+      ],
+      "answer": "b",
+      "explanation": "id uniquely identifies one element. class is the shared marker.",
+      "reference": {
+        "section": "Class and id",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 191,
+        "excerpt": "uniquely identifying one element within a document"
+      },
+      "code": "<h1 id=\"page-title\">Home</h1>"
+    },
+    {
+      "question": "Which snippet is an article, not a nameless box?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<div class=\"article\"><h2>Post</h2></div> as the only legal form.",
+        "<article><h2>Post</h2><p>Body</p></article>",
+        "<section id=\"div\">",
+        "<p article>"
+      ],
+      "answer": "b",
+      "explanation": "article is the layout element for a self-contained piece. A classed div was the old stand-in.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 438,
+        "excerpt": "<div class=\"article\">"
+      },
+      "code": "<article><h2>Post</h2><p>Body</p></article>"
+    },
+    {
+      "question": "Which landmark wraps site-wide chrome at the top?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<head>",
+        "<header>",
+        "<h1> alone",
+        "<banner>"
+      ],
+      "answer": "b",
+      "explanation": "header is the layout element for that top region. head is metadata in the document.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 438,
+        "excerpt": "At the top of the page is the header, containing a logo and the primary navigation."
+      },
+      "code": "<header><h1>Logo</h1><nav>\u2026</nav></header>"
+    },
+    {
+      "question": "Can one page have more than one <header>?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No. header is only allowed once, like title.",
+        "Yes. A page header and an article header are both header elements.",
+        "Only if they share the same id.",
+        "Only inside tables."
+      ],
+      "answer": "b",
+      "explanation": "header is a sectioning element you can use for the site and again inside an article. Do not give two elements the same id.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "The new HTML5 layout elements and their uses"
+      },
+      "code": "<header><h1>Site</h1></header>\n<article><header><h2>Post</h2></header></article>"
+    },
+    {
+      "question": "What does <footer> mark?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only the legal <head> metadata.",
+        "The footer region of a page or section.",
+        "A required caption for every image.",
+        "A CSS position: fixed bar, always."
+      ],
+      "answer": "b",
+      "explanation": "Traditional layouts put a footer div at the bottom. footer is the element for that role.",
+      "reference": {
+        "section": "HTML5 layout elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 438,
+        "excerpt": "<div id=\"footer\">"
+      },
+      "code": "<footer><p>\u00a9 Course</p></footer>"
+    },
+    {
+      "question": "Which class attribute is written the usual way?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<p class=important>Hi</p>",
+        "<p class=\"important\">Hi</p>",
+        "<p \"class\"=\"important\">Hi</p>",
+        "<p className=\"important\">Hi</p>"
+      ],
+      "answer": "b",
+      "explanation": "HTML attributes use class, quoted. className is the JavaScript DOM property, not the markup attribute.",
+      "reference": {
+        "section": "Class and id",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 191,
+        "excerpt": "<p class=\"important\">For a one-year period from"
+      },
+      "code": "<p class=\"important\">Hi</p>"
+    },
+    {
+      "question": "Which grouping should stay a <div>?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The primary navigation.",
+        "A card shell that is not an article, section, or nav.",
+        "The page footer.",
+        "The site banner."
+      ],
+      "answer": "b",
+      "explanation": "Landmarks have elements. A generic card wrapper with no extra meaning is still a div.",
+      "reference": {
+        "section": "Extra markup",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 184,
+        "excerpt": "where no other element is suitable"
+      },
+      "code": "<div class=\"card\"><h2>Module</h2></div>"
+    },
+    {
+      "question": "What is wrong with two elements sharing id=\"nav\"?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "id is optional so duplicates are required.",
+        "id identifies one element. Reuse class for a shared name.",
+        "nav elements cannot have attributes.",
+        "HTML5 deleted id."
+      ],
+      "answer": "b",
+      "explanation": "id is unique. class is the shared hook.",
+      "reference": {
+        "section": "Class and id",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 191,
+        "excerpt": "uniquely identifying one element within a document"
+      },
+      "code": "<nav id=\"main-nav\"></nav>"
+    },
+    {
+      "question": "Write pageHeader(title) that returns a <header> containing an <h1> with that title.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function pageHeader(title) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "course",
+          "args": [
+            "Course"
+          ],
+          "expected": "<header><h1>Course</h1></header>"
+        },
+        {
+          "label": "home",
+          "args": [
+            "Home"
+          ],
+          "expected": "<header><h1>Home</h1></header>"
+        },
+        {
+          "label": "blank",
+          "args": [
+            ""
+          ],
+          "expected": "<header><h1></h1></header>"
+        }
+      ],
+      "hints": [
+        "header wraps h1. title is the heading text."
+      ],
+      "solution": "function pageHeader(title) {\n  return '<header><h1>' + title + '</h1></header>';\n}\n",
+      "explanation": "header is the layout element for the top region.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "HTML5 is introducing a new set of elements that help define the structure of a page."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write navList(items) that returns <nav><ul>\u2026<li><a href=\"#\">item</a></li>\u2026</ul></nav>.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function navList(items) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "home",
+          "args": [
+            [
+              "Home"
+            ]
+          ],
+          "expected": "<nav><ul><li><a href=\"#\">Home</a></li></ul></nav>"
+        },
+        {
+          "label": "two",
+          "args": [
+            [
+              "Home",
+              "About"
+            ]
+          ],
+          "expected": "<nav><ul><li><a href=\"#\">Home</a></li><li><a href=\"#\">About</a></li></ul></nav>"
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": "<nav><ul></ul></nav>"
+        }
+      ],
+      "hints": [
+        "Each item is an li wrapping an a with href=\"#\"."
+      ],
+      "solution": "function navList(items) {\n  return '<nav><ul>' + items.map(function (item) { return '<li><a href=\"#\">' + item + '</a></li>'; }).join('') + '</ul></nav>';\n}\n",
+      "explanation": "nav is the landmark. The list still uses ul/li/a.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 436,
+        "excerpt": "How they offer helpful alternatives to the <div> element"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write articleBlock(title, body) that returns an <article> with <h2> and <p>.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function articleBlock(title, body) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "post",
+          "args": [
+            "Post",
+            "Body"
+          ],
+          "expected": "<article><h2>Post</h2><p>Body</p></article>"
+        },
+        {
+          "label": "news",
+          "args": [
+            "News",
+            "Today"
+          ],
+          "expected": "<article><h2>News</h2><p>Today</p></article>"
+        },
+        {
+          "label": "blank body",
+          "args": [
+            "Hi",
+            ""
+          ],
+          "expected": "<article><h2>Hi</h2><p></p></article>"
+        }
+      ],
+      "hints": [
+        "article, then h2, then p."
+      ],
+      "solution": "function articleBlock(title, body) {\n  return '<article><h2>' + title + '</h2><p>' + body + '</p></article>';\n}\n",
+      "explanation": "article is the self-contained layout element, not a classed div.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 438,
+        "excerpt": "web page authors used <div> elements to group together related elements on the page"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 8 \u2014 Extra Markup",
+      "page": 183,
+      "pageEnd": 199,
+      "sections": [
+        {
+          "heading": "Extra markup",
+          "page": 184
+        },
+        {
+          "heading": "Class and id",
+          "page": 191
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 17 \u2014 HTML5 Layout",
+      "page": 435,
+      "pageEnd": 450,
+      "sections": [
+        {
+          "heading": "HTML5 layout elements",
+          "page": 436
+        }
+      ]
+    }
+  ]
+}

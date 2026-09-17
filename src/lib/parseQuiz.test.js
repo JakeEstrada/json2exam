@@ -268,6 +268,146 @@ test('worked solutions for TypeScript language banks pass their tests', async ()
   }
 });
 
+test('loads the ready HTML language banks', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { headingId } = await import('./parseQuiz.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/html/language');
+  const mods = [
+    'document-and-structure',
+    'text-and-lists',
+    'links-and-images',
+    'semantic-elements',
+    'forms',
+    'tables-and-media',
+    'accessibility',
+  ];
+  const tell = /#include|#define|C\+\+|like Python|like Go|like C#|preprocessor|struct /i;
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const notes = await readFile(path.join(root, mod, 'notes.md'), 'utf8');
+    const headings = new Set([...notes.matchAll(/^#{1,3} (.+)$/gm)].map((m) => headingId(m[1])));
+    const bank = normalizeQuiz(quiz);
+    assert.equal(bank.skipped.length, 0, mod);
+    assert.ok(bank.reading.length >= 1, mod + ' reading');
+    const code = bank.questions.filter((q) => q.type === 'code');
+    const choice = bank.questions.filter((q) => q.type !== 'code');
+    assert.ok(choice.length >= 15, mod + ' choice count');
+    assert.equal(code.length, 3, mod + ' code count');
+    for (const q of choice) {
+      if (q.type === 'boolean') continue;
+      assert.ok(q.options.length <= 4, mod);
+      assert.ok(q.code && q.code.length > 0, mod + ' missing code: ' + q.text.slice(0, 48));
+    }
+    for (const q of choice) {
+      for (const opt of q.options || []) {
+        assert.equal(tell.test(opt), false, mod + ' other-language option: ' + opt);
+      }
+    }
+    for (const q of bank.questions) {
+      if (q.reference && q.reference.section) {
+        assert.ok(headings.has(headingId(q.reference.section)), mod + ' ' + q.reference.section);
+      }
+    }
+  }
+});
+
+test('worked solutions for HTML language banks pass their tests', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { runJavascript } = await import('./runCode.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/html/language');
+  const mods = [
+    'document-and-structure',
+    'text-and-lists',
+    'links-and-images',
+    'semantic-elements',
+    'forms',
+    'tables-and-media',
+    'accessibility',
+  ];
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const bank = normalizeQuiz(quiz);
+    for (const q of bank.questions.filter((row) => row.type === 'code')) {
+      const out = runJavascript(q.solution, q.tests);
+      assert.equal(out.passed, true, mod + ' ' + q.text.slice(0, 48) + ' ' + JSON.stringify(out.results));
+    }
+  }
+});
+
+test('loads the ready CSS language banks', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { headingId } = await import('./parseQuiz.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/css/language');
+  const mods = [
+    'selectors-and-cascade',
+    'box-model',
+    'typography-and-color',
+    'flexbox',
+    'grid',
+    'positioning',
+    'responsive',
+  ];
+  const tell = /#include|#define|C\+\+|like Python|like Go|like C#|preprocessor|struct /i;
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const notes = await readFile(path.join(root, mod, 'notes.md'), 'utf8');
+    const headings = new Set([...notes.matchAll(/^#{1,3} (.+)$/gm)].map((m) => headingId(m[1])));
+    const bank = normalizeQuiz(quiz);
+    assert.equal(bank.skipped.length, 0, mod);
+    assert.ok(bank.reading.length >= 1, mod + ' reading');
+    const code = bank.questions.filter((q) => q.type === 'code');
+    const choice = bank.questions.filter((q) => q.type !== 'code');
+    assert.ok(choice.length >= 15, mod + ' choice count');
+    assert.equal(code.length, 3, mod + ' code count');
+    for (const q of choice) {
+      if (q.type === 'boolean') continue;
+      assert.ok(q.options.length <= 4, mod);
+      assert.ok(q.code && q.code.length > 0, mod + ' missing code: ' + q.text.slice(0, 48));
+    }
+    for (const q of choice) {
+      for (const opt of q.options || []) {
+        assert.equal(tell.test(opt), false, mod + ' other-language option: ' + opt);
+      }
+    }
+    for (const q of bank.questions) {
+      if (q.reference && q.reference.section) {
+        assert.ok(headings.has(headingId(q.reference.section)), mod + ' ' + q.reference.section);
+      }
+    }
+  }
+});
+
+test('worked solutions for CSS language banks pass their tests', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { runJavascript } = await import('./runCode.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/css/language');
+  const mods = [
+    'selectors-and-cascade',
+    'box-model',
+    'typography-and-color',
+    'flexbox',
+    'grid',
+    'positioning',
+    'responsive',
+  ];
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const bank = normalizeQuiz(quiz);
+    for (const q of bank.questions.filter((row) => row.type === 'code')) {
+      const out = runJavascript(q.solution, q.tests);
+      assert.equal(out.passed, true, mod + ' ' + q.text.slice(0, 48) + ' ' + JSON.stringify(out.results));
+    }
+  }
+});
+
 test('rejects a payload that is not a question list', () => {
   assert.throws(() => normalizeQuiz({ foo: 1 }, 't'));
 });

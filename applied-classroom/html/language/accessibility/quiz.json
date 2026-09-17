@@ -1,0 +1,474 @@
+{
+  "title": "HTML \u2014 Accessibility",
+  "questions": [
+    {
+      "question": "Why does every form control need a label?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The CSS cascade requires it.",
+        "It makes the form accessible to vision-impaired users.",
+        "Labels replace the submit button.",
+        "Servers reject unlabeled HTML5."
+      ],
+      "answer": "b",
+      "explanation": "each form control should have its own label as this makes the form accessible to vision-impaired users.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+      },
+      "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
+    },
+    {
+      "question": "Which pattern labels an input by wrapping?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<label>Age: <input type=\"text\" name=\"age\" /></label>",
+        "<input label=\"Age\">",
+        "<p>Age</p><input>",
+        "<legend>Age</legend> on a lone input."
+      ],
+      "answer": "a",
+      "explanation": "label can wrap the description and the form input.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "Wrap around both the text description and the form input"
+      },
+      "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
+    },
+    {
+      "question": "Inclusive Components' first widget chapter is about?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Canvas games.",
+        "Toggle buttons.",
+        "SQL indexes.",
+        "Flexbox."
+      ],
+      "answer": "b",
+      "explanation": "The inaugural chapter explores what it takes to make toggle buttons inclusive.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 8,
+        "excerpt": "In this inaugural chapter, I\u2019ll be exploring what it takes to make toggle buttons inclusive."
+      },
+      "code": "<button type=\"button\" aria-pressed=\"false\">Mute</button>"
+    },
+    {
+      "question": "Are toggle buttons all alike?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Yes; one markup fits every product.",
+        "No. Purpose is simple, but applications and forms vary, and it is easy to forget a requirement.",
+        "They are illegal in HTML.",
+        "They only work with hover."
+      ],
+      "answer": "b",
+      "explanation": "on/off switches are not all alike. Plenty to forget to do.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 8,
+        "excerpt": "yet on/off switches (or toggle buttons) are not all alike."
+      },
+      "code": "<button type=\"button\" aria-pressed=\"true\">On</button>"
+    },
+    {
+      "question": "What misconception does Pickering call out about screen readers?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "That they understand every ARIA attribute automatically.",
+        "That they don't understand JavaScript.",
+        "That they cannot read labels.",
+        "That they require tables for layout."
+      ],
+      "answer": "b",
+      "explanation": "A popular misconception has been that screen readers don't understand JavaScript. That is untrue.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 9,
+        "excerpt": "A popular misconception has been that screen readers don\u2019t understand JavaScript."
+      },
+      "code": "<button type=\"button\" aria-pressed=\"false\">Mute</button>"
+    },
+    {
+      "question": "What are the primitives of interactive forms?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "div with onclick only.",
+        "Checkboxes and radio buttons.",
+        "Canvas pixels.",
+        "CSS :hover alone."
+      ],
+      "answer": "b",
+      "explanation": "Form elements are the primitives of interactive UIs. Native controls already have names and keyboard behavior.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 9,
+        "excerpt": "Form elements are the primitives of interactiv"
+      },
+      "code": "<input type=\"checkbox\" id=\"on\" name=\"on\" />\n<label for=\"on\">On</label>"
+    },
+    {
+      "question": "Why is delete-on-hover a problem?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Hover is faster for everyone.",
+        "It is inaccessible by keyboard.",
+        "Hover is required by ARIA.",
+        "Screen readers only work with hover."
+      ],
+      "answer": "b",
+      "explanation": "The delete functionality only appears on hover, making it an entirely inaccessible feature by keyboard.",
+      "reference": {
+        "section": "Keyboard access",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 39,
+        "excerpt": "the delete functionality only appears on hover, making it an entirely inaccessible feature by keyboard."
+      },
+      "code": "<button type=\"button\">Delete</button>"
+    },
+    {
+      "question": "Which button is named for assistive tech?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<button></button>",
+        "<button>Save</button>",
+        "<div role=\"button\"></div>",
+        "<button aria-hidden=\"true\">Save</button>"
+      ],
+      "answer": "b",
+      "explanation": "Visible text is the accessible name. An empty button has no name. A nameless div is worse.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 8,
+        "excerpt": "what it takes to make toggle buttons inclusive"
+      },
+      "code": "<button type=\"button\">Save</button>"
+    },
+    {
+      "question": "Which image alt is correct for a meaningful photo?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "alt=\"\"",
+        "alt=\"A family of quokka\"",
+        "omit alt",
+        "alt=\"image\""
+      ],
+      "answer": "b",
+      "explanation": "alt should give an accurate description of the image content so it can be understood by screen reader software.",
+      "reference": {
+        "section": "Meaningful images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "It should give an accurate description of the image content so it can be understood by screen reader software"
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+    },
+    {
+      "question": "A decorative divider still needs which alt?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Omit alt so screen readers skip the tag.",
+        "alt=\"\" — the attribute is there, the value is empty.",
+        "alt=\"decorative image divider\".",
+        "alt=\"src\"."
+      ],
+      "answer": "b",
+      "explanation": "If the image is only decoration, alt should still be used but the quotes should be left empty.",
+      "reference": {
+        "section": "Meaningful images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "then the alt attribute should still be used but the quotes should be left"
+      },
+      "code": "<img src=\"line.png\" alt=\"\" />"
+    },
+    {
+      "question": "Which toggle exposes pressed state?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<button class=\"on\">Mute</button> only.",
+        "<button type=\"button\" aria-pressed=\"true\">Mute</button>",
+        "<button pressed>",
+        "<toggle>Mute</toggle>"
+      ],
+      "answer": "b",
+      "explanation": "aria-pressed is the state Inclusive Components styles for on/off buttons. There is no <toggle> tag.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 20,
+        "excerpt": "[aria-pressed='true']"
+      },
+      "code": "<button type=\"button\" aria-pressed=\"true\">Mute</button>"
+    },
+    {
+      "question": "Do basic state changes always require JavaScript?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes. HTML cannot express state.",
+        "No. Native controls communicate state without a custom script.",
+        "Only radio buttons need JS.",
+        "Only CSS can communicate state."
+      ],
+      "answer": "b",
+      "explanation": "Basic state changes, communicated both visually and to assistive technology, do not necessarily depend on JavaScript.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 9,
+        "excerpt": "basic state changes, communicated both visually and to assistive technology software, do not necessarily depend on JavaScript to take place anyway."
+      },
+      "code": "<input type=\"checkbox\" id=\"on\" />\n<label for=\"on\">Alerts on</label>"
+    },
+    {
+      "question": "Which delete control can a keyboard user reach?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A trash icon that exists only in :hover CSS.",
+        "A real <button>Delete</button> that stays in the DOM.",
+        "A background-image with no element.",
+        "title=\"Delete\" on a <span>."
+      ],
+      "answer": "b",
+      "explanation": "If it only appears on hover, it is not a keyboard feature. Keep a button in the document.",
+      "reference": {
+        "section": "Keyboard access",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 39,
+        "excerpt": "making it an entirely inaccessible feature by keyboard"
+      },
+      "code": "<button type=\"button\">Delete</button>"
+    },
+    {
+      "question": "What should you do instead of a custom div checkbox?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Keep the div and add tabindex=\"0\" only.",
+        "Use <input type=\"checkbox\"> and a label.",
+        "Use <box checked>.",
+        "Paint a check with CSS and skip HTML."
+      ],
+      "answer": "b",
+      "explanation": "Form elements are the primitives. A native checkbox already has a name, a value, and keyboard behavior.",
+      "reference": {
+        "section": "Inclusive controls",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 9,
+        "excerpt": "Form elements are the primitives of interactiv"
+      },
+      "code": "<input type=\"checkbox\" id=\"agree\" name=\"agree\" />\n<label for=\"agree\">I agree</label>"
+    },
+    {
+      "question": "Which pairing is accessible?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "<input id=\"age\" type=\"text\" name=\"age\"><label>Age</label> with no for.",
+        "<label for=\"age\">Age</label><input id=\"age\" type=\"text\" name=\"age\" />",
+        "<input type=\"text\" placeholder=\"Age\"> only.",
+        "<td>Age</td><input type=\"text\">"
+      ],
+      "answer": "b",
+      "explanation": "for matches id. Placeholder is not a label. A nearby word with no for is not wired.",
+      "reference": {
+        "section": "Labels",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "<label for=\"female\">Female</label>"
+      },
+      "code": "<label for=\"age\">Age</label>\n<input id=\"age\" type=\"text\" name=\"age\" />"
+    },
+    {
+      "question": "Write labeledInput(id, labelText, name) that returns label[for] plus input#id type=text.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function labeledInput(id, labelText, name) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "age",
+          "args": [
+            "age",
+            "Age",
+            "age"
+          ],
+          "expected": "<label for=\"age\">Age</label><input id=\"age\" type=\"text\" name=\"age\" />"
+        },
+        {
+          "label": "user",
+          "args": [
+            "user",
+            "Name",
+            "user"
+          ],
+          "expected": "<label for=\"user\">Name</label><input id=\"user\" type=\"text\" name=\"user\" />"
+        },
+        {
+          "label": "q",
+          "args": [
+            "q",
+            "Search",
+            "q"
+          ],
+          "expected": "<label for=\"q\">Search</label><input id=\"q\" type=\"text\" name=\"q\" />"
+        }
+      ],
+      "hints": [
+        "for and id must be the same string."
+      ],
+      "solution": "function labeledInput(id, labelText, name) {\n  return '<label for=\"' + id + '\">' + labelText + '</label><input id=\"' + id + '\" type=\"text\" name=\"' + name + '\" />';\n}\n",
+      "explanation": "A wired label is the baseline accessible form control.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 170,
+        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write namedButton(text) that returns a type=button with that accessible name.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function namedButton(text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "save",
+          "args": [
+            "Save"
+          ],
+          "expected": "<button type=\"button\">Save</button>"
+        },
+        {
+          "label": "delete",
+          "args": [
+            "Delete"
+          ],
+          "expected": "<button type=\"button\">Delete</button>"
+        },
+        {
+          "label": "mute",
+          "args": [
+            "Mute"
+          ],
+          "expected": "<button type=\"button\">Mute</button>"
+        }
+      ],
+      "hints": [
+        "The text content is the name. type=button so it does not submit a form."
+      ],
+      "solution": "function namedButton(text) {\n  return '<button type=\"button\">' + text + '</button>';\n}\n",
+      "explanation": "A button with text can be reached from the keyboard and spoken by a screen reader.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 39,
+        "excerpt": "the delete functionality only appears on hover, making it an entirely inaccessible feature by keyboard."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write imgAlt(src, alt, decorative) \u2014 if decorative is true, force alt to empty quotes.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function imgAlt(src, alt, decorative) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "photo",
+          "args": [
+            "q.jpg",
+            "A quokka",
+            false
+          ],
+          "expected": "<img src=\"q.jpg\" alt=\"A quokka\" />"
+        },
+        {
+          "label": "line",
+          "args": [
+            "line.png",
+            "line",
+            true
+          ],
+          "expected": "<img src=\"line.png\" alt=\"\" />"
+        },
+        {
+          "label": "empty already",
+          "args": [
+            "x.png",
+            "",
+            false
+          ],
+          "expected": "<img src=\"x.png\" alt=\"\" />"
+        }
+      ],
+      "hints": [
+        "If decorative is true, use alt=\"\" even when a string was passed."
+      ],
+      "solution": "function imgAlt(src, alt, decorative) {\n  const text = decorative ? '' : alt;\n  return '<img src=\"' + src + '\" alt=\"' + text + '\" />';\n}\n",
+      "explanation": "Meaningful images get a description. Decorative images keep alt present and empty.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "then the alt attribute should still be used but the quotes should be left"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 7 \u2014 Forms",
+      "page": 170,
+      "pageEnd": 175,
+      "sections": [
+        {
+          "heading": "Labels",
+          "page": 170
+        },
+        {
+          "heading": "Meaningful images",
+          "page": 106
+        }
+      ]
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "chapter": "Toggle buttons / Todo list",
+      "page": 8,
+      "pageEnd": 39,
+      "sections": [
+        {
+          "heading": "Inclusive controls",
+          "page": 8
+        },
+        {
+          "heading": "Keyboard access",
+          "page": 39
+        }
+      ]
+    }
+  ]
+}

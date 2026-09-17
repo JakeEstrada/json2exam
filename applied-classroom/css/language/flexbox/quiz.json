@@ -1,0 +1,432 @@
+{
+  "title": "CSS \u2014 Flexbox",
+  "questions": [
+    {
+      "question": "What does display: flex do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It floats the element left.",
+        "It turns the element into a flex container; direct children become flex items.",
+        "It makes a two-dimensional grid.",
+        "It hides overflow."
+      ],
+      "answer": "b",
+      "explanation": "Applying display: flex to an element turns it into a flex container, and its direct children turn into flex items.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "Applying display: flex to an element turns it into a flex container, and its direct children turn into flex items."
+      },
+      "code": ".nav {\n  display: flex;\n}"
+    },
+    {
+      "question": "Default flex direction is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Column, top to bottom.",
+        "A row, left to right.",
+        "Absolute overlay.",
+        "Table rows."
+      ],
+      "answer": "b",
+      "explanation": "By default, flex items align side by side, left to right, all in one row.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "By default, flex items align side by side, left to right, all in one row."
+      },
+      "code": ".nav {\n  display: flex;\n}"
+    },
+    {
+      "question": "Does the flex container fill the width?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No; it shrinks to content like an inline element.",
+        "Yes; it fills the available width like a block element.",
+        "Only with width: 100vw.",
+        "Never; flex items fill it instead, always."
+      ],
+      "answer": "b",
+      "explanation": "The flex container fills the available width like a block element, but the flex items may not necessarily fill the width of their flex container.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "The flex container fills the available width like a block element"
+      },
+      "code": ".nav {\n  display: flex;\n}"
+    },
+    {
+      "question": "display: inline-flex is for?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Printing only.",
+        "A flex container that behaves more like inline-block.",
+        "Grid areas.",
+        "Replacing <span> with CSS."
+      ],
+      "answer": "b",
+      "explanation": "inline-flex creates a flex container that behaves more like an inline-block element rather than a block.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "This creates a flex container that behaves more like an inline-block element rather than a block."
+      },
+      "code": ".pill {\n  display: inline-flex;\n}"
+    },
+    {
+      "question": "Flex layout is defined in terms of?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only left and right.",
+        "A main axis and a cross axis.",
+        "Z-index only.",
+        "The HTML table model."
+      ],
+      "answer": "b",
+      "explanation": "Because flexbox layout is defined in terms of the main axis and cross axis, I'll use the terms start and end in reference to the axes.",
+      "reference": {
+        "section": "Main axis and cross axis",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 146,
+        "excerpt": "Because flexbox layout is defined in terms of the main axis and cross axis"
+      },
+      "code": ".row {\n  display: flex;\n  flex-direction: row;\n}"
+    },
+    {
+      "question": "You need all twelve new properties to use flexbox?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Yes.",
+        "No. display: flex gets you pretty far before you need the rest.",
+        "You need exactly twelve or it does nothing.",
+        "Flexbox is one property: float."
+      ],
+      "answer": "b",
+      "explanation": "Applying display: flex gets you pretty far before you'll need to pick up any of those 12 new properties.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 146,
+        "excerpt": "Applying display: flex gets you pretty far before you\u2019ll need to pick up any of those 12 new properties."
+      },
+      "code": ".nav { display: flex; }"
+    },
+    {
+      "question": "justify-content packs items along?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The z-axis.",
+        "The main axis.",
+        "Only the viewport.",
+        "The cascade."
+      ],
+      "answer": "b",
+      "explanation": "Chapter coverage includes element alignment. justify-content is the main-axis packing property.",
+      "reference": {
+        "section": "Main axis and cross axis",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 144,
+        "excerpt": "Element alignment in flexbox"
+      },
+      "code": ".row {\n  display: flex;\n  justify-content: space-between;\n}"
+    },
+    {
+      "question": "align-items packs items along?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The main axis.",
+        "The cross axis.",
+        "Source order.",
+        "The URL bar."
+      ],
+      "answer": "b",
+      "explanation": "Cross-axis alignment is align-items (center, stretch, flex-start, ...).",
+      "reference": {
+        "section": "Main axis and cross axis",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 144,
+        "excerpt": "Element alignment in flexbox"
+      },
+      "code": ".row {\n  display: flex;\n  align-items: center;\n}"
+    },
+    {
+      "question": "How can you push the last menu item to the right?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "position: absolute only.",
+        "An auto left margin on that item.",
+        "text-align: right on the li text only.",
+        "float: right on the container."
+      ],
+      "answer": "b",
+      "explanation": "An auto left margin on the last button fills available space, pushing it to the right.",
+      "reference": {
+        "section": "Sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 152,
+        "excerpt": "You\u2019ll also apply an auto left margin to the last button, which causes the margin to fill all the available space"
+      },
+      "code": ".site-nav > :last-child {\n  margin-left: auto;\n}"
+    },
+    {
+      "question": "flex: 1 on an item typically means?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fixed 1px width.",
+        "The item fills remaining space on the main axis.",
+        "The item is hidden.",
+        "The item becomes a grid container."
+      ],
+      "answer": "b",
+      "explanation": "Grant's figure: second item with flex: 1 fills all remaining space.",
+      "reference": {
+        "section": "Sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 158,
+        "excerpt": "Second items fills all remaining space."
+      },
+      "code": ".main { flex: 1; }"
+    },
+    {
+      "question": "flex: none means?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "display: none.",
+        "The item stays at its natural size and does not grow.",
+        "The container is not a flex container.",
+        "All margins collapse."
+      ],
+      "answer": "b",
+      "explanation": "Items with flex: none grow to their natural width. They don't necessarily fill the container.",
+      "reference": {
+        "section": "Sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 158,
+        "excerpt": "Items grow to their natural width. They don\u2019t necessarily fill the width of the container."
+      },
+      "code": ".side { flex: none; }"
+    },
+    {
+      "question": "Are flex items the same height by default?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No; each is its own content height with no stretching.",
+        "Yes; they are all the same height, determined naturally by their contents.",
+        "Only with height: 100vh.",
+        "Only in column direction."
+      ],
+      "answer": "b",
+      "explanation": "The flex items are all the same height, determined naturally by their contents.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "The flex items are all the same height, determined naturally by their contents."
+      },
+      "code": ".cards { display: flex; }"
+    },
+    {
+      "question": "Which is a flex container with a column main axis?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        ".stack { display: flex; flex-direction: column; }",
+        ".stack { display: block; flex-direction: column; }",
+        ".stack { display: grid; flex-direction: column; }",
+        ".stack { float: column; }"
+      ],
+      "answer": "a",
+      "explanation": "flex-direction only applies once the element is a flex container.",
+      "reference": {
+        "section": "Main axis and cross axis",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 144,
+        "excerpt": "Main axis and cross axis"
+      },
+      "code": ".stack {\n  display: flex;\n  flex-direction: column;\n}"
+    },
+    {
+      "question": "Why did floats struggle with equal-height columns that flexbox handles?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Floats are illegal.",
+        "Flex items share height in a row by default; floats do not.",
+        "Flexbox removed the box model.",
+        "Floats cannot wrap text."
+      ],
+      "answer": "b",
+      "explanation": "Flexbox is a simple solution to the long-standing problems of vertical centering and equal height columns.",
+      "reference": {
+        "section": "Flexbox principles",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 144,
+        "excerpt": "It\u2019s also a simple solution to the long-standing problems of vertical centering and equal height columns."
+      },
+      "code": ".row { display: flex; }"
+    },
+    {
+      "question": "Which rule spaces items without putting margin on the outer edges, Grant's sibling trick?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        ".nav > * { margin: auto; }",
+        ".nav > * + * { margin-left: 1em; }",
+        ".nav { padding: 1em; } only.",
+        ".nav { gap: margin; }"
+      ],
+      "answer": "b",
+      "explanation": "margin-left plus an adjacent sibling combinator puts space between items, not on the outside edges.",
+      "reference": {
+        "section": "Sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 152,
+        "excerpt": "You can achieve this layout by using the margin-left property and an adjacent sibling combinator"
+      },
+      "code": ".site-nav > * + * {\n  margin-left: 1em;\n}"
+    },
+    {
+      "question": "Write flexRow() that returns display: flex;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function flexRow() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "default",
+          "args": [],
+          "expected": "display: flex;"
+        },
+        {
+          "label": "idempotent",
+          "args": [],
+          "expected": "display: flex;"
+        },
+        {
+          "label": "still",
+          "args": [],
+          "expected": "display: flex;"
+        }
+      ],
+      "hints": [
+        "That one declaration is the container."
+      ],
+      "solution": "function flexRow() {\n  return 'display: flex;';\n}\n",
+      "explanation": "display: flex is the whole container switch.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 145,
+        "excerpt": "Applying display: flex to an element turns it into a flex container"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write flexCenter() that returns a centered flex row.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function flexCenter() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "center",
+          "args": [],
+          "expected": "display: flex; justify-content: center; align-items: center;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "display: flex; justify-content: center; align-items: center;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "display: flex; justify-content: center; align-items: center;"
+        }
+      ],
+      "hints": [
+        "justify-content is main axis; align-items is cross axis. Both center."
+      ],
+      "solution": "function flexCenter() {\n  return 'display: flex; justify-content: center; align-items: center;';\n}\n",
+      "explanation": "Centering on both axes is the usual flex greeting.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 144,
+        "excerpt": "Element alignment in flexbox"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write spaceBetween() that returns flex plus space-between.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function spaceBetween() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "nav",
+          "args": [],
+          "expected": "display: flex; justify-content: space-between;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "display: flex; justify-content: space-between;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "display: flex; justify-content: space-between;"
+        }
+      ],
+      "hints": [
+        "justify-content: space-between."
+      ],
+      "solution": "function spaceBetween() {\n  return 'display: flex; justify-content: space-between;';\n}\n",
+      "explanation": "space-between puts the extra space between items.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 152,
+        "excerpt": "flexbox allows you to use margin: auto to fill available space between the flex items."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 5 \u2014 Flexbox",
+      "page": 144,
+      "pageEnd": 171,
+      "sections": [
+        {
+          "heading": "Flexbox principles",
+          "page": 145
+        },
+        {
+          "heading": "Main axis and cross axis",
+          "page": 146
+        },
+        {
+          "heading": "Sizing",
+          "page": 152
+        }
+      ]
+    }
+  ]
+}

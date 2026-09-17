@@ -181,7 +181,10 @@ export default function App() {
     setStudyFocus(null);
     setSidePane(null);
     lastIdRef.current = null;
-    const hasLesson = !!(ready.jsIntro || ready.tsIntro || (ready.cheatsheet && ready.notes));
+    const hasLesson = !!(
+      ready.jsIntro || ready.tsIntro || ready.htmlIntro || ready.cssIntro
+      || (ready.cheatsheet && ready.notes)
+    );
     if (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length) {
       setCurrent(null);
       setScreen('lesson');
@@ -230,6 +233,8 @@ export default function App() {
     if (extra && extra.cheatsheet) qz.cheatsheet = extra.cheatsheet;
     if (extra && extra.jsIntro) qz.jsIntro = true;
     if (extra && extra.tsIntro) qz.tsIntro = true;
+    if (extra && extra.htmlIntro) qz.htmlIntro = true;
+    if (extra && extra.cssIntro) qz.cssIntro = true;
     if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
       qz.sheet = [].concat(extra.sheet).filter(Boolean);
     }

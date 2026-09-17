@@ -1,0 +1,457 @@
+{
+  "title": "HTML \u2014 Document and structure",
+  "questions": [
+    {
+      "question": "What kind of language is HTML?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A markup language for the structure of a page.",
+        "A stylesheet language that paints colors and fonts.",
+        "A programming language with functions and loops.",
+        "A query language for selecting rows from a table."
+      ],
+      "answer": "a",
+      "explanation": "HTML marks up content. CSS styles it. JavaScript programs it. The first chapter is structure, not color.",
+      "reference": {
+        "section": "What HTML is",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 19,
+        "excerpt": "Understanding structure"
+      },
+      "code": "<h1>Home</h1>\n<p>A page is marked-up text.</p>"
+    },
+    {
+      "question": "Which snippet is a complete paragraph element?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<p>Hello",
+        "<p>Hello</p>",
+        "</p>Hello<p>",
+        "<paragraph>Hello</paragraph>"
+      ],
+      "answer": "b",
+      "explanation": "An element is the opening tag, the closing tag, and the content between them. There is no <paragraph> tag.",
+      "reference": {
+        "section": "Tags and elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 31,
+        "excerpt": "an element comprises the opening tag and the closing tag and any content that lies between them."
+      },
+      "code": "<p>Hello</p>"
+    },
+    {
+      "question": "In <p>, what do the angle brackets mark?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A CSS rule.",
+        "A comment.",
+        "A tag. The letters inside name the tag's purpose.",
+        "A JavaScript function call."
+      ],
+      "answer": "c",
+      "explanation": "The characters in the brackets indicate the tag's purpose. p stands for paragraph.",
+      "reference": {
+        "section": "Tags and elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 30,
+        "excerpt": "The characters in the brackets indicate the tag's purpose."
+      },
+      "code": "<p>A paragraph.</p>"
+    },
+    {
+      "question": "How is a closing tag written?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<p/> on a paragraph that has children.",
+        "</p> \u2014 a forward slash after <, then the name.",
+        "<end p>",
+        "<p close>"
+      ],
+      "answer": "b",
+      "explanation": "The closing tag has a forward slash after the < symbol.",
+      "reference": {
+        "section": "Tags and elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 30,
+        "excerpt": "The closing tag has a forward slash after the the < symbol."
+      },
+      "code": "<p>Hello</p>"
+    },
+    {
+      "question": "Where do attributes go?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "On the closing tag only.",
+        "In a separate CSS file.",
+        "On the opening tag, as name=\"value\".",
+        "After the element, as a sibling <attr>."
+      ],
+      "answer": "c",
+      "explanation": "Attributes appear on the opening tag. Name, equals, double-quoted value.",
+      "reference": {
+        "section": "Attributes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 32,
+        "excerpt": "Attributes provide additional information about the contents of an element."
+      },
+      "code": "<p lang=\"en-us\">Paragraph in English</p>"
+    },
+    {
+      "question": "Which attribute is written the usual way?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<p LANG=en-us>Hi</p>",
+        "<p lang=en-us>Hi</p>",
+        "<p lang=\"en-us\">Hi</p>",
+        "<p (lang) en-us>Hi</p>"
+      ],
+      "answer": "c",
+      "explanation": "The name is lowercase. The value sits in double quotes.",
+      "reference": {
+        "section": "Attributes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 32,
+        "excerpt": "It should be written in lowercase."
+      },
+      "code": "<p lang=\"en-us\">Paragraph in English</p>"
+    },
+    {
+      "question": "What belongs in <body>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The page title on the browser tab.",
+        "Links to stylesheets only.",
+        "Content shown in the main browser window.",
+        "Comments the visitor never sees, exclusively."
+      ],
+      "answer": "c",
+      "explanation": "Everything inside body is shown inside the main browser window. The title lives in head.",
+      "reference": {
+        "section": "Document skeleton",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "Everything inside this element is shown inside the main browser window."
+      },
+      "code": "<body>\n  <h1>This is the Body of the Page</h1>\n</body>"
+    },
+    {
+      "question": "What belongs in <head>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The visible headline.",
+        "Information about the page, such as <title>.",
+        "The only place <p> is allowed.",
+        "A required <script> before any markup."
+      ],
+      "answer": "b",
+      "explanation": "head contains information about the page rather than what is shown in the main window.",
+      "reference": {
+        "section": "Document skeleton",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "This contains information about the page (rather than information that is shown within"
+      },
+      "code": "<head>\n  <title>This is the Title of the Page</title>\n</head>"
+    },
+    {
+      "question": "Which tree is the usual document order?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<body> then <head> then <html>.",
+        "<html> wrapping <head> then <body>.",
+        "<title> wrapping <html>.",
+        "<p> wrapping <html>."
+      ],
+      "answer": "b",
+      "explanation": "html is the root. head (with title) comes before body.",
+      "reference": {
+        "section": "Document skeleton",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "Before the <body> element you will often see a <head> element."
+      },
+      "code": "<html>\n  <head><title>Home</title></head>\n  <body></body>\n</html>"
+    },
+    {
+      "question": "Which statement about structure is true?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "HTML is only for color and fonts.",
+        "Structure helps readers understand the page, the way headings help in a document.",
+        "Browsers ignore tags and show the source.",
+        "You must compile .html into .exe."
+      ],
+      "answer": "b",
+      "explanation": "Chapter 1 is structure: markup so the browser knows headings, paragraphs, and the rest.",
+      "reference": {
+        "section": "What HTML is",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 19,
+        "excerpt": "Learning about markup"
+      },
+      "code": "<h1>News</h1>\n<p>A headline, then text.</p>"
+    },
+    {
+      "question": "Which is an element, not just a tag?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The characters <p> by themselves.",
+        "The pair <p>Hi</p> including Hi.",
+        "The CSS selector p.",
+        "The filename page.html."
+      ],
+      "answer": "b",
+      "explanation": "An element comprises the opening tag, the closing tag, and any content between them.",
+      "reference": {
+        "section": "Tags and elements",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 31,
+        "excerpt": "an element comprises the opening tag and the closing tag and any content that lies between them."
+      },
+      "code": "<p>Hi</p>"
+    },
+    {
+      "question": "What does lang=\"en-us\" tell the browser?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The stylesheet to load.",
+        "The language of that element's content.",
+        "The character encoding of the file.",
+        "The author's name."
+      ],
+      "answer": "b",
+      "explanation": "lang indicates the language used in this element. Here the value is US English.",
+      "reference": {
+        "section": "Attributes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 32,
+        "excerpt": "Here an attribute called lang is used to indicate the language used in this element."
+      },
+      "code": "<p lang=\"en-us\">Paragraph in English</p>"
+    },
+    {
+      "question": "Where does the tab title come from?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The first <h1> in the body.",
+        "The <title> in the head.",
+        "The filename only.",
+        "A required id on <html>."
+      ],
+      "answer": "b",
+      "explanation": "title sits in head. It is information about the page, not a heading in the window.",
+      "reference": {
+        "section": "Document skeleton",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "<title>This is the Title of the Page</title>"
+      },
+      "code": "<head>\n  <title>This is the Title of the Page</title>\n</head>"
+    },
+    {
+      "question": "Which markup is valid attribute syntax?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<p lang en-us>Hi</p>",
+        "<p \"lang\"=\"en-us\">Hi</p>",
+        "<p lang=\"en-us\">Hi</p>",
+        "<p lang=>Hi</p>"
+      ],
+      "answer": "c",
+      "explanation": "Name, equals, quoted value. No stray quotes around the name.",
+      "reference": {
+        "section": "Attributes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 32,
+        "excerpt": "They appear on the opening tag of the element and are made up of two parts: a name and a value"
+      },
+      "code": "<p lang=\"en-us\">Hi</p>"
+    },
+    {
+      "question": "Why does this page show nothing in the window?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "title text is never visible anywhere.",
+        "The only text is in head, and head is not shown in the main window.",
+        "html files cannot contain text.",
+        "The browser requires a <main> tag before it paints."
+      ],
+      "answer": "b",
+      "explanation": "head is metadata. Put visible copy in body.",
+      "reference": {
+        "section": "Document skeleton",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "information about the page (rather than information that is shown within"
+      },
+      "code": "<html>\n  <head><title>Home</title></head>\n  <body></body>\n</html>"
+    },
+    {
+      "question": "Write skeleton(title) so it returns an html document with that title and an empty body.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function skeleton(title) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "home",
+          "args": [
+            "Home"
+          ],
+          "expected": "<html><head><title>Home</title></head><body></body></html>"
+        },
+        {
+          "label": "quiz",
+          "args": [
+            "Quiz"
+          ],
+          "expected": "<html><head><title>Quiz</title></head><body></body></html>"
+        },
+        {
+          "label": "empty title",
+          "args": [
+            ""
+          ],
+          "expected": "<html><head><title></title></head><body></body></html>"
+        }
+      ],
+      "hints": [
+        "Concatenate strings. title goes between <title> and </title>."
+      ],
+      "solution": "function skeleton(title) {\n  return '<html><head><title>' + title + '</title></head><body></body></html>';\n}\n",
+      "explanation": "The runner checks the string. Head holds the title; body is empty until you add content.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 34,
+        "excerpt": "Before the <body> element you will often see a <head> element."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write paragraph(text) that returns a <p> element whose content is text.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function paragraph(text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "hello",
+          "args": [
+            "Hello"
+          ],
+          "expected": "<p>Hello</p>"
+        },
+        {
+          "label": "blank",
+          "args": [
+            ""
+          ],
+          "expected": "<p></p>"
+        },
+        {
+          "label": "sentence",
+          "args": [
+            "A page is marked-up text."
+          ],
+          "expected": "<p>A page is marked-up text.</p>"
+        }
+      ],
+      "hints": [
+        "Opening tag, the text, closing tag."
+      ],
+      "solution": "function paragraph(text) {\n  return '<p>' + text + '</p>';\n}\n",
+      "explanation": "A paragraph element is <p>, the content, and </p>.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 31,
+        "excerpt": "an element comprises the opening tag and the closing tag and any content that lies between them."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write wrap(tag, text) that returns <tag>text</tag> for any tag name.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function wrap(tag, text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "title",
+          "args": [
+            "title",
+            "Home"
+          ],
+          "expected": "<title>Home</title>"
+        },
+        {
+          "label": "h1",
+          "args": [
+            "h1",
+            "Hello"
+          ],
+          "expected": "<h1>Hello</h1>"
+        },
+        {
+          "label": "em",
+          "args": [
+            "em",
+            "hi"
+          ],
+          "expected": "<em>hi</em>"
+        }
+      ],
+      "hints": [
+        "Use the tag argument on both the opening and closing tags."
+      ],
+      "solution": "function wrap(tag, text) {\n  return '<' + tag + '>' + text + '</' + tag + '>';\n}\n",
+      "explanation": "Same shape as a paragraph: open, content, close \u2014 with the name supplied.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 30,
+        "excerpt": "The characters in the brackets indicate the tag's purpose."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 1 \u2014 Structure",
+      "page": 19,
+      "pageEnd": 45,
+      "sections": [
+        {
+          "heading": "What HTML is",
+          "page": 19
+        },
+        {
+          "heading": "Tags and elements",
+          "page": 30
+        },
+        {
+          "heading": "Attributes",
+          "page": 32
+        },
+        {
+          "heading": "Document skeleton",
+          "page": 34
+        }
+      ]
+    }
+  ]
+}

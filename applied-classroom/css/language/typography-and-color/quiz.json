@@ -1,0 +1,466 @@
+{
+  "title": "CSS \u2014 Type and color",
+  "questions": [
+    {
+      "question": "Which property colors the text?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "background-color",
+        "color",
+        "fill-text",
+        "font-color"
+      ],
+      "answer": "b",
+      "explanation": "Duckett's sample rule uses color: yellow on headings. There is no font-color property.",
+      "reference": {
+        "section": "Color",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 239,
+        "excerpt": "in a yellow color."
+      },
+      "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
+    },
+    {
+      "question": "Which property paints the box behind the text?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "color",
+        "background-color",
+        "border-color only",
+        "outline"
+      ],
+      "answer": "b",
+      "explanation": "Background color is a listed topic of the color chapter. background-color is the property.",
+      "reference": {
+        "section": "Color",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 253,
+        "excerpt": "Background color"
+      },
+      "code": "body {\n  background-color: cream;\n}"
+    },
+    {
+      "question": "Duckett's sample typeface property is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "font: Arial;",
+        "font-family: Arial;",
+        "typeface: Arial;",
+        "text-font: Arial;"
+      ],
+      "answer": "b",
+      "explanation": "font-family names the typeface. The chapter 10 rule is font-family: Arial.",
+      "reference": {
+        "section": "Type",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "all <p> elements should be shown in the Arial typeface."
+      },
+      "code": "p {\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "Chapter 12 is about?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Grid tracks.",
+        "Size and typeface of text, plus bold/italic and spacing.",
+        "Flex alignment.",
+        "Z-index."
+      ],
+      "answer": "b",
+      "explanation": "The text chapter lists size and typeface, then bold, italics, capitals, underlines, then spacing.",
+      "reference": {
+        "section": "Type",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 271,
+        "excerpt": "Size and typeface of text"
+      },
+      "code": "p {\n  font-size: 16px;\n  font-family: Arial;\n}"
+    },
+    {
+      "question": "Pixels are which kind of unit?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Relative to the parent font.",
+        "Absolute; 5px always means the same thing.",
+        "Relative to the viewport only.",
+        "Illegal in CSS."
+      ],
+      "answer": "b",
+      "explanation": "Pixels are known as absolute units; that is, 5 px always means the same thing.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "These are known as absolute units; that is, 5 px always means the same thing."
+      },
+      "code": "p { font-size: 16px; }"
+    },
+    {
+      "question": "em and rem are?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Absolute, like px.",
+        "Relative. Their value changes based on external factors.",
+        "Only for margins.",
+        "HTML attributes."
+      ],
+      "answer": "b",
+      "explanation": "Other units, such as em and rem, are not absolute, but relative. The value of relative units changes, based on external factors.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "Other units, such as em and rem, are not absolute, but relative."
+      },
+      "code": "h1 { font-size: 2em; }"
+    },
+    {
+      "question": "Why can 2em surprise you?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "em is illegal on headings.",
+        "The meaning of 2em changes depending on which element (and sometimes which property) you use it on.",
+        "em always equals 2px.",
+        "Browsers ignore em."
+      ],
+      "answer": "b",
+      "explanation": "the meaning of 2 em changes depending on which element (and sometimes even which property) you're using it on.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "the meaning of 2 em changes depending on which element (and sometimes even which property) you\u2019re using it on."
+      },
+      "code": "ul { font-size: 1.2em; }\nul ul { font-size: 1.2em; }"
+    },
+    {
+      "question": "Which pair is a valid hex color plus property?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "color: 334455;",
+        "color: #334455;",
+        "color: hex(334455);",
+        "font-color: #334455;"
+      ],
+      "answer": "b",
+      "explanation": "Hex colors start with #. The property is color.",
+      "reference": {
+        "section": "Color",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 253,
+        "excerpt": "How to specify colors"
+      },
+      "code": "h1 {\n  color: #334455;\n}"
+    },
+    {
+      "question": "Why mention contrast in a color chapter?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Contrast is a JavaScript API.",
+        "A valid color can still be unreadable (yellow on white).",
+        "Contrast replaces font-size.",
+        "Contrast is only for print."
+      ],
+      "answer": "b",
+      "explanation": "The chapter lists color terminology and contrast next to how to specify colors.",
+      "reference": {
+        "section": "Color",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 253,
+        "excerpt": "Color terminology and contrast"
+      },
+      "code": "p {\n  color: #222;\n  background-color: #fff;\n}"
+    },
+    {
+      "question": "Which size scales with the root font without nesting surprises?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "em on every nested list.",
+        "rem",
+        "px only.",
+        "pt only."
+      ],
+      "answer": "b",
+      "explanation": "Grant's chapter is how to use ems and rems without letting them drive you mad. rem is relative to the root.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "How to use ems and rems, without letting them drive you mad"
+      },
+      "code": "html { font-size: 100%; }\nh1 { font-size: 2rem; }"
+    },
+    {
+      "question": "font-weight: bold vs <h1> \u2014 which is which job?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "font-weight is the outline; h1 is paint.",
+        "h1 is the outline. font-weight is presentation.",
+        "They are the same token.",
+        "font-weight is illegal on headings."
+      ],
+      "answer": "b",
+      "explanation": "Headings are HTML structure. Bold as a look is CSS (or strong for emphasis).",
+      "reference": {
+        "section": "Type",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 271,
+        "excerpt": "Bold, italics, capitals, underlines"
+      },
+      "code": "h1 { font-weight: 700; }"
+    },
+    {
+      "question": "A comma in font-family means?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A descendant selector.",
+        "A fallback stack: try Arial, then sans-serif.",
+        "A comment.",
+        "A media query."
+      ],
+      "answer": "b",
+      "explanation": "List typefaces in order. The browser uses the first one it has.",
+      "reference": {
+        "section": "Type",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "all <p> elements should be shown in the Arial typeface."
+      },
+      "code": "p {\n  font-family: Arial, sans-serif;\n}"
+    },
+    {
+      "question": "vh and vw are relative to?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The parent element's font.",
+        "The viewport.",
+        "The HTML file size.",
+        "The CSS file length."
+      ],
+      "answer": "b",
+      "explanation": "Grant lists viewport-relative units next to em and rem.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "Using viewport-relative units"
+      },
+      "code": ".hero { min-height: 100vh; }"
+    },
+    {
+      "question": "Which declaration is a background, not text color?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "color: navy;",
+        "background-color: navy;",
+        "font-family: navy;",
+        "border: navy;"
+      ],
+      "answer": "b",
+      "explanation": "color is text. background-color is the box fill.",
+      "reference": {
+        "section": "Color",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 253,
+        "excerpt": "Background color"
+      },
+      "code": "header {\n  background-color: navy;\n  color: white;\n}"
+    },
+    {
+      "question": "Nested em on lists often looks too small or too large because?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "em cannot be used on lists.",
+        "Each em is relative to its parent's font-size, so nesting multiplies.",
+        "Lists ignore font-size.",
+        "em is absolute inside ul."
+      ],
+      "answer": "b",
+      "explanation": "Relative units change based on external factors. Nested 1.2em \u00d7 1.2em compounds.",
+      "reference": {
+        "section": "Relative units",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "The value of relative units changes, based on external factors"
+      },
+      "code": "ul { font-size: 1.2em; }"
+    },
+    {
+      "question": "Write textColor(value) that returns color: VALUE;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function textColor(value) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "navy",
+          "args": [
+            "navy"
+          ],
+          "expected": "color: navy;"
+        },
+        {
+          "label": "hex",
+          "args": [
+            "#334455"
+          ],
+          "expected": "color: #334455;"
+        },
+        {
+          "label": "yellow",
+          "args": [
+            "yellow"
+          ],
+          "expected": "color: yellow;"
+        }
+      ],
+      "hints": [
+        "Property color, then the value."
+      ],
+      "solution": "function textColor(value) {\n  return 'color: ' + value + ';';\n}\n",
+      "explanation": "color paints the text.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 239,
+        "excerpt": "in a yellow color."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write fontStack(family) that returns font-family: FAMILY;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function fontStack(family) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "arial",
+          "args": [
+            "Arial"
+          ],
+          "expected": "font-family: Arial;"
+        },
+        {
+          "label": "stack",
+          "args": [
+            "Arial, sans-serif"
+          ],
+          "expected": "font-family: Arial, sans-serif;"
+        },
+        {
+          "label": "georgia",
+          "args": [
+            "Georgia, serif"
+          ],
+          "expected": "font-family: Georgia, serif;"
+        }
+      ],
+      "hints": [
+        "Do not add extra quotes around the whole list."
+      ],
+      "solution": "function fontStack(family) {\n  return 'font-family: ' + family + ';';\n}\n",
+      "explanation": "font-family names the typeface (and fallbacks).",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 238,
+        "excerpt": "all <p> elements should be shown in the Arial typeface."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write remSize(n) that returns font-size: Nrem; for a number n.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function remSize(n) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "two",
+          "args": [
+            2
+          ],
+          "expected": "font-size: 2rem;"
+        },
+        {
+          "label": "one",
+          "args": [
+            1
+          ],
+          "expected": "font-size: 1rem;"
+        },
+        {
+          "label": "half",
+          "args": [
+            0.5
+          ],
+          "expected": "font-size: 0.5rem;"
+        }
+      ],
+      "hints": [
+        "Concatenate the number with rem."
+      ],
+      "solution": "function remSize(n) {\n  return 'font-size: ' + n + 'rem;';\n}\n",
+      "explanation": "rem is relative to the root font size.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 56,
+        "excerpt": "How to use ems and rems, without letting them drive you mad"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 11 \u2014 Color",
+      "page": 253,
+      "pageEnd": 270,
+      "sections": [
+        {
+          "heading": "Color",
+          "page": 253
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 12 \u2014 Text",
+      "page": 271,
+      "pageEnd": 306,
+      "sections": [
+        {
+          "heading": "Type",
+          "page": 271
+        }
+      ]
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 2 \u2014 Working with relative units",
+      "page": 56,
+      "pageEnd": 82,
+      "sections": [
+        {
+          "heading": "Relative units",
+          "page": 56
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "title": "CSS \u2014 Grid",
+  "questions": [
+    {
+      "question": "display: grid does what?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Turns children into flex items on one axis.",
+        "Makes the element a grid container; children become grid items.",
+        "Enables tables in CSS.",
+        "Positions the element fixed."
+      ],
+      "answer": "b",
+      "explanation": "An element with display: grid becomes a grid container. Its child elements then become grid items.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "An element with display: grid becomes a grid container. Its child elements then become grid items."
+      },
+      "code": ".grid {\n  display: grid;\n}"
+    },
+    {
+      "question": "Grid layout is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "One-dimensional only.",
+        "Two-dimensional: columns and rows.",
+        "Only for images.",
+        "A JavaScript API."
+      ],
+      "answer": "b",
+      "explanation": "The CSS grid lets you define a two-dimensional layout of columns and rows and then place elements within the grid.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "The CSS grid lets you define a two-dimensional layout of columns and rows and then place elements within the grid."
+      },
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}"
+    },
+    {
+      "question": "Flexbox vs grid, Grant's framing?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Grid replaced flexbox; never use both.",
+        "Flexbox is a big brother to nothing; grid is the two-dimensional companion.",
+        "They are the same property.",
+        "Grid only works in print."
+      ],
+      "answer": "b",
+      "explanation": "Flexbox has a big brother: Grid Layout. Together they provide a full-featured layout engine.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "It has a big brother: another new specification called the Grid Layout Module."
+      },
+      "code": ".page { display: grid; }\n.nav { display: flex; }"
+    },
+    {
+      "question": "What does 1fr 1fr 1fr declare?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Three 1px columns.",
+        "Three columns of equal leftover space.",
+        "Three rows.",
+        "A 3px gap."
+      ],
+      "answer": "b",
+      "explanation": "grid-template-columns: 1fr 1fr 1fr defines three columns of equal width.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-columns: 1fr 1fr 1fr;"
+      },
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}"
+    },
+    {
+      "question": "As with flexbox, grid applies to how many DOM levels?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The whole document always.",
+        "Two: the container and its children.",
+        "Only text nodes.",
+        "Only grandchildren."
+      ],
+      "answer": "b",
+      "explanation": "As with flexbox, grid layout applies to two levels of the DOM hierarchy.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "As with flexbox, grid layout applies to two levels of the DOM hierarchy."
+      },
+      "code": ".grid > * { /* items */ }"
+    },
+    {
+      "question": "Can an item span multiple columns?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No.",
+        "Yes. Some elements fill one cell; others span columns or rows.",
+        "Only with tables.",
+        "Only with float."
+      ],
+      "answer": "b",
+      "explanation": "Some elements may only fill one cell of the grid; others can span multiple columns or rows.",
+      "reference": {
+        "section": "Placing items",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "Some elements may only fill one cell of the grid; others can span multiple columns or rows."
+      },
+      "code": ".hero {\n  grid-column: 1 / 3;\n}"
+    },
+    {
+      "question": "Must you place every item by hand?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Yes, or nothing renders.",
+        "No. You can place items precisely or allow them to flow into the gaps.",
+        "Items cannot be placed.",
+        "Only JavaScript can place them."
+      ],
+      "answer": "b",
+      "explanation": "You can place items precisely within the grid, or allow them to flow naturally to fill in the gaps.",
+      "reference": {
+        "section": "Placing items",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 173,
+        "excerpt": "You can place items precisely within the grid, or allow them to flow naturally to fill in the gaps."
+      },
+      "code": ".grid { display: grid; }"
+    },
+    {
+      "question": "Which property sets the column tracks?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "flex-direction",
+        "grid-template-columns",
+        "column-count only",
+        "width on each child"
+      ],
+      "answer": "b",
+      "explanation": "Grant's basic grid listing uses grid-template-columns and grid-template-rows.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-columns: 1fr 1fr 1fr;"
+      },
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}"
+    },
+    {
+      "question": "grid-template-rows: 1fr 1fr means?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Two pixels of height.",
+        "Two rows sharing leftover height equally.",
+        "Two columns.",
+        "A 2fr gap."
+      ],
+      "answer": "b",
+      "explanation": "The listing defines two rows with 1fr 1fr after three columns.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-rows: 1fr 1fr;"
+      },
+      "code": ".grid {\n  display: grid;\n  grid-template-rows: 1fr 1fr;\n}"
+    },
+    {
+      "question": "grid-column: 1 / 3 typically means?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Columns 1 and 3 only, skipping 2.",
+        "Start at line 1, end at line 3 (span two tracks).",
+        "A 1px to 3px width.",
+        "z-index 3."
+      ],
+      "answer": "b",
+      "explanation": "Grid lines number the boundaries. 1 / 3 spans the first two columns.",
+      "reference": {
+        "section": "Placing items",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "others can span multiple columns or rows."
+      },
+      "code": ".hero {\n  grid-column: 1 / 3;\n}"
+    },
+    {
+      "question": "Why keep flexbox after learning grid?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "You cannot. Pick one forever.",
+        "Use them together for a cohesive page: grid for the page, flex for a row inside a cell.",
+        "Flexbox only styles text.",
+        "Grid cannot contain HTML."
+      ],
+      "answer": "b",
+      "explanation": "The chapter covers using flexbox and grid together to build a cohesive web page layout.",
+      "reference": {
+        "section": "With flexbox",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "Using flexbox and grid together to build a cohesive web page layout"
+      },
+      "code": ".page { display: grid; }\n.nav { display: flex; }"
+    },
+    {
+      "question": "Which is a three-column grid?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        ".wrap { display: flex; flex-direction: column; }",
+        ".wrap { display: grid; grid-template-columns: 1fr 1fr 1fr; }",
+        ".wrap { columns: flex; }",
+        ".wrap { display: grid-flex; }"
+      ],
+      "answer": "b",
+      "explanation": "display: grid plus three 1fr tracks. There is no grid-flex value.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-columns: 1fr 1fr 1fr;"
+      },
+      "code": ".wrap {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}"
+    },
+    {
+      "question": "Can the grid size itself to its contents?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Never; tracks are always px.",
+        "Yes. Size can be precise, or the grid can size itself to fit the contents.",
+        "Only with JavaScript.",
+        "Only with tables."
+      ],
+      "answer": "b",
+      "explanation": "The size of the grid can be defined precisely, or you can allow it to automatically size itself as needed to fit the contents within.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "The size of the grid can be defined precisely, or you can allow it to automatically size itself as needed to fit the contents within."
+      },
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: auto 1fr;\n}"
+    },
+    {
+      "question": "What is wrong with .hero { display: grid-item; }?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "grid-item is the correct display value.",
+        "Items become grid items because their parent is display: grid, not because of a display: grid-item value.",
+        "hero cannot be a grid child.",
+        "You must use <grid-item>."
+      ],
+      "answer": "b",
+      "explanation": "Children of a grid container become grid items. There is no display: grid-item.",
+      "reference": {
+        "section": "Grid containers",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "Its child elements then become grid items."
+      },
+      "code": ".grid { display: grid; }\n.hero { grid-column: 1 / -1; }"
+    },
+    {
+      "question": "minmax() is for?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Hiding overflow.",
+        "A track that can grow between a minimum and a maximum.",
+        "Color contrast.",
+        "Font stacks."
+      ],
+      "answer": "b",
+      "explanation": "Grant's grid chapter includes minmax among the track sizing tools (PDF p. 193 in this file).",
+      "reference": {
+        "section": "Placing items",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 193,
+        "excerpt": "minmax"
+      },
+      "code": ".grid {\n  grid-template-columns: minmax(12rem, 1fr) 2fr;\n}"
+    },
+    {
+      "question": "Write columns(n) that returns grid-template-columns with n copies of 1fr.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function columns(n) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "three",
+          "args": [
+            3
+          ],
+          "expected": "grid-template-columns: 1fr 1fr 1fr;"
+        },
+        {
+          "label": "two",
+          "args": [
+            2
+          ],
+          "expected": "grid-template-columns: 1fr 1fr;"
+        },
+        {
+          "label": "one",
+          "args": [
+            1
+          ],
+          "expected": "grid-template-columns: 1fr;"
+        }
+      ],
+      "hints": [
+        "Join n copies of 1fr with spaces, then a semicolon."
+      ],
+      "solution": "function columns(n) {\n  const tracks = Array(n).fill('1fr').join(' ');\n  return 'grid-template-columns: ' + tracks + ';';\n}\n",
+      "explanation": "Equal columns are repeated 1fr tracks.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-columns: 1fr 1fr 1fr;"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write spanCols(start, end) that returns grid-column: start / end;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function spanCols(start, end) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "1-3",
+          "args": [
+            1,
+            3
+          ],
+          "expected": "grid-column: 1 / 3;"
+        },
+        {
+          "label": "2-4",
+          "args": [
+            2,
+            4
+          ],
+          "expected": "grid-column: 2 / 4;"
+        },
+        {
+          "label": "1-2",
+          "args": [
+            1,
+            2
+          ],
+          "expected": "grid-column: 1 / 2;"
+        }
+      ],
+      "hints": [
+        "Line numbers with a slash."
+      ],
+      "solution": "function spanCols(start, end) {\n  return 'grid-column: ' + start + ' / ' + end + ';';\n}\n",
+      "explanation": "grid-column uses start and end lines.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 172,
+        "excerpt": "others can span multiple columns or rows."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write twoByTwo() that returns a 2\u00d72 equal grid.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function twoByTwo() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "grid",
+          "args": [],
+          "expected": "display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;"
+        }
+      ],
+      "hints": [
+        "display: grid, then two 1fr columns and two 1fr rows."
+      ],
+      "solution": "function twoByTwo() {\n  return 'display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;';\n}\n",
+      "explanation": "A 2\u00d72 grid is two column tracks and two row tracks.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 175,
+        "excerpt": "grid-template-rows: 1fr 1fr;"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 6 \u2014 Grid layout",
+      "page": 172,
+      "pageEnd": 204,
+      "sections": [
+        {
+          "heading": "Grid containers",
+          "page": 172
+        },
+        {
+          "heading": "Placing items",
+          "page": 172
+        },
+        {
+          "heading": "With flexbox",
+          "page": 172
+        }
+      ]
+    }
+  ]
+}

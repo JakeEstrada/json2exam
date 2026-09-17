@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { APPLIED_COURSES, appliedScaffoldItems } from './appliedClassroom.js';
+import { APPLIED_COURSES, COURSE_GROUPS, appliedScaffoldItems } from './appliedClassroom.js';
 
 test('applied classroom courses have unique ids and folders', () => {
   const ids = [];
@@ -35,8 +35,13 @@ test('applied scaffold lists the program root and every topic folder', () => {
   assert.equal(items[0].folder, 'applied-classroom');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/javascript/language/variables-and-data-types'));
   assert.ok(items.some((i) => i.folder === 'applied-classroom/typescript/language/types-and-annotations'));
+  assert.ok(items.some((i) => i.folder === 'applied-classroom/html/language/document-and-structure'));
+  assert.ok(items.some((i) => i.folder === 'applied-classroom/css/language/selectors-and-cascade'));
   const langs = APPLIED_COURSES.filter((c) => c.group === 'languages').map((c) => c.id);
   assert.equal(langs[0], 'ts');
   assert.equal(langs[1], 'js');
+  assert.equal(langs[2], 'html');
+  assert.equal(langs[3], 'css');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/system-design/systems/url-shortener'));
+  assert.equal(COURSE_GROUPS[COURSE_GROUPS.length - 1].id, 'platform');
 });

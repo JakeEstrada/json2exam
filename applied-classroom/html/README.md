@@ -1,7 +1,8 @@
 # HTML Classroom
 
-Structure, semantics, forms, and accessibility.
+Seven short lessons. Markup first, then forms and accessibility.
 
 ## Modules
 
+- Language
 - Studio

@@ -1,0 +1,463 @@
+{
+  "title": "HTML \u2014 Links and images",
+  "questions": [
+    {
+      "question": "Which attribute names the page a link opens?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "src",
+        "href",
+        "link",
+        "url"
+      ],
+      "answer": "b",
+      "explanation": "You specify which page you want to link to using the href attribute.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "You specify which page you want to link to using the href attribute."
+      },
+      "code": "<a href=\"http://www.imdb.com\">IMDB</a>"
+    },
+    {
+      "question": "Which element creates a link?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<link> around the clickable words.",
+        "<a>",
+        "<url>",
+        "<href>"
+      ],
+      "answer": "b",
+      "explanation": "Links are created using the a element. link in head is for stylesheets, not clickable text.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "Links are created using the <a> element."
+      },
+      "code": "<a href=\"about.html\">About</a>"
+    },
+    {
+      "question": "What do visitors click?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the href value.",
+        "Anything between the opening <a> and the closing </a>.",
+        "Only images, never text.",
+        "The filename of the HTML file."
+      ],
+      "answer": "b",
+      "explanation": "Users can click on anything between the opening a tag and the closing a tag.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "Users can click on anything between the opening <a> tag and the closing </a> tag."
+      },
+      "code": "<a href=\"notes.html\">Course notes</a>"
+    },
+    {
+      "question": "Which snippet links to another site?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<a src=\"http://www.imdb.com\">IMDB</a>",
+        "<a href=\"http://www.imdb.com\">IMDB</a>",
+        "<a url=\"http://www.imdb.com\">IMDB</a>",
+        "<a>http://www.imdb.com</a>"
+      ],
+      "answer": "b",
+      "explanation": "href holds the destination. src is for images and scripts, not this.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "<a href=\"http://www.imdb.com\">IMDB</a>"
+      },
+      "code": "<a href=\"http://www.imdb.com\">IMDB</a>"
+    },
+    {
+      "question": "Which element inserts an image?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<image>",
+        "<img>",
+        "<pic>",
+        "<a src=\"photo.jpg\">"
+      ],
+      "answer": "b",
+      "explanation": "To add an image you need to use an img element.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "To add an image into the page you need to use an <img> element."
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+    },
+    {
+      "question": "Is <img> an empty element?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No; you must write <img></img> with the file inside.",
+        "Yes. There is no closing tag.",
+        "Only when alt is empty.",
+        "Only in CSS."
+      ],
+      "answer": "b",
+      "explanation": "img is an empty element, which means there is no closing tag.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "This is an empty element (which means there is no closing tag)."
+      },
+      "code": "<img src=\"photo.jpg\" alt=\"A lake at dusk\" />"
+    },
+    {
+      "question": "What does src on <img> do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Describe the image to a screen reader.",
+        "Tell the browser where it can find the image file.",
+        "Name the page to open when clicked.",
+        "Set the tooltip only."
+      ],
+      "answer": "b",
+      "explanation": "src tells the browser where it can find the image file. That is usually a relative URL.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "This tells the browser where it can find the image file."
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+    },
+    {
+      "question": "What does alt do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A tooltip on hover, and nothing else.",
+        "A text description of the image if you cannot see it.",
+        "The CSS class for the image.",
+        "The width in pixels."
+      ],
+      "answer": "b",
+      "explanation": "alt provides a text description of the image which describes the image if you cannot see it.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "This provides a text description of the image which describes the image if you cannot see it."
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+    },
+    {
+      "question": "Which pair is required on <img>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "href and title",
+        "src and alt",
+        "rel and target",
+        "class and id"
+      ],
+      "answer": "b",
+      "explanation": "It must carry src and alt. title is optional extra information.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "It must carry the following two attributes:"
+      },
+      "code": "<img src=\"photo.jpg\" alt=\"Red door\" />"
+    },
+    {
+      "question": "Which email link is written the usual way?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<a href=\"email:ada@example.com\">Email Ada</a>",
+        "<a href=\"mailto:ada@example.com\">Email Ada</a>",
+        "<a mail=\"ada@example.com\">Email Ada</a>",
+        "<email>ada@example.com</email>"
+      ],
+      "answer": "b",
+      "explanation": "Email links use the mailto: scheme on href.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 81,
+        "excerpt": "Email links"
+      },
+      "code": "<a href=\"mailto:ada@example.com\">Email Ada</a>"
+    },
+    {
+      "question": "A decorative divider image should use which alt?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "alt=\"divider image decorative\" always.",
+        "alt=\"\" \u2014 still present, quotes empty.",
+        "Omit alt entirely.",
+        "alt=\"src\"."
+      ],
+      "answer": "b",
+      "explanation": "If the image is only decoration, alt should still be used but the quotes should be left empty.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "then the alt attribute should still be used but the quotes should be left"
+      },
+      "code": "<img src=\"line.png\" alt=\"\" />"
+    },
+    {
+      "question": "Why isn't title a substitute for alt?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "title is illegal on img.",
+        "title is extra information (often a tooltip). alt is the text description when the image cannot be seen.",
+        "title is only for links.",
+        "Browsers ignore title and alt both."
+      ],
+      "answer": "b",
+      "explanation": "You can use title with img to provide additional information. alt is the description.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "You can also use the title attribute with the <img> element to provide additional information about the image."
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial\" />"
+    },
+    {
+      "question": "Which local image path matches Duckett's example shape?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<img href=\"images/quokka.jpg\" alt=\"A family of quokka\" />",
+        "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />",
+        "<img src=\"quokka.jpg\" alt=\"A family of quokka\"> with images/ forbidden.",
+        "<img src=\"images/quokka.jpg\"> without alt."
+      ],
+      "answer": "b",
+      "explanation": "Relative URL into a child folder called images, plus alt.",
+      "reference": {
+        "section": "Adding images",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "the images are in a child folder called images"
+      },
+      "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+    },
+    {
+      "question": "Which link opens another page on your site?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<a href=\"about.html\">About</a>",
+        "<a src=\"about.html\">About</a>",
+        "<a name=\"about.html\">About</a>",
+        "<link href=\"about.html\">About</link>"
+      ],
+      "answer": "a",
+      "explanation": "Same-site links still use a and href.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "Links are created using the <a> element."
+      },
+      "code": "<a href=\"about.html\">About</a>"
+    },
+    {
+      "question": "What is wrong with <a src=\"page.html\">Open</a>?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "a cannot wrap text.",
+        "The destination belongs in href, not src.",
+        "page.html is not a legal path.",
+        "You must use <img> to navigate."
+      ],
+      "answer": "b",
+      "explanation": "src on img locates a file to embed. href on a locates a resource to open.",
+      "reference": {
+        "section": "Writing links",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "You specify which page you want to link to using the href attribute."
+      },
+      "code": "<a href=\"page.html\">Open</a>"
+    },
+    {
+      "question": "Write link(href, text) that returns an <a> whose href and text are the arguments.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function link(href, text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "imdb",
+          "args": [
+            "http://www.imdb.com",
+            "IMDB"
+          ],
+          "expected": "<a href=\"http://www.imdb.com\">IMDB</a>"
+        },
+        {
+          "label": "about",
+          "args": [
+            "about.html",
+            "About"
+          ],
+          "expected": "<a href=\"about.html\">About</a>"
+        },
+        {
+          "label": "home",
+          "args": [
+            "/",
+            "Home"
+          ],
+          "expected": "<a href=\"/\">Home</a>"
+        }
+      ],
+      "hints": [
+        "href is an attribute on the opening tag. text is the clickable content."
+      ],
+      "solution": "function link(href, text) {\n  return '<a href=\"' + href + '\">' + text + '</a>';\n}\n",
+      "explanation": "Links are a plus href plus the clickable content.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 84,
+        "excerpt": "Links are created using the <a> element."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write image(src, alt) that returns an empty <img> with those attributes.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function image(src, alt) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "quokka",
+          "args": [
+            "images/quokka.jpg",
+            "A family of quokka"
+          ],
+          "expected": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
+        },
+        {
+          "label": "decorative",
+          "args": [
+            "line.png",
+            ""
+          ],
+          "expected": "<img src=\"line.png\" alt=\"\" />"
+        },
+        {
+          "label": "door",
+          "args": [
+            "door.jpg",
+            "Red door"
+          ],
+          "expected": "<img src=\"door.jpg\" alt=\"Red door\" />"
+        }
+      ],
+      "hints": [
+        "Empty element: no closing tag. Keep src and alt in that order."
+      ],
+      "solution": "function image(src, alt) {\n  return '<img src=\"' + src + '\" alt=\"' + alt + '\" />';\n}\n",
+      "explanation": "img is empty. src locates the file. alt describes it.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 106,
+        "excerpt": "To add an image into the page you need to use an <img> element."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write emailLink(address, text) that returns a mailto: anchor.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function emailLink(address, text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "ada",
+          "args": [
+            "ada@example.com",
+            "Email Ada"
+          ],
+          "expected": "<a href=\"mailto:ada@example.com\">Email Ada</a>"
+        },
+        {
+          "label": "lab",
+          "args": [
+            "lab@example.com",
+            "Lab"
+          ],
+          "expected": "<a href=\"mailto:lab@example.com\">Lab</a>"
+        },
+        {
+          "label": "empty text",
+          "args": [
+            "hi@example.com",
+            ""
+          ],
+          "expected": "<a href=\"mailto:hi@example.com\"></a>"
+        }
+      ],
+      "hints": [
+        "Prefix the address with mailto: inside href."
+      ],
+      "solution": "function emailLink(address, text) {\n  return '<a href=\"mailto:' + address + '\">' + text + '</a>';\n}\n",
+      "explanation": "Email links are still a elements. The scheme is mailto.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 81,
+        "excerpt": "Email links"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 4 \u2014 Links",
+      "page": 81,
+      "pageEnd": 100,
+      "sections": [
+        {
+          "heading": "Writing links",
+          "page": 84
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 5 \u2014 Images",
+      "page": 101,
+      "pageEnd": 132,
+      "sections": [
+        {
+          "heading": "Adding images",
+          "page": 106
+        }
+      ]
+    }
+  ]
+}

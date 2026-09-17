@@ -276,8 +276,20 @@ export const APPLIED_COURSES = [
     title: 'HTML',
     folder: 'html',
     group: 'languages',
-    tagline: 'Structure, semantics, forms, and accessibility.',
+    tagline: 'Seven short lessons. Markup first, then forms and accessibility.',
     modules: [
+      {
+        label: 'Language',
+        decks: [
+          { label: 'Document', slug: 'document-and-structure' },
+          { label: 'Text and lists', slug: 'text-and-lists' },
+          { label: 'Links and images', slug: 'links-and-images' },
+          { label: 'Semantic elements', slug: 'semantic-elements' },
+          { label: 'Forms', slug: 'forms' },
+          { label: 'Tables and media', slug: 'tables-and-media' },
+          { label: 'Accessibility', slug: 'accessibility' },
+        ],
+      },
       {
         label: 'Studio',
         decks: [
@@ -298,8 +310,20 @@ export const APPLIED_COURSES = [
     title: 'CSS',
     folder: 'css',
     group: 'languages',
-    tagline: 'Layout, responsiveness, and matching a visual target.',
+    tagline: 'Seven short lessons. Cascade and boxes, then flex, grid, and responsive.',
     modules: [
+      {
+        label: 'Language',
+        decks: [
+          { label: 'Selectors', slug: 'selectors-and-cascade' },
+          { label: 'Box model', slug: 'box-model' },
+          { label: 'Type and color', slug: 'typography-and-color' },
+          { label: 'Flexbox', slug: 'flexbox' },
+          { label: 'Grid', slug: 'grid' },
+          { label: 'Positioning', slug: 'positioning' },
+          { label: 'Responsive', slug: 'responsive' },
+        ],
+      },
       {
         label: 'Studio',
         decks: [
@@ -557,12 +581,12 @@ export const APPLIED_COURSES = [
 ];
 
 export const COURSE_GROUPS = [
-  { id: 'platform', label: 'Platform' },
   { id: 'languages', label: 'Languages' },
   { id: 'algorithms', label: 'Algorithms' },
   { id: 'systems', label: 'Systems' },
   { id: 'quality', label: 'Quality' },
   { id: 'process', label: 'Software engineering' },
+  { id: 'platform', label: 'Platform' },
 ];
 
 export function appliedScaffoldItems() {

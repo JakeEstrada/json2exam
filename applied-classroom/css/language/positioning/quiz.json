@@ -1,0 +1,453 @@
+{
+  "title": "CSS \u2014 Positioning",
+  "questions": [
+    {
+      "question": "The initial value of position is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "relative",
+        "static",
+        "absolute",
+        "fixed"
+      ],
+      "answer": "b",
+      "explanation": "The initial value of the position property is static.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "The initial value of the position property is static."
+      },
+      "code": ".box { position: static; }"
+    },
+    {
+      "question": "When is an element 'positioned'?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always.",
+        "When position is anything other than static.",
+        "Only when z-index is set.",
+        "Only inside a grid."
+      ],
+      "answer": "b",
+      "explanation": "When you change this value to anything else, the element is said to be positioned. An element with static positioning is thus not positioned.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "When you change this value to anything else, the element is said to be positioned."
+      },
+      "code": ".badge { position: relative; }"
+    },
+    {
+      "question": "How is positioning different from flex and grid?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It is the same as flex-direction.",
+        "It can remove elements from document flow entirely.",
+        "It only colors text.",
+        "It compiles to HTML."
+      ],
+      "answer": "b",
+      "explanation": "Positioning is different: it removes elements from the document flow entirely. This allows you to place the element somewhere else on the screen.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "it removes elements from the document flow entirely."
+      },
+      "code": ".modal { position: fixed; }"
+    },
+    {
+      "question": "Grant lists which types in the chapter opener?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only sticky.",
+        "Fixed, relative, and absolute, plus sticky as a new type.",
+        "Only float.",
+        "Only table."
+      ],
+      "answer": "b",
+      "explanation": "The types of element positioning: fixed, relative, and absolute. A new type: sticky.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+      },
+      "code": ".note { position: relative; }"
+    },
+    {
+      "question": "Duckett's layout chapter will explore?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only Grid.",
+        "Normal flow, relative positioning, absolute positioning and floats.",
+        "Only JavaScript offsets.",
+        "Only print CSS."
+      ],
+      "answer": "b",
+      "explanation": "Explore different ways to position elements using normal flow, relative positioning, absolute positioning and floats.",
+      "reference": {
+        "section": "Types",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 366,
+        "excerpt": "Explore different ways to position elements using normal flow, relative positioning, absolute positioning and floats."
+      },
+      "code": "div { position: relative; }"
+    },
+    {
+      "question": "position: relative then top/left does what?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Removes the original space.",
+        "Offsets the box from where it would have been; the original space remains.",
+        "Pins the box to the viewport.",
+        "Creates a grid track."
+      ],
+      "answer": "b",
+      "explanation": "Relative offset is from the element's static position. Inclusive Components uses relative plus top/left on a toggle.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+      },
+      "code": ".badge {\n  position: relative;\n  top: -0.25rem;\n  left: -0.25rem;\n}"
+    },
+    {
+      "question": "position: fixed is relative to?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The nearest paragraph.",
+        "The viewport.",
+        "The parent font size.",
+        "The CSS file."
+      ],
+      "answer": "b",
+      "explanation": "Fixed positioning is the first type Grant unpacks after defining positioned vs static.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "Fixed positioning"
+      },
+      "code": ".bar {\n  position: fixed;\n  top: 0;\n}"
+    },
+    {
+      "question": "What can overlapping positioned elements do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Never overlap.",
+        "Sit in front of or behind one another.",
+        "Only sit in document order, never paint order.",
+        "Collapse the cascade."
+      ],
+      "answer": "b",
+      "explanation": "It can place elements in front of or behind one another, thus overlapping one another.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "It can place elements in front of or behind one another, thus overlapping one another."
+      },
+      "code": ".overlay { position: absolute; z-index: 2; }"
+    },
+    {
+      "question": "absolute is placed relative to?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always the viewport.",
+        "The nearest positioned ancestor, or the page if none.",
+        "The next sibling.",
+        "The CSS comment."
+      ],
+      "answer": "b",
+      "explanation": "Absolute takes the element out of flow. The containing block is the nearest positioned ancestor.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+      },
+      "code": ".parent { position: relative; }\n.child { position: absolute; top: 0; }"
+    },
+    {
+      "question": "Why do dropdowns and modals show up in this chapter?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "They require grid.",
+        "The position property is what you use to build dropdown menus, modal dialogs, and similar.",
+        "They cannot be built with CSS.",
+        "They require tables."
+      ],
+      "answer": "b",
+      "explanation": "the position property, which you can use to build dropdown menus, modal dialogs, and other essential effects.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "the position property, which you can use to build dropdown menus, modal dialogs"
+      },
+      "code": ".menu {\n  position: absolute;\n  top: 100%;\n}"
+    },
+    {
+      "question": "What is sticky positioning?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A synonym for fixed.",
+        "A newer type of positioning listed in the chapter.",
+        "A JavaScript library.",
+        "Illegal in CSS."
+      ],
+      "answer": "b",
+      "explanation": "A new type of positioning: sticky.",
+      "reference": {
+        "section": "Types",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "A new type of positioning: sticky"
+      },
+      "code": "th {\n  position: sticky;\n  top: 0;\n}"
+    },
+    {
+      "question": "z-index fights are often really?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Missing HTML.",
+        "Stacking context problems \u2014 a positioned ancestor with z-index creates a new context.",
+        "Invalid hex colors.",
+        "Missing doctype only."
+      ],
+      "answer": "b",
+      "explanation": "Understanding the stacking context will keep you out of trouble when the wrong elements sit in front of others.",
+      "reference": {
+        "section": "Stacking",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "Understanding the stacking context will keep you out of trouble"
+      },
+      "code": ".card { position: relative; z-index: 1; }"
+    },
+    {
+      "question": "Should you lay out a two-column page with absolute on every box?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes; that is Grant's recommended page layout.",
+        "No. Flow methods (flex, grid, even floats) keep document flow. Absolute is for overlays.",
+        "Yes, if you also set z-index: 9999.",
+        "Absolute is required for columns in HTML5."
+      ],
+      "answer": "b",
+      "explanation": "Previous chapters manipulated document flow. Positioning removes elements from it. Columns want flow.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "The layout methods we\u2019ve covered in previous chapters do various things to manipulate the way document flow behaves."
+      },
+      "code": ".page { display: grid; }"
+    },
+    {
+      "question": "Which pair makes a containing block for an absolute child?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        ".parent { position: static; }",
+        ".parent { position: relative; }",
+        ".parent { display: block; } only.",
+        ".parent { float: left; } only."
+      ],
+      "answer": "b",
+      "explanation": "A positioned ancestor (relative here) is the containing block. static does not count as positioned.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "An element with static positioning is thus not positioned."
+      },
+      "code": ".parent { position: relative; }\n.child { position: absolute; }"
+    },
+    {
+      "question": "top / right / bottom / left do nothing useful while position is static because?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Those properties are illegal.",
+        "The element is not positioned, so offsets are not applied that way.",
+        "static always implies fixed.",
+        "You must use inset: static."
+      ],
+      "answer": "b",
+      "explanation": "Offsets apply to positioned boxes. static is the initial, not-positioned value.",
+      "reference": {
+        "section": "Static and positioned",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "The initial value of the position property is static."
+      },
+      "code": ".box { position: relative; top: 1em; }"
+    },
+    {
+      "question": "Write relativeOffset(top, left) that returns position: relative plus top and left.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function relativeOffset(top, left) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "nudge",
+          "args": [
+            "-0.25rem",
+            "-0.25rem"
+          ],
+          "expected": "position: relative; top: -0.25rem; left: -0.25rem;"
+        },
+        {
+          "label": "down",
+          "args": [
+            "1em",
+            "0"
+          ],
+          "expected": "position: relative; top: 1em; left: 0;"
+        },
+        {
+          "label": "zero",
+          "args": [
+            "0",
+            "0"
+          ],
+          "expected": "position: relative; top: 0; left: 0;"
+        }
+      ],
+      "hints": [
+        "position first, then top, then left. Spaces after colons."
+      ],
+      "solution": "function relativeOffset(top, left) {\n  return 'position: relative; top: ' + top + '; left: ' + left + ';';\n}\n",
+      "explanation": "Relative keeps the original space and paints the box offset.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write fixedBar() that pins a bar to the top of the viewport.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function fixedBar() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "top",
+          "args": [],
+          "expected": "position: fixed; top: 0; left: 0; right: 0;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "position: fixed; top: 0; left: 0; right: 0;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "position: fixed; top: 0; left: 0; right: 0;"
+        }
+      ],
+      "hints": [
+        "fixed, then top/left/right 0 so it stretches."
+      ],
+      "solution": "function fixedBar() {\n  return 'position: fixed; top: 0; left: 0; right: 0;';\n}\n",
+      "explanation": "Fixed is relative to the viewport.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 206,
+        "excerpt": "Fixed positioning"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write stickyHead() that sticks a header to the top.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function stickyHead() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "th",
+          "args": [],
+          "expected": "position: sticky; top: 0;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "position: sticky; top: 0;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "position: sticky; top: 0;"
+        }
+      ],
+      "hints": [
+        "sticky plus a top threshold of 0."
+      ],
+      "solution": "function stickyHead() {\n  return 'position: sticky; top: 0;';\n}\n",
+      "explanation": "Sticky is the newer positioning type in Grant's list.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 205,
+        "excerpt": "A new type of positioning: sticky"
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 7 \u2014 Positioning and stacking contexts",
+      "page": 205,
+      "pageEnd": 228,
+      "sections": [
+        {
+          "heading": "Static and positioned",
+          "page": 206
+        },
+        {
+          "heading": "Types",
+          "page": 205
+        },
+        {
+          "heading": "Stacking",
+          "page": 206
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 15 \u2014 Layout",
+      "page": 365,
+      "pageEnd": 380,
+      "sections": [
+        {
+          "heading": "Types",
+          "page": 366
+        }
+      ]
+    }
+  ]
+}

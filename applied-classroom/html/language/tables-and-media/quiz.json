@@ -1,0 +1,475 @@
+{
+  "title": "HTML \u2014 Tables and media",
+  "questions": [
+    {
+      "question": "Which element creates a table?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<grid>",
+        "<table>",
+        "<tabular>",
+        "<tr>"
+      ],
+      "answer": "b",
+      "explanation": "The table element is used to create a table.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The <table> element is used to create a table."
+      },
+      "code": "<table>\n  <tr><td>15</td></tr>\n</table>"
+    },
+    {
+      "question": "How is table content written?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Column by column with <col> required around each number.",
+        "Row by row.",
+        "As a CSV string inside <table>.",
+        "Only via CSS."
+      ],
+      "answer": "b",
+      "explanation": "The contents of the table are written out row by row.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The contents of the table are written out row by row."
+      },
+      "code": "<table>\n  <tr><td>15</td><td>30</td></tr>\n</table>"
+    },
+    {
+      "question": "What does <tr> mark?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A table rule (border).",
+        "The start of a row. tr stands for table row.",
+        "A header cell.",
+        "The caption."
+      ],
+      "answer": "b",
+      "explanation": "You indicate the start of each row using the opening tr tag. (The tr stands for table row.)",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "You indicate the start of each row using the opening <tr> tag."
+      },
+      "code": "<tr>\n  <td>15</td>\n  <td>30</td>\n</tr>"
+    },
+    {
+      "question": "What does <td> mark?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A table document.",
+        "A cell. td stands for table data.",
+        "The table itself.",
+        "A heading row only."
+      ],
+      "answer": "b",
+      "explanation": "Each cell of a table is represented using a td element. (The td stands for table data.)",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "Each cell of a table is represented using a <td> element."
+      },
+      "code": "<td>15</td>"
+    },
+    {
+      "question": "When is the row finished?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "After the first td.",
+        "When you write </tr>.",
+        "When CSS sets display:block.",
+        "Rows close automatically after 3 cells."
+      ],
+      "answer": "b",
+      "explanation": "At the end of the row you use a closing tr tag.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "At the end of the row you use a closing </tr> tag."
+      },
+      "code": "<tr><td>45</td><td>60</td></tr>"
+    },
+    {
+      "question": "Which heading cell is the usual markup?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<td><b>Name</b></td>",
+        "<th>Name</th>",
+        "<hd>Name</hd>",
+        "<tr head>Name</tr>"
+      ],
+      "answer": "b",
+      "explanation": "Table headings are th, taught on the pages after the basic structure. Bold td is the look, not the meaning.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The <table> element is used to create a table."
+      },
+      "code": "<tr><th>Name</th><th>Score</th></tr>"
+    },
+    {
+      "question": "A table of scores should use a table because?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Every page layout needs a table.",
+        "The information is rows and columns of data.",
+        "Tables replace CSS grid.",
+        "Images cannot sit on a page otherwise."
+      ],
+      "answer": "b",
+      "explanation": "Chapter 6 is how to create tables and what information suits tables \u2014 tabular data, not whole-page layout.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 133,
+        "excerpt": "What information suits tables"
+      },
+      "code": "<table>\n  <tr><th>Run</th><th>Time</th></tr>\n</table>"
+    },
+    {
+      "question": "Which snippet matches Duckett's first numeric row?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<tr><td>15</td><td>15</td><td>30</td></tr>",
+        "<td><tr>15</tr></td>",
+        "<table>15 15 30</table>",
+        "<tr 15 15 30 />"
+      ],
+      "answer": "a",
+      "explanation": "Each number is its own td inside one tr.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "<td>15</td>"
+      },
+      "code": "<tr>\n  <td>15</td>\n  <td>15</td>\n  <td>30</td>\n</tr>"
+    },
+    {
+      "question": "Where does an image go if a cell shows a picture?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<td><img src=\"pic.jpg\" alt=\"A guitar\" /></td>",
+        "<td src=\"pic.jpg\">",
+        "<tr href=\"pic.jpg\">",
+        "<table alt=\"pic.jpg\">"
+      ],
+      "answer": "a",
+      "explanation": "The cell holds an img with src and alt. Tables do not grow a src of their own.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "Each cell of a table is represented using a <td> element."
+      },
+      "code": "<td><img src=\"images/rhodes.jpg\" alt=\"Fender Rhodes\" /></td>"
+    },
+    {
+      "question": "What is wrong with using one giant table to place a header, nav, and footer?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Tables cannot contain text.",
+        "Tables are for tabular data. Page layout belongs to CSS and landmarks.",
+        "Browsers delete nested elements inside tables.",
+        "tr is illegal in HTML5."
+      ],
+      "answer": "b",
+      "explanation": "The chapter is how to represent data in tables, not how to scaffold a whole site.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 133,
+        "excerpt": "How to represent complex data in tables"
+      },
+      "code": "<table>\n  <tr><th>Topic</th><th>Score</th></tr>\n</table>"
+    },
+    {
+      "question": "How many td elements in a row of three cells?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "One td with commas.",
+        "Three, one per cell.",
+        "Zero; use th only.",
+        "One tr per cell."
+      ],
+      "answer": "b",
+      "explanation": "It is followed by one or more td elements (one for each cell in that row).",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "It is followed by one or more <td> elements (one for each cell in that row)."
+      },
+      "code": "<tr><td>60</td><td>90</td><td>90</td></tr>"
+    },
+    {
+      "question": "Which caption placement is the usual one?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<caption> as the first child of table.",
+        "<caption> after </table>.",
+        "<td caption>",
+        "<tr type=\"caption\">"
+      ],
+      "answer": "a",
+      "explanation": "A caption belongs with the table element, as a child \u2014 not a sibling after the table.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The <table> element is used to create a table."
+      },
+      "code": "<table>\n  <caption>Times</caption>\n  <tr><td>15</td></tr>\n</table>"
+    },
+    {
+      "question": "Do browsers always draw grid lines for you?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes, and you cannot change them.",
+        "Some draw lines; you control borders with CSS.",
+        "Never. Tables are invisible.",
+        "Only if you nest tables."
+      ],
+      "answer": "b",
+      "explanation": "Some browsers automatically draw lines. You control borders of tables using CSS.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "Some browsers automatically draw lines around the table and/or the individual cells."
+      },
+      "code": "<table>\n  <tr><td>15</td></tr>\n</table>"
+    },
+    {
+      "question": "Which heading row is structured, not just bold?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "<tr><td><strong>Run</strong></td></tr>",
+        "<tr><th>Run</th><th>Time</th></tr>",
+        "<thead>Run,Time</thead>",
+        "<h1> inside every td."
+      ],
+      "answer": "b",
+      "explanation": "th marks a heading cell. strong inside td is emphasis, not a column header.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The <table> element is used to create a table."
+      },
+      "code": "<tr><th>Run</th><th>Time</th></tr>"
+    },
+    {
+      "question": "What closes each cell?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Nothing; td is empty.",
+        "A closing </td> tag.",
+        "</table> after every number.",
+        "</row>"
+      ],
+      "answer": "b",
+      "explanation": "At the end of each cell you use a closing td tag.",
+      "reference": {
+        "section": "Basic table structure",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "At the end of each cell you use a closing </td> tag."
+      },
+      "code": "<td>45</td>"
+    },
+    {
+      "question": "Write row(cells) that returns a <tr> of <td> for each string in cells.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function row(cells) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "three",
+          "args": [
+            [
+              "15",
+              "15",
+              "30"
+            ]
+          ],
+          "expected": "<tr><td>15</td><td>15</td><td>30</td></tr>"
+        },
+        {
+          "label": "one",
+          "args": [
+            [
+              "45"
+            ]
+          ],
+          "expected": "<tr><td>45</td></tr>"
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": "<tr></tr>"
+        }
+      ],
+      "hints": [
+        "Each cell is a td. Wrap them in tr."
+      ],
+      "solution": "function row(cells) {\n  return '<tr>' + cells.map(function (cell) { return '<td>' + cell + '</td>'; }).join('') + '</tr>';\n}\n",
+      "explanation": "A row is tr plus one td per cell.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "You indicate the start of each row using the opening <tr> tag."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write headerRow(cells) that returns a <tr> of <th> for each string.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function headerRow(cells) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "two",
+          "args": [
+            [
+              "Run",
+              "Time"
+            ]
+          ],
+          "expected": "<tr><th>Run</th><th>Time</th></tr>"
+        },
+        {
+          "label": "one",
+          "args": [
+            [
+              "Name"
+            ]
+          ],
+          "expected": "<tr><th>Name</th></tr>"
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": "<tr></tr>"
+        }
+      ],
+      "hints": [
+        "Heading cells are th, not td."
+      ],
+      "solution": "function headerRow(cells) {\n  return '<tr>' + cells.map(function (cell) { return '<th>' + cell + '</th>'; }).join('') + '</tr>';\n}\n",
+      "explanation": "th is the heading cell.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The <table> element is used to create a table."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write simpleTable(headers, rows) that returns a table with a header row then data rows.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function simpleTable(headers, rows) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "scores",
+          "args": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              [
+                "1",
+                "2"
+              ]
+            ]
+          ],
+          "expected": "<table><tr><th>A</th><th>B</th></tr><tr><td>1</td><td>2</td></tr></table>"
+        },
+        {
+          "label": "empty body",
+          "args": [
+            [
+              "A"
+            ],
+            []
+          ],
+          "expected": "<table><tr><th>A</th></tr></table>"
+        },
+        {
+          "label": "two rows",
+          "args": [
+            [
+              "N"
+            ],
+            [
+              [
+                "1"
+              ],
+              [
+                "2"
+              ]
+            ]
+          ],
+          "expected": "<table><tr><th>N</th></tr><tr><td>1</td></tr><tr><td>2</td></tr></table>"
+        }
+      ],
+      "hints": [
+        "Build the th row, then map each inner array to a td row."
+      ],
+      "solution": "function simpleTable(headers, rows) {\n  const head = '<tr>' + headers.map(function (cell) { return '<th>' + cell + '</th>'; }).join('') + '</tr>';\n  const body = rows.map(function (line) {\n    return '<tr>' + line.map(function (cell) { return '<td>' + cell + '</td>'; }).join('') + '</tr>';\n  }).join('');\n  return '<table>' + head + body + '</table>';\n}\n",
+      "explanation": "table wraps rows. Headings first, then data.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 138,
+        "excerpt": "The contents of the table are written out row by row."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 6 \u2014 Tables",
+      "page": 133,
+      "pageEnd": 150,
+      "sections": [
+        {
+          "heading": "Basic table structure",
+          "page": 138
+        }
+      ]
+    }
+  ]
+}

@@ -128,6 +128,8 @@ function hydrateApplied(course) {
           cheatsheet,
           jsIntro: course.id === 'js' && mod.label === 'Language',
           tsIntro: course.id === 'ts' && mod.label === 'Language',
+          htmlIntro: course.id === 'html' && mod.label === 'Language',
+          cssIntro: course.id === 'css' && mod.label === 'Language',
           comingSoon: questions.length === 0,
           subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
         });

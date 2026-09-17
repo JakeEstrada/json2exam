@@ -1,7 +1,8 @@
 # CSS Classroom
 
-Layout, responsiveness, and matching a visual target.
+Seven short lessons. Cascade and boxes, then flex, grid, and responsive.
 
 ## Modules
 
+- Language
 - Studio

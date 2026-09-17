@@ -1,0 +1,462 @@
+{
+  "title": "CSS \u2014 Responsive",
+  "questions": [
+    {
+      "question": "Why did separate m. and www. sites break down?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Phones cannot load CSS.",
+        "Too many devices: tablet, phablet, mini tablet \u2014 which site do they get?",
+        "HTML cannot be served twice.",
+        "Media queries were banned."
+      ],
+      "answer": "b",
+      "explanation": "Do you direct a tablet to the mobile website or to the desktop? What about a large phablet phone? An iPad Mini?",
+      "reference": {
+        "section": "Responsive design",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "Do you direct a tablet to the mobile website or to the desktop?"
+      },
+      "code": "/* one stylesheet */\nbody { margin: 0; }"
+    },
+    {
+      "question": "A better approach is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Two HTML sites forever.",
+        "The same HTML and CSS for all users, rendering differently from viewport size.",
+        "Images only, no CSS.",
+        "A native app required."
+      ],
+      "answer": "b",
+      "explanation": "A far better approach is to serve the same HTML and CSS to all your users. By using a few key techniques, you can make your content render differently, based on your user's browser viewport size.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "A far better approach is to serve the same HTML and CSS to all your users."
+      },
+      "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
+    },
+    {
+      "question": "Who popularized the name responsive design here?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Jon Duckett.",
+        "Ethan Marcotte.",
+        "Keith J. Grant coined it in 2018.",
+        "The W3C in HTML 3."
+      ],
+      "answer": "b",
+      "explanation": "This approach, popularized by web designer Ethan Marcotte, is called responsive design.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "This approach, popularized by web designer Ethan Marcotte, is called responsive design."
+      },
+      "code": "@media (min-width: 40em) { .grid { display: grid; } }"
+    },
+    {
+      "question": "Media queries alter the design based on?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "File size.",
+        "Viewport size (in this chapter's list).",
+        "Git branch.",
+        "The author's screen only."
+      ],
+      "answer": "b",
+      "explanation": "Using media queries to alter your design based on viewport size.",
+      "reference": {
+        "section": "Media queries",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 229,
+        "excerpt": "Using media queries to alter your design based on viewport size"
+      },
+      "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
+    },
+    {
+      "question": "Mobile first means?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Design desktop first, then delete columns.",
+        "Design with small-screen constraints first, then enhance for larger screens.",
+        "Never use CSS on phones.",
+        "A separate m. subdomain."
+      ],
+      "answer": "b",
+      "explanation": "The mobile first approach dictates you design your site with these constraints in mind from the beginning. Then progressive enhancement for large screen users.",
+      "reference": {
+        "section": "Mobile first",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 231,
+        "excerpt": "the mobile first approach dictates you design your site with these constraints in mind from the beginning."
+      },
+      "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
+    },
+    {
+      "question": "Duckett's layout chapter includes?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only print style.",
+        "Designing for different sized screens, and fixed vs liquid layouts.",
+        "Only Flexbox.",
+        "Only z-index."
+      ],
+      "answer": "b",
+      "explanation": "Discover how various devices have different screen sizes... Learn the difference between fixed width and liquid layouts.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 366,
+        "excerpt": "Discover how various devices have different screen sizes and resolution"
+      },
+      "code": "div { max-width: 960px; }"
+    },
+    {
+      "question": "A hamburger icon in Grant's example is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A food photo.",
+        "Three lines that toggle a hidden menu on small screens.",
+        "A CSS unit.",
+        "A required HTML5 tag."
+      ],
+      "answer": "b",
+      "explanation": "This icon, with three horizontal lines, is often called a hamburger icon.",
+      "reference": {
+        "section": "Mobile first",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 231,
+        "excerpt": "This icon, with three horizontal lines, is often called a hamburger icon"
+      },
+      "code": "button.menu-toggle { display: block; }"
+    },
+    {
+      "question": "Which query is mobile first?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "@media (max-width: 40em) { desktop rules }",
+        "@media (min-width: 40em) { /* extra layout */ }",
+        "@media print only.",
+        "@media (hover: none) as the only tool."
+      ],
+      "answer": "b",
+      "explanation": "Base styles are the small screen. min-width adds layout as the viewport grows.",
+      "reference": {
+        "section": "Media queries",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 229,
+        "excerpt": "Taking the \u201cmobile first\u201d approach"
+      },
+      "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
+    },
+    {
+      "question": "A forced desktop/mobile split causes?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Faster CSS.",
+        "More problems than it solves, plus a second site to maintain.",
+        "Better accessibility automatically.",
+        "Smaller HTML."
+      ],
+      "answer": "b",
+      "explanation": "A forced dichotomy between desktop and mobile causes more problems than it solves. Plus, you have to maintain an extra website.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "a forced dichotomy between desktop and mobile causes more problems than it solves."
+      },
+      "code": "/* one site */"
+    },
+    {
+      "question": "Liquid vs fixed, in Duckett's list?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Liquid is always JavaScript.",
+        "Fixed uses a set width; liquid grows with the screen.",
+        "They are the same.",
+        "Liquid is only for print."
+      ],
+      "answer": "b",
+      "explanation": "Learn the difference between fixed width and liquid layouts, and how they are created.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 366,
+        "excerpt": "Learn the difference between fixed width and liquid layouts, and how they are created."
+      },
+      "code": ".wrap { max-width: 60rem; width: 90%; }"
+    },
+    {
+      "question": "Where should the mobile menu button live in Grant's markup note?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "In a second HTML file.",
+        "Inside the nav, so one nav serves mobile and desktop.",
+        "Only in JavaScript.",
+        "In <head>."
+      ],
+      "answer": "b",
+      "explanation": "The button to toggle the menu for mobile screens is inside the nav element. The nav-menu is placed where it can meet your needs for both mobile and desktop designs.",
+      "reference": {
+        "section": "Mobile first",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 235,
+        "excerpt": "the button to toggle the menu for mobile screens is inside the nav element."
+      },
+      "code": "<nav>\n  <button class=\"menu-toggle\">Menu</button>\n  <ul class=\"nav-menu\">\u2026</ul>\n</nav>"
+    },
+    {
+      "question": "A mobile layout, in this chapter, is mostly?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Every desktop widget, shrunk.",
+        "A no-frills design focused on the content.",
+        "A second brand.",
+        "Tables for layout."
+      ],
+      "answer": "b",
+      "explanation": "A mobile layout is mostly a no-frills design. Apart from the interactive menu, this design is highly focused on the content.",
+      "reference": {
+        "section": "Mobile first",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 231,
+        "excerpt": "A mobile layout is mostly a no-frills design."
+      },
+      "code": "main { padding: 1rem; }"
+    },
+    {
+      "question": "Which width rule is fluid, not a locked 960px page?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        ".wrap { width: 960px; }",
+        ".wrap { width: 90%; max-width: 60rem; }",
+        ".wrap { position: fixed; width: 960px; }",
+        ".wrap { zoom: 50%; }"
+      ],
+      "answer": "b",
+      "explanation": "A percentage width plus a max-width is a liquid box that will not grow past a readable measure.",
+      "reference": {
+        "section": "Responsive design",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 366,
+        "excerpt": "fixed width and liquid layouts"
+      },
+      "code": ".wrap {\n  width: 90%;\n  max-width: 60rem;\n}"
+    },
+    {
+      "question": "If a mobile user needs a desktop-only action, the two-site model fails because?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Phones cannot submit forms.",
+        "You hid that action on m. and they cannot reach www. without a fight.",
+        "Media queries delete HTML.",
+        "HTTPS blocks phones."
+      ],
+      "answer": "b",
+      "explanation": "What if a mobile user wants to perform an action you only have available on the desktop version of your site?",
+      "reference": {
+        "section": "Responsive design",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "What if a mobile user wants to perform an action you only have available on the desktop version of your site?"
+      },
+      "code": "/* same actions, rearranged */"
+    },
+    {
+      "question": "Progressive enhancement here means?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Ship broken CSS first.",
+        "Get the small layout working, then add large-screen layout in min-width queries.",
+        "Require the newest browser or show nothing.",
+        "Hide all CSS from phones."
+      ],
+      "answer": "b",
+      "explanation": "Once your mobile experience works, you can use progressive enhancement to augment the experience for large screen users.",
+      "reference": {
+        "section": "Mobile first",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 231,
+        "excerpt": "you can use \u201cprogressive enhancement\u201d to augment the experience for large screen users."
+      },
+      "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
+    },
+    {
+      "question": "Write mediaMin(px, body) that wraps body in @media (min-width: Npx).",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function mediaMin(px, body) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "40em-ish px",
+          "args": [
+            640,
+            ".nav { display: flex; }"
+          ],
+          "expected": "@media (min-width: 640px) { .nav { display: flex; } }"
+        },
+        {
+          "label": "empty",
+          "args": [
+            800,
+            ""
+          ],
+          "expected": "@media (min-width: 800px) {  }"
+        },
+        {
+          "label": "grid",
+          "args": [
+            900,
+            ".page { display: grid; }"
+          ],
+          "expected": "@media (min-width: 900px) { .page { display: grid; } }"
+        }
+      ],
+      "hints": [
+        "Exactly one space inside the braces around body."
+      ],
+      "solution": "function mediaMin(px, body) {\n  return '@media (min-width: ' + px + 'px) { ' + body + ' }';\n}\n",
+      "explanation": "min-width queries add layout as the viewport grows.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 229,
+        "excerpt": "Using media queries to alter your design based on viewport size"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write mobileFirst(base, wide) that concatenates base, a space, then a 40em min-width query containing wide.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function mobileFirst(base, wide) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "nav",
+          "args": [
+            ".nav { display: block; }",
+            ".nav { display: flex; }"
+          ],
+          "expected": ".nav { display: block; } @media (min-width: 40em) { .nav { display: flex; } }"
+        },
+        {
+          "label": "pad",
+          "args": [
+            "main { padding: 1rem; }",
+            "main { padding: 2rem; }"
+          ],
+          "expected": "main { padding: 1rem; } @media (min-width: 40em) { main { padding: 2rem; } }"
+        },
+        {
+          "label": "empty wide",
+          "args": [
+            "body { margin: 0; }",
+            ""
+          ],
+          "expected": "body { margin: 0; } @media (min-width: 40em) {  }"
+        }
+      ],
+      "hints": [
+        "Base first, then the query. 40em is the breakpoint in the tests."
+      ],
+      "solution": "function mobileFirst(base, wide) {\n  return base + ' @media (min-width: 40em) { ' + wide + ' }';\n}\n",
+      "explanation": "Small-screen CSS lives outside the query.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 231,
+        "excerpt": "the mobile first approach dictates you design your site with these constraints in mind from the beginning."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write fluidWidth() that returns a liquid box: 90% width, 60rem max.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function fluidWidth() {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "wrap",
+          "args": [],
+          "expected": "width: 90%; max-width: 60rem;"
+        },
+        {
+          "label": "again",
+          "args": [],
+          "expected": "width: 90%; max-width: 60rem;"
+        },
+        {
+          "label": "third",
+          "args": [],
+          "expected": "width: 90%; max-width: 60rem;"
+        }
+      ],
+      "hints": [
+        "width then max-width."
+      ],
+      "solution": "function fluidWidth() {\n  return 'width: 90%; max-width: 60rem;';\n}\n",
+      "explanation": "A liquid layout grows with the screen and then stops.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 366,
+        "excerpt": "Learn the difference between fixed width and liquid layouts, and how they are created."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 8 \u2014 Responsive design",
+      "page": 229,
+      "pageEnd": 250,
+      "sections": [
+        {
+          "heading": "Responsive design",
+          "page": 229
+        },
+        {
+          "heading": "Media queries",
+          "page": 229
+        },
+        {
+          "heading": "Mobile first",
+          "page": 231
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 15 \u2014 Layout",
+      "page": 365,
+      "pageEnd": 380,
+      "sections": [
+        {
+          "heading": "Responsive design",
+          "page": 366
+        }
+      ]
+    }
+  ]
+}

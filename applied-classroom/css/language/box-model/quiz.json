@@ -1,0 +1,458 @@
+{
+  "title": "CSS \u2014 Box model",
+  "questions": [
+    {
+      "question": "Every box has which three adjustable rings around the content?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "flex, grid, float.",
+        "Border, margin, and padding.",
+        "id, class, and style.",
+        "em, rem, and px only."
+      ],
+      "answer": "b",
+      "explanation": "Every box has three available properties: border, margin, and padding.",
+      "reference": {
+        "section": "Boxes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "Every box has three available properties that can be adjusted to control its appearance:"
+      },
+      "code": "p {\n  padding: 10px;\n  margin: 1em;\n  border: 1px solid #665544;\n}"
+    },
+    {
+      "question": "Where does margin sit?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Inside the content.",
+        "Outside the edge of the border.",
+        "Between content and border.",
+        "Only on replaced elements."
+      ],
+      "answer": "b",
+      "explanation": "Margins sit outside the edge of the border. You can set the width of a margin to create a gap between boxes.",
+      "reference": {
+        "section": "Boxes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "Margins sit outside the edge of the border."
+      },
+      "code": "p {\n  margin: 1em;\n}"
+    },
+    {
+      "question": "What is padding?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The gap between two neighbors' borders.",
+        "The space between the border of a box and any content contained within it.",
+        "The outline drawn by the browser chrome.",
+        "A JavaScript offset."
+      ],
+      "answer": "b",
+      "explanation": "Padding is the space between the border of a box and any content contained within it.",
+      "reference": {
+        "section": "Boxes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "Padding is the space between the border of a box and any content contained within it."
+      },
+      "code": "p {\n  padding: 10px;\n}"
+    },
+    {
+      "question": "The padding property specifies space between?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Two sibling boxes.",
+        "The content of an element and its border.",
+        "The viewport and the html element only.",
+        "The filename and the URL."
+      ],
+      "answer": "b",
+      "explanation": "The padding property allows you to specify how much space should appear between the content of an element and its border.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 320,
+        "excerpt": "how much space should appear between the content of an element and its border."
+      },
+      "code": "p {\n  padding: 10px;\n}"
+    },
+    {
+      "question": "In the default box model, width is?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Content + padding + border.",
+        "The content box. Padding and border add extra.",
+        "Always the viewport.",
+        "Ignored on block elements."
+      ],
+      "answer": "b",
+      "explanation": "Figure 3.4 is the default box model: width/height on the content, then padding, border, margin.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 87,
+        "excerpt": "Figure 3.4    The default box model"
+      },
+      "code": ".sidebar {\n  width: 30%;\n  padding: 1.5em;\n}"
+    },
+    {
+      "question": "Grant's sidebar example overflows because?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "30% + 70% is 100%, so it cannot wrap.",
+        "30% plus left/right padding plus 70% is more than 100%.",
+        "Margins cannot be used on floats.",
+        "Percentages are illegal."
+      ],
+      "answer": "b",
+      "explanation": "The sidebar has width 30% plus 1.5em left and right padding; main is 70%. Total is 100% plus 3em.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 87,
+        "excerpt": "This brings the total of the two columns to 100% plus 3 ems."
+      },
+      "code": ".sidebar { width: 30%; padding: 1.5em; }\n.main { width: 70%; }"
+    },
+    {
+      "question": "What does box-sizing: border-box change?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It hides overflow.",
+        "Padding doesn't make the element wider; it makes the inner content narrower.",
+        "It converts em to px.",
+        "It disables margin."
+      ],
+      "answer": "b",
+      "explanation": "With border-box, padding doesn't make an element wider; it makes the inner content narrower. Same for height.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 88,
+        "excerpt": "padding doesn\u2019t make an element wider; it makes the inner content narrower."
+      },
+      "code": ".main {\n  box-sizing: border-box;\n}"
+    },
+    {
+      "question": "What is a magic number in this chapter?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "calc().",
+        "26% because it looked right on one screen.",
+        "border-box.",
+        "1.5em padding."
+      ],
+      "answer": "b",
+      "explanation": "A width of 26% for the sidebar works on the author's screen but is unreliable. That 26% is a magic number.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 87,
+        "excerpt": "The 26% is known as a magic number."
+      },
+      "code": ".sidebar {\n  width: 26%;\n}"
+    },
+    {
+      "question": "Which rule keeps 30% including padding?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        ".sidebar { width: 30%; }",
+        ".sidebar { box-sizing: border-box; width: 30%; padding: 1.5em; }",
+        ".sidebar { width: 26%; padding: 1.5em; }",
+        ".sidebar { padding: 30%; width: 1.5em; }"
+      ],
+      "answer": "b",
+      "explanation": "border-box means the declared width includes padding and border.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 88,
+        "excerpt": "If you update these elements to use border box sizing, they\u2019ll fit on the same line"
+      },
+      "code": ".sidebar {\n  box-sizing: border-box;\n  width: 30%;\n  padding: 1.5em;\n}"
+    },
+    {
+      "question": "Does every box have a border even at 0?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No. border is optional and absent until set.",
+        "Yes. Every box has a border, even if it is not visible or is 0 pixels wide.",
+        "Only replaced elements.",
+        "Only with outline."
+      ],
+      "answer": "b",
+      "explanation": "Every box has a border (even if it is not visible or is specified to be 0 pixels wide).",
+      "reference": {
+        "section": "Boxes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "Every box has a border (even if it is not visible or is specified to be 0 pixels wide)."
+      },
+      "code": "p {\n  border: 0;\n}"
+    },
+    {
+      "question": "Which creates a gap between two boxes?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "padding on both, only.",
+        "margin (outside the border).",
+        "font-size.",
+        "z-index."
+      ],
+      "answer": "b",
+      "explanation": "Set the width of a margin to create a gap between the borders of two boxes.",
+      "reference": {
+        "section": "Boxes",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "You can set the width of a margin to create a gap between the borders of two"
+      },
+      "code": ".main { margin-right: 1em; }"
+    },
+    {
+      "question": "Grant's layout chapter is built on?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Canvas drawing.",
+        "Document flow and the box model \u2014 the basic rules for position and size.",
+        "JavaScript offsets only.",
+        "HTML tables only."
+      ],
+      "answer": "b",
+      "explanation": "Advanced layout sits on document flow and the box model; these are the basic rules that determine position and size.",
+      "reference": {
+        "section": "Boxes",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 83,
+        "excerpt": "these are the basic rules that determine the position and size of elements on the page."
+      },
+      "code": "header { height: 4em; }"
+    },
+    {
+      "question": "Which calc() matches Grant's gutter idea?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "width: calc(30% + 1.5em);",
+        "width: calc(30% - 1.5em);",
+        "width: 30% - 1.5em; without calc.",
+        "width: calc(30em - 1%);"
+      ],
+      "answer": "b",
+      "explanation": "Subtract the gutter from the width: calc(30% - 1.5em), then margin-left: 1.5em.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 87,
+        "excerpt": "A sidebar width of calc(30% - 3em)"
+      },
+      "code": ".sidebar {\n  width: calc(30% - 1.5em);\n  margin-left: 1.5em;\n}"
+    },
+    {
+      "question": "padding: 10px 15px 0 \u2014 what is the right side?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "0",
+        "10px",
+        "15px",
+        "auto"
+      ],
+      "answer": "c",
+      "explanation": "Shorthand is top, right, bottom, left. Three values: top, horizontal, bottom. Right is 15px.",
+      "reference": {
+        "section": "Boxes",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 53,
+        "excerpt": "padding: 10px 15px 0 applies 15"
+      },
+      "code": "p {\n  padding: 10px 15px 0;\n}"
+    },
+    {
+      "question": "Why is trial-and-error 26% a poor width?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Percentages are forbidden.",
+        "You won't know how it behaves on another viewport.",
+        "border-box bans percentages.",
+        "Grant forbids all percentages."
+      ],
+      "answer": "b",
+      "explanation": "If you don't understand where the number comes from, you won't understand how it will behave under different circumstances.",
+      "reference": {
+        "section": "Width and box-sizing",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 87,
+        "excerpt": "you won\u2019t understand how it will behave under different circumstances."
+      },
+      "code": ".sidebar { width: 26%; }"
+    },
+    {
+      "question": "Write padded(size) that returns padding: SIZE;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function padded(size) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "px",
+          "args": [
+            "10px"
+          ],
+          "expected": "padding: 10px;"
+        },
+        {
+          "label": "em",
+          "args": [
+            "1.5em"
+          ],
+          "expected": "padding: 1.5em;"
+        },
+        {
+          "label": "zero",
+          "args": [
+            "0"
+          ],
+          "expected": "padding: 0;"
+        }
+      ],
+      "hints": [
+        "Property, colon, space, value, semicolon."
+      ],
+      "solution": "function padded(size) {\n  return 'padding: ' + size + ';';\n}\n",
+      "explanation": "Padding is the space between content and border.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 320,
+        "excerpt": "The padding property allows you to specify how much space should appear between the content of an element and its border."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write gutter(margin) that returns margin-left: VALUE;.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function gutter(margin) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "em",
+          "args": [
+            "1.5em"
+          ],
+          "expected": "margin-left: 1.5em;"
+        },
+        {
+          "label": "pct",
+          "args": [
+            "1%"
+          ],
+          "expected": "margin-left: 1%;"
+        },
+        {
+          "label": "zero",
+          "args": [
+            "0"
+          ],
+          "expected": "margin-left: 0;"
+        }
+      ],
+      "hints": [
+        "Margin sits outside the border. This is a left gutter."
+      ],
+      "solution": "function gutter(margin) {\n  return 'margin-left: ' + margin + ';';\n}\n",
+      "explanation": "A gutter is often margin between columns.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 314,
+        "excerpt": "Margins sit outside the edge of the border."
+      },
+      "level": 3
+    },
+    {
+      "question": "Write borderBox(width) that returns box-sizing plus width.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function borderBox(width) {\n  // return css\n}\n",
+      "tests": [
+        {
+          "label": "70",
+          "args": [
+            "70%"
+          ],
+          "expected": "box-sizing: border-box; width: 70%;"
+        },
+        {
+          "label": "30",
+          "args": [
+            "30%"
+          ],
+          "expected": "box-sizing: border-box; width: 30%;"
+        },
+        {
+          "label": "px",
+          "args": [
+            "320px"
+          ],
+          "expected": "box-sizing: border-box; width: 320px;"
+        }
+      ],
+      "hints": [
+        "box-sizing first, then width. Spaces after colons."
+      ],
+      "solution": "function borderBox(width) {\n  return 'box-sizing: border-box; width: ' + width + ';';\n}\n",
+      "explanation": "border-box includes padding in the declared width.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 88,
+        "excerpt": "padding doesn\u2019t make an element wider; it makes the inner content narrower."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 13 \u2014 Boxes",
+      "page": 307,
+      "pageEnd": 329,
+      "sections": [
+        {
+          "heading": "Boxes",
+          "page": 314
+        },
+        {
+          "heading": "Width and box-sizing",
+          "page": 320
+        }
+      ]
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "chapter": "Chapter 3 \u2014 Mastering the box model",
+      "page": 83,
+      "pageEnd": 114,
+      "sections": [
+        {
+          "heading": "Width and box-sizing",
+          "page": 87
+        }
+      ]
+    }
+  ]
+}

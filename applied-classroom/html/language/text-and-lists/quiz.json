@@ -1,0 +1,471 @@
+{
+  "title": "HTML \u2014 Text and lists",
+  "questions": [
+    {
+      "question": "Which heading is for the main title of the page?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<h6>, because it is the last heading tag.",
+        "<h1>",
+        "<h0>",
+        "<heading>"
+      ],
+      "answer": "b",
+      "explanation": "<h1> is used for main headings. There is no h0 or heading element.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "<h1> is used for main headings"
+      },
+      "code": "<h1>This is a Main Heading</h1>"
+    },
+    {
+      "question": "How many heading levels does HTML give you?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Three: title, subtitle, and caption.",
+        "Six: h1 through h6.",
+        "One: h, with a level attribute.",
+        "Unlimited <h> tags with a size attribute."
+      ],
+      "answer": "b",
+      "explanation": "HTML has six levels of headings, h1 through h6.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "HTML has six \"levels\" of headings:"
+      },
+      "code": "<h1>Main</h1>\n<h2>Sub</h2>\n<h6>Smallest</h6>"
+    },
+    {
+      "question": "What is <h2> for?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The document title in the tab.",
+        "Subheadings under the main heading.",
+        "A CSS class that makes text large.",
+        "A required tag after every <p>."
+      ],
+      "answer": "b",
+      "explanation": "<h2> is used for subheadings. Further sections use h3 and so on.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "<h2> is used for subheadings"
+      },
+      "code": "<h1>News</h1>\n<h2>Local</h2>"
+    },
+    {
+      "question": "Which snippet is a paragraph?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<text>Hello</text>",
+        "<p>Hello</p>",
+        "<para>Hello</para>",
+        "Hello<br>"
+      ],
+      "answer": "b",
+      "explanation": "A paragraph is the p element. There is no text or para tag.",
+      "reference": {
+        "section": "Paragraphs",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 47,
+        "excerpt": "Headings and paragraphs"
+      },
+      "code": "<p>A paragraph is a block of text.</p>"
+    },
+    {
+      "question": "Which list numbers its items?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<ul>",
+        "<ol>",
+        "<dl>",
+        "<list type=\"1\">"
+      ],
+      "answer": "b",
+      "explanation": "Ordered lists are numbered. ul is bullets. dl is terms and definitions.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Ordered lists are lists where each item in the list is numbered."
+      },
+      "code": "<ol>\n  <li>Preheat the oven.</li>\n  <li>Mix the batter.</li>\n</ol>"
+    },
+    {
+      "question": "Which list uses bullet points?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<ol>",
+        "<ul>",
+        "<dl>",
+        "<bullet>"
+      ],
+      "answer": "b",
+      "explanation": "Unordered lists begin with a bullet point rather than characters that indicate order.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Unordered lists are lists that begin with a bullet point"
+      },
+      "code": "<ul>\n  <li>Eggs</li>\n  <li>Flour</li>\n</ul>"
+    },
+    {
+      "question": "What does a definition list contain?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only numbered steps.",
+        "A set of terms and the definitions for those terms.",
+        "Images exclusively.",
+        "One <li> with a title attribute."
+      ],
+      "answer": "b",
+      "explanation": "Definition lists are made up of a set of terms along with the definitions for each of those terms.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Definition lists are made up of a set of terms along with the definitions for each of those terms."
+      },
+      "code": "<dl>\n  <dt>HTML</dt>\n  <dd>A markup language.</dd>\n</dl>"
+    },
+    {
+      "question": "Which child belongs inside <ul>?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "<p>",
+        "<li>",
+        "<item>",
+        "<ul> as a required wrapper around each word."
+      ],
+      "answer": "b",
+      "explanation": "List items are li elements. Not item, not a bare paragraph as the only child.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "each item in the list is numbered"
+      },
+      "code": "<ul>\n  <li>Eggs</li>\n</ul>"
+    },
+    {
+      "question": "Why not pick <h6> just to make text small?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "h6 is illegal.",
+        "Heading level is the outline. Size is CSS.",
+        "h6 is only allowed in tables.",
+        "Browsers ignore h6."
+      ],
+      "answer": "b",
+      "explanation": "Browsers display headings at different sizes, but you pick the level for structure. CSS later controls size.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "Browsers display the contents of headings at different sizes."
+      },
+      "code": "<h1>Main</h1>\n<p>Use CSS later for size.</p>"
+    },
+    {
+      "question": "Which markup nests a list correctly?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<ul><ol>Item</ol></ul>",
+        "<ul><li>Fruit<ul><li>Apple</li></ul></li></ul>",
+        "<ul><li>Fruit</li><li><p>Apple</p></li></ul> as the only legal nest.",
+        "<ul nest=\"ol\">"
+      ],
+      "answer": "b",
+      "explanation": "A nested list lives inside an li of the parent list, not as a sibling of li.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Unordered lists are lists that begin with a bullet point"
+      },
+      "code": "<ul>\n  <li>Fruit\n    <ul><li>Apple</li></ul>\n  </li>\n</ul>"
+    },
+    {
+      "question": "A recipe's steps should be marked as?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<ul>, because cooking is casual.",
+        "<ol>, because the order matters.",
+        "<dl>, because each step is a definition.",
+        "<h1> for every step."
+      ],
+      "answer": "b",
+      "explanation": "A set of steps for a recipe that must be performed in order is the book's example of an ordered list.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "the list might be a set of steps for a recipe that must be performed in order"
+      },
+      "code": "<ol>\n  <li>Preheat.</li>\n  <li>Mix.</li>\n</ol>"
+    },
+    {
+      "question": "Which heading sequence matches a page with one title and two sections?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<h1> then <h1> then <h1>.",
+        "<h1> then <h2> then <h2>.",
+        "<h2> then <h1> then <h3>.",
+        "<h7> then <h8>."
+      ],
+      "answer": "b",
+      "explanation": "One h1 for the page. Each section is an h2. Do not skip to invent a look.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "If there are further sections under the subheadings then the <h3> element is used, and so on"
+      },
+      "code": "<h1>Cookbook</h1>\n<h2>Soups</h2>\n<h2>Breads</h2>"
+    },
+    {
+      "question": "Which is a definition list pair?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "<li>Term: meaning</li>",
+        "<dt>Term</dt><dd>Meaning</dd>",
+        "<td>Term</td><td>Meaning</td>",
+        "<label>Term</label><p>Meaning</p>"
+      ],
+      "answer": "b",
+      "explanation": "dt is the term. dd is the definition. They sit in a dl.",
+      "reference": {
+        "section": "Lists",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "a set of terms along with the definitions for each of those terms"
+      },
+      "code": "<dl>\n  <dt>ol</dt>\n  <dd>Ordered list.</dd>\n</dl>"
+    },
+    {
+      "question": "What happens if you skip from <h1> to <h4> for looks?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The outline lies. Use h2, then CSS for size.",
+        "The browser invents h2 and h3 for you.",
+        "HTML forbids h4 after h1, so the page will not load.",
+        "Screen readers require skips."
+      ],
+      "answer": "a",
+      "explanation": "Levels are structure. Duckett notes browsers size headings, and CSS is how you control that later.",
+      "reference": {
+        "section": "Headings",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "You will see how to control the size of text, its color, and the fonts used when we come to look at CSS."
+      },
+      "code": "<h1>Title</h1>\n<h2>Section</h2>"
+    },
+    {
+      "question": "Which copy should be a paragraph, not a heading?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The name of the site.",
+        "A two-sentence introduction under the title.",
+        "The name of a subsection.",
+        "A label for a group of links in a table of contents."
+      ],
+      "answer": "b",
+      "explanation": "Headings label sections. Running copy is p.",
+      "reference": {
+        "section": "Paragraphs",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 47,
+        "excerpt": "Headings and paragraphs"
+      },
+      "code": "<h1>News</h1>\n<p>Today the lab opened at noon.</p>"
+    },
+    {
+      "question": "Write heading(level, text) that returns <hN>text</hN> for level 1\u20136.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function heading(level, text) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "h1",
+          "args": [
+            1,
+            "Home"
+          ],
+          "expected": "<h1>Home</h1>"
+        },
+        {
+          "label": "h2",
+          "args": [
+            2,
+            "News"
+          ],
+          "expected": "<h2>News</h2>"
+        },
+        {
+          "label": "h6",
+          "args": [
+            6,
+            "Fine"
+          ],
+          "expected": "<h6>Fine</h6>"
+        }
+      ],
+      "hints": [
+        "Concatenate 'h' with the level number."
+      ],
+      "solution": "function heading(level, text) {\n  return '<h' + level + '>' + text + '</h' + level + '>';\n}\n",
+      "explanation": "h1\u2013h6 are the six heading levels. The number is the outline depth.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 50,
+        "excerpt": "HTML has six \"levels\" of headings:"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write unordered(items) that returns a <ul> of <li> for each string in items.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function unordered(items) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "two",
+          "args": [
+            [
+              "Eggs",
+              "Flour"
+            ]
+          ],
+          "expected": "<ul><li>Eggs</li><li>Flour</li></ul>"
+        },
+        {
+          "label": "one",
+          "args": [
+            [
+              "Salt"
+            ]
+          ],
+          "expected": "<ul><li>Salt</li></ul>"
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": "<ul></ul>"
+        }
+      ],
+      "hints": [
+        "Map each item to <li>\u2026</li> and join them inside <ul>."
+      ],
+      "solution": "function unordered(items) {\n  return '<ul>' + items.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul>';\n}\n",
+      "explanation": "Unordered lists are li children of ul.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Unordered lists are lists that begin with a bullet point"
+      },
+      "level": 3
+    },
+    {
+      "question": "Write ordered(items) that returns an <ol> of <li> for each string in items.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function ordered(items) {\n  // return markup\n}\n",
+      "tests": [
+        {
+          "label": "steps",
+          "args": [
+            [
+              "Preheat",
+              "Mix"
+            ]
+          ],
+          "expected": "<ol><li>Preheat</li><li>Mix</li></ol>"
+        },
+        {
+          "label": "one",
+          "args": [
+            [
+              "Serve"
+            ]
+          ],
+          "expected": "<ol><li>Serve</li></ol>"
+        },
+        {
+          "label": "empty",
+          "args": [
+            []
+          ],
+          "expected": "<ol></ol>"
+        }
+      ],
+      "hints": [
+        "Same as ul, but the parent is ol."
+      ],
+      "solution": "function ordered(items) {\n  return '<ol>' + items.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ol>';\n}\n",
+      "explanation": "Ordered lists number each li.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 70,
+        "excerpt": "Ordered lists are lists where each item in the list is numbered."
+      },
+      "level": 3
+    }
+  ],
+  "reading": [
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 2 \u2014 Text",
+      "page": 47,
+      "pageEnd": 68,
+      "sections": [
+        {
+          "heading": "Headings",
+          "page": 50
+        },
+        {
+          "heading": "Paragraphs",
+          "page": 47
+        }
+      ]
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "chapter": "Chapter 3 \u2014 Lists",
+      "page": 69,
+      "pageEnd": 80,
+      "sections": [
+        {
+          "heading": "Lists",
+          "page": 70
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { highlightJs, looksLikeCode } from '../lib/highlight.js';
+import { highlightCode, looksLikeCode } from '../lib/highlight.js';
 import { headingId } from '../lib/parseQuiz.js';
 import { spokenMd } from '../lib/speech.js';
 import CodeBlock from './CodeBlock.jsx';
@@ -65,7 +65,7 @@ function inlineMd(s) {
           <code
             key={i}
             className="is-js"
-            dangerouslySetInnerHTML={{ __html: highlightJs(inner) }}
+            dangerouslySetInnerHTML={{ __html: highlightCode(inner) }}
           />
         );
       }
@@ -217,8 +217,8 @@ export function MarkdownView({ source, focusHeading, compact, spokenIndex, speec
         }
         if (block.type === 'pre') {
           const lang = String(block.lang || '').toLowerCase();
-          if (!lang || lang === 'js' || lang === 'javascript' || lang === 'ts' || lang === 'typescript') {
-            return <CodeBlock key={i} code={block.text} />;
+          if (!lang || /^(js|javascript|ts|typescript|html|css|markup)$/.test(lang)) {
+            return <CodeBlock key={i} code={block.text} language={lang} />;
           }
           return (
             <pre key={i} className={block.lang ? 'lang-' + block.lang : undefined}>
