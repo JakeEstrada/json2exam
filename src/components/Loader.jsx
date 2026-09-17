@@ -101,7 +101,7 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
             I built this to study for my master’s. The first version was small: paste a
             chapter into a model, get a JSON quiz, drill it until the misses came back.
             I dropped out pretty quickly. Rather than leave the work sitting there, I
-            kept the site and pointed it at the real problem — closing the gaps in my
+            kept the site and pointed it at the real problem: closing the gaps in my
             own CS knowledge.
           </p>
           <p>
@@ -112,7 +112,6 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
           </p>
           <p>
             The graduate leftovers are still here at the bottom if you want them.
-            AskGPT stays locked to my sign-in so visitors cannot run up the bill.
           </p>
         </div>
         {showProgress && totals && (
