@@ -1,60 +1,90 @@
 # Json2Exam
 
-A browser quiz runner that takes a JSON question bank and drills you on it using the
-Leitner system: questions you miss come back sooner, questions you get right climb
-out of the rotation. React 18 + Vite, plain JS, no TypeScript, no UI framework.
+A personal CS study classroom in the browser. Leitner quizzes, short lessons, in-browser code practice, and local PDF books, organized as courses.
 
-This is a rewrite of the Python CLI version in `QuizApp`, with three question types
-instead of one.
+It started as a master’s study tool: paste a chapter into a model, get a JSON quiz, drill the misses. That path did not last. The site stayed, and it now aims at closing CS knowledge gaps. Anyone may study. Only the signed-in owner’s progress is tracked.
+
+React 18 + Vite, plain JavaScript. No TypeScript in the app itself (TypeScript is a course you take here).
 
 ## Running it
 
 ```bash
 npm install
-cp .env.example .env      # then paste OPENAI_API_KEY
-npm run dev               # http://localhost:5173
-npm run build             # static bundle in dist/
-npm test                  # unit tests for the parser
+cp .env.example .env   # OPENAI_API_KEY, OWNER_PASSWORD, optional voice / video base
+npm run dev            # http://localhost:5173
+npm run build          # static bundle in dist/
+npm test               # node --test
 ```
 
-AskGPT calls `/api/ask`, which reads `OPENAI_API_KEY` from `.env` (never from the browser). Without it, older Chapter 1 notes fall back to the canned replies.
+### Environment
 
-Nothing else is stored on a server. The question file you drop is still read in the browser with `FileReader`, and progress stays in `localStorage`.
+| Variable | Purpose |
+| --- | --- |
+| `OPENAI_API_KEY` | Server-side AskGPT (`/api/ask`) and text-to-speech (`/api/speak`). Never sent to the browser. |
+| `OPENAI_MODEL` / `OPENAI_TTS_*` | Optional model and voice defaults. |
+| `OWNER_USERNAME` / `OWNER_PASSWORD` | Sign-in for progress tracking and AskGPT. |
+| `VITE_LECTURE_VIDEO_BASE` | Public base URL for CPSC 544 lecture videos (Cloudflare R2). Files are `{base}/Ch1/….mp4`. |
+
+Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still exist for that deck). Without owner credentials, visitors can study but cannot save progress or call AskGPT.
+
+## What you study
+
+Home groups courses as Languages, Algorithms, Systems, Quality, Software engineering, and Platform (last).
+
+**Ready language ramps** (lesson, then quiz, colorful code on every multiple-choice card, three in-browser practice functions):
+
+- **TypeScript** — types, unions, functions, arrays/tuples, object types, interfaces, generics
+- **JavaScript** — variables, conditionals, loops, functions, arrays, objects, maps and sets
+- **HTML** — document structure, text and lists, links and images, semantics, forms, tables, accessibility
+- **CSS** — selectors and cascade, box model, type and color, flexbox, grid, positioning, responsive
+
+Code cards run in the browser via a JavaScript `Function` runner. TypeScript types are erased. HTML and CSS practice cards are JS functions that **return markup or CSS strings**.
+
+**Also in the catalog:** data structures, algorithms, LeetCode-style practice, database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
+
+Ordered path, books, and which decks are ready vs planned: [`applied-classroom/STUDY_PLAN.md`](applied-classroom/STUDY_PLAN.md). Source book lists live under each course’s `sources.md` / `sources/`.
+
+## How a deck works
+
+1. Open a course, then a Language (or Module) deck.
+2. Read the lesson (and cheat sheet lookup on JS/TS). Use the speaker for read-aloud where available.
+3. Start the quiz. Basics (Leitner level 1) come first; traps and code cards later.
+4. Right answers climb boxes; wrong answers drop. Cards retire at the mastery box.
+5. **Show in book** jumps to the cited PDF page (file position, not printed folio).
+
+You can still upload or paste a standalone JSON quiz from the home page.
 
 ## Question file format
 
-A JSON file, either a top-level array of questions or an object with a `questions` key:
+JSON: a top-level array, or an object with a `questions` key.
 
 ```json
 {
-  "title": "Requirements Engineering sampler",
+  "title": "Sample deck",
   "questions": [
     {
-      "question": "What is a business requirement?",
+      "question": "What does const prevent?",
+      "type": "multiple",
+      "level": 1,
       "options": [
-        "A restriction on the design or implementation choices open to the developer",
-        "A high-level objective explaining why the organization wants the product",
-        "A policy, guideline, standard, or regulation that constrains the business",
-        "A nonfunctional requirement describing a service characteristic such as speed"
+        "Mutating object properties.",
+        "Reassigning the binding.",
+        "Using the name in another file.",
+        "Calling methods on the value."
       ],
-      "answer": "b"
+      "answer": "b",
+      "explanation": "const blocks reassignment. The object it grasps may still mutate.",
+      "code": "const n = 1;\n// n = 2;  // TypeError"
     },
     {
-      "question": "A feature and a functional requirement mean the same thing.",
-      "type": "boolean",
-      "answer": false,
-      "explanation": "A feature bundles related capabilities and is usually described by several functional requirements."
-    },
-    {
-      "question": "Which of these are functional requirements for Discord? Select all that apply.",
-      "type": "multi",
-      "options": [
-        "Discord shall serve one hundred thousand concurrent users without slowdown",
-        "Discord shall remove a message when a moderator with permission deletes it",
-        "Discord wants to raise the number of servers a typical user stays active in",
-        "Discord shall notify a member when someone mentions them inside a channel"
+      "question": "Write add(a, b) that returns the sum.",
+      "type": "code",
+      "language": "javascript",
+      "starter": "function add(a, b) {\n  // return a number\n}\n",
+      "tests": [
+        { "label": "ints", "args": [2, 3], "expected": 5 }
       ],
-      "answer": ["b", "d"]
+      "solution": "function add(a, b) {\n  return a + b;\n}\n"
     }
   ]
 }
@@ -64,77 +94,51 @@ A JSON file, either a top-level array of questions or an object with a `question
 
 | Field | Required | Notes |
 | --- | --- | --- |
-| `question` | yes | Also accepts `prompt`, `text`, or `q`. |
-| `options` | yes, except for `boolean` | Also accepts `choices`. Boolean questions default to True/False. |
-| `answer` | yes | Also accepts `correct`, `correctAnswer`, `correct_answer`, `answers`, `key`. |
-| `type` | no | `single`, `boolean`, or `multi`. Inferred when absent. |
-| `explanation` | no | Shown after the question is answered. Also accepts `rationale` or `note`. |
+| `question` | yes | Also `prompt`, `text`, or `q`. |
+| `options` | yes, except `boolean` / `code` | Also `choices`. |
+| `answer` | yes for choice types | Letter, text, index, boolean, or multi (`"a, c"` / array). |
+| `type` | no | `single` / `multiple`, `multi`, `boolean`, `code`. Inferred when absent. |
+| `level` | no | Leitner starting box (language decks use 1–3). |
+| `code` | no | Snippet shown on the card (highlighted for JS/TS/HTML/CSS). |
+| `reference` | no | `{ section, book, page, excerpt }` for notes + PDF jump. |
+| `reading` | no | Deck-level chapter map for **Show in book**. |
+| `starter` / `tests` / `solution` | code cards | Runner calls your function with `args` and compares `expected`. |
 
-### What the parser tolerates
+The parser is forgiving: strips `a)` / `A.` option labels when several match, accepts several answer shapes, and skips broken questions with a named reason instead of killing the whole file.
 
-The three question banks I had lying around were all shaped slightly differently, so
-the reader is deliberately forgiving:
+## Scheduling (Leitner)
 
-- A top-level array works, so a Python `questions = [...]` list pastes in once the
-  outer brackets are valid JSON.
-- Labels baked into the option text get stripped: `"a) HTTP"`, `"A. HTTP"`, and
-  `"1) HTTP"` all become `"HTTP"`. It only strips when two or more options match the
-  pattern, so a lone option that happens to start that way survives intact.
-- An answer can be a letter (`"b"`), the exact option text (`"FTP"`), a 0-based index
-  (`1`), a 1-based index (`2`), a boolean, or several written as one string (`"a, c"`).
-- Type is inferred: an array answer means multi, a bare `true`/`false` with no options
-  means boolean, everything else is single choice.
-- A question that can't be read is skipped with a named reason rather than silently
-  dropped, and the rest of the file still loads. Invalid JSON reports the line and
-  column instead of a byte offset.
+Every card starts in box 1. Correct → up one box. Wrong → down (floor 1). Retires at the last box (default three boxes = two correct in a row for new cards). The next card is drawn from the lowest occupied box.
 
-## How the scheduling works
+Language decks prefer basics first when everything is still level 1. Older graduate decks keep a random draw among level-1 cards.
 
-Every question starts in box 1. A right answer moves it up one box, a wrong answer
-sends it back down (floor of box 1). A question retires once it reaches the last box,
-so the default of three boxes means two correct answers in a row. The next question
-is drawn at random from the lowest occupied box, avoiding an immediate repeat when
-there's another card at that level.
+## Owner progress
 
-Two changes from the Python version:
-
-- `get_question_to_ask` sorted the pool by box and then called `random.choice` on the
-  whole sorted list, so the sort had no effect and every unmastered question was
-  equally likely. `pickNext` draws from the lowest box only.
-- The old loop recomputed `progress` at the bottom without using it. Gone.
+Sign in (masthead) to save progress to the server (`/api/progress`) and to use AskGPT. Visitors see the same courses without rings, completion greens, or a public log of how far the owner is.
 
 ## Layout
 
 ```
 src/
-  main.jsx                 mount point
-  App.jsx                  screen state, answer checking, keyboard handling
-  styles.css               all of the CSS, themed with custom properties
-  lib/
-    parseQuiz.js           JSON -> normalized question bank (pure, tested)
-    leitner.js             box math and question selection (pure, tested)
-    storage.js             localStorage session, safe when storage is off
-  components/
-    Loader.jsx             drop zone, paste box, format reference
-    BoxTrack.jsx           the row of boxes across the top
-    QuestionCard.jsx       question, options, and the verdict
-    Settings.jsx           mastery target, shuffle, instant check
-    Summary.jsx            end-of-session stats and what you missed
-    Masthead.jsx
-  data/
-    sample.js              the demo deck
+  App.jsx                 screens, deal/check, resume after login
+  styles.css
+  components/             Lesson, Course, QuestionCard, Loader, …
+  lib/                    parseQuiz, leitner, runCode, highlight, speech, …
+  data/                   catalog, appliedClassroom, 541/544 wiring
+api/                      ask, speak, login, progress (owner-gated where needed)
+applied-classroom/        courses, language decks, studio stubs, PDFs, STUDY_PLAN.md
+541-Mod1/  544-Mod-1/     graduate leftover modules
 ```
 
-`lib/` has no React in it, which is why the tests are plain `node --test`.
+`lib/` has no React; tests are plain `node --test`.
 
 ## Keyboard
 
-`1`–`9` or `a`–`j` picks an option, `enter` checks a multi-select answer or advances
-to the next question, `esc` ends the session and shows the summary.
+`1`–`9` or `a`–`j` picks an option. `enter` checks multi-select or advances. `esc` ends the session.
 
 ## Notes
 
-- Dark mode follows the OS setting, and there is a Dark / Light toggle in the masthead. Your choice is stored in `localStorage`.
-- `prefers-reduced-motion` disables the transitions.
-- There's a single-file build (`cardbox-standalone.html`) that runs React from a CDN
-  with in-browser Babel. Handy for opening straight off disk, not what you'd ship.
+- Dark / Light follows the OS; toggle in the masthead (stored in `localStorage`).
+- `prefers-reduced-motion` disables transitions.
+- `cardbox-standalone.html` is an older single-file CDN build for opening off disk, not the main app.
+- Lecture video URLs for 544 point at a public R2 host by default. Override with `VITE_LECTURE_VIDEO_BASE` if you host them yourself.
