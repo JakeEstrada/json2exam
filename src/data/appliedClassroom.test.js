@@ -43,5 +43,7 @@ test('applied scaffold lists the program root and every topic folder', () => {
   assert.equal(langs[2], 'html');
   assert.equal(langs[3], 'css');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/system-design/systems/url-shortener'));
+  assert.equal(COURSE_GROUPS[0].id, 'process');
+  assert.equal(COURSE_GROUPS[1].id, 'languages');
   assert.equal(COURSE_GROUPS[COURSE_GROUPS.length - 1].id, 'platform');
 });

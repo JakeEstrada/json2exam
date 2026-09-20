@@ -581,11 +581,11 @@ export const APPLIED_COURSES = [
 ];
 
 export const COURSE_GROUPS = [
+  { id: 'process', label: 'Software engineering' },
   { id: 'languages', label: 'Languages' },
   { id: 'algorithms', label: 'Algorithms' },
   { id: 'systems', label: 'Systems' },
   { id: 'quality', label: 'Quality' },
-  { id: 'process', label: 'Software engineering' },
   { id: 'platform', label: 'Platform' },
 ];
 

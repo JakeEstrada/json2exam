@@ -1,5 +1,7 @@
 # Json2Exam
 
+**Live site:** [Json2Exam.com](https://Json2Exam.com)
+
 A personal CS study classroom in the browser. Leitner quizzes, short lessons, in-browser code practice, and local PDF books, organized as courses.
 
 It started as a master’s study tool: paste a chapter into a model, get a JSON quiz, drill the misses. That path did not last. The site stayed, and it now aims at closing CS knowledge gaps. Anyone may study. Only the signed-in owner’s progress is tracked.
@@ -29,7 +31,7 @@ Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still 
 
 ## What you study
 
-Home groups courses as Languages, Algorithms, Systems, Quality, Software engineering, and Platform (last).
+Home groups courses as Software engineering, Languages, Algorithms, Systems, Quality, and Platform (last).
 
 **Ready language ramps** (lesson, then quiz, colorful code on every multiple-choice card, three in-browser practice functions):
 
