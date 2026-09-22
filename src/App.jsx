@@ -260,12 +260,32 @@ export default function App() {
   }
 
   function persist() {
-    if (!quiz || !owner) return saved;
+    if (!quiz) return saved;
     const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     const view = sessionView(state);
     setSaved(view);
     return view;
+  }
+
+  function leaveQuiz() {
+    stopSpeech();
+    persist();
+    setCurrent(null);
+    setSidePane(null);
+    setStudyFocus(null);
+    setShowSettings(false);
+    if (courseId || (quiz && quiz.courseId)) {
+      if (quiz && quiz.courseId) setCourseId(quiz.courseId);
+      setScreen('course');
+      return;
+    }
+    setQuiz(null);
+    setScreen('load');
+  }
+
+  function saveAndExit() {
+    leaveQuiz();
   }
 
   function signedIn(next) {
@@ -305,6 +325,7 @@ export default function App() {
     setCurrent(null);
     setSidePane(null);
     setStudyFocus(null);
+    setShowSettings(false);
     setScreen('load');
   }
 
@@ -401,10 +422,11 @@ export default function App() {
   }, [owner]);
 
   useEffect(() => {
-    if (!quiz || !owner) return;
+    if (!quiz) return;
     const state = { quiz, boxes, stats, settings, courseId, codeWork };
     saveSession(state);
     setSaved(sessionView(state));
+    if (!owner) return;
     pushLog(withDeck(logRef.current, {
       courseId: quiz.courseId || courseId,
       courseTitle: quiz.courseTitle || '',
@@ -483,7 +505,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, [sidePane]);
 
-  // Keyboard: letters and digits pick, Enter checks or advances, Escape ends.
+  // Keyboard: letters and digits pick, Enter checks or advances, Escape saves and exits.
   useEffect(() => {
     if (screen !== 'quiz' || !current) return;
     function onKey(e) {
@@ -501,9 +523,8 @@ export default function App() {
       if (e.key === 'Escape') {
         e.preventDefault();
         if (showSettings) { setShowSettings(false); return; }
-        stopSpeech();
-        setSidePane(null);
-        setScreen('done');
+        if (sidePane) { setSidePane(null); return; }
+        saveAndExit();
         return;
       }
       if (phase === 'review' || isCode) { return; }
@@ -537,7 +558,7 @@ export default function App() {
       resumePrompt = {
         detail: saved.quiz.title + ' · ' + saved.quiz.questions.length + ' questions, ' + saved.mastered + ' already mastered',
       };
-    } else if (leftover && leftover.deck) {
+    } else if (owner && leftover && leftover.deck) {
       const title = (leftover.course && leftover.course.title ? leftover.course.title + ' · ' : '') + leftover.deck.label;
       resumePrompt = {
         detail: leftover.completed
@@ -587,7 +608,7 @@ export default function App() {
         <Lesson
           quiz={quiz}
           onStart={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
-          onHome={goHome}
+          onHome={saveAndExit}
           owner={owner}
           voice={settings.voice}
           speechRate={settings.speechRate}
@@ -622,6 +643,7 @@ export default function App() {
               stats={stats}
               maxBox={settings.maxBox}
               onAgain={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {})}
+              onExit={saveAndExit}
             />
             {(quiz.notes || quiz.lecture || quiz.slidesUrl || quiz.bookUrl || (quiz.books && quiz.books.length)) && (
               <div className="row quiz-study-open" style={{ marginTop: '14px' }}>
@@ -692,6 +714,7 @@ export default function App() {
                 <b>{stats.right}</b> right, <b>{stats.wrong}</b> wrong, <b>{pct}%</b> mastered
               </span>
               <button className="btn quiet" onClick={() => setShowSettings((s) => !s)}>Settings</button>
+              <button className="btn quiet" onClick={saveAndExit}>Save &amp; exit</button>
               <button className="btn quiet" onClick={() => { stopSpeech(); setSidePane(null); setScreen('done'); }}>Finish</button>
             </div>
           </div>

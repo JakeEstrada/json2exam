@@ -194,7 +194,7 @@ data/                     local progress file (dev); not a public recruiter feed
 
 ## Keyboard
 
-`1`–`9` or `a`–`j` picks an option. `enter` checks multi-select or advances. `esc` ends the session.
+`esc` saves and exits the deck (or closes Settings / the side pane first). `1`–`9` or `a`–`j` picks an option. `enter` checks multi-select or advances.
 
 ---
 

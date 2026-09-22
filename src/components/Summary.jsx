@@ -1,7 +1,7 @@
 import { boxOf } from '../lib/leitner.js';
 import ProgressRing from './ProgressRing.jsx';
 
-export default function Summary({ quiz, boxes, stats, maxBox, onAgain }) {
+export default function Summary({ quiz, boxes, stats, maxBox, onAgain, onExit }) {
   const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= maxBox).length;
   const seen = quiz.questions.filter((q) => boxes[q.id]).length;
   const answered = stats.right + stats.wrong;
@@ -49,6 +49,9 @@ export default function Summary({ quiz, boxes, stats, maxBox, onAgain }) {
 
       <div className="row">
         <button className="btn primary" onClick={onAgain}>Run the deck again</button>
+        {onExit ? (
+          <button type="button" className="btn quiet" onClick={onExit}>Save &amp; exit</button>
+        ) : null}
       </div>
     </div>
   );

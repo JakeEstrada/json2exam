@@ -156,7 +156,7 @@ export default function Loader({ onStart, onOpenCourse, onSignIn, resumePrompt, 
         )}
       </div>
 
-      <ResumeBar prompt={owner ? resumePrompt : null} onResume={onResume} onForget={onForget} />
+      <ResumeBar prompt={resumePrompt} onResume={onResume} onForget={onForget} />
 
       <div
         className={'upload-panel sheet' + (over ? ' is-over' : '')}

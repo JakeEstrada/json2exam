@@ -198,7 +198,7 @@ export default function Lesson({ quiz, onStart, onHome, owner, voice, speechRate
             onToggle={() => (speech.on ? speech.stop() : speech.playFrom(speech.at))}
             onStep={speech.step}
           />
-          <button type="button" className="btn quiet" onClick={onHome}>Home</button>
+          <button type="button" className="btn quiet" onClick={onHome}>Save &amp; exit</button>
           <button type="button" className="btn primary" onClick={onStart}>Start the quiz</button>
         </div>
       </div>
