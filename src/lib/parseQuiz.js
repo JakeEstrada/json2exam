@@ -175,6 +175,15 @@ function withCode(question, raw, originalText) {
   const taken = takePromptAndCode(raw, originalText);
   question.text = taken.text;
   if (taken.code) question.code = taken.code;
+  const passage = String(firstDefined(raw.passage, raw.problem, raw.statement, '')).trim();
+  if (passage) question.passage = passage;
+  const solution = String(firstDefined(raw.solution, raw.model, '')).trim();
+  if (solution) {
+    question.solution = solution;
+    question.solutionLanguage = String(
+      firstDefined(raw.solutionLanguage, raw.solution_lang, raw.language, 'python')
+    ).trim() || 'python';
+  }
   return question;
 }
 
@@ -286,6 +295,7 @@ function readReference(raw) {
   const book = String(firstDefined(refRaw.book, refRaw.title, '')).trim();
   const excerpt = String(firstDefined(refRaw.excerpt, refRaw.quote, '')).trim();
   const lecture = String(firstDefined(refRaw.lecture, refRaw.transcript, '')).trim();
+  const url = String(firstDefined(refRaw.url, refRaw.link, refRaw.href, '')).trim();
   const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
   const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
   const pageEndNum = Number(firstDefined(refRaw.pageEnd, refRaw.endPage, 0));
@@ -293,8 +303,8 @@ function readReference(raw) {
   const chapter = String(firstDefined(refRaw.chapter, '')).trim();
   const slideNum = Number(firstDefined(refRaw.slide, refRaw.slides, 0));
   const slide = slideNum >= 1 && isFinite(slideNum) ? Math.trunc(slideNum) : 0;
-  if (!section && !book && !excerpt && !page && !lecture && !slide && !chapter) return null;
-  return { section, book, chapter, excerpt, page, pageEnd, lecture, slide };
+  if (!section && !book && !excerpt && !page && !lecture && !slide && !chapter && !url) return null;
+  return { section, book, chapter, excerpt, page, pageEnd, lecture, slide, url };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {
@@ -317,6 +327,12 @@ export function normalizeQuiz(data, fallbackTitle) {
     sheet = Array.isArray(sheetRaw) ? sheetRaw.map((s) => String(s || '').trim()).filter(Boolean) : (String(sheetRaw || '').trim() ? [String(sheetRaw).trim()] : []);
   }
 
+  let deal = 'level';
+  if (data && typeof data === 'object' && !Array.isArray(data)) {
+    const rawDeal = String(firstDefined(data.deal, data.dealMode, data.order, '')).trim().toLowerCase();
+    if (rawDeal === 'random' || rawDeal === 'shuffle') deal = 'random';
+  }
+
   if (!Array.isArray(list)) {
     throw new Error('Expected a list of questions, either at the top level or under a "questions" key.');
   }
@@ -333,7 +349,7 @@ export function normalizeQuiz(data, fallbackTitle) {
   if (!questions.length) {
     throw new Error('None of the ' + list.length + ' questions could be read. ' + skipped[0]);
   }
-  return { title, questions, skipped, brain, reading, sheet };
+  return { title, questions, skipped, brain, reading, sheet, deal };
 }
 
 // JSON.parse errors are terse; point at the line instead of the byte offset.

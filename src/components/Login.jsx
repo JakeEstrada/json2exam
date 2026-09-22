@@ -39,7 +39,11 @@ export default function Login({ onClose, onSignedIn }) {
         onClick={(e) => e.stopPropagation()}
       >
         <h2 id="login-title">Owner sign-in</h2>
-        <p>AskGPT and the learning log are locked to this sign-in. Visitors can study; they cannot run the tutor or write progress.</p>
+        <p>
+          This site is still under construction. Progress tracking and the study tutor
+          are only for the owner for now. Visitors can study the published courses
+          without signing in.
+        </p>
         <form onSubmit={submit}>
           <label>
             Username

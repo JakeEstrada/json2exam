@@ -408,6 +408,26 @@ test('worked solutions for CSS language banks pass their tests', async () => {
   }
 });
 
+test('LeetCode Arrays pattern bank uses LeetCode urls and Python solutions', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/leetcode/arrays');
+  const quiz = JSON.parse(await readFile(path.join(root, 'quiz.json'), 'utf8'));
+  const bank = normalizeQuiz(quiz);
+  assert.equal(bank.skipped.length, 0);
+  assert.ok(bank.questions.length >= 15, 'choice count');
+  assert.equal(bank.questions.filter((q) => q.type === 'code').length, 0, 'no code runner cards');
+  assert.ok(bank.questions.every((q) => q.passage && q.passage.length > 40), 'each card needs a problem passage');
+  assert.ok(bank.questions.every((q) => q.solution && q.solutionLanguage === 'python'), 'each card needs a Python solution');
+  assert.equal(bank.deal, 'random');
+  const linked = bank.questions.filter((q) => q.reference && q.reference.url);
+  assert.ok(linked.length >= 12, 'most cards need a LeetCode url');
+  for (const q of linked) {
+    assert.match(q.reference.url, /^https:\/\/leetcode\.com\/problems\//);
+  }
+});
+
 test('rejects a payload that is not a question list', () => {
   assert.throws(() => normalizeQuiz({ foo: 1 }, 't'));
 });

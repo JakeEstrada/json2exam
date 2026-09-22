@@ -388,47 +388,44 @@ export const APPLIED_COURSES = [
       },
     ],
   }),
-  plannedCourse({
-    id: 'lc',
-    code: 'LC',
-    title: 'LeetCode-Style Practice',
-    folder: 'leetcode',
-    group: 'algorithms',
-    tagline: 'Problems with tests, hints, complexity, and attempt history.',
-    modules: [
-      {
-        label: 'Problem format',
+  (() => {
+    const folder = ROOT + '/leetcode';
+    const topic = (label, slug, subtitle) => {
+      const s = slug || label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const deckFolder = folder + '/' + s;
+      return {
+        id: 'lc-' + s,
+        label,
+        folder: deckFolder,
         decks: [
-          'Problem statement',
-          'Examples',
-          'Constraints',
-          'Starter code',
-          'Test cases',
-          'Hidden test cases',
-          'Hints',
-          'Solution explanation',
-          'Time-complexity analysis',
-          'Space-complexity analysis',
-          'Alternative solutions',
-          'Attempt history',
-          'Difficulty rating',
-          'Topic tags',
+          {
+            id: 'lc-' + s,
+            label,
+            subtitle: subtitle || 'Folder ready · add quiz JSON when you have it',
+            comingSoon: true,
+            folder: deckFolder,
+          },
         ],
-      },
-      {
-        label: 'Filters',
-        decks: [
-          'Difficulty',
-          'Data structure',
-          'Algorithm pattern',
-          'Completed status',
-          'Failed attempts',
-          'Confidence level',
-          'Interview frequency',
-        ],
-      },
-    ],
-  }),
+      };
+    };
+    return {
+      id: 'lc',
+      code: 'LC',
+      title: 'LeetCode-Style Practice',
+      tagline: 'Topic modules. Memorize pattern skeletons, then recognize them on problems.',
+      group: 'algorithms',
+      program: true,
+      folder,
+      modules: [
+        topic('Arrays', 'arrays', 'Pattern skeletons, then recognize them on array problems'),
+        topic('Strings and hash', 'strings-and-hash'),
+        topic('Linked lists', 'linked-lists'),
+        topic('Trees', 'trees'),
+        topic('Graphs', 'graphs'),
+        topic('Dynamic programming', 'dynamic-programming'),
+      ],
+    };
+  })(),
   plannedCourse({
     id: 'db',
     code: 'DB',

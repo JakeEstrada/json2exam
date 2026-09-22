@@ -17,7 +17,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
   const parts = useMemo(() => cardSpeechParts(q, order), [q, order]);
   const speech = useSpeechReader(parts, voice, speechRate, { prefetchAll: true, keys: true });
   const reading = speech.spoken;
-  const showHero = !!(q.code && q.code !== q.starter);
+  const showHero = !!(q.passage || (q.code && q.code !== q.starter));
 
   if (q.type === 'code') {
     return (
@@ -271,14 +271,22 @@ function CodePractice({ q, reviewing, work, onWork, onAssess }) {
 }
 
 function QuestionPrompt({ q, showHero, reading }) {
+  const passage = String((q && q.passage) || '').trim();
+  const codeHero = showHero && !passage && q.code;
   return (
     <div className={'q-prompt' + (reading ? ' is-reading' : '')}>
-      {showHero && (
+      {passage ? (
+        <>
+          <p className="code-kicker">Problem</p>
+          <div className="problem-passage">{passage}</div>
+        </>
+      ) : null}
+      {codeHero ? (
         <>
           <p className="code-kicker">Read this JavaScript</p>
           <CodeBlock code={q.code} />
         </>
-      )}
+      ) : null}
       <div className="q-text is-md">
         <MarkdownView source={q.text} compact />
       </div>
@@ -288,6 +296,8 @@ function QuestionPrompt({ q, showHero, reading }) {
 
 function Verdict({ q, correct }) {
   const names = q.answers.map((i) => q.options[i]).join(', ');
+  const solution = correct ? String(q.solution || '').trim() : '';
+  const lang = String(q.solutionLanguage || 'python').toLowerCase();
   return (
     <div className="verdict" role="status">
       <div>
@@ -301,6 +311,12 @@ function Verdict({ q, correct }) {
             <MarkdownView source={q.explanation} compact />
           </div>
         )}
+        {solution ? (
+          <div className="solution-code">
+            <p className="code-label">Python solution</p>
+            <CodeBlock code={solution} language={lang} label="Python solution" />
+          </div>
+        ) : null}
         <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
       </div>
     </div>
@@ -309,6 +325,21 @@ function Verdict({ q, correct }) {
 
 function QuestionSource({ q, bookReading, onOpen, hasLecture, hasVideo, hasSlides, hasBook }) {
   const ref = q && q.reference;
+  if (ref && ref.url) {
+    const href = String(ref.url);
+    let host = 'Open problem';
+    try {
+      host = new URL(href).hostname.replace(/^www\./, '');
+    } catch (_) { /* keep fallback label */ }
+    return (
+      <div className="q-source">
+        <p className="q-source-label">Reference</p>
+        <a className="text-link q-source-link" href={href} target="_blank" rel="noopener noreferrer">
+          Open on {host}
+        </a>
+      </div>
+    );
+  }
   const chapter = matchReading(bookReading, ref && ref.book);
   const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
   const fromLecture = firstSlideRange(lectureQuote);

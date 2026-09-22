@@ -30,37 +30,67 @@ function courseBlurb(course) {
   return qLabel + ' · ' + labels;
 }
 
-function CourseCard({ course, onOpen, log, showProgress }) {
-  const roll = showProgress ? courseRollup(course, log) : null;
+function courseHasReady(course) {
+  return courseDecks(course).some((d) => d.data && Array.isArray(d.data.questions) && d.data.questions.length);
+}
+
+function CourseCard({ course, onOpen, onSignIn, log, showProgress, signedIn }) {
+  const ready = courseHasReady(course);
+  const roll = showProgress && ready ? courseRollup(course, log) : null;
   const ringValue = roll ? (roll.done ? roll.total : roll.seen) : 0;
   const ringMax = roll ? roll.total : 0;
   const done = !!(showProgress && roll && roll.done);
+  const locked = !ready && !signedIn;
+
+  function activate() {
+    if (ready || signedIn) {
+      onOpen(course.id);
+      return;
+    }
+    if (onSignIn) onSignIn();
+  }
+
   return (
     <button
       type="button"
-      className={'course-card sheet' + (showProgress && roll ? ' has-ring' : '') + (done ? ' is-done' : '')}
-      onClick={() => onOpen(course.id)}
+      className={
+        'course-card sheet'
+        + (showProgress && roll ? ' has-ring' : '')
+        + (done ? ' is-done' : '')
+        + (!ready ? ' is-later is-locked' : '')
+      }
+      onClick={activate}
+      aria-disabled={locked ? 'true' : undefined}
     >
       <div className="course-card-copy">
         <strong>{course.title}</strong>
         {course.tagline && <span className="subtitle">{course.tagline}</span>}
-        <p>{done ? 'Completed' : courseBlurb(course)}</p>
+        <p>
+          {done
+            ? 'Completed'
+            : (ready
+              ? courseBlurb(course)
+              : (signedIn ? 'Coming next · folders ready' : 'Sign in to browse'))}
+        </p>
       </div>
       {showProgress && roll && (
         <ProgressRing value={ringValue} max={ringMax} size={72} label={course.title + ' progress'} />
       )}
-      <span className="go">{done ? 'Review' : 'Open course'}</span>
+      <span className="go">
+        {done ? 'Review' : (ready ? 'Open course' : (signedIn ? 'Browse' : 'Sign in'))}
+      </span>
     </button>
   );
 }
 
-export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, onForget, log, owner }) {
+export default function Loader({ onStart, onOpenCourse, onSignIn, resumePrompt, onResume, onForget, log, owner }) {
   const [over, setOver] = useState(false);
   const [error, setError] = useState(null);
   const [warn, setWarn] = useState(null);
   const [preview, setPreview] = useState(null);
   const fileRef = useRef(null);
   const showProgress = !!(owner && owner.token);
+  const signedIn = showProgress;
   const totals = showProgress ? catalogTotals(COURSES, log) : null;
 
   function accept(text, name) {
@@ -98,20 +128,20 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
         <div className="welcome-copy">
           <h2>About</h2>
           <p>
-            I built this to study for my master’s. The first version was small: paste a
-            chapter into a model, get a JSON quiz, drill it until the misses came back.
-            I dropped out pretty quickly. Rather than leave the work sitting there, I
-            kept the site and pointed it at the real problem: closing the gaps in my
-            own CS knowledge.
+            Json2Exam is a web app I built to learn computer science with spaced
+            repetition. It turns lesson notes and textbook chapters into quizzes,
+            drills what you miss first, and keeps progress across TypeScript,
+            JavaScript, HTML, CSS, and software engineering modules.
           </p>
           <p>
-            That is what this place is now. It got a lot bigger than a quiz runner.
-            TypeScript, JavaScript, and the rest of these modules are the path I am
-            actually walking. Free sources, pulled into one classroom I can study.
-            Anyone is welcome to use it. As of now it only tracks my progress.
+            The stack is React and Vite. Quizzes use a Leitner box scheduler.
+            Language decks include short lessons, syntax-highlighted examples, and
+            in-browser coding exercises with automated tests. Local PDFs open to the
+            cited page. Optional sign-in saves progress and unlocks a study tutor.
           </p>
           <p>
-            The graduate leftovers are still here at the bottom if you want them.
+            Anyone can study the published courses. The live site is{' '}
+            <a href="https://Json2Exam.com">Json2Exam.com</a>.
           </p>
         </div>
         {showProgress && totals && (
@@ -222,7 +252,15 @@ export default function Loader({ onStart, onOpenCourse, resumePrompt, onResume, 
             <h3 className="course-group-label">{group.label}</h3>
             <div className="start-grid course-grid">
               {list.map((course) => (
-                <CourseCard key={course.id} course={course} onOpen={onOpenCourse} log={log} showProgress={showProgress} />
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  onOpen={onOpenCourse}
+                  onSignIn={onSignIn}
+                  log={log}
+                  showProgress={showProgress}
+                  signedIn={signedIn}
+                />
               ))}
             </div>
           </section>

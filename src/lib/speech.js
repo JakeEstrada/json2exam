@@ -19,6 +19,8 @@ export const SPEECH_RATES = [0.75, 1, 1.25, 1.5, 2];
 
 export function cardSpeechParts(q, order) {
   const parts = [];
+  const passage = String((q && q.passage) || '').replace(/\s+/g, ' ').trim();
+  if (passage) parts.push({ kind: 'title', option: -1, text: passage });
   const title = String((q && q.text) || '').replace(/\s+/g, ' ').trim();
   if (title) parts.push({ kind: 'title', option: -1, text: title });
   (order || []).forEach((idx, i) => {

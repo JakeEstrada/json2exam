@@ -35,6 +35,15 @@ test('detectLanguage tells HTML, CSS, and JavaScript apart', () => {
   assert.equal(detectLanguage('<p class="lede">Hi</p>'), 'html');
   assert.equal(detectLanguage('p {\n  color: navy;\n}'), 'css');
   assert.equal(detectLanguage('function add(a, b) { return a + b; }'), 'javascript');
+  assert.equal(detectLanguage('def two_sum(nums, target):\n    return []'), 'python');
+});
+
+test('highlightPython marks keywords and strings', async () => {
+  const { highlightPython } = await import('./highlight.js');
+  const html = highlightPython('def two_sum(nums, target):\n    return [0, 1]');
+  assert.match(html, />def</);
+  assert.match(html, />return</);
+  assert.equal(highlightCode(html.includes('def') ? 'def f():\n    pass' : '', 'python').includes('j-kw'), true);
 });
 
 test('highlightHtml colors tags and attributes', () => {

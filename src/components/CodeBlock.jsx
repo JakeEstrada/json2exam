@@ -9,6 +9,8 @@ const LANG_LABEL = {
   js: 'JavaScript',
   typescript: 'TypeScript',
   ts: 'TypeScript',
+  python: 'Python',
+  py: 'Python',
 };
 
 export default function CodeBlock({ code, compact, label, language }) {

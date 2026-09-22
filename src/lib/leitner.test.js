@@ -24,3 +24,16 @@ test('pickNext deals basics in file order before traps and code', () => {
   assert.equal(first.id, 'shape');
   assert.equal(second.id, 'for-loop');
 });
+
+test('pickNext random mode mixes cards ignoring level order', () => {
+  const questions = [
+    { id: 'a', level: 1, index: 0 },
+    { id: 'b', level: 2, index: 1 },
+    { id: 'c', level: 3, index: 2 },
+  ];
+  const seen = new Set();
+  for (let i = 0; i < 60; i++) {
+    seen.add(pickNext(questions, {}, 3, null, { mode: 'random' }).id);
+  }
+  assert.equal(seen.size, 3);
+});

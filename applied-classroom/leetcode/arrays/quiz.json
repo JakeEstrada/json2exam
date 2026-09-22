@@ -1,0 +1,288 @@
+{
+  "title": "LeetCode — Arrays pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map: scan once → for each x look up target−x → if missing store x→index → return the pair indices.",
+        "Sliding window of length 2: only check adjacent pairs → return those indices.",
+        "Binary search on the unsorted array: mid is always a valid partner.",
+        "Opposite-end two pointers without sorting: assume the ends always sum to target."
+      ],
+      "answer": "a",
+      "explanation": "Two Sum is complement lookup. One pass with a hash map of seen values to indices.",
+      "reference": {
+        "url": "https://leetcode.com/problems/two-sum"
+      },
+      "level": 1,
+      "passage": "LC 1 · Two Sum · Easy\n\nGiven an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume each input has exactly one solution, and you may not use the same element twice. Return the answer in any order.",
+      "solutionLanguage": "python",
+      "solution": "def twoSum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        need = target - x\n        if need in seen:\n            return [seen[need], i]\n        seen[x] = i"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Opposite ends: compare first and last only → return that boolean.",
+        "Binary search each element against a fresh empty array.",
+        "Hash set: walk once → if value already in the set return true → else insert → false if the walk ends.",
+        "Sliding window of length n−1 only."
+      ],
+      "answer": "c",
+      "explanation": "Duplicate detection is membership of a seen value — a set (or map) walk.",
+      "reference": {
+        "url": "https://leetcode.com/problems/contains-duplicate"
+      },
+      "level": 1,
+      "passage": "LC 217 · Contains Duplicate · Easy\n\nGiven an integer array nums, return true if any value appears at least twice in the array, and false if every element is distinct.",
+      "solutionLanguage": "python",
+      "solution": "def containsDuplicate(nums):\n    seen = set()\n    for x in nums:\n        if x in seen:\n            return True\n        seen.add(x)\n    return False"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map of height→index; never move two ends.",
+        "Two pointers opposite ends: area = min(h[lo], h[hi]) × (hi−lo) → move the shorter end → track max area → stop when lo meets hi.",
+        "Prefix product of all heights; return the product.",
+        "Sliding window that only grows right and never moves left."
+      ],
+      "answer": "b",
+      "explanation": "Best pair of ends with a width factor is opposite-end two pointers. Always move the shorter side.",
+      "reference": {
+        "url": "https://leetcode.com/problems/container-with-most-water"
+      },
+      "level": 2,
+      "passage": "LC 11 · Container With Most Water · Medium\n\nYou are given n vertical lines where the two endpoints of the ith line are (i, 0) and (i, height[i]).\n\nFind two lines that, together with the x-axis, form a container that holds the most water. Return the maximum amount of water.",
+      "solutionLanguage": "python",
+      "solution": "def maxArea(height):\n    lo, hi = 0, len(height) - 1\n    best = 0\n    while lo < hi:\n        best = max(best, min(height[lo], height[hi]) * (hi - lo))\n        if height[lo] < height[hi]:\n            lo += 1\n        else:\n            hi -= 1\n    return best"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sort → for each fixed index i, two pointers on the right for a pair that sums to −nums[i] → skip duplicates → collect unique triplets.",
+        "Sliding window of length 3 on the unsorted array; never sort.",
+        "Binary search once on the whole unsorted array.",
+        "One hash-map insert with no second loop for pairs."
+      ],
+      "answer": "a",
+      "explanation": "3Sum = sort + fix one value + opposite-end two pointers for the complementary pair.",
+      "reference": {
+        "url": "https://leetcode.com/problems/3sum"
+      },
+      "level": 3,
+      "passage": "LC 15 · 3Sum · Medium\n\nGiven an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i, j, and k are distinct and nums[i] + nums[j] + nums[k] == 0.\n\nThe solution set must not contain duplicate triplets.",
+      "solutionLanguage": "python",
+      "solution": "def threeSum(nums):\n    nums.sort()\n    out = []\n    n = len(nums)\n    for i in range(n):\n        if i and nums[i] == nums[i - 1]:\n            continue\n        lo, hi = i + 1, n - 1\n        while lo < hi:\n            s = nums[i] + nums[lo] + nums[hi]\n            if s == 0:\n                out.append([nums[i], nums[lo], nums[hi]])\n                lo += 1\n                hi -= 1\n                while lo < hi and nums[lo] == nums[lo - 1]:\n                    lo += 1\n                while lo < hi and nums[hi] == nums[hi + 1]:\n                    hi -= 1\n            elif s < 0:\n                lo += 1\n            else:\n                hi -= 1\n    return out"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Binary search for zero; swap with a random index.",
+        "Hash set of zero indices; rebuild a new array (required by the brief).",
+        "Two pointers read/write: write non-zeros forward → fill the tail with zeros → done in place.",
+        "Sliding window of zeros that expands from both ends at once."
+      ],
+      "answer": "c",
+      "explanation": "In-place stable compaction of keepers is a read/write pointer.",
+      "reference": {
+        "url": "https://leetcode.com/problems/move-zeroes"
+      },
+      "level": 1,
+      "passage": "LC 283 · Move Zeroes · Easy\n\nGiven an integer array nums, move all 0s to the end of it while maintaining the relative order of the non-zero elements.\n\nYou must do this in-place without making a copy of the array.",
+      "solutionLanguage": "python",
+      "solution": "def moveZeroes(nums):\n    write = 0\n    for read in range(len(nums)):\n        if nums[read] != 0:\n            nums[write] = nums[read]\n            write += 1\n    for i in range(write, len(nums)):\n        nums[i] = 0"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sliding window that deletes from the middle of a linked structure.",
+        "Two pointers read/write: when read sees a new value, write it and advance write → return write as the new length.",
+        "Hash map required for O(1) extra memory (contradicts the usual brief).",
+        "Binary search for each duplicate; remove with an array shift each time as the main plan."
+      ],
+      "answer": "b",
+      "explanation": "Sorted unique compaction is read/write: write the next unique value into the next kept slot.",
+      "reference": {
+        "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array"
+      },
+      "level": 1,
+      "passage": "LC 26 · Remove Duplicates from Sorted Array · Easy\n\nGiven a sorted array nums, remove the duplicates in-place so each element appears only once. Return the new length.\n\nDo not allocate another array; modify nums in-place with O(1) extra memory. The first newLength elements of nums should hold the result.",
+      "solutionLanguage": "python",
+      "solution": "def removeDuplicates(nums):\n    if not nums:\n        return 0\n    write = 1\n    for read in range(1, len(nums)):\n        if nums[read] != nums[write - 1]:\n            nums[write] = nums[read]\n            write += 1\n    return write"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map from average→k; one lookup.",
+        "Opposite ends ignoring that length must stay k.",
+        "Sliding window: sum of first k → slide by +right −left → track max sum/k → return that average.",
+        "Binary search on values without a window sum."
+      ],
+      "answer": "c",
+      "explanation": "Fixed length k → maintain a running window sum and slide it across the array.",
+      "reference": {
+        "url": "https://leetcode.com/problems/maximum-average-subarray-i"
+      },
+      "level": 1,
+      "passage": "LC 643 · Maximum Average Subarray I · Easy\n\nYou are given an integer array nums consisting of n elements, and an integer k.\n\nFind a contiguous subarray whose length is equal to k that has the maximum average value and return that average.",
+      "solutionLanguage": "python",
+      "solution": "def findMaxAverage(nums, k):\n    window = sum(nums[:k])\n    best = window\n    for i in range(k, len(nums)):\n        window += nums[i] - nums[i - k]\n        best = max(best, window)\n    return best / k"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Linear scan only; binary search cannot work after a rotation.",
+        "Hash map of all values first (required for log time).",
+        "Binary search: at mid, decide which half is sorted → search the half that can still contain target → return index or −1.",
+        "Sliding window from 0 to n−1 with no mid."
+      ],
+      "answer": "c",
+      "explanation": "Rotated sorted search still halves the space after checking which side is sorted.",
+      "reference": {
+        "url": "https://leetcode.com/problems/search-in-rotated-sorted-array"
+      },
+      "level": 3,
+      "passage": "LC 33 · Search in Rotated Sorted Array · Medium\n\nThere is an integer array nums sorted in ascending order (distinct values), then rotated at an unknown pivot.\n\nGiven the rotated array and an integer target, return the index of target if it is in nums, or −1 if it is not. Aim for O(log n).",
+      "solutionLanguage": "python",
+      "solution": "def search(nums, target):\n    lo, hi = 0, len(nums) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if nums[mid] == target:\n            return mid\n        if nums[lo] <= nums[mid]:\n            if nums[lo] <= target < nums[mid]:\n                hi = mid - 1\n            else:\n                lo = mid + 1\n        else:\n            if nums[mid] < target <= nums[hi]:\n                lo = mid + 1\n            else:\n                hi = mid - 1\n    return -1"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Opposite-end two pointers comparing only first and last once.",
+        "Binary search: compare mid to the right (or left) bound → shrink toward the side that still holds the minimum → return nums[lo].",
+        "Prefix product; the min is the product.",
+        "Hash set; the min is the first inserted value."
+      ],
+      "answer": "b",
+      "explanation": "Finding the rotation boundary (the minimum) is binary search on a rotated sorted range.",
+      "reference": {
+        "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array"
+      },
+      "level": 2,
+      "passage": "LC 153 · Find Minimum in Rotated Sorted Array · Medium\n\nSuppose an array of length n sorted in ascending order is rotated between 1 and n times.\n\nGiven the rotated sorted array nums of unique elements, return the minimum element. Aim for O(log n).",
+      "solutionLanguage": "python",
+      "solution": "def findMin(nums):\n    lo, hi = 0, len(nums) - 1\n    while lo < hi:\n        mid = (lo + hi) // 2\n        if nums[mid] > nums[hi]:\n            lo = mid + 1\n        else:\n            hi = mid\n    return nums[lo]"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Prefix / running aggregate (Kadane): bestEndingHere = max(nums[i], bestEndingHere + nums[i]) → update globalBest → return globalBest.",
+        "Opposite ends only; ignore interior starts.",
+        "Binary search on the sum value without scanning the array.",
+        "Hash map of index→index; no running sum."
+      ],
+      "answer": "a",
+      "explanation": "Kadane keeps a running “best sum ending here” and a global best — one forward pass.",
+      "reference": {
+        "url": "https://leetcode.com/problems/maximum-subarray"
+      },
+      "level": 2,
+      "passage": "LC 53 · Maximum Subarray · Easy\n\nGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum, and return that sum.",
+      "solutionLanguage": "python",
+      "solution": "def maxSubArray(nums):\n    best = cur = nums[0]\n    for x in nums[1:]:\n        cur = max(x, cur + x)\n        best = max(best, cur)\n    return best"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sliding window that requires a fixed window length k given in the input.",
+        "Running aggregate: track minPriceSoFar → at each day profit = price − minPriceSoFar → track maxProfit → return maxProfit (or 0).",
+        "Binary search for the max price only; ignore the buy day.",
+        "Two write pointers compacting prices."
+      ],
+      "answer": "b",
+      "explanation": "One buy + one later sell = keep the lowest price seen so far and the best profit vs that low.",
+      "reference": {
+        "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+      },
+      "level": 1,
+      "passage": "LC 121 · Best Time to Buy and Sell Stock · Easy\n\nYou are given an array prices where prices[i] is the price of a given stock on the ith day.\n\nYou want to maximize profit by choosing one day to buy and a different day in the future to sell. Return the maximum profit. If no profit is possible, return 0.",
+      "solutionLanguage": "python",
+      "solution": "def maxProfit(prices):\n    min_price = prices[0]\n    best = 0\n    for price in prices[1:]:\n        best = max(best, price - min_price)\n        min_price = min(min_price, price)\n    return best"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash set of products; one lookup per index.",
+        "Opposite-end pointers swapping elements until the product appears.",
+        "Prefix products: left-product pass forward → right-product pass backward (or second pass) → answer[i] = left[i] × right[i] (no division).",
+        "Binary search for each index in a sorted copy."
+      ],
+      "answer": "c",
+      "explanation": "Each index needs the product of everything else — build it from a left prefix and a right prefix.",
+      "reference": {
+        "url": "https://leetcode.com/problems/product-of-array-except-self"
+      },
+      "level": 3,
+      "passage": "LC 238 · Product of Array Except Self · Medium\n\nGiven an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].\n\nThe product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer. Solve without using division.",
+      "solutionLanguage": "python",
+      "solution": "def productExceptSelf(nums):\n    n = len(nums)\n    answer = [1] * n\n    left = 1\n    for i in range(n):\n        answer[i] = left\n        left *= nums[i]\n    right = 1\n    for i in range(n - 1, -1, -1):\n        answer[i] *= right\n        right *= nums[i]\n    return answer"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Two pointers from both ends of nums1 only; ignore nums2.",
+        "Binary search for each nums2 value inside nums1’s unused slots.",
+        "Two pointers from the backs: fill nums1 from the end with the larger of nums1[i] and nums2[j] → finish any leftover nums2 → merged in place.",
+        "Hash map of value→count; rebuild nums1 from the map keys sorted."
+      ],
+      "answer": "c",
+      "explanation": "Merging two sorted arrays into a buffer at the end of nums1 is opposite-direction pointers from the tails.",
+      "reference": {
+        "url": "https://leetcode.com/problems/merge-sorted-array"
+      },
+      "level": 2,
+      "passage": "LC 88 · Merge Sorted Array · Easy\n\nYou are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n representing the number of elements in each.\n\nMerge nums2 into nums1 as one sorted array. nums1 has length m + n with trailing unused slots. Merge in-place into nums1.",
+      "solutionLanguage": "python",
+      "solution": "def merge(nums1, m, nums2, n):\n    i, j, k = m - 1, n - 1, m + n - 1\n    while j >= 0:\n        if i >= 0 and nums1[i] > nums2[j]:\n            nums1[k] = nums1[i]\n            i -= 1\n        else:\n            nums1[k] = nums2[j]\n            j -= 1\n        k -= 1"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Three-way partition (Dutch flag): lo for next 0, mid scan, hi for next 2 → swap 0s left and 2s right as mid walks → 1s land in the middle.",
+        "Sliding window of colors of length 3 only.",
+        "Binary search each color into a new array.",
+        "Hash map color→count only; never write back (violates in-place sort)."
+      ],
+      "answer": "a",
+      "explanation": "Three values in place is the Dutch-flag read/write partition (two boundaries + a scan).",
+      "reference": {
+        "url": "https://leetcode.com/problems/sort-colors"
+      },
+      "level": 3,
+      "passage": "LC 75 · Sort Colors · Medium\n\nGiven an array nums with n objects colored red, white, or blue, sort them in-place so objects of the same color are adjacent in the order red, white, blue.\n\nUse integers 0, 1, and 2 for red, white, and blue. Solve without the library sort.",
+      "solutionLanguage": "python",
+      "solution": "def sortColors(nums):\n    lo = mid = 0\n    hi = len(nums) - 1\n    while mid <= hi:\n        if nums[mid] == 0:\n            nums[lo], nums[mid] = nums[mid], nums[lo]\n            lo += 1\n            mid += 1\n        elif nums[mid] == 1:\n            mid += 1\n        else:\n            nums[mid], nums[hi] = nums[hi], nums[mid]\n            hi -= 1"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash set: walk once → if value already seen return true → else insert.",
+        "Opposite ends on an unsorted array looking for a zero sum pair only.",
+        "Binary search for target without a map of complements.",
+        "Sliding window of fixed length 2 for every possible pair."
+      ],
+      "answer": "a",
+      "explanation": "Same skeleton as Contains Duplicate: one pass, set membership. Warm-up to lock the hash pattern.",
+      "level": 1,
+      "passage": "Warm-up · Seen before?\n\nGiven an integer array nums, decide whether any value has already appeared earlier in the array while you scan left to right.\n\nReturn true on the first repeat; otherwise false after one full pass.",
+      "solutionLanguage": "python",
+      "solution": "def hasSeenBefore(nums):\n    seen = set()\n    for x in nums:\n        if x in seen:\n            return True\n        seen.add(x)\n    return False"
+    }
+  ]
+}

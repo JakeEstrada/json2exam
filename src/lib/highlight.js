@@ -26,6 +26,9 @@ export function detectLanguage(source) {
   if (!s) return 'javascript';
   if (/^\s*</.test(s) || /<\/[a-zA-Z]/.test(s) || /<!DOCTYPE/i.test(s)) return 'html';
   if (/@(media|import|keyframes|supports)\b/.test(s)) return 'css';
+  if (/\bdef\s+[A-Za-z_]/.test(s) || /\bself\b/.test(s) || /\bNone\b|\bTrue\b|\bFalse\b/.test(s)) {
+    return 'python';
+  }
   const cssy = /[{][^}]*:[^}]*[}]/.test(s) || /^[.#a-zA-Z][\w.#:[\]()-]*\s*\{/.test(s);
   const jsy = /\b(function|const|let|var|return|=>)\b/.test(s);
   if (cssy && !jsy) return 'css';
@@ -36,6 +39,7 @@ export function highlightCode(source, language) {
   const lang = String(language || detectLanguage(source)).toLowerCase();
   if (lang === 'html' || lang === 'markup' || lang === 'xml') return highlightHtml(source);
   if (lang === 'css') return highlightCss(source);
+  if (lang === 'python' || lang === 'py') return highlightPython(source);
   return highlightJs(source);
 }
 
@@ -133,6 +137,39 @@ export function highlightJs(source) {
     else if (m[3] || m[4] || m[5]) out += wrap('j-str', m[0]);
     else if (m[6]) out += wrap('j-num', m[0]);
     else if (m[7]) out += wrap(KW.has(m[7]) ? 'j-kw' : '', m[0]);
+    else out += wrap('j-p', m[0]);
+    last = m.index + m[0].length;
+  }
+  return out + escapeHtml(src.slice(last));
+}
+
+const PY_KW = new Set((
+  'False None True and as assert async await break class continue def del elif else'
+  + ' except finally for from global if import in is lambda nonlocal not or pass raise'
+  + ' return try while with yield'
+).split(' '));
+
+export function highlightPython(source) {
+  const src = String(source || '');
+  const re = new RegExp(
+    "(#[^\\n]*)|"
+    + "('''[\\s\\S]*?'''|\"\"\"[\\s\\S]*?\"\"\")|"
+    + "('(?:\\\\.|[^'\\\\])*')|"
+    + "(\"(?:\\\\.|[^\"\\\\])*\")|"
+    + "\\b(\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?)\\b|"
+    + "\\b([A-Za-z_][\\w]*)\\b|"
+    + "([+\\-*/%@<>!=]=?|\\/\\/|\\*\\*|:=|[(){}\\[\\],.:])",
+    'g'
+  );
+  let out = '';
+  let last = 0;
+  let m;
+  while ((m = re.exec(src))) {
+    out += escapeHtml(src.slice(last, m.index));
+    if (m[1] || m[2]) out += wrap('j-cmt', m[0]);
+    else if (m[3] || m[4]) out += wrap('j-str', m[0]);
+    else if (m[5]) out += wrap('j-num', m[0]);
+    else if (m[6]) out += wrap(PY_KW.has(m[6]) ? 'j-kw' : '', m[0]);
     else out += wrap('j-p', m[0]);
     last = m.index + m[0].length;
   }

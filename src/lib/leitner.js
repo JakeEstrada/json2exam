@@ -2,11 +2,21 @@
 
 export function boxOf(boxes, q) { return boxes[q.id] || 1; }
 
-export function pickNext(questions, boxes, maxBox, lastId) {
+export function pickNext(questions, boxes, maxBox, lastId, opts) {
+  const mode = String((opts && opts.mode) || 'level');
   const pool = questions.filter((q) => boxOf(boxes, q) < maxBox);
   if (!pool.length) return null;
   const lowest = Math.min.apply(null, pool.map((q) => boxOf(boxes, q)));
   let tier = pool.filter((q) => boxOf(boxes, q) === lowest);
+
+  if (mode === 'random') {
+    if (tier.length > 1 && lastId) {
+      const fresh = tier.filter((q) => q.id !== lastId);
+      if (fresh.length) tier = fresh;
+    }
+    return tier[Math.floor(Math.random() * tier.length)];
+  }
+
   const leveled = questions.some((q) => (q.level || 1) > 1);
   if (leveled) {
     const minLevel = Math.min.apply(null, tier.map((q) => q.level || 1));

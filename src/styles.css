@@ -613,16 +613,44 @@
     margin-bottom: 4px;
   }
   .course-card.is-later {
-    opacity: 0.72;
+    opacity: 0.55;
+    filter: grayscale(0.35);
     min-height: 0;
     padding: 16px 16px 14px;
+    background: color-mix(in srgb, var(--card) 85%, var(--ink-faint));
   }
   .course-card.is-later strong {
     font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .course-card.is-later p {
+    color: var(--ink-faint);
+  }
+  .course-card.is-locked .go {
+    opacity: 0.85;
+  }
+  button.course-card.is-later:hover {
+    border-color: var(--card-edge);
+  }
+  button.course-card.is-locked:not(.is-done):hover {
+    border-color: var(--accent);
   }
   .course-card.is-ramp .go,
   .course-card.is-later .go {
     margin-top: auto;
+  }
+
+  .module-block.is-locked > .module-head {
+    opacity: 0.6;
+    filter: grayscale(0.3);
+  }
+  .module-block.is-locked > .module-head:hover h3 {
+    color: var(--ink-soft);
+  }
+  .locked-note {
+    margin: 8px 2px 16px;
+    font-size: 14px;
+    color: var(--ink-soft);
   }
 
   .resource-list {
@@ -1562,6 +1590,36 @@
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--ink-faint);
+  }
+  .problem-passage {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    max-width: none;
+    overflow: visible;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    border-radius: var(--radius);
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .solution-code {
+    margin: 12px 0 4px;
+  }
+  .solution-code .code-label {
+    margin: 0 0 8px;
+  }
+  .solution-code .code-view {
+    overflow-x: auto;
+  }
+  .solution-code .ide-code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   .code-view {
     margin: 0 0 12px;

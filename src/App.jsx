@@ -158,7 +158,7 @@ export default function App() {
   logRef.current = log;
 
   const deal = useCallback((qz, bx, cfg) => {
-    const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current);
+    const next = pickNext(qz.questions, bx, cfg.maxBox, lastIdRef.current, { mode: qz.deal || 'level' });
     if (!next) { setCurrent(null); setSidePane(null); setScreen('done'); return; }
     lastIdRef.current = next.id;
     const opts = Array.isArray(next.options) ? next.options : [];
@@ -550,6 +550,7 @@ export default function App() {
         <Loader
           onStart={startFresh}
           onOpenCourse={openCourse}
+          onSignIn={() => setLoginOpen(true)}
           resumePrompt={resumePrompt}
           onResume={resumeNow}
           onForget={saved ? forgetSaved : null}
@@ -569,7 +570,9 @@ export default function App() {
         <Course
           course={course}
           onStart={startDeck}
+          onSignIn={() => setLoginOpen(true)}
           log={owner ? log : null}
+          signedIn={!!(owner && owner.token)}
         />
         {loginUi}
       </div>

@@ -106,11 +106,18 @@ Path: visualize arrays/stacks/queues/lists → trees → BST → heaps → hashi
 
 ---
 
-## 6. LeetCode-style problem solving — planned
+## 6. LeetCode-style problem solving — Arrays ready; other topics planned
 
 **Course:** `leetcode/`. **Books:** Cracking the Coding Interview by Gayle Laakmann McDowell (4th edition on disk); Elements of Programming Interviews (sampler on disk); plus Grokking and the Common-Sense Guide.
 
-Use `leetcode/problem-format/*` as the template for every problem (statement, examples, constraints, starter, tests, hints, complexity). Filters stay empty until there is a library. Practical work: one array/hash problem, one two-pointer, one tree, each with hidden tests once the runner supports them.
+Modules are topics (arrays, strings/hash, linked lists, trees, graphs, DP). Goal: muscle memory of pattern skeletons, then recognition on curated problems from `leetcode_dataset - lc.csv`. Answers are high-level step outlines, not full implementations.
+
+| # | Module | Status | What you practice |
+| --- | --- | --- | --- |
+| 1 | `leetcode/arrays` **ready** | Skeletons then apply | Hash map, two pointers, sliding window, binary search, prefix/Kadane on classic Array problems |
+| 2–6 | strings-and-hash, linked-lists, trees, graphs, dynamic-programming | planned | Same card shape once Arrays feels right |
+
+Practical work: finish Arrays pattern recognition before coding full solutions elsewhere.
 
 ---
 

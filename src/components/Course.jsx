@@ -8,7 +8,7 @@ function isReady(deck) {
   return !!(deck && deck.data && Array.isArray(deck.data.questions) && deck.data.questions.length);
 }
 
-function moduleBlurb(mod) {
+function moduleBlurb(mod, signedIn) {
   const decks = (mod && mod.decks) || [];
   const questions = decks.reduce(
     (n, deck) => n + ((deck.data && deck.data.questions && deck.data.questions.length) || 0),
@@ -17,7 +17,9 @@ function moduleBlurb(mod) {
   const n = decks.length;
   const ready = decks.filter(isReady).length;
   const chapters = n + ' topic' + (n === 1 ? '' : 's');
-  if (!ready) return chapters + ' · coming next';
+  if (!ready) {
+    return signedIn ? chapters + ' · coming next' : 'Sign in to browse';
+  }
   const qLabel = questions + ' question' + (questions === 1 ? '' : 's');
   return ready + ' of ' + n + ' · ' + qLabel;
 }
@@ -76,13 +78,14 @@ export function deckLaunchExtra(deck, course) {
   return startExtra(deck, course);
 }
 
-function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress, showProgress }) {
+function DeckCard({ deck, onStart, onPreview, onSignIn, step, ramp, course, progress, showProgress, signedIn }) {
   const count = deck.data && Array.isArray(deck.data.questions)
     ? deck.data.questions.length
     : 0;
   const coming = !!(deck.comingSoon || !count);
+  const locked = coming && !signedIn;
   const files = [];
-  if (!ramp) {
+  if (!ramp && !coming) {
     if (deck.notesFile && deck.notes) {
       files.push({
         key: 'notes',
@@ -121,14 +124,14 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress, show
   const done = !!(showProgress && deckDone(progress));
 
   return (
-    <div className={'course-card sheet' + (coming ? ' is-later' : '') + (ramp ? ' is-ramp' : '') + (showProgress && !coming ? ' has-ring' : '') + (done ? ' is-done' : '')}>
+    <div className={'course-card sheet' + (coming ? ' is-later is-locked' : '') + (ramp ? ' is-ramp' : '') + (showProgress && !coming ? ' has-ring' : '') + (done ? ' is-done' : '')}>
       <div className="course-card-copy">
         {step ? <span className="kicker">Step {step}</span> : null}
         <strong>{deck.label}</strong>
         {deck.subtitle && !ramp && !coming ? <span className="subtitle">{deck.subtitle}</span> : null}
         <p>
           {coming
-            ? 'Coming next'
+            ? (signedIn ? 'Coming next' : 'Sign in to browse')
             : (done
               ? 'Completed'
               : (showProgress && seen
@@ -171,6 +174,11 @@ function DeckCard({ deck, onStart, onPreview, step, ramp, course, progress, show
           {done ? 'Review' : (ramp ? 'Learn' : 'Start this deck')}
         </button>
       )}
+      {locked && (
+        <button type="button" className="go" onClick={() => onSignIn && onSignIn()}>
+          Sign in
+        </button>
+      )}
     </div>
   );
 }
@@ -205,7 +213,7 @@ function Resources({ books, onPreview }) {
   );
 }
 
-function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log, showProgress }) {
+function DeckGrid({ decks, onStart, onPreview, onSignIn, ramp, numbered, course, log, showProgress, signedIn }) {
   return (
     <ul className="start-grid deck-grid">
       {decks.map((deck, i) => (
@@ -214,11 +222,13 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log, show
             deck={deck}
             onStart={onStart}
             onPreview={onPreview}
+            onSignIn={onSignIn}
             step={numbered ? i + 1 : 0}
             ramp={ramp}
             course={course}
             progress={showProgress && log && log.decks ? log.decks[deck.id] : null}
             showProgress={showProgress}
+            signedIn={signedIn}
           />
         </li>
       ))}
@@ -226,7 +236,7 @@ function DeckGrid({ decks, onStart, onPreview, ramp, numbered, course, log, show
   );
 }
 
-export default function Course({ course, onStart, log }) {
+export default function Course({ course, onStart, onSignIn, log, signedIn }) {
   const [preview, setPreview] = useState(null);
   const showProgress = !!log;
   const modules = Array.isArray(course.modules) && course.modules.length
@@ -237,7 +247,7 @@ export default function Course({ course, onStart, log }) {
   const rampCourse = course.id === 'js' || course.id === 'ts' || course.id === 'html' || course.id === 'css';
   const [openIds, setOpenIds] = useState(() => {
     const first = modules.find((mod) => mod.label && (mod.decks || []).some(isReady));
-    const fallback = modules.find((mod) => mod.label);
+    const fallback = signedIn ? modules.find((mod) => mod.label) : null;
     const pick = first || fallback;
     return pick ? { [pick.id]: true } : {};
   });
@@ -265,10 +275,13 @@ export default function Course({ course, onStart, log }) {
             const ramp = rampCourse && mod.label === 'Language';
             const ready = (mod.decks || []).filter(isReady);
             const later = (mod.decks || []).filter((d) => !isReady(d));
+            const emptyMod = ready.length === 0;
+            const lockedMod = emptyMod && !signedIn;
             const finished = showProgress && moduleDone(mod, log);
+            const showLater = signedIn || ready.length === 0;
             const body = (
               <>
-                {mod.overviewFile && (
+                {mod.overviewFile && !emptyMod && (
                   <div className="module-tools">
                     <button
                       type="button"
@@ -283,17 +296,32 @@ export default function Course({ course, onStart, log }) {
                     </button>
                   </div>
                 )}
-                <DeckGrid
-                  decks={ready.length ? ready : later}
-                  onStart={onStart}
-                  onPreview={setPreview}
-                  ramp={ramp}
-                  numbered={ramp && ready.length > 0}
-                  course={course}
-                  log={log}
-                  showProgress={showProgress}
-                />
-                {ready.length > 0 && later.length > 0 && (
+                {!lockedMod && (
+                  <DeckGrid
+                    decks={ready.length ? ready : (showLater ? later : [])}
+                    onStart={onStart}
+                    onPreview={setPreview}
+                    onSignIn={onSignIn}
+                    ramp={ramp}
+                    numbered={ramp && ready.length > 0}
+                    course={course}
+                    log={log}
+                    showProgress={showProgress}
+                    signedIn={signedIn}
+                  />
+                )}
+                {lockedMod && (
+                  <p className="locked-note">
+                    This module is not ready yet.
+                    {' '}
+                    <button type="button" className="text-link" onClick={() => onSignIn && onSignIn()}>
+                      Sign in
+                    </button>
+                    {' '}
+                    to browse the planned topics.
+                  </p>
+                )}
+                {ready.length > 0 && later.length > 0 && signedIn && (
                   <details className="later-topics">
                     <summary className="later-head">
                       Later topics
@@ -303,10 +331,12 @@ export default function Course({ course, onStart, log }) {
                       decks={later}
                       onStart={onStart}
                       onPreview={setPreview}
+                      onSignIn={onSignIn}
                       ramp={ramp}
                       course={course}
                       log={log}
                       showProgress={showProgress}
+                      signedIn={signedIn}
                     />
                   </details>
                 )}
@@ -315,7 +345,7 @@ export default function Course({ course, onStart, log }) {
 
             if (!mod.label) {
               return (
-                <section key={mod.id} className={'module-block' + (finished ? ' is-done' : '')}>
+                <section key={mod.id} className={'module-block' + (finished ? ' is-done' : '') + (emptyMod ? ' is-locked' : '')}>
                   {body}
                 </section>
               );
@@ -324,19 +354,23 @@ export default function Course({ course, onStart, log }) {
             return (
               <details
                 key={mod.id}
-                className={'module-block' + (finished ? ' is-done' : '')}
+                className={'module-block' + (finished ? ' is-done' : '') + (emptyMod ? ' is-locked' : '')}
                 open={!!openIds[mod.id]}
               >
                 <summary
                   className="module-head"
                   onClick={(e) => {
                     e.preventDefault();
+                    if (lockedMod) {
+                      if (onSignIn) onSignIn();
+                      return;
+                    }
                     setModuleOpen(mod.id, !openIds[mod.id]);
                   }}
                 >
                   <span className="module-caret" aria-hidden="true" />
                   <h3>{mod.label}</h3>
-                  <span className="module-meta">{moduleBlurb(mod)}</span>
+                  <span className="module-meta">{moduleBlurb(mod, signedIn)}</span>
                 </summary>
                 {body}
               </details>
