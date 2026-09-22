@@ -54,6 +54,7 @@ import slides544Scrum from '../../544-Mod-1/Scrum/Scrum.pdf?url';
 import { APPLIED_COURSES } from './appliedClassroom.js';
 import jsCheatsheet from '../../applied-classroom/javascript-cheatsheet.txt?raw';
 import tsCheatsheet from '../../applied-classroom/typescript-cheatsheet.txt?raw';
+import pyCheatsheet from '../../applied-classroom/python-cheatsheet.txt?raw';
 
 const lectureVideos = import.meta.glob('../../544-Mod-1/**/*.mp4', {
   query: '?url',
@@ -105,6 +106,7 @@ function booksIn(folder) {
 function courseSheet(course) {
   if (course && course.id === 'js') return jsCheatsheet;
   if (course && course.id === 'ts') return tsCheatsheet;
+  if (course && course.id === 'py') return pyCheatsheet;
   return '';
 }
 
@@ -130,6 +132,7 @@ function hydrateApplied(course) {
           tsIntro: course.id === 'ts' && mod.label === 'Language',
           htmlIntro: course.id === 'html' && mod.label === 'Language',
           cssIntro: course.id === 'css' && mod.label === 'Language',
+          pyIntro: course.id === 'py' && mod.label === 'Language',
           comingSoon: questions.length === 0,
           subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
         });

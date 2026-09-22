@@ -95,15 +95,39 @@ export const CSS_SHAPE = [
   'The **cascade** picks one value when several rules target the same property. Layout is boxes: content, padding, border, margin. This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
 ].join('\n');
 
+export const PY_SHAPE = [
+  '# What Python is',
+  '',
+  'Python is a **scripting language**. CPython reads your `.py` file and runs it. You do not compile and link the way you do in C++.',
+  '',
+  '**Indentation is syntax.** Blocks are nested by spaces (conventionally 4), not `{ }`. A counting loop looks like:',
+  '',
+  '```python',
+  'for i in range(n):',
+  '    print(i)',
+  '```',
+  '',
+  'not `for (let i = 0; i < n; i++) { ... }` with braces.',
+  '',
+  'Types live on **values**, not on the name. `x = 1` then `x = "hi"` is legal. Coming from C++ or JavaScript:',
+  '',
+  '- `True` / `False` / `None` are capitalized.',
+  '- Equality is `==`; identity is `is` (use `is` for `None`).',
+  '- Lists are mutable; tuples are not. Dicts and sets need hashable keys.',
+  '',
+  'This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
+].join('\n');
+
 function lessonShape(quiz) {
   if (quiz && quiz.tsIntro) return TS_SHAPE;
   if (quiz && quiz.htmlIntro) return HTML_SHAPE;
   if (quiz && quiz.cssIntro) return CSS_SHAPE;
+  if (quiz && quiz.pyIntro) return PY_SHAPE;
   return JS_SHAPE;
 }
 
 function hasShape(quiz) {
-  return !!(quiz && (quiz.jsIntro || quiz.tsIntro || quiz.htmlIntro || quiz.cssIntro));
+  return !!(quiz && (quiz.jsIntro || quiz.tsIntro || quiz.htmlIntro || quiz.cssIntro || quiz.pyIntro));
 }
 
 export function CheatsheetLookup({ source, topic, heading }) {
@@ -144,6 +168,7 @@ export function lessonAskNotes(quiz) {
   if (quiz && quiz.tsIntro) parts.push(TS_SHAPE);
   if (quiz && quiz.htmlIntro) parts.push(HTML_SHAPE);
   if (quiz && quiz.cssIntro) parts.push(CSS_SHAPE);
+  if (quiz && quiz.pyIntro) parts.push(PY_SHAPE);
   const rest = formatAskNotes(quiz);
   if (rest) parts.push(rest);
   return parts.join('\n\n');

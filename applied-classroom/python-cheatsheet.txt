@@ -1,0 +1,160 @@
+================================================================================
+PYTHON-CHEATSHEET.TXT
+================================================================================
+
+    NAME
+        python-cheatsheet.txt -- offline Python reference for Json2Exam
+
+    SYNOPSIS
+        grep -A 40 "^SECTION_NAME" python-cheatsheet.txt
+
+    DESCRIPTION
+        Flat plain-text reference for the Python language decks. Grep section
+        banners. Code is indented four spaces. No markdown fences.
+
+================================================================================
+VARIABLES AND TYPES
+================================================================================
+
+DESCRIPTION
+    Names bind with =. Types live on values. True / False / None are
+    capitalized. Convert with int(), float(), str(), bool().
+
+EXAMPLES
+    x = 1
+    x = "hi"
+    amount = int("40")
+    bool([])      # False
+    bool("0")     # True
+
+COMMON MISTAKES
+    Treating 0 as "missing" via truthiness when 0 is a real amount.
+    Comparing to None with == instead of is.
+
+================================================================================
+CONDITIONALS
+================================================================================
+
+DESCRIPTION
+    == for value, is for None. if / elif / else with colons and indentation.
+    and / or / not short-circuit and return an operand.
+
+EXAMPLES
+    if status == "paid":
+        total += amount
+    elif status == "pending":
+        waiting += 1
+    else:
+        skipped += 1
+
+    if x is None:
+        return
+
+COMMON MISTAKES
+    Using = instead of ==.
+    Relying on truthiness for amounts that can be 0.
+
+================================================================================
+LOOPS
+================================================================================
+
+DESCRIPTION
+    while and for with indented bodies. range(n) is 0 .. n-1. Prefer
+    for x in items over indexes when you only need values. break / continue.
+
+EXAMPLES
+    for i in range(n):
+        print(i)
+
+    for item in rows:
+        print(item)
+
+    for i, x in enumerate(rows):
+        print(i, x)
+
+COMMON MISTAKES
+    Writing ++i (use i += 1).
+    Mutating a list while iterating it.
+
+================================================================================
+FUNCTIONS
+================================================================================
+
+DESCRIPTION
+    def name(params): with indentation. Defaults and keyword args. Never use
+    a mutable default like xs=[]. Use None and build inside.
+
+EXAMPLES
+    def add(a, b):
+        return a + b
+
+    def greet(name, title="friend"):
+        return f"{title}: {name}"
+
+    def append_item(x, bucket=None):
+        if bucket is None:
+            bucket = []
+        bucket.append(x)
+        return bucket
+
+COMMON MISTAKES
+    Mutable default arguments.
+    Non-default parameter after a default parameter.
+
+================================================================================
+LISTS
+================================================================================
+
+DESCRIPTION
+    Ordered mutable sequences. Index, slice, append, extend, pop. Assignment
+    aliases; xs[:] copies the list shallowly.
+
+EXAMPLES
+    xs = [1, 2, 3]
+    xs[-1]
+    xs[1:3]
+    xs.append(4)
+    copy = xs[:]
+
+COMMON MISTAKES
+    Confusing append([1,2]) with extend([1,2]).
+    b = a then mutating b (aliases).
+
+================================================================================
+DICTS AND SETS
+================================================================================
+
+DESCRIPTION
+    Dicts map hashable keys to values. .get(key, default) for missing keys.
+    Sets hold unique hashables. Empty set is set(), not {}.
+
+EXAMPLES
+    d = {"a": 1}
+    d.get("z", 0)
+    for k, v in d.items():
+        print(k, v)
+
+    s = {1, 2, 3}
+    s.add(4)
+
+COMMON MISTAKES
+    Using {} for an empty set.
+    Using a list as a dict key.
+
+================================================================================
+COMPREHENSIONS
+================================================================================
+
+DESCRIPTION
+    [expr for x in it if cond] builds a list. {k: v for ...} a dict.
+    {x for ...} a set. (expr for ...) is a generator.
+
+EXAMPLES
+    squares = [n * n for n in nums]
+    positives = [n for n in nums if n > 0]
+    unique = {n for n in nums}
+    index = {name: i for i, name in enumerate(names)}
+
+COMMON MISTAKES
+    Side-effect-only comprehensions (use a for loop).
+    Nesting until unreadable.

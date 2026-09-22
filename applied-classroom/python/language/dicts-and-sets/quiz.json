@@ -1,0 +1,413 @@
+{
+  "title": "Python — Dicts and sets",
+  "questions": [
+    {
+      "question": "How do you write a dict literal with key a → 1?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[\"a\": 1]",
+        "{\"a\": 1}",
+        "dict<a,1>",
+        "(a=1)"
+      ],
+      "answer": "b",
+      "explanation": "Curly braces with key: value.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "d = {\"a\": 1, \"b\": 2}"
+    },
+    {
+      "question": "What is {} by itself?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Empty set",
+        "Empty dict",
+        "Empty list",
+        "Error"
+      ],
+      "answer": "b",
+      "explanation": "Empty set is set().",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "s = set()\nd = {}"
+    },
+    {
+      "question": "How do you read a key with a default?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "d[\"z\", 0]",
+        "d.get(\"z\", 0)",
+        "d.fetch(\"z\", 0)",
+        "d[\"z\"] ?? 0"
+      ],
+      "answer": "b",
+      "explanation": "get returns the default when missing.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "d.get(\"z\", 0)"
+    },
+    {
+      "question": "What does d[\"missing\"] do when the key is absent?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns None",
+        "Returns 0",
+        "Raises KeyError",
+        "Creates the key"
+      ],
+      "answer": "c",
+      "explanation": "Use get if absence is normal.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "d[\"missing\"]  # KeyError"
+    },
+    {
+      "question": "How do you iterate keys and values?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "for k, v in d:",
+        "for k, v in d.items():",
+        "for k, v of d",
+        "d.forEach"
+      ],
+      "answer": "b",
+      "explanation": "items() yields pairs.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "for k, v in d.items():\n    print(k, v)"
+    },
+    {
+      "question": "What does `2 in s` test on a set?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Index 2 exists",
+        "Membership of value 2",
+        "Length is 2",
+        "Hash of 2"
+      ],
+      "answer": "b",
+      "explanation": "in is membership.",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "2 in s"
+    },
+    {
+      "question": "Can a list be a dict key?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes",
+        "No; keys must be hashable",
+        "Only empty lists",
+        "Only with quotes"
+      ],
+      "answer": "b",
+      "explanation": "Use a tuple if you need a sequence key.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "d = {[1, 2]: 3}  # TypeError"
+    },
+    {
+      "question": "s.add(4) on a set…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns a new set",
+        "Mutates s in place",
+        "Errors",
+        "Inserts at index 4"
+      ],
+      "answer": "b",
+      "explanation": "Sets are mutable (frozenset is not).",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "s.add(4)"
+    },
+    {
+      "question": "dict from keys with default 0?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "dict.fromkeys([\"a\",\"b\"], 0)",
+        "dict.keys([\"a\",\"b\"], 0)",
+        "{[\"a\",\"b\"]: 0}",
+        "map(0)"
+      ],
+      "answer": "a",
+      "explanation": "fromkeys builds a dict.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "dict.fromkeys([\"a\", \"b\"], 0)"
+    },
+    {
+      "question": "Find the bug: if d[\"count\"]: when count may be missing.",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fine.",
+        "Missing key raises KeyError; use get.",
+        "count cannot be 0.",
+        "if on dict is illegal."
+      ],
+      "answer": "b",
+      "explanation": "get or membership check first.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "if d.get(\"count\"):\n    use(d[\"count\"])"
+    },
+    {
+      "question": "Union of sets s|t …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Intersection",
+        "New set with elements from either",
+        "Mutates s only",
+        "List concat"
+      ],
+      "answer": "b",
+      "explanation": "| is union; & intersection; - difference.",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "s | t"
+    },
+    {
+      "question": "Clear a dict in place?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "d = {}",
+        "d.clear()",
+        "del d only",
+        "d.reset()"
+      ],
+      "answer": "b",
+      "explanation": "clear mutates; rebinding replaces the name.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "d.clear()"
+    },
+    {
+      "question": "Are dicts ordered?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No, never.",
+        "Yes; insertion order is preserved (3.7+ language guarantee).",
+        "Only with OrderedDict forever required.",
+        "Sorted by key always."
+      ],
+      "answer": "b",
+      "explanation": "Insertion order is part of the language now.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "list({\"b\": 1, \"a\": 2})  # [\"b\", \"a\"]"
+    },
+    {
+      "question": "set([1,1,2]) yields…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[1,1,2]",
+        "{1, 2}",
+        "{1, 1, 2}",
+        "error"
+      ],
+      "answer": "b",
+      "explanation": "Duplicates collapse.",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "set([1, 1, 2])"
+    },
+    {
+      "question": "d.keys() in a for-loop…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Must call list() always",
+        "Is iterable directly",
+        "Returns ints",
+        "Is a set always"
+      ],
+      "answer": "b",
+      "explanation": "View is iterable.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      },
+      "code": "for k in d.keys():\n    print(k)"
+    },
+    {
+      "question": "Return Python: d = {\"a\": 1}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function dictLit() {\n  return \"\";\n}",
+      "solution": "function dictLit() {\n  return 'd = {\"a\": 1}';\n}",
+      "tests": [
+        {
+          "call": "dictLit()",
+          "expected": "d = {\"a\": 1}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      }
+    },
+    {
+      "question": "Return Python: n = d.get(\"z\", 0)",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function dictGet() {\n  return \"\";\n}",
+      "solution": "function dictGet() {\n  return 'n = d.get(\"z\", 0)';\n}",
+      "tests": [
+        {
+          "call": "dictGet()",
+          "expected": "n = d.get(\"z\", 0)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 129,
+        "excerpt": "dictionaries can store an almost limitless amount of"
+      }
+    },
+    {
+      "question": "Return Python: s = set()",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function emptySet() {\n  return \"\";\n}",
+      "solution": "function emptySet() {\n  return \"s = set()\";\n}",
+      "tests": [
+        {
+          "call": "emptySet()",
+          "expected": "s = set()"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Sets",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapter 6 — Dictionaries",
+      "page": 129,
+      "pageEnd": 150,
+      "sections": [
+        {
+          "heading": "Dicts",
+          "page": 129
+        },
+        {
+          "heading": "Coding tasks",
+          "page": 136
+        },
+        {
+          "heading": "Sets",
+          "page": 171
+        }
+      ]
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "chapter": "Dictionaries and Sets / mutable defaults",
+      "page": 144,
+      "pageEnd": 378,
+      "sections": [
+        {
+          "heading": "Sets",
+          "page": 171
+        },
+        {
+          "heading": "Dict and set",
+          "page": 171
+        },
+        {
+          "heading": "Mutable default trap",
+          "page": 378
+        }
+      ]
+    }
+  ]
+}

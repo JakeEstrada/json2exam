@@ -67,6 +67,7 @@ function startExtra(deck, course) {
     tsIntro: deck.tsIntro,
     htmlIntro: deck.htmlIntro,
     cssIntro: deck.cssIntro,
+    pyIntro: deck.pyIntro,
     courseId: course && course.id,
     courseTitle: course && course.title,
     deckId: deck.id,

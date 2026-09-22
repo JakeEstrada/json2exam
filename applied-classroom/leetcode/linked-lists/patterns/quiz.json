@@ -1,0 +1,234 @@
+{
+  "title": "LeetCode — Linked lists pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Reverse pointers: prev=None; while curr save next, curr.next=prev, advance; return prev.",
+        "Sliding window of three nodes only once.",
+        "Hash map index→node then rebuild (required).",
+        "Fast/slow until fast is None then stop without reversing."
+      ],
+      "answer": "a",
+      "explanation": "Classic in-place reverse.",
+      "reference": {
+        "url": "https://leetcode.com/problems/reverse-linked-list"
+      },
+      "level": 1,
+      "passage": "LC 206 · Reverse Linked List · Easy\n\nGiven the `head` of a singly linked list, reverse the list, and return the reversed list.",
+      "solutionLanguage": "python",
+      "solution": "def reverseList(head):\n    prev = None\n    curr = head\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    return prev\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Dummy head: walk both lists linking the smaller node; attach the remainder; return dummy.next.",
+        "Reverse both lists first always.",
+        "Stack both lists fully before linking.",
+        "Binary search for the next node."
+      ],
+      "answer": "a",
+      "explanation": "Sorted merge with a dummy keeps edge cases simple.",
+      "reference": {
+        "url": "https://leetcode.com/problems/merge-two-sorted-lists"
+      },
+      "level": 1,
+      "passage": "LC 21 · Merge Two Sorted Lists · Easy\n\nMerge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
+      "solutionLanguage": "python",
+      "solution": "def mergeTwoLists(list1, list2):\n    dummy = ListNode(0)\n    tail = dummy\n    while list1 and list2:\n        if list1.val <= list2.val:\n            tail.next, list1 = list1, list1.next\n        else:\n            tail.next, list2 = list2, list2.next\n        tail = tail.next\n    tail.next = list1 or list2\n    return dummy.next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Fast/slow: if fast meets slow there is a cycle; if fast hits None there is not.",
+        "Hash every value (values may repeat without a cycle).",
+        "Reverse the list and see if head returns.",
+        "Sliding window of length 2 on values."
+      ],
+      "answer": "a",
+      "explanation": "Cycle detection is Floyd’s fast/slow pointers.",
+      "reference": {
+        "url": "https://leetcode.com/problems/linked-list-cycle"
+      },
+      "level": 1,
+      "passage": "LC 141 · Linked List Cycle · Easy\n\nGiven `head`, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to. Note that `pos` is not passed as a parameter. Return `true` if there is a cycle in the linked list. Otherwise, return `false`.",
+      "solutionLanguage": "python",
+      "solution": "def hasCycle(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow is fast:\n            return True\n    return False\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Dummy + gap: advance fast n steps; move both until fast ends; unlink slow.next.",
+        "Count length in one pass then ignore the second pass idea.",
+        "Stack of all nodes required.",
+        "Reverse, drop head, reverse back only plan."
+      ],
+      "answer": "a",
+      "explanation": "nth-from-end = maintain a gap of n between two pointers.",
+      "reference": {
+        "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list"
+      },
+      "level": 2,
+      "passage": "LC 19 · Remove Nth Node From End of List · Medium\n\nGiven the `head` of a linked list, remove the `nth` node from the end of the list and return its head. Follow up: Could you do this in one pass?",
+      "solutionLanguage": "python",
+      "solution": "def removeNthFromEnd(head, n):\n    dummy = ListNode(0, head)\n    fast = slow = dummy\n    for _ in range(n):\n        fast = fast.next\n    while fast.next:\n        fast = fast.next\n        slow = slow.next\n    slow.next = slow.next.next\n    return dummy.next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Dummy head: add digit-by-digit with carry while either list or carry remains.",
+        "Convert both lists to integers then add (breaks on huge inputs).",
+        "Fast/slow on digits.",
+        "Stack only without reconstructing the list."
+      ],
+      "answer": "a",
+      "explanation": "Digit lists add like grade-school addition with a carry.",
+      "reference": {
+        "url": "https://leetcode.com/problems/add-two-numbers"
+      },
+      "level": 2,
+      "passage": "LC 2 · Add Two Numbers · Medium\n\nYou are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+      "solutionLanguage": "python",
+      "solution": "def addTwoNumbers(l1, l2):\n    dummy = ListNode(0)\n    tail = dummy\n    carry = 0\n    while l1 or l2 or carry:\n        v = carry\n        if l1:\n            v += l1.val\n            l1 = l1.next\n        if l2:\n            v += l2.val\n            l2 = l2.next\n        carry, v = divmod(v, 10)\n        tail.next = ListNode(v)\n        tail = tail.next\n    return dummy.next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Find middle (slow/fast); reverse second half; compare halves; optionally restore.",
+        "Copy all values to an array only (as the only allowed plan).",
+        "Hash map of index→value without two pointers.",
+        "Sliding window of length 2 on nodes."
+      ],
+      "answer": "a",
+      "explanation": "Palindrome list = mid + reverse + compare.",
+      "reference": {
+        "url": "https://leetcode.com/problems/palindrome-linked-list"
+      },
+      "level": 2,
+      "passage": "LC 234 · Palindrome Linked List · Easy\n\nGiven the `head` of a singly linked list, return `true` if it is a palindrome.",
+      "solutionLanguage": "python",
+      "solution": "def isPalindrome(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    prev = None\n    while slow:\n        nxt = slow.next\n        slow.next = prev\n        prev = slow\n        slow = nxt\n    left, right = head, prev\n    while right:\n        if left.val != right.val:\n            return False\n        left = left.next\n        right = right.next\n    return True\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Split at mid; reverse second half; weave nodes from both halves.",
+        "Sort values then rebuild.",
+        "Stack of all nodes without reversing half.",
+        "Binary search for positions."
+      ],
+      "answer": "a",
+      "explanation": "Reorder = mid + reverse + merge alternate.",
+      "reference": {
+        "url": "https://leetcode.com/problems/reorder-list"
+      },
+      "level": 2,
+      "passage": "LC 143 · Reorder List · Medium\n\nYou are given the head of a singly linked-list. The list can be represented as: L0 → L1 → ... → Ln - 1 → Ln Reorder the list to be on the following form: L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → ... You may not modify the values in the list's nodes. Only nodes themselves may be changed.",
+      "solutionLanguage": "python",
+      "solution": "def reorderList(head):\n    if not head or not head.next:\n        return\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    prev, curr = None, slow.next\n    slow.next = None\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    a, b = head, prev\n    while b:\n        a_next, b_next = a.next, b.next\n        a.next = b\n        b.next = a_next\n        a, b = a_next, b_next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Two pointers: when a pointer hits None, jump to the other list’s head; meeting point is the intersection.",
+        "Hash every value (values can collide).",
+        "Reverse both lists.",
+        "Sliding window across both lists."
+      ],
+      "answer": "a",
+      "explanation": "Equalizing path lengths with pointer jumps finds the shared node.",
+      "reference": {
+        "url": "https://leetcode.com/problems/intersection-of-two-linked-lists"
+      },
+      "level": 2,
+      "passage": "LC 160 · Intersection of Two Linked Lists · Easy\n\nGiven the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return `null`. For example, the following two linked lists begin to intersect at node `c1`: It is guaranteed that there are no cycles anywhere in the entire linked structure. Note that the linked lists must retain their original structure after the function returns.",
+      "solutionLanguage": "python",
+      "solution": "def getIntersectionNode(headA, headB):\n    a, b = headA, headB\n    while a is not b:\n        a = a.next if a else headB\n        b = b.next if b else headA\n    return a\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Dummy head: repeatedly rewire pairs (a,b) so b→a→rest; advance.",
+        "Swap values only (structure unchanged — wrong for “swap nodes”).",
+        "Fast/slow until end then swap once.",
+        "Stack of pairs only."
+      ],
+      "answer": "a",
+      "explanation": "Pairwise swap is pointer surgery with a dummy.",
+      "reference": {
+        "url": "https://leetcode.com/problems/swap-nodes-in-pairs"
+      },
+      "level": 2,
+      "passage": "LC 24 · Swap Nodes in Pairs · Medium\n\nGiven a linked list, swap every two adjacent nodes and return its head.",
+      "solutionLanguage": "python",
+      "solution": "def swapPairs(head):\n    dummy = ListNode(0, head)\n    prev = dummy\n    while prev.next and prev.next.next:\n        a = prev.next\n        b = a.next\n        prev.next, a.next, b.next = b, b.next, a\n        prev = a\n    return dummy.next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map old→new: first pass clone nodes; second pass wire next/random.",
+        "Sliding window on random pointers.",
+        "Fast/slow to find the copy.",
+        "Sort nodes by value."
+      ],
+      "answer": "a",
+      "explanation": "Random pointers need an old→new map (or interleave clones).",
+      "reference": {
+        "url": "https://leetcode.com/problems/copy-list-with-random-pointer"
+      },
+      "level": 2,
+      "passage": "LC 138 · Copy List with Random Pointer · Medium\n\nA linked list of length `n` is given such that each node contains an additional random pointer, which could point to any node in the list, or `null`. Construct a deep copy of the list. The deep copy should consist of exactly `n` brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the `next` and `random` pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list…",
+      "solutionLanguage": "python",
+      "solution": "def copyRandomList(head):\n    if not head:\n        return None\n    clones = {}\n    curr = head\n    while curr:\n        clones[curr] = Node(curr.val)\n        curr = curr.next\n    curr = head\n    while curr:\n        clones[curr].next = clones.get(curr.next)\n        clones[curr].random = clones.get(curr.random)\n        curr = curr.next\n    return clones[head]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Min-heap of current heads (or divide-and-conquer merge pairs) until one list remains.",
+        "Concatenate then sort values only as the main plan.",
+        "Fast/slow across k lists without a heap.",
+        "Sliding window of size k on values."
+      ],
+      "answer": "a",
+      "explanation": "k-way merge uses a heap (or pairwise merge).",
+      "reference": {
+        "url": "https://leetcode.com/problems/merge-k-sorted-lists"
+      },
+      "level": 3,
+      "passage": "LC 23 · Merge k Sorted Lists · Hard\n\nYou are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.",
+      "solutionLanguage": "python",
+      "solution": "import heapq\ndef mergeKLists(lists):\n    heap = []\n    for i, node in enumerate(lists):\n        if node:\n            heapq.heappush(heap, (node.val, i, node))\n    dummy = ListNode(0)\n    tail = dummy\n    while heap:\n        val, i, node = heapq.heappop(heap)\n        tail.next = node\n        tail = tail.next\n        if node.next:\n            heapq.heappush(heap, (node.next.val, i, node.next))\n    return dummy.next\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash key→node plus doubly linked list: get/put move node to front; evict from back when over capacity.",
+        "Array scan for LRU each time (as the O(1) plan).",
+        "Single stack of keys.",
+        "Binary search tree of timestamps only."
+      ],
+      "answer": "a",
+      "explanation": "LRU is ordered dict / hash + DLL for O(1) updates.",
+      "reference": {
+        "url": "https://leetcode.com/problems/lru-cache"
+      },
+      "level": 3,
+      "passage": "LC 146 · LRU Cache · Medium\n\nDesign a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the `LRUCache` class: `LRUCache(int capacity)` Initialize the LRU cache with positive size `capacity`. `int get(int key)` Return the value of the `key` if the key exists, otherwise return `-1`. `void put(int key, int value)` Update the value of the `key` if the `key` exists. Otherwise, add the `key-value` pair to the cache. If the number of keys exceeds the `capacity` from this operation, evict the least…",
+      "solutionLanguage": "python",
+      "solution": "class Node:\n    def __init__(self, key=0, val=0):\n        self.key, self.val = key, val\n        self.prev = self.next = None\nclass LRUCache:\n    def __init__(self, capacity):\n        self.cap = capacity\n        self.map = {}\n        self.head, self.tail = Node(), Node()\n        self.head.next, self.tail.prev = self.tail, self.head\n    def _add(self, node):\n        node.prev, node.next = self.head, self.head.next\n        self.head.next.prev = node\n        self.head.next = node\n    def _remove(self, node):\n        node.prev.next = node.next\n        node.next.prev = node.prev\n    def get(self, key):\n        if key not in self.map:\n            return -1\n        node = self.map[key]\n        self._remove(node)\n        self._add(node)\n        return node.val\n    def put(self, key, value):\n        if key in self.map:\n            self._remove(self.map[key])\n        node = Node(key, value)\n        self.map[key] = node\n        self._add(node)\n        if len(self.map) > self.cap:\n            lru = self.tail.prev\n            self._remove(lru)\n            del self.map[lru.key]\n"
+    }
+  ]
+}

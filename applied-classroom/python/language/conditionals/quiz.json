@@ -1,0 +1,393 @@
+{
+  "title": "Python — Conditionals",
+  "questions": [
+    {
+      "question": "How do you test equality of values?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "x = 3",
+        "x == 3",
+        "x === 3",
+        "x eq 3"
+      ],
+      "answer": "b",
+      "explanation": "== compares values. = assigns.",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      },
+      "code": "x == 3"
+    },
+    {
+      "question": "How should you check for None?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "x == None only",
+        "x is None",
+        "x === null",
+        "not x always"
+      ],
+      "answer": "b",
+      "explanation": "PEP 8: use is for None.",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      },
+      "code": "if x is None:\n    return"
+    },
+    {
+      "question": "What ends an if header?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "{",
+        ":",
+        "then",
+        "end"
+      ],
+      "answer": "b",
+      "explanation": "A colon, then an indented block.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "if ok:\n    print(\"yes\")"
+    },
+    {
+      "question": "Which keyword is the else-if branch?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "elseif",
+        "elif",
+        "else if",
+        "elsif"
+      ],
+      "answer": "b",
+      "explanation": "Python uses elif.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "elif status == \"pending\":\n    waiting += 1"
+    },
+    {
+      "question": "What is wrong with if x = 1:?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Nothing.",
+        "Assignment is not allowed in that form; use == for comparison.",
+        "Must use := only.",
+        "Must use let."
+      ],
+      "answer": "b",
+      "explanation": "Classic mistake: = vs ==. (Walrus := exists but is different.)",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      },
+      "code": "if x == 1:\n    pass"
+    },
+    {
+      "question": "What does `a and b` return when a is falsy?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "True",
+        "False",
+        "a (the falsy operand)",
+        "b always"
+      ],
+      "answer": "c",
+      "explanation": "and returns the deciding operand.",
+      "reference": {
+        "section": "Boolean operators",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "0 and 5  # 0"
+    },
+    {
+      "question": "What does `not []` evaluate to?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[]",
+        "True",
+        "False",
+        "None"
+      ],
+      "answer": "b",
+      "explanation": "Empty list is falsy, so not [] is True.",
+      "reference": {
+        "section": "Boolean operators",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "not []"
+    },
+    {
+      "question": "Which branch runs when no if/elif matched?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "elif",
+        "else",
+        "finally",
+        "default"
+      ],
+      "answer": "b",
+      "explanation": "else is the leftover branch.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "else:\n    skipped += 1"
+    },
+    {
+      "question": "Find the bug: if amount: charge() when amount can be 0.",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "0 is truthy so it always charges.",
+        "0 is falsy so a real zero amount is skipped.",
+        "if amount is illegal.",
+        "charge requires None."
+      ],
+      "answer": "b",
+      "explanation": "Use an explicit comparison when 0 is valid.",
+      "reference": {
+        "section": "Boolean operators",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "amount = 0\nif amount:\n    charge()"
+    },
+    {
+      "question": "Which is a valid chained comparison?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "0 < x < 10",
+        "0 < x && x < 10 only",
+        "0 < x < 10 is illegal",
+        "(0 < x) < 10 means something else always"
+      ],
+      "answer": "a",
+      "explanation": "Python allows chained comparisons.",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      },
+      "code": "if 0 < x < 10:\n    print(\"in range\")"
+    },
+    {
+      "question": "What does `or` return when the first operand is truthy?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "False",
+        "True always as bool",
+        "The first operand",
+        "The second operand"
+      ],
+      "answer": "c",
+      "explanation": "or returns the first truthy operand.",
+      "reference": {
+        "section": "Boolean operators",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "\"paid\" or \"pending\"  # \"paid\""
+    },
+    {
+      "question": "Indentation under if must be…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Optional tabs mixed freely with spaces in one block.",
+        "Consistent; spaces preferred (4).",
+        "Braces instead.",
+        "Semicolons."
+      ],
+      "answer": "b",
+      "explanation": "Indentation defines the block.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "if ok:\n    print(\"yes\")"
+    },
+    {
+      "question": "Which checks that x is not None?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "x is not None",
+        "x != null",
+        "x !== None",
+        "x not"
+      ],
+      "answer": "a",
+      "explanation": "is not None.",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      },
+      "code": "if x is not None:\n    use(x)"
+    },
+    {
+      "question": "Can elif appear after else?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes always.",
+        "No; else ends the chain.",
+        "Only with switch.",
+        "Only in a loop."
+      ],
+      "answer": "b",
+      "explanation": "Order is if, zero or more elif, optional else last.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "if a:\n    ...\nelif b:\n    ...\nelse:\n    ..."
+    },
+    {
+      "question": "What is the ternary form?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "cond ? a : b",
+        "a if cond else b",
+        "if cond then a else b",
+        "cond and a or b only"
+      ],
+      "answer": "b",
+      "explanation": "Expression: a if cond else b.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      },
+      "code": "label = \"paid\" if ok else \"due\""
+    },
+    {
+      "question": "Return Python: if status == \"paid\": total += amount",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function paidBranch() {\n  return \"\";\n}",
+      "solution": "function paidBranch() {\n  return 'if status == \"paid\":\\n    total += amount';\n}",
+      "tests": [
+        {
+          "call": "paidBranch()",
+          "expected": "if status == \"paid\":\n    total += amount"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "If / elif / else",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 109,
+        "excerpt": "a set of conditions and deciding which"
+      }
+    },
+    {
+      "question": "Return Python: if x is None: return",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function noneGuard() {\n  return \"\";\n}",
+      "solution": "function noneGuard() {\n  return \"if x is None:\\n    return\";\n}",
+      "tests": [
+        {
+          "call": "noneGuard()",
+          "expected": "if x is None:\n    return"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Comparisons",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 111,
+        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+      }
+    },
+    {
+      "question": "Return Python: ready = bool(rows) and status == \"paid\"",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function readyExpr() {\n  return \"\";\n}",
+      "solution": "function readyExpr() {\n  return 'ready = bool(rows) and status == \"paid\"';\n}",
+      "tests": [
+        {
+          "call": "readyExpr()",
+          "expected": "ready = bool(rows) and status == \"paid\""
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Boolean operators",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapter 5 — if Statements",
+      "page": 109,
+      "pageEnd": 128,
+      "sections": [
+        {
+          "heading": "Comparisons",
+          "page": 111
+        },
+        {
+          "heading": "If / elif / else",
+          "page": 109
+        },
+        {
+          "heading": "Boolean operators",
+          "page": 115
+        }
+      ]
+    }
+  ]
+}

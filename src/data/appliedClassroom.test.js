@@ -37,11 +37,13 @@ test('applied scaffold lists the program root and every topic folder', () => {
   assert.ok(items.some((i) => i.folder === 'applied-classroom/typescript/language/types-and-annotations'));
   assert.ok(items.some((i) => i.folder === 'applied-classroom/html/language/document-and-structure'));
   assert.ok(items.some((i) => i.folder === 'applied-classroom/css/language/selectors-and-cascade'));
+  assert.ok(items.some((i) => i.folder === 'applied-classroom/python/language/variables-and-types'));
   const langs = APPLIED_COURSES.filter((c) => c.group === 'languages').map((c) => c.id);
   assert.equal(langs[0], 'ts');
   assert.equal(langs[1], 'js');
   assert.equal(langs[2], 'html');
   assert.equal(langs[3], 'css');
+  assert.equal(langs[4], 'py');
   assert.ok(items.some((i) => i.folder === 'applied-classroom/system-design/systems/url-shortener'));
   assert.equal(COURSE_GROUPS[0].id, 'process');
   assert.equal(COURSE_GROUPS[1].id, 'languages');

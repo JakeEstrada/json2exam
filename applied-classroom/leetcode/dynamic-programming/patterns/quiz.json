@@ -1,0 +1,234 @@
+{
+  "title": "LeetCode — Dynamic programming pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "1D DP: ways(i) = ways(i-1) + ways(i-2); roll two variables.",
+        "BFS on stair graph only.",
+        "Hash set of climbed stairs.",
+        "Two pointers from 0 and n."
+      ],
+      "answer": "a",
+      "explanation": "Climbing stairs is Fibonacci DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/climbing-stairs"
+      },
+      "level": 1,
+      "passage": "LC 70 · Climbing Stairs · Easy\n\nYou are climbing a staircase. It takes `n` steps to reach the top. Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?",
+      "solutionLanguage": "python",
+      "solution": "def climbStairs(n):\n    if n <= 2:\n        return n\n    a, b = 1, 2\n    for _ in range(3, n + 1):\n        a, b = b, a + b\n    return b\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "1D DP: at i, max(skip = dp[i-1], take = dp[i-2] + nums[i]).",
+        "Rob every house in a sliding window of 2.",
+        "Sort houses by money.",
+        "Binary search the richest house."
+      ],
+      "answer": "a",
+      "explanation": "House robber is choose/skip DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/house-robber"
+      },
+      "level": 2,
+      "passage": "LC 198 · House Robber · Medium\n\nYou are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night. Given an integer array `nums` representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+      "solutionLanguage": "python",
+      "solution": "def rob(nums):\n    prev2 = prev1 = 0\n    for x in nums:\n        prev2, prev1 = prev1, max(prev1, prev2 + x)\n    return prev1\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Unbounded DP: for each coin, relax amounts; dp[a] = min coins to make a.",
+        "Greedy always taking largest coin (incorrect in general).",
+        "Two pointers on the coin list.",
+        "BFS without a distance array."
+      ],
+      "answer": "a",
+      "explanation": "Coin change is unbounded knapsack / BFS on amounts.",
+      "reference": {
+        "url": "https://leetcode.com/problems/coin-change"
+      },
+      "level": 2,
+      "passage": "LC 322 · Coin Change · Medium\n\nYou are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return `-1`. You may assume that you have an infinite number of each kind of coin.",
+      "solutionLanguage": "python",
+      "solution": "def coinChange(coins, amount):\n    dp = [0] + [amount + 1] * amount\n    for a in range(1, amount + 1):\n        for c in coins:\n            if c <= a:\n                dp[a] = min(dp[a], dp[a - c] + 1)\n    return dp[amount] if dp[amount] <= amount else -1\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "0/1 knapsack boolean: target = sum/2; mark reachable subset sums.",
+        "Split at mid index only.",
+        "Sort and take alternating elements.",
+        "Two pointers from ends summing pairs only."
+      ],
+      "answer": "a",
+      "explanation": "Equal partition is subset-sum DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/partition-equal-subset-sum"
+      },
+      "level": 2,
+      "passage": "LC 416 · Partition Equal Subset Sum · Medium\n\nGiven a non-empty array `nums` containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.",
+      "solutionLanguage": "python",
+      "solution": "def canPartition(nums):\n    total = sum(nums)\n    if total % 2:\n        return False\n    target = total // 2\n    reachable = {0}\n    for x in nums:\n        reachable |= {s + x for s in reachable if s + x <= target}\n        if target in reachable:\n            return True\n    return target in reachable\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DP: dp[i] = 1 + max(dp[j] for j < i if nums[j] < nums[i]); or patience piles + bisect for length.",
+        "Sort the array then return n.",
+        "Sliding window of increasing pairs only.",
+        "Hash map value→value without prior indices."
+      ],
+      "answer": "a",
+      "explanation": "LIS is classic O(n²) DP or O(n log n) piles.",
+      "reference": {
+        "url": "https://leetcode.com/problems/longest-increasing-subsequence"
+      },
+      "level": 2,
+      "passage": "LC 300 · Longest Increasing Subsequence · Medium\n\nGiven an integer array `nums`, return the length of the longest strictly increasing subsequence. A subsequence is a sequence that can be derived from an array by deleting some or no elements without changing the order of the remaining elements. For example, `[3,6,2,7]` is a subsequence of the array `[0,3,1,6,2,2,7]`.",
+      "solutionLanguage": "python",
+      "solution": "def lengthOfLIS(nums):\n    dp = [1] * len(nums)\n    for i in range(len(nums)):\n        for j in range(i):\n            if nums[j] < nums[i]:\n                dp[i] = max(dp[i], dp[j] + 1)\n    return max(dp) if dp else 0\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "1D boolean: dp[i] true if some word ends at i and dp[start] was true.",
+        "Greedy taking the longest dictionary word always.",
+        "Two pointers on characters only.",
+        "Stack of syllables."
+      ],
+      "answer": "a",
+      "explanation": "Word break is prefix-reachable DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/word-break"
+      },
+      "level": 2,
+      "passage": "LC 139 · Word Break · Medium\n\nGiven a string `s` and a dictionary of strings `wordDict`, return `true` if `s` can be segmented into a space-separated sequence of one or more dictionary words. Note that the same word in the dictionary may be reused multiple times in the segmentation.",
+      "solutionLanguage": "python",
+      "solution": "def wordBreak(s, wordDict):\n    words = set(wordDict)\n    dp = [False] * (len(s) + 1)\n    dp[0] = True\n    for i in range(1, len(s) + 1):\n        for j in range(i):\n            if dp[j] and s[j:i] in words:\n                dp[i] = True\n                break\n    return dp[-1]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Grid DP: dp[r][c] = dp[r-1][c] + dp[r][c-1] with first row/col = 1.",
+        "DFS without memo as the only plan.",
+        "Diagonal two pointers.",
+        "Binary search path count."
+      ],
+      "answer": "a",
+      "explanation": "Unique paths is grid DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/unique-paths"
+      },
+      "level": 2,
+      "passage": "LC 62 · Unique Paths · Medium\n\nA robot is located at the top-left corner of a `m x n` grid (marked 'Start' in the diagram below). The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below). How many possible unique paths are there?",
+      "solutionLanguage": "python",
+      "solution": "def uniquePaths(m, n):\n    dp = [1] * n\n    for _ in range(1, m):\n        for c in range(1, n):\n            dp[c] += dp[c - 1]\n    return dp[-1]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Greedy/DP reach: track farthest reachable index; fail if i > farthest.",
+        "Always jump the maximum each time without a reach bound.",
+        "Sort jumps descending.",
+        "BFS mandatory on a dense graph."
+      ],
+      "answer": "a",
+      "explanation": "Jump game is running farthest reach.",
+      "reference": {
+        "url": "https://leetcode.com/problems/jump-game"
+      },
+      "level": 2,
+      "passage": "LC 55 · Jump Game · Medium\n\nGiven an array of non-negative integers `nums`, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.",
+      "solutionLanguage": "python",
+      "solution": "def canJump(nums):\n    far = 0\n    for i, jump in enumerate(nums):\n        if i > far:\n            return False\n        far = max(far, i + jump)\n    return True\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "1D DP: ways[i] from one-digit and valid two-digit decodings ending at i.",
+        "Count letters in the string only.",
+        "Sliding window of size 2 summing digits.",
+        "Stack of ASCII codes."
+      ],
+      "answer": "a",
+      "explanation": "Decode ways is Fibonacci-like with validity checks.",
+      "reference": {
+        "url": "https://leetcode.com/problems/decode-ways"
+      },
+      "level": 2,
+      "passage": "LC 91 · Decode Ways · Medium\n\nA message containing letters from `A-Z` can be encoded into numbers using the following mapping: 'A' -> \"1\" 'B' -> \"2\" ... 'Z' -> \"26\" To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways). For example, `\"11106\"` can be mapped into: `\"AAJF\"` with the grouping `(1 1 10 6)` `\"KJF\"` with the grouping `(11 10 6)` Note that the grouping `(1 11 06)` is invalid because `\"06\"` cannot be mapped into `'F'` since `\"6\"`…",
+      "solutionLanguage": "python",
+      "solution": "def numDecodings(s):\n    if not s or s[0] == \"0\":\n        return 0\n    prev2, prev1 = 1, 1\n    for i in range(1, len(s)):\n        cur = 0\n        if s[i] != \"0\":\n            cur += prev1\n        two = int(s[i - 1:i + 1])\n        if 10 <= two <= 26:\n            cur += prev2\n        prev2, prev1 = prev1, cur\n    return prev1\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Track max and min product ending here (sign flips); update global max.",
+        "Kadane on sums only.",
+        "Two pointers multiplying ends.",
+        "Sort then multiply largest two."
+      ],
+      "answer": "a",
+      "explanation": "Max product needs min tracking because negatives flip.",
+      "reference": {
+        "url": "https://leetcode.com/problems/maximum-product-subarray"
+      },
+      "level": 2,
+      "passage": "LC 152 · Maximum Product Subarray · Medium\n\nGiven an integer array `nums`, find a contiguous non-empty subarray within the array that has the largest product, and return the product. It is guaranteed that the answer will fit in a 32-bit integer. A subarray is a contiguous subsequence of the array.",
+      "solutionLanguage": "python",
+      "solution": "def maxProduct(nums):\n    best = cur_max = cur_min = nums[0]\n    for x in nums[1:]:\n        candidates = (x, cur_max * x, cur_min * x)\n        cur_max, cur_min = max(candidates), min(candidates)\n        best = max(best, cur_max)\n    return best\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "2D DP: dp[i][j] = edit distance of prefixes; min of insert/delete/replace.",
+        "LCS length only without the DP table idea.",
+        "Two pointers assuming already aligned.",
+        "Hash map of character counts."
+      ],
+      "answer": "a",
+      "explanation": "Edit distance is the classic 2D string DP.",
+      "reference": {
+        "url": "https://leetcode.com/problems/edit-distance"
+      },
+      "level": 3,
+      "passage": "LC 72 · Edit Distance · Hard\n\nGiven two strings `word1` and `word2`, return the minimum number of operations required to convert `word1` to `word2`. You have the following three operations permitted on a word: Insert a character Delete a character Replace a character",
+      "solutionLanguage": "python",
+      "solution": "def minDistance(word1, word2):\n    m, n = len(word1), len(word2)\n    dp = list(range(n + 1))\n    for i in range(1, m + 1):\n        prev, dp[0] = dp[0], i\n        for j in range(1, n + 1):\n            cur = dp[j]\n            if word1[i - 1] == word2[j - 1]:\n                dp[j] = prev\n            else:\n                dp[j] = 1 + min(prev, dp[j], dp[j - 1])\n            prev = cur\n    return dp[n]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Backtracking: at each start index, choose a candidate ≥ last; recurse with remaining target; append when 0.",
+        "Unbounded coin DP returning only the count, not combinations.",
+        "Two pointers on sorted candidates without recursion.",
+        "Binary search each target."
+      ],
+      "answer": "a",
+      "explanation": "Combination sum is backtracking (DP-adjacent search).",
+      "reference": {
+        "url": "https://leetcode.com/problems/combination-sum"
+      },
+      "level": 2,
+      "passage": "LC 39 · Combination Sum · Medium\n\nGiven an array of distinct integers `candidates` and a target integer `target`, return a list of all unique combinations of `candidates` where the chosen numbers sum to `target`. You may return the combinations in any order. The same number may be chosen from `candidates` an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different. It is guaranteed that the number of unique combinations that sum up to `target` is less than `150` combinations for…",
+      "solutionLanguage": "python",
+      "solution": "def combinationSum(candidates, target):\n    candidates.sort()\n    out = []\n    def dfs(start, remain, path):\n        if remain == 0:\n            out.append(path[:])\n            return\n        for i in range(start, len(candidates)):\n            c = candidates[i]\n            if c > remain:\n                break\n            path.append(c)\n            dfs(i, remain - c, path)\n            path.pop()\n    dfs(0, target, [])\n    return out\n"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "title": "LeetCode — Graphs pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Grid DFS/BFS: for each unvisited land cell, flood fill and increment island count.",
+        "Sort all land cells then scan once.",
+        "Union only rows without columns.",
+        "Binary search the grid mid cell."
+      ],
+      "answer": "a",
+      "explanation": "Islands = connected components on a grid.",
+      "reference": {
+        "url": "https://leetcode.com/problems/number-of-islands"
+      },
+      "level": 2,
+      "passage": "LC 200 · Number of Islands · Medium\n\nGiven an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
+      "solutionLanguage": "python",
+      "solution": "def numIslands(grid):\n    if not grid:\n        return 0\n    rows, cols = len(grid), len(grid[0])\n    def dfs(r, c):\n        if r < 0 or c < 0 or r >= rows or c >= cols or grid[r][c] != \"1\":\n            return\n        grid[r][c] = \"0\"\n        for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)):\n            dfs(r + dr, c + dc)\n    count = 0\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == \"1\":\n                count += 1\n                dfs(r, c)\n    return count\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Multi-source BFS from all rotten oranges; minutes = layers until fresh count hits 0.",
+        "DFS depth from one rotten only.",
+        "Sort oranges by freshness.",
+        "Union-Find on minutes."
+      ],
+      "answer": "a",
+      "explanation": "Simultaneous rotting is multi-source BFS.",
+      "reference": {
+        "url": "https://leetcode.com/problems/rotting-oranges"
+      },
+      "level": 2,
+      "passage": "LC 994 · Rotting Oranges · Medium\n\nYou are given an `m x n` `grid` where each cell can have one of three values: `0` representing an empty cell, `1` representing a fresh orange, or `2` representing a rotten orange. Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return `-1`.",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque\ndef orangesRotting(grid):\n    rows, cols = len(grid), len(grid[0])\n    q = deque()\n    fresh = 0\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == 2:\n                q.append((r, c, 0))\n            elif grid[r][c] == 1:\n                fresh += 1\n    minutes = 0\n    while q:\n        r, c, minutes = q.popleft()\n        for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)):\n            nr, nc = r + dr, c + dc\n            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1:\n                grid[nr][nc] = 2\n                fresh -= 1\n                q.append((nr, nc, minutes + 1))\n    return minutes if fresh == 0 else -1\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS/BFS from border O’s marking safe; then flip remaining O→X and restore safe marks.",
+        "Flip every O immediately.",
+        "BFS from the center only.",
+        "Topological sort of cells."
+      ],
+      "answer": "a",
+      "explanation": "Surrounded means not connected to the border.",
+      "reference": {
+        "url": "https://leetcode.com/problems/surrounded-regions"
+      },
+      "level": 2,
+      "passage": "LC 130 · Surrounded Regions · Medium\n\nGiven an `m x n` matrix `board` containing `'X'` and `'O'`, capture all regions surrounded by `'X'`. A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region.",
+      "solutionLanguage": "python",
+      "solution": "def solve(board):\n    if not board:\n        return\n    rows, cols = len(board), len(board[0])\n    def dfs(r, c):\n        if r < 0 or c < 0 or r >= rows or c >= cols or board[r][c] != \"O\":\n            return\n        board[r][c] = \"S\"\n        for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)):\n            dfs(r + dr, c + dc)\n    for r in range(rows):\n        dfs(r, 0); dfs(r, cols - 1)\n    for c in range(cols):\n        dfs(0, c); dfs(rows - 1, c)\n    for r in range(rows):\n        for c in range(cols):\n            if board[r][c] == \"O\":\n                board[r][c] = \"X\"\n            elif board[r][c] == \"S\":\n                board[r][c] = \"O\"\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Multi-source DFS/BFS uphill from Pacific edge and from Atlantic edge; intersect reachable sets.",
+        "Single DFS from each cell to both oceans (works but heavier).",
+        "Sort heights then one pass.",
+        "Topological order of oceans."
+      ],
+      "answer": "a",
+      "explanation": "Cells that can flow to both oceans = intersection of two reverse floods.",
+      "reference": {
+        "url": "https://leetcode.com/problems/pacific-atlantic-water-flow"
+      },
+      "level": 3,
+      "passage": "LC 417 · Pacific Atlantic Water Flow · Medium\n\nYou are given an `m x n` integer matrix `heights` representing the height of each unit cell in a continent. The Pacific ocean touches the continent's left and top edges, and the Atlantic ocean touches the continent's right and bottom edges. Water can only flow in four directions: up, down, left, and right. Water flows from a cell to an adjacent one with an equal or lower height. Return a list of grid coordinates where water can flow to both the Pacific and Atlantic oceans.",
+      "solutionLanguage": "python",
+      "solution": "def pacificAtlantic(heights):\n    rows, cols = len(heights), len(heights[0])\n    def flood(starts):\n        seen = set(starts)\n        stack = list(starts)\n        while stack:\n            r, c = stack.pop()\n            for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)):\n                nr, nc = r + dr, c + dc\n                if (0 <= nr < rows and 0 <= nc < cols and (nr, nc) not in seen\n                        and heights[nr][nc] >= heights[r][c]):\n                    seen.add((nr, nc))\n                    stack.append((nr, nc))\n        return seen\n    pacific = [(r, 0) for r in range(rows)] + [(0, c) for c in range(cols)]\n    atlantic = [(r, cols - 1) for r in range(rows)] + [(rows - 1, c) for c in range(cols)]\n    return [list(cell) for cell in flood(pacific) & flood(atlantic)]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "BFS/DFS with map old→new: clone node when first seen; wire neighbors via the map.",
+        "Copy only values into a list.",
+        "Sort adjacency lists.",
+        "Union-Find on neighbor ids."
+      ],
+      "answer": "a",
+      "explanation": "Clone graph = traverse + hash of clones.",
+      "reference": {
+        "url": "https://leetcode.com/problems/clone-graph"
+      },
+      "level": 2,
+      "passage": "LC 133 · Clone Graph · Medium\n\nGiven a reference of a node in a connected undirected graph. Return a deep copy (clone) of the graph. Each node in the graph contains a val (`int`) and a list (`List[Node]`) of its neighbors. class Node { public int val; public List<Node> neighbors; } Test case format: For simplicity sake, each node's value is the same as the node's index (1-indexed). For example, the first node with `val = 1`, the second node with `val = 2`, and so on. The graph is represented in the test case using an adjacency list.…",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque\ndef cloneGraph(node):\n    if not node:\n        return None\n    clones = {node: Node(node.val)}\n    q = deque([node])\n    while q:\n        cur = q.popleft()\n        for nei in cur.neighbors:\n            if nei not in clones:\n                clones[nei] = Node(nei.val)\n                q.append(nei)\n            clones[cur].neighbors.append(clones[nei])\n    return clones[node]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Topo sort (Kahn): indegrees + queue; if you process all courses ⇒ no cycle.",
+        "BFS shortest path on units.",
+        "Binary search course ids.",
+        "Sliding window over prerequisites."
+      ],
+      "answer": "a",
+      "explanation": "Cycle in a directed course graph ⇔ topo sort fails.",
+      "reference": {
+        "url": "https://leetcode.com/problems/course-schedule"
+      },
+      "level": 2,
+      "passage": "LC 207 · Course Schedule · Medium\n\nThere are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [ai, bi]` indicates that you must take course `bi` first if you want to take course `ai`. For example, the pair `[0, 1]`, indicates that to take course `0` you have to first take course `1`. Return `true` if you can finish all courses. Otherwise, return `false`.",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque, defaultdict\ndef canFinish(numCourses, prerequisites):\n    graph = defaultdict(list)\n    indeg = [0] * numCourses\n    for a, b in prerequisites:\n        graph[b].append(a)\n        indeg[a] += 1\n    q = deque([i for i, d in enumerate(indeg) if d == 0])\n    seen = 0\n    while q:\n        node = q.popleft()\n        seen += 1\n        for nei in graph[node]:\n            indeg[nei] -= 1\n            if indeg[nei] == 0:\n                q.append(nei)\n    return seen == numCourses\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "BFS from beginWord: each step tries one-letter mutations present in the word set; distance = levels.",
+        "DFS only without a queue (can be slow/incorrect for shortest).",
+        "Sort the word list and binary search once.",
+        "Union-Find on characters."
+      ],
+      "answer": "a",
+      "explanation": "Word ladder shortest transform is BFS on the implicit graph.",
+      "reference": {
+        "url": "https://leetcode.com/problems/word-ladder"
+      },
+      "level": 3,
+      "passage": "LC 127 · Word Ladder · Hard\n\nA transformation sequence from word `beginWord` to word `endWord` using a dictionary `wordList` is a sequence of words `beginWord -> s1 -> s2 -> ... -> sk` such that: Every adjacent pair of words differs by a single letter. Every `si` for `1 <= i <= k` is in `wordList`. Note that `beginWord` does not need to be in `wordList`. `sk == endWord` Given two words, `beginWord` and `endWord`, and a dictionary `wordList`, return the number of words in the shortest transformation sequence from `beginWord` to `endWord`,…",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque\ndef ladderLength(beginWord, endWord, wordList):\n    words = set(wordList)\n    if endWord not in words:\n        return 0\n    q = deque([(beginWord, 1)])\n    while q:\n        word, dist = q.popleft()\n        if word == endWord:\n            return dist\n        for i in range(len(word)):\n            for ch in \"abcdefghijklmnopqrstuvwxyz\":\n                nxt = word[:i] + ch + word[i + 1:]\n                if nxt in words:\n                    words.remove(nxt)\n                    q.append((nxt, dist + 1))\n    return 0\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Union-Find on edges (or DFS components); answer = number of roots / components.",
+        "BFS shortest path sum.",
+        "Topological sort of an undirected graph.",
+        "Sliding window on node ids."
+      ],
+      "answer": "a",
+      "explanation": "Connected components = UF or DFS count.",
+      "reference": {
+        "url": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph"
+      },
+      "level": 2,
+      "passage": "LC 323 · Number of Connected Components in an Undirected Graph · Medium\n\nYou have a graph of `n` nodes. You are given an integer `n` and an array `edges` where `edges[i] = [ai, bi]` indicates that there is an edge between `ai` and `bi` in the graph. Return the number of connected components in the graph.",
+      "solutionLanguage": "python",
+      "solution": "def countComponents(n, edges):\n    parent = list(range(n))\n    def find(x):\n        while parent[x] != x:\n            parent[x] = parent[parent[x]]\n            x = parent[x]\n        return x\n    for a, b in edges:\n        ra, rb = find(a), find(b)\n        if ra != rb:\n            parent[rb] = ra\n            n -= 1\n    return n\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Tree ⇔ n-1 edges and one connected component (Union-Find or DFS) with no cycle.",
+        "Any connected graph is a tree.",
+        "BFS levels must be equal.",
+        "Topological sort always."
+      ],
+      "answer": "a",
+      "explanation": "Valid tree = connected + acyclic (edge count n−1 helps).",
+      "reference": {
+        "url": "https://leetcode.com/problems/graph-valid-tree"
+      },
+      "level": 2,
+      "passage": "LC 261 · Graph Valid Tree · Medium\n\nYou have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer n and a list of `edges` where `edges[i] = [ai, bi]` indicates that there is an undirected edge between nodes `ai` and `bi` in the graph. Return `true` if the edges of the given graph make up a valid tree, and `false` otherwise.",
+      "solutionLanguage": "python",
+      "solution": "def validTree(n, edges):\n    if len(edges) != n - 1:\n        return False\n    parent = list(range(n))\n    def find(x):\n        while parent[x] != x:\n            parent[x] = parent[parent[x]]\n            x = parent[x]\n        return x\n    for a, b in edges:\n        ra, rb = find(a), find(b)\n        if ra == rb:\n            return False\n        parent[rb] = ra\n    return True\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Dijkstra: min-heap of (time, node); relax neighbors; answer = max dist if all reached.",
+        "Unweighted BFS ignoring times.",
+        "DFS only taking first path.",
+        "Union-Find on delays."
+      ],
+      "answer": "a",
+      "explanation": "Network delay with weights is Dijkstra.",
+      "reference": {
+        "url": "https://leetcode.com/problems/network-delay-time"
+      },
+      "level": 3,
+      "passage": "LC 743 · Network Delay Time · Medium\n\nYou are given a network of `n` nodes, labeled from `1` to `n`. You are also given `times`, a list of travel times as directed edges `times[i] = (ui, vi, wi)`, where `ui` is the source node, `vi` is the target node, and `wi` is the time it takes for a signal to travel from source to target. We will send a signal from a given node `k`. Return the time it takes for all the `n` nodes to receive the signal. If it is impossible for all the `n` nodes to receive the signal, return `-1`.",
+      "solutionLanguage": "python",
+      "solution": "import heapq\nfrom collections import defaultdict\ndef networkDelayTime(times, n, k):\n    graph = defaultdict(list)\n    for u, v, w in times:\n        graph[u].append((v, w))\n    dist = {k: 0}\n    heap = [(0, k)]\n    while heap:\n        d, node = heapq.heappop(heap)\n        if d > dist.get(node, float(\"inf\")):\n            continue\n        for nei, w in graph[node]:\n            nd = d + w\n            if nd < dist.get(nei, float(\"inf\")):\n                dist[nei] = nd\n                heapq.heappush(heap, (nd, nei))\n    return max(dist.values()) if len(dist) == n else -1\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Union-Find emails within an account; group by root; sort emails per name.",
+        "BFS on account indices only without uniting emails.",
+        "Sort accounts by name only.",
+        "Sliding window over email strings."
+      ],
+      "answer": "a",
+      "explanation": "Shared emails connect accounts — Union-Find.",
+      "reference": {
+        "url": "https://leetcode.com/problems/accounts-merge"
+      },
+      "level": 3,
+      "passage": "LC 721 · Accounts Merge · Medium\n\nGiven a list of `accounts` where each element `accounts[i]` is a list of strings, where the first element `accounts[i][0]` is a name, and the rest of the elements are emails representing emails of the account. Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts…",
+      "solutionLanguage": "python",
+      "solution": "from collections import defaultdict\ndef accountsMerge(accounts):\n    parent = {}\n    def find(x):\n        parent.setdefault(x, x)\n        if parent[x] != x:\n            parent[x] = find(parent[x])\n        return parent[x]\n    email_name = {}\n    for name, *emails in accounts:\n        root = emails[0]\n        for e in emails:\n            email_name[e] = name\n            parent.setdefault(e, e)\n            parent[find(e)] = find(root)\n    groups = defaultdict(list)\n    for e in email_name:\n        groups[find(e)].append(e)\n    return [[email_name[r]] + sorted(emails) for r, emails in groups.items()]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Backtracking DFS on the grid: mark visited, try 4 dirs matching the next letter, unmark.",
+        "BFS shortest path ignoring letter order.",
+        "Sort the board then scan.",
+        "Union-Find on characters."
+      ],
+      "answer": "a",
+      "explanation": "Word search is DFS backtracking on adjacent cells.",
+      "reference": {
+        "url": "https://leetcode.com/problems/word-search"
+      },
+      "level": 2,
+      "passage": "LC 79 · Word Search · Medium\n\nGiven an `m x n` grid of characters `board` and a string `word`, return `true` if `word` exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.",
+      "solutionLanguage": "python",
+      "solution": "def exist(board, word):\n    rows, cols = len(board), len(board[0])\n    def dfs(r, c, i):\n        if i == len(word):\n            return True\n        if r < 0 or c < 0 or r >= rows or c >= cols or board[r][c] != word[i]:\n            return False\n        board[r][c] = \"#\"\n        found = any(dfs(r + dr, c + dc, i + 1) for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)))\n        board[r][c] = word[i]\n        return found\n    return any(dfs(r, c, 0) for r in range(rows) for c in range(cols))\n"
+    }
+  ]
+}

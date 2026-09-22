@@ -58,6 +58,26 @@ Start here. Types first, then the rest of the typed syntax. Each deck uses the s
 
 ---
 
+## 3b. Python — ready language decks
+
+**Course:** `python/`. **Books:** Python Crash Course, 3rd Edition by Eric Matthes; Fluent Python, 2nd Edition by Luciano Ramalho (both in `python/sources/`). Page numbers are PDF file positions. EPI Python sampler under `leetcode/sources/` is for interview practice.
+
+Each language deck matches the HTML/JS shape: a lesson, Python on every multiple-choice card, then three in-browser cards. The runner is still JavaScript; your function **returns a Python source string**.
+
+| # | Topic folder | Objectives | Prerequisites | Practical exercise |
+|---|---|---|---|---|
+| 1 | `python/language/variables-and-types` **ready** | Bind names, know builtins, truthiness, convert with `int`/`str`/`bool`. | None | Return source for bindings and `int("40")`. |
+| 2 | `python/language/conditionals` **ready** | `==` vs `is`, `if`/`elif`/`else`, `and`/`or`/`not`. | Module 1 | Return source for a paid-status branch and a None guard. |
+| 3 | `python/language/loops` **ready** | `while`, `for`, `range`, `break`/`continue`, `enumerate`. | Modules 1–2 | Return source for `range` and list walks. |
+| 4 | `python/language/functions` **ready** | `def`, defaults, the mutable-default trap. | Modules 1–3 | Return source for `add`, `greet`, and safe `bucket=None`. |
+| 5 | `python/language/lists` **ready** | Index, slice, append/extend, alias vs `[:]`. | Modules 1–4 | Return source for literals, copy, append. |
+| 6 | `python/language/dicts-and-sets` **ready** | Dict get/items, `set()` vs `{}`, membership. | Modules 1–5 | Return source for dict literal, `.get`, empty set. |
+| 7 | `python/language/comprehensions` **ready** | List/dict/set comprehensions; when to use a plain loop. | Modules 5–6 | Return source for squares, filter, set comp. |
+
+**Later (planned):** `python/studio/*`.
+
+---
+
 ## 3. HTML and CSS — ready language decks
 
 **Courses:** `html/`, `css/`. **Books:** HTML and CSS: Design and Build Websites by Jon Duckett; CSS in Depth, 1st Edition by Keith J. Grant; Inclusive Components by Heydon Pickering.
@@ -106,18 +126,22 @@ Path: visualize arrays/stacks/queues/lists → trees → BST → heaps → hashi
 
 ---
 
-## 6. LeetCode-style problem solving — Arrays ready; other topics planned
+## 6. LeetCode-style problem solving — topic modules ready
 
 **Course:** `leetcode/`. **Books:** Cracking the Coding Interview by Gayle Laakmann McDowell (4th edition on disk); Elements of Programming Interviews (sampler on disk); plus Grokking and the Common-Sense Guide.
 
-Modules are topics (arrays, strings/hash, linked lists, trees, graphs, DP). Goal: muscle memory of pattern skeletons, then recognition on curated problems from `leetcode_dataset - lc.csv`. Answers are high-level step outlines, not full implementations.
+Modules are topics. Goal: muscle memory of pattern skeletons, then recognition on curated problems from `leetcode_dataset - lc.csv`. Answers are high-level step outlines; a correct pick reveals a Python sketch. **Open on leetcode.com** is the reference link (not a chapter PDF).
 
 | # | Module | Status | What you practice |
 | --- | --- | --- | --- |
-| 1 | `leetcode/arrays` **ready** | Skeletons then apply | Hash map, two pointers, sliding window, binary search, prefix/Kadane on classic Array problems |
-| 2–6 | strings-and-hash, linked-lists, trees, graphs, dynamic-programming | planned | Same card shape once Arrays feels right |
+| 1 | `leetcode/arrays/patterns` **ready** | Skeletons then apply | Hash map, two pointers, sliding window, binary search, prefix/Kadane |
+| 2 | `leetcode/strings-and-hash/patterns` **ready** | Skeletons then apply | Frequency maps, string windows, palindrome pointers, bracket stack |
+| 3 | `leetcode/linked-lists/patterns` **ready** | Skeletons then apply | Reverse, fast/slow, dummy-head merge, LRU shape |
+| 4 | `leetcode/trees/patterns` **ready** | Skeletons then apply | DFS combine, BFS levels, BST bounds, serialize |
+| 5 | `leetcode/graphs/patterns` **ready** | Skeletons then apply | Grid flood, topo sort, union-find, Dijkstra/BFS |
+| 6 | `leetcode/dynamic-programming/patterns` **ready** | Skeletons then apply | 1D climb/rob, knapsack, LIS, grid paths, edit distance |
 
-Practical work: finish Arrays pattern recognition before coding full solutions elsewhere.
+Each deck shuffles cards (`deal: random`). Curated subsets — not every CSV row.
 
 ---
 

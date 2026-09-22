@@ -1,0 +1,413 @@
+{
+  "title": "Python — Functions",
+  "questions": [
+    {
+      "question": "How do you start a function definition?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "function add(a, b) {",
+        "def add(a, b):",
+        "fn add(a, b)",
+        "add := (a, b)"
+      ],
+      "answer": "b",
+      "explanation": "def name(params):",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def add(a, b):\n    return a + b"
+    },
+    {
+      "question": "What does return without a value yield to the caller?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "0",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answer": "c",
+      "explanation": "Bare return (or falling off the end) gives None.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def noop():\n    return"
+    },
+    {
+      "question": "How do you call with a keyword argument?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "greet(\"Ada\", title=\"Dr\")",
+        "greet(\"Ada\"; title=\"Dr\")",
+        "greet(title -> \"Dr\")",
+        "greet[\"title\"=\"Dr\"]"
+      ],
+      "answer": "a",
+      "explanation": "name=value at the call site.",
+      "reference": {
+        "section": "Defaults and keyword args",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 176,
+        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+      },
+      "code": "greet(\"Ada\", title=\"Dr\")"
+    },
+    {
+      "question": "Why is def f(xs=[]): dangerous?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Lists are illegal as defaults.",
+        "The same list is reused across calls.",
+        "Defaults cannot be mutable in syntax.",
+        "It crashes import."
+      ],
+      "answer": "b",
+      "explanation": "Default objects are created once. Use None and build a new list inside.",
+      "reference": {
+        "section": "Mutable default trap",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 378,
+        "excerpt": "Another issue related to function parameters is the use of mutable"
+      },
+      "code": "def append_item(x, bucket=None):\n    if bucket is None:\n        bucket = []"
+    },
+    {
+      "question": "What is *args?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Keyword-only args dict.",
+        "Extra positional args as a tuple.",
+        "A pointer.",
+        "Required kwargs."
+      ],
+      "answer": "b",
+      "explanation": "*args collects extra positional arguments.",
+      "reference": {
+        "section": "Defaults and keyword args",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 176,
+        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+      },
+      "code": "def sum_all(*args):\n    return sum(args)"
+    },
+    {
+      "question": "What is **kwargs?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Extra keyword args as a dict.",
+        "Extra positionals as a list.",
+        "Only for classes.",
+        "Pointer to kwargs."
+      ],
+      "answer": "a",
+      "explanation": "**kwargs collects extra keywords.",
+      "reference": {
+        "section": "Defaults and keyword args",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 176,
+        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+      },
+      "code": "def label(**kwargs):\n    return kwargs"
+    },
+    {
+      "question": "Are nested defs allowed?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No.",
+        "Yes; inner functions are normal.",
+        "Only in classes.",
+        "Only with lambda."
+      ],
+      "answer": "b",
+      "explanation": "Functions are first-class and can nest.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def outer():\n    def inner():\n        return 1\n    return inner()"
+    },
+    {
+      "question": "What does pass do in a function body?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns None explicitly always as syntax sugar for return.",
+        "A no-op placeholder statement.",
+        "Skips the caller.",
+        "Deletes locals."
+      ],
+      "answer": "b",
+      "explanation": "pass is an empty body.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def todo():\n    pass"
+    },
+    {
+      "question": "Can you annotate parameters?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No annotations exist.",
+        "Yes: def add(a: int, b: int) -> int:",
+        "Only with TypeScript.",
+        "Only in 2.7."
+      ],
+      "answer": "b",
+      "explanation": "Annotations are optional and not enforced at runtime by default.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def add(a: int, b: int) -> int:\n    return a + b"
+    },
+    {
+      "question": "What is a lambda?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A class.",
+        "A small anonymous function expression.",
+        "A module.",
+        "A decorator only."
+      ],
+      "answer": "b",
+      "explanation": "lambda args: expr",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "square = lambda n: n * n"
+    },
+    {
+      "question": "Scope: can a function read a global name?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Never.",
+        "Yes for reading; assign needs global or nonlocal.",
+        "Only with ::",
+        "Only if exported."
+      ],
+      "answer": "b",
+      "explanation": "Reading globals works; binding needs global.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "COUNT = 0\ndef bump():\n    global COUNT\n    COUNT += 1"
+    },
+    {
+      "question": "Find the bug: def f(a, b=1, c):",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Non-default after default is a SyntaxError.",
+        "Fine in Python 3.",
+        "c becomes optional.",
+        "b is required."
+      ],
+      "answer": "a",
+      "explanation": "Defaults must trail.",
+      "reference": {
+        "section": "Defaults and keyword args",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 176,
+        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+      },
+      "code": "def f(a, b=1, c=0):\n    return a + b + c"
+    },
+    {
+      "question": "What does return a, b build?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Two returns.",
+        "A tuple (a, b).",
+        "A list.",
+        "An error."
+      ],
+      "answer": "b",
+      "explanation": "Comma builds a tuple.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def pair(a, b):\n    return a, b"
+    },
+    {
+      "question": "Docstrings go…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "After the body.",
+        "As the first statement in the body, usually a string.",
+        "In a # comment only.",
+        "In kwargs."
+      ],
+      "answer": "b",
+      "explanation": "\"\"\"...\"\"\" right under def.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def add(a, b):\n    \"\"\"Sum a and b.\"\"\"\n    return a + b"
+    },
+    {
+      "question": "Are functions objects you can pass around?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No; only numbers.",
+        "Yes.",
+        "Only lambdas.",
+        "Only methods."
+      ],
+      "answer": "b",
+      "explanation": "Functions are first-class values.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      },
+      "code": "def apply(fn, x):\n    return fn(x)"
+    },
+    {
+      "question": "Return Python source for def add(a, b):\\n    return a + b",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function addDef() {\n  return \"\";\n}",
+      "solution": "function addDef() {\n  return \"def add(a, b):\\n    return a + b\";\n}",
+      "tests": [
+        {
+          "call": "addDef()",
+          "expected": "def add(a, b):\n    return a + b"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "def",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 167,
+        "excerpt": "designed to do one specific job. When you"
+      }
+    },
+    {
+      "question": "Return Python: def greet(name, title=\"friend\"):\\n    return title",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function greetDef() {\n  return \"\";\n}",
+      "solution": "function greetDef() {\n  return 'def greet(name, title=\"friend\"):\\n    return title';\n}",
+      "tests": [
+        {
+          "call": "greetDef()",
+          "expected": "def greet(name, title=\"friend\"):\n    return title"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Defaults and keyword args",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 176,
+        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+      }
+    },
+    {
+      "question": "Return Python for the safe mutable default pattern with bucket=None.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function safeBucket() {\n  return \"\";\n}",
+      "solution": "function safeBucket() {\n  return \"def append_item(x, bucket=None):\\n    if bucket is None:\\n        bucket = []\\n    bucket.append(x)\\n    return bucket\";\n}",
+      "tests": [
+        {
+          "call": "safeBucket()",
+          "expected": "def append_item(x, bucket=None):\n    if bucket is None:\n        bucket = []\n    bucket.append(x)\n    return bucket"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Mutable default trap",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 378,
+        "excerpt": "Another issue related to function parameters is the use of mutable"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapter 8 — Functions",
+      "page": 167,
+      "pageEnd": 186,
+      "sections": [
+        {
+          "heading": "def",
+          "page": 167
+        },
+        {
+          "heading": "Defaults and keyword args",
+          "page": 176
+        },
+        {
+          "heading": "Mutable default trap",
+          "page": 378
+        }
+      ]
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "chapter": "Dictionaries and Sets / mutable defaults",
+      "page": 144,
+      "pageEnd": 378,
+      "sections": [
+        {
+          "heading": "Sets",
+          "page": 171
+        },
+        {
+          "heading": "Dict and set",
+          "page": 171
+        },
+        {
+          "heading": "Mutable default trap",
+          "page": 378
+        }
+      ]
+    }
+  ]
+}

@@ -37,12 +37,13 @@ Home groups courses as Software engineering, Languages, Algorithms, Systems, Qua
 
 - **TypeScript** — types, unions, functions, arrays/tuples, object types, interfaces, generics
 - **JavaScript** — variables, conditionals, loops, functions, arrays, objects, maps and sets
+- **Python** — variables, conditionals, loops, functions, lists, dicts and sets, comprehensions
 - **HTML** — document structure, text and lists, links and images, semantics, forms, tables, accessibility
 - **CSS** — selectors and cascade, box model, type and color, flexbox, grid, positioning, responsive
 
-Code cards run in the browser via a JavaScript `Function` runner. TypeScript types are erased. HTML and CSS practice cards are JS functions that **return markup or CSS strings**.
+Code cards run in the browser via a JavaScript `Function` runner. TypeScript types are erased. HTML, CSS, and Python practice cards are JS functions that **return markup, CSS, or Python source strings**.
 
-**Also in the catalog:** data structures, algorithms, LeetCode-style practice, database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
+**Also in the catalog:** data structures, algorithms, **LeetCode topic drills** (arrays, strings/hash, linked lists, trees, graphs, DP — pattern recognition + Python sketches), database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
 
 Ordered path, books, and which decks are ready vs planned: [`applied-classroom/STUDY_PLAN.md`](applied-classroom/STUDY_PLAN.md). Source book lists live under each course’s `sources.md` / `sources/`.
 

@@ -1,0 +1,409 @@
+{
+  "title": "Python — Comprehensions",
+  "questions": [
+    {
+      "question": "Which builds a list of squares?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[n * n for n in nums]",
+        "for n in nums: n * n",
+        "(n * n for n in nums) as a list already",
+        "map.square(nums)"
+      ],
+      "answer": "a",
+      "explanation": "List comprehension uses square brackets.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "squares = [n * n for n in nums]"
+    },
+    {
+      "question": "How do you filter in a comprehension?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[n for n in nums if n > 0]",
+        "[n if n > 0 for n in nums] only form",
+        "[n for n in nums where n > 0]",
+        "filter: n > 0"
+      ],
+      "answer": "a",
+      "explanation": "if clause filters. (Ternary is separate: x if c else y.)",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "positives = [n for n in nums if n > 0]"
+    },
+    {
+      "question": "What is (n * n for n in nums)?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A list",
+        "A generator expression",
+        "A tuple of squares",
+        "A set"
+      ],
+      "answer": "b",
+      "explanation": "Parentheses make a generator, lazy.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "gen = (n * n for n in nums)"
+    },
+    {
+      "question": "Dict comprehension shape?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "{k: v for k, v in pairs}",
+        "[k: v for k, v in pairs]",
+        "{k for k, v in pairs} only",
+        "dict k: v for ..."
+      ],
+      "answer": "a",
+      "explanation": "Curly braces with key: value.",
+      "reference": {
+        "section": "Dict and set",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "index = {name: i for i, name in enumerate(names)}"
+    },
+    {
+      "question": "Set comprehension?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "{n for n in nums}",
+        "[n for n in nums] as a set",
+        "(n for n in nums) as a set",
+        "set n for n in nums"
+      ],
+      "answer": "a",
+      "explanation": "Curly braces without key: value.",
+      "reference": {
+        "section": "Dict and set",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "unique = {n for n in nums}"
+    },
+    {
+      "question": "When should you avoid a comprehension?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always avoid.",
+        "When the body needs multiple statements or becomes hard to read.",
+        "When the list is short.",
+        "When using for."
+      ],
+      "answer": "b",
+      "explanation": "Clarity beats cleverness.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "# use a for-loop if nested logic grows"
+    },
+    {
+      "question": "Can you nest comprehensions?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No.",
+        "Yes, but keep them shallow for readability.",
+        "Only for dicts.",
+        "Only in 2.7."
+      ],
+      "answer": "b",
+      "explanation": "Nested is legal; often a loop is clearer.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "pairs = [(i, j) for i in a for j in b]"
+    },
+    {
+      "question": "Find the bug: [print(n) for n in nums] as the main pattern.",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fine style.",
+        "Side-effect-only comprehensions are frowned on; use a for loop.",
+        "print is illegal in comps.",
+        "Must use map."
+      ],
+      "answer": "b",
+      "explanation": "Comprehensions build collections; use for for effects.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "for n in nums:\n    print(n)"
+    },
+    {
+      "question": "What does the walrus allow in a comprehension (3.8+)?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Nothing new.",
+        "Assign in the filter/expression with := carefully.",
+        "Replace for.",
+        "Delete items."
+      ],
+      "answer": "b",
+      "explanation": ":= can bind a name in the expression; use sparingly.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "# [y for x in xs if (y := f(x)) > 0]"
+    },
+    {
+      "question": "[n for n in nums if n] drops…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "All numbers",
+        "Falsy values (0, \"\", etc.)",
+        "Truthy values",
+        "None only"
+      ],
+      "answer": "b",
+      "explanation": "if n keeps truthy items.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "[n for n in nums if n]"
+    },
+    {
+      "question": "{k: 0 for k in keys} builds…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A set of keys",
+        "A dict mapping each key to 0",
+        "A list",
+        "A generator"
+      ],
+      "answer": "b",
+      "explanation": "Dict comprehension.",
+      "reference": {
+        "section": "Dict and set",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "{k: 0 for k in keys}"
+    },
+    {
+      "question": "list vs generator comprehension for huge input?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always list.",
+        "Generator saves memory if you stream once.",
+        "Same memory always.",
+        "Sets only."
+      ],
+      "answer": "b",
+      "explanation": "Generators are lazy.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "sum(n * n for n in nums)"
+    },
+    {
+      "question": "Are comprehensions faster than loops always?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always yes.",
+        "Often similar; choose for clarity first.",
+        "Always slower.",
+        "Illegal to compare."
+      ],
+      "answer": "b",
+      "explanation": "Prefer readable code.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "squares = [n * n for n in nums]"
+    },
+    {
+      "question": "str.join with a comprehension?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        ",\".join([str(n) for n in nums])",
+        "\",\".join(str(n) for n in nums)",
+        "Both work; generator form avoids a temp list",
+        "join cannot take generators"
+      ],
+      "answer": "c",
+      "explanation": "join accepts any iterable of strings.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      },
+      "code": "\",\".join(str(n) for n in nums)"
+    },
+    {
+      "question": "Dict comp overwrite on duplicate keys?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Error",
+        "Last value wins",
+        "First value wins",
+        "Makes a list of values"
+      ],
+      "answer": "b",
+      "explanation": "Same as building a dict in a loop.",
+      "reference": {
+        "section": "Dict and set",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      },
+      "code": "{c: i for i, c in enumerate(\"aba\")}  # {\"a\": 2, \"b\": 1}"
+    },
+    {
+      "question": "Return Python: squares = [n * n for n in nums]",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function squaresComp() {\n  return \"\";\n}",
+      "solution": "function squaresComp() {\n  return \"squares = [n * n for n in nums]\";\n}",
+      "tests": [
+        {
+          "call": "squaresComp()",
+          "expected": "squares = [n * n for n in nums]"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      }
+    },
+    {
+      "question": "Return Python: positives = [n for n in nums if n > 0]",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function positivesComp() {\n  return \"\";\n}",
+      "solution": "function positivesComp() {\n  return \"positives = [n for n in nums if n > 0]\";\n}",
+      "tests": [
+        {
+          "call": "positivesComp()",
+          "expected": "positives = [n for n in nums if n > 0]"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "List comprehensions",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 98,
+        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+      }
+    },
+    {
+      "question": "Return Python: unique = {n for n in nums}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function uniqueComp() {\n  return \"\";\n}",
+      "solution": "function uniqueComp() {\n  return \"unique = {n for n in nums}\";\n}",
+      "tests": [
+        {
+          "call": "uniqueComp()",
+          "expected": "unique = {n for n in nums}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Dict and set",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 171,
+        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapter 4 — List Comprehensions",
+      "page": 97,
+      "pageEnd": 99,
+      "sections": [
+        {
+          "heading": "List comprehensions",
+          "page": 98
+        },
+        {
+          "heading": "Dict and set",
+          "page": 171
+        }
+      ]
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "chapter": "Dictionaries and Sets / mutable defaults",
+      "page": 144,
+      "pageEnd": 378,
+      "sections": [
+        {
+          "heading": "Sets",
+          "page": 171
+        },
+        {
+          "heading": "Dict and set",
+          "page": 171
+        },
+        {
+          "heading": "Mutable default trap",
+          "page": 378
+        }
+      ]
+    }
+  ]
+}

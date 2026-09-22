@@ -1,0 +1,393 @@
+{
+  "title": "Python — Loops",
+  "questions": [
+    {
+      "question": "What does range(3) yield?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "1, 2, 3",
+        "0, 1, 2",
+        "0, 1, 2, 3",
+        "3 only"
+      ],
+      "answer": "b",
+      "explanation": "range(n) is 0 through n-1.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for i in range(3):\n    print(i)"
+    },
+    {
+      "question": "How do you loop values of a list?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "for (let x of rows)",
+        "for x in rows:",
+        "foreach x in rows",
+        "for x = rows"
+      ],
+      "answer": "b",
+      "explanation": "for x in sequence:",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for item in rows:\n    print(item)"
+    },
+    {
+      "question": "What ends a while header?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "{",
+        ":",
+        "do",
+        "then"
+      ],
+      "answer": "b",
+      "explanation": "Colon, then indented body.",
+      "reference": {
+        "section": "while",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "while i < n:\n    i += 1"
+    },
+    {
+      "question": "What does break do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Skips one iteration.",
+        "Exits the nearest loop.",
+        "Exits the function only.",
+        "Restarts the loop."
+      ],
+      "answer": "b",
+      "explanation": "break leaves the loop.",
+      "reference": {
+        "section": "break and continue",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "if x == 0:\n    break"
+    },
+    {
+      "question": "What does continue do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Exits the loop.",
+        "Skips the rest of this iteration.",
+        "Pauses forever.",
+        "Returns None."
+      ],
+      "answer": "b",
+      "explanation": "continue jumps to the next iteration.",
+      "reference": {
+        "section": "break and continue",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "if x < 0:\n    continue"
+    },
+    {
+      "question": "What is range(2, 5)?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "2, 3, 4, 5",
+        "2, 3, 4",
+        "1, 2, 3, 4",
+        "5, 4, 3"
+      ],
+      "answer": "b",
+      "explanation": "Half-open: start inclusive, stop exclusive.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "list(range(2, 5))  # [2, 3, 4]"
+    },
+    {
+      "question": "Find the bug: for i in range(len(rows)): with only needing values.",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always required for lists.",
+        "Prefer for row in rows when you do not need the index.",
+        "range cannot take len.",
+        "for-in is illegal on lists."
+      ],
+      "answer": "b",
+      "explanation": "Iterate values directly when indexes are unused.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for row in rows:\n    print(row[\"id\"])"
+    },
+    {
+      "question": "How do you get index and value together?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "for i, x in rows",
+        "for i, x in enumerate(rows):",
+        "for each(rows)",
+        "rows.entries()"
+      ],
+      "answer": "b",
+      "explanation": "enumerate pairs index with value.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for i, x in enumerate(rows):\n    print(i, x)"
+    },
+    {
+      "question": "Infinite while needs…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A condition that can become false, or a break.",
+        "Nothing; Python caps loops.",
+        "A for instead always.",
+        "goto."
+      ],
+      "answer": "a",
+      "explanation": "Update state or break.",
+      "reference": {
+        "section": "while",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "while True:\n    if done:\n        break"
+    },
+    {
+      "question": "What does for i in range(0) do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Runs once with i=0.",
+        "Runs zero times.",
+        "Errors.",
+        "Runs forever."
+      ],
+      "answer": "b",
+      "explanation": "Empty range: no iterations.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for i in range(0):\n    print(i)"
+    },
+    {
+      "question": "Is indentation required in the loop body?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "No.",
+        "Yes; it defines the body.",
+        "Only for while.",
+        "Only with range."
+      ],
+      "answer": "b",
+      "explanation": "Indentation is the block.",
+      "reference": {
+        "section": "while",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "while i < n:\n    i += 1"
+    },
+    {
+      "question": "What is ++i in Python?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Increments i.",
+        "Not valid; use i += 1.",
+        "Same as i++.",
+        "Bitwise plus."
+      ],
+      "answer": "b",
+      "explanation": "No ++ operator.",
+      "reference": {
+        "section": "while",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "i += 1"
+    },
+    {
+      "question": "Can a for loop have an else?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "No.",
+        "Yes; else runs if the loop did not break.",
+        "Only while can.",
+        "else means continue."
+      ],
+      "answer": "b",
+      "explanation": "for/while else is a real feature.",
+      "reference": {
+        "section": "break and continue",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      },
+      "code": "for x in nums:\n    if x < 0:\n        break\nelse:\n    print(\"all ok\")"
+    },
+    {
+      "question": "How do you loop keys of a dict?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "for k in d:",
+        "for k in d.keys only mandatory",
+        "for (k of d)",
+        "foreach d"
+      ],
+      "answer": "a",
+      "explanation": "Iterating a dict yields keys.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "for k in d:\n    print(k, d[k])"
+    },
+    {
+      "question": "range(5, 0, -1) yields…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "5,4,3,2,1,0",
+        "5,4,3,2,1",
+        "0,1,2,3,4,5",
+        "error"
+      ],
+      "answer": "b",
+      "explanation": "Stop is exclusive, so 0 is not included.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      },
+      "code": "list(range(5, 0, -1))"
+    },
+    {
+      "question": "Return Python: for i in range(n):\\n    print(i)",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function countLoop() {\n  return \"\";\n}",
+      "solution": "function countLoop() {\n  return \"for i in range(n):\\n    print(i)\";\n}",
+      "tests": [
+        {
+          "call": "countLoop()",
+          "expected": "for i in range(n):\n    print(i)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      }
+    },
+    {
+      "question": "Return Python: for item in rows:\\n    print(item)",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function walkRows() {\n  return \"\";\n}",
+      "solution": "function walkRows() {\n  return \"for item in rows:\\n    print(item)\";\n}",
+      "tests": [
+        {
+          "call": "walkRows()",
+          "expected": "for item in rows:\n    print(item)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "for and range",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 95,
+        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+      }
+    },
+    {
+      "question": "Return Python: while i < n:\\n    i += 1",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function whileInc() {\n  return \"\";\n}",
+      "solution": "function whileInc() {\n  return \"while i < n:\\n    i += 1\";\n}",
+      "tests": [
+        {
+          "call": "whileInc()",
+          "expected": "while i < n:\n    i += 1"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "while",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 155,
+        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapters 4 and 7 — Working with Lists / while Loops",
+      "page": 87,
+      "pageEnd": 126,
+      "sections": [
+        {
+          "heading": "for and range",
+          "page": 95
+        },
+        {
+          "heading": "while",
+          "page": 155
+        },
+        {
+          "heading": "break and continue",
+          "page": 155
+        }
+      ]
+    }
+  ]
+}

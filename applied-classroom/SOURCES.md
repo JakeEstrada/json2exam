@@ -138,3 +138,8 @@ Learning SQL, 3rd Edition by Alan Beaulieu
 ```
 SQL Antipatterns, Volume 1 by Bill Karwin
 ```
+
+## Python
+
+- Python Crash Course, 3rd Edition by Eric Matthes (`python/sources/`)
+- Fluent Python, 2nd Edition by Luciano Ramalho (`python/sources/`)

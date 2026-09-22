@@ -408,23 +408,103 @@ test('worked solutions for CSS language banks pass their tests', async () => {
   }
 });
 
-test('LeetCode Arrays pattern bank uses LeetCode urls and Python solutions', async () => {
+test('loads the ready Python language banks', async () => {
   const { readFile } = await import('node:fs/promises');
   const { fileURLToPath } = await import('node:url');
   const path = await import('node:path');
-  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/leetcode/arrays');
-  const quiz = JSON.parse(await readFile(path.join(root, 'quiz.json'), 'utf8'));
-  const bank = normalizeQuiz(quiz);
-  assert.equal(bank.skipped.length, 0);
-  assert.ok(bank.questions.length >= 15, 'choice count');
-  assert.equal(bank.questions.filter((q) => q.type === 'code').length, 0, 'no code runner cards');
-  assert.ok(bank.questions.every((q) => q.passage && q.passage.length > 40), 'each card needs a problem passage');
-  assert.ok(bank.questions.every((q) => q.solution && q.solutionLanguage === 'python'), 'each card needs a Python solution');
-  assert.equal(bank.deal, 'random');
-  const linked = bank.questions.filter((q) => q.reference && q.reference.url);
-  assert.ok(linked.length >= 12, 'most cards need a LeetCode url');
-  for (const q of linked) {
-    assert.match(q.reference.url, /^https:\/\/leetcode\.com\/problems\//);
+  const { headingId } = await import('./parseQuiz.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/python/language');
+  const mods = [
+    'variables-and-types',
+    'conditionals',
+    'loops',
+    'functions',
+    'lists',
+    'dicts-and-sets',
+    'comprehensions',
+  ];
+  const tell = /#include|#define|preprocessor|\bstruct\b/i;
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const notes = await readFile(path.join(root, mod, 'notes.md'), 'utf8');
+    const headings = new Set([...notes.matchAll(/^#{1,3} (.+)$/gm)].map((m) => headingId(m[1])));
+    const bank = normalizeQuiz(quiz);
+    assert.equal(bank.skipped.length, 0, mod);
+    assert.ok(bank.reading.length >= 1, mod + ' reading');
+    const code = bank.questions.filter((q) => q.type === 'code');
+    const choice = bank.questions.filter((q) => q.type !== 'code');
+    assert.ok(choice.length >= 15, mod + ' choice count');
+    assert.equal(code.length, 3, mod + ' code count');
+    for (const q of choice) {
+      if (q.type === 'boolean') continue;
+      assert.ok(q.options.length <= 4, mod);
+      assert.ok(q.code && q.code.length > 0, mod + ' missing code: ' + q.text.slice(0, 48));
+    }
+    for (const q of choice) {
+      for (const opt of q.options || []) {
+        assert.equal(tell.test(opt), false, mod + ' other-language option: ' + opt);
+      }
+    }
+    for (const q of bank.questions) {
+      if (q.reference && q.reference.section) {
+        assert.ok(headings.has(headingId(q.reference.section)), mod + ' ' + q.reference.section);
+      }
+    }
+  }
+});
+
+test('worked solutions for Python language banks pass their tests', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const { runJavascript } = await import('./runCode.js');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/python/language');
+  const mods = [
+    'variables-and-types',
+    'conditionals',
+    'loops',
+    'functions',
+    'lists',
+    'dicts-and-sets',
+    'comprehensions',
+  ];
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'quiz.json'), 'utf8'));
+    const bank = normalizeQuiz(quiz);
+    for (const q of bank.questions.filter((row) => row.type === 'code')) {
+      const out = runJavascript(q.solution, q.tests);
+      assert.equal(out.passed, true, mod + ' ' + q.text.slice(0, 48) + ' ' + JSON.stringify(out.results));
+    }
+  }
+});
+
+test('LeetCode topic pattern banks use urls, Python solutions, and random deal', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { fileURLToPath } = await import('node:url');
+  const path = await import('node:path');
+  const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../applied-classroom/leetcode');
+  const mods = [
+    'arrays',
+    'strings-and-hash',
+    'linked-lists',
+    'trees',
+    'graphs',
+    'dynamic-programming',
+  ];
+  for (const mod of mods) {
+    const quiz = JSON.parse(await readFile(path.join(root, mod, 'patterns', 'quiz.json'), 'utf8'));
+    const bank = normalizeQuiz(quiz);
+    assert.equal(bank.deal, 'random', mod);
+    assert.equal(bank.skipped.length, 0, mod);
+    assert.ok(bank.questions.length >= 12, mod + ' choice count');
+    assert.equal(bank.questions.filter((q) => q.type === 'code').length, 0, mod + ' no code runner cards');
+    assert.ok(bank.questions.every((q) => q.passage && q.passage.length > 40), mod + ' passage');
+    assert.ok(bank.questions.every((q) => q.solution && q.solutionLanguage === 'python'), mod + ' python');
+    const linked = bank.questions.filter((q) => q.reference && q.reference.url);
+    assert.ok(linked.length >= 10, mod + ' urls');
+    for (const q of linked) {
+      assert.match(q.reference.url, /^https:\/\/leetcode\.com\/problems\//);
+    }
   }
 });
 

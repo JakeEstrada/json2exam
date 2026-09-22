@@ -341,6 +341,40 @@ export const APPLIED_COURSES = [
     ],
   }),
   plannedCourse({
+    id: 'py',
+    code: 'PY',
+    title: 'Python',
+    folder: 'python',
+    group: 'languages',
+    tagline: 'Seven short lessons. Indentation, then lists, dicts, and comprehensions.',
+    modules: [
+      {
+        label: 'Language',
+        decks: [
+          { label: 'Variables', slug: 'variables-and-types', sheet: 'VARIABLES AND TYPES' },
+          { label: 'Conditionals', slug: 'conditionals', sheet: 'CONDITIONALS' },
+          { label: 'Loops', slug: 'loops', sheet: 'LOOPS' },
+          { label: 'Functions', slug: 'functions', sheet: 'FUNCTIONS' },
+          { label: 'Lists', slug: 'lists', sheet: 'LISTS' },
+          { label: 'Dicts and sets', slug: 'dicts-and-sets', sheet: 'DICTS AND SETS' },
+          { label: 'Comprehensions', slug: 'comprehensions', sheet: 'COMPREHENSIONS' },
+        ],
+      },
+      {
+        label: 'Studio',
+        decks: [
+          'Predict the output',
+          'Complete the function',
+          'Find the bug',
+          'Refactor the code',
+          'Choose the correct data structure',
+          'Pass the provided test cases',
+          'Explain why the output occurred',
+        ],
+      },
+    ],
+  }),
+  plannedCourse({
     id: 'ds',
     code: 'DS',
     title: 'Data Structures',
@@ -392,15 +426,16 @@ export const APPLIED_COURSES = [
     const folder = ROOT + '/leetcode';
     const topic = (label, slug, subtitle) => {
       const s = slug || label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const deckFolder = folder + '/' + s;
+      const modFolder = folder + '/' + s;
+      const deckFolder = modFolder + '/patterns';
       return {
         id: 'lc-' + s,
         label,
-        folder: deckFolder,
+        folder: modFolder,
         decks: [
           {
-            id: 'lc-' + s,
-            label,
+            id: 'lc-' + s + '-patterns',
+            label: 'Patterns',
             subtitle: subtitle || 'Folder ready · add quiz JSON when you have it',
             comingSoon: true,
             folder: deckFolder,

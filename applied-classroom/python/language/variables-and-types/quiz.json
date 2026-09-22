@@ -1,0 +1,400 @@
+{
+  "title": "Python — Variables and types",
+  "questions": [
+    {
+      "question": "How do you bind a name to a value in Python?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "x = 1",
+        "let x = 1",
+        "const x = 1",
+        "int x = 1"
+      ],
+      "answer": "a",
+      "explanation": "Assignment is a single =. There is no let/const, and you do not declare the type on the name.",
+      "reference": {
+        "section": "Values and names",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 54,
+        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+      },
+      "code": "x = 1\nx = \"hi\""
+    },
+    {
+      "question": "After x = 1 then x = \"hi\", what is true?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Illegal: names are typed forever.",
+        "Legal: the name now refers to a string.",
+        "Legal only inside a class.",
+        "Legal only with global."
+      ],
+      "answer": "b",
+      "explanation": "Types live on values. Rebinding is normal.",
+      "reference": {
+        "section": "Values and names",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 54,
+        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+      },
+      "code": "x = 1\nx = \"hi\""
+    },
+    {
+      "question": "Which spelling is the boolean true value?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "true",
+        "True",
+        "TRUE",
+        "yes"
+      ],
+      "answer": "b",
+      "explanation": "Booleans are True and False with capital letters.",
+      "reference": {
+        "section": "Built-in types",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "ok = True"
+    },
+    {
+      "question": "What is None?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The empty string.",
+        "The absence of a value (NoneType).",
+        "Zero.",
+        "False spelled differently."
+      ],
+      "answer": "b",
+      "explanation": "None is its own singleton. Compare with is, not ==, by convention.",
+      "reference": {
+        "section": "Built-in types",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "missing = None"
+    },
+    {
+      "question": "What does type(3.0) report?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "int",
+        "float",
+        "number",
+        "double"
+      ],
+      "answer": "b",
+      "explanation": "3.0 is a float even when it looks whole.",
+      "reference": {
+        "section": "Built-in types",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "rate = 3.0\nprint(type(rate))"
+    },
+    {
+      "question": "Which value is falsy?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "\"0\"",
+        "1",
+        "[]",
+        "[0]"
+      ],
+      "answer": "c",
+      "explanation": "Empty list is falsy. Non-empty strings and lists are truthy.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "bool([])  # False\nbool(\"0\")  # True"
+    },
+    {
+      "question": "What is bool(\"False\")?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "False, because the text says False.",
+        "True, because the string is non-empty.",
+        "Error.",
+        "None"
+      ],
+      "answer": "b",
+      "explanation": "Only empty string is falsy among strings.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "bool(\"False\")"
+    },
+    {
+      "question": "How do you convert \"40\" to an integer?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Number(\"40\")",
+        "int(\"40\")",
+        "parseInt(\"40\")",
+        "(int)\"40\""
+      ],
+      "answer": "b",
+      "explanation": "Use the int constructor.",
+      "reference": {
+        "section": "Conversion",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "amount = int(\"40\")"
+    },
+    {
+      "question": "What does int(\"hi\") do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns 0.",
+        "Returns None.",
+        "Raises ValueError.",
+        "Returns \"hi\"."
+      ],
+      "answer": "c",
+      "explanation": "Invalid literals raise ValueError.",
+      "reference": {
+        "section": "Conversion",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "int(\"hi\")"
+    },
+    {
+      "question": "Which name style is the usual convention for variables?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "camelCase",
+        "snake_case",
+        "PascalCase only",
+        "SCREAMING"
+      ],
+      "answer": "b",
+      "explanation": "PEP 8: snake_case for functions and variables.",
+      "reference": {
+        "section": "Values and names",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 54,
+        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+      },
+      "code": "paid_total = 0"
+    },
+    {
+      "question": "What is the type of True?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "int",
+        "bool",
+        "str",
+        "NoneType"
+      ],
+      "answer": "b",
+      "explanation": "bool is a separate type (subclass of int, but treat it as bool).",
+      "reference": {
+        "section": "Built-in types",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "ok = True\nprint(type(ok))"
+    },
+    {
+      "question": "Find the bug: treating None like 0 in arithmetic.",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "None + 1 is fine and yields 1.",
+        "None + 1 raises TypeError.",
+        "None is the same as 0.",
+        "None becomes False then 0 silently."
+      ],
+      "answer": "b",
+      "explanation": "None is not a number.",
+      "reference": {
+        "section": "Built-in types",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "total = None\ntotal = total + 1  # TypeError"
+    },
+    {
+      "question": "Which conversion keeps a decimal?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "int(\"1.5\")",
+        "float(\"1.5\")",
+        "str(1.5) then ignore the point",
+        "bool(\"1.5\")"
+      ],
+      "answer": "b",
+      "explanation": "float parses decimals. int(\"1.5\") fails.",
+      "reference": {
+        "section": "Conversion",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "float(\"1.5\")"
+    },
+    {
+      "question": "Why prefer explicit int(x) over relying on truthiness for amounts?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Truthiness treats 0 as missing money.",
+        "int never fails.",
+        "Truthiness is illegal in Python.",
+        "0 is not a number."
+      ],
+      "answer": "a",
+      "explanation": "0 is falsy but can be a real amount. Convert, then decide.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      },
+      "code": "amount = 0\nif amount:\n    print(\"paid\")  # skips real zero"
+    },
+    {
+      "question": "What does str(40) return?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "40 as int",
+        "\"40\" as str",
+        "b\"40\"",
+        "None"
+      ],
+      "answer": "b",
+      "explanation": "str builds a text representation.",
+      "reference": {
+        "section": "Conversion",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      },
+      "code": "label = str(40)"
+    },
+    {
+      "question": "Return Python source that binds paid to the integer 40.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function paidBinding() {\n  return \"\";\n}",
+      "solution": "function paidBinding() {\n  return \"paid = 40\";\n}",
+      "tests": [
+        {
+          "call": "paidBinding()",
+          "expected": "paid = 40"
+        }
+      ],
+      "hints": [
+        "One assignment statement.",
+        "No let/const."
+      ],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Values and names",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 54,
+        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+      }
+    },
+    {
+      "question": "Return Python source that sets amount = int(\"40\").",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function amountFromText() {\n  return \"\";\n}",
+      "solution": "function amountFromText() {\n  return 'amount = int(\"40\")';\n}",
+      "tests": [
+        {
+          "call": "amountFromText()",
+          "expected": "amount = int(\"40\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Conversion",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 64,
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+      }
+    },
+    {
+      "question": "Return Python source: keep = bool(rows) where rows is a name already bound.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function keepFlag() {\n  return \"\";\n}",
+      "solution": "function keepFlag() {\n  return \"keep = bool(rows)\";\n}",
+      "tests": [
+        {
+          "call": "keepFlag()",
+          "expected": "keep = bool(rows)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Truthiness",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 115,
+        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "chapter": "Chapter 2 — Variables and Simple Data Types",
+      "page": 53,
+      "pageEnd": 70,
+      "sections": [
+        {
+          "heading": "Values and names",
+          "page": 54
+        },
+        {
+          "heading": "Built-in types",
+          "page": 64
+        },
+        {
+          "heading": "Truthiness",
+          "page": 115
+        },
+        {
+          "heading": "Conversion",
+          "page": 64
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "title": "LeetCode — Trees pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: swap left/right at each node; recurse both sides; return root.",
+        "BFS only storing values without rewiring children.",
+        "Inorder walk then rebuild sorted.",
+        "Hash map of depths only."
+      ],
+      "answer": "a",
+      "explanation": "Invert is a recursive swap.",
+      "reference": {
+        "url": "https://leetcode.com/problems/invert-binary-tree"
+      },
+      "level": 1,
+      "passage": "LC 226 · Invert Binary Tree · Easy\n\nGiven the `root` of a binary tree, invert the tree, and return its root.",
+      "solutionLanguage": "python",
+      "solution": "def invertTree(root):\n    if not root:\n        return None\n    root.left, root.right = invertTree(root.right), invertTree(root.left)\n    return root\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: depth = 1 + max(left depth, right depth); null ⇒ 0.",
+        "BFS counting edges without a queue size.",
+        "Inorder listing lengths.",
+        "Stack of values only."
+      ],
+      "answer": "a",
+      "explanation": "Height/depth is the classic DFS combine.",
+      "reference": {
+        "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree"
+      },
+      "level": 1,
+      "passage": "LC 104 · Maximum Depth of Binary Tree · Easy\n\nGiven the `root` of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+      "solutionLanguage": "python",
+      "solution": "def maxDepth(root):\n    if not root:\n        return 0\n    return 1 + max(maxDepth(root.left), maxDepth(root.right))\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: both null ⇒ true; one null ⇒ false; values equal and subtrees same.",
+        "BFS values only ignoring structure.",
+        "Serialize one tree only.",
+        "BST bounds check."
+      ],
+      "answer": "a",
+      "explanation": "Same tree is structural DFS equality.",
+      "reference": {
+        "url": "https://leetcode.com/problems/same-tree"
+      },
+      "level": 1,
+      "passage": "LC 100 · Same Tree · Easy\n\nGiven the roots of two binary trees `p` and `q`, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
+      "solutionLanguage": "python",
+      "solution": "def isSameTree(p, q):\n    if not p and not q:\n        return True\n    if not p or not q or p.val != q.val:\n        return False\n    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: subtract node value from target; true if leaf and remaining is 0.",
+        "BFS summing whole levels only.",
+        "Inorder then prefix sums on the flattened list.",
+        "Hash parent pointers only."
+      ],
+      "answer": "a",
+      "explanation": "Path sum is DFS with a running remainder.",
+      "reference": {
+        "url": "https://leetcode.com/problems/path-sum"
+      },
+      "level": 1,
+      "passage": "LC 112 · Path Sum · Easy\n\nGiven the `root` of a binary tree and an integer `targetSum`, return `true` if the tree has a root-to-leaf path such that adding up all the values along the path equals `targetSum`. A leaf is a node with no children.",
+      "solutionLanguage": "python",
+      "solution": "def hasPathSum(root, targetSum):\n    if not root:\n        return False\n    if not root.left and not root.right:\n        return root.val == targetSum\n    need = targetSum - root.val\n    return hasPathSum(root.left, need) or hasPathSum(root.right, need)\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS returning height; at each node diameter candidate = left_h + right_h; track global max.",
+        "BFS diameter between first and last in queue.",
+        "Count nodes then subtract one.",
+        "Inorder stretch only."
+      ],
+      "answer": "a",
+      "explanation": "Diameter uses height DFS plus a global best path through the node.",
+      "reference": {
+        "url": "https://leetcode.com/problems/diameter-of-binary-tree"
+      },
+      "level": 2,
+      "passage": "LC 543 · Diameter of Binary Tree · Easy\n\nGiven the `root` of a binary tree, return the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the `root`. The length of a path between two nodes is represented by the number of edges between them.",
+      "solutionLanguage": "python",
+      "solution": "def diameterOfBinaryTree(root):\n    best = 0\n    def height(node):\n        nonlocal best\n        if not node:\n            return 0\n        L, R = height(node.left), height(node.right)\n        best = max(best, L + R)\n        return 1 + max(L, R)\n    height(root)\n    return best\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "BFS: for each level take queue size; pop that many; push children; append level list.",
+        "DFS only with no level buckets.",
+        "Inorder into one flat list.",
+        "Stack of right children only."
+      ],
+      "answer": "a",
+      "explanation": "Level order is BFS with a level-size loop.",
+      "reference": {
+        "url": "https://leetcode.com/problems/binary-tree-level-order-traversal"
+      },
+      "level": 2,
+      "passage": "LC 102 · Binary Tree Level Order Traversal · Medium\n\nGiven the `root` of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque\ndef levelOrder(root):\n    if not root:\n        return []\n    out, q = [], deque([root])\n    while q:\n        level = []\n        for _ in range(len(q)):\n            node = q.popleft()\n            level.append(node.val)\n            if node.left:\n                q.append(node.left)\n            if node.right:\n                q.append(node.right)\n        out.append(level)\n    return out\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "BFS levels: record the last node value in each level (right side view).",
+        "DFS only left spine.",
+        "Inorder last value overall.",
+        "Hash of depths taking the first visit only."
+      ],
+      "answer": "a",
+      "explanation": "Right side view = last node per BFS level (or DFS preferring right).",
+      "reference": {
+        "url": "https://leetcode.com/problems/binary-tree-right-side-view"
+      },
+      "level": 2,
+      "passage": "LC 199 · Binary Tree Right Side View · Medium\n\nGiven the `root` of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.",
+      "solutionLanguage": "python",
+      "solution": "from collections import deque\ndef rightSideView(root):\n    if not root:\n        return []\n    out, q = [], deque([root])\n    while q:\n        right = None\n        for _ in range(len(q)):\n            node = q.popleft()\n            right = node.val\n            if node.left:\n                q.append(node.left)\n            if node.right:\n                q.append(node.right)\n        out.append(right)\n    return out\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS with bounds: each node must lie in (low, high); tighten bounds for children.",
+        "Only check each node vs its immediate children.",
+        "BFS values non-decreasing across levels.",
+        "Level-order sort check."
+      ],
+      "answer": "a",
+      "explanation": "BST validation needs transitive bounds (or inorder prev).",
+      "reference": {
+        "url": "https://leetcode.com/problems/validate-binary-search-tree"
+      },
+      "level": 2,
+      "passage": "LC 98 · Validate Binary Search Tree · Medium\n\nGiven the `root` of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node's key. The right subtree of a node contains only nodes with keys greater than the node's key. Both the left and right subtrees must also be binary search trees.",
+      "solutionLanguage": "python",
+      "solution": "def isValidBST(root):\n    def ok(node, low, high):\n        if not node:\n            return True\n        if not (low < node.val < high):\n            return False\n        return ok(node.left, low, node.val) and ok(node.right, node.val, high)\n    return ok(root, float(\"-inf\"), float(\"inf\"))\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: if node is p or q or null return it; combine left/right — if both non-null node is LCA.",
+        "BFS parents then sets of ancestors without DFS.",
+        "Inorder positions only.",
+        "Stack of all leaves."
+      ],
+      "answer": "a",
+      "explanation": "LCA is the DFS combine where both sides report a hit.",
+      "reference": {
+        "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree"
+      },
+      "level": 2,
+      "passage": "LC 236 · Lowest Common Ancestor of a Binary Tree · Medium\n\nGiven a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow a node to be a descendant of itself).”",
+      "solutionLanguage": "python",
+      "solution": "def lowestCommonAncestor(root, p, q):\n    if not root or root is p or root is q:\n        return root\n    left = lowestCommonAncestor(root.left, p, q)\n    right = lowestCommonAncestor(root.right, p, q)\n    if left and right:\n        return root\n    return left or right\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "DFS: for each node in root, check isSameTree against subRoot (or serialize/match).",
+        "BFS levels must be identical everywhere.",
+        "BST insert subRoot into root.",
+        "Only compare roots’ values."
+      ],
+      "answer": "a",
+      "explanation": "Subtree = search + same-tree check.",
+      "reference": {
+        "url": "https://leetcode.com/problems/subtree-of-another-tree"
+      },
+      "level": 2,
+      "passage": "LC 572 · Subtree of Another Tree · Easy\n\nGiven two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.",
+      "solutionLanguage": "python",
+      "solution": "def isSubtree(root, subRoot):\n    def same(a, b):\n        if not a and not b:\n            return True\n        if not a or not b or a.val != b.val:\n            return False\n        return same(a.left, b.left) and same(a.right, b.right)\n    if not root:\n        return False\n    if same(root, subRoot):\n        return True\n    return isSubtree(root.left, subRoot) or isSubtree(root.right, subRoot)\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Preorder gives root; inorder splits left/right sizes; recurse to build children.",
+        "Level-order reconstruction only.",
+        "Sort preorder to get BST insert order always.",
+        "BFS queue of inorder indices only."
+      ],
+      "answer": "a",
+      "explanation": "Preorder + inorder uniquely determine the tree via divide-and-conquer.",
+      "reference": {
+        "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal"
+      },
+      "level": 3,
+      "passage": "LC 105 · Construct Binary Tree from Preorder and Inorder Traversal · Medium\n\nGiven two integer arrays `preorder` and `inorder` where `preorder` is the preorder traversal of a binary tree and `inorder` is the inorder traversal of the same tree, construct and return the binary tree.",
+      "solutionLanguage": "python",
+      "solution": "def buildTree(preorder, inorder):\n    idx = {v: i for i, v in enumerate(inorder)}\n    def build(lo, hi):\n        nonlocal preorder\n        if lo > hi:\n            return None\n        val = preorder.pop(0)\n        root = TreeNode(val)\n        mid = idx[val]\n        root.left = build(lo, mid - 1)\n        root.right = build(mid + 1, hi)\n        return root\n    return build(0, len(inorder) - 1)\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Encode with DFS preorder using sentinels for null; decode with an iterator consuming tokens.",
+        "Store only values in a set.",
+        "Inorder alone is enough to restore any binary tree.",
+        "Hash of parent pointers without encoding nulls."
+      ],
+      "answer": "a",
+      "explanation": "Serialize must record structure (null markers or structure bits).",
+      "reference": {
+        "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+      },
+      "level": 3,
+      "passage": "LC 297 · Serialize and Deserialize Binary Tree · Hard\n\nSerialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment. Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be…",
+      "solutionLanguage": "python",
+      "solution": "class Codec:\n    def serialize(self, root):\n        out = []\n        def dfs(node):\n            if not node:\n                out.append(\"#\")\n                return\n            out.append(str(node.val))\n            dfs(node.left)\n            dfs(node.right)\n        dfs(root)\n        return \",\".join(out)\n    def deserialize(self, data):\n        tokens = iter(data.split(\",\"))\n        def dfs():\n            val = next(tokens)\n            if val == \"#\":\n                return None\n            node = TreeNode(int(val))\n            node.left = dfs()\n            node.right = dfs()\n            return node\n        return dfs()\n"
+    }
+  ]
+}

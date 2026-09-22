@@ -1,0 +1,234 @@
+{
+  "title": "LeetCode — Strings and hash pattern recognition",
+  "deal": "random",
+  "questions": [
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map: count chars in s; decrement with t; all counts zero ⇒ anagram.",
+        "Two pointers from ends without counting.",
+        "Sliding window of length 1 only.",
+        "Stack of characters; ignore frequencies."
+      ],
+      "answer": "a",
+      "explanation": "Anagrams share the same character multiset — count and compare.",
+      "reference": {
+        "url": "https://leetcode.com/problems/valid-anagram"
+      },
+      "level": 1,
+      "passage": "LC 242 · Valid Anagram · Easy\n\nGiven two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.",
+      "solutionLanguage": "python",
+      "solution": "def isAnagram(s, t):\n    if len(s) != len(t):\n        return False\n    count = {}\n    for ch in s:\n        count[ch] = count.get(ch, 0) + 1\n    for ch in t:\n        if ch not in count:\n            return False\n        count[ch] -= 1\n        if count[ch] == 0:\n            del count[ch]\n    return not count\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sort each string as a key into a hash map of lists; return the groups.",
+        "Sliding window across the whole list of strings.",
+        "Binary search each string.",
+        "Two pointers comparing only first and last string."
+      ],
+      "answer": "a",
+      "explanation": "Group by a canonical key (sorted letters or count tuple).",
+      "reference": {
+        "url": "https://leetcode.com/problems/group-anagrams"
+      },
+      "level": 2,
+      "passage": "LC 49 · Group Anagrams · Medium\n\nGiven an array of strings `strs`, group the anagrams together. You can return the answer in any order. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+      "solutionLanguage": "python",
+      "solution": "from collections import defaultdict\ndef groupAnagrams(strs):\n    groups = defaultdict(list)\n    for s in strs:\n        key = tuple(sorted(s))\n        groups[key].append(s)\n    return list(groups.values())\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sliding window: expand right; shrink left while a duplicate is in the window; track max length.",
+        "Hash map of all substrings first (required).",
+        "Stack of characters only.",
+        "Two pointers from ends ignoring the middle."
+      ],
+      "answer": "a",
+      "explanation": "Longest unique substring is a classic growing/shrinking window.",
+      "reference": {
+        "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      "level": 2,
+      "passage": "LC 3 · Longest Substring Without Repeating Characters · Medium\n\nGiven a string `s`, find the length of the longest substring without repeating characters.",
+      "solutionLanguage": "python",
+      "solution": "def lengthOfLongestSubstring(s):\n    last = {}\n    left = best = 0\n    for right, ch in enumerate(s):\n        if ch in last and last[ch] >= left:\n            left = last[ch] + 1\n        last[ch] = right\n        best = max(best, right - left + 1)\n    return best\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sliding window with need/have counts: expand right; shrink left while valid; track minimum covering window.",
+        "Sort both strings then scan once.",
+        "Binary search on characters.",
+        "Stack matching every letter in t."
+      ],
+      "answer": "a",
+      "explanation": "Minimum covering substring = window that stays valid while you shrink.",
+      "reference": {
+        "url": "https://leetcode.com/problems/minimum-window-substring"
+      },
+      "level": 3,
+      "passage": "LC 76 · Minimum Window Substring · Hard\n\nGiven two strings `s` and `t`, return the minimum window in `s` which will contain all the characters in `t`. If there is no such window in `s` that covers all characters in `t`, return the empty string `\"\"`. Note that If there is such a window, it is guaranteed that there will always be only one unique minimum window in `s`.",
+      "solutionLanguage": "python",
+      "solution": "from collections import Counter\ndef minWindow(s, t):\n    need = Counter(t)\n    missing = len(t)\n    left = 0\n    best = (0, float(\"inf\"))\n    for right, ch in enumerate(s):\n        if need[ch] > 0:\n            missing -= 1\n        need[ch] -= 1\n        while missing == 0:\n            if right - left < best[1] - best[0]:\n                best = (left, right)\n            need[s[left]] += 1\n            if need[s[left]] > 0:\n                missing += 1\n            left += 1\n    return \"\" if best[1] == float(\"inf\") else s[best[0]:best[1] + 1]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Sliding window of length len(p) with a running count; record starts when counts match.",
+        "Generate all substrings then sort each.",
+        "Stack of indices only.",
+        "Binary search for p inside s."
+      ],
+      "answer": "a",
+      "explanation": "Fixed-length anagram windows = sliding count map.",
+      "reference": {
+        "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string"
+      },
+      "level": 2,
+      "passage": "LC 438 · Find All Anagrams in a String · Medium\n\nGiven a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100. The order of output does not matter.",
+      "solutionLanguage": "python",
+      "solution": "from collections import Counter\ndef findAnagrams(s, p):\n    need = Counter(p)\n    window = Counter()\n    out = []\n    k = len(p)\n    for i, ch in enumerate(s):\n        window[ch] += 1\n        if i >= k:\n            left = s[i - k]\n            window[left] -= 1\n            if window[left] == 0:\n                del window[left]\n        if i >= k - 1 and window == need:\n            out.append(i - k + 1)\n    return out\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Two pointers: skip non-alnum; compare lowercased ends; move inward.",
+        "Hash map of every character to its mirror.",
+        "Sliding window of vowels only.",
+        "Stack then rebuild the string mandatory."
+      ],
+      "answer": "a",
+      "explanation": "Palindrome check after filtering is opposite-end pointers.",
+      "reference": {
+        "url": "https://leetcode.com/problems/valid-palindrome"
+      },
+      "level": 1,
+      "passage": "LC 125 · Valid Palindrome · Easy\n\nGiven a string `s`, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.",
+      "solutionLanguage": "python",
+      "solution": "def isPalindrome(s):\n    lo, hi = 0, len(s) - 1\n    while lo < hi:\n        while lo < hi and not s[lo].isalnum():\n            lo += 1\n        while lo < hi and not s[hi].isalnum():\n            hi -= 1\n        if s[lo].lower() != s[hi].lower():\n            return False\n        lo += 1\n        hi -= 1\n    return True\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Expand around each center (odd/even); track the longest palindrome slice.",
+        "Hash set of all prefixes only.",
+        "Single stack pop for the whole string.",
+        "Binary search the mid character once."
+      ],
+      "answer": "a",
+      "explanation": "Longest palindromic substring is expand-from-center (or DP).",
+      "reference": {
+        "url": "https://leetcode.com/problems/longest-palindromic-substring"
+      },
+      "level": 2,
+      "passage": "LC 5 · Longest Palindromic Substring · Medium\n\nGiven a string `s`, return the longest palindromic substring in `s`.",
+      "solutionLanguage": "python",
+      "solution": "def longestPalindrome(s):\n    def expand(l, r):\n        while l >= 0 and r < len(s) and s[l] == s[r]:\n            l -= 1\n            r += 1\n        return s[l + 1:r]\n    best = \"\"\n    for i in range(len(s)):\n        for cand in (expand(i, i), expand(i, i + 1)):\n            if len(cand) > len(best):\n                best = cand\n    return best\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Stack: push openers; on closer pop and require a matching pair; empty at end.",
+        "Sliding window of brackets.",
+        "Hash map counting only (order ignored).",
+        "Two pointers from ends ignoring nesting."
+      ],
+      "answer": "a",
+      "explanation": "Bracket matching is the textbook stack walk.",
+      "reference": {
+        "url": "https://leetcode.com/problems/valid-parentheses"
+      },
+      "level": 1,
+      "passage": "LC 20 · Valid Parentheses · Easy\n\nGiven a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order.",
+      "solutionLanguage": "python",
+      "solution": "def isValid(s):\n    pairs = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    stack = []\n    for ch in s:\n        if ch in pairs.values():\n            stack.append(ch)\n        elif ch in pairs:\n            if not stack or stack[-1] != pairs[ch]:\n                return False\n            stack.pop()\n        else:\n            return False\n    return not stack\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Vertical scan: compare characters column by column across all strings until a mismatch.",
+        "Sliding window on the longest string only.",
+        "Stack of prefixes.",
+        "Binary search each string independently without comparing."
+      ],
+      "answer": "a",
+      "explanation": "LCP is a shared prefix walk (or sort + compare ends).",
+      "reference": {
+        "url": "https://leetcode.com/problems/longest-common-prefix"
+      },
+      "level": 1,
+      "passage": "LC 14 · Longest Common Prefix · Easy\n\nWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string `\"\"`.",
+      "solutionLanguage": "python",
+      "solution": "def longestCommonPrefix(strs):\n    if not strs:\n        return \"\"\n    for i, ch in enumerate(strs[0]):\n        for s in strs[1:]:\n            if i >= len(s) or s[i] != ch:\n                return strs[0][:i]\n    return strs[0]\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Hash map of roman values; walk left to right; if next is larger, subtract current.",
+        "Sliding window of length 2 only without a map.",
+        "Stack of numerals mandatory.",
+        "Two pointers from ends adding both."
+      ],
+      "answer": "a",
+      "explanation": "Roman numerals need a value table and a look-ahead subtract rule.",
+      "reference": {
+        "url": "https://leetcode.com/problems/roman-to-integer"
+      },
+      "level": 1,
+      "passage": "LC 13 · Roman to Integer · Easy\n\nRoman numerals are represented by seven different symbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`. Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000 For example, `2` is written as `II` in Roman numeral, just two one's added together. `12` is written as `XII`, which is simply `X + II`. The number `27` is written as `XXVII`, which is `XX + V + II`. Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not `IIII`. Instead, the number four is written as `IV`.…",
+      "solutionLanguage": "python",
+      "solution": "def romanToInt(s):\n    val = {\"I\": 1, \"V\": 5, \"X\": 10, \"L\": 50, \"C\": 100, \"D\": 500, \"M\": 1000}\n    total = 0\n    for i, ch in enumerate(s):\n        if i + 1 < len(s) and val[ch] < val[s[i + 1]]:\n            total -= val[ch]\n        else:\n            total += val[ch]\n    return total\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Scan left to right with explicit states: skip spaces → optional sign → digits → clamp to 32-bit range.",
+        "int(s) in one call without handling edges (as the interview plan).",
+        "Sliding window of digits only from the right.",
+        "Stack of digits reversed always."
+      ],
+      "answer": "a",
+      "explanation": "atoi is a careful linear scan with rules, not a language cast.",
+      "reference": {
+        "url": "https://leetcode.com/problems/string-to-integer-atoi"
+      },
+      "level": 2,
+      "passage": "LC 8 · String to Integer (atoi) · Medium\n\nImplement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer (similar to C/C++'s `atoi` function). The algorithm for `myAtoi(string s)` is as follows: Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is `'-'` or `'+'`. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until…",
+      "solutionLanguage": "python",
+      "solution": "def myAtoi(s):\n    i, n = 0, len(s)\n    while i < n and s[i] == \" \":\n        i += 1\n    sign = 1\n    if i < n and s[i] in \"+-\":\n        sign = -1 if s[i] == \"-\" else 1\n        i += 1\n    num = 0\n    while i < n and s[i].isdigit():\n        num = num * 10 + ord(s[i]) - 48\n        i += 1\n    num *= sign\n    return max(-2**31, min(2**31 - 1, num))\n"
+    },
+    {
+      "question": "Which approach and high-level steps fit this problem?",
+      "type": "multiple",
+      "options": [
+        "Length-prefix encode: for each string store len + delimiter + body; decode by reading lengths.",
+        "Join with commas only (breaks if commas appear).",
+        "Hash map of id→string without an encode format.",
+        "Sliding window of fixed 4 characters."
+      ],
+      "answer": "a",
+      "explanation": "Need an unambiguous framing — length prefixes are the usual design.",
+      "reference": {
+        "url": "https://leetcode.com/problems/encode-and-decode-strings"
+      },
+      "level": 2,
+      "passage": "LC 271 · Encode and Decode Strings · Medium\n\nDesign an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings. Machine 1 (sender) has the function: string encode(vector<string> strs) { // ... your code return encoded_string; } Machine 2 (receiver) has the function: vector<string> decode(string s) { //... your code return strs; } So Machine 1 does: string encoded_string = encode(strs); and Machine 2 does: vector<string> strs2 = decode(encoded_string); `strs2`…",
+      "solutionLanguage": "python",
+      "solution": "class Codec:\n    def encode(self, strs):\n        return \"\".join(f\"{len(s)}#{s}\" for s in strs)\n    def decode(self, s):\n        out, i = [], 0\n        while i < len(s):\n            j = s.index(\"#\", i)\n            size = int(s[i:j])\n            out.append(s[j + 1:j + 1 + size])\n            i = j + 1 + size\n        return out\n"
+    }
+  ]
+}

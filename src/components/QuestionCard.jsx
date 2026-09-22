@@ -8,7 +8,19 @@ import { cardSpeechParts } from '../lib/speech.js';
 import { MarkdownView, MdInline } from './FileWindow.jsx';
 import CodeBlock from './CodeBlock.jsx';
 import SpeechTools, { useSpeechReader } from './SpeechTools.jsx';
-import { looksLikeCode } from '../lib/highlight.js';
+import { detectLanguage, looksLikeCode } from '../lib/highlight.js';
+
+const CODE_KICKER = {
+  javascript: 'Read this JavaScript',
+  js: 'Read this JavaScript',
+  typescript: 'Read this TypeScript',
+  ts: 'Read this TypeScript',
+  python: 'Read this Python',
+  py: 'Read this Python',
+  html: 'Read this HTML',
+  markup: 'Read this HTML',
+  css: 'Read this CSS',
+};
 
 export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading }) {
   const reviewing = phase === 'review';
@@ -283,7 +295,7 @@ function QuestionPrompt({ q, showHero, reading }) {
       ) : null}
       {codeHero ? (
         <>
-          <p className="code-kicker">Read this JavaScript</p>
+          <p className="code-kicker">{CODE_KICKER[detectLanguage(q.code)] || 'Read this code'}</p>
           <CodeBlock code={q.code} />
         </>
       ) : null}
