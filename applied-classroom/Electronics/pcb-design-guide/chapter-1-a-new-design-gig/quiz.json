@@ -6,12 +6,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "That PCB design needs a written process, a mentor, and slow review before any fab order.",
+        "That PCB work needs a written process, a named mentor, and a slow design review before any fab order goes out.",
+        "That only mechanical engineers may open schematic software, and electrical staff are blocked from layout tools.",
         "That experience can move aside for automation, so the job is treated as easy and largely automated.",
-        "That only mechanical engineers may open schematic software.",
-        "That every board must be built in-house on a drafting table from the sixties."
+        "That every board must be built in-house on a sixties drafting table with ink pens before any computer is used."
       ],
-      "answer": "b",
+      "answer": "c",
       "explanation": "Otto welcomes Ian to a place where “experience moves aside for automation.” Coworkers miss Old Bob but cannot describe his process. The culture treats the role as automated and therefore easy — which is the trap.",
       "reference": {
         "section": "What Chapter 1 is really about",
@@ -25,12 +25,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "His credit card was declined at the cafeteria.",
         "Old Bob’s workflow was never written down, so Ian has no process and no mentor to ask.",
-        "The company banned all schematic software.",
-        "Otto refused to scan him until he passed an ITAR quiz."
+        "His company credit card was declined when he tried to order cake from the cafeteria menu.",
+        "The company banned all schematic software until HR finished another full-body scan.",
+        "Otto refused to unlock the basement office until Ian passed a surprise ITAR quiz on day one."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Ian realizes Old Bob likely never documented his workflow. Without process or someone to ask, he is expected to know PCB design he was never taught in university.",
       "reference": {
         "section": "What Chapter 1 is really about",
@@ -44,12 +44,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Automated presets always produce flight-qualified avionics boards.",
-        "If the software finishes quickly, DFM review is unnecessary.",
-        "Automation can make you feel productive while you still lack manufacturing judgment and a real process.",
-        "University courses already cover fab notes, stack-ups, and supplier selection."
+        "Automated presets always produce flight-qualified avionics boards when the project manager wants Old Bob speed.",
+        "If the software finishes before Monday, DFM review and fab notes can safely be skipped for the first spin.",
+        "University three-day courses already cover fab notes, stack-ups, and supplier selection in full depth.",
+        "Automation can make you feel productive while you still lack manufacturing judgment and a real process."
       ],
-      "answer": "c",
+      "answer": "d",
       "explanation": "The tools pull Ian along; he feels Old Bob–fast. The story shows that speed from defaults is not the same as a sound, manufacturable design process.",
       "reference": {
         "section": "What Chapter 1 is really about",
@@ -63,10 +63,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "He visits three fabs, reviews stack-up capability, and dual-sources the order.",
+        "He visits three fabs, reviews stack-up capability, and dual-sources the first production lot.",
         "He Googles a quick cheap fab, picks one on a 4.2-star rating, and asks for the fastest turn.",
-        "He sends the design only to SpaceX’s approved AVL after an RFQ.",
-        "He waits for a formal DFM review before ordering anything."
+        "He sends the design only to SpaceX’s approved AVL after a formal RFQ with stakeholders.",
+        "He waits for a written DFM disposition and a stack-up sign-off before releasing any files."
       ],
       "answer": "b",
       "explanation": "He searches “Quickie-Cheapo PCB fabrication,” picks Etch-O-Matronic on star ratings, and requests the quickest turn — exactly the “cheap and fast” habit his manager praised in Old Bob, without real supplier judgment.",
@@ -82,12 +82,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
+        "Direct Freight Manifest — a shipping label printed when boards leave the fab dock for the customer site.",
+        "Digital File Mirror — an automatic cloud backup of Gerbers, drill files, and assembly drawings together.",
         "Design for Manufacturing — checking whether the board can be built reliably at the fab/assembly house.",
-        "Direct Freight Manifest — only a shipping label.",
-        "Digital File Mirror — a backup of the Gerbers.",
-        "Department of Facility Maintenance — building HVAC rules."
+        "Department of Facility Maintenance — HVAC and clean-room humidity rules that limit etch-line chemistry."
       ],
-      "answer": "a",
+      "answer": "c",
       "explanation": "DFM is Design for Manufacturing. Ian has seen the letters but does not understand them — the same gap a technical buyer must not have when talking fab notes and process capability with suppliers.",
       "reference": {
         "section": "What Chapter 1 is really about",
@@ -101,12 +101,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Will the company ban industry events so you stay focused?",
         "Does the company give you a sense that your job is valued and appreciated?",
-        "Can you skip software training if star ratings look good?",
-        "Is sole-source the preferred culture for every board?"
+        "Will the company ban industry events so you stay focused on ticket queues?",
+        "Can you skip software training if online fab star ratings look good enough?",
+        "Is sole-source the preferred culture for every board and every component?"
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "Page 11 asks whether the company culture values the PCB role, whether tools and training exist, whether you are sole or in a group, and whether you can build a professional network.",
       "reference": {
         "section": "Checklist from the book (PDF p. 11)",
@@ -120,12 +120,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only raw aluminum structural castings.",
-        "PCB, PCBA/contract manufacturing, electronic components, and instrumentation.",
-        "Only software licenses and cloud spend.",
-        "Only office supplies and facilities."
+        "Only raw aluminum structural castings and tank dome forgings for the vehicle.",
+        "Only office supplies, facilities services, and cafeteria catering contracts.",
+        "Only software licenses, cloud spend, and developer-tool subscriptions.",
+        "PCB, PCBA/contract manufacturing, electronic components, and instrumentation."
       ],
-      "answer": "b",
+      "answer": "d",
       "explanation": "The posting’s first responsibility is sourcing strategies for PCB, PCBA/CM, electronic components, and instrumentation — the same domains Chapter 1’s fab decision toys with casually.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -137,12 +137,12 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only reading marketing one-pagers from distributors.",
-        "Reading drawings, fab notes, stack-ups, and BOMs, and understanding manufacturing complexity.",
-        "Memorizing stock ticker symbols for semiconductor firms.",
-        "Writing firmware for flight computers."
+        "Only reading marketing one-pagers and distributor catalog blurbs when you quote lead time to stakeholders.",
+        "Memorizing stock ticker symbols for every major semiconductor supplier that appears on the approved list.",
+        "Reading drawings, fab notes, stack-ups, and BOMs, and understanding manufacturing complexity on avionics.",
+        "Writing flight firmware and running hardware-in-the-loop tests on the pad controller before each launch window."
       ],
-      "answer": "b",
+      "answer": "c",
       "explanation": "Preferred skills call out drawings, fab drawings, stack-ups, data sheets, and BOMs — plus avionics manufacturing complexity. That is the literacy Ian lacked when he treated layout automation as enough.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -154,12 +154,12 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Award the PO to whichever shop emails first.",
         "Visit supplier facilities and assess operational capability, financial health, capacity, and risk.",
-        "Use only the cheapest quote with no site visit.",
-        "Skip assessment if the online rating is above four stars."
+        "Award the PO to whichever shop emails a quote first after the Gerber package lands in their inbox.",
+        "Use only the cheapest piece-price quote and skip any site visit, audit, or process capability review.",
+        "Skip assessment whenever the fab’s public online rating sits comfortably above four stars."
       ],
-      "answer": "b",
+      "answer": "a",
       "explanation": "The posting expects facility visits and assessment of capability, financial health, capacity, and risk before awarding NPI and long-term production — the opposite of Ian’s Quickie-Cheapo click.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -171,12 +171,12 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "This seat owns MRP; planners own the supplier contract.",
-        "Planners own MRP; this seat owns the supplier, the contract, and the cost.",
-        "Neither side looks at the build plan.",
-        "Engineering alone places every purchase order."
+        "This seat owns MRP system parameters; planners own the supplier contract language and the piece price.",
+        "Neither side looks at the build plan once engineering freezes the schematic and releases the BOM freeze.",
+        "Engineering alone places every purchase order after the BOM is released to the production floor planners.",
+        "Planners own MRP; this seat owns the supplier, the contract, and the cost for the category."
       ],
-      "answer": "b",
+      "answer": "d",
       "explanation": "The posting is explicit: partner so demand and inventory stay aligned to the build plan — planners own MRP; this seat owns supplier, contract, and cost.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -193,7 +193,11 @@
         "Ignoring obsolescence until the line stops",
         "Dual-source and tooling"
       ],
-      "answer": ["a", "b", "d"],
+      "answer": [
+        "a",
+        "b",
+        "d"
+      ],
       "explanation": "Cost-reduction projects include piece price, yield, tooling, dual-source, and obsolescence — with planning, stakeholders, and updates. Ignoring obsolescence is the failure mode, not a lever.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -205,12 +209,12 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Forward every email to legal and never run a competitive event.",
-        "Run RFX with stakeholders and implement the sourcing decision.",
-        "Let engineering place POs with no commercial process.",
-        "Publish prices on social media for transparency."
+        "Forward every supplier email to legal and never open a competitive sourcing event with the team.",
+        "Let engineering place POs with preferred shops and skip any formal commercial RFX process entirely.",
+        "Run RFX with stakeholders and implement the sourcing decision after the event is complete.",
+        "Publish negotiated piece prices on social media so the entire supply base stays publicly “transparent.”"
       ],
-      "answer": "b",
+      "answer": "c",
       "explanation": "You are the supplier interface for RFI/RFP/RFQ activity: run RFX with stakeholders and implement the decision.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -227,7 +231,11 @@
         "On-time delivery, lead time, and responsiveness",
         "Employee cafeteria star ratings"
       ],
-      "answer": ["a", "b", "c"],
+      "answer": [
+        "a",
+        "b",
+        "c"
+      ],
       "explanation": "Collaborate on SLAs/KPIs for cost, quality, on-time delivery, lead time, and responsiveness — then develop and monitor the supply base. Cafeteria ratings are Chapter 1 satire, not a sourcing KPI.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -250,12 +258,12 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Any one-week online certificate with no electronics exposure.",
-        "Advanced degree + 3 years, or bachelor’s + 5 years, or 9+ years, in listed fields such as purchasing, operations/supply chain, or technical procurement of PCB/PCBA/components.",
-        "Only a PhD in astrophysics with zero supply-chain work.",
-        "Only retail store management with no engineering or procurement background."
+        "A short online supply-chain certificate with no PCB, PCBA, or electronics procurement experience behind it at all.",
+        "Only a research PhD with publications, and no purchasing, planning, or production responsibility on hardware programs.",
+        "Advanced degree + 3 years, bachelor’s + 5 years, or 9+ years in purchasing, ops/supply chain, or PCB/PCBA procurement.",
+        "Only retail management experience in scheduling and merchandising, without engineering or technical procurement work."
       ],
-      "answer": "b",
+      "answer": "c",
       "explanation": "Basic qualifications are an advanced degree and 3+ years, a bachelor’s and 5+ years, or 9+ years in engineering, purchasing, negotiation, planning, operations/supply chain, cost control, MPS, or technical procurement of PCB/PCBA/components/instrumentation.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
@@ -267,10 +275,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "It is optional flavor text for marketing.",
-        "U.S. export regulations require citizenship, permanent residency, refugee/asylee status, or the ability to obtain the required authorizations.",
-        "ITAR only applies to cafeteria vendors.",
-        "ITAR replaces the need for BOMs and drawings."
+        "Recruiting adds ITAR language to every California posting as optional branding, with no real eligibility screen.",
+        "U.S. export rules require citizenship, permanent residency, refugee/asylee status, or required authorizations.",
+        "ITAR applies only to cafeteria vendors and facilities contractors working on the Hawthorne campus grounds.",
+        "ITAR paperwork replaces reading BOMs, fab notes, and stack-ups when you select and award a fab purchase order."
       ],
       "answer": "b",
       "explanation": "Launch-vehicle electronics work is export-controlled. Applicants must meet ITAR categories (citizen/national, green card, refugee, asylee) or obtain required authorizations.",
@@ -284,10 +292,10 @@
       "type": "multiple",
       "level": 3,
       "options": [
-        "I would pick fabs the way Ian did: highest stars, shortest turn, skip DFM.",
-        "Automation and a credit card are enough; drawings and stack-ups are engineering-only.",
-        "I treat PCB/PCBA cost and schedule as inseparable from manufacturability — I read the package, pressure-test supplier process capability, and never confuse tool speed with a qualified supply base.",
-        "Sole-source is fine if the piece price looks low this quarter."
+        "Pick fabs like Ian: highest public star rating, shortest advertised turn, and skip hard DFM talk with the shop.",
+        "Automation templates plus a corporate card are enough; drawings and stack-ups can stay engineering-only forever.",
+        "Treat PCB/PCBA cost and schedule as tied to manufacturability — read the package and pressure-test process capability.",
+        "Sole-source is fine when piece price looks low this quarter, even if capacity and financial health were never checked."
       ],
       "answer": "c",
       "explanation": "Chapter 1 warns that automation and cheap/fast habits hide missing process knowledge. The SpaceX role exists to bring supplier strategy, DFM literacy, and risk control to exactly that gap.",
