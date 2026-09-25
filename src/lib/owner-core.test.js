@@ -69,18 +69,8 @@ test('progress reads require the owner token', () => {
   }
 });
 
-test('AskGPT rejects callers who are not signed in', async () => {
+test('AskGPT does not require owner sign-in', async () => {
   const denied = await runAsk({ message: 'hello' }, '');
-  assert.equal(denied.status, 401);
-  const prevPass = process.env.OWNER_PASSWORD;
-  process.env.OWNER_PASSWORD = 'test-owner-pass';
-  try {
-    const ok = runLogin({ username: 'Jake', password: 'test-owner-pass' });
-    const gated = await runAsk({ message: 'hello' }, ok.json.token);
-    assert.notEqual(gated.status, 401);
-    if (!process.env.OPENAI_API_KEY) assert.equal(gated.status, 501);
-  } finally {
-    if (prevPass == null) delete process.env.OWNER_PASSWORD;
-    else process.env.OWNER_PASSWORD = prevPass;
-  }
+  assert.notEqual(denied.status, 401);
+  if (!process.env.OPENAI_API_KEY) assert.equal(denied.status, 501);
 });

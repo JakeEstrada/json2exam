@@ -145,6 +145,16 @@ Each deck shuffles cards (`deal: random`). Curated subsets — not every CSV row
 
 ---
 
+## 6b. Electronics — Chapter 1 ready
+
+**Course:** `Electronics/`. **Book:** The Hitchhiker’s Guide to PCB Design (local PDF). **Interview text:** `Electronics/spacex.txt` (SpaceX Sourcing Manager, Launch Vehicle Electronic Systems).
+
+| # | Module | Status | What you practice |
+| --- | --- | --- | --- |
+| 1 | `Electronics/pcb-design-guide/chapter-1-a-new-design-gig` **ready** | Chapter 1 + job posting | Automation trap, DFM, fab judgment; PCB/PCBA sourcing, drawings/BOM, RFX, SLAs, ITAR |
+
+---
+
 ## 7. Databases and SQL — planned
 
 **Course:** `database/`. **Books:** Learning SQL, 3rd Edition by Alan Beaulieu; SQL Antipatterns, Volume 1 by Bill Karwin (1st edition on disk).

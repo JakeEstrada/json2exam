@@ -4,7 +4,7 @@
 
 A personal CS study classroom that is becoming a **fullstack** product: courses, Leitner quizzes, lessons, in-browser code practice, PDF books, owner sign-in, and private progress — with a public recruiter view only when you choose to publish it.
 
-Anyone may study. Progress and AskGPT stay behind owner sign-in. Visitors do not see rings, completion greens, or how far you are.
+Anyone may study. AskGPT is open when `OPENAI_API_KEY` is set. Progress stays behind owner sign-in. Visitors do not see rings, completion greens, or how far you are.
 
 ---
 
@@ -47,10 +47,10 @@ npm test               # node --test
 | --- | --- |
 | `OPENAI_API_KEY` | Server-side AskGPT (`/api/ask`) and text-to-speech (`/api/speak`). Never sent to the browser. |
 | `OPENAI_MODEL` / `OPENAI_TTS_*` | Optional model and voice defaults. |
-| `OWNER_USERNAME` / `OWNER_PASSWORD` | Sign-in for progress tracking and AskGPT. |
+| `OWNER_USERNAME` / `OWNER_PASSWORD` | Sign-in for private progress tracking. |
 | `VITE_LECTURE_VIDEO_BASE` | Public base URL for CPSC 544 lecture videos (Cloudflare R2). Files are `{base}/Ch1/….mp4`. |
 
-Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still exist for that deck). Without owner credentials, visitors can study but cannot save progress or call AskGPT.
+Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still exist for that deck). Without owner credentials, visitors can study and use AskGPT, but cannot save progress.
 
 ---
 
@@ -70,7 +70,7 @@ Code cards run in the browser via a JavaScript `Function` runner. TypeScript typ
 
 **LeetCode topic drills (ready):** arrays, strings/hash, linked lists, trees, graphs, dynamic programming — pattern recognition + Python sketches; reference opens leetcode.com.
 
-**Also in the catalog:** data structures, algorithms, database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
+**Also in the catalog:** data structures, algorithms, **Electronics** (PCB Chapter 1 + SpaceX sourcing interview prep), database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
 
 Ordered path, books, and which decks are ready vs planned: [`applied-classroom/STUDY_PLAN.md`](applied-classroom/STUDY_PLAN.md). Source book lists live under each course’s `sources.md` / `sources/`.
 

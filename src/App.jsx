@@ -627,7 +627,7 @@ export default function App() {
     hideFab: !!sidePane,
     onOpen: () => setSidePane('ask'),
     onClose: closePane,
-    allowed: !!(owner && owner.token),
+    allowed: true,
     token: owner && owner.token,
   };
 

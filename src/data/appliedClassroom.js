@@ -462,6 +462,23 @@ export const APPLIED_COURSES = [
     };
   })(),
   plannedCourse({
+    id: 'electronics',
+    code: 'EE',
+    title: 'Electronics',
+    folder: 'Electronics',
+    group: 'process',
+    tagline: 'PCB design literacy plus interview prep for electronics sourcing roles.',
+    modules: [
+      {
+        label: 'PCB Design Guide',
+        slug: 'pcb-design-guide',
+        decks: [
+          { label: 'Chapter 1', slug: 'chapter-1-a-new-design-gig', subtitle: 'A New Design Gig · SpaceX sourcing prep' },
+        ],
+      },
+    ],
+  }),
+  plannedCourse({
     id: 'db',
     code: 'DB',
     title: 'Database',

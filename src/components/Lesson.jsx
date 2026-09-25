@@ -223,7 +223,7 @@ export default function Lesson({ quiz, onStart, onHome, owner, voice, speechRate
       </div>
 
       <AskGPT
-        allowed={!!(owner && owner.token)}
+        allowed
         token={owner && owner.token}
         phase="lesson"
         card={null}

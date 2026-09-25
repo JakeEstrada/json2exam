@@ -55,6 +55,7 @@ import { APPLIED_COURSES } from './appliedClassroom.js';
 import jsCheatsheet from '../../applied-classroom/javascript-cheatsheet.txt?raw';
 import tsCheatsheet from '../../applied-classroom/typescript-cheatsheet.txt?raw';
 import pyCheatsheet from '../../applied-classroom/python-cheatsheet.txt?raw';
+import spacexJobLecture from '../../applied-classroom/Electronics/spacex.txt?raw';
 
 const lectureVideos = import.meta.glob('../../544-Mod-1/**/*.mp4', {
   query: '?url',
@@ -93,8 +94,12 @@ function booksIn(folder) {
   Object.keys(appliedBookFiles).forEach((key) => {
     if (!key.startsWith(prefix) || !key.toLowerCase().endsWith('.pdf')) return;
     const file = key.slice(prefix.length);
+    let title = file.replace(/\.pdf$/i, '');
+    if (/hitchhikers-guide-to-pcb-design/i.test(file)) {
+      title = "The Hitchhiker's Guide to PCB Design";
+    }
     list.push({
-      title: file.replace(/\.pdf$/i, ''),
+      title,
       file,
       url: appliedBookFiles[key],
     });
@@ -121,6 +126,9 @@ function hydrateApplied(course) {
         const data = appliedQuiz(deck.folder);
         const questions = data && Array.isArray(data.questions) ? data.questions : [];
         const notes = appliedNotes['../../' + deck.folder + '/notes.md'] || '';
+        const electronicsLecture = course.id === 'electronics'
+          ? { lectureFile: 'spacex.txt', lecture: spacexJobLecture }
+          : null;
         return Object.assign({}, deck, {
           file: 'quiz.json',
           data: data,
@@ -135,7 +143,7 @@ function hydrateApplied(course) {
           pyIntro: course.id === 'py' && mod.label === 'Language',
           comingSoon: questions.length === 0,
           subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
-        });
+        }, electronicsLecture || {});
       }),
     })),
   });
@@ -149,6 +157,7 @@ export function courseDecks(course) {
 }
 
 export const COURSES = [
+  ...APPLIED_COURSES.filter((c) => c.id === 'electronics').map(hydrateApplied),
   {
     id: '541',
     code: '541',
@@ -373,5 +382,5 @@ export const COURSES = [
       },
     ],
   },
-  ...APPLIED_COURSES.map(hydrateApplied),
+  ...APPLIED_COURSES.filter((c) => c.id !== 'electronics').map(hydrateApplied),
 ];
