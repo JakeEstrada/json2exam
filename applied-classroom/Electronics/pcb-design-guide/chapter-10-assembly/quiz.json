@@ -1,0 +1,162 @@
+{
+  "title": "Electronics — Chapter 10: Assembly Data & Documentation",
+  "questions": [
+    {
+      "question": "A complete assembly data package should include:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only the bare-board Gerbers with no BOM or placement file for real production programs for real production programs.",
+        "BOM, neutral database, XY placement, paste stencil artwork, and test-point file when DFT applies.",
+        "Only a photo of the stuffed prototype on a lab bench for real production programs for real production programs.",
+        "Only the schematic PDF without reference designators for real production programs for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "BOM, neutral database file, XY placement file, solder paste stencil",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "BOM, neutral database file, XY placement file, solder paste stencil"
+      }
+    },
+    {
+      "question": "Before release, BOM information should be pulled from:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A spreadsheet someone edited from memory last year.",
+        "The source schematic.",
+        "The fab’s online star-rating page for real production programs.",
+        "Random distributor cart screenshots for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "pull BOM information from the source schematic",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "pull BOM information from the source schematic"
+      }
+    },
+    {
+      "question": "The XY placement file must specify for each part:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only the supplier’s DUNS number for real production programs.",
+        "Reference designator, side, X/Y location, and orientation angle.",
+        "Only the color of the tape used on the reel for real production programs.",
+        "Nothing if the EMS can guess from the silkscreen art for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "reference designator side of placement, X,Y location, and angle",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "reference designator side of placement, X,Y location, and angle"
+      }
+    },
+    {
+      "question": "Panelization tip — leave about ≥0.020 in clearance from board edge to copper to allow:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Better Wi-Fi antenna gain exclusively for real production programs.",
+        "Singulation via v-score or tab-route without damaging copper.",
+        "Thicker soldermask dams under every BGA for real production programs.",
+        "Skipping stencil design entirely for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "clearance between the PCB edge and any copper",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "clearance between the PCB edge and any copper"
+      }
+    },
+    {
+      "question": "Thru-hole components are often biased to the top side so that:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Wave solder can more easily access component pins.",
+        "The board fails ICT on purpose for training.",
+        "Bottom-side nozzles never have to move again.",
+        "Silkscreen white ink cures faster in sunlight."
+      ],
+      "answer": "a",
+      "explanation": "wave solder operation will have easy access to component pins",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "wave solder operation will have easy access to component pins"
+      }
+    },
+    {
+      "question": "Stencil artwork guidance in the chapter:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Provide 1:1 openings and let the stencil supplier coordinate compensation with the assembly ME.",
+        "Always oversize apertures 300% without talking to EMS for real production programs for real production programs.",
+        "Omit paste layers because operators will hand-solder BGAs for real production programs for real production programs.",
+        "Draw paste openings freehand on the fab drawing only for real production programs for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "Provide 1:1 ratio openings on stencil artwork",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "Provide 1:1 ratio openings on stencil artwork"
+      }
+    },
+    {
+      "question": "Acceptance criteria leverage called out for PCBA:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "IPC-A-610 as a comprehensive conformance guideline.",
+        "Only the fab’s Twitter poll results for real production programs.",
+        "Whatever the night-shift operator prefers that evening for real production programs.",
+        "No written criteria — “looks fine” is enough for flight hardware."
+      ],
+      "answer": "a",
+      "explanation": "Leverage the power of IPC-A-610",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "Leverage the power of IPC-A-610"
+      }
+    },
+    {
+      "question": "True or false: The assembly drawing is described more as an inspection document than a how-to document.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "less of a how-to document and more of an inspection document",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "less of a how-to document and more of an inspection document"
+      }
+    },
+    {
+      "question": "SpaceX ramp/rate preparation maps to this chapter when you:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Ship incomplete BOMs and hope EMS invents missing hardware lines for real production programs.",
+        "Deliver complete assembly data and keep EMS communication tight through prototype → rate.",
+        "Skip XY data because “the pick-and-place will learn.” for real production programs for real production programs.",
+        "Treat panelization and stencil as optional until after launch for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "communicate often with the assembly supplier stakeholder",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 113,
+        "excerpt": "communicate often with the assembly supplier stakeholder",
+        "lecture": "Ensure suppliers are prepared to support prototype, ramp, and rate"
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "title": "Electronics — Chapter 2: DFM, Not Just Another Acronym",
+  "questions": [
+    {
+      "question": "Why did Etch-O-Matronic put Ian’s job on hold for trace width/spacing?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The CAM department rejected automated defaults that made 1 mil traces incompatible with process capability.",
+        "The credit card was declined before any CAM review started on the Gerber package for real production programs.",
+        "Otto deleted the design rules file during orientation and the fab refused unsigned jobs for real production programs.",
+        "Old Bob required every board to use only silk-screen artwork with no copper at all for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "TRACE WIDTH AND SPACING INCOMPATABLE WITH OUR PROCESSING CAPABILITY",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 12,
+        "excerpt": "TRACE WIDTH AND SPACING INCOMPATABLE WITH OUR PROCESSING CAPABILITY"
+      }
+    },
+    {
+      "question": "Old Bob’s point about “software allowed 1 mil traces” is best summarized as:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "If the layout tool permits a geometry, the fab process can always etch and plate it reliably.",
+        "Tool permission is not process capability — choose trace width for performance and DFM.",
+        "One mil traces are mandatory for every avionics board regardless of the fab process for real production programs.",
+        "Defaults are always safer than talking to a manufacturing engineer about capability for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "just because his layout software allowed him to create one mil traces doesn’t mean he should have",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 12,
+        "excerpt": "just because his layout software allowed him to create one mil traces doesn’t mean he should have"
+      }
+    },
+    {
+      "question": "A bare board passed fab DFM but assembly put the job on hold. What did Old Bob explain?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Fab DFM and assembly DFA are identical, so the hold must be a shipping error only.",
+        "The finished bare PCB is a component; assembly quality is outside the fabricator’s scope.",
+        "The fab must reflow every connector before the board leaves the etch line for real production programs.",
+        "Assembly holds only happen when the BOM lists cake from the cafeteria menu for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "It is the fabricator’s job to create a quality component",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 13,
+        "excerpt": "It is the fabricator’s job to create a quality component"
+      }
+    },
+    {
+      "question": "Which lesson does Ian’s checklist emphasize about CAD defaults?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Trust default software settings because automation equals manufacturability.",
+        "Do not trust default software settings — understand how to optimize them.",
+        "Disable all design-rule checks so CAM never sends disposition emails.",
+        "Set every trace to one mil so the fab can always fatten them later for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Do not trust default software settings to design your PCB",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 14,
+        "excerpt": "Do not trust default software settings to design your PCB"
+      }
+    },
+    {
+      "question": "Before sending files for fabrication and assembly, the chapter urges you to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Skip supplier contact until after the first scrap lot arrives.",
+        "Establish manufacturing contacts/mentors and use free DFM checks.",
+        "Publish Gerbers publicly so random fabs can bid without NDAs.",
+        "Remove all tolerances so CAM has maximum creative freedom."
+      ],
+      "answer": "b",
+      "explanation": "take advantage of free DFM checks before the design is sent",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 14,
+        "excerpt": "take advantage of free DFM checks before the design is sent"
+      }
+    },
+    {
+      "question": "DFx mode in Old Bob’s story is meant to walk which questions?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only “How much did the Quickie-Cheapo fab charge per square inch?”",
+        "Who, What, When, Where, Why, and How across the manufacturing flow.",
+        "Only the cafeteria menu options available during an all-nighter.",
+        "Which star rating to click when choosing the next fab vendor."
+      ],
+      "answer": "b",
+      "explanation": "Who, What, When, Where, Why, and How",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 14,
+        "excerpt": "Who, What, When, Where, Why, and How"
+      }
+    },
+    {
+      "question": "From a manufacturing perspective (High-Speed guide), impractical early design decisions:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Are wiped out automatically by any fab’s free online DFM button for real production programs.",
+        "Get baked into prototypes, stay through the lifecycle, and raise defect/cost risk.",
+        "Only matter for hobby boards and never for production avionics for real production programs.",
+        "Are fixed by increasing the public star rating of the chosen fab for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "impractical design decisions made at the initial design stage will eventually get baked into the prototype",
+      "reference": {
+        "book": "High-Speed PCB Design Guide",
+        "page": 2,
+        "excerpt": "impractical design decisions made at the initial design stage will eventually get baked into the prototype"
+      }
+    },
+    {
+      "question": "True or false: Communication with all stakeholders is called out as a critical PCB designer responsibility in Chapter 2.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Communication with all stakeholders is critical",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 14,
+        "excerpt": "Communication with all stakeholders is critical"
+      }
+    },
+    {
+      "question": "Which SpaceX-relevant takeaway matches this chapter?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Piece price alone proves a fab can support rate production without process review for real production programs.",
+        "Technical buyers must challenge “tool defaults” and verify fab/assembly process capability.",
+        "Drawings and stack-ups are optional once the layout auto-router finishes for real production programs.",
+        "Sole-source is fine if the Gerber package opened without a CRC error for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "successful PCB design is not done in a vacuum",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 15,
+        "excerpt": "successful PCB design is not done in a vacuum",
+        "lecture": "Provide guidance to engineering on recommended suppliers, design for manufacturability"
+      }
+    }
+  ]
+}

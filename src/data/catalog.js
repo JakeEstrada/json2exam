@@ -98,6 +98,9 @@ function booksIn(folder) {
     if (/hitchhikers-guide-to-pcb-design/i.test(file)) {
       title = "The Hitchhiker's Guide to PCB Design";
     }
+    if (/high-speed-pcb-design-guide/i.test(file)) {
+      title = 'High-Speed PCB Design Guide';
+    }
     list.push({
       title,
       file,

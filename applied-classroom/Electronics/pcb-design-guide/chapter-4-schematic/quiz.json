@@ -1,0 +1,143 @@
+{
+  "title": "Electronics — Chapter 4: Capturing the Schematic",
+  "questions": [
+    {
+      "question": "Chapter 4’s guidance on building the schematic library is to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Copy random symbols from forums without checking manufacturer data sheets.",
+        "Create/modify parts yourself using appropriate manufacturers’ data sheets.",
+        "Leave unknown pins unlabeled so layout can invent connections later.",
+        "Use only numeric pin names even when anode/cathode clarity matters."
+      ],
+      "answer": "b",
+      "explanation": "create and modify new parts yourself using appropriate manufacturers’ data sheets",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "create and modify new parts yourself using appropriate manufacturers’ data sheets"
+      }
+    },
+    {
+      "question": "For bi-directional discretes, consistent symbol orientation means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Pin one to the left (horizontal) or pin one at the top (vertical), with origin at pin one.",
+        "Pin one randomly placed so auto-router explores more solutions for real production programs.",
+        "Always hide pin one so assemblers discover polarity on the line for real production programs.",
+        "Mirror every symbol nightly to keep CAM departments alert for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "with pin one to the left, or vertically with pin one at the top",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "with pin one to the left, or vertically with pin one at the top"
+      }
+    },
+    {
+      "question": "For diodes and similar uni-directional parts, the chapter suggests:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Never mark anode/cathode; numbers alone prevent reverse install for real production programs.",
+        "Add clear functional designations (e.g., A / K or C) so the part is not installed backwards.",
+        "Omit polarity marks because wave solder fixes orientation automatically for real production programs.",
+        "Use identical symbols for every diode package regardless of function for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "pins designated “A” for anode and “K” or “C” for cathode",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "pins designated “A” for anode and “K” or “C” for cathode"
+      }
+    },
+    {
+      "question": "Reference designations should follow:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Whatever nickname the project manager used in Slack for real production programs.",
+        "IEEE standards for standard reference designations.",
+        "Random letters so competitors cannot reverse-engineer the BOM.",
+        "Only emoji labels when the schematic must look friendly."
+      ],
+      "answer": "b",
+      "explanation": "Employ standard reference designations specified in the",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "Employ standard reference designations specified in the"
+      }
+    },
+    {
+      "question": "High-Speed guide overlap — controlled impedance on the schematic:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Never mark impedance; the fab will guess from soldermask color for real production programs for real production programs.",
+        "Engineers should specify controlled-impedance signals (and special layout guidelines) in the schematics.",
+        "Impedance notes belong only in cafeteria menus, not design data for real production programs for real production programs.",
+        "Controlled impedance is illegal to annotate before layout completes for real production programs for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "the engineer should specify the controlled impedance signals",
+      "reference": {
+        "book": "High-Speed PCB Design Guide",
+        "page": 31,
+        "excerpt": "the engineer should specify the controlled impedance signals"
+      }
+    },
+    {
+      "question": "Before release, schematic hygiene includes:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Skipping symbol checks if the logo layer looks pretty for real production programs.",
+        "Checking and double-checking schematic symbols for accuracy.",
+        "Deleting unused power pins from every IC to shrink the PDF.",
+        "Turning off the capture tool’s design check routines permanently."
+      ],
+      "answer": "b",
+      "explanation": "Check and double-check schematic symbols for accuracy",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "Check and double-check schematic symbols for accuracy"
+      }
+    },
+    {
+      "question": "True or false: Chapter 4 says to fully understand and use the schematic capture tool’s design check routines.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "make good use of, the schematic capture tool’s design check routines",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "make good use of, the schematic capture tool’s design check routines"
+      }
+    },
+    {
+      "question": "Cost thinking on alternate components should include:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the distributor list price of the alternate part for real production programs.",
+        "Comprehensive processing costs of switching, not just base price.",
+        "Only the color of the reel packaging used by the distributor.",
+        "Ignoring assembly process impact when the piece price drops."
+      ],
+      "answer": "b",
+      "explanation": "comprehensive processing costs of switching",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 34,
+        "excerpt": "comprehensive processing costs of switching"
+      }
+    }
+  ]
+}

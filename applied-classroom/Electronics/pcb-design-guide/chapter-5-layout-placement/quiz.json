@@ -1,0 +1,126 @@
+{
+  "title": "Electronics — Chapter 5: PCB Layout: Setup and Placement",
+  "questions": [
+    {
+      "question": "Why does Chapter 5 stress Design for Excellence on placement?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Layout is performed once while manufacturing may run millions of times.",
+        "Placement never affects routing, test, or assembly automation for real production programs.",
+        "DFx only applies to silk-screen fonts and company logos for real production programs.",
+        "Locking parts is optional until after the fab scrap report for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "PCB layout is only performed once, and the manufacturing process",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "PCB layout is only performed once, and the manufacturing process"
+      }
+    },
+    {
+      "question": "After mechanically fixed components are located, you should:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Leave them unlocked so auto-place can shuffle them overnight.",
+        "Lock them into place before moving functional groups.",
+        "Delete them from the database to simplify DRC for real production programs.",
+        "Move them only after every signal is fully routed for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Once fixed components are located, lock them into place",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "Once fixed components are located, lock them into place"
+      }
+    },
+    {
+      "question": "Color-coding nets in the layout is recommended based on:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The project manager’s favorite sports team colors only.",
+        "Node count and net function to make collaboration easier.",
+        "Random hues regenerated every time the file is saved.",
+        "Soldermask color availability at the cheapest fab."
+      ],
+      "answer": "b",
+      "explanation": "Color code nets in the layout based on their node count",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "Color code nets in the layout based on their node count"
+      }
+    },
+    {
+      "question": "High-Speed guide — components or vias between differential pairs:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Are encouraged to shorten the pair length at any cost for real production programs.",
+        "Should not be placed between pairs; they create impedance discontinuity.",
+        "Are required by IPC whenever pairs change layers for real production programs.",
+        "Only matter for power nets, never for high-speed pairs for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "components or vias should not be placed between differential pairs",
+      "reference": {
+        "book": "High-Speed PCB Design Guide",
+        "page": 33,
+        "excerpt": "components or vias should not be placed between differential pairs"
+      }
+    },
+    {
+      "question": "Smooth out placement for DFx aiming at:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only maximizing unconnected air wires on purpose for real production programs.",
+        "Better routing, future test points, automated placement, and heat considerations.",
+        "Hiding all reference designators under large BGAs forever for real production programs.",
+        "Packing parts so no probe or nozzle can ever reach a pad for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Aim for similar",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "Aim for similar"
+      }
+    },
+    {
+      "question": "True or false: Chapter 5 says group components off-board primarily by their functional relationships before placing groups.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Group components together off-board",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "Group components together off-board"
+      }
+    },
+    {
+      "question": "SpaceX NPI readiness connects to placement because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Placement density never affects assembly yield or test access for real production programs.",
+        "Supplier process capability must match how parts are grouped and accessed for build/test.",
+        "Auto-place defaults guarantee rate production without EMS review for real production programs.",
+        "Only schematic capture quality matters for launch-vehicle electronics for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Smooth out the placement in consideration for DFx",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 45,
+        "excerpt": "Smooth out the placement in consideration for DFx",
+        "lecture": "Ensure suppliers are prepared to support prototype, ramp, and rate"
+      }
+    }
+  ]
+}

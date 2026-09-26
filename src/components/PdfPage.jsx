@@ -42,7 +42,8 @@ async function loadPdf(url) {
 
 function outputScale() {
   const dpr = (typeof window !== 'undefined' && window.devicePixelRatio) || 1;
-  return Math.min(3, Math.max(2, dpr * 1.25));
+  // HiDPI: keep glyphs sharp in the side pane (often ~500–640 CSS px).
+  return Math.min(4, Math.max(2.5, dpr * 2));
 }
 
 function PdfSheet({ pdf, page, width, query, slideMode }) {
@@ -71,6 +72,8 @@ function PdfSheet({ pdf, page, width, query, slideMode }) {
         canvas.style.height = Math.floor(viewport.height) + 'px';
         setSize({ w: viewport.width, h: viewport.height });
         const ctx = canvas.getContext('2d', { alpha: false });
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
         await pdfPage.render({
           canvasContext: ctx,
           viewport,
@@ -162,6 +165,7 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
   const [pages, setPages] = useState(0);
   const [status, setStatus] = useState('loading');
   const [width, setWidth] = useState(0);
+  const [zoom, setZoom] = useState(1.25);
   const [located, setLocated] = useState(null);
   const [seen, setSeen] = useState(() => Math.max(1, page || 1));
   const slideMode = !!stack;
@@ -174,8 +178,11 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
     const wrap = wrapRef.current;
     if (!wrap) return undefined;
     const apply = () => {
-      const w = Math.floor(wrap.clientWidth);
-      if (w > 0) setWidth(w);
+      const sc = wrap.querySelector('.pdf-page-scroll') || wrap;
+      // Leave room for sheet side margins so the canvas is not CSS-shrunk (blur).
+      const raw = Math.floor(sc.clientWidth);
+      const w = Math.max(240, raw - 28);
+      if (w > 0) setWidth(Math.floor(w * zoom));
     };
     apply();
     const later = window.requestAnimationFrame(apply);
@@ -188,7 +195,7 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
       window.cancelAnimationFrame(later);
       ro.disconnect();
     };
-  }, [url]);
+  }, [url, zoom]);
 
   useEffect(() => {
     let gone = false;
@@ -276,11 +283,30 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
     <div className="pdf-page-wrap is-stack" ref={wrapRef}>
       <div className="pdf-toolbar">
         <span className="pdf-toolbar-label">{status === 'error' ? 'Could not open' : rangeLabel}</span>
-        {pages > 1 && (
-          <button type="button" className="text-link" onClick={jumpToHighlight}>
-            Jump to highlight
+        <div className="pdf-toolbar-actions">
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => setZoom((z) => Math.max(0.85, Math.round((z - 0.15) * 100) / 100))}
+            aria-label="Zoom out"
+          >
+            Zoom −
           </button>
-        )}
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => setZoom((z) => Math.min(2.4, Math.round((z + 0.15) * 100) / 100))}
+            aria-label="Zoom in"
+          >
+            Zoom +
+          </button>
+          <span className="pdf-toolbar-zoom">{Math.round(zoom * 100)}%</span>
+          {pages > 1 && (
+            <button type="button" className="text-link" onClick={jumpToHighlight}>
+              Jump to highlight
+            </button>
+          )}
+        </div>
       </div>
       {status === 'loading' && <p className="pdf-page-status">Loading…</p>}
       {search && !located && status === 'ready' && (

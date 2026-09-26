@@ -1,0 +1,144 @@
+{
+  "title": "Electronics — Chapter 3: Introducing PCB Project Stakeholders",
+  "questions": [
+    {
+      "question": "When should you examine design constraints, according to Chapter 3?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only after the first fab disposition email arrives for real production programs.",
+        "At the start of the project, before ever starting the layout.",
+        "After silk-screen fonts are locked for marketing photos.",
+        "Never — constraints slow automation and Old Bob–speed delivery."
+      ],
+      "answer": "b",
+      "explanation": "Examine all the constraints at the start of a design project before",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "Examine all the constraints at the start of a design project before"
+      }
+    },
+    {
+      "question": "What does the parts list influence beyond part numbers?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the color of the soldermask legend ink for real production programs.",
+        "Availability, size, shape, and performance of the design.",
+        "Whether ITAR text appears on the purchase order footer.",
+        "The cafeteria star rating used to pick EMS suppliers."
+      ],
+      "answer": "b",
+      "explanation": "what goes into a parts list will influence",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "what goes into a parts list will influence"
+      }
+    },
+    {
+      "question": "Why contact a fab supplier about size/shape before layout?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Raw materials are stocked in sheet form; confirm the outline fits available material.",
+        "Fabs only cut boards from liquid copper poured at the dock for real production programs.",
+        "Sheet stock is irrelevant once defaults route at one mil for real production programs.",
+        "Outline size is chosen randomly after Gerbers are emailed for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "Raw materials for PCB fabrication are stocked in sheet form",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "Raw materials for PCB fabrication are stocked in sheet form"
+      }
+    },
+    {
+      "question": "Testability planning in this chapter includes asking about:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Whether bed-of-nails or functional test (etc.) will be used on the assemblies.",
+        "Only whether the fab offers overnight cake delivery with the panels for real production programs.",
+        "Whether star ratings exceed 4.2 on Quickie-Cheapo directories for real production programs.",
+        "Whether Otto can perform ICT using only the HR body scanner for real production programs."
+      ],
+      "answer": "a",
+      "explanation": "How the assemblies will be tested. Bed-of-nails or functional test",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "How the assemblies will be tested. Bed-of-nails or functional test"
+      }
+    },
+    {
+      "question": "“All customer needs will be met in the end if…”",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "You pick the cheapest fab on star ratings every time for real production programs.",
+        "All stakeholder needs are met before and during the project.",
+        "You disable DFM checks to protect schedule optimism for real production programs.",
+        "You sole-source every bare board without visiting the facility."
+      ],
+      "answer": "b",
+      "explanation": "if all stakeholder needs are met before and during the project",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "if all stakeholder needs are met before and during the project"
+      }
+    },
+    {
+      "question": "Placement of a single design can influence:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the PDF page count of the assembly drawing notes.",
+        "Thousands of parts and operations downstream in manufacturing.",
+        "Nothing once the schematic symbol library is approved.",
+        "Only the color of the shipping box used by the EMS for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "how a single design placement influences thousands of parts",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "how a single design placement influences thousands of parts"
+      }
+    },
+    {
+      "question": "True or false: Chapter 3 says scrutinize your process because things will go wrong — a process makes it easier to locate and fix problems.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Scrutinize your process. Things will go wrong",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "Scrutinize your process. Things will go wrong"
+      }
+    },
+    {
+      "question": "SpaceX sourcing collaboration maps most closely to which Chapter 3 idea?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Ignore internal stakeholders; only the fab star rating matters for real production programs.",
+        "Work across disciplines so supplier capability and design constraints stay aligned.",
+        "Let engineering place POs with no commercial or process input for real production programs.",
+        "Treat the BOM as optional until after NPI scrap is accepted for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Communication with all stakeholders is critical",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 25,
+        "excerpt": "Communication with all stakeholders is critical",
+        "lecture": "Develop and maintain strong relationships with suppliers and with internal stakeholders"
+      }
+    }
+  ]
+}

@@ -145,13 +145,24 @@ Each deck shuffles cards (`deal: random`). Curated subsets — not every CSV row
 
 ---
 
-## 6b. Electronics — Chapter 1 ready
+## 6b. Electronics — Chapters 1–10 ready
 
-**Course:** `Electronics/`. **Book:** The Hitchhiker’s Guide to PCB Design (local PDF). **Interview text:** `Electronics/spacex.txt` (SpaceX Sourcing Manager, Launch Vehicle Electronic Systems).
+**Course:** `Electronics/`. **Books:** The Hitchhiker’s Guide to PCB Design; Sierra Circuits High-Speed PCB Design Guide. **Interview text:** `Electronics/spacex.txt`.
 
 | # | Module | Status | What you practice |
 | --- | --- | --- | --- |
-| 1 | `Electronics/pcb-design-guide/chapter-1-a-new-design-gig` **ready** | Chapter 1 + job posting | Automation trap, DFM, fab judgment; PCB/PCBA sourcing, drawings/BOM, RFX, SLAs, ITAR |
+| 1 | `chapter-1-a-new-design-gig` **ready** | Story + job posting | Automation trap, DFM intro, sourcing literacy |
+| 2 | `chapter-2-dfm` **ready** | Fab vs assembly DFM/DFA | Defaults ≠ capability; free DFM checks |
+| 3 | `chapter-3-stakeholders` **ready** | Before layout | Constraints, parts list, sheet stock, testability |
+| 4 | `chapter-4-schematic` **ready** | Capture hygiene | Libraries, IEEE designators, impedance notes |
+| 5 | `chapter-5-layout-placement` **ready** | Placement / DFx | Lock fixed parts; no parts between diff pairs |
+| 6 | `chapter-6-dft` **ready** | ICT / JTAG | Design test in at layout |
+| 7 | `chapter-7-stackup` **ready** | Stackup + HS overlap | Layers, cost adders, ±10% impedance |
+| 8 | `chapter-8-routing-planes` **ready** | Routing + SI | Fanout→power→signals; reference planes |
+| 9 | `chapter-9-fab-data` **ready** | Fab package | Notes, Gerbers, Excellon, fab drawing |
+| 10 | `chapter-10-assembly` **ready** | Assembly package | BOM, XY, stencil, IPC-A-610 |
+
+PDF viewer: wider pane, higher render scale, Zoom + / Zoom −.
 
 ---
 

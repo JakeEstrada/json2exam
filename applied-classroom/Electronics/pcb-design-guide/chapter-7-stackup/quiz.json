@@ -1,0 +1,144 @@
+{
+  "title": "Electronics — Chapter 7: The PCB Design Stackup",
+  "questions": [
+    {
+      "question": "In Chapter 7, “stack-up” refers to:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only the cardboard box used to ship bare boards for real production programs.",
+        "The composition and layering order of materials used in PCB lamination.",
+        "The order of emails sent to CAM during a disposition loop for real production programs.",
+        "The sequence of cafeteria cake flavors during an all-nighter for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "composition and layering order of the materials used in lamination",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "composition and layering order of the materials used in lamination"
+      }
+    },
+    {
+      "question": "A sound stack-up strategy matters because layer positions affect:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only the PDF thumbnail color in the file browser for real production programs.",
+        "Electrical performance and manufacturing/cost realities of the board.",
+        "Nothing if the schematic used IEEE reference designators for real production programs.",
+        "Only the silk-screen font licensed by marketing for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "will not only affect the PCB’s electrical performance",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "will not only affect the PCB’s electrical performance"
+      }
+    },
+    {
+      "question": "When documenting impedance in the stack-up detail, designers should:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Invent dielectric constants so fabs cannot change anything for real production programs for real production programs.",
+        "Validate impedance line widths in the stack-up and let suppliers adjust process variables carefully.",
+        "Omit reference planes so impedance becomes a surprise at ICT for real production programs for real production programs.",
+        "Set every layer to one mil dielectric by software default for real production programs for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "validate the values in the stack-up",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "validate the values in the stack-up"
+      }
+    },
+    {
+      "question": "High-Speed guide — a typical tolerance on final impedance is about:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "±50%, which is always acceptable for USB and DDR alike.",
+        "±10% typical (some fabs advertise tighter, e.g. ±5%).",
+        "Exactly 0% because copper never varies in production.",
+        "±100%, so controlled impedance notes are decorative only."
+      ],
+      "answer": "b",
+      "explanation": "A typical tolerance on the final impedance is +/- 10%",
+      "reference": {
+        "book": "High-Speed PCB Design Guide",
+        "page": 30,
+        "excerpt": "A typical tolerance on the final impedance is +/- 10%"
+      }
+    },
+    {
+      "question": "Controlled dielectric stack-up (High-Speed) focuses manufacturing on:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Ignoring materials entirely and only checking silk-screen for real production programs for real production programs.",
+        "Building the specified dielectric construction when impedance traces are not the control method.",
+        "Deleting all ground planes to save laminate cost for real production programs for real production programs.",
+        "Using only air as the dielectric between every copper layer for real production programs for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "The designer provides the controlled dielectric stack-up",
+      "reference": {
+        "book": "High-Speed PCB Design Guide",
+        "page": 30,
+        "excerpt": "The designer provides the controlled dielectric stack-up"
+      }
+    },
+    {
+      "question": "Adding ground/power planes when moving beyond two layers is described as:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Free in every fab quote with no cost impact ever for real production programs.",
+        "A common multi-layer choice that increases cost versus a simple two-layer board.",
+        "Illegal under ITAR for all commercial products for real production programs for real production programs.",
+        "Only useful for making the board thicker for shipping weight for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "average cost of adding a layer",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "average cost of adding a layer"
+      }
+    },
+    {
+      "question": "True or false: Knowing stack-up “cost adders” helps designers estimate price impact before release.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Knowing certain “cost adders” related to PCB stack-up",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "Knowing certain “cost adders” related to PCB stack-up"
+      }
+    },
+    {
+      "question": "SpaceX avionics sourcing angle on stack-up:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Buyers never need to read stack-ups if piece price looks low for real production programs.",
+        "Reading stack-ups/fab notes is required literacy for guiding suppliers and DFM trades.",
+        "Stack-up is only a mechanical drawing title block field for real production programs.",
+        "Any stack-up works if the online fab rating is above four stars for real production programs."
+      ],
+      "answer": "b",
+      "explanation": "Selecting a sound PCB stack-up strategy is important",
+      "reference": {
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 54,
+        "excerpt": "Selecting a sound PCB stack-up strategy is important",
+        "lecture": "strong ability to read drawings, fab notes, stack-ups, and BOMs"
+      }
+    }
+  ]
+}
