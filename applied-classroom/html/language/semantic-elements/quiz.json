@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Semantic elements",
+  "title": "HTML - Semantic elements",
   "questions": [
     {
       "question": "What is class for?",
@@ -17,7 +17,19 @@
         "section": "Class and id",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 191,
-        "excerpt": "Sometimes, rather than uniquely identifying one element within a document, you will want a way to identify several elements as being different from the other elements on the page."
+        "excerpt": "Sometimes, rather than uniquely identifying one element within a document, you will want a way to identify several elements as being different from the other elements on the page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 271,
+            "excerpt": "Because of the way floats work, you don’t need to re-order the elements in the HTML."
+          }
+        ]
       },
       "code": "<p class=\"important\">For a one-year period from November 2010...</p>"
     },
@@ -37,7 +49,7 @@
         "section": "Extra markup",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 184,
-        "excerpt": "Global attributes, which are attributes that can be used on any element, including the class and id attributes"
+        "excerpt": "At this point, we have covered the main tags that fit nicely into groups and sections. In this chapter, we will focus on some helpful topics that are not easily grouped together. You will learn about: ●● The different ve"
       },
       "code": "<h1 id=\"title\" class=\"page-title\">Home</h1>"
     },
@@ -96,8 +108,8 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 439,
-        "excerpt": "The point of creating these new elements is so that web page authors can use them to help describe the structure of the page."
+        "page": 436,
+        "excerpt": "These new elements are going to play an important part in creating layouts going forward."
       },
       "code": "<div id=\"header\"><h1>Logo</h1></div>"
     },
@@ -117,7 +129,7 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 436,
-        "excerpt": "These new elements are going to play an important part in creating layouts going forward."
+        "excerpt": "They are covered here (rather than with the other HTML elements you met earlier in the book) because you'll find it easier to understand how they can be used now that you have seen how CSS can control the layout a page."
       },
       "code": "<nav><a href=\"/\">Home</a></nav>"
     },
@@ -136,8 +148,8 @@
       "reference": {
         "section": "Extra markup",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 184,
-        "excerpt": "Elements that are used to group together parts of the page where no other element is suitable"
+        "page": 194,
+        "excerpt": "It can also make it easier to follow your code if you have used <div> elements to hold each section of the page. 187 EXTRA MARKUP Since there may be several other elements inside a <div> element, it can be helpful to add a comment after the closing </div> tag."
       },
       "code": "<div class=\"card\"><p>Generic group</p></div>"
     },
@@ -177,7 +189,19 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 439,
-        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page."
+        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "If, for example, a white piece is played trapping a row of black pieces between two white, all the black pieces are flipped and the row becomes entirely white."
+          }
+        ]
       },
       "code": "<article><h2>Post</h2><p>Body</p></article>"
     },
@@ -197,7 +221,19 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 439,
-        "excerpt": "Similarly, search engines might place more weight on the content in an <article> element than that in the <header> or <footer> elements."
+        "excerpt": "Similarly, search engines might place more weight on the content in an <article> element than that in the <header> or <footer> elements.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 238,
+            "excerpt": "Clicking a second time hides the menu. Screen readers use certain HTML5 elements such as <form>, <main>, <nav>, and <aside> as landmarks."
+          }
+        ]
       },
       "code": "<header><h1>Logo</h1><nav>…</nav></header>"
     },
@@ -217,7 +253,19 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 439,
-        "excerpt": "Similarly, search engines might place more weight on the content in an <article> element than that in the <header> or <footer> elements."
+        "excerpt": "The point of creating these new elements is so that web page authors can use them to help describe the structure of the page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "The more you know, the more natural it starts to feel. The more you practice, the more easily your brain will reach for that perfect layout and spacing method."
+          }
+        ]
       },
       "code": "<header><h1>Site</h1></header>\n<article><header><h2>Post</h2></header></article>"
     },
@@ -237,7 +285,19 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 439,
-        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page."
+        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 230,
+            "excerpt": "This means you build the mobile version before you construct the desktop layout."
+          }
+        ]
       },
       "code": "<footer><p>© Course</p></footer>"
     },
@@ -256,8 +316,8 @@
       "reference": {
         "section": "Class and id",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 191,
-        "excerpt": "In this example, CSS has been applied to make elements with a class attribute whose value is important uppercase, and elements with a class attribute whose value is admittance red."
+        "page": 184,
+        "excerpt": "n be used on any element, including the class and id attributes ●● Elements that are used to group together parts of the page where no other element is suitable ●● How to embed a page within a page using iframes ●● How to add information ab"
       },
       "code": "<p class=\"important\">Hi</p>"
     },
@@ -276,8 +336,8 @@
       "reference": {
         "section": "Extra markup",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 184,
-        "excerpt": "where no other element is suitable"
+        "page": 194,
+        "excerpt": "Grouping Text & Elements In a Block <div> The <div> element allows you to group a set of elements together in one block-level box."
       },
       "code": "<div class=\"card\"><h2>Module</h2></div>"
     },
@@ -337,8 +397,20 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 436,
-        "excerpt": "HTML5 is introducing a new set of elements that help define the structure of a page."
+        "page": 440,
+        "excerpt": "The <header> element can therefore be used to contain the title and date of each individual post, and the <footer> might contain links to share the article on social networking sites.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 40,
+            "excerpt": "Many times developers write selectors using IDs, without realizing this creates a higher specificity, one that is hard to override later."
+          }
+        ]
       },
       "level": 3
     },
@@ -436,31 +508,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 8 — Extra Markup",
-      "page": 183,
-      "pageEnd": 199,
-      "sections": [
-        {
-          "heading": "Extra markup",
-          "page": 184
-        },
-        {
-          "heading": "Class and id",
-          "page": 191
-        }
-      ]
+      "page": 184
     },
     {
-      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 17 — HTML5 Layout",
-      "page": 435,
-      "pageEnd": 450,
-      "sections": [
-        {
-          "heading": "HTML5 layout elements",
-          "page": 436
-        }
-      ]
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 17
     }
   ]
 }

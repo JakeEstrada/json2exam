@@ -1,5 +1,5 @@
 {
-  "title": "Python — Loops",
+  "title": "Python - Loops",
   "questions": [
     {
       "question": "What does range(3) yield?",
@@ -17,7 +17,14 @@
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 96,
-        "excerpt": "It adds 2 repeatedly until it reaches or passes the end value, 11, and produces this result: [2, 4, 6, 8, 10] You can create almost any set of numbers you want to using the range() function."
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       },
       "code": "for i in range(3):\n    print(i)"
     },
@@ -36,13 +43,20 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "The for loop in this example is for value in range(1, 11), which feeds the values 1 through 10 into the expression value**2."
+        "page": 89,
+        "excerpt": "When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
-      "code": "for item in rows:\n    print(item)"
+      "code": "rows = [\"a\", \"b\", \"c\"]"
     },
     {
-      "question": "What ends a while header?",
+      "question": "In Python, what introduces the indented body of a while loop?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -52,14 +66,21 @@
         "then"
       ],
       "answer": "b",
-      "explanation": "Colon, then indented body.",
+      "explanation": "A colon after the condition, then an indented body.",
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 168,
-        "excerpt": "(Even so, the parentheses are required.) Finally, the definition ends in a colon."
+        "page": 94,
+        "excerpt": "If you accidentally forget the colon, you’ll get a syntax error because Python doesn’t know exactly what you’re trying to do. SyntaxError: expected ':'. If the interpreter can identify a possible fix it will suggest one, like adding a colon at the end of a line.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
-      "code": "while i < n:\n    i += 1"
+      "code": "i = 0\nwhile i < n\n    i += 1"
     },
     {
       "question": "What does break do?",
@@ -75,9 +96,16 @@
       "explanation": "break leaves the loop.",
       "reference": {
         "section": "break and continue",
-        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 144,
-        "excerpt": "The built-in functions are all in __builtins__.__dict__. Because of their crucial role, Python dicts are highly optimized—and continue to get improvements."
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 160,
+        "excerpt": "Rather than breaking out of a loop entirely without executing the rest of its code, you can use the continue statement to return to the beginning of the loop, based on the result of a conditional test.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "if x == 0:\n    break"
     },
@@ -97,7 +125,14 @@
         "section": "break and continue",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 160,
-        "excerpt": "If the current number is not divisible by 2, the rest of the loop is executed and Python prints the current number: 1 3 5 7 9 Avoiding Infinite Loops Every while loop needs a way to stop running so it won’t continue to run forever."
+        "excerpt": "Using continue in a Loop Rather than breaking out of a loop entirely without executing the rest of its code, you can use the continue statement to return to the beginning of the loop, based on the result of a conditional test.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "if x < 0:\n    continue"
     },
@@ -116,10 +151,17 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "Odd Numbers: Use the third argument of the range() function to make a list of the odd numbers from 1 to 20."
+        "page": 96,
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       },
-      "code": "list(range(2, 5))  # [2, 3, 4]"
+      "code": "list(range(2, 5))"
     },
     {
       "question": "Find the bug: for i in range(len(rows)): with only needing values.",
@@ -136,8 +178,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 96,
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       },
       "code": "for row in rows:\n    print(row[\"id\"])"
     },
@@ -156,8 +205,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 100,
-        "excerpt": "If a third value is included, this tells Python how many items to skip between items in the specified range."
+        "page": 89,
+        "excerpt": "When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 70,
+            "excerpt": "As we iterate over the list, passport is bound to each tuple. The for loop knows how to retrieve the items of a tuple separately - this is called unpacking."
+          }
+        ]
       },
       "code": "for i, x in enumerate(rows):\n    print(i, x)"
     },
@@ -176,8 +232,15 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 159,
-        "excerpt": "have a flag to indicate whether the overall program is in an active state, it would be easy to add more tests (such as elif statements) for events that should cause active to become False."
+        "page": 156,
+        "excerpt": "The while loop is then set to keep running as long as the value of current_number is less than or equal to 5. The += operator is shorthand for current_number = current_number + 1. Python repeats the loop as long as the condition current_number <= 5 is true.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "while True:\n    if done:\n        break"
     },
@@ -196,8 +259,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 144,
-        "excerpt": "The range() function 1 returns a series of numbers, which just tells Python how many times we want the loop to repeat."
+        "page": 96,
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       },
       "code": "for i in range(0):\n    print(i)"
     },
@@ -216,8 +286,15 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 434,
-        "excerpt": "Python uses indentation to indicate which lines of a for statement are part of a loop."
+        "page": 89,
+        "excerpt": "When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "while i < n:\n    i += 1"
     },
@@ -237,7 +314,14 @@
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 156,
-        "excerpt": "(The += operator is shorthand for current_number = current_number + 1.) Python repeats the loop as long as the condition current_number <= 5 is true."
+        "excerpt": "The while loop is then set to keep running as long as the value of current_number is less than or equal to 5. The += operator is shorthand for current_number = current_number + 1. Python repeats the loop as long as the condition current_number <= 5 is true.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "i += 1"
     },
@@ -256,8 +340,15 @@
       "reference": {
         "section": "break and continue",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 159,
-        "excerpt": "When they enter 'quit', the break statement runs, causing Python to exit the loop: Please enter the name of a city you have visited: (Enter 'quit' when you are finished.) New York I'd love to go to New York!"
+        "page": 160,
+        "excerpt": "Rather than breaking out of a loop entirely without executing the rest of its code, you can use the continue statement to return to the beginning of the loop, based on the result of a conditional test.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "for x in nums:\n    if x < 0:\n        break\nelse:\n    print(\"all ok\")"
     },
@@ -276,8 +367,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 149,
-        "excerpt": "If each user’s dictionary had different keys, the code inside the for loop would be more complicated."
+        "page": 89,
+        "excerpt": "When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
       "code": "for k in d:\n    print(k, d[k])"
     },
@@ -296,8 +394,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "The range() function causes Python to start counting at the first value you give it, and it stops when it reaches the second value you provide."
+        "page": 96,
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       },
       "code": "list(range(5, 0, -1))"
     },
@@ -319,8 +424,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 100,
-        "excerpt": "For example, if we want to output the last three players on the roster, we can use the slice players[-3:]: players = ['charles', 'martina', 'michael', 'florence', 'eli'] print(players[-3:]) This prints the names of the last three players and will continue to work as the list of players changes in…"
+        "page": 96,
+        "excerpt": "Using range() to Make a List of Numbers If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 92,
+            "excerpt": "The problem with Example 2-11 is that, in essence, it behaves like this code: row = ['_'] * 3; board = []; for i in range(3): board.append(row). The same row is appended three times to board."
+          }
+        ]
       }
     },
     {
@@ -341,8 +453,15 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 146,
-        "excerpt": "To print the toppings, we write a for loop 2. To access the list of toppings, we use the key 'toppings', and Python grabs the list of toppings from the dictionary."
+        "page": 89,
+        "excerpt": "When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       }
     },
     {
@@ -363,31 +482,26 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 153,
-        "excerpt": "\") How old are you? 21 >>> age '21' The user enters the number 21, but when we ask Python for the value of age, it returns '21', the string representation of the numerical value entered."
+        "page": 156,
+        "excerpt": "The while loop is then set to keep running as long as the value of current_number is less than or equal to 5. The += operator is shorthand for current_number = current_number + 1. Python repeats the loop as long as the condition current_number <= 5 is true.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       }
     }
   ],
   "reading": [
     {
       "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-      "chapter": "Chapters 4 and 7 — Working with Lists / while Loops",
-      "page": 87,
-      "pageEnd": 126,
-      "sections": [
-        {
-          "heading": "for and range",
-          "page": 95
-        },
-        {
-          "heading": "while",
-          "page": 155
-        },
-        {
-          "heading": "break and continue",
-          "page": 155
-        }
-      ]
+      "page": 96
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 92
     }
   ]
 }

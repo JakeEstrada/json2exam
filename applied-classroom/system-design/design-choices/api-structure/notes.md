@@ -1,6 +1,6 @@
 # API structure
 
-**System Design Interview – An Insider's Guide** designs APIs as REST-style endpoints early (see URL shortener, rate limiter). Clarify: resources, methods, pagination, errors, idempotency, versioning.
+**System Design Interview - An Insider's Guide** designs APIs as REST-style endpoints early (see URL shortener, rate limiter). Clarify: resources, methods, pagination, errors, idempotency, versioning.
 
 ## Habits
 

@@ -10,7 +10,7 @@
 
 ## Assigned reading
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — Chapter 4 *Data Structures: Objects and Arrays* (PDF p. 100), *Further arrayology* (PDF p. 121), Chapter 5 *Filtering arrays* (PDF p. 146) and *Transforming with map*.
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - Chapter 4 *Data Structures: Objects and Arrays* (PDF p. 100), *Further arrayology* (PDF p. 121), Chapter 5 *Filtering arrays* (PDF p. 146) and *Transforming with map*.
 
 ## Arrays are objects
 
@@ -22,7 +22,7 @@ amounts.push(5);       // mutates, length 3
 const copy = amounts.slice(); // new array, same number values (primitives copied)
 ```
 
-`slice(start, end)` — start inclusive, end exclusive. `slice()` copies all.
+`slice(start, end)` - start inclusive, end exclusive. `slice()` copies all.
 
 `indexOf` returns `-1` when missing. Do not use `if (arr.indexOf(x))`; index `0` is found but falsy.
 
@@ -96,9 +96,9 @@ Length stays the same; unpaid slots become `undefined`. Use `filter`.
 
 ## Coding tasks
 
-1. **Basic.** `last(arr)` — last element or `undefined` if empty.
-2. **Applied.** `paidTotals(payments)` — sum `amount` where `status === "paid"`.
-3. **Applied.** `groupCount(rows, status)` — how many rows have that status, using `reduce` (not a manual `for` if you can avoid it).
+1. **Basic.** `last(arr)` - last element or `undefined` if empty.
+2. **Applied.** `paidTotals(payments)` - sum `amount` where `status === "paid"`.
+3. **Applied.** `groupCount(rows, status)` - how many rows have that status, using `reduce` (not a manual `for` if you can avoid it).
 
 ## Hints
 

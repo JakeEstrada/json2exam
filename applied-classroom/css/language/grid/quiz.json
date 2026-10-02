@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Grid",
+  "title": "CSS - Grid",
   "questions": [
     {
       "question": "display: grid does what?",
@@ -116,8 +116,8 @@
       "reference": {
         "section": "Placing items",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 172,
-        "excerpt": "Some elements may only fill one cell of the grid; others can span multiple columns or rows."
+        "page": 183,
+        "excerpt": "With grid, however, you are first and foremost describing a layout, then placing items into that structure."
       },
       "code": ".hero {\n  grid-column: 1 / 3;\n}"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "Placing items",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 173,
-        "excerpt": "You can place items precisely within the grid, or allow them to flow naturally to fill in the gaps."
+        "page": 183,
+        "excerpt": "Grid, on the contrary, is two-dimensional. It’s intended to be used in situations where you want to align items in one track with those in another."
       },
       "code": ".grid { display: grid; }"
     },
@@ -177,7 +177,7 @@
         "section": "Grid containers",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 176,
-        "excerpt": "A grid has horizontal tracks (rows) and vertical tracks (columns).  Grid cell—A single space on the grid, where a horizontal grid track and a vertical grid track overlap.  Grid area—A rectangular area on the grid made up by one or more grid cells."
+        "excerpt": "A grid has horizontal tracks (rows) and vertical tracks (columns).  Grid cell - A single space on the grid, where a horizontal grid track and a vertical grid track overlap.  Grid area - A rectangular area on the grid made up by one or more grid cells."
       },
       "code": ".grid {\n  display: grid;\n  grid-template-rows: 1fr 1fr;\n}"
     },
@@ -197,7 +197,7 @@
         "section": "Placing items",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 183,
-        "excerpt": "With grid, however, you are first and foremost describing a layout, then placing items into that structure."
+        "excerpt": "This distinction is illustrated in figure 6.8. Flexbox: one-dimensional alignment If lines wrap, items in one row don’t necessarily align with items in another row Grid: two-dimensional alignment Figure 6.8 Flexbox aligns items in one direction, while grid aligns items in two directions."
       },
       "code": ".hero {\n  grid-column: 1 / 3;\n}"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "With flexbox",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 172,
-        "excerpt": "Grid layout This chapter covers  Using CSS’ first true layout system—grid  Understanding grid layout options  Laying out items on a grid  Using flexbox and grid together to build a cohesive web page layout Flexbox has revolutionized the way we do layout on the web, but it’s only the beginning."
+        "page": 183,
+        "excerpt": "Anatomy of a grid 6.2.2 155 Working together with flexbox After learning about grid, developers often ask about flexbox."
       },
       "code": ".page { display: grid; }\n.nav { display: flex; }"
     },
@@ -237,7 +237,7 @@
         "section": "Grid containers",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 176,
-        "excerpt": "Four other important terms to know are illustrated in figure 6.3.  Grid line—These make up the structure of the grid."
+        "excerpt": "Four other important terms to know are illustrated in figure 6.3.  Grid line - These make up the structure of the grid."
       },
       "code": ".wrap {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}"
     },
@@ -297,7 +297,19 @@
         "section": "Placing items",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 183,
-        "excerpt": "Grid, on the contrary, is two-dimensional. It’s intended to be used in situations where you want to align items in one track with those in another."
+        "excerpt": "It’s intended to be used in situations where you want to align items in one track with those in another.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 476,
+            "excerpt": "White Space color Borders Placing related items closer together and leaving a bigger gap between unrelated items."
+          }
+        ]
       },
       "code": ".grid {\n  grid-template-columns: minmax(12rem, 1fr) 2fr;\n}"
     },
@@ -425,23 +437,15 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 6 — Grid layout",
-      "page": 172,
-      "pageEnd": 204,
-      "sections": [
-        {
-          "heading": "Grid containers",
-          "page": 172
-        },
-        {
-          "heading": "Placing items",
-          "page": 172
-        },
-        {
-          "heading": "With flexbox",
-          "page": 172
-        }
-      ]
+      "page": 173
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "page": 476
     }
   ]
 }

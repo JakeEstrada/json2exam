@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Tables and media",
+  "title": "HTML - Tables and media",
   "questions": [
     {
       "question": "Which element creates a table?",
@@ -57,7 +57,19 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "(The td stands for table data.) At the end of each cell you use a closing </td> tag."
+        "excerpt": "(The td stands for table data.) At the end of each cell you use a closing </td> tag.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 270,
+            "excerpt": "Instead, let’s create a component that accepts data and outputs an accessible table automatically."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 73,
+            "excerpt": "You can achieve this with CSS’s calc() function. 2.4.2 Using calc() for font size The calc() function lets you do basic arithmetic with two or more values."
+          }
+        ]
       },
       "code": "<tr>\n  <td>15</td>\n  <td>30</td>\n</tr>"
     },
@@ -77,7 +89,19 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "R e s u lt <td> Each cell of a table is represented using a <td> element."
+        "excerpt": "R e s u lt <td> Each cell of a table is represented using a <td> element.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 270,
+            "excerpt": "That pretty much covers basic tables and how to make them accessible."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 73,
+            "excerpt": "You can achieve this with CSS’s calc() function. 2.4.2 Using calc() for font size The calc() function lets you do basic arithmetic with two or more values."
+          }
+        ]
       },
       "code": "<td>15</td>"
     },
@@ -132,7 +156,7 @@
         "Images cannot sit on a page otherwise."
       ],
       "answer": "b",
-      "explanation": "Chapter 6 is how to create tables and what information suits tables — tabular data, not whole-page layout.",
+      "explanation": "Chapter 6 is how to create tables and what information suits tables - tabular data, not whole-page layout.",
       "reference": {
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
@@ -157,7 +181,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<tr>\n  <td>15</td>\n  <td>15</td>\n  <td>30</td>\n</tr>"
     },
@@ -217,7 +241,19 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 270,
+            "excerpt": "The trouble is, they’re such a pain to code by hand, and most WYSIWYG tools for creating tables do not output decent markup, with the necessary headers in the correct places."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 73,
+            "excerpt": "Work on CSS 2.1 continued for many years, with few significant additions to the language."
+          }
+        ]
       },
       "code": "<tr><td>60</td><td>90</td><td>90</td></tr>"
     },
@@ -232,7 +268,7 @@
         "<tr type=\"caption\">"
       ],
       "answer": "a",
-      "explanation": "A caption belongs with the table element, as a child — not a sibling after the table.",
+      "explanation": "A caption belongs with the table element, as a child - not a sibling after the table.",
       "reference": {
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
@@ -257,7 +293,19 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "Some browsers automatically draw lines around the table and/or the individual cells."
+        "excerpt": "Some browsers automatically draw lines around the table and/or the individual cells.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 270,
+            "excerpt": "Instead, let’s create a component that accepts data and outputs an accessible table automatically."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 73,
+            "excerpt": "The specification for backgrounds and borders is now separate from the one for box models, and from the one for cascading and inheritance."
+          }
+        ]
       },
       "code": "<table>\n  <tr><td>15</td></tr>\n</table>"
     },
@@ -277,7 +325,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<tr><th>Run</th><th>Time</th></tr>"
     },
@@ -344,7 +392,19 @@
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "You indicate the start of each row using the opening <tr> tag."
+        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "You write a selector that attempts to match elements, then you write key/value pairs that style those elements."
+          }
+        ]
       },
       "level": 3
     },
@@ -389,8 +449,20 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 138,
-        "excerpt": "The <table> element is used to create a table."
+        "page": 144,
+        "excerpt": "The width attribute was used on the opening <table> tag to indicate how wide that table should be and on some opening <th> and <td> tags to specify the width of individual cells.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "You write a selector that attempts to match elements, then you write key/value pairs that style those elements."
+          }
+        ]
       },
       "level": 3
     },
@@ -461,15 +533,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 6 — Tables",
-      "page": 133,
-      "pageEnd": 150,
-      "sections": [
-        {
-          "heading": "Basic table structure",
-          "page": 138
-        }
-      ]
+      "page": 138
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 17
     }
   ]
 }

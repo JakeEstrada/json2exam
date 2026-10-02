@@ -1,5 +1,5 @@
 {
-  "title": "JavaScript — Objects, references, mutation, and copying",
+  "title": "JavaScript - Objects, references, mutation, and copying",
   "questions": [
     {
       "question": "Is `object1 == object3` true?",
@@ -55,8 +55,25 @@
       "reference": {
         "section": "Objects",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 62,
-        "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
+        "page": 61,
+        "excerpt": "As of early 2020, this feature has been implemented by all modern browsers and by Node. 3.8 Immutable Primitive Values and Mutable Object References There is a fundamental difference in JavaScript between primitive values (undefined, null, booleans, numbers, and strings) and objects (including ar…",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 67,
+            "excerpt": "Function Objects Functions in JavaScript are objects. Objects are collections of name/value pairs having a hidden link to a prototype object."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 111,
+            "excerpt": "Comparing different objects will return false, even if they have identical properties."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 129,
+            "excerpt": "Non-arrow function IIFEs also change the binding of a this keyword - more on that in the Objects & Classes book."
+          }
+        ]
       },
       "level": 1,
       "code": "const task = { status: \"open\" };\ntask.status = \"done\";"
@@ -74,9 +91,21 @@
       "explanation": "Shallow copy. Nested arrays stay aliased.",
       "reference": {
         "section": "Copying",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 413,
-        "excerpt": "This means that you can find a list of the newest Array methods by evaluating: let newArrayMethods = Object.keys(Array.prototype[Symbol.unscopables]); 14.5 Template Tags Strings within backticks are known as “template literals” and were covered in §3.3.4."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 159,
+        "excerpt": "It will stop before copying array [ end ]. The end parameter is optional, and the default is array .length.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 65,
+            "excerpt": "47 Chapter 3: The Scope Chain special: special is copying the value of the special parameter variable into another container (a property of the same name)."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 94,
+            "excerpt": "We sure can. But just as we’re in the process of copying and pasting those four lines one more time, we stop and reconsider."
+          }
+        ]
       },
       "level": 1,
       "code": "const task = { status: \"open\", tags: [\"home\"] };\nconst copy = { ...task };\ncopy.tags.push(\"late\");"
@@ -95,8 +124,25 @@
       "reference": {
         "section": "Copying",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "They are said to have the same identity."
+        "page": 118,
+        "excerpt": "console.log(`${entry.events.length} events.`); } When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 72,
+            "excerpt": "Each of these loops includes a loop variable that gets a new value assigned to it on each iteration of the loop."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object."
+          }
+        ]
       },
       "level": 2,
       "code": "const next = tasks.map((task) =>\n  task.id === id ? { ...task, ...patch } : task\n);"
@@ -135,13 +181,23 @@
       "reference": {
         "section": "Objects",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 61,
-        "excerpt": "As of early 2020, this feature has been implemented by all modern browsers and by Node. 3.8 Immutable Primitive Values and Mutable Object References There is a fundamental difference in JavaScript between primitive values (undefined, null, booleans, numbers, and strings) and objects (including ar…",
+        "page": 59,
+        "excerpt": "I consider undefined to represent a system-level, unexpected, or error-like absence of value and null to represent a program-level, normal, or expected absence of value.",
         "books": [
           {
             "book": "JavaScript: The Good Parts by Douglas Crockford",
             "page": 47,
             "excerpt": "1 Chapter 3. Objects Upon a homely object Love can wink. â William Shakespeare, The Two Gentlemen of Verona The simple types of JavaScript are numbers, strings, booleans (true and false), null, and undefined."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 65,
+            "excerpt": "Would us having references to objects instead of copies of primitive values “fix” the inaccessibility?"
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 107,
+            "excerpt": "Reading a property that doesn’t exist will give you the value undefined ."
           }
         ]
       },
@@ -245,8 +301,25 @@
       "reference": {
         "section": "Copying",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "You can change their properties, causing a single object value to have different content at different times."
+        "page": 118,
+        "excerpt": "console.log(`${entry.events.length} events.`); } When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 72,
+            "excerpt": "I prefer the former approach in my own code. In Chapter 5, we’ll learn about the for, for/in, and for/of loop statements in Java‐ Script."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "And each j gets a copy of the value of i at that point in the loop iteration; that j never gets re-assigned."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "The body of every for in statement should be wrapped in an if statement that does filtering. if can select for a particular type or range of values, it can exclude functions, or it can exclude properties from the prototype."
+          }
+        ]
       },
       "level": 2,
       "code": "const copy = { ...task };\nObject.assign({}, task);\nconst alias = task;"
@@ -265,8 +338,25 @@
       "reference": {
         "section": "Common mistakes",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 100,
-        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+        "page": 118,
+        "excerpt": "console.log(`${entry.events.length} events.`); } When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 72,
+            "excerpt": "In Chapter 5, we’ll learn about the for, for/in, and for/of loop statements in Java‐ Script."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "Unfortunately, it also loops through all of the members that were inherited through the prototype chain."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          }
+        ]
       },
       "level": 3,
       "code": "for (const key in task) {\n  console.log(key, task[key]);\n}"
@@ -284,16 +374,9 @@
       "explanation": "{ ...appt, customer: { ...appt.customer, name } } copies both levels you change.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 96,
-        "excerpt": "Functions and side effects Functions can be roughly divided into those that are called for their side effects and those that are called for their return value (though it is also possible to both have side effects and return a value).",
-        "books": [
-          {
-            "book": "JavaScript: The Good Parts by Douglas Crockford",
-            "page": 131,
-            "excerpt": "We can work around that deficiency by defining our own is_array function: var is_array = function (value) { return value && typeof value === 'object' && value.constructor === Array; }; Unfortunately, it fails to identify arrays that were constructed in a different window or frame."
-          }
-        ]
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "renameCustomer(appt, \"Grace\");"
@@ -312,8 +395,25 @@
       "reference": {
         "section": "Objects",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 100,
-        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+        "page": 107,
+        "excerpt": "Instead, you have to put a set of parentheses around the object to make it clear that it is an expression.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 19,
+            "excerpt": "JavaScript has a class-free object system in which objects inherit properties directly from other objects."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 60,
+            "excerpt": "That is, the Symbol.for() function is completely different than the Sym bol() function: Symbol() never returns the same value twice, but Symbol.for() always returns the same value when called with the same string."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 65,
+            "excerpt": "Another “But…!?” you may be about to raise: what if I’d used objects or arrays as the values instead of the numbers (112358132134, etc.)?"
+          }
+        ]
       },
       "level": 2,
       "code": "const task = { id: 1, status: \"open\" };\nconsole.log(task.assignee);"
@@ -346,16 +446,9 @@
       "explanation": "Do not assign task.status. Return a new object.",
       "reference": {
         "section": "Coding tasks",
-        "book": "JavaScript: The Good Parts by Douglas Crockford",
-        "page": 115,
-        "excerpt": "The contents of the spec could be copied into private variables or transformed by other functions.",
-        "books": [
-          {
-            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-            "page": 210,
-            "excerpt": "If the constructor uses return with no value, or if it returns a primitive value, that return value is ignored and the new object is used as the value of the invocation. 8.2.4 Indirect Invocation JavaScript functions are objects, and like all JavaScript objects, they have methods."
-          }
-        ]
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     },
@@ -379,14 +472,19 @@
       "explanation": "Unmatched elements must be the same reference, not a spread copy.",
       "reference": {
         "section": "Copying",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 176,
-        "excerpt": "It is also a simple way to make a copy of an array: let copy = Array.from(original); Array.from() is also important because it defines a way to make a true-array copy of an array-like object.",
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 159,
+        "excerpt": "The first element copied will be array [ start ]. It will stop before copying array [ end ].",
         "books": [
           {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 65,
+            "excerpt": "No. Mutating the contents of the object value via a reference copy is not the same thing as lexically accessing the variable itself."
+          },
+          {
             "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-            "page": 206,
-            "excerpt": "Write a new class PGroup, similar to the Group class from Chapter 6, which stores a set of values."
+            "page": 94,
+            "excerpt": "But just as we’re in the process of copying and pasting those four lines one more time, we stop and reconsider."
           }
         ]
       },
@@ -427,25 +525,19 @@
   "reading": [
     {
       "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 4 — Objects and mutability",
-      "page": 100,
-      "pageEnd": 116,
-      "sections": [
-        {
-          "heading": "Objects",
-          "page": 100
-        },
-        {
-          "heading": "Mutability and identity",
-          "page": 110
-        }
-      ]
+      "page": 94
     },
     {
       "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-      "chapter": "Chapter 3 — object mutability",
-      "page": 62,
-      "pageEnd": 78
+      "page": 59
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 19
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 65
     }
   ],
   "sheet": "OBJECTS"

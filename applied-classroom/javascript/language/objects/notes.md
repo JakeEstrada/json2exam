@@ -10,8 +10,8 @@
 
 ## Assigned reading
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — Chapter 4 *Objects* (PDF p. 100) and *Mutability* (PDF p. 110).
-- JavaScript: The Definitive Guide, 7th Edition by David Flanagan — object mutability in Chapter 3 (PDF p. 62).
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - Chapter 4 *Objects* (PDF p. 100) and *Mutability* (PDF p. 110).
+- JavaScript: The Definitive Guide, 7th Edition by David Flanagan - object mutability in Chapter 3 (PDF p. 62).
 
 ## Objects
 
@@ -119,9 +119,9 @@ Mutates the caller’s array in place. Fine if that is the API; surprising if ca
 
 ## Coding tasks
 
-1. **Basic.** `withStatus(task, status)` — new object, other fields copied shallowly.
-2. **Applied.** `updateTask(tasks, id, patch)` — new array; unmatched tasks are the same references.
-3. **Applied.** `renameCustomer(appt, name)` — new appointment and new customer object; do not mutate the input.
+1. **Basic.** `withStatus(task, status)` - new object, other fields copied shallowly.
+2. **Applied.** `updateTask(tasks, id, patch)` - new array; unmatched tasks are the same references.
+3. **Applied.** `renameCustomer(appt, name)` - new appointment and new customer object; do not mutate the input.
 
 ## Hints
 

@@ -1,6 +1,6 @@
 # Database
 
-Sources: **System Design Interview – An Insider's Guide** Ch 1 (SQL vs NoSQL) + **Designing Data-Intensive Applications** (data models, replication/sharding foreshadow).
+Sources: **System Design Interview - An Insider's Guide** Ch 1 (SQL vs NoSQL) + **Designing Data-Intensive Applications** (data models, replication/sharding foreshadow).
 
 ## Decision checklist
 
@@ -9,4 +9,4 @@ Sources: **System Design Interview – An Insider's Guide** Ch 1 (SQL vs NoSQL) 
 3. Latency, durability, and consistency needs?
 4. How will it **scale** (replicas vs shards)?
 
-Default for many apps: **relational**. Reach for specialized stores when the workload truly demands them — not for résumé-driven development.
+Default for many apps: **relational**. Reach for specialized stores when the workload truly demands them - not for résumé-driven development.

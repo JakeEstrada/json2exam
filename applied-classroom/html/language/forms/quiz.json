@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Forms",
+  "title": "HTML - Forms",
   "questions": [
     {
       "question": "What is sent to the server on submit?",
@@ -57,7 +57,19 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "Like a single line text box but it masks the characters entered."
+        "excerpt": "Form Controls There are several types of form controls that you can use to collect information from visitors to your site.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 163,
+            "excerpt": "Alignment, spacing, and other details 135 The form for this page only uses a text input and a password input, but it’s important for you to consider other markup the CSS could be applied to in the future and try to account for that."
+          }
+        ]
       },
       "code": "<input type=\"text\" name=\"user\" />"
     },
@@ -77,7 +89,19 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "For longer areas of text, such as messages and comments. Radio buttons Checkboxes Drop-down boxes For use when a user must select one of a number of options."
+        "excerpt": "For longer areas of text, such as messages and comments. Radio buttons Checkboxes Drop-down boxes For use when a user must select one of a number of options.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 247,
+            "excerpt": "It’s just headings, subheadings, and form controls. But, through lack of care, you can botch the information architecture and terminology."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 358,
+            "excerpt": "Look at the font examples in figure 13.1. The same text is set with three different pairs of fonts."
+          }
+        ]
       },
       "code": "<textarea name=\"message\"></textarea>"
     },
@@ -97,7 +121,19 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "Radio buttons Checkboxes Drop-down boxes For use when a user must select one of a number of options."
+        "excerpt": "Radio buttons Checkboxes Drop-down boxes For use when a user must select one of a number of options.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 447,
+            "excerpt": "Several other pseudo-classes relate to form fields. Some of these were introduced or refined with the selectors level 4 specification, so they don’t work in IE10 and some other browsers."
+          }
+        ]
       },
       "code": "<input type=\"radio\" name=\"vote\" value=\"a\" />"
     },
@@ -117,7 +153,19 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "When a user can select and unselect one or more options. When a user must pick one of a number of options from a list."
+        "excerpt": "When a user can select and unselect one or more options. When a user must pick one of a number of options from a list.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 25,
+            "excerpt": "These work together to build an elegant user interface. Chapter 12 shows how to work with contrast, color, and space."
+          }
+        ]
       },
       "code": "<input type=\"checkbox\" name=\"topics\" value=\"css\" />"
     },
@@ -143,6 +191,11 @@
             "book": "Inclusive Components by Heydon Pickering",
             "page": 249,
             "excerpt": "These are announced when screen reader users enter the fieldset and focus the first control."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 413,
+            "excerpt": "Transforms in motion 385 apply to certain elements like links and buttons.) This way, the labels all appear as soon as the menu is moused over."
           }
         ]
       },
@@ -164,7 +217,19 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "It can: R e s u lt 1. Wrap around both the text description and the form input (as shown on the first line of the example to your right). 2."
+        "excerpt": "It can: R e s u lt 1. Wrap around both the text description and the form input (as shown on the first line of the example to your right). 2.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 115,
+            "excerpt": "By then, they should have learned what the icons represent. In either case, the landing screen for each of the options should have a clear (<h1>) heading with the same wording as the labels."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 347,
+            "excerpt": "The WCAG recommendations acknowledge this. It’s a good idea for your main body text to meet level AAA, but you can be a little more relaxed and aim for level AA with colored labels or other decorative text."
+          }
+        ]
       },
       "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
     },
@@ -184,7 +249,19 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "Be kept separate from the form control and use the for attribute to indicate which form control it is a label for (as shown with the radio buttons). for The for attribute states which form control the label belongs to."
+        "excerpt": "As a rule of thumb, here are the best places to place labels on form controls.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 413,
+            "excerpt": "This produces a bounce effect: the label moves right beyond the ending location before settling back where it stops."
+          }
+        ]
       },
       "code": "<input id=\"female\" type=\"radio\" name=\"gender\" value=\"f\">\n<label for=\"female\">Female</label>"
     },
@@ -204,7 +281,14 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "<input id=\"female\" type=\"radio\" name=\"gender\""
+        "excerpt": "As a rule of thumb, here are the best places to place labels on form controls.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 12,
+            "excerpt": "fieldset> <legend>Notify by email</legend> <input type=\"radio\" id=\"notify-on\" name=\"notify\" value=\"on\" checked> <label for=\"notify-on\">on</label> <input type=\"radio\" id=\"notify-off\" name=\"notify\" value=\"off\"> <label for=\"notify-off\">off</label> </fieldset> Group labels are a powerful tool."
+          }
+        ]
       },
       "code": "<input id=\"female\" type=\"radio\" name=\"gender\" value=\"f\">\n<input id=\"male\" type=\"radio\" name=\"gender\" value=\"m\">"
     },
@@ -224,7 +308,14 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "When a user must pick one of a number of options from a list."
+        "excerpt": "When a user must pick one of a number of options from a list.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          }
+        ]
       },
       "code": "<select name=\"city\"><option>Fullerton</option></select>"
     },
@@ -244,7 +335,14 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "Form Controls There are several types of form controls that you can use to collect information from visitors to your site."
+        "excerpt": "Like a single line text box but it masks the characters entered.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          }
+        ]
       },
       "code": "<input type=\"password\" name=\"secret\" />"
     },
@@ -264,7 +362,14 @@
         "section": "Form controls",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 155,
-        "excerpt": "Making Choices: Submitting Forms: Uploading Files: Submit buttons Image buttons File upload To submit data from your form to another web page."
+        "excerpt": "Making Choices: Submitting Forms: Uploading Files: Submit buttons Image buttons File upload To submit data from your form to another web page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 248,
+            "excerpt": "Use standard form controls such as checkboxes, radio buttons, and sliders."
+          }
+        ]
       },
       "code": "<button type=\"submit\">Submit</button>"
     },
@@ -304,7 +409,19 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "The position of the label is very important. If users do not know where to enter information or what information to enter, they are less likely to use the form correctly."
+        "excerpt": "The position of the label is very important. If users do not know where to enter information or what information to enter, they are less likely to use the form correctly.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "You write a selector that attempts to match elements, then you write key/value pairs that style those elements."
+          }
+        ]
       },
       "code": "<input id=\"male\" type=\"radio\" name=\"gender\" value=\"m\">\n<label for=\"male\">Male</label>"
     },
@@ -351,7 +468,19 @@
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+        "excerpt": "Labelling Form Controls <label> When introducing form controls, the code was kept simple by indicating the purpose of each one in text next to it.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "This is applied to the <label> via the :checked state using an adjacent sibling combinator."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 298,
+            "excerpt": "(I’ll talk more about editing existing modules in a bit.) Developers often ask how they can write HTML that is easy to style."
+          }
+        ]
       },
       "level": 3
     },
@@ -451,23 +580,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 7 — Forms",
-      "page": 151,
-      "pageEnd": 182,
-      "sections": [
-        {
-          "heading": "Form controls",
-          "page": 155
-        },
-        {
-          "heading": "How forms work",
-          "page": 156
-        },
-        {
-          "heading": "Labels",
-          "page": 170
-        }
-      ]
+      "page": 155
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 12
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 17
     }
   ]
 }

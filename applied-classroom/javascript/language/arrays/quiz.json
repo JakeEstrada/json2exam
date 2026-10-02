@@ -1,5 +1,5 @@
 {
-  "title": "JavaScript — Arrays and common array methods",
+  "title": "JavaScript - Arrays and common array methods",
   "questions": [
     {
       "question": "filter vs map: you want paid customer objects only. Which is correct?",
@@ -74,9 +74,9 @@
       "explanation": "Use indexOf(x) !== -1 or includes(x).",
       "reference": {
         "section": "Arrays are objects",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 605,
-        "excerpt": "The includes or indexOf methods can be used to check whether a given value is in the array."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 47,
+        "excerpt": "Objects in JavaScript are mutable keyed collections. In JavaScript, arrays are objects, functions are objects, regular expressions are objects, and, of course, objects are objects."
       },
       "level": 1,
       "code": "const arr = [\"a\", \"b\", \"c\"];\nconst x = \"a\";\nif (arr.indexOf(x)) {\n  console.log(\"found\");\n}"
@@ -85,18 +85,18 @@
       "question": "What does this yield?",
       "type": "multiple",
       "options": [
-        "[2, 3] — start inclusive, end exclusive.",
-        "[2, 3, 4] — both ends inclusive.",
-        "[0, 1] — slice takes a length, not an end.",
-        "[2, 4] — it picks those two indices only."
+        "[2, 3] - start inclusive, end exclusive.",
+        "[2, 3, 4] - both ends inclusive.",
+        "[0, 1] - slice takes a length, not an end.",
+        "[2, 4] - it picks those two indices only."
       ],
       "answer": "a",
       "explanation": "Same convention as Python slicing and substring end indexes.",
       "reference": {
         "section": "Arrays are objects",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "The start index is inclusive and the end index is exclusive."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 101,
+        "excerpt": "If the righthand side is not a class of objects, it throws a TypeError."
       },
       "level": 2,
       "code": "const nums = [0, 1, 2, 3, 4];\nnums.slice(2, 4);"
@@ -142,13 +142,23 @@
       "reference": {
         "section": "Arrays are objects",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 157,
-        "excerpt": "It returns false for inherited properties: let o = { x: 1 }; o.hasOwnProperty(\"x\") // => true: o has an own property x o.hasOwnProperty(\"y\") // => false: o doesn't have a property y o.hasOwnProperty(\"toString\") // => false: toString is an inherited property The propertyIsEnumerable() refines the…",
+        "page": 126,
+        "excerpt": "If you omit the test expression, the loop repeats forever, and for(;;) is another way of writing an infinite loop, like while(true). 5.4.4 for/of ES6 defines a new loop statement: for/of.",
         "books": [
           {
             "book": "JavaScript: The Good Parts by Douglas Crockford",
-            "page": 57,
-            "excerpt": "All objects created from object literals are linked to Object.prototype, an object that comes standard with JavaScript."
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 118,
+            "excerpt": "This works not only for arrays but also for strings and some other data structures."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "And each j gets a copy of the value of i at that point in the loop iteration; that j never gets re-assigned."
           }
         ]
       },
@@ -279,9 +289,9 @@
       "explanation": "A numeric seed makes empty input safe and the callback simple.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "rows.reduce((n, row) => n + (row.status === \"paid\" ? 1 : 0), 0);"
@@ -319,9 +329,9 @@
       "explanation": "On an empty array, length - 1 is -1, and arr[-1] is a missing property (undefined), not a C++-style last element.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 153,
-        "excerpt": "It describes most common characters using a single 16-bit code unit but uses a pair of two such units for others."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "last([]);"
@@ -356,16 +366,9 @@
       "explanation": "Empty arrays yield undefined. Do not return -1.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 153,
-        "excerpt": "It seems almost intentionally designed to invite mistakes. It’s easy to write programs that pretend code units and characters are the same thing.",
-        "books": [
-          {
-            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
-            "page": 248,
-            "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
-          }
-        ]
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     },
@@ -444,16 +447,9 @@
       "explanation": "Do not use map. A count is a number.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 157,
-        "excerpt": "You can use reduce to combine all the elements in an array into a single value.",
-        "books": [
-          {
-            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
-            "page": 248,
-            "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
-          }
-        ]
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     }
@@ -461,19 +457,19 @@
   "reading": [
     {
       "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 4–5 — Arrays, map, filter, reduce",
-      "page": 100,
-      "pageEnd": 148,
-      "sections": [
-        {
-          "heading": "Arrays are objects",
-          "page": 100
-        },
-        {
-          "heading": "map, filter, reduce",
-          "page": 121
-        }
-      ]
+      "page": 100
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 47
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 101
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 161
     }
   ],
   "sheet": "ARRAY"

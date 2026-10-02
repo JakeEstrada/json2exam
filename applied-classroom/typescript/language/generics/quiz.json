@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Generics",
+  "title": "TypeScript - Generics",
   "questions": [
     {
       "question": "What is T in identity<T>(value: T): T?",
@@ -16,8 +16,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 247,
-        "excerpt": "They would let you fac‐ tor out common operations, like applying a generic type to the value types in an object: type MapValues<T extends object, F> = { [K in keyof T]: F<T[K]>; // ~~~~~~~ Type 'F' is not generic. }; The good news is that this doesn’t limit what you can do with generic types."
+        "page": 248,
+        "excerpt": "In this example, the type parameter T appears in two places after its declaration: function identity<T>(arg: T): T { // (decl.) 1 2 return arg; } So this passes the test and is a good use of generics.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Because the whole idea of blockchains is still new, we’ll start by explaining the basics of how blockchains operate and what they’re for. 8.1 Blockchain 101 Blockchains can be used for various types of applications, but financial apps made blockchain a buzzword."
+          }
+        ]
       },
       "code": "function identity<T>(value: T): T {\n  return value;\n}"
     },
@@ -36,13 +43,18 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 229,
-        "excerpt": "Here’s an example of a sound type: const x = Math.random(); // ^? const x: number TypeScript infers a static type of number for x, and this is sound: whatever value Math.random() returns at runtime, it will be a number.",
+        "page": 248,
+        "excerpt": "Let’s start with the identity function: function identity<T>(arg: T): T { return arg; } This function takes a single parameter and returns it, leaving its type unaltered.",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 55,
-            "excerpt": "Like with objects, creating arrays with const won’t hint to TypeScript to infer their types more narrowly."
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "ng announced almost daily, and the need for software developers who understand the underlying technologies will increase.  New well-paid jobs are being created in organizations that implement blockchains in their operations, such as in fin"
           }
         ]
       },
@@ -63,8 +75,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 115,
-        "excerpt": "TypeScript makes extensive use of type inference. Used well, this can dramatically reduce the number of type annotations your code requires to get full type safety."
+        "page": 248,
+        "excerpt": "In this example, the type parameter T appears in two places after its declaration: function identity<T>(arg: T): T { // (decl.) 1 2 return arg; } So this passes the test and is a good use of generics.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Where is the data about transactions stored, and what’s the meaning of the word decentralized in this context?"
+          }
+        ]
       },
       "code": "const n = identity<number>(1);"
     },
@@ -83,8 +102,15 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 251,
-        "excerpt": "class Joiner { join<T extends string | number>(els: T[]) { return els.map(el => String(el)).join(','); } } By moving the declaration of T closer to its use, we make it possible for TypeScript to infer the type of T."
+        "page": 247,
+        "excerpt": "Having too many type parameters or using constraints where they aren’t needed can make inference less successful, frustrating callers of your function.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 33,
+            "excerpt": "I’ll define assignability, bounds, and constraints more formally in Chapter 6."
+          }
+        ]
       },
       "code": "function longest<T extends { length: number }>(a: T, b: T): T {\n  return a.length >= b.length ? a : b;\n}"
     },
@@ -103,13 +129,13 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 244,
-        "excerpt": "There’s no equivalent of this for type parameters. If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever.",
+        "page": 247,
+        "excerpt": "Having too many type parameters or using constraints where they aren’t needed can make inference less successful, frustrating callers of your function.",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 320,
-            "excerpt": "Now, when TypeScript compiles your code it knows toPascalCase’s type is (word: string) => string."
+            "page": 33,
+            "excerpt": "function squareOf(n: number) { return n * n } squareOf(2) // evaluates to 4 squareOf('z') // Error TS2345: Argument of type '\"z\"' is not assignable to // parameter of type 'number'."
           }
         ]
       },
@@ -135,8 +161,13 @@
         "books": [
           {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 122,
-            "excerpt": "Usually the letter T in generics represents type: K for key, V for value, P for property, and so on. keyof is also called an index type query, and it represents a union of allowed property names (the keys) of the given type."
+            "page": 441,
+            "excerpt": "The variable i is still available outside the loop, even though it seems like it was meant to be used only inside the loop."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
           }
         ]
       },
@@ -157,13 +188,13 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 250,
-        "excerpt": "That means this signature is equivalent to: function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] { return obj[key]; } So K does appear twice!",
+        "page": 244,
+        "excerpt": "For a short generic like MyPick, T and K are fine. But for a longer definition where the type parameter has broader scope (a generic class, say), a longer, more meaningful name will improve clarity.",
         "books": [
           {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 133,
-            "excerpt": "By writing infer R, we instruct TypeScript to check the provided concrete return type (for example, string for the getA() method) and replace infer R with this concrete type."
+            "page": 130,
+            "excerpt": "From the previous section, you remember that the keyof lookup type can give you a list of all properties from a type."
           }
         ]
       },
@@ -185,7 +216,14 @@
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 244,
-        "excerpt": "If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever."
+        "excerpt": "There’s no equivalent of this for type parameters. If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 280,
+            "excerpt": "For example, if we provide Block as type T, the keyof T construct will represent the list of properties defined in the Block interface."
+          }
+        ]
       },
       "code": "const user = { name: \"Jake\", age: 30 };\ngetProp(user, \"nope\");"
     },
@@ -204,8 +242,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 44,
-        "excerpt": "Tagged unions and property checking are com‐ mon ways to do this. • Some constructs, such as class, introduce both a TypeScript type and a value that is available at runtime. • Because they are erased as part of compilation, TypeScript types cannot affect the runtime performance of your code."
+        "page": 248,
+        "excerpt": "In this example, the type parameter T appears in two places after its declaration: function identity<T>(arg: T): T { // (decl.) 1 2 return arg; } So this passes the test and is a good use of generics.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Often you’ll see the words “Bitcoin” and “blockchain” in the same sentence, but whereas blockchain is a special decentralized way of storing immutable data, Bitcoin is a specific cryptocurrency that uses a concrete implementation of a blockchain."
+          }
+        ]
       },
       "code": "function identity<T>(value: T): T {\n  return value;\n}"
     },
@@ -224,8 +269,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 237,
-        "excerpt": "It can lead to crashes and other bad behavior without type errors. • Be aware of some of the common ways that unsoundness can arise: any types, type assertions (as, is), object and array lookups, and inaccurate type definitions. • Avoid mutating function parameters as this can lead to unsoundness."
+        "page": 248,
+        "excerpt": "It goes on to offer a few specific pieces of advice about how to use generics, including one that is sometimes called the “Golden Rule of Generics”: Type Parameters Should Appear Twice Type parameters are for relating the types of multiple values.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Multiple travel agencies connect to the same server to browse and book the air tickets."
+          }
+        ]
       },
       "code": "function pair<K, V>(key: K, value: V): [K, V] {\n  return [key, value];\n}"
     },
@@ -244,13 +296,13 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a con‐ crete, nongeneric type.",
+        "page": 248,
+        "excerpt": "And rightly so: it relates two types because it says that the input parameter’s type and the function’s return type are the same.",
         "books": [
           {
-            "book": "Programming TypeScript by Boris Cherny",
-            "page": 98,
-            "excerpt": "T is like a placeholder type, to be filled in by the typechecker from context; it parameterizes Filter’s type, which is why we call it a generic type parameter."
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Often you’ll see the words “Bitcoin” and “blockchain” in the same sentence, but whereas blockchain is a special decentralized way of storing immutable data, Bitcoin is a specific cryptocurrency that uses a concrete implementation of a blockchain."
           }
         ]
       },
@@ -271,8 +323,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "The built-in Partial generic type makes all the properties of another type optional."
+        "page": 248,
+        "excerpt": "In this example, the type parameter T appears in two places after its declaration: function identity<T>(arg: T): T { // (decl.) 1 2 return arg; } So this passes the test and is a good use of generics.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 193,
+            "excerpt": "Often you’ll see the words “Bitcoin” and “blockchain” in the same sentence, but whereas blockchain is a special decentralized way of storing immutable data, Bitcoin is a specific cryptocurrency that uses a concrete implementation of a blockchain."
+          }
+        ]
       },
       "code": "type MyPartial<T> = { [K in keyof T]?: T[K] };"
     },
@@ -291,8 +350,20 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 255,
-        "excerpt": "This could be a single function that behaves differently depend‐ ing on its arguments."
+        "page": 247,
+        "excerpt": "Having too many type parameters or using constraints where they aren’t needed can make inference less successful, frustrating callers of your function.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 100,
+            "excerpt": "The way to think about generics is as constraints. Just like annotating a function parameter as n: number constrains the value of the parameter n to the type number, so using a generic T constrains the type of whatever type you bind to T to be the same type everywhere that T shows up."
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 291,
+            "excerpt": "It’s also a way to bind a value into a string. Binding is about keeping the values of your TypeScript class members and the UI in sync."
+          }
+        ]
       },
       "code": "const w = longest(\"abc\", \"de\");"
     },
@@ -311,13 +382,18 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 245,
-        "excerpt": "Item 53 shows you how to do this. You write tests for your value-level code, what about for your type-level code?",
+        "page": 244,
+        "excerpt": "If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever.",
         "books": [
           {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 124,
-            "excerpt": "We also added a restriction that P extends keyof T. In other words, P must be one of the properties of the provided type T."
+            "page": 130,
+            "excerpt": "Exclude is declared in the lib.es5.d.ts file as follows: type Exclude<T, U> = T extends U ? never : T; This type excludes types that are assignable to U."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 214,
+            "excerpt": "If you have an object type type O = {a: {b: {c: string}}}, what’s the type of keyof O?"
           }
         ]
       },
@@ -338,8 +414,15 @@
       "reference": {
         "section": "identity",
         "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-        "page": 386,
-        "excerpt": "The following listing shows the code of the self-explanatory formatTransactions() function, located in the App.tsx file outside of the App component."
+        "page": 193,
+        "excerpt": "oting, logistics, establishing internet identity, ride sharing, internet advertising, and so on. Because the whole idea of blockchains is still new, we’ll start by explaining the basics of how blockchains operate and what they’re for. 8.1 B",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 248,
+            "excerpt": "This rule gives you a specific way to tell whether any type parameter is good or bad, but it’s not always obvious how to apply it, and it doesn’t offer much guidance about how to rework your code if you’re using generics poorly."
+          }
+        ]
       },
       "code": "const h = <T,>(x: T): T => x;"
     },
@@ -469,15 +552,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Chapter 6 — Generics; Item 50",
-      "page": 241,
-      "pageEnd": 248,
-      "sections": [
-        {
-          "heading": "Item 50 — Generics as functions between types",
-          "page": 242
-        }
-      ]
+      "page": 241
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 130
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 33
     }
   ]
 }

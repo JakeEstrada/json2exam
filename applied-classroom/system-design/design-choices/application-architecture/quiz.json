@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Application architecture",
+  "title": "System Design - Application architecture",
   "questions": [
     {
       "question": "When should you choose an architecture style, per FSA’s flow?",
@@ -9,7 +9,7 @@
         "Before you know any characteristics or logical components at all.",
         "After analyzing characteristics and logical components the system needs.",
         "Only after rewriting the UI three times in different frameworks.",
-        "Never — styles are banned in modern engineering culture."
+        "Never - styles are banned in modern engineering culture."
       ],
       "answer": "b",
       "explanation": "Once an architect has analyzed the architectural characteristics and logical components… they know enough to choose an appropriate architecture style",
@@ -68,7 +68,7 @@
       "answer": "b",
       "explanation": "stateless",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 29,
         "excerpt": "A stateless system is simpler, more robust, and scalable. Figure 1-14 shows the updated design with a stateless web tier."
       }
@@ -81,8 +81,20 @@
       "explanation": "architecture decisions, which define the rules for how a system should be constructed",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 29,
-        "excerpt": "Make Architecture Decisions An architect is expected to define the architecture decisions and design principles used to guide technology decisions within the team, within the department, or across the enterprise."
+        "page": 24,
+        "excerpt": "Choosing an architectural style involves finding the easiest implementation path for a given set of requirements The fourth dimension that defines software architecture is architecture decisions, which define the rules for how a system should be constructed.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 5,
+            "excerpt": "The questions require the interviewees to design an architecture for a software system, which could be a news feed, Google search, chat system, etc."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 771,
+            "excerpt": "We, the engineers building these systems, have a responsibility to carefully consider those consequences and to ensure that our decisions do not cause harm."
+          }
+        ]
       }
     },
     {
@@ -102,6 +114,20 @@
         "page": 30,
         "excerpt": "As a result, most architectures experience elements of structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics, such as performance, availability, and scalability."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 20
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 5
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 771
     }
   ]
 }

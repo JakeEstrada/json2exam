@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Object types",
+  "title": "TypeScript - Object types",
   "questions": [
     {
       "question": "Which annotation types a value with name and age?",
@@ -77,6 +77,11 @@
             "book": "Programming TypeScript by Boris Cherny",
             "page": 42,
             "excerpt": "Wait, that’s not very useful! What’s the point of typing something as an object if you can’t do anything with it?"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 95,
+            "excerpt": "Because TypeScript supports structural typing, you can use either an Employee or any other object literal that’s compatible with the type Person where the Person type is expected."
           }
         ]
       },
@@ -130,7 +135,7 @@
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 190,
-            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (–) operator."
+            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (-) operator."
           }
         ]
       },
@@ -199,7 +204,19 @@
         "section": "Structural typing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 47,
-        "excerpt": "It has a num property that’s a number. So the structures match."
+        "excerpt": "It has a num property that’s a number. So the structures match.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 42,
+            "excerpt": "What’s the point of typing something as an object if you can’t do anything with it?"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 95,
+            "excerpt": "There is a caveat, though. Whereas Java and C# use a nominal type system, TypeScript uses a structural one, as was explained in section 2.2.4."
+          }
+        ]
       },
       "code": "interface Point { x: number; y: number }\nconst p = { x: 1, y: 2, z: 3 };\nconst q: Point = p;"
     },
@@ -273,7 +290,19 @@
         "section": "Structural typing",
         "book": "Programming TypeScript by Boris Cherny",
         "page": 42,
-        "excerpt": "What’s the point of typing something as an object if you can’t do anything with it?"
+        "excerpt": "Also called duck typing in some languages (or, not judging a book by its cover).",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 47,
+            "excerpt": "v.x) + Math.abs(v.y) + Math.abs(v.z); } Structural typing can also lead to surprises with classes, which are compared struc‐ turally for assignability: class SmallNumContainer { num: number; constructor(num: number) { if (num < 0 || num >="
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 95,
+            "excerpt": "To see if type A can be used where type B is expected, read about structural subtyping We used const (and not let) to declare the workers identifier in listing 4.7 because its value never changes."
+          }
+        ]
       },
       "code": "const person = { name: \"Ada\", age: 36 };\ngreet(person);"
     },
@@ -325,7 +354,7 @@
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 190,
-            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (–) operator."
+            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (-) operator."
           }
         ]
       },
@@ -374,7 +403,19 @@
         "section": "Structural typing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 47,
-        "excerpt": "Why is b assignable to SmallNumContainer? It has a num property that’s a number."
+        "excerpt": "Why is b assignable to SmallNumContainer? It has a num property that’s a number.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 42,
+            "excerpt": "TypeScript’s object types specify the shapes of objects. Notably, they can’t tell the difference between simple objects (like the kind you make with {}) and more complicated ones (the kind you create with new Blah)."
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 95,
+            "excerpt": "Whereas Java and C# use a nominal type system, TypeScript uses a structural one, as was explained in section 2.2.4."
+          }
+        ]
       },
       "code": "function calculateLength(v: { x: number; y: number }) {\n  return Math.sqrt(v.x ** 2 + v.y ** 2);\n}"
     },
@@ -477,19 +518,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Item 4 — Structural typing; excess property checking",
-      "page": 45,
-      "pageEnd": 82,
-      "sections": [
-        {
-          "heading": "Item 4 — Structural typing",
-          "page": 45
-        },
-        {
-          "heading": "Excess property checking",
-          "page": 80
-        }
-      ]
+      "page": 45
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 42
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 95
     }
   ]
 }

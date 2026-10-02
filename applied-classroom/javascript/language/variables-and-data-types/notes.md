@@ -30,8 +30,8 @@ Look up **VARIABLES AND TYPES** in the cheat sheet (`jsjs VARIABLES`).
 
 Read these in the local `javascript/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — Chapter 1 *Values, Types, and Operators* (PDF p. 31), including *Values*, *Boolean values*, *Empty values*, and *Automatic type conversion* (PDF p. 43). Then Chapter 2 *Bindings* (PDF p. 50).
-- JavaScript: The Definitive Guide, 7th Edition by David Flanagan — Chapter 3 *Types, Values, and Variables* (PDF p. 41), especially explicit conversion with `Number`, `String`, and `Boolean` (PDF p. 65).
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - Chapter 1 *Values, Types, and Operators* (PDF p. 31), including *Values*, *Boolean values*, *Empty values*, and *Automatic type conversion* (PDF p. 43). Then Chapter 2 *Bindings* (PDF p. 50).
+- JavaScript: The Definitive Guide, 7th Edition by David Flanagan - Chapter 3 *Types, Values, and Variables* (PDF p. 41), especially explicit conversion with `Number`, `String`, and `Boolean` (PDF p. 65).
 
 ## Values and primitive types
 
@@ -39,11 +39,11 @@ JavaScript programs move **values**. A number, a string, and `true` are values. 
 
 Primitives you will use every day:
 
-- **number** — IEEE-754 double. Integers and floats share one type. `0.1 + 0.2` is not exactly `0.3`. There is no separate `int`.
-- **string** — immutable text. `"paid"` cannot have a character overwritten in place.
-- **boolean** — `true` and `false` only.
-- **null** and **undefined** — two empty values. `undefined` is “nobody put a value here.” `null` is often “we know this is empty.” Treat them as related but not identical (`null == undefined` is true; `null === undefined` is false).
-- **bigint** and **symbol** — exist; you will rarely need them in these modules.
+- **number** - IEEE-754 double. Integers and floats share one type. `0.1 + 0.2` is not exactly `0.3`. There is no separate `int`.
+- **string** - immutable text. `"paid"` cannot have a character overwritten in place.
+- **boolean** - `true` and `false` only.
+- **null** and **undefined** - two empty values. `undefined` is “nobody put a value here.” `null` is often “we know this is empty.” Treat them as related but not identical (`null == undefined` is true; `null === undefined` is false).
+- **bigint** and **symbol** - exist; you will rarely need them in these modules.
 
 `typeof null` is `"object"` (a language lie). Check null with `value === null`.
 
@@ -64,9 +64,9 @@ const customer = { id: 1 };
 customer.id = 2;        // allowed: the binding still grasps the same object
 ```
 
-- `let` — block-scoped, reassignable.
-- `const` — block-scoped, not reassignable. The object it grasps may still mutate.
-- `var` — function-scoped, hoisted. Do not use it in new code.
+- `let` - block-scoped, reassignable.
+- `const` - block-scoped, not reassignable. The object it grasps may still mutate.
+- `var` - function-scoped, hoisted. Do not use it in new code.
 
 If you never reassign, prefer `const`. That is the opposite of “make everything `let` because C++ `const` is annoying.”
 
@@ -162,9 +162,9 @@ This concatenates to `"0104"` if the first `+=` hits a string… actually `sum` 
 
 Write these in the quiz code cards, or in Node. The app will not execute them.
 
-1. **Basic.** `asBooleanFlag(value)` — true only for boolean `true` or the strings `"true"` / `"1"` (case-insensitive). Everything else false.
-2. **Applied.** `normalizePayments(rows)` — each row has `id` and `amount`. Skip rows whose amount cannot be a finite number. Return `{ id, amount: number }`. Empty string is invalid.
-3. **Applied.** `describeCustomer(c)` — return `"Ada (#12)"` from `{ name: "Ada", id: 12 }`. Missing name becomes `"customer"`; missing id becomes `"?"`.
+1. **Basic.** `asBooleanFlag(value)` - true only for boolean `true` or the strings `"true"` / `"1"` (case-insensitive). Everything else false.
+2. **Applied.** `normalizePayments(rows)` - each row has `id` and `amount`. Skip rows whose amount cannot be a finite number. Return `{ id, amount: number }`. Empty string is invalid.
+3. **Applied.** `describeCustomer(c)` - return `"Ada (#12)"` from `{ name: "Ada", id: 12 }`. Missing name becomes `"customer"`; missing id becomes `"?"`.
 
 ## Hints
 
@@ -176,10 +176,10 @@ Write these in the quiz code cards, or in Node. The app will not execute them.
 
 Predict the output:
 
-1. `false true` — `0` is falsy; `"0"` is a non-empty string.
-2. `"42" 2` — `+` concatenates; `-` forces numbers.
-3. `3` — `p` and `q` grasp the same object.
-4. `NaN 0` — `undefined` will not coerce to 0 for `Number`; `null` will.
+1. `false true` - `0` is falsy; `"0"` is a non-empty string.
+2. `"42" 2` - `+` concatenates; `-` forces numbers.
+3. `3` - `p` and `q` grasp the same object.
+4. `NaN 0` - `undefined` will not coerce to 0 for `Number`; `null` will.
 
 Find the bug: convert first, `sum += Number(row.amount)`, or better, reject non-finite amounts.
 

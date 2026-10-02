@@ -84,7 +84,7 @@ export default function Settings({ settings, onChange, onReset, onClose }) {
           onChange={(e) => onChange({ voice: e.target.value })}
         >
           {QUIZ_VOICES.map((v) => (
-            <option key={v.id} value={v.id}>{v.label} — {v.hint}</option>
+            <option key={v.id} value={v.id}>{v.label} - {v.hint}</option>
           ))}
         </select>
         <button

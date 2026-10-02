@@ -1,5 +1,5 @@
 {
-  "title": "System Design — What is system design?",
+  "title": "System Design - What is system design?",
   "questions": [
     {
       "question": "What does “system design” mainly ask you to do?",
@@ -14,9 +14,21 @@
       "answer": "b",
       "explanation": "no one approach is fundamentally better than others; everything has pros and cons",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 5,
-        "excerpt": "The desired outcome is to come up with an architecture to achieve system design goals."
+        "excerpt": "The desired outcome is to come up with an architecture to achieve system design goals.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 44,
+            "excerpt": "For example, choosing to use the microservices architecture style provides better scalability, agility, elasticity, and fault tolerance."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "Principles for Scalability The architecture of systems that operate at large scale is usually highly specific to the application."
+          }
+        ]
       }
     },
     {
@@ -33,8 +45,20 @@
       "explanation": "We call an application data-intensive if data management is one of the primary challenges",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 16,
-        "excerpt": "We call an application data-intensive if data management is one of the primary challenges in developing the application [1]."
+        "page": 84,
+        "excerpt": "(SAN). This architecture has traditionally been used for on-premises data warehousing workloads, but contention and the overhead of locking limit the scalability of the shared-disk approach [83].",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 44,
+            "excerpt": "Conversely, something that requires minimal effort to implement or change places it more on the design side of the spectrum."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 229,
+            "excerpt": "Its primary job is to give the client a list of DNS host names of chat servers that the client could connect to."
+          }
+        ]
       }
     },
     {
@@ -51,8 +75,20 @@
       "explanation": "Store data… (databases) Remember the result… (caches) … stream processing … batch processing",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 16,
-        "excerpt": "Such applications are typically built from standard building blocks that provide commonly needed functionality."
+        "page": 641,
+        "excerpt": "“Apache Flink: Stream and Batch Processing in a Single Engine.” Bulletin of the IEEE Computer Society Technical Committee on Data Engineering, volume 38, issue 4, pages 28-38, December 2015.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 855,
+            "excerpt": "Architecture and the Enterprise Every enterprise has a set of standards and guiding principles."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 264,
+            "excerpt": "Streaming data means data is generated continuously. Stream processing requires a different set of systems: Apache Hadoop MapReduce [6], Apache Spark Streaming [7], Apache Storm [8], Apache Kafka [9], etc."
+          }
+        ]
       }
     },
     {
@@ -69,8 +105,20 @@
       "explanation": "Everything in software architecture is a trade-off",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 26,
-        "excerpt": "We learned the First Law of Software Architecture by constantly stumbling across it, and we think it gets to the heart of why these universal truths seem so elusive: Everything in software architecture is a trade-off. —First Law of Software Architecture Nothing exists on a nice, clean spectrum."
+        "page": 44,
+        "excerpt": "The Significance of Trade-Offs Analyzing the trade-offs of a particular decision can help a lot in determining whether it is more about architecture or design.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "This architecture has traditionally been used for on-premises data warehousing workloads, but contention and the overhead of locking limit the scalability of the shared-disk approach [83]."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 229,
+            "excerpt": "If we propose a design where everything fits in one server, this may raise a big red flag in the interviewer’s mind."
+          }
+        ]
       }
     },
     {
@@ -81,8 +129,20 @@
       "explanation": "If you think you’ve discovered something that isn’t a trade-off, more likely you just haven’t identified the trade-off…yet",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 26,
-        "excerpt": "True to our original intent, these three laws seem pretty universal and inform many important perspectives for working software architects."
+        "page": 44,
+        "excerpt": "Level of Effort In his famous paper “Who Needs an Architect?”, software architect Martin Fowler writes that architecture is “the stuff that’s hard to change.” The harder something is to change, generally, the more effort is required, placing that decision or activity toward the architectural side…",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "This model has some similarity to a shared-disk architecture, but it avoids the scalability problems of older systems."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 229,
+            "excerpt": "The number of concurrent connections that a server can handle will most likely be the limiting factor."
+          }
+        ]
       }
     },
     {
@@ -99,8 +159,20 @@
       "explanation": "architecture style… architecture characteristics… logical components… architecture decisions",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 20,
-        "excerpt": "Architects base their decisions on the realities of their environment."
+        "page": 44,
+        "excerpt": "Rearranging fields on a screen would require minimal effort, and therefore be more about design.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "By contrast, the shared-nothing architecture [84] (also called horizontal scaling or scaling out) involves a distributed system with multiple nodes, each of which has its own CPUs, RAM, and disks."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 5,
+            "excerpt": "The questions require the interviewees to design an architecture for a software system, which could be a news feed, Google search, chat system, etc."
+          }
+        ]
       }
     },
     {
@@ -116,9 +188,21 @@
       "answer": "b",
       "explanation": "The final design is less important compared to the work you put in the design process",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 54,
-        "excerpt": "The problem is open-ended, and there is no perfect answer. The final design is less important compared to the work you put in the design process."
+        "excerpt": "The problem is open-ended, and there is no perfect answer. The final design is less important compared to the work you put in the design process.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 44,
+            "excerpt": "These are some pretty significant trade-offs. We can conclude that this decision is more on the architectural side of the spectrum than design."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "Principles for Scalability The architecture of systems that operate at large scale is usually highly specific to the application."
+          }
+        ]
       }
     },
     {
@@ -134,10 +218,36 @@
       "answer": "b",
       "explanation": "communication and problem-solving skills tested… are similar to those required by a software engineer’s daily work",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 54,
-        "excerpt": "The system design interview simulates real-life problem solving where two co-workers collaborate on an ambiguous problem and come up with a solution that meets their goals."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 5,
+        "excerpt": "Companies widely adopt system design interviews because the communication and problem-solving skills tested in these interviews are similar to those required by a software engineer’s daily work.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 84,
+            "excerpt": "Principles for Scalability The architecture of systems that operate at large scale is usually highly specific to the application."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 44,
+            "excerpt": "We can conclude that this decision is more on the architectural side of the spectrum than design."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 5
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 44
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 84
     }
   ]
 }

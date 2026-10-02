@@ -1,3 +1,3 @@
-# Python — Loops
+# Python - Loops
 
 Python language deck.

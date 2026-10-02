@@ -1,4 +1,4 @@
-# Strings and hash — pattern recognition
+# Strings and hash - pattern recognition
 
 LeetCode · Strings and hash
 

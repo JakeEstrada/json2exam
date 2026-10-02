@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Authentication strategy",
+  "title": "System Design - Authentication strategy",
   "questions": [
     {
       "question": "Stateless web servers typically require session data to live:",
@@ -14,7 +14,7 @@
       "answer": "b",
       "explanation": "stateless",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 29,
         "excerpt": "stored in a shared data store and kept out of web servers. A stateless system is simpler, more robust, and scalable."
       }
@@ -62,7 +62,7 @@
       "answer": "b",
       "explanation": "Prevent resource starvation… Prevent servers from being overloaded",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 69,
         "excerpt": "API gateway is a fully managed service that supports rate limiting, SSL termination, authentication, IP whitelisting, servicing static content, etc."
       }
@@ -80,10 +80,40 @@
       "answer": "b",
       "explanation": "Limiting the number of calls is essential to reduce costs",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 66,
-        "excerpt": "Limiting excess requests means fewer servers and allocating more resources to high priority APIs."
+        "excerpt": "Rate limiting is extremely important for companies that use paid third party APIs.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 253,
+            "excerpt": "For RESTful APIs, common approaches are to use a version number in the URL or in the HTTP Accept header."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 637,
+            "excerpt": "For this reason, the microservices world has many architecture patterns to increase performance, including intelligent data caching and replication to prevent an excess of network calls."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 29
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition",
+      "page": 31
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 30
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 253
     }
   ]
 }

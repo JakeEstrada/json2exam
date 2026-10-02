@@ -558,6 +558,8 @@ test('hides hero code when the snippet is the correct option', () => {
   assert.equal(leaked.codeRevealsAnswer, true);
   assert.equal(leaksAnswer('ok = True', ['true', 'True', 'TRUE', 'yes'], [1]), true);
   assert.equal(leaksAnswer('bool([])  # False\nbool("0")  # True', ['"0"', '1', '[]', '[0]'], [2]), true);
+  assert.equal(leaksAnswer('while i < n:\n    i += 1', ['{', ':', 'do', 'then'], [1]), true);
+  assert.equal(leaksAnswer('i = 0\nwhile i < n\n    i += 1', ['{', ':', 'do', 'then'], [1]), false);
 
   const tracing = one({
     question: 'What does type(3.0) report?',
@@ -599,14 +601,14 @@ test('preserves a chapter reference on a question', () => {
     answer: 'b',
     reference: {
       section: 'Who counts as a "customer"',
-      book: 'Chapter 2 — Customers and stakeholders',
+      book: 'Chapter 2 - Customers and stakeholders',
       page: 4,
       excerpt: 'A customer derives direct or indirect benefit from a product.',
       lecture: 'The job of requirements analysts is to identify and listen to the customers.',
     },
   });
   assert.equal(q.reference.section, 'Who counts as a "customer"');
-  assert.equal(q.reference.book, 'Chapter 2 — Customers and stakeholders');
+  assert.equal(q.reference.book, 'Chapter 2 - Customers and stakeholders');
   assert.equal(q.reference.page, 4);
   assert.match(q.reference.excerpt, /benefit/);
   assert.match(q.reference.lecture, /listen to the customers/);

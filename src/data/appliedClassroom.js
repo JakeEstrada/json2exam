@@ -42,6 +42,7 @@ function plannedCourse(spec) {
     title: spec.title,
     tagline: spec.tagline || '',
     group: spec.group || 'platform',
+    later: !!spec.later,
     program: true,
     folder: dir,
     modules: (spec.modules || []).map((m) => plannedModule(spec.id, dir, m)),
@@ -467,6 +468,7 @@ export const APPLIED_COURSES = [
     title: 'Electronics',
     folder: 'Electronics',
     group: 'process',
+    later: true,
     tagline: 'PCB design literacy plus interview prep for electronics sourcing roles.',
     modules: [
       {

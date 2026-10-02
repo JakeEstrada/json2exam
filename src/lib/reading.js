@@ -112,12 +112,12 @@ export function formatAskNotes(quiz) {
   const lines = [];
   const reading = (quiz && quiz.reading) || [];
   if (reading.length) {
-    lines.push('Assigned reading for this module. If the student asks for a book or chapter reference, cite these chapters and PDF pages — not a different chapter.');
+    lines.push('Assigned reading for this module. If the student asks for a book or chapter reference, cite these chapters and PDF pages - not a different chapter.');
     reading.forEach((row) => {
       const where = row.page
         ? ' (PDF p. ' + row.page + (row.pageEnd ? '–' + row.pageEnd : '') + ')'
         : '';
-      lines.push('- ' + (row.book || 'Book') + (row.chapter ? ' — ' + row.chapter : '') + where);
+      lines.push('- ' + (row.book || 'Book') + (row.chapter ? ' - ' + row.chapter : '') + where);
       (row.sections || []).forEach((section) => {
         if (!section.heading) return;
         lines.push('  - ' + section.heading + (section.page ? ' (PDF p. ' + section.page + ')' : ''));

@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 10: Assembly Data & Documentation",
+  "title": "Electronics - Chapter 10: Assembly Data & Documentation",
   "questions": [
     {
       "question": "A complete assembly data package should include:",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "question": "Panelization tip — leave about ≥0.020 in clearance from board edge to copper to allow:",
+      "question": "Panelization tip - leave about ≥0.020 in clearance from board edge to copper to allow:",
       "type": "multiple",
       "level": 2,
       "options": [
@@ -117,7 +117,7 @@
         "IPC-A-610 as a comprehensive conformance guideline.",
         "Only the fab’s Twitter poll results.",
         "Whatever the night-shift operator prefers that evening.",
-        "No written criteria — “looks fine” is enough for flight hardware."
+        "No written criteria - “looks fine” is enough for flight hardware."
       ],
       "answer": "a",
       "explanation": "Leverage the power of IPC-A-610",

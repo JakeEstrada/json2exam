@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Type and color",
+  "title": "CSS - Type and color",
   "questions": [
     {
       "question": "Which property colors the text?",
@@ -17,7 +17,19 @@
         "section": "Color",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 46,
-        "excerpt": "They are primarily properties pertaining to text: color, font, font-family, font-size, font-weight, font-variant, font-style, line-height, letter-spacing, text-align, text-indent, text-transform, white-space, and word-spacing."
+        "excerpt": "They are primarily properties pertaining to text: color, font, font-family, font-size, font-weight, font-variant, font-style, line-height, letter-spacing, text-align, text-indent, text-transform, white-space, and word-spacing.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 128,
+            "excerpt": "Light text on a light background. This is easily fixed by stating a light background-color. :root { background-color: #fefefe; filter: invert(100%); } But we may still run into problems with child elements that also have no stated background color."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 265,
+            "excerpt": "The rule for the <body> element sets a default color for all the text as well as the default background color for the page."
+          }
+        ]
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -37,7 +49,19 @@
         "section": "Color",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 265,
-        "excerpt": "There are two values for the background-color property of the <h1> element."
+        "excerpt": "There are two values for the background-color property of the <h1> element.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 128,
+            "excerpt": "This is easily fixed by stating a light background-color. :root { background-color: #fefefe; filter: invert(100%); } But we may still run into problems with child elements that also have no stated background color."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 54,
+            "excerpt": "HORIZONTAL, VERTICAL The TRouBLe mnemonic only applies to properties that apply individually to all four sides of the box."
+          }
+        ]
       },
       "code": "body {\n  background-color: cream;\n}"
     },
@@ -56,8 +80,20 @@
       "reference": {
         "section": "Type",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "You can specify several properties in one declaration, each separated by a semi-colon. h1, h2, h3 { font-family: Arial; color: yellow;} Property This rule indicates that all <h1>, <h2> and <h3> elements should be shown in the Arial typeface, in a yellow color."
+        "page": 242,
+        "excerpt": "It should use three attributes: href This specifies the path to the CSS file (which is often placed in a folder called css or styles). type This attribute specifies the type of document being linked to.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 51,
+            "excerpt": "It won’t evaluate to display: block regardless of what type of element you apply it to."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 250,
+            "excerpt": "The general rule is that any part of an interface differentiated only by style and not content will be inaccessible."
+          }
+        ]
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -76,8 +112,20 @@
       "reference": {
         "section": "Type",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 358,
-        "excerpt": "By doing nothing more than changing the typeface, you can completely change the tone of the page."
+        "page": 66,
+        "excerpt": "(I press Command-Space on my Mac, and type the equation into Spotlight.) Putting a root font size in place defines a rem.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 272,
+            "excerpt": "font and its appearance (including the typeface, whether it is regular, bold or italic, and the size of the text) ●● Those that would have the same effect on text no matter what font you were using (including the color of text and the spac"
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 250,
+            "excerpt": "Things like shape, color, position are just not enough on their own to define something inclusively."
+          }
+        ]
       },
       "code": "p {\n  font-size: 16px;\n  font-family: Arial;\n}"
     },
@@ -137,7 +185,7 @@
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 56,
-        "excerpt": "Developers, even experienced CSS developers, often dislike working with relative units, the notorious em included."
+        "excerpt": "Working with relative units This chapter covers  The versatility of relative units  How to use ems and rems, without letting them drive you mad  Using viewport-relative units  An introduction to CSS variables When it comes to specifying values, CSS provides a wide array of options to choose f…"
       },
       "code": "ul { font-size: 1.2em; }\nul ul { font-size: 1.2em; }"
     },
@@ -156,8 +204,20 @@
       "reference": {
         "section": "Color",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 340,
-        "excerpt": "Instead, it blends in and subconsciously tells the user, “This section of the page is probably not what you’re looking for.” 12.2.1 Understanding color notations The colors in our palette are specified using hex notation."
+        "page": 51,
+        "excerpt": "It’s not even valid for many properties; for example, border-width: auto and padding: auto are invalid and therefore have no effect.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 265,
+            "excerpt": "The first provides a fallback color using a hex code and the second is an HSLA value for browsers that support this method."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 227,
+            "excerpt": "Disabled styles can be problematic. By default, disabled buttons are just ‘greyed out’ which doesn’t necessarily say ‘disabled’ to some people - especially if they are color blind."
+          }
+        ]
       },
       "code": "h1 {\n  color: #334455;\n}"
     },
@@ -176,8 +236,20 @@
       "reference": {
         "section": "Color",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 340,
-        "excerpt": "This indicates the 360 degrees around the color circle, transitioning evenly through red (0), yellow (60), green (120), cyan (180), blue (240), magenta (300), and back to red."
+        "page": 46,
+        "excerpt": "This is even more difficult to override than an ID, and once you use it, you’ll need to add it every time you want to override the original declaration - and then you still have to deal with the specificity.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 176,
+            "excerpt": "Many high contrast themes invert colors to reduce light intensity."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 254,
+            "excerpt": "Color can really bring your pages to life. In this chapter we will look at: ●● How to specify colors, as there are three common ways in which you can indicate your choice of colors (plus extra ways made available in CSS3) ●● Color terminolo"
+          }
+        ]
       },
       "code": "p {\n  color: #222;\n  background-color: #fff;\n}"
     },
@@ -197,12 +269,12 @@
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 66,
-        "excerpt": "(I press Command-Space on my Mac, and type the equation into Spotlight.) Putting a root font size in place defines a rem."
+        "excerpt": "This practice simplifies the math: If your designer tells you to make the font 14 px, you can easily divide by 10 in your head and type 1.4 rem, all while still using relative units."
       },
       "code": "html { font-size: 100%; }\nh1 { font-size: 2rem; }"
     },
     {
-      "question": "font-weight: bold vs <h1> — which is which job?",
+      "question": "font-weight: bold vs <h1> - which is which job?",
       "type": "multiple",
       "level": 2,
       "options": [
@@ -216,8 +288,20 @@
       "reference": {
         "section": "Type",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 271,
-        "excerpt": "Bold, italics, capitals, underlines"
+        "page": 280,
+        "excerpt": "It is also common to end with a generic font name for that type of font (which you saw on pages 269-270).",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 46,
+            "excerpt": "A few others inherit as well, such as the list properties: list-style, list-style -type, list-style-position, and list-style-image."
+          }
+        ]
       },
       "code": "h1 { font-weight: 700; }"
     },
@@ -236,8 +320,20 @@
       "reference": {
         "section": "Type",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "all <p> elements should be shown in the Arial typeface."
+        "page": 280,
+        "excerpt": "Specifying Typefaces font-family The font-family property allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 16,
+            "excerpt": "If it’s not there, some browsers will default to an implicit type=“submit” and try to submit the form."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 66,
+            "excerpt": "You might type 1.4 rem into your code, but in your mind, you’re still thinking “14 pixels.” On a responsive web, you should get comfortable with “fuzzy” values."
+          }
+        ]
       },
       "code": "p {\n  font-family: Arial, sans-serif;\n}"
     },
@@ -257,7 +353,7 @@
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 66,
-        "excerpt": "This practice simplifies the math: If your designer tells you to make the font 14 px, you can easily divide by 10 in your head and type 1.4 rem, all while still using relative units."
+        "excerpt": "This will help me reiterate why the relative units behave the way they do, as well as help you get accustomed to the calculation of ems."
       },
       "code": ".hero { min-height: 100vh; }"
     },
@@ -277,7 +373,19 @@
         "section": "Color",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 140,
-        "excerpt": "This way, the icon color will change along with the surrounding text color when the high contrast theme is activated."
+        "excerpt": "This way, the icon color will change along with the surrounding text color when the high contrast theme is activated.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 46,
+            "excerpt": "They are primarily properties pertaining to text: color, font, font-family, font-size, font-weight, font-variant, font-style, line-height, letter-spacing, text-align, text-indent, text-transform, white-space, and word-spacing."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 265,
+            "excerpt": "Each paragraph is then shown in a different color to represent the varying levels of acidity or alkalinity, and these are specified using RGB values."
+          }
+        ]
       },
       "code": "header {\n  background-color: navy;\n  color: white;\n}"
     },
@@ -296,8 +404,8 @@
       "reference": {
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 62,
-        "excerpt": "34 CHAPTER 2 Working with relative units padding of 1.2 em and a gray background to make the padding size more apparent."
+        "page": 65,
+        "excerpt": "Because this is relative to the root, the font size will remain constant, even if you nest lists."
       },
       "code": "ul { font-size: 1.2em; }"
     },
@@ -427,47 +535,35 @@
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 66,
-        "excerpt": "First, it forces you to write a lot of duplicate styles. Ten pixels is too small for most text, so you’ll have to override it throughout the page."
+        "excerpt": "First, it forces you to write a lot of duplicate styles. Ten pixels is too small for most text, so you’ll have to override it throughout the page.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 281,
+            "excerpt": "Size of Article Type font-size CSS chapter-12/font-size.html body { font-family: Arial, Verdana, sans-serif; font-size: 12px;} h1 { font-size: 200%;} h2 { font-size: 1.3em;} R e s u lt The font-size property enables you to specify a size for the font."
+          }
+        ]
       },
       "level": 3
     }
   ],
   "reading": [
     {
-      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 11 — Color",
-      "page": 253,
-      "pageEnd": 270,
-      "sections": [
-        {
-          "heading": "Color",
-          "page": 253
-        }
-      ]
-    },
-    {
-      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 12 — Text",
-      "page": 271,
-      "pageEnd": 306,
-      "sections": [
-        {
-          "heading": "Type",
-          "page": 271
-        }
-      ]
-    },
-    {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 2 — Working with relative units",
-      "page": 56,
-      "pageEnd": 82,
-      "sections": [
-        {
-          "heading": "Relative units",
-          "page": 56
-        }
-      ]
+      "page": 46
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 6
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "page": 242
     }
   ]
 }

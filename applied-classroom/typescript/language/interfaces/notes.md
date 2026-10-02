@@ -27,7 +27,7 @@ Look up **INTERFACES**, **TYPE ALIASES**, and **INTERFACE VS TYPE** (`tsts INTER
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Item 13 *Know the Differences Between type and interface* (PDF p. 86).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Item 13 *Know the Differences Between type and interface* (PDF p. 86).
 
 Cheat sheet: **INTERFACES**, **TYPE ALIASES**, **INTERFACE VS TYPE**.
 

@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Functions",
+  "title": "TypeScript - Functions",
   "questions": [
     {
       "question": "Which definition makes add(2, 3) type-check as number?",
@@ -176,7 +176,7 @@
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 163,
-            "excerpt": "Bivariance You’re OK with either <:T or >:T. In TypeScript, every complex type is covariant in its members—objects, classes, arrays, and function return types—with one exception: function parameter types, which are contravariant."
+            "excerpt": "Bivariance You’re OK with either <:T or >:T. In TypeScript, every complex type is covariant in its members - objects, classes, arrays, and function return types - with one exception: function parameter types, which are contravariant."
           }
         ]
       },
@@ -338,13 +338,18 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 82,
-        "excerpt": "TypeScript types are not “closed” (Item 4). • Be aware of the limits of excess property checking: introducing an intermediate variable will remove these checks. • A “weak type” is an object type with only optional properties.",
+        "page": 70,
+        "excerpt": "There are many other constructs that have different meanings in the two spaces: • this in value space is JavaScript’s this keyword (Item 69).",
         "books": [
           {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "If you release an isomorphic JavaScript library (e.g., a logging library that runs on both browser and server), then you have to support both a minimum NodeJS version and a swath of browser JavaScript engines and versions."
+          },
+          {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 459,
-            "excerpt": "Under the hood, JavaScript still uses prototypal inheritance, which allows you to replace the ancestor dynamically at runtime, whereas a class can have only one direct ancestor."
+            "page": 441,
+            "excerpt": "The variable i is still available outside the loop, even though it seems like it was meant to be used only inside the loop."
           }
         ]
       },
@@ -453,19 +458,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Item 12 — Type the whole function expression",
-      "page": 83,
-      "pageEnd": 86,
-      "sections": [
-        {
-          "heading": "Item 12 — Function expressions",
-          "page": 83
-        },
-        {
-          "heading": "Item 9 — Annotations vs assertions",
-          "page": 72
-        }
-      ]
+      "page": 69
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 73
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 36
     }
   ]
 }

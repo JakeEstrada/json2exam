@@ -22,7 +22,7 @@ Look up **UNIONS AND INTERSECTIONS** and **NARROWING** (`tsts UNIONS`).
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Item 7 *Think of Types as Sets of Values* (PDF p. 59). Item 22 *Understand Type Narrowing* (PDF p. 133).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Item 7 *Think of Types as Sets of Values* (PDF p. 59). Item 22 *Understand Type Narrowing* (PDF p. 133).
 
 Cheat sheet: **UNIONS AND INTERSECTIONS**, **NARROWING**, **TYPE GUARDS**.
 

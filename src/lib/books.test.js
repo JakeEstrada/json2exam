@@ -36,7 +36,7 @@ test('bookKey strips punctuation so titles compare cleanly', () => {
 test('findBook matches a course PDF when the citation omits the author', () => {
   const python = [
     { title: 'Python Crash Course, 3rd Edition by Eric Matthes', file: 'Python Crash Course, 3rd Edition -Eric Matthes.pdf', url: '/pcc.pdf' },
-    { title: 'Fluent Python, 2nd Edition by Luciano Ramalho', file: 'Fluent Python, 2nd Edition — Luciano Ramalho.pdf', url: '/fp.pdf' },
+    { title: 'Fluent Python, 2nd Edition by Luciano Ramalho', file: 'Fluent Python, 2nd Edition - Luciano Ramalho.pdf', url: '/fp.pdf' },
   ];
   assert.equal(findBook(python, 'Python Crash Course').url, '/pcc.pdf');
   assert.equal(findBook(python, 'Fluent Python, 2nd Edition').url, '/fp.pdf');

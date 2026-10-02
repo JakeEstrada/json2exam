@@ -13,7 +13,7 @@ Comparisons, truthiness in `if`, and branches.
 
 Read these in the local `python/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Python Crash Course, 3rd Edition by Eric Matthes — Chapter 5 *if Statements* (PDF p. 109), equality tests (p. 111), Boolean expressions (p. 115).
+- Python Crash Course, 3rd Edition by Eric Matthes - Chapter 5 *if Statements* (PDF p. 109), equality tests (p. 111), Boolean expressions (p. 115).
 
 
 ## Comparisons

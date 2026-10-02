@@ -20,7 +20,7 @@ You already know CS and C++. Start with TypeScript if you want types on the C-li
 
 ---
 
-## 1. TypeScript — ready language decks
+## 1. TypeScript - ready language decks
 
 **Books:** Effective TypeScript, 2nd Edition by Dan Vanderkam (local PDF). TypeScript Quickly and Programming TypeScript are in `typescript/sources/` as extra reading.
 
@@ -30,17 +30,17 @@ Start here. Types first, then the rest of the typed syntax. Each deck uses the s
 |---|---|---|---|---|---|
 | 1 | `typescript/language/types-and-annotations` **ready** | Explain `.ts` → `.js` erasure, annotate primitives, prefer inference, avoid `String` / `any`. | None | ETS ch. 1 (PDF p. 27), Item 3 (p. 38), Item 7 (p. 59), Item 9 (p. 72) | `parseAmount`, `label`, `firstDefined`. |
 | 2 | `typescript/language/unions-and-narrowing` **ready** | Write `A \| B`, narrow with `typeof` / `Array.isArray` / a `kind` tag. | Module 1 | ETS Item 7 (p. 59), Item 22 (p. 133) | `asList`, `area`, `describe`. |
-| 3 | `typescript/language/functions` **ready** | Annotate parameters, optional/default/rest, type the whole function expression. | Modules 1–2 | ETS Item 12 (p. 83) | `add`, `greet`, `sumAll`. |
-| 4 | `typescript/language/arrays-and-tuples` **ready** | Distinguish `T[]` from `[string, number]`; know indexing may be `undefined`. | Modules 1–3 | ETS indexed access (p. 37), Item 7 (p. 59) | `first`, `pair`, `sum`. |
-| 5 | `typescript/language/object-types` **ready** | Shape types, optional/`readonly`, excess property checking vs structural typing. | Modules 1–4 | ETS Item 4 (p. 45), excess properties (p. 80) | `pickName`, `copyUser`, `merge`. |
+| 3 | `typescript/language/functions` **ready** | Annotate parameters, optional/default/rest, type the whole function expression. | Modules 1-2 | ETS Item 12 (p. 83) | `add`, `greet`, `sumAll`. |
+| 4 | `typescript/language/arrays-and-tuples` **ready** | Distinguish `T[]` from `[string, number]`; know indexing may be `undefined`. | Modules 1-3 | ETS indexed access (p. 37), Item 7 (p. 59) | `first`, `pair`, `sum`. |
+| 5 | `typescript/language/object-types` **ready** | Shape types, optional/`readonly`, excess property checking vs structural typing. | Modules 1-4 | ETS Item 4 (p. 45), excess properties (p. 80) | `pickName`, `copyUser`, `merge`. |
 | 6 | `typescript/language/interfaces` **ready** | `interface` vs `type`, `extends`, declaration merging. | Module 5 | ETS Item 13 (p. 86) | `makeUser`, `asAdmin`, `readField`. |
-| 7 | `typescript/language/generics` **ready** | `<T>`, constraints, `keyof`. | Modules 3–6 | ETS ch. 6 / Item 50 (p. 241–242) | `identity`, `longest`, `getProp`. |
+| 7 | `typescript/language/generics` **ready** | `<T>`, constraints, `keyof`. | Modules 3-6 | ETS ch. 6 / Item 50 (p. 241-242) | `identity`, `longest`, `getProp`. |
 
 **Later TS topics (planned, same course):** `typescript/studio/*` (missing types, repair errors, convert JS, compile-time vs runtime).
 
 ---
 
-## 2. JavaScript — ready language decks
+## 2. JavaScript - ready language decks
 
 **Books:** Eloquent JavaScript, 4th Edition by Marijn Haverbeke; JavaScript: The Definitive Guide, 7th Edition by David Flanagan; You Don't Know JS Yet by Kyle Simpson (local file is *Scope & Closures, 2nd Edition*); JavaScript: The Good Parts by Douglas Crockford.
 
@@ -49,16 +49,16 @@ Start here. Types first, then the rest of the typed syntax. Each deck uses the s
 | 1 | `javascript/language/variables-and-data-types` **ready** | Declare `let`/`const`, name primitives vs objects, convert with `Number`/`String`/`Boolean` without surprise coercion. | None | EJS ch. 1 *Values, Types, and Operators* + *Bindings* in ch. 2; DG ch. 3 *Types, Values, and Variables* | Normalize mixed payment fields (`"40"`, `40`, `null`) into numbers and drop unusable rows. |
 | 2 | `javascript/language/conditionals` **ready** | Use `===`, truthiness, `&&`/`\|\|`/`??`, `if`/`else`/`switch`. | Module 1 | EJS *Comparison*, *Boolean values*, *Control flow*, *Conditional execution*; DG ch. 4 operators | Gate a checkout: paid vs pending vs missing customer, including `0` as a real amount. |
 | 2b | `javascript/language/loops` **ready** | `while` / `for` / `for...of`, `break`, and walking arrays. | Module 2 | EJS *while and do loops* (PDF p. 59), *for loops* (PDF p. 63), *Breaking Out of a Loop* (PDF p. 65) | `sumTo`, `firstEven`, `countPaid`. |
-| 3 | `javascript/language/functions` **ready** | Write functions, explain scope vs C++ stack objects, and use closures for private state. | Modules 1–2 | EJS ch. 3 *Functions*, *Bindings and scopes*, *Closure*; YDKJS ch. 1 *What’s the Scope?*, ch. 7 *Using Closures* | Build `makeStatusMachine(initial)` that returns `{ get, set }` closed over private state. |
-| 4 | `javascript/language/arrays` **ready** | Index, mutate vs copy, and use `map`/`filter`/`reduce`/`slice` without confusing them with `Map`. | Modules 1–3 | EJS ch. 4 arrays + *Further arrayology*; ch. 5 *Filtering arrays*, *map*, *reduce* | Filter paid customers, total amounts, and return a new array (do not mutate the source). |
-| 5 | `javascript/language/objects` **ready** | Treat objects as references; copy shallow vs nested; update nested task fields without alias bugs. | Modules 1–4 | EJS ch. 4 *Objects*, *Mutability*; DG object mutability in ch. 3 | `updateTask(tasks, id, patch)` returns a new array; other tasks keep identity. |
-| 6 | `javascript/language/maps-and-sets` **ready** | Choose array vs object vs `Map` vs `Set`; avoid `in` on objects used as dictionaries. | Modules 4–5 | EJS ch. 6 *Maps*; DG standard library Map/Set when you reach it | Group appointments by `providerId` with `Map`; unique patient ids with `Set`. |
+| 3 | `javascript/language/functions` **ready** | Write functions, explain scope vs C++ stack objects, and use closures for private state. | Modules 1-2 | EJS ch. 3 *Functions*, *Bindings and scopes*, *Closure*; YDKJS ch. 1 *What’s the Scope?*, ch. 7 *Using Closures* | Build `makeStatusMachine(initial)` that returns `{ get, set }` closed over private state. |
+| 4 | `javascript/language/arrays` **ready** | Index, mutate vs copy, and use `map`/`filter`/`reduce`/`slice` without confusing them with `Map`. | Modules 1-3 | EJS ch. 4 arrays + *Further arrayology*; ch. 5 *Filtering arrays*, *map*, *reduce* | Filter paid customers, total amounts, and return a new array (do not mutate the source). |
+| 5 | `javascript/language/objects` **ready** | Treat objects as references; copy shallow vs nested; update nested task fields without alias bugs. | Modules 1-4 | EJS ch. 4 *Objects*, *Mutability*; DG object mutability in ch. 3 | `updateTask(tasks, id, patch)` returns a new array; other tasks keep identity. |
+| 6 | `javascript/language/maps-and-sets` **ready** | Choose array vs object vs `Map` vs `Set`; avoid `in` on objects used as dictionaries. | Modules 4-5 | EJS ch. 6 *Maps*; DG standard library Map/Set when you reach it | Group appointments by `providerId` with `Map`; unique patient ids with `Set`. |
 
 **Later JS topics (planned, same course):** `array-methods` (more method practice), `closures` (extra closure drills), `recursion`, `classes`, `error-handling`, `asynchronous-javascript`, plus *Interactive exercises*.
 
 ---
 
-## 3b. Python — ready language decks
+## 3b. Python - ready language decks
 
 **Course:** `python/`. **Books:** Python Crash Course, 3rd Edition by Eric Matthes; Fluent Python, 2nd Edition by Luciano Ramalho (both in `python/sources/`). Page numbers are PDF file positions. EPI Python sampler under `leetcode/sources/` is for interview practice.
 
@@ -68,17 +68,17 @@ Each language deck matches the HTML/JS shape: a lesson, Python on every multiple
 |---|---|---|---|---|
 | 1 | `python/language/variables-and-types` **ready** | Bind names, know builtins, truthiness, convert with `int`/`str`/`bool`. | None | Return source for bindings and `int("40")`. |
 | 2 | `python/language/conditionals` **ready** | `==` vs `is`, `if`/`elif`/`else`, `and`/`or`/`not`. | Module 1 | Return source for a paid-status branch and a None guard. |
-| 3 | `python/language/loops` **ready** | `while`, `for`, `range`, `break`/`continue`, `enumerate`. | Modules 1–2 | Return source for `range` and list walks. |
-| 4 | `python/language/functions` **ready** | `def`, defaults, the mutable-default trap. | Modules 1–3 | Return source for `add`, `greet`, and safe `bucket=None`. |
-| 5 | `python/language/lists` **ready** | Index, slice, append/extend, alias vs `[:]`. | Modules 1–4 | Return source for literals, copy, append. |
-| 6 | `python/language/dicts-and-sets` **ready** | Dict get/items, `set()` vs `{}`, membership. | Modules 1–5 | Return source for dict literal, `.get`, empty set. |
-| 7 | `python/language/comprehensions` **ready** | List/dict/set comprehensions; when to use a plain loop. | Modules 5–6 | Return source for squares, filter, set comp. |
+| 3 | `python/language/loops` **ready** | `while`, `for`, `range`, `break`/`continue`, `enumerate`. | Modules 1-2 | Return source for `range` and list walks. |
+| 4 | `python/language/functions` **ready** | `def`, defaults, the mutable-default trap. | Modules 1-3 | Return source for `add`, `greet`, and safe `bucket=None`. |
+| 5 | `python/language/lists` **ready** | Index, slice, append/extend, alias vs `[:]`. | Modules 1-4 | Return source for literals, copy, append. |
+| 6 | `python/language/dicts-and-sets` **ready** | Dict get/items, `set()` vs `{}`, membership. | Modules 1-5 | Return source for dict literal, `.get`, empty set. |
+| 7 | `python/language/comprehensions` **ready** | List/dict/set comprehensions; when to use a plain loop. | Modules 5-6 | Return source for squares, filter, set comp. |
 
 **Later (planned):** `python/studio/*`.
 
 ---
 
-## 3. HTML and CSS — ready language decks
+## 3. HTML and CSS - ready language decks
 
 **Courses:** `html/`, `css/`. **Books:** HTML and CSS: Design and Build Websites by Jon Duckett; CSS in Depth, 1st Edition by Keith J. Grant; Inclusive Components by Heydon Pickering.
 
@@ -89,44 +89,44 @@ Each language deck is the same shape as JavaScript/TypeScript: a lesson, colorfu
 | # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
 |---|---|---|---|---|---|
 | 1 | `html/language/document-and-structure` **ready** | Tags vs elements, attributes, `<html>` / `<head>` / `<body>`. | None | Duckett ch. 1 (PDF p. 19, 30, 32, 34) | `skeleton`, `paragraph`, `wrap`. |
-| 2 | `html/language/text-and-lists` **ready** | `h1`–`h6`, `<p>`, `ul` / `ol` / `dl`. | Module 1 | Duckett ch. 2–3 (PDF p. 47, 50, 69–70) | `heading`, `unordered`, `ordered`. |
-| 3 | `html/language/links-and-images` **ready** | `href` vs `src`, `alt`, `mailto:`. | Modules 1–2 | Duckett ch. 4–5 (PDF p. 81, 84, 101, 106) | `link`, `image`, `emailLink`. |
-| 4 | `html/language/semantic-elements` **ready** | `class` vs `id`, landmarks vs `div`. | Modules 1–3 | Duckett ch. 8 (PDF p. 183–191), ch. 17 (p. 435–438) | `pageHeader`, `navList`, `articleBlock`. |
-| 5 | `html/language/forms` **ready** | Named controls, radios vs checkboxes, labels. | Modules 1–4 | Duckett ch. 7 (PDF p. 151, 155–156, 170) | `labeledText`, `submitButton`, `formPost`. |
-| 6 | `html/language/tables-and-media` **ready** | `table` / `tr` / `td` / `th` for data, not layout. | Modules 1–3 | Duckett ch. 6 (PDF p. 133, 138) | `row`, `headerRow`, `simpleTable`. |
-| 7 | `html/language/accessibility` **ready** | Labels, native controls, keyboard vs hover-only UI. | Module 5 | Duckett labels (PDF p. 170); Inclusive Components toggles (p. 8–9, 39) | `labeledInput`, `namedButton`, `imgAlt`. |
+| 2 | `html/language/text-and-lists` **ready** | `h1`-`h6`, `<p>`, `ul` / `ol` / `dl`. | Module 1 | Duckett ch. 2-3 (PDF p. 47, 50, 69-70) | `heading`, `unordered`, `ordered`. |
+| 3 | `html/language/links-and-images` **ready** | `href` vs `src`, `alt`, `mailto:`. | Modules 1-2 | Duckett ch. 4-5 (PDF p. 81, 84, 101, 106) | `link`, `image`, `emailLink`. |
+| 4 | `html/language/semantic-elements` **ready** | `class` vs `id`, landmarks vs `div`. | Modules 1-3 | Duckett ch. 8 (PDF p. 183-191), ch. 17 (p. 435-438) | `pageHeader`, `navList`, `articleBlock`. |
+| 5 | `html/language/forms` **ready** | Named controls, radios vs checkboxes, labels. | Modules 1-4 | Duckett ch. 7 (PDF p. 151, 155-156, 170) | `labeledText`, `submitButton`, `formPost`. |
+| 6 | `html/language/tables-and-media` **ready** | `table` / `tr` / `td` / `th` for data, not layout. | Modules 1-3 | Duckett ch. 6 (PDF p. 133, 138) | `row`, `headerRow`, `simpleTable`. |
+| 7 | `html/language/accessibility` **ready** | Labels, native controls, keyboard vs hover-only UI. | Module 5 | Duckett labels (PDF p. 170); Inclusive Components toggles (p. 8-9, 39) | `labeledInput`, `namedButton`, `imgAlt`. |
 
 ### CSS
 
 | # | Topic folder | Objectives | Prerequisites | Reading | Practical exercise |
 |---|---|---|---|---|---|
-| 1 | `css/language/selectors-and-cascade` **ready** | Selector + declaration; origin, specificity, source order. | HTML 1–2 | Duckett ch. 10 (PDF p. 233, 238–239); CSS in Depth ch. 1 (p. 31–45) | `rule`, `idRule`, `laterWins`. |
-| 2 | `css/language/box-model` **ready** | Content / padding / border / margin; `border-box`. | CSS 1 | Duckett ch. 13 (PDF p. 307, 314, 320); CSS in Depth ch. 3 (p. 83–88) | `padded`, `gutter`, `borderBox`. |
-| 3 | `css/language/typography-and-color` **ready** | `color` / `background-color`, `font-family`, `em` vs `rem`. | CSS 1 | Duckett ch. 11–12 (PDF p. 253, 271); CSS in Depth ch. 2 (p. 56) | `textColor`, `fontStack`, `remSize`. |
-| 4 | `css/language/flexbox` **ready** | Flex container/items, main vs cross axis, `flex: 1`. | CSS 1–2 | CSS in Depth ch. 5 (PDF p. 144–158) | `flexRow`, `flexCenter`, `spaceBetween`. |
-| 5 | `css/language/grid` **ready** | Two-dimensional tracks, `1fr`, spanning. | CSS 4 | CSS in Depth ch. 6 (PDF p. 172–175) | `columns`, `spanCols`, `twoByTwo`. |
-| 6 | `css/language/positioning` **ready** | `static` vs relative/absolute/fixed/sticky; stacking. | CSS 1–2 | CSS in Depth ch. 7 (PDF p. 205–206); Duckett ch. 15 (p. 365–366) | `relativeOffset`, `fixedBar`, `stickyHead`. |
-| 7 | `css/language/responsive` **ready** | One site, `min-width` queries, mobile first. | CSS 4–6 | CSS in Depth ch. 8 (PDF p. 229–231); Duckett ch. 15 (p. 365–366) | `mediaMin`, `mobileFirst`, `fluidWidth`. |
+| 1 | `css/language/selectors-and-cascade` **ready** | Selector + declaration; origin, specificity, source order. | HTML 1-2 | Duckett ch. 10 (PDF p. 233, 238-239); CSS in Depth ch. 1 (p. 31-45) | `rule`, `idRule`, `laterWins`. |
+| 2 | `css/language/box-model` **ready** | Content / padding / border / margin; `border-box`. | CSS 1 | Duckett ch. 13 (PDF p. 307, 314, 320); CSS in Depth ch. 3 (p. 83-88) | `padded`, `gutter`, `borderBox`. |
+| 3 | `css/language/typography-and-color` **ready** | `color` / `background-color`, `font-family`, `em` vs `rem`. | CSS 1 | Duckett ch. 11-12 (PDF p. 253, 271); CSS in Depth ch. 2 (p. 56) | `textColor`, `fontStack`, `remSize`. |
+| 4 | `css/language/flexbox` **ready** | Flex container/items, main vs cross axis, `flex: 1`. | CSS 1-2 | CSS in Depth ch. 5 (PDF p. 144-158) | `flexRow`, `flexCenter`, `spaceBetween`. |
+| 5 | `css/language/grid` **ready** | Two-dimensional tracks, `1fr`, spanning. | CSS 4 | CSS in Depth ch. 6 (PDF p. 172-175) | `columns`, `spanCols`, `twoByTwo`. |
+| 6 | `css/language/positioning` **ready** | `static` vs relative/absolute/fixed/sticky; stacking. | CSS 1-2 | CSS in Depth ch. 7 (PDF p. 205-206); Duckett ch. 15 (p. 365-366) | `relativeOffset`, `fixedBar`, `stickyHead`. |
+| 7 | `css/language/responsive` **ready** | One site, `min-width` queries, mobile first. | CSS 4-6 | CSS in Depth ch. 8 (PDF p. 229-231); Duckett ch. 15 (p. 365-366) | `mediaMin`, `mobileFirst`, `fluidWidth`. |
 
 **Later (planned, same courses):** `html/studio/*`, `css/studio/*`.
 
 ---
 
-## 4. TypeScript studio — planned
+## 4. TypeScript studio - planned
 
 Follow existing `typescript/studio/*` after the language ramp: missing types → type errors → interfaces → unions → generics → unknown data → convert JS → compile-time vs runtime.
 
 ---
 
-## 5. Data structures and algorithms — planned
+## 5. Data structures and algorithms - planned
 
 **Courses:** `data-structures/`, `algorithms/`. **Books:** Grokking Algorithms, 2nd Edition by Aditya Y. Bhargava; A Common-Sense Guide to Data Structures and Algorithms, 2nd Edition by Jay Wengrow; Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne (Chapter 1 only on disk); Introduction to Algorithms, 4th Edition by Thomas Cormen, Charles Leiserson, Ronald Rivest, and Clifford Stein.
 
-Path: visualize arrays/stacks/queues/lists → trees → BST → heaps → hashing → graphs → complexity (`data-structures/studio/*`), then sorting, binary search, recursion, sliding window, two pointers, traversals, brute vs optimized, runtime (`algorithms/studio/*`). Practical work: implement each structure from scratch and compare runtimes on small appointment datasets. Sedgewick is only Chapter 1 here; CLRS is the heavy reference—cite pages only after you verify them.
+Path: visualize arrays/stacks/queues/lists → trees → BST → heaps → hashing → graphs → complexity (`data-structures/studio/*`), then sorting, binary search, recursion, sliding window, two pointers, traversals, brute vs optimized, runtime (`algorithms/studio/*`). Practical work: implement each structure from scratch and compare runtimes on small appointment datasets. Sedgewick is only Chapter 1 here; CLRS is the heavy reference - cite pages only after you verify them.
 
 ---
 
-## 6. LeetCode-style problem solving — topic modules ready
+## 6. LeetCode-style problem solving - topic modules ready
 
 **Course:** `leetcode/`. **Books:** Cracking the Coding Interview by Gayle Laakmann McDowell (4th edition on disk); Elements of Programming Interviews (sampler on disk); plus Grokking and the Common-Sense Guide.
 
@@ -141,11 +141,11 @@ Modules are topics. Goal: muscle memory of pattern skeletons, then recognition o
 | 5 | `leetcode/graphs/patterns` **ready** | Skeletons then apply | Grid flood, topo sort, union-find, Dijkstra/BFS |
 | 6 | `leetcode/dynamic-programming/patterns` **ready** | Skeletons then apply | 1D climb/rob, knapsack, LIS, grid paths, edit distance |
 
-Each deck shuffles cards (`deal: random`). Curated subsets — not every CSV row.
+Each deck shuffles cards (`deal: random`). Curated subsets - not every CSV row.
 
 ---
 
-## 6b. Electronics — Chapters 1–10 ready
+## 6b. Electronics - Chapters 1-10 ready
 
 **Course:** `Electronics/`. **Books:** The Hitchhiker’s Guide to PCB Design; Sierra Circuits High-Speed PCB Design Guide. **Interview text:** `Electronics/spacex.txt`.
 
@@ -166,7 +166,7 @@ PDF viewer: wider pane, higher render scale, Zoom + / Zoom −.
 
 ---
 
-## 7. Databases and SQL — planned
+## 7. Databases and SQL - planned
 
 **Course:** `database/`. **Books:** Learning SQL, 3rd Edition by Alan Beaulieu; SQL Antipatterns, Volume 1 by Bill Karwin (1st edition on disk).
 
@@ -174,7 +174,7 @@ Follow `database/studio/*`: queries → tables → relationships → joins → i
 
 ---
 
-## 8. APIs and backend development — planned
+## 8. APIs and backend development - planned
 
 **Course:** `api/`. **Books (titles only until PDFs land in `api/sources/`):** Node.js Design Patterns, 4th Edition by Mario Casciaro and Luciano Mammino; Web Development with Node and Express, 2nd Edition by Ethan Brown; API Design Patterns by JJ Geewax.
 
@@ -182,11 +182,11 @@ Follow `api/studio/*`: requests → headers → methods → status codes → bod
 
 ---
 
-## 9. System design and scaling — ready
+## 9. System design and scaling - ready
 
 **Course:** `system-design/`. **Books in `system-design/sources/`:**
 
-- *System Design Interview – An Insider’s Guide* (Alex Xu)
+- *System Design Interview - An Insider’s Guide* (Alex Xu)
 - *Designing Data-Intensive Applications* (Kleppmann & Riccomini)
 - *Fundamentals of Software Architecture*, 2nd Edition (Richards & Ford)
 
@@ -198,7 +198,7 @@ Regenerate: `node scripts/gen-system-design.mjs`.
 
 ---
 
-## 10. Testing and debugging — planned
+## 10. Testing and debugging - planned
 
 **Courses:** `testing/`, `debugging/`. **Books:** Eloquent JavaScript ch. 8 *Bugs and Errors*; plus the JS/TS books above.
 
@@ -206,7 +206,7 @@ Testing studio: unit tests → failing tests → async → mocks → API tests �
 
 ---
 
-## Platform (this app) — ongoing
+## Platform (this app) - ongoing
 
 `platform/` is Json2Exam itself. React books live in `platform/sources/`. Build features here only when a study loop needs them. Code practice phase 1 is done; in-browser execution is not.
 
@@ -216,4 +216,4 @@ Testing studio: unit tests → failing tests → async → mocks → API tests �
 
 1. One *ready* language module to mastery (TypeScript, JavaScript, HTML, or CSS).
 2. One small function from that module copied into a scratch file in your editor (real Node/browser) so you still run code, even though the in-app runner is JavaScript-only.
-3. After JS 1–6, start HTML or TypeScript if you have not already; keep LeetCode light until arrays/objects/maps are fluent.
+3. After JS 1-6, start HTML or TypeScript if you have not already; keep LeetCode light until arrays/objects/maps are fluent.

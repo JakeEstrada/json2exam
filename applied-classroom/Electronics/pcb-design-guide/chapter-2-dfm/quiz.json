@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 2: DFM, Not Just Another Acronym",
+  "title": "Electronics - Chapter 2: DFM, Not Just Another Acronym",
   "questions": [
     {
       "question": "Why did Etch-O-Matronic put Ian’s job on hold for trace width/spacing?",
@@ -32,7 +32,7 @@
       "level": 1,
       "options": [
         "If the layout tool permits a geometry, the fab process can always etch and plate it reliably.",
-        "Tool permission is not process capability — choose trace width for performance and DFM.",
+        "Tool permission is not process capability - choose trace width for performance and DFM.",
         "One mil traces are mandatory for every avionics board regardless of the fab process.",
         "Defaults are always safer than talking to a manufacturing engineer about capability."
       ],
@@ -68,7 +68,7 @@
       "level": 1,
       "options": [
         "Trust default software settings because automation equals manufacturability.",
-        "Do not trust default software settings — understand how to optimize them.",
+        "Do not trust default software settings - understand how to optimize them.",
         "Disable all design-rule checks so CAM never sends disposition emails.",
         "Set every trace to one mil so the fab can always fatten them later."
       ],

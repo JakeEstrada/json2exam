@@ -8,7 +8,7 @@ const ONES = {
 const TENS = { twenty: 20, thirty: 30 };
 const NUM = String.raw`(?:\d+|twenty[-\s](?:one|two|three|four|five|six|seven|eight|nine)|thirty|twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one)`;
 const SLIDE_RE = new RegExp(
-  String.raw`\bslides?\s+(?:number\s+)?(?:from\s+(?:starting\s+from\s+)?)?(${NUM})(?:\s*(?:[-–—,/]|to|through|and)\s*(?:and\s+)?(${NUM}))?`,
+  String.raw`\bslides?\s+(?:number\s+)?(?:from\s+(?:starting\s+from\s+)?)?(${NUM})(?:\s*(?:[-– - ,/]|to|through|and)\s*(?:and\s+)?(${NUM}))?`,
   'gi'
 );
 

@@ -38,7 +38,7 @@ You do not need all twelve new properties on day one. `display: flex` gets you f
 
 ## Assigned reading
 
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 5 *Flexbox* (PDF p. 144), principles (p. 145), margins between items (p. 152).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 5 *Flexbox* (PDF p. 144), principles (p. 145), margins between items (p. 152).
 
 ## Coding tasks
 

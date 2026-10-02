@@ -1,6 +1,6 @@
-# Chapter 3 — PCB Project Stakeholders
+# Chapter 3 - PCB Project Stakeholders
 
-Hitchhiker PDF pages **16–25**. Map who influences fab, assembly, test, and schedule before layout starts.
+Hitchhiker PDF pages **16-25**. Map who influences fab, assembly, test, and schedule before layout starts.
 
 ## Consider before layout
 

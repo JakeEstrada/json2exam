@@ -1,5 +1,5 @@
 {
-  "title": "LeetCode — Arrays pattern recognition",
+  "title": "LeetCode - Arrays pattern recognition",
   "deal": "random",
   "questions": [
     {
@@ -31,7 +31,7 @@
         "Sliding window of length n−1 only."
       ],
       "answer": "c",
-      "explanation": "Duplicate detection is membership of a seen value — a set (or map) walk.",
+      "explanation": "Duplicate detection is membership of a seen value - a set (or map) walk.",
       "reference": {
         "url": "https://leetcode.com/problems/contains-duplicate"
       },
@@ -183,7 +183,7 @@
         "Hash map of index→index; no running sum."
       ],
       "answer": "a",
-      "explanation": "Kadane keeps a running “best sum ending here” and a global best — one forward pass.",
+      "explanation": "Kadane keeps a running “best sum ending here” and a global best - one forward pass.",
       "reference": {
         "url": "https://leetcode.com/problems/maximum-subarray"
       },
@@ -221,7 +221,7 @@
         "Binary search for each index in a sorted copy."
       ],
       "answer": "c",
-      "explanation": "Each index needs the product of everything else — build it from a left prefix and a right prefix.",
+      "explanation": "Each index needs the product of everything else - build it from a left prefix and a right prefix.",
       "reference": {
         "url": "https://leetcode.com/problems/product-of-array-except-self"
       },

@@ -613,11 +613,11 @@
     margin-bottom: 4px;
   }
   .course-card.is-later {
-    opacity: 0.55;
-    filter: grayscale(0.35);
+    opacity: 0.42;
+    filter: grayscale(1);
     min-height: 0;
     padding: 16px 16px 14px;
-    background: color-mix(in srgb, var(--card) 85%, var(--ink-faint));
+    background: color-mix(in srgb, var(--card) 70%, var(--ink-faint));
   }
   .course-card.is-later strong {
     font-size: 16px;

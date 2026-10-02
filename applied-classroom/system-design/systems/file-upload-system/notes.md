@@ -1,6 +1,6 @@
 # File upload / cloud drive
 
-Inspired by **System Design Interview – An Insider's Guide** Chapter 15 (Google Drive) themes + Ch 1 CDN/object storage intuition.
+Inspired by **System Design Interview - An Insider's Guide** Chapter 15 (Google Drive) themes + Ch 1 CDN/object storage intuition.
 
 ## Problems to name
 

@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Selectors and cascade",
+  "title": "CSS - Selectors and cascade",
   "questions": [
     {
       "question": "What is CSS?",
@@ -36,8 +36,20 @@
       "reference": {
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 246,
-        "excerpt": "SPECIFICITY If one selector is more specific than the others, the more specific rule will take precedence over more general ones."
+        "page": 238,
+        "excerpt": "A CSS rule contains two parts: a selector and a declaration.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 34,
+            "excerpt": "In this case, the rules dictate that the second declaration, which has an ID selector, wins; the title will have a sans-serif font (figure 1.2)."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 156,
+            "excerpt": "Rules beget conventions, which is good for keeping the web consistent."
+          }
+        ]
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -57,12 +69,17 @@
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 238,
-        "excerpt": "A CSS rule contains two parts: a selector and a declaration.",
+        "excerpt": "Declarations indicate how the elements referred to in the selector should be styled.",
         "books": [
           {
             "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-            "page": 17,
-            "excerpt": "You write a selector that attempts to match elements, then you write key/value pairs that style those elements."
+            "page": 32,
+            "excerpt": "Each rule may be straightforward on its own, but what happens when two rules provide conflicting information about how to style an element?"
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 156,
+            "excerpt": "Rules beget conventions, which is good for keeping the web consistent."
           }
         ]
       },
@@ -83,8 +100,20 @@
       "reference": {
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "CSS Properties Affect How Elements Are Displayed CSS declarations sit inside curly brackets and each is made up of two parts: a property and a value, separated by a colon."
+        "page": 238,
+        "excerpt": "Declarations are split into two parts (a property and a value), and are separated by a colon.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 35,
+            "excerpt": "No Use declaration that comes later in source order Yes Use declaration with higher specificity Figure 1.3 High-level flowchart of the cascade showing declaration precedence These rules allow browsers to behave predictably when resolving any ambiguity in the CSS."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 156,
+            "excerpt": "Rules beget conventions, which is good for keeping the web consistent."
+          }
+        ]
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -103,8 +132,15 @@
       "reference": {
         "section": "Rules",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 427,
-        "excerpt": "You should see the animation repeat three times, then stop. The animation property is a shorthand for several properties."
+        "page": 46,
+        "excerpt": "A few others inherit as well, such as the list properties: list-style, list-style -type, list-style-position, and list-style-image.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 248,
+            "excerpt": "Why use External Style Sheets? When building a website there are several advantages to placing your CSS rules in a separate style sheet."
+          }
+        ]
       },
       "code": "h1 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -119,12 +155,19 @@
         "The compiler."
       ],
       "answer": "b",
-      "explanation": "In this chapter, we begin with the C in CSS—the cascade.",
+      "explanation": "In this chapter, we begin with the C in CSS - the cascade.",
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 33,
-        "excerpt": "The cascade 5 To illustrate, you’ll build a basic page header like one you might see at the top of a web page (figure 1.1)."
+        "excerpt": "The cascade 5 To illustrate, you’ll build a basic page header like one you might see at the top of a web page (figure 1.1).",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 20,
+            "excerpt": "This block should appear above the [aria-pressed=“true”] block in the cascade. [aria-pressed] { position: relative; top: -0.25rem; left: -0.25rem; box-shadow: 0.125em 0.125em 0 #fff, 0.25em 0.25em #000; } This styling method is offered just as one idea."
+          }
+        ]
       },
       "code": "a:hover {\n  text-decoration: underline;\n}"
     },
@@ -143,8 +186,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 36,
-        "excerpt": "There are different types, or origins, of stylesheets. Yours are called author styles; there are also user agent styles, which are the browser’s default styles."
+        "page": 45,
+        "excerpt": "A declaration that “wins” the cascade is called a cascaded value."
       },
       "code": "p {\n  margin: 0;\n}"
     },
@@ -164,7 +207,14 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "The cascade 17 a:visited { color: purple; } a:hover { text-decoration: underline; } a:active { color: red; } The cascade is the reason this order matters: given the same specificity, later styles override earlier styles."
+        "excerpt": "The cascade 17 a:visited { color: purple; } a:hover { text-decoration: underline; } a:active { color: red; } The cascade is the reason this order matters: given the same specificity, later styles override earlier styles.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 20,
+            "excerpt": "This block should appear above the [aria-pressed=“true”] block in the cascade. [aria-pressed] { position: relative; top: -0.25rem; left: -0.25rem; box-shadow: 0.125em 0.125em 0 #fff, 0.25em 0.25em #000; } This styling method is offered just as one idea."
+          }
+        ]
       },
       "code": "a:visited { color: purple; }\na:hover { text-decoration: underline; }"
     },
@@ -183,8 +233,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 39,
-        "excerpt": "The first selector here is more specific than the second. It’s made up of an ID and a tag name, whereas the second is made up of a class name."
+        "page": 34,
+        "excerpt": "6 CHAPTER 1 Cascade, specificity, and inheritance When two or more rules target the same element on your page, the rules may provide conflicting declarations."
       },
       "code": "#page-title {\n  color: red;\n}"
     },
@@ -203,8 +253,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 40,
-        "excerpt": "This would be applied if the ID selector e were absent. Selector d has a higher specificity than selector c, despite its length: two classes are more specific than one class."
+        "page": 39,
+        "excerpt": "The exact rules of specificity are:  If a selector has more IDs, it wins (that is, it’s more specific).  If that results in a tie, the selector with the most classes wins.  If that results in a tie, the selector with the most tag names wins."
       },
       "code": ".page-header .title {\n  color: green;\n}"
     },
@@ -224,7 +274,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "This is the cascaded value. cascaded value—A value for a particular property applied to an element as a result of the cascade."
+        "excerpt": "This is the cascaded value. cascaded value - A value for a particular property applied to an element as a result of the cascade."
       },
       "code": "p {\n  margin-top: 1em;\n}"
     },
@@ -264,7 +314,19 @@
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 238,
-        "excerpt": "The same rule can apply to more than one element if you separate the element names with commas."
+        "excerpt": "The same rule can apply to more than one element if you separate the element names with commas.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 39,
+            "excerpt": "For instance, a selector with two class names has a higher specificity than a selector with only one."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 156,
+            "excerpt": "Rules beget conventions, which is good for keeping the web consistent."
+          }
+        ]
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -283,8 +345,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 31,
-        "excerpt": "How to control which styles apply to which elements"
+        "page": 38,
+        "excerpt": "10 CHAPTER 1 Cascade, specificity, and inheritance The cascade independently resolves conflicts for every property of every element on the page."
       },
       "code": ".nav a {\n  color: teal;\n}"
     },
@@ -303,8 +365,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 36,
-        "excerpt": "This is considered a third origin, with a priority between user agent and author styles."
+        "page": 46,
+        "excerpt": "But now that you’re clear on how the cascade behaves, we can press on. 1.2 Inheritance There’s one last way that an element can receive styles - inheritance."
       },
       "code": "body {\n  font-family: Arial;\n}"
     },
@@ -403,7 +465,7 @@
       "level": 3
     },
     {
-      "question": "Write laterWins(first, second) that returns second — the later same-specificity rule.",
+      "question": "Write laterWins(first, second) that returns second - the later same-specificity rule.",
       "type": "code",
       "language": "javascript",
       "starter": "function laterWins(first, second) {\n  // return css\n}\n",
@@ -449,32 +511,16 @@
   ],
   "reading": [
     {
-      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 10 — Introducing CSS",
-      "page": 233,
-      "pageEnd": 245,
-      "sections": [
-        {
-          "heading": "What CSS is",
-          "page": 238
-        },
-        {
-          "heading": "Rules",
-          "page": 238
-        }
-      ]
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 32
     },
     {
-      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 1 — Cascade, specificity, and inheritance",
-      "page": 31,
-      "pageEnd": 55,
-      "sections": [
-        {
-          "heading": "The cascade",
-          "page": 32
-        }
-      ]
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "page": 238
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 20
     }
   ]
 }

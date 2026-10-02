@@ -14,8 +14,8 @@ JavaScript `if` looks like C: `if (test) { ... }`. Compare with `===`. `==` coer
 
 ## Assigned reading
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — *Boolean values* and *Comparison* (PDF p. 40), *Automatic type conversion* (PDF p. 43), Chapter 2 *Control flow* (PDF p. 56) and *Conditional execution* (PDF p. 57).
-- JavaScript: The Definitive Guide, 7th Edition by David Flanagan — Chapter 4 *Expressions and Operators* (PDF p. 79).
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - *Boolean values* and *Comparison* (PDF p. 40), *Automatic type conversion* (PDF p. 43), Chapter 2 *Control flow* (PDF p. 56) and *Conditional execution* (PDF p. 57).
+- JavaScript: The Definitive Guide, 7th Edition by David Flanagan - Chapter 4 *Expressions and Operators* (PDF p. 79).
 
 ## Strict equality and coercion
 
@@ -141,9 +141,9 @@ Skips the zero-dollar invoice.
 
 ## Coding tasks
 
-1. **Basic.** `isOpenStatus(status)` — true for `"open"` or `"pending"` only, using `===`.
-2. **Applied.** `checkoutState(order)` — `"missing"` if no order; `"zero"` if amount is `0`; `"ready"` if amount `> 0` and status is `"open"`; otherwise `"blocked"`.
-3. **Applied.** `countTruthyFlags(flags)` — count how many entries in an array are truthy. Do not coerce the count itself with `+ ""`.
+1. **Basic.** `isOpenStatus(status)` - true for `"open"` or `"pending"` only, using `===`.
+2. **Applied.** `checkoutState(order)` - `"missing"` if no order; `"zero"` if amount is `0`; `"ready"` if amount `> 0` and status is `"open"`; otherwise `"blocked"`.
+3. **Applied.** `countTruthyFlags(flags)` - count how many entries in an array are truthy. Do not coerce the count itself with `+ ""`.
 
 ## Hints
 
@@ -153,7 +153,7 @@ Skips the zero-dollar invoice.
 
 ## Worked solutions
 
-Predict: `x x 0` — `0 ?? "x"` keeps `0`. Then `no`. Then `b` and `c` (fall-through).
+Predict: `x x 0` - `0 ?? "x"` keeps `0`. Then `no`. Then `b` and `c` (fall-through).
 
 Find the bug: `if (row.amount != null && Number.isFinite(Number(row.amount)))`.
 

@@ -1,6 +1,6 @@
-# Chapter 8 — Routing and Planes
+# Chapter 8 - Routing and Planes
 
-Hitchhiker PDF pages **63–78**. High-Speed overlap: impedance continuity, crosstalk, reference planes, via stubs.
+Hitchhiker PDF pages **63-78**. High-Speed overlap: impedance continuity, crosstalk, reference planes, via stubs.
 
 ## Routing order tip
 

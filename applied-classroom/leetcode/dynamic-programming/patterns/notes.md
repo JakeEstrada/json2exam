@@ -1,4 +1,4 @@
-# Dynamic programming — pattern recognition
+# Dynamic programming - pattern recognition
 
 LeetCode · Dynamic programming
 

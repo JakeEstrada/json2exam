@@ -21,7 +21,7 @@ RESPONSIBILITIES
     Mitigate sole/single-source risk; negotiate contracts for continuity of supply and to protect SpaceX interests
     Partner with internal resources to drive low-cost part adoption and obsolescence avoidance; monitor industry and technology roadmaps with design
     Present value propositions to management and executives: contract award, cost reviews, cost-reduction strategies, and critical supply issues
-    Work with material planners and supply chain engineers so demand, inventory, and supplier commitment stay aligned to the build plan — planners own MRP; this seat owns the supplier, the contract, and the cost
+    Work with material planners and supply chain engineers so demand, inventory, and supplier commitment stay aligned to the build plan - planners own MRP; this seat owns the supplier, the contract, and the cost
     Develop and maintain strong relationships with suppliers and with internal stakeholders across disciplines and levels of management
 
 BASIC QUALIFICATIONS

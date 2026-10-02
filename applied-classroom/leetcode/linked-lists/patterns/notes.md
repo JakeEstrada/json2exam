@@ -1,4 +1,4 @@
-# Linked lists — pattern recognition
+# Linked lists - pattern recognition
 
 LeetCode · Linked lists
 

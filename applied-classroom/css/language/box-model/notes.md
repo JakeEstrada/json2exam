@@ -34,8 +34,8 @@ Avoid magic numbers (26% because it looked right on one screen). Prefer `border-
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 13 *Boxes* (PDF p. 307), *Border, Margin & Padding* (p. 314), *padding* (p. 320).
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 3 (PDF p. 83), default box model (p. 87), border-box (p. 88).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 13 *Boxes* (PDF p. 307), *Border, Margin & Padding* (p. 314), *padding* (p. 320).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 3 (PDF p. 83), default box model (p. 87), border-box (p. 88).
 
 ## Coding tasks
 

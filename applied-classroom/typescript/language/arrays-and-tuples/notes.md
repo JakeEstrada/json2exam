@@ -24,7 +24,7 @@ Look up **ARRAYS AND TUPLES** (`tsts ARRAYS`).
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Item 3 discussion of `noUncheckedIndexedAccess` (PDF p. 37). Item 7 *Think of Types as Sets of Values* (PDF p. 59).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Item 3 discussion of `noUncheckedIndexedAccess` (PDF p. 37). Item 7 *Think of Types as Sets of Values* (PDF p. 59).
 
 Cheat sheet: **ARRAYS AND TUPLES**.
 

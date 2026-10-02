@@ -36,8 +36,8 @@ h1 { font-size: 2rem; }
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 11 *Color* (PDF p. 253), Chapter 12 *Text* (PDF p. 271). Chapter 10 still has the Arial/yellow rule (p. 239).
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 2 *Working with relative units* (PDF p. 56).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 11 *Color* (PDF p. 253), Chapter 12 *Text* (PDF p. 271). Chapter 10 still has the Arial/yellow rule (p. 239).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 2 *Working with relative units* (PDF p. 56).
 
 ## Coding tasks
 

@@ -1,5 +1,5 @@
 {
-  "title": "System Design — API structure",
+  "title": "System Design - API structure",
   "questions": [
     {
       "question": "In Xu’s URL shortener, the two primary REST-style endpoints are roughly:",
@@ -14,7 +14,7 @@
       "answer": "a",
       "explanation": "URL shortening… POST… URL redirecting… GET",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 152,
         "excerpt": "To create a new short URL, a client sends a POST request, which contains one parameter: the original long URL."
       }
@@ -32,7 +32,7 @@
       "answer": "b",
       "explanation": "a rate limiter limits the number of client requests allowed to be sent over a specified period",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 66,
         "excerpt": "In the HTTP world, a rate limiter limits the number of client requests allowed to be sent over a specified period."
       }
@@ -50,7 +50,7 @@
       "answer": "b",
       "explanation": "Prevent resource starvation caused by Denial of Service (DoS) attack… Reduce cost… Prevent servers from being overloaded",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 66,
         "excerpt": "In this chapter, you are asked to design a rate limiter. Before starting the design, we first look at the benefits of using an API rate limiter: • Prevent resource starvation caused by Denial of Service (DoS) attack [1]."
       }
@@ -68,7 +68,7 @@
       "answer": "b",
       "explanation": "client is an unreliable place to enforce rate limiting because client requests can easily be forged",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 69,
         "excerpt": "For now, we only need to know that the API gateway is a middleware that supports rate limiting."
       }
@@ -80,7 +80,7 @@
       "answer": true,
       "explanation": "Low latency… little memory… Distributed rate limiting… Exception handling… High fault tolerance",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 67,
         "excerpt": "Show clear exceptions to users when their requests are throttled. • High fault tolerance."
       }
@@ -98,10 +98,16 @@
       "answer": "b",
       "explanation": "Propose high-level design and get buy-in",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 58,
         "excerpt": "It is important to understand the requirements and clarify ambiguities Step 2 - Propose high-level design and get buy-in In this step, we aim to develop a high-level design and reach an agreement with the interviewer on the design."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 58
     }
   ]
 }

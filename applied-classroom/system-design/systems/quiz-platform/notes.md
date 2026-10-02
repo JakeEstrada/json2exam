@@ -6,7 +6,7 @@ Apply the books to **Json2Exam** itself.
 
 - Static Vite/React app
 - Quizzes as JSON; Leitner progress in **localStorage**
-- Optional APIs: Ask GPT / speak — serverless handlers
+- Optional APIs: Ask GPT / speak - serverless handlers
 - PDFs via `sources/` + page references on cards
 
 ## If it grew (design exercise)

@@ -36,8 +36,8 @@ A mobile layout is mostly no-frills. Hide a menu behind a control instead of cop
 
 ## Assigned reading
 
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 8 *Responsive design* (PDF p. 229–231).
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 15 *Layout* (PDF p. 365–366).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 8 *Responsive design* (PDF p. 229-231).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 15 *Layout* (PDF p. 365-366).
 
 ## Coding tasks
 

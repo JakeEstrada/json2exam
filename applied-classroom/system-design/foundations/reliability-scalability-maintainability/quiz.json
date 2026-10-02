@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Reliability, scalability, maintainability",
+  "title": "System Design - Reliability, scalability, maintainability",
   "questions": [
     {
       "question": "In DDIA terms, reliability mainly means:",
@@ -12,11 +12,23 @@
         "Every request is rejected so the servers stay idle and “stable.”"
       ],
       "answer": "b",
-      "explanation": "What it means for a service to be reliable—namely, continuing to work correctly, even when things go wrong",
+      "explanation": "What it means for a service to be reliable - namely, continuing to work correctly, even when things go wrong",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 460,
-        "excerpt": "Milne, The House at Pooh Corner (1928) As discussed in “Reliability and Fault Tolerance”, making a system reliable means ensuring that the system as a whole continues working, even when things go wrong (i.e., when there is a fault)."
+        "page": 57,
+        "excerpt": "These are your functional requirements. In addition, you probably have nonfunctional requirements: for example, the app should be fast, reliable, secure, legally compliant, and easy to maintain.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 417,
+            "excerpt": "without any changes to the existing system (see “Triggering Extensible Events”)."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 325,
+            "excerpt": "Best part: this book is very technical and contains a lot of in-depth discussion about scalability, consistency, reliability, efficiency and maintainability."
+          }
+        ]
       }
     },
     {
@@ -34,7 +46,7 @@
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 81,
-        "excerpt": "Scalability is not a one-dimensional label—it is meaningless to say “X is scalable” or “Y doesn’t scale.” Rather, discussing scalability means considering questions like these: If the system grows in a particular way, what are our options for coping with the growth?"
+        "excerpt": "Scalability is not a one-dimensional label - it is meaningless to say “X is scalable” or “Y doesn’t scale.” Rather, discussing scalability means considering questions like these: If the system grows in a particular way, what are our options for coping with the growth?"
       }
     },
     {
@@ -43,7 +55,7 @@
       "level": 1,
       "options": [
         "Always handles 10× load with zero changes if the logo is redesigned.",
-        "Is unlikely to cope with 10× that load — rethink on each order-of-magnitude growth.",
+        "Is unlikely to cope with 10× that load - rethink on each order-of-magnitude growth.",
         "Must be microservices from day one even with ten users.",
         "Can ignore databases entirely once traffic doubles once."
       ],
@@ -51,8 +63,20 @@
       "explanation": "an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 85,
-        "excerpt": "Moreover, an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load."
+        "page": 64,
+        "excerpt": "Even when the load is reduced again, such a system may remain in an overloaded state until it is rebooted or otherwise reset.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 732,
+            "excerpt": "Once all of the sticky notes are in place, the collaborative phase can begin."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 315,
+            "excerpt": "If an API server fails, the traffic is redirected to other API servers by a load balancer. • Metadata cache failure: Metadata cache servers are replicated multiple times."
+          }
+        ]
       }
     },
     {
@@ -61,7 +85,7 @@
       "level": 1,
       "options": [
         "Can be ignored because only button labels matter to users.",
-        "Are as important as functionality — a slow or unreliable app is barely usable.",
+        "Are as important as functionality - a slow or unreliable app is barely usable.",
         "Only apply to mainframe systems from the 1970s and never web apps.",
         "Are automatically satisfied by any framework with a popular name."
       ],
@@ -99,8 +123,20 @@
       "explanation": "back-of-the-envelope calculations… to get a good feel for which designs will meet your requirements",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 81,
-        "excerpt": "Sometimes, when discussing scalability, people make comments along the lines of, “You’re not Google or Amazon."
+        "page": 55,
+        "excerpt": "“Scalability! But at What COST?” At 15th USENIX Workshop on Hot Topics in Operating Systems (HotOS), May 2015. [46] Cindy Sridharan.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 58,
+            "excerpt": "It is important to understand the requirements and clarify ambiguities Step 2 - Propose high-level design and get buy-in In this step, we aim to develop a high-level design and reach an agreement with the interviewer on the design."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 547,
+            "excerpt": "However, because this style is typically used in situations with a very high concurrent user load, bottlenecks in the data pump are common."
+          }
+        ]
       }
     },
     {
@@ -127,6 +163,20 @@
           }
         ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 42
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 417
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 58
     }
   ]
 }

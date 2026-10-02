@@ -1,6 +1,6 @@
-# Chapter 7 — The PCB Design Stackup
+# Chapter 7 - The PCB Design Stackup
 
-Hitchhiker PDF pages **54–62**. High-Speed overlap: stack-up for controlled impedance, materials, reference planes.
+Hitchhiker PDF pages **54-62**. High-Speed overlap: stack-up for controlled impedance, materials, reference planes.
 
 ## Hitch themes
 

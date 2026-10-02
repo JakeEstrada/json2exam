@@ -1,5 +1,5 @@
 {
-  "title": "LeetCode — Linked lists pattern recognition",
+  "title": "LeetCode - Linked lists pattern recognition",
   "deal": "random",
   "questions": [
     {
@@ -159,7 +159,7 @@
       "type": "multiple",
       "options": [
         "Dummy head: repeatedly rewire pairs (a,b) so b→a→rest; advance.",
-        "Swap values only (structure unchanged — wrong for “swap nodes”).",
+        "Swap values only (structure unchanged - wrong for “swap nodes”).",
         "Fast/slow until end then swap once.",
         "Stack of pairs only."
       ],

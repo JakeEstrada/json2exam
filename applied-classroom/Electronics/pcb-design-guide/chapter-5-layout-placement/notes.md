@@ -1,6 +1,6 @@
-# Chapter 5 — Layout Setup and Placement
+# Chapter 5 - Layout Setup and Placement
 
-Hitchhiker PDF pages **35–46**. High-Speed overlap: do not place components/vias between differential pairs.
+Hitchhiker PDF pages **35-46**. High-Speed overlap: do not place components/vias between differential pairs.
 
 ## Placement tips
 

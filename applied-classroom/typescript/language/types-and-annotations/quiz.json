@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Types, annotations, and erasure",
+  "title": "TypeScript - Types, annotations, and erasure",
   "questions": [
     {
       "question": "What runs after this file is compiled?",
@@ -22,7 +22,7 @@
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 272,
-            "excerpt": "If you’re following along, either enable esModuleInterop in your own tsconfig.json, or use a wildcard import instead: import * as React from 'react' The nice thing about JSX is you can write what looks a lot like normal HTML, then compile it automatically to a JavaScript engine–friendly format."
+            "excerpt": "If you’re following along, either enable esModuleInterop in your own tsconfig.json, or use a wildcard import instead: import * as React from 'react' The nice thing about JSX is you can write what looks a lot like normal HTML, then compile it automatically to a JavaScript engine-friendly format."
           }
         ]
       },
@@ -43,8 +43,20 @@
       "reference": {
         "section": "string versus String",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 75,
-        "excerpt": "Things to Remember • Prefer type annotations (: Type) to type assertions (as Type). • Know how to annotate the return type of an arrow function."
+        "page": 70,
+        "excerpt": "As a type, this is the TypeScript type of this, aka “polymorphic this.” It’s helpful for implementing method chains with subclasses. • In value space, & and | are bitwise AND and OR.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "This template is pretty straightforward; it contains a bunch of <div> and <span> tags, and the Block properties are inserted using binding, represented by double curly braces."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          }
+        ]
       },
       "code": "let name: string = \"Ada\";\nconsole.log(name);"
     },
@@ -62,16 +74,9 @@
       "explanation": "Code generation is independent of types. Annotations are deleted. The JS still adds two values.",
       "reference": {
         "section": "What TypeScript is",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 34,
-        "excerpt": "Item 2: Know Which TypeScript Options You’re Using Does this code pass the type checker? function add(a, b) { return a + b; } add(10, null); Without knowing which options you’re using, it’s impossible to say!",
-        "books": [
-          {
-            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 49,
-            "excerpt": "Neither interfaces nor types declared with the type keyword have representations in the emitted JavaScript code, which makes the runtime code smaller (bytewise)."
-          }
-        ]
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 272,
+        "excerpt": "TSX is to JSX what TypeScript is to JavaScript - a compile-time safety and assistance layer to help you be more productive and produce code with fewer mistakes."
       },
       "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
     },
@@ -90,13 +95,18 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 58,
-        "excerpt": "Type declara‐ tions can be challenging to read at first, but they’re an excellent way to see what can be done with TypeScript, how the library you’re using is modeled, and how you might debug errors.",
+        "page": 70,
+        "excerpt": "If TypeScript doesn’t seem to understand your code at all, it may be because of confu‐ sion around type and value space.",
         "books": [
           {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
+          },
+          {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 37,
-            "excerpt": "To learn more about why TypeScript infers different types for let and const, jump ahead to “Type Widening”."
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
           }
         ]
       },
@@ -117,13 +127,18 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 58,
-        "excerpt": "Selecting this option takes you into lib.dom.d.ts, the type declarations that TypeScript includes for the DOM: declare function fetch( input: RequestInfo | URL, init?: RequestInit ): Promise<Response>; You can see that fetch returns a Promise and takes two arguments.",
+        "page": 70,
+        "excerpt": "As a type, this is the TypeScript type of this, aka “polymorphic this.” It’s helpful for implementing method chains with subclasses. • In value space, & and | are bitwise AND and OR.",
         "books": [
           {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
+          },
+          {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 37,
-            "excerpt": "In the fourth case I explicitly annotated my variables with type literals, and in the second case TypeScript inferred a literal type for me because I used const instead of let or var."
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
           }
         ]
       },
@@ -228,10 +243,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "any — you must narrow any before calling methods.",
-        "unknown — you must narrow it first.",
-        "never — it has every method.",
-        "void — it is a string alias."
+        "any - you must narrow any before calling methods.",
+        "unknown - you must narrow it first.",
+        "never - it has every method.",
+        "void - it is a string alias."
       ],
       "answer": "b",
       "explanation": "unknown is the safe top type. any disables checking. never is the empty type.",
@@ -284,16 +299,9 @@
       "explanation": "Type checking and emit are separate. A program with type errors can still produce JS.",
       "reference": {
         "section": "What TypeScript is",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 40,
-        "excerpt": "(parameter) shape: Square } } This works because class Rectangle introduces both a type and a value, whereas interface only introduced a type.",
-        "books": [
-          {
-            "book": "Programming TypeScript by Boris Cherny",
-            "page": 320,
-            "excerpt": "Do it fast. Mass-rename your JavaScript files to the .ts extension, and keep your tsconfig.json settings lax (meaning strict set to false) to throw as few type errors as possible after renaming."
-          }
-        ]
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 272,
+        "excerpt": "Also note that I’ve set {\"esModuleInterop\": true} in my tsconfig.json to support importing React without a wildcard (*) import."
       },
       "code": "let n: number = \"hi\";\nconsole.log(n);"
     },
@@ -312,13 +320,18 @@
       "reference": {
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 28,
-        "excerpt": "This is because TypeScript adds additional syntax for specifying types.",
+        "page": 70,
+        "excerpt": "There are many other constructs that have different meanings in the two spaces: • this in value space is JavaScript’s this keyword (Item 69).",
         "books": [
           {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "Not every JavaScript environment supports every JavaScript feature out of the box, but you should still try to write code in the latest language version."
+          },
+          {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 36,
-            "excerpt": "If some variables don’t have explicit type annotations, TypeScript’s type checker will try to infer the types."
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
           }
         ]
       },
@@ -358,16 +371,9 @@
       "explanation": "typeof in value space is JavaScript. Type parameters are erased. You cannot ask what T is.",
       "reference": {
         "section": "What TypeScript is",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 36,
-        "excerpt": "The “!” on the last line is called a “non-null asser‐ tion.” Type assertions have their place in TypeScript, but they can also lead to runtime exceptions.",
-        "books": [
-          {
-            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 187,
-            "excerpt": "That’s what is meant by implicit any. But ideally, noImplicitAny should be set to true, so don’t forget to turn it back on when the migration to TypeScript is complete."
-          }
-        ]
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 272,
+        "excerpt": "Also note that I’ve set {\"esModuleInterop\": true} in my tsconfig.json to support importing React without a wildcard (*) import."
       },
       "code": "function f<T>(x: T) {\n  console.log(typeof x);\n}"
     },
@@ -516,27 +522,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Chapter 1 — Getting to Know TypeScript",
-      "page": 27,
-      "pageEnd": 50,
-      "sections": [
-        {
-          "heading": "Item 1 — TypeScript and JavaScript",
-          "page": 27
-        },
-        {
-          "heading": "Item 3 — Code generation is independent of types",
-          "page": 38
-        },
-        {
-          "heading": "Item 7 — Types as sets of values",
-          "page": 59
-        },
-        {
-          "heading": "Item 9 — Annotations vs assertions",
-          "page": 72
-        }
-      ]
+      "page": 27
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 88
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 90
     }
   ]
 }

@@ -28,7 +28,7 @@ Look up **FUNCTIONS** (`tsts FUNCTIONS`).
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Item 12 *Apply Types to Entire Function Expressions When Possible* (PDF p. 83). Item 9 *Prefer Type Annotations to Type Assertions* (PDF p. 72).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Item 12 *Apply Types to Entire Function Expressions When Possible* (PDF p. 83). Item 9 *Prefer Type Annotations to Type Assertions* (PDF p. 72).
 
 Cheat sheet: **FUNCTIONS**.
 

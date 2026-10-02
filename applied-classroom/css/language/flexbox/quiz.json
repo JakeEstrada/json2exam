@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Flexbox",
+  "title": "CSS - Flexbox",
   "questions": [
     {
       "question": "What does display: flex do?",
@@ -77,7 +77,19 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "You can also use display: inline-flex. This creates a flex container that behaves more like an inline-block element rather than a block."
+        "excerpt": "You can also use display: inline-flex. This creates a flex container that behaves more like an inline-block element rather than a block.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 324,
+            "excerpt": "C SS li { display: inline; margin-right: 10px;} li.coming-soon { display: none;} inline-block This causes a block-level element to flow like an inline element, while retaining other features of a block-level element."
+          }
+        ]
       },
       "code": ".pill {\n  display: inline-flex;\n}"
     },
@@ -96,8 +108,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 145,
-        "excerpt": "Main axis Cross axis 5.1 Flex container 1 2 Flex items 3 4 Figure 5.1 A flexbox container and its elements The items are placed along a line called the main axis, which goes from the main-start (left) to the main-end (right)."
+        "page": 144,
+        "excerpt": "Flexbox This chapter covers  Flex containers and flex items  Main axis and cross axis  Element sizes in flexbox  Element alignment in flexbox If you’ve been in the CSS world in the past few years, you’ve almost certainly heard someone sing the praises of flexbox."
       },
       "code": ".row {\n  display: flex;\n  flex-direction: row;\n}"
     },
@@ -117,7 +129,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "The rest of the properties provide options for aligning and spacing elements."
+        "excerpt": "Flexbox principles Flexbox begins with the familiar display property."
       },
       "code": ".nav { display: flex; }"
     },
@@ -136,8 +148,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 145,
-        "excerpt": "Perpendicular to the main axis is the cross axis. This goes from the cross-start (top) to the cross-end (bottom)."
+        "page": 144,
+        "excerpt": "Flexbox This chapter covers  Flex containers and flex items  Main axis and cross axis  Element sizes in flexbox  Element alignment in flexbox If you’ve been in the CSS world in the past few years, you’ve almost certainly heard someone sing the praises of flexbox."
       },
       "code": ".row {\n  display: flex;\n  justify-content: space-between;\n}"
     },
@@ -156,8 +168,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 145,
-        "excerpt": "Main axis Cross axis 5.1 Flex container 1 2 Flex items 3 4 Figure 5.1 A flexbox container and its elements The items are placed along a line called the main axis, which goes from the main-start (left) to the main-end (right)."
+        "page": 144,
+        "excerpt": "Flexbox This chapter covers  Flex containers and flex items  Main axis and cross axis  Element sizes in flexbox  Element alignment in flexbox If you’ve been in the CSS world in the past few years, you’ve almost certainly heard someone sing the praises of flexbox."
       },
       "code": ".row {\n  display: flex;\n  align-items: center;\n}"
     },
@@ -196,8 +208,8 @@
       "reference": {
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 145,
-        "excerpt": "The flex items are all the same height, determined naturally by their contents."
+        "page": 154,
+        "excerpt": "Let’s take a closer look at what’s going on. The flex property is shorthand for three different sizing properties: flex-grow, flex-shrink, and flex-basis."
       },
       "code": ".main { flex: 1; }"
     },
@@ -217,7 +229,7 @@
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 154,
-        "excerpt": "Add the following to your stylesheet. Listing 5.7 Using the flex property to set column widths .column-main { flex: 2; } .column-sidebar { flex: 1; } Now the two columns grow to fill the space, so together they are the same width as the nav bar, with the main column twice as wide as the sidebar."
+        "excerpt": "The flex property is shorthand for three different sizing properties: flex-grow, flex-shrink, and flex-basis."
       },
       "code": ".side { flex: none; }"
     },
@@ -237,7 +249,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "Flex items within it generally behave the same as with display: flex."
+        "excerpt": "The flex items are all the same height, determined naturally by their contents."
       },
       "code": ".cards { display: flex; }"
     },
@@ -256,8 +268,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 145,
-        "excerpt": "This creates a flex container that behaves more like an inline-block element rather than a block."
+        "page": 144,
+        "excerpt": "Flexbox This chapter covers  Flex containers and flex items  Main axis and cross axis  Element sizes in flexbox  Element alignment in flexbox If you’ve been in the CSS world in the past few years, you’ve almost certainly heard someone sing the praises of flexbox."
       },
       "code": ".stack {\n  display: flex;\n  flex-direction: column;\n}"
     },
@@ -277,7 +289,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "I’ll cover a few basic principles of the flexbox layout that you’ll need to understand, followed by practical examples."
+        "excerpt": "Main axis Cross axis 5.1 Flex container 1 2 Flex items 3 4 Figure 5.1 A flexbox container and its elements The items are placed along a line called the main axis, which goes from the main-start (left) to the main-end (right)."
       },
       "code": ".row { display: flex; }"
     },
@@ -297,7 +309,14 @@
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 152,
-        "excerpt": "You can achieve this layout by using the margin-left property and an adjacent sibling combinator, which is a method similar to the lobotomized owl from chapter 3."
+        "excerpt": "You can achieve this layout by using the margin-left property and an adjacent sibling combinator, which is a method similar to the lobotomized owl from chapter 3.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 183,
+            "excerpt": "gin: 0; } h2 button { all: inherit; box-sizing: border-box; display: flex; justify-content: space-between; width: 100%; padding: 0.5em 0; } button svg { height: 1em; margin-left: 0.5em; } [aria-expanded=\"true\"] .vert { display: none;"
+          }
+        ]
       },
       "code": ".site-nav > * + * {\n  margin-left: 1em;\n}"
     },
@@ -410,23 +429,15 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 5 — Flexbox",
-      "page": 144,
-      "pageEnd": 171,
-      "sections": [
-        {
-          "heading": "Flexbox principles",
-          "page": 145
-        },
-        {
-          "heading": "Main axis and cross axis",
-          "page": 146
-        },
-        {
-          "heading": "Sizing",
-          "page": 152
-        }
-      ]
+      "page": 144
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
+    },
+    {
+      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+      "page": 324
     }
   ]
 }

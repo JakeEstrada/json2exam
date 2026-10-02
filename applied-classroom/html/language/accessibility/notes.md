@@ -23,7 +23,7 @@ Visible labels are not decoration. Duckett: each form control should have its ow
 
 A control that is on or off still has to communicate that state. Inclusive Components starts with toggle buttons: purpose is simple, but it is easy to forget a name, a pressed state, or a keyboard path.
 
-`aria-pressed` is one way a button exposes on/off. Checkboxes and radio buttons are the primitives of interactive forms — use the native control when it already does the job.
+`aria-pressed` is one way a button exposes on/off. Checkboxes and radio buttons are the primitives of interactive forms - use the native control when it already does the job.
 
 ## Keyboard access
 
@@ -39,8 +39,8 @@ Name every button with text (or aria-label if the text is visually hidden on pur
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — *Labelling Form Controls* (PDF p. 170), *Adding Images* / alt (PDF p. 106).
-- Inclusive Components by Heydon Pickering — *Toggle buttons* (PDF p. 8), *Checkboxes and radio buttons* (p. 9), todo list keyboard note (p. 39).
+- HTML and CSS: Design and Build Websites by Jon Duckett - *Labelling Form Controls* (PDF p. 170), *Adding Images* / alt (PDF p. 106).
+- Inclusive Components by Heydon Pickering - *Toggle buttons* (PDF p. 8), *Checkboxes and radio buttons* (p. 9), todo list keyboard note (p. 39).
 
 ## Coding tasks
 

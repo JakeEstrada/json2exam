@@ -1,6 +1,6 @@
 # Notification service
 
-Read **System Design Interview – An Insider's Guide** Chapter 10 (PDF ~p. 187–204).
+Read **System Design Interview - An Insider's Guide** Chapter 10 (PDF ~p. 187-204).
 
 ## Three channels
 

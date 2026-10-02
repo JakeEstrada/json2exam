@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Cache",
+  "title": "System Design - Cache",
   "questions": [
     {
       "question": "DDIA describes caches as systems that:",
@@ -15,8 +15,20 @@
       "explanation": "Remember the result of an expensive operation, to speed up reads (caches)",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 17,
-        "excerpt": "If you are doing exactly what the data systems were designed for, this process can be quite easy."
+        "page": 796,
+        "excerpt": "See “Terminology: Declarative Query Languages”. denormalize To introduce some amount of redundancy or duplication in a normalized dataset, typically in the form of a cache or index, in order to speed up reads.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 260,
+            "excerpt": "Query service requires lightning-fast speed. We propose the following optimizations: • AJAX request."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 527,
+            "excerpt": "Replicated caching synchronizes in-memory caches between processing units Not only is replicated caching extremely fast, it also supports high levels of fault tolerance."
+          }
+        ]
       }
     },
     {
@@ -32,9 +44,16 @@
       "answer": "b",
       "explanation": "cache",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 20,
-        "excerpt": "cache"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 809,
+        "excerpt": "This means all calls to the database need to come from the Business layer.” Developer: “OK, I get it - but in that case, how am I going to deal with these performance issues for simple queries?” Here, the architect is justifying the demand that all calls go through the Business layer.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 739,
+            "excerpt": "Reads are events too We discussed that when a stream processor writes derived data to a store (database, cache, or index) and that store is queried, the store acts as the boundary between the write path and the read path."
+          }
+        ]
       }
     },
     {
@@ -50,9 +69,21 @@
       "answer": "b",
       "explanation": "most keys are redistributed… This causes a storm of cache misses",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 97,
-        "excerpt": "Hash keys One thing worth mentioning is that hash function used here is different from the one in “the rehashing problem,” and there is no modular operation."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 95,
+        "excerpt": "This causes a storm of cache misses. Consistent hashing is an effective technique to mitigate this problem.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 167,
+            "excerpt": "The hash map is not persisted, so you have to rebuild it when you restart the database - for example, by scanning the whole log file to find the latest byte offset for each key."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 530,
+            "excerpt": "If the system’s primary need is for highly consistent data (such as inventory counts of the available products), that usually warrants a distributed cache."
+          }
+        ]
       }
     },
     {
@@ -68,14 +99,19 @@
       "answer": "b",
       "explanation": "only k/n keys need to be remapped on average",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 96,
-        "excerpt": "Consistent hashing Quoted from Wikipedia: \"Consistent hashing is a special kind of hashing such that when a hash table is re-sized and consistent hashing is used, only k/n keys need to be remapped on average, where k is the number of keys, and n is the number of slots.",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 181,
+        "excerpt": "Refer to Chapter 5: Design consistent hashing for more details. • Save crawl states and data: To guard against failures, crawl states and data are written to a storage system.",
         "books": [
           {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 530,
+            "excerpt": "If data does not change often (such as reference data like name/value pairs, product codes, and product descriptions), consider using a replicated cache for quick lookup."
+          },
+          {
             "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-            "page": 354,
-            "excerpt": "Consistent hashing A consistent hashing algorithm is a hash function that maps keys to a specified number of shards in a way that satisfies two properties: The number of keys mapped to each shard is roughly equal."
+            "page": 553,
+            "excerpt": "Reads are served from the cache by default, and any changes are asynchronously written out to main memory."
           }
         ]
       }
@@ -87,9 +123,21 @@
       "answer": true,
       "explanation": "we go clockwise from the key position on the ring until a server is found",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 98,
-        "excerpt": "onto the hash ring Server lookup To determine which server a key is stored on, we go clockwise from the key position on the ring until a server is found."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 209,
+        "excerpt": "The request looks like this: / v1/me/feed. • Load balancer: load balancer redirects traffic to web servers. • Web servers: web servers route requests to newsfeed service. • Newsfeed service: news feed service fetches news feed from the cache. • Newsfeed cache: store news feed IDs needed to render…",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 60,
+            "excerpt": "Second, we should precompute the results of the query so that a user’s request for their home timeline can be served from a cache."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 734,
+            "excerpt": "there’s a difference of opinion about the Elastic Load Balancer, and the Push Expansion Servers and Redis cache were only identified as risks by one participant each."
+          }
+        ]
       }
     },
     {
@@ -105,10 +153,36 @@
       "answer": "b",
       "explanation": "virtual nodes",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 105,
-        "excerpt": "This is a tradeoff, and we can tune the number of virtual nodes to fit our system requirements."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 315,
+        "excerpt": "If an API server fails, the traffic is redirected to other API servers by a load balancer. • Metadata cache failure: Metadata cache servers are replicated multiple times.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 606,
+            "excerpt": "We’ll call them data nodes in this book. Distributed filesystems also implement the distributed equivalent of a page cache."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 734,
+            "excerpt": "One participant identified the Push Expansion Servers as high risk (9), but no other participant identified any risk in this area of the architecture at all."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 60
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 95
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 527
     }
   ]
 }

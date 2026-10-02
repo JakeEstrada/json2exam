@@ -1,5 +1,5 @@
 {
-  "title": "LeetCode — Trees pattern recognition",
+  "title": "LeetCode - Trees pattern recognition",
   "deal": "random",
   "questions": [
     {
@@ -158,7 +158,7 @@
       "question": "Which approach and high-level steps fit this problem?",
       "type": "multiple",
       "options": [
-        "DFS: if node is p or q or null return it; combine left/right — if both non-null node is LCA.",
+        "DFS: if node is p or q or null return it; combine left/right - if both non-null node is LCA.",
         "BFS parents then sets of ancestors without DFS.",
         "Inorder positions only.",
         "Stack of all leaves."

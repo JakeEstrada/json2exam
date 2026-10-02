@@ -1,6 +1,6 @@
-# Chapter 9 — Fabrication Data & Documentation
+# Chapter 9 - Fabrication Data & Documentation
 
-Hitchhiker PDF pages **79–93**.
+Hitchhiker PDF pages **79-93**.
 
 ## Package expectations
 

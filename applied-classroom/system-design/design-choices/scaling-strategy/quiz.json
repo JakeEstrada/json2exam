@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Scaling strategy",
+  "title": "System Design - Scaling strategy",
   "questions": [
     {
       "question": "Horizontal scaling is more desirable at large scale mainly because:",
@@ -14,7 +14,7 @@
       "answer": "b",
       "explanation": "Horizontal scaling is more desirable for large scale applications due to the limitation of vertical scaling",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 13,
         "excerpt": "Horizontal scaling is more desirable for large scale applications due to the limitations of vertical scaling.",
         "books": [
@@ -22,6 +22,11 @@
             "book": "Designing Data-Intensive Applications by Martin Kleppmann",
             "page": 340,
             "excerpt": "While replication is useful at both small and large scale, because it enables fault tolerance and offline operation, sharding is a heavyweight solution that is mostly relevant at large scale."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 511,
+            "excerpt": "Scaling application servers can be more complex and expensive than scaling web servers, and doing so usually just moves the bottleneck down to the database server, which is even more difficult and expensive to scale."
           }
         ]
       }
@@ -39,7 +44,7 @@
       "answer": "b",
       "explanation": "load balancer",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 302,
         "excerpt": "Here are a few areas you find: • Load balancer: Add a load balancer to distribute network traffic."
       }
@@ -75,7 +80,7 @@
       "answer": "b",
       "explanation": "only k/n keys need to be remapped on average",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 181,
         "excerpt": "Refer to Chapter 5: Design consistent hashing for more details. • Save crawl states and data: To guard against failures, crawl states and data are written to a storage system.",
         "books": [
@@ -96,8 +101,34 @@
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 85,
-        "excerpt": "If you are working on a fastgrowing service, it is therefore probable that you will need to rethink your architecture on every order of magnitude load increase."
+        "excerpt": "If you are working on a fastgrowing service, it is therefore probable that you will need to rethink your architecture on every order of magnitude load increase.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 266,
+            "excerpt": "A fallacy is something false that someone believes or assumes to be true."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 315,
+            "excerpt": "If an API server fails, the traffic is redirected to other API servers by a load balancer. • Metadata cache failure: Metadata cache servers are replicated multiple times."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 13
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 85
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 249
     }
   ]
 }

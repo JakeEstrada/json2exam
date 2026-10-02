@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 5: PCB Layout: Setup and Placement",
+  "title": "Electronics - Chapter 5: PCB Layout: Setup and Placement",
   "questions": [
     {
       "question": "Why does Chapter 5 stress Design for Excellence on placement?",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "question": "High-Speed guide — components or vias between differential pairs:",
+      "question": "High-Speed guide - components or vias between differential pairs:",
       "type": "multiple",
       "level": 1,
       "options": [

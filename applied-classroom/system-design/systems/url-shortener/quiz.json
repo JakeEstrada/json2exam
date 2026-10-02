@@ -1,5 +1,5 @@
 {
-  "title": "System Design — URL shortener",
+  "title": "System Design - URL shortener",
   "questions": [
     {
       "question": "Basic use cases Xu lists for a URL shortener include:",
@@ -14,9 +14,21 @@
       "answer": "b",
       "explanation": "URL shortening… URL redirecting… High availability, scalability, and fault tolerance",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 150,
-        "excerpt": "Candidate: How long is the shortened URL? Interviewer: As short as possible."
+        "excerpt": "Candidate: How long is the shortened URL? Interviewer: As short as possible.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 846,
+            "excerpt": "For example, monolithic databases, while providing good data consistency and transactional support, can detract from scalability and fault tolerance."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 364,
+            "excerpt": "That’s no problem if the postings lists are short, but if they are long, it can be slow to send them over the network to compute their intersection [29]."
+          }
+        ]
       }
     },
     {
@@ -32,9 +44,9 @@
       "answer": "b",
       "explanation": "A 301 redirect shows that the requested URL is “permanently” moved",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 152,
-        "excerpt": "To redirect a short URL to the corresponding long URL, a client sends a GET request."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 150,
+        "excerpt": "Candidate: Can you give an example of how a URL shortener work?"
       }
     },
     {
@@ -50,9 +62,21 @@
       "answer": "b",
       "explanation": "if analytics is important, 302 redirect is a better choice",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 153,
-        "excerpt": "if analytics is important, 302 redirect is a better choice"
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 162,
+        "excerpt": "Integrating an analytics solution to the URL shortener could help to answer important questions like how many people click on a link?",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 812,
+            "excerpt": "This sort of complexity is called accidental complexity: in short, “we have made a problem hard.” Architects sometimes add complexity to prove their worth when things seem too simple, or to guarantee that they are always kept in the loop on decisions or even to maintain job security."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 252,
+            "excerpt": "Compared to data flowing through databases (as described in “Dataflow Through Databases”), we can make a simplifying assumption in the case of dataflow through services: it is reasonable to assume that all the servers will be updated first and all the clients second."
+          }
+        ]
       }
     },
     {
@@ -68,7 +92,7 @@
       "answer": "b",
       "explanation": "combination of numbers (0-9) and characters (a-z, A-Z)",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 150,
         "excerpt": "Interviewer: Shortened URL can be a combination of numbers (0-9) and characters (a-z, A-Z)."
       }
@@ -86,9 +110,9 @@
       "answer": "b",
       "explanation": "100 million / 24 /3600 = 1160",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 151,
-        "excerpt": "100 million / 24 /3600 = 1160"
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 150,
+        "excerpt": "Interviewer: 100 million URLs are generated per day. Candidate: How long is the shortened URL?"
       }
     },
     {
@@ -98,10 +122,24 @@
       "answer": true,
       "explanation": "Can shortened URLs be deleted or updated?",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 166,
-        "excerpt": "Step 1 - Understand the problem and establish design scope The basic algorithm of a web crawler is simple: 1."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 150,
+        "excerpt": "Candidate: Can shortened URLs be deleted or updated? Interviewer: For simplicity, let us assume shortened URLs cannot be deleted or updated."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 150
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 812
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 252
     }
   ]
 }

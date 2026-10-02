@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 3: Introducing PCB Project Stakeholders",
+  "title": "Electronics - Chapter 3: Introducing PCB Project Stakeholders",
   "questions": [
     {
       "question": "When should you examine design constraints, according to Chapter 3?",
@@ -9,7 +9,7 @@
         "Only after the first fab disposition email arrives.",
         "At the start of the project, before ever starting the layout.",
         "After silk-screen fonts are locked for marketing photos.",
-        "Never — constraints slow automation and Old Bob–speed delivery."
+        "Never - constraints slow automation and Old Bob-speed delivery."
       ],
       "answer": "b",
       "explanation": "Examine all the constraints at the start of a design project before",
@@ -110,7 +110,7 @@
       }
     },
     {
-      "question": "True or false: Chapter 3 says scrutinize your process because things will go wrong — a process makes it easier to locate and fix problems.",
+      "question": "True or false: Chapter 3 says scrutinize your process because things will go wrong - a process makes it easier to locate and fix problems.",
       "type": "boolean",
       "level": 1,
       "answer": true,

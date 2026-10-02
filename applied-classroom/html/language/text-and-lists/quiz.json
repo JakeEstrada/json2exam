@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Text and lists",
+  "title": "HTML - Text and lists",
   "questions": [
     {
       "question": "Which heading is for the main title of the page?",
@@ -19,6 +19,11 @@
         "page": 50,
         "excerpt": "The exact size at which each browser shows the headings can vary slightly.",
         "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
           {
             "book": "CSS in Depth, 1st Edition by Keith J. Grant",
             "page": 271,
@@ -47,9 +52,14 @@
         "excerpt": "Browsers display the contents of headings at different sizes.",
         "books": [
           {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 36,
+            "excerpt": "Links are blue and underlined. The heading and the list have top and bottom margins."
+          },
+          {
             "book": "Inclusive Components by Heydon Pickering",
-            "page": 42,
-            "excerpt": "However, it is possible to automate the appointment of heading levels using some nesting logic."
+            "page": 249,
+            "excerpt": "Fortunately, a recent change to the HTML spec now allows you to author pages with headings inside your <legend>s: the best of both worlds."
           }
         ]
       },
@@ -71,7 +81,19 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "The exact size at which each browser shows the headings can vary slightly."
+        "excerpt": "The exact size at which each browser shows the headings can vary slightly.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 467,
+            "excerpt": "error class 247 <head> element 80, 335 headings, spacing 342-345 height 64-72 columns of equal height 65-66, 130 controlling overflow behavior 64-65 max-height 70 min-height 70 vertically centering content 71-72 See also percentage-based h"
+          }
+        ]
       },
       "code": "<h1>News</h1>\n<h2>Local</h2>"
     },
@@ -90,8 +112,15 @@
       "reference": {
         "section": "Paragraphs",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 331,
-        "excerpt": "For example, 10 px between buttons in the navigational menu; 40 px between the bottom of the hero image and the top of the three white columns; 30 px between each column’s heading and the following paragraph of text; and so on."
+        "page": 102,
+        "excerpt": "This is applied by the user agent stylesheet. But when you stack two paragraphs, one after the other, their margins don’t add up to a gap of 2 em.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 51,
+            "excerpt": "Chapters can have subheadings. Under each heading there will be one or more paragraphs.</p> <p> To create a paragraph, surround the words that make up the paragraph with an opening <p> tag and closing </p> tag."
+          }
+        ]
       },
       "code": "<p>A paragraph is a block of text.</p>"
     },
@@ -111,7 +140,19 @@
         "section": "Lists",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 31,
-        "excerpt": "The virtue of lists is that, both visually and non-visually, they group items together, showing they are related."
+        "excerpt": "The virtue of lists is that, both visually and non-visually, they group items together, showing they are related.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 36,
+            "excerpt": "The title is sans-serif because of the styles you added. A number of other things are determined by the user agent styles: the list has a left padding and a list-style-type of disc to produce the bullets."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 70,
+            "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered."
+          }
+        ]
       },
       "code": "<ol>\n  <li>Preheat the oven.</li>\n  <li>Mix the batter.</li>\n</ol>"
     },
@@ -131,12 +172,17 @@
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 70,
-        "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
+        "excerpt": "HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
         "books": [
           {
             "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-            "page": 241,
-            "excerpt": "Because the menu is a list (<ul>), you override the user agent left padding and remove the list bullets."
+            "page": 36,
+            "excerpt": "User agent styles vary slightly from browser to browser, but generally they do the same things: headings (<h1> through <h6>) and paragraphs (<p>) are given a top and bottom margin, lists (<ol> and <ul>) are given a left padding, and link colors and default font sizes are set."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 44,
+            "excerpt": "Not all lists need to be bullet lists, showing a list-style, but there should be some visual indication that the items within the list are similar or equivalent; that they belong together."
           }
         ]
       },
@@ -157,8 +203,20 @@
       "reference": {
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 74,
-        "excerpt": "Definition Lists <dl> The definition list is created with the <dl> element and usually consists of a series of terms and their definitions."
+        "page": 70,
+        "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 363,
+            "excerpt": "This adds the stylesheet containing the font definitions to your page."
+          }
+        ]
       },
       "code": "<dl>\n  <dt>HTML</dt>\n  <dd>A markup language.</dd>\n</dl>"
     },
@@ -177,8 +235,20 @@
       "reference": {
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 142,
-        "excerpt": "Long Tables There are three elements that help distinguish between the main content of the table and the first and last rows (which can contain different content)."
+        "page": 70,
+        "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 64,
+            "excerpt": "The following listing establishes the root font size and then uses rems to define the font size for unordered lists relative to that."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 314,
+            "excerpt": "Importantly, it belongs to a list item because - like playing cards - you rarely see one card on its own."
+          }
+        ]
       },
       "code": "<ul>\n  <li>Eggs</li>\n</ul>"
     },
@@ -198,7 +268,19 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "Browsers display the contents of headings at different sizes."
+        "excerpt": "Browsers display the contents of headings at different sizes.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 370,
+            "excerpt": "This number represents thousandths of an em, so to convert it to ems, divide by a 1000: 100 / 1000 = 0.1 em. 13.4.2 Headings, small elements, and spacing The spacing for headings won’t always be the same as that for the body copy."
+          }
+        ]
       },
       "code": "<h1>Main</h1>\n<p>Use CSS later for size.</p>"
     },
@@ -218,7 +300,19 @@
         "section": "Lists",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 64,
-        "excerpt": "The second selector in the listing then targets all unordered lists within an unordered list—all of them except the top level."
+        "excerpt": "The second selector in the listing then targets all unordered lists within an unordered list - all of them except the top level.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 31,
+            "excerpt": "For example, JAWS provides the L (list) and I (list item) quick keys for moving between and through lists."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 75,
+            "excerpt": "Browsers display nested lists indented further than the parent list."
+          }
+        ]
       },
       "code": "<ul>\n  <li>Fruit\n    <ul><li>Apple</li></ul>\n  </li>\n</ul>"
     },
@@ -238,7 +332,19 @@
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 70,
-        "excerpt": "HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered."
+        "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 25,
+            "excerpt": "Sometimes code is also in bold to highlight code that has changed from previous steps in the chapter, such as when a new feature adds to an existing line of code."
+          }
+        ]
       },
       "code": "<ol>\n  <li>Preheat.</li>\n  <li>Mix.</li>\n</ol>"
     },
@@ -258,7 +364,19 @@
         "section": "Headings",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 36,
-        "excerpt": "Links are blue and underlined. The heading and the list have top and bottom margins."
+        "excerpt": "The heading and the list have top and bottom margins. Figure 1.4 User agent styles set defaults for your web page header.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 50,
+            "excerpt": "The exact size at which each browser shows the headings can vary slightly."
+          }
+        ]
       },
       "code": "<h1>Cookbook</h1>\n<h2>Soups</h2>\n<h2>Breads</h2>"
     },
@@ -278,7 +396,19 @@
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 74,
-        "excerpt": "Inside the <dl> element you will usually see pairs of <dt> and <dd> elements. <dt> This is used to contain the term being defined (the definition term). <dd> This is used to contain the definition."
+        "excerpt": "Definition Lists <dl> The definition list is created with the <dl> element and usually consists of a series of terms and their definitions.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 65,
+            "excerpt": "Because this is relative to the root, the font size will remain constant, even if you nest lists."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 44,
+            "excerpt": "The list I talk about the virtues of lists in Inclusive Design Patterns."
+          }
+        ]
       },
       "code": "<dl>\n  <dt>ol</dt>\n  <dd>Ordered list.</dd>\n</dl>"
     },
@@ -298,7 +428,19 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "You will see how to control the size of text, its color, and the fonts used when we come to look at CSS."
+        "excerpt": "The exact size at which each browser shows the headings can vary slightly.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 370,
+            "excerpt": "Now that your line height is set on the page, temporarily add extra text to various headings to force them to line wrap (figure 13.9)."
+          }
+        ]
       },
       "code": "<h1>Title</h1>\n<h2>Section</h2>"
     },
@@ -317,13 +459,20 @@
       "reference": {
         "section": "Paragraphs",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 36,
-        "excerpt": "User agent styles vary slightly from browser to browser, but generally they do the same things: headings (<h1> through <h6>) and paragraphs (<p>) are given a top and bottom margin, lists (<ol> and <ul>) are given a left padding, and link colors and default font sizes are set."
+        "page": 331,
+        "excerpt": "For example, 10 px between buttons in the navigational menu; 40 px between the bottom of the hero image and the top of the three white columns; 30 px between each column’s heading and the following paragraph of text; and so on.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 56,
+            "excerpt": "To prevent this copy the text into a plain text editor first (such as Notepad on a PC or TextEdit on a Mac) and then copy it from that program and paste it into the visual editor."
+          }
+        ]
       },
       "code": "<h1>News</h1>\n<p>Today the lab opened at noon.</p>"
     },
     {
-      "question": "Write heading(level, text) that returns <hN>text</hN> for level 1–6.",
+      "question": "Write heading(level, text) that returns <hN>text</hN> for level 1-6.",
       "type": "code",
       "language": "javascript",
       "starter": "function heading(level, text) {\n  // return markup\n}\n",
@@ -357,12 +506,24 @@
         "Concatenate 'h' with the level number."
       ],
       "solution": "function heading(level, text) {\n  return '<h' + level + '>' + text + '</h' + level + '>';\n}\n",
-      "explanation": "h1–h6 are the six heading levels. The number is the outline depth.",
+      "explanation": "h1-h6 are the six heading levels. The number is the outline depth.",
       "reference": {
         "section": "Coding tasks",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 42,
-        "excerpt": "That’s three levels of belonging, hence the <h3>s. Even if you feel that your packing todo list is less important than establishing which bars are good to visit, it’s still on the same level in terms of belonging, so it must have the same heading level."
+        "page": 58,
+        "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 347,
+            "excerpt": "With many designs, it’s not practical for every bit of text to meet level AAA contrast levels."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 50,
+            "excerpt": "six \"levels\" of headings: <h1> is used for main headings <h2> is used for subheadings If there are further sections under the subheadings then the <h3> element is used, and so on... Browsers display the contents of headings at different si"
+          }
+        ]
       },
       "level": 3
     },
@@ -407,8 +568,20 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "Unordered lists are lists that begin with a bullet point"
+        "page": 73,
+        "excerpt": "(The li stands for list item.) R e s u lt Browsers indent lists by default.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "In my version, I just add a minor enhancement: a line-through style for checked items."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 65,
+            "excerpt": "Setting a default font size is a bit different. Not only is it harder to find where to set this (usually in the browser's settings page), but changes at this level remain permanent, until the user returns and changes the value again."
+          }
+        ]
       },
       "level": 3
     },
@@ -453,8 +626,20 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "Ordered lists are lists where each item in the list is numbered."
+        "page": 72,
+        "excerpt": "(The li stands for list item.) R e s u lt Browsers indent lists by default.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 168,
+            "excerpt": "ORDER PROPERTY Normally, flex items are laid out in the order they appear in the HTML source."
+          }
+        ]
       },
       "level": 3
     }
@@ -462,31 +647,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 2 — Text",
-      "page": 47,
-      "pageEnd": 68,
-      "sections": [
-        {
-          "heading": "Headings",
-          "page": 50
-        },
-        {
-          "heading": "Paragraphs",
-          "page": 47
-        }
-      ]
+      "page": 50
     },
     {
-      "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 3 — Lists",
-      "page": 69,
-      "pageEnd": 80,
-      "sections": [
-        {
-          "heading": "Lists",
-          "page": 70
-        }
-      ]
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 31
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 25
     }
   ]
 }

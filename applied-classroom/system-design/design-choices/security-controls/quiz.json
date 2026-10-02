@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Security controls",
+  "title": "System Design - Security controls",
   "questions": [
     {
       "question": "Rate limiting helps security posture by:",
@@ -14,7 +14,7 @@
       "answer": "b",
       "explanation": "A rate limiter prevents DoS attacks, either intentional or unintentional",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 66,
         "excerpt": "A rate limiter prevents DoS attacks, either intentional or unintentional, by blocking the excess calls. • Reduce cost."
       }
@@ -34,7 +34,7 @@
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
         "page": 169,
-        "excerpt": "For example, if ease of deployment and testability are high priorities, the architect would emphasize good modularity and isolation at the architecture level—an example of an architecture characteristic driving a structural decision."
+        "excerpt": "For example, if ease of deployment and testability are high priorities, the architect would emphasize good modularity and isolation at the architecture level - an example of an architecture characteristic driving a structural decision."
       }
     },
     {
@@ -44,7 +44,7 @@
       "answer": true,
       "explanation": "client requests can easily be forged by malicious actors",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 68,
         "excerpt": "Generally speaking, client is an unreliable place to enforce rate limiting because client requests can easily be forged by malicious actors."
       }
@@ -63,8 +63,20 @@
       "explanation": "architecture characteristics",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 383,
-        "excerpt": "Services are accessed remotely from a UI using a remote access protocol, typically REST."
+        "page": 573,
+        "excerpt": "An application service, typically owned by a single application team, solves that problem.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 245,
+            "excerpt": "A key design goal of a service-oriented/microservices architecture is to make the application easier to change and maintain by making services independently deployable and evolvable."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 193,
+            "excerpt": "Good extensibility means a flexible system that can easily plugging or unplugging of a third-party service."
+          }
+        ]
       }
     },
     {
@@ -80,10 +92,24 @@
       "answer": "b",
       "explanation": "Show clear exceptions to users when their requests are throttled",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 67,
         "excerpt": "Show clear exceptions to users when their requests are throttled. • High fault tolerance."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 66
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 169
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 245
     }
   ]
 }

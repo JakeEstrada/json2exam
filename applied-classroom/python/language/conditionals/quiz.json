@@ -1,5 +1,5 @@
 {
-  "title": "Python — Conditionals",
+  "title": "Python - Conditionals",
   "questions": [
     {
       "question": "How do you test equality of values?",
@@ -36,13 +36,20 @@
       "reference": {
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 112,
-        "excerpt": "During this check, a username like 'John' will be rejected if any variation of 'john' is already in use."
+        "page": 124,
+        "excerpt": "In this situation, it’s useful to check whether a list is empty before running a for loop.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 99,
+            "excerpt": "This is an important Python API convention: functions or methods that change an object in-place should return None to make it clear to the caller that the receiver was changed, and no new object was created."
+          }
+        ]
       },
       "code": "if x is None:\n    return"
     },
     {
-      "question": "What ends an if header?",
+      "question": "In Python, what introduces the indented body of an if statement?",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -52,14 +59,21 @@
         "end"
       ],
       "answer": "b",
-      "explanation": "A colon, then an indented block.",
+      "explanation": "A colon after the condition, then an indented block.",
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 120,
-        "excerpt": "Omitting the else Block Python does not require an else block at the end of an if- elif chain."
+        "excerpt": "The else block is a catchall statement. It matches any condition that wasn’t matched by a specific if or elif test, and that can sometimes include invalid or even malicious data.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 61,
+            "excerpt": "A for loop may be used to do lots of different things: scanning a sequence to count or pick items, computing aggregates (sums, averages), or any number of other processing tasks."
+          }
+        ]
       },
-      "code": "if ok:\n    print(\"yes\")"
+      "code": "ok = True\nprint(\"ready\")"
     },
     {
       "question": "Which keyword is the else-if branch?",
@@ -77,7 +91,7 @@
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 120,
-        "excerpt": "The else block is a catchall statement. It matches any condition that wasn’t matched by a specific if or elif test, and that can sometimes include invalid or even malicious data."
+        "excerpt": "Omitting the else Block Python does not require an else block at the end of an if- elif chain."
       },
       "code": "elif status == \"pending\":\n    waiting += 1"
     },
@@ -95,9 +109,9 @@
       "explanation": "Classic mistake: = vs ==. (Walrus := exists but is different.)",
       "reference": {
         "section": "Comparisons",
-        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 288,
-        "excerpt": "As such, they are allowed to enter their “national teams” in the FIFA World Cup—therefore media outlets need their flags to display tournament charts."
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 112,
+        "excerpt": "If these two values do not match, Python returns True and executes the code following the if statement."
       },
       "code": "if x == 1:\n    pass"
     },
@@ -119,7 +133,7 @@
         "page": 40,
         "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
       },
-      "code": "0 and 5  # 0"
+      "code": "0 and 5"
     },
     {
       "question": "What does `not []` evaluate to?",
@@ -137,7 +151,14 @@
         "section": "Boolean operators",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 127,
-        "excerpt": "The only recommendation PEP 8 provides for styling conditional tests is to use a single space around comparison operators, such as ==, >=, and <=."
+        "excerpt": "The only recommendation PEP 8 provides for styling conditional tests is to use a single space around comparison operators, such as ==, >=, and <=.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 125,
+            "excerpt": "Most NumPy and SciPy functions are implemented in C or C++, and can leverage all CPU cores because they release Python’s GIL (Global Interpreter Lock)."
+          }
+        ]
       },
       "code": "not []"
     },
@@ -197,7 +218,7 @@
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 112,
-        "excerpt": "If these two values do not match, Python returns True and executes the code following the if statement."
+        "excerpt": "If the two values match, Python returns False and does not run the code following the if statement."
       },
       "code": "if 0 < x < 10:\n    print(\"in range\")"
     },
@@ -217,7 +238,14 @@
         "section": "Boolean operators",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 99,
-        "excerpt": "This is an important Python API convention: functions or methods that change an object in-place should return None to make it clear to the caller that the receiver was changed, and no new object was created."
+        "excerpt": "In contrast, methods that return new objects (e.g., all str methods) can be cascaded in the fluent interface style.",
+        "books": [
+          {
+            "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+            "page": 115,
+            "excerpt": "A Boolean value is either True or False, just like the value of a conditional expression after it has been evaluated."
+          }
+        ]
       },
       "code": "\"paid\" or \"pending\"  # \"paid\""
     },
@@ -236,8 +264,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 106,
-        "excerpt": "Indentation PEP 8 recommends that you use four spaces per indentation level."
+        "page": 120,
+        "excerpt": "Testing Multiple Conditions The if- elif- else chain is powerful, but it’s only appropriate to use when you just need one test to pass."
       },
       "code": "if ok:\n    print(\"yes\")"
     },
@@ -277,7 +305,7 @@
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 120,
-        "excerpt": "Testing Multiple Conditions The if- elif- else chain is powerful, but it’s only appropriate to use when you just need one test to pass."
+        "excerpt": "If you have a specific final condition you’re testing for, consider using a final elif block and omit the else block."
       },
       "code": "if a:\n    ...\nelif b:\n    ...\nelse:\n    ..."
     },
@@ -297,7 +325,7 @@
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 120,
-        "excerpt": "If you have a specific final condition you’re testing for, consider using a final elif block and omit the else block."
+        "excerpt": "In this case, you should use a series of simple if statements with no elif or else blocks."
       },
       "code": "label = \"paid\" if ok else \"due\""
     },
@@ -319,8 +347,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 504,
-        "excerpt": "It’s important to be aware of these when you’re naming things in Python: your names cannot be the same as these keywords and shouldn’t be the same as the function names, or you’ll overwrite the functions."
+        "page": 120,
+        "excerpt": "Omitting the else Block Python does not require an else block at the end of an if- elif chain."
       }
     },
     {
@@ -340,9 +368,9 @@
       "explanation": "The runner is JavaScript. Return a Python source string.",
       "reference": {
         "section": "Comparisons",
-        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 99,
-        "excerpt": "It returns None to remind us that it changes the receiver7 and does not create a new list."
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 112,
+        "excerpt": "If these two values do not match, Python returns True and executes the code following the if statement."
       }
     },
     {
@@ -371,23 +399,11 @@
   "reading": [
     {
       "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-      "chapter": "Chapter 5 — if Statements",
-      "page": 109,
-      "pageEnd": 128,
-      "sections": [
-        {
-          "heading": "Comparisons",
-          "page": 111
-        },
-        {
-          "heading": "If / elif / else",
-          "page": 109
-        },
-        {
-          "heading": "Boolean operators",
-          "page": 115
-        }
-      ]
+      "page": 112
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 40
     }
   ]
 }

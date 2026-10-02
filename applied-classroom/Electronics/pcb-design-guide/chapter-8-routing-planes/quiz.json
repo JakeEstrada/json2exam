@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 8: Routing and Planes",
+  "title": "Electronics - Chapter 8: Routing and Planes",
   "questions": [
     {
       "question": "Recommended routing order on multi-layer designs includes:",
@@ -88,7 +88,7 @@
       }
     },
     {
-      "question": "High-Speed — to reduce impedance discontinuity effects from vias:",
+      "question": "High-Speed - to reduce impedance discontinuity effects from vias:",
       "type": "multiple",
       "level": 1,
       "options": [
@@ -106,7 +106,7 @@
       }
     },
     {
-      "question": "High-Speed — high-speed signals generally require:",
+      "question": "High-Speed - high-speed signals generally require:",
       "type": "multiple",
       "level": 1,
       "options": [

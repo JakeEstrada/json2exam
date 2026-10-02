@@ -1,3 +1,3 @@
-# Python — Variables and types
+# Python - Variables and types
 
 Python language deck.

@@ -1,5 +1,5 @@
 {
-  "title": "LeetCode — Graphs pattern recognition",
+  "title": "LeetCode - Graphs pattern recognition",
   "deal": "random",
   "questions": [
     {
@@ -202,7 +202,7 @@
         "Sliding window over email strings."
       ],
       "answer": "a",
-      "explanation": "Shared emails connect accounts — Union-Find.",
+      "explanation": "Shared emails connect accounts - Union-Find.",
       "reference": {
         "url": "https://leetcode.com/problems/accounts-merge"
       },

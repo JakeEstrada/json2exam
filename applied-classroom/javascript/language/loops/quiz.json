@@ -1,29 +1,21 @@
 {
-  "title": "JavaScript — Loops",
+  "title": "JavaScript - Loops",
   "reading": [
     {
       "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 2 — Program Structure (loops)",
-      "page": 59,
-      "pageEnd": 66,
-      "sections": [
-        {
-          "heading": "while and do loops",
-          "page": 59
-        },
-        {
-          "heading": "for loops",
-          "page": 63
-        },
-        {
-          "heading": "Breaking Out of a Loop",
-          "page": 65
-        },
-        {
-          "heading": "Walking arrays",
-          "page": 63
-        }
-      ]
+      "page": 64
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 36
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 73
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 111
     }
   ],
   "questions": [
@@ -41,14 +33,24 @@
       "explanation": "`i` starts at 0. The loop continues while `i < 3`, so the body runs three times: 0, 1, and 2.",
       "reference": {
         "section": "for loops",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 72,
-        "excerpt": "Each of these loops includes a loop variable that gets a new value assigned to it on each iteration of the loop.",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
         "books": [
           {
             "book": "JavaScript: The Good Parts by Douglas Crockford",
-            "page": 156,
-            "excerpt": "A number wrapped in curly braces means that the factor should match that many times."
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
           }
         ]
       },
@@ -59,23 +61,33 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "0, then 1, then 2 — `of` yields each value",
-        "\"0\", then \"1\", then \"2\" — `of` yields keys as strings",
-        "a, then b, then c — `of` yields each value",
-        "undefined three times — `of` skips the first index"
+        "0, then 1, then 2 - `of` yields each value",
+        "\"0\", then \"1\", then \"2\" - `of` yields keys as strings",
+        "a, then b, then c - `of` yields each value",
+        "undefined three times - `of` skips the first index"
       ],
       "answer": "c",
       "explanation": "`for...of` yields values. `for...in` yields keys (as strings). For arrays, use `of`.",
       "reference": {
         "section": "Walking arrays",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 50,
-        "excerpt": "JavaScript’s strings (and its arrays) use zero-based indexing: the first 16-bit value is at position 0, the second at position 1, and so on.",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 118,
+        "excerpt": "When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of. This works not only for arrays but also for strings and some other data structures.",
         "books": [
           {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 31,
+            "excerpt": "for (let student of students) { That statement assigns a value to student for each iteration of the loop."
+          },
+          {
             "book": "JavaScript: The Good Parts by Douglas Crockford",
-            "page": 306,
-            "excerpt": "2 The JSON array is an ordered sequence of values. A value can be any JSON value, including arrays and objects."
+            "page": 61,
+            "excerpt": "The for in statement can loop over all of the property names in an object. The enumeration will include all of the properties including functions and prototype properties that you might not be interested in, so it is necessary to filter out the values you don't want."
           }
         ]
       },
@@ -95,9 +107,26 @@
       "explanation": "while tests first. do/while tests after and is rare.",
       "reference": {
         "section": "while and do loops",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 26,
-        "excerpt": "The other broad category of statement is control structures, such as conditionals and loops."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 61,
+        "excerpt": "A statement starting with the keyword while creates a loop. The word while is followed by an expression in parentheses and then a statement, much like if. The loop keeps entering that statement as long as the expression produces a value that gives true when converted to Boolean.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } The whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "code": "while (i < n) {\n  i += 1;\n}"
     },
@@ -114,9 +143,16 @@
       "explanation": "`do`/`while` always runs once. `while` and `for` test first.",
       "reference": {
         "section": "while and do loops",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 72,
-        "excerpt": "JavaScript class and function definitions are blocks, and so are the bodies of if/else statements, while loops, for loops, and so on."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 62,
+        "excerpt": "A do loop is a control structure similar to a while loop. It differs only on one point: a do loop always executes its body at least once, and it starts testing whether it should stop only after that first execution.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "If the condition is omitted, then a condition of true is assumed. If the condition is true, then the statement is executed, then the increment is done, and then the loop repeats."
+          }
+        ]
       },
       "level": 1,
       "code": "do {\n  n += 1;\n} while (n < 3);"
@@ -134,9 +170,26 @@
       "explanation": "The loop body runs for 0, 1, and 2. After the last increment `n` is 3 and the test fails.",
       "reference": {
         "section": "while and do loops",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 73,
-        "excerpt": "declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 1,
       "code": "let n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);"
@@ -145,7 +198,7 @@
       "question": "The three parts of `for (let i = 0; i < n; i++)` are:",
       "type": "multiple",
       "options": [
-        "The callback, the seed, and the step size — the same three slots as reduce.",
+        "The callback, the seed, and the step size - the same three slots as reduce.",
         "Bind a counter, test whether to keep going, then update after the body.",
         "The return type, the index type, and the element type.",
         "Only a condition. The other two slots are comments the engine ignores."
@@ -155,8 +208,25 @@
       "reference": {
         "section": "for loops",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Then comes a while loop, usually with a test expression that checks whether the counter has reached its end value."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 1,
       "code": "for (let i = 0; i < n; i++) {\n  console.log(i);\n}"
@@ -174,9 +244,26 @@
       "explanation": "`for...of` yields values. `for...in` yields keys, including inherited ones.",
       "reference": {
         "section": "Walking arrays",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 50,
-        "excerpt": "The empty string is the string of length 0. Java‐ Script does not have a special type that represents a single element of a string."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 1,
       "code": "for (const row of rows) {\n  console.log(row.status);\n}"
@@ -194,9 +281,26 @@
       "explanation": "Use `for...of` or a numeric `for`. `for...in` is for object keys.",
       "reference": {
         "section": "Find the bug",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 130,
-        "excerpt": "It does not enumerate properties whose names are symbols. And of the properties whose names are strings, it only loops over the enumerable properties (see §14.1)."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 118,
+        "excerpt": "When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of. This works not only for arrays but also for strings and some other data structures.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 31,
+            "excerpt": "for (let student of students) { That statement assigns a value to student for each iteration of the loop."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 61,
+            "excerpt": "The for in statement can loop over all of the property names in an object. The enumeration will include all of the properties including functions and prototype properties that you might not be interested in, so it is necessary to filter out the values you don't want."
+          }
+        ]
       },
       "level": 3,
       "code": "function firstPaid(rows) {\n  for (const i in rows) {\n    if (rows[i].status === \"paid\") return rows[i];\n  }\n}"
@@ -216,7 +320,14 @@
         "section": "Breaking Out of a Loop",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 65,
-        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+        "excerpt": "Breaking Out of a Loop Having the looping condition produce false is not the only way a loop can finish. The break statement has the effect of immediately jumping out of the enclosing loop.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment."
+          }
+        ]
       },
       "level": 2,
       "code": "for (const row of rows) {\n  if (row.id === id) break;\n}"
@@ -235,8 +346,25 @@
       "reference": {
         "section": "Breaking Out of a Loop",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 65,
-        "excerpt": "Breaking Out of a Loop Having the looping condition produce false is not the only way a loop can finish."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "for (let current = 20; ; current = current + 1) {\n  if (current % 7 == 0) {\n    console.log(current);\n    break;\n  }\n}"
@@ -254,9 +382,26 @@
       "explanation": "`break` only works in `for`/`while`/`switch`. Use `for...of` or `Array.prototype.find`.",
       "reference": {
         "section": "Walking arrays",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 130,
-        "excerpt": "The break statement makes the interpreter jump to the end of a loop or other state‐ ment. continue makes the interpreter skip the rest of the body of a loop and jump back to the top of a loop to begin a new iteration."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 118,
+        "excerpt": "When a for loop uses the word of after its variable definition, it will loop over the elements of the value given after of. This works not only for arrays but also for strings and some other data structures.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 31,
+            "excerpt": "for (let student of students) { That statement assigns a value to student for each iteration of the loop."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 61,
+            "excerpt": "The for in statement can loop over all of the property names in an object. The enumeration will include all of the properties including functions and prototype properties that you might not be interested in, so it is necessary to filter out the values you don't want."
+          }
+        ]
       },
       "level": 2,
       "code": "rows.forEach((row) => {\n  if (row.id === id) break;\n});"
@@ -274,9 +419,26 @@
       "explanation": "Missing indexes are `undefined`. A loop test `i <= rows.length` reads one extra hole.",
       "reference": {
         "section": "From C++",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 562,
-        "excerpt": "If you want to look up the objects for a range of keys, you create an IDBRange object that specifies the upper and lower bounds of the range and pass it to the getAll() or openCursor() methods of the object store."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "const rows = [\"a\", \"b\"];\nconsole.log(rows[rows.length]);"
@@ -298,8 +460,25 @@
       "reference": {
         "section": "for loops",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "First a “counter” binding is created to track the progress of the loop."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "for (let i = 0; i < rows.length; i++) {\n  console.log(rows[i]);\n}"
@@ -318,8 +497,25 @@
       "reference": {
         "section": "Predict the output",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "const out = [];\nfor (let i = 0; i < 3; i++) out.push(i);\nout;"
@@ -337,9 +533,26 @@
       "explanation": "`continue` does not skip the `for` update. The counter still moves.",
       "reference": {
         "section": "Breaking Out of a Loop",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 130,
-        "excerpt": "If the body of the loop defines new properties on the object, those properties may or may not be enumerated."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "for (let i = 0; i < 5; i++) {\n  if (i % 2 === 1) continue;\n  console.log(i);\n}"
@@ -359,7 +572,14 @@
         "section": "Breaking Out of a Loop",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 65,
-        "excerpt": "This means that the loop will never stop unless the break statement inside is executed."
+        "excerpt": "Breaking Out of a Loop Having the looping condition produce false is not the only way a loop can finish. The break statement has the effect of immediately jumping out of the enclosing loop.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment."
+          }
+        ]
       },
       "level": 2,
       "code": "while (true) {\n  // wait for a matching row\n}"
@@ -377,9 +597,26 @@
       "explanation": "Zero elements, zero iterations. Seed counters at 0 before the loop.",
       "reference": {
         "section": "Walking arrays",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 130,
-        "excerpt": "If the body of a for/in loop deletes a property that has not yet been enumerated, that property will not be enumerated."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "const rows = [];\nfor (const row of rows) {\n  console.log(row);\n}"
@@ -398,8 +635,25 @@
       "reference": {
         "section": "Common mistakes",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "for (let i = 0; i <= rows.length; i++) {\n  console.log(rows[i]);\n}"
@@ -417,9 +671,26 @@
       "explanation": "Primitives are copied by value. Object elements are still the same objects.",
       "reference": {
         "section": "From C++",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 50,
-        "excerpt": "Java‐ Script does not have a special type that represents a single element of a string."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 2,
       "code": "for (const row of rows) {\n  row.status = \"seen\";\n}"
@@ -454,8 +725,25 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 3
     },
@@ -491,8 +779,25 @@
       "reference": {
         "section": "Worked examples",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 59,
-        "excerpt": "If it doesn’t, the second and last else branch is chosen. The schema for this program looks something like this: while and do loops Consider a program that outputs all even numbers from 0 to 12."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 3
     },
@@ -532,8 +837,25 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "page": 64,
+        "excerpt": "This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the “state” of the loop are grouped together after for. The parentheses after a for keyword must contain two semicolons.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 36,
+            "excerpt": "The conventional form is controlled by three optional clauses: the initialization, the condition, and the increment. First, the initialization is done, which typically initializes the loop variable. Then, the condition is evaluated."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 73,
+            "excerpt": "Bindings declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 111,
+            "excerpt": "for (const i = 0; keepGoing; /* nothing here */ ) { keepGoing = (Math.random() > 0.5); } There’s no reason to declare i in that position with a const, since the whole point of such a variable in that position is to be used for counting iterations."
+          }
+        ]
       },
       "level": 3
     }

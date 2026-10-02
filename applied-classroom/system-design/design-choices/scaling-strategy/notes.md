@@ -1,6 +1,6 @@
 # Scaling strategy
 
-**System Design Interview – An Insider's Guide** Ch 1 + Ch 5: vertical vs horizontal, load balancing, consistent hashing, sharding.
+**System Design Interview - An Insider's Guide** Ch 1 + Ch 5: vertical vs horizontal, load balancing, consistent hashing, sharding.
 
 ## Playbook
 

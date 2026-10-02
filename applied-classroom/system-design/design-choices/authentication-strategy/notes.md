@@ -1,6 +1,6 @@
 # Authentication strategy
 
-Cross-cut from **System Design Interview – An Insider's Guide** designs (sessions/stateless tokens) and **Fundamentals of Software Architecture, 2nd Edition** security as an architecture characteristic.
+Cross-cut from **System Design Interview - An Insider's Guide** designs (sessions/stateless tokens) and **Fundamentals of Software Architecture, 2nd Edition** security as an architecture characteristic.
 
 ## Core ideas
 

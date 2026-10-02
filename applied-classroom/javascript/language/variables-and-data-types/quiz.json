@@ -1,5 +1,5 @@
 {
-  "title": "JavaScript — Variables, primitives, and conversion",
+  "title": "JavaScript - Variables, primitives, and conversion",
   "questions": [
     {
       "question": "What happens when the engine loads this file?",
@@ -17,7 +17,7 @@
         "section": "What JavaScript is",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
-        "excerpt": "In the computer’s world, there is only data. You can read data, modify data, create new data—but that which isn’t data cannot be mentioned."
+        "excerpt": "In the computer’s world, there is only data. You can read data, modify data, create new data - but that which isn’t data cannot be mentioned."
       },
       "code": "console.log(\"hello\");"
     },
@@ -56,8 +56,25 @@
       "reference": {
         "section": "What JavaScript is",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 68,
-        "excerpt": "This kind of conversion happens, for example, if you pass an object to a built-in func‐ tion that expects a string argument, if you call String() as a conversion function, and when you interpolate objects into template literals (§3.3.4)."
+        "page": 74,
+        "excerpt": "Because var does not scope these variables to the loop body, each of these loops is (harmlessly) re-declaring and re-initializing the same variable. • One of the most unusual features of var declarations is known as hoisting.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "The body of every for in statement should be wrapped in an if statement that does filtering. if can select for a particular type or range of values, it can exclude functions, or it can exclude properties from the prototype."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 32,
+            "excerpt": "In a JavaScript environment, those chunks are called values."
+          }
+        ]
       },
       "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
@@ -130,7 +147,14 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "Certain JavaScript operators perform implicit type conversions and are sometimes used explicitly for the purpose of type conversion."
+        "excerpt": "Certain JavaScript operators perform implicit type conversions and are sometimes used explicitly for the purpose of type conversion.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 45,
+            "excerpt": "Expressions like 0 == false and \"\" == false are also true because of automatic type conversion."
+          }
+        ]
       },
       "level": 1,
       "code": "console.log(Boolean(0), Boolean(\"0\"));"
@@ -150,7 +174,14 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "If you do not specify the argument, the conversion is done in base 10."
+        "excerpt": "If you do not specify the argument, the conversion is done in base 10.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 45,
+            "excerpt": "They will convert the value on their left side to Boolean type in order to decide what to do, but depending on the operator and the result of that conversion, they will return either the original left-hand value or the right-hand value."
+          }
+        ]
       },
       "level": 1,
       "code": "console.log(\"5\" + 1);\nconsole.log(\"5\" - 1);"
@@ -169,8 +200,25 @@
       "reference": {
         "section": "Values and primitive types",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 41,
-        "excerpt": "Booleans are covered in §3.4. The special JavaScript values null and undefined are primitive values, but they are not numbers, strings, or booleans."
+        "page": 62,
+        "excerpt": "As you can see from this code, assigning an object (or array) to a variable simply assigns the reference: it does not create a new copy of the object.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "And each j gets a copy of the value of i at that point in the loop iteration; that j never gets re-assigned."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 47,
+            "excerpt": "Such values are created by typing in their name (true, null) or value (13, \"abc\")."
+          }
+        ]
       },
       "level": 3,
       "code": "console.log(typeof null);\nconst value = null;"
@@ -179,10 +227,10 @@
       "question": "What do these three conversions yield?",
       "type": "multiple",
       "options": [
-        "0, 0, and NaN — empty string and null become 0; undefined does not.",
-        "NaN, NaN, and NaN — nothing without digits becomes a number.",
-        "0, NaN, and 0 — only null fails while empty string is zero.",
-        "undefined, null, and NaN — Number leaves empty values unchanged."
+        "0, 0, and NaN - empty string and null become 0; undefined does not.",
+        "NaN, NaN, and NaN - nothing without digits becomes a number.",
+        "0, NaN, and 0 - only null fails while empty string is zero.",
+        "undefined, null, and NaN - Number leaves empty values unchanged."
       ],
       "answer": "a",
       "explanation": "Number(\"\") is 0, which is why payment parsers must reject empty strings before converting. Number(undefined) is NaN.",
@@ -190,7 +238,14 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "The Number class defines three methods for these kinds of number-to-string conversions. toFixed() converts a number to a string with a speci‐ fied number of digits after the decimal point."
+        "excerpt": "The Number class defines three methods for these kinds of number-to-string conversions. toFixed() converts a number to a string with a speci‐ fied number of digits after the decimal point.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 45,
+            "excerpt": "When you do not want any type conversions to happen, there are two additional operators: === and !==."
+          }
+        ]
       },
       "level": 2,
       "code": "Number(\"\");\nNumber(null);\nNumber(undefined);"
@@ -339,8 +394,25 @@
       "reference": {
         "section": "Find the bug",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 374,
-        "excerpt": "When something goes wrong in synchronous code, we can speak of an exception “bubbling up the call stack” until it finds a catch block."
+        "page": 74,
+        "excerpt": "But global variables declared with var differ from globals declared with let in an important way.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "So all three functions now return their expected values: 0, 1, and 2!"
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "The body of every for in statement should be wrapped in an if statement that does filtering. if can select for a particular type or range of values, it can exclude functions, or it can exclude properties from the prototype."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 44,
+            "excerpt": "Further arithmetic operations on NaN keep producing NaN, so if you find yourself getting one of those in an unexpected place, look for accidental type conversions."
+          }
+        ]
       },
       "level": 3,
       "code": "function total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}"
@@ -359,8 +431,25 @@
       "reference": {
         "section": "Worked examples",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 65,
-        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+        "page": 74,
+        "excerpt": "Global variables and constants declared with let and const are not properties of the global object. • Unlike variables declared with let, it is legal to declare the same variable multiple times with var.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the"
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 36,
+            "excerpt": "NaN stands for “not a number”, even though it is a value of the number type."
+          }
+        ]
       },
       "level": 2,
       "code": "const raw = \"12.50\";\nconst amount = Number(raw);"
@@ -380,7 +469,14 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "These wrap‐ per objects are a historical leftover from the earliest days of JavaScript, and there is never really any good reason to use them."
+        "excerpt": "The toString() method defined by the Number class accepts an optional argument that specifies a radix, or base, for the conversion.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 45,
+            "excerpt": "Thus \"\" === false is false, as expected. I recommend using the three-character comparison operators defensively to prevent unexpected type conversions from tripping you up."
+          }
+        ]
       },
       "level": 2,
       "code": "console.log(false == 0);\nconsole.log(false === 0);"
@@ -445,9 +541,9 @@
       "explanation": "A narrow allow-list avoids treating arbitrary strings as true. JSON.parse(\"yes\") throws.",
       "reference": {
         "section": "Coding tasks",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 65,
-        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "asBooleanFlag(true);\nasBooleanFlag(\"true\");\nasBooleanFlag(\"1\");\nasBooleanFlag(\"yes\");"
@@ -465,9 +561,9 @@
       "explanation": "Template literals stringify undefined as \"undefined\". Check id !== undefined && id !== null before interpolating.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 50,
-        "excerpt": "After a binding has been defined, its name can be used as an expression."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "describeCustomer({ name: \"Ada\" });"
@@ -509,8 +605,25 @@
       "reference": {
         "section": "Coding tasks",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 98,
-        "excerpt": "If the two values have different types, they are not equal. • If both values are null or both values are undefined, they are equal. • If both values are the boolean value true or both are the boolean value false, they are equal. • If one or both values is NaN, they are not equal."
+        "page": 74,
+        "excerpt": "The global object can be referenced as globalThis. So if you write var x = 2; outside of a function, it is like you wrote globalThis.x = 2;.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the"
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 248,
+            "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 47,
+            "excerpt": "In the case of true || X, no matter what X is - even if it’s a piece of program that does something terrible - the result will be true, and X is never evaluated."
+          }
+        ]
       },
       "level": 3
     },
@@ -605,9 +718,9 @@
       "explanation": "Avoid interpolating undefined. Keep 0 as a possible id.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 50,
-        "excerpt": "After a binding has been defined, its name can be used as an expression."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     }
@@ -615,43 +728,19 @@
   "reading": [
     {
       "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 1 — Values, Types, and Operators",
-      "page": 31,
-      "pageEnd": 49,
-      "sections": [
-        {
-          "heading": "Values and primitive types",
-          "page": 31
-        },
-        {
-          "heading": "Bindings: let, const, and var",
-          "page": 50
-        }
-      ]
-    },
-    {
-      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 2 — Bindings",
-      "page": 50,
-      "pageEnd": 55,
-      "sections": [
-        {
-          "heading": "Bindings: let, const, and var",
-          "page": 50
-        }
-      ]
+      "page": 31
     },
     {
       "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-      "chapter": "Chapter 3 — Types, Values, and Variables",
-      "page": 41,
-      "pageEnd": 78,
-      "sections": [
-        {
-          "heading": "Values and primitive types",
-          "page": 65
-        }
-      ]
+      "page": 41
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 255
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 161
     }
   ],
   "sheet": "VARIABLES AND TYPES"

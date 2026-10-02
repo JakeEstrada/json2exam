@@ -1,3 +1,3 @@
-# Python — Lists
+# Python - Lists
 
 Python language deck.

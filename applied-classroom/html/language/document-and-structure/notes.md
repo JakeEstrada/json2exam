@@ -4,7 +4,7 @@ Read this page first. The quiz starts with what HTML even is, then tags, then th
 
 ## What HTML is
 
-HTML is a **markup language**. You wrap content in tags so the browser knows what is a heading, a paragraph, or a title. It is not a programming language. There is no loop, no function, and no stylesheet here — CSS is a different language.
+HTML is a **markup language**. You wrap content in tags so the browser knows what is a heading, a paragraph, or a title. It is not a programming language. There is no loop, no function, and no stylesheet here - CSS is a different language.
 
 A page is a tree of **elements**. Structure is the whole point: same idea as headings in a Word document, applied to a web page.
 
@@ -19,7 +19,7 @@ A page is a tree of **elements**. Structure is the whole point: same idea as hea
 
 Read these in the local `html/sources/` PDF. Page numbers in the quiz are **PDF file positions**.
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 1 *Structure* (PDF p. 19), *A Closer Look at Tags* (p. 30), *Attributes Tell Us More About Elements* (p. 32), *Body, Head & Title* (p. 34).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 1 *Structure* (PDF p. 19), *A Closer Look at Tags* (p. 30), *Attributes Tell Us More About Elements* (p. 32), *Body, Head & Title* (p. 34).
 
 ## Tags and elements
 

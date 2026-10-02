@@ -1,3 +1,3 @@
-# Python — Functions
+# Python - Functions
 
 Python language deck.

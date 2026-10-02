@@ -12,8 +12,8 @@ Build lists, sets, and dicts from iterators in one expression.
 
 Read these in the local `python/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Python Crash Course, 3rd Edition by Eric Matthes — Chapter 4 list comprehensions (PDF p. 98).
-- Fluent Python, 2nd Edition by Luciano Ramalho — set literals (PDF p. 171).
+- Python Crash Course, 3rd Edition by Eric Matthes - Chapter 4 list comprehensions (PDF p. 98).
+- Fluent Python, 2nd Edition by Luciano Ramalho - set literals (PDF p. 171).
 
 
 ## List comprehensions

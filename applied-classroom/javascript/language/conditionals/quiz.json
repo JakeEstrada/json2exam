@@ -1,5 +1,5 @@
 {
-  "title": "JavaScript — Comparisons, truthiness, and control flow",
+  "title": "JavaScript - Comparisons, truthiness, and control flow",
   "questions": [
     {
       "question": "Why do these two logs disagree?",
@@ -65,18 +65,25 @@
       "question": "What does this print?",
       "type": "multiple",
       "options": [
-        "x x x — all three operators treat 0 as missing.",
-        "x x 0 — || skips 0; ?? only substitutes null or undefined.",
-        "null x 0 — || keeps null and ?? keeps 0.",
-        "x 0 0 — || keeps 0 because 0 is a number."
+        "x x x - all three operators treat 0 as missing.",
+        "x x 0 - || skips 0; ?? only substitutes null or undefined.",
+        "null x 0 - || keeps null and ?? keeps 0.",
+        "x 0 0 - || keeps 0 because 0 is a number."
       ],
       "answer": "b",
       "explanation": "|| uses truthiness, so 0 is replaced. ?? is nullish, so 0 stays.",
       "reference": {
         "section": "Logical operators",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 42,
-        "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
+        "page": 45,
+        "excerpt": "Short-circuiting of logical operators The logical operators && and || handle values of different types in a peculiar way.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 275,
+            "excerpt": "They are rarely useful in browser applications. The similarity to the logical operators can mask some programming errors."
+          }
+        ]
       },
       "level": 1,
       "code": "console.log(null || \"x\", 0 || \"x\", 0 ?? \"x\");"
@@ -138,8 +145,25 @@
       "reference": {
         "section": "Find the bug",
         "book": "JavaScript: The Good Parts by Douglas Crockford",
-        "page": 11,
-        "excerpt": "That stuff you can easily find online. Instead, this book just contains the things that are really important."
+        "page": 255,
+        "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 63,
+            "excerpt": "First a “counter” binding is created to track the progress of the loop."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 74,
+            "excerpt": "Because var does not scope these variables to the loop body, each of these loops is (harmlessly) re-declaring and re-initializing the same variable. • One of the most unusual features of var declarations is known as hoisting."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          }
+        ]
       },
       "level": 3,
       "code": "function firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}"
@@ -159,7 +183,19 @@
         "section": "Control flow",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 56,
-        "excerpt": "Control flow When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+        "excerpt": "Control flow When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 37,
+            "excerpt": "The throw statement raises an exception. If the throw statement is in a try block, then control goes to the catch clause."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 129,
+            "excerpt": "And statements like break and continue won’t operate across an IIFE function boundary to control an outer loop or block."
+          }
+        ]
       },
       "level": 2,
       "code": "let s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}"
@@ -179,7 +215,14 @@
         "section": "Logical operators",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 45,
-        "excerpt": "Short-circuiting of logical operators The logical operators && and || handle values of different types in a peculiar way."
+        "excerpt": "When you do not want any type conversions to happen, there are two additional operators: === and !==.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 275,
+            "excerpt": "The similarity to the logical operators can mask some programming errors."
+          }
+        ]
       },
       "level": 2,
       "code": "const customer = { name: \"\" };\ncustomer.name || \"guest\";\ncustomer.name ?? \"guest\";"
@@ -199,12 +242,12 @@
         "section": "Logical operators",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 45,
-        "excerpt": "When you do not want any type conversions to happen, there are two additional operators: === and !==.",
+        "excerpt": "Thus \"\" === false is false, as expected. I recommend using the three-character comparison operators defensively to prevent unexpected type conversions from tripping you up.",
         "books": [
           {
             "book": "JavaScript: The Good Parts by Douglas Crockford",
             "page": 275,
-            "excerpt": "They are rarely useful in browser applications. The similarity to the logical operators can mask some programming errors."
+            "excerpt": "The bitwise operators convert their operands from floating-point to integers and back, so they are not nearly as efficient as they are in C or other languages."
           }
         ]
       },
@@ -225,8 +268,25 @@
       "reference": {
         "section": "Control flow",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 56,
-        "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+        "page": 60,
+        "excerpt": "This form of control flow is called a loop. Looping control flow allows us to go back to some point in the program where we were before and repeat it with our current program state.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 74,
+            "excerpt": "The variable i is frequently used for integer values, and especially as the index variable of for loops."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "Unfortunately, it also loops through all of the members that were inherited through the prototype chain."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "And each j gets a copy of the value of i at that point in the loop iteration; that j never gets re-assigned."
+          }
+        ]
       },
       "level": 3,
       "code": "const rows = [{ amount: 10 }, { amount: 20 }];\nfor (const i in rows) {\n  console.log(i, rows[i]);\n}"
@@ -265,8 +325,25 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 57,
-        "excerpt": "Not all programs are straight roads."
+        "page": 63,
+        "excerpt": "At the end of the loop body, the counter is updated to track progress.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 74,
+            "excerpt": "Because var does not scope these variables to the loop body, each of these loops is (harmlessly) re-declaring and re-initializing the same variable. • One of the most unusual features of var declarations is known as hoisting."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the"
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 248,
+            "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
+          }
+        ]
       },
       "level": 2,
       "code": "checkoutState({ status: \"open\", amount: 0 });"
@@ -325,8 +402,25 @@
       "reference": {
         "section": "Control flow",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 56,
-        "excerpt": "When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
+        "page": 63,
+        "excerpt": "Then comes a while loop, usually with a test expression that checks whether the counter has reached its end value.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 74,
+            "excerpt": "Instead, they are scoped to the body of the containing function no matter how deeply nested they are inside that function. • If you use var outside of a function body, it declares a global variable."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "The body of every for in statement should be wrapped in an if statement that does filtering. if can select for a particular type or range of values, it can exclude functions, or it can exclude properties from the prototype."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "So all three functions now return their expected values: 0, 1, and 2!"
+          }
+        ]
       },
       "level": 2,
       "code": "for (const row of rows) {\n  console.log(row.id);\n}"
@@ -344,9 +438,9 @@
       "explanation": "The ternary uses truthiness. 0 picks the else branch.",
       "reference": {
         "section": "Truthiness",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 123,
-        "excerpt": "If the value of the expression is falsy, then the interpreter skips over the statement that serves as the loop body and moves on to the next statement in the program."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 207,
+        "excerpt": "In this case, our test for the truthiness of count[word] was not specific enough."
       },
       "level": 2,
       "code": "const n = 0;\nconsole.log(n ? \"yes\" : \"no\");"
@@ -364,9 +458,9 @@
       "explanation": "Strict equality to an allow-list. Loose checks treat unexpected strings as open.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 57,
-        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "function isOpenStatus(status) {\n  return status === \"open\" || status === \"pending\";\n}"
@@ -401,7 +495,24 @@
         "section": "Coding tasks",
         "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
         "page": 248,
-        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 63,
+            "excerpt": "I like to use two spaces for every open block, but tastes differ - some people use four spaces, and some people use tab characters."
+          },
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 74,
+            "excerpt": "The global object can be referenced as globalThis. So if you write var x = 2; outside of a function, it is like you wrote globalThis.x = 2;."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the"
+          }
+        ]
       },
       "level": 3
     },
@@ -495,30 +606,20 @@
   ],
   "reading": [
     {
-      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 2 — Control flow and conditionals",
-      "page": 56,
-      "pageEnd": 58,
-      "sections": [
-        {
-          "heading": "Strict equality and coercion",
-          "page": 40
-        },
-        {
-          "heading": "Truthiness",
-          "page": 40
-        },
-        {
-          "heading": "Control flow",
-          "page": 56
-        }
-      ]
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 57
     },
     {
-      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-      "chapter": "Chapter 4 — Expressions and Operators",
-      "page": 79,
-      "pageEnd": 110
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 28
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 37
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 129
     }
   ],
   "sheet": "TYPE COERCION"

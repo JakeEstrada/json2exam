@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Architecture thinking",
+  "title": "System Design - Architecture thinking",
   "questions": [
     {
       "question": "FSA’s Second Law of Software Architecture is:",
@@ -34,7 +34,19 @@
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
         "page": 21,
-        "excerpt": "support, the logical components to implement its behavior, and finally the architecture decisions justifying it all."
+        "excerpt": "support, the logical components to implement its behavior, and finally the architecture decisions justifying it all.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 732,
+            "excerpt": "The advantage of such a serviceoriented architecture over a single monolithic application is primarily organizational scalability through loose coupling."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 5,
+            "excerpt": "The questions require the interviewees to design an architecture for a software system, which could be a news feed, Google search, chat system, etc."
+          }
+        ]
       }
     },
     {
@@ -96,11 +108,11 @@
       "type": "boolean",
       "level": 1,
       "answer": true,
-      "explanation": "All architectures are products of their context—keep that in mind as you read this book",
+      "explanation": "All architectures are products of their context - keep that in mind as you read this book",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
         "page": 20,
-        "excerpt": "All architectures are products of their context—keep that in mind as you read this book."
+        "excerpt": "All architectures are products of their context - keep that in mind as you read this book."
       }
     },
     {
@@ -120,6 +132,20 @@
         "page": 32,
         "excerpt": "Ensuring compliance means continually verifying that the development teams are following the decisions and design principles defined, documented, and communicated by the architect."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 20
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 732
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 5
     }
   ]
 }

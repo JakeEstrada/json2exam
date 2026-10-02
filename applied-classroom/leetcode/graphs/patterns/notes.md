@@ -1,4 +1,4 @@
-# Graphs — pattern recognition
+# Graphs - pattern recognition
 
 LeetCode · Graphs
 

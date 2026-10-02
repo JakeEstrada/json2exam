@@ -25,7 +25,7 @@ h1, h2, h3 {
 
 ## The cascade
 
-When declarations conflict, the browser walks origin, then specificity, then source order. A declaration that wins is the **cascaded value** — at most one per property per element. Later styles override earlier styles when specificity matches. `!important` is a last resort, not a layout tool.
+When declarations conflict, the browser walks origin, then specificity, then source order. A declaration that wins is the **cascaded value** - at most one per property per element. Later styles override earlier styles when specificity matches. `!important` is a last resort, not a layout tool.
 
 IDs beat classes beat tags. `#page-title` beats `.title`. Two classes beat one class plus some tags.
 
@@ -37,8 +37,8 @@ IDs beat classes beat tags. `#page-title` beats `.title`. Two classes beat one c
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 10 *Introducing CSS* (PDF p. 233), rules (p. 238–239).
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 1 (PDF p. 31), origin (p. 36), specificity (p. 40), source order (p. 45).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 10 *Introducing CSS* (PDF p. 233), rules (p. 238-239).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 1 (PDF p. 31), origin (p. 36), specificity (p. 40), source order (p. 45).
 
 ## Coding tasks
 

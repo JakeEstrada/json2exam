@@ -1,6 +1,6 @@
 # Failure-handling strategy
 
-**Designing Data-Intensive Applications** reliability = correct behavior under faults. **System Design Interview – An Insider's Guide**: redundancy, retries via queues, rate limiter fault tolerance (fail open vs closed carefully).
+**Designing Data-Intensive Applications** reliability = correct behavior under faults. **System Design Interview - An Insider's Guide**: redundancy, retries via queues, rate limiter fault tolerance (fail open vs closed carefully).
 
 ## Patterns
 

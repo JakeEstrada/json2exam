@@ -37,7 +37,7 @@ For a long time authors used `<div id="header">` and friends. HTML5 adds element
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 8 *Extra Markup* (PDF p. 183), global attributes (p. 184), *Class Attribute* (p. 191). Chapter 17 *HTML5 Layout* (PDF p. 435), new layout elements (p. 436), traditional `div` layouts (p. 438).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 8 *Extra Markup* (PDF p. 183), global attributes (p. 184), *Class Attribute* (p. 191). Chapter 17 *HTML5 Layout* (PDF p. 435), new layout elements (p. 436), traditional `div` layouts (p. 438).
 
 ## Coding tasks
 

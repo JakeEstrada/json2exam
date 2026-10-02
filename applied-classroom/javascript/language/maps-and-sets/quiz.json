@@ -1,5 +1,5 @@
 {
-  "title": "JavaScript — Maps, Sets, and choosing a collection",
+  "title": "JavaScript - Maps, Sets, and choosing a collection",
   "questions": [
     {
       "question": "\"toString\" in { Boris: 39 } is true. Why is that dangerous for a dictionary?",
@@ -20,8 +20,18 @@
         "books": [
           {
             "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-            "page": 177,
-            "excerpt": "We then assigned values at indexes 1, 2, and 3. The length property of the array changed as we did, so: a.length // => 4 Remember that arrays are a specialized kind of object."
+            "page": 181,
+            "excerpt": "The built-in array iterator that the for/of loop uses returns the elements of an array in ascending order."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "Unfortunately, it also loops through all of the members that were inherited through the prototype chain."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
           }
         ]
       },
@@ -59,9 +69,9 @@
       "question": "Compare `m.has(\"toString\")` with `\"toString\" in {}`:",
       "type": "multiple",
       "options": [
-        "false and true — Map still has the prototype trap.",
-        "true and false — in never sees toString.",
-        "true and true — has sees a real entry; in sees inheritance.",
+        "false and true - Map still has the prototype trap.",
+        "true and false - in never sees toString.",
+        "true and true - has sees a real entry; in sees inheritance.",
         "both false."
       ],
       "answer": "c",
@@ -110,7 +120,24 @@
         "section": "Set",
         "book": "JavaScript: The Good Parts by Douglas Crockford",
         "page": 67,
-        "excerpt": "Functions are used to specify the behavior of objects. Generally, the craft of programming is the factoring of a set of requirements into a set of functions and data structures. 4.1."
+        "excerpt": "Functions are used to specify the behavior of objects. Generally, the craft of programming is the factoring of a set of requirements into a set of functions and data structures. 4.1.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 168,
+            "excerpt": "Both forms of the code are equivalent: both add a property named area to the object literal, and both set the value of that property to the specified function."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 14,
+            "excerpt": "I’m presenting a gentle but earnest challenge to you the reader, to set aside the assumptions you have about JS, and approach it with fresh eyes and an invigorated curiosity that leads you to ask why for every line of code you write."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 174,
+            "excerpt": "prototype, it looks like the property is there. For this reason, using plain objects as maps is dangerous."
+          }
+        ]
       },
       "level": 2,
       "code": "const seen = new Set();\nseen.add(3);\nseen.add(3);\nconsole.log(seen.size);"
@@ -129,8 +156,25 @@
       "reference": {
         "section": "Set",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 291,
-        "excerpt": "If you want to iterate just the keys or just the associated values of a map, use the keys() and values() methods: these return iterable objects that iterate keys and val‐ ues, in insertion order."
+        "page": 168,
+        "excerpt": "When a program sets the value of an accessor property, JavaScript invokes the setter method, passing the value of the righthand side of the assignment.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 67,
+            "excerpt": "1 Chapter 4. Functions Why, every fault's condemn'd ere it be done: Mine were the very cipher of a function. . . â William Shakespeare, Measure for Measure The best thing about JavaScript is its implementation of functions."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 174,
+            "excerpt": "For this reason, using plain objects as maps is dangerous. There are several possible ways to avoid this problem."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 227,
+            "excerpt": "I just don’t think we should set those traps. The only time I ever use const is when I’m assigning an already-immutable value (like 42 or \"Hello, friends!\"), and when it’s clearly a “constant” in the sense of being a named placeholder for a literal value, for semantic purposes."
+          }
+        ]
       },
       "level": 2,
       "code": "unique([3, 1, 3, 2]);"
@@ -156,7 +200,7 @@
       "code": "const m = new Map();\nm[\"toString\"] = 1;\nconsole.log(m.get(\"toString\"));"
     },
     {
-      "question": "array.map and Map — what is the mix-up?",
+      "question": "array.map and Map - what is the mix-up?",
       "type": "multiple",
       "options": [
         "They are the same type; new Map is an array method.",
@@ -169,8 +213,20 @@
       "reference": {
         "section": "Map",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 680,
-        "excerpt": "Arrays have a perfectly good length property for that. But size() might be useful if it could take any kind of collection object (an array or a Set or a Map) and return the number of elements in the collection."
+        "page": 177,
+        "excerpt": "If you pass a function as the second argument, then as the new array is being built, each element from the source object will be passed to the function you specify, and the return value of the function will be stored in the array instead of the original value.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 173,
+            "excerpt": "[object Array] Maps We saw the word map used in the previous chapter for an operation that transforms a data structure by applying a function to its elements."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 210,
+            "excerpt": "tion(){ setTimeout(function(){ [\"a\",42].map(function(v){ console.log(v.toUpperCase()); }); },100); }); // Uncaught TypeError: Cannot read property // 'toUpperCase' of null // at myProgram.js:4 // at Array.map (<anonymous>) // at myProgram.j"
+          }
+        ]
       },
       "level": 2,
       "code": "const nums = [1, 2, 3].map(n => n * 2);\nconst ages = new Map();"
@@ -189,8 +245,20 @@
       "reference": {
         "section": "Map",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 173,
-        "excerpt": "An array is an ordered collection of values. Each value is called an element, and each element has a numeric position in the array, known as its index."
+        "page": 177,
+        "excerpt": "A reference to the array should appear to the left of the brackets.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 173,
+            "excerpt": "A map (noun) is a data structure that associates values (the keys) with other values."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 175,
+            "excerpt": "As a matter of fact, we also technically don’t need the function getGrade() anymore after the .map(getGrade) call completes."
+          }
+        ]
       },
       "level": 2,
       "code": "const obj = { 1: \"a\" };\nconst m = new Map();\nm.set(1, \"a\");\nm.set({ id: 1 }, \"b\");"
@@ -237,7 +305,7 @@
         "section": "From C++",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 147,
-        "excerpt": "This string-to-value mapping goes by various names—you are probably already familiar with the funda‐ mental data structure under the name “hash,” “hashtable,” “dictionary,” or “associative array.” An object is more than a simple string-to-value map, however."
+        "excerpt": "This string-to-value mapping goes by various names - you are probably already familiar with the funda‐ mental data structure under the name “hash,” “hashtable,” “dictionary,” or “associative array.” An object is more than a simple string-to-value map, however."
       },
       "level": 2,
       "code": "const ages = new Map();\nages.set(\"Boris\", 39);"
@@ -277,12 +345,22 @@
         "section": "Why not a plain object as a dictionary",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 174,
-        "excerpt": "If you need a map whose keys can’t easily be converted to strings—such as objects—you cannot use an object as your map.",
+        "excerpt": "First, you can create objects with no prototype. If you pass null to Object.create, the resulting object will not derive from Object.prototype and can be safely used as a map. console.log(\"toString\" in Object.create(null)); // → false Object property names must be strings.",
         "books": [
           {
             "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-            "page": 177,
-            "excerpt": "The square brackets used to access array elements work just like the square brackets used to access object proper‐ ties."
+            "page": 181,
+            "excerpt": "This is not a new form of the for loop, but an array method that offers a functional approach to array iteration."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "And each j gets a copy of the value of i at that point in the loop iteration; that j never gets re-assigned."
           }
         ]
       },
@@ -304,7 +382,24 @@
         "section": "Set",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 173,
-        "excerpt": "JavaScript arrays are dynamic: they grow or shrink as needed, and there is no need to declare a fixed size for the array when you create it or to reallocate it when the size changes."
+        "excerpt": "An array is an ordered collection of values. Each value is called an element, and each element has a numeric position in the array, known as its index.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 67,
+            "excerpt": "A function encloses a set of statements. Functions are the fundamental modular unit of JavaScript."
+          },
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 174,
+            "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 127,
+            "excerpt": "Moreover, in this case, the first set of surrounding ( .. ) around the function expression is not strictly necessary (more on that in a moment), but we used them for readability sake anyway."
+          }
+        ]
       },
       "level": 2,
       "code": "const seen = new Set();\nseen.add(3);\nseen.add(3);"
@@ -327,8 +422,25 @@
       "reference": {
         "section": "Map",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 173,
-        "excerpt": "let ages = new Map();"
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 181,
+            "excerpt": "That section also covers related methods such as map() and filter() that perform specialized kinds of array iteration."
+          },
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 161,
+            "excerpt": "Recall the “Loops” section in Chapter 5, which illustrates how a let declaration in a for loop actually creates not just one variable for the loop, but actually creates a new variable for each iteration of the loop."
+          },
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 255,
+            "excerpt": "1 C.10. for in Statement The for in statement allows for looping through the names of all of the properties of an object. Unfortunately, it also loops through all of the members that were inherited through the prototype chain. This has the"
+          }
+        ]
       },
       "level": 2,
       "code": "const groups = new Map();\nconst list = groups.get(id) || [];\nlist.push(appt);\ngroups.set(id, list);"
@@ -363,9 +475,9 @@
       "explanation": "Set drops duplicates and keeps insertion order.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 173,
-        "excerpt": "Fortunately, JavaScript comes with a class called Map that is written for this exact purpose."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     },
@@ -437,19 +549,19 @@
   "reading": [
     {
       "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-      "chapter": "Chapter 6 — Maps",
-      "page": 173,
-      "pageEnd": 185,
-      "sections": [
-        {
-          "heading": "Map",
-          "page": 173
-        },
-        {
-          "heading": "Choosing a collection",
-          "page": 173
-        }
-      ]
+      "page": 173
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 147
+    },
+    {
+      "book": "JavaScript: The Good Parts by Douglas Crockford",
+      "page": 67
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 14
     }
   ],
   "sheet": "MAP"

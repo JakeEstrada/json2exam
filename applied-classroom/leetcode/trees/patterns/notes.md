@@ -1,4 +1,4 @@
-# Trees — pattern recognition
+# Trees - pattern recognition
 
 LeetCode · Trees
 

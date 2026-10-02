@@ -1,5 +1,5 @@
 {
-  "title": "LeetCode — Strings and hash pattern recognition",
+  "title": "LeetCode - Strings and hash pattern recognition",
   "deal": "random",
   "questions": [
     {
@@ -12,7 +12,7 @@
         "Stack of characters; ignore frequencies."
       ],
       "answer": "a",
-      "explanation": "Anagrams share the same character multiset — count and compare.",
+      "explanation": "Anagrams share the same character multiset - count and compare.",
       "reference": {
         "url": "https://leetcode.com/problems/valid-anagram"
       },
@@ -221,7 +221,7 @@
         "Sliding window of fixed 4 characters."
       ],
       "answer": "a",
-      "explanation": "Need an unambiguous framing — length prefixes are the usual design.",
+      "explanation": "Need an unambiguous framing - length prefixes are the usual design.",
       "reference": {
         "url": "https://leetcode.com/problems/encode-and-decode-strings"
       },

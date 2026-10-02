@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Box model",
+  "title": "CSS - Box model",
   "questions": [
     {
       "question": "Every box has which three adjustable rings around the content?",
@@ -137,7 +137,19 @@
         "section": "Width and box-sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 87,
-        "excerpt": "That way, the height and width properties set the combined size of the content, padding, and border, which is exactly what you want in this example."
+        "excerpt": "By default, box-sizing is set to the value of content-box. This means that any height or width you specify only sets the size of the content box.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 311,
+            "excerpt": "In such designs, the min-width property specifies the smallest size a box can be displayed at when the browser window is narrow, and the max-width property indicates the maximum width a box can stretch to when the browser window is wide."
+          }
+        ]
       },
       "code": ".main {\n  box-sizing: border-box;\n}"
     },
@@ -157,7 +169,19 @@
         "section": "Width and box-sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 87,
-        "excerpt": "On my screen, a width of 26% for the sidebar works, but this is unreliable."
+        "excerpt": "On my screen, a width of 26% for the sidebar works, but this is unreliable.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 311,
+            "excerpt": "In such designs, the min-width property specifies the smallest size a box can be displayed at when the browser window is narrow, and the max-width property indicates the maximum width a box can stretch to when the browser window is wide."
+          }
+        ]
       },
       "code": ".sidebar {\n  width: 26%;\n}"
     },
@@ -216,8 +240,15 @@
       "reference": {
         "section": "Boxes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 331,
-        "excerpt": "They actually end up the same width as each other because the <ul> element also uses padding to create a gap between the border of the box it creates and the links inside of it, and any padding, borders, or margins are added to the width and height of the box."
+        "page": 314,
+        "excerpt": "You can set the width of a margin to create a gap between the borders of two adjacent boxes.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 296,
+            "excerpt": "trusting users. Note that the draggable boxes of applications like make8bitart.com are not dialogs in terms of purpose, and would not, therefore, take"
+          }
+        ]
       },
       "code": ".main { margin-right: 1em; }"
     },
@@ -227,7 +258,7 @@
       "level": 2,
       "options": [
         "Canvas drawing.",
-        "Document flow and the box model — the basic rules for position and size.",
+        "Document flow and the box model - the basic rules for position and size.",
         "JavaScript offsets only.",
         "HTML tables only."
       ],
@@ -235,9 +266,9 @@
       "explanation": "Advanced layout sits on document flow and the box model; these are the basic rules that determine position and size.",
       "reference": {
         "section": "Boxes",
-        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 83,
-        "excerpt": "The more advanced topics of layout are built atop concepts like document flow and the box model; these are the basic rules that determine the position and size of elements on the page."
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 308,
+        "excerpt": "You can set several properties that affect the appearance of these boxes."
       },
       "code": "header { height: 4em; }"
     },
@@ -262,7 +293,7 @@
       "code": ".sidebar {\n  width: calc(30% - 1.5em);\n  margin-left: 1.5em;\n}"
     },
     {
-      "question": "padding: 10px 15px 0 — what is the right side?",
+      "question": "padding: 10px 15px 0 - what is the right side?",
       "type": "multiple",
       "level": 3,
       "options": [
@@ -275,9 +306,9 @@
       "explanation": "Shorthand is top, right, bottom, left. Three values: top, horizontal, bottom. Right is 15px.",
       "reference": {
         "section": "Boxes",
-        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 87,
-        "excerpt": "CSS allows you to adjust the box model behavior with its boxsizing property."
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 320,
+        "excerpt": "If a percentage is used, the padding is a percentage of the browser window (or of the containing box if it is inside another box)."
       },
       "code": "p {\n  padding: 10px 15px 0;\n}"
     },
@@ -428,31 +459,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 13 — Boxes",
-      "page": 307,
-      "pageEnd": 329,
-      "sections": [
-        {
-          "heading": "Boxes",
-          "page": 314
-        },
-        {
-          "heading": "Width and box-sizing",
-          "page": 320
-        }
-      ]
+      "page": 308
     },
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 3 — Mastering the box model",
-      "page": 83,
-      "pageEnd": 114,
-      "sections": [
-        {
-          "heading": "Width and box-sizing",
-          "page": 87
-        }
-      ]
+      "page": 87
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
     }
   ]
 }

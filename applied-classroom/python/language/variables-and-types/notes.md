@@ -13,7 +13,7 @@ Read this page first. The quiz starts with names and values, then truthiness, th
 
 Read these in the local `python/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Python Crash Course, 3rd Edition by Eric Matthes — Chapter 2 *Variables and Simple Data Types* (PDF p. 53), *Variables* (p. 54), numbers (p. 64). Boolean values also appear in Chapter 5 (PDF p. 115).
+- Python Crash Course, 3rd Edition by Eric Matthes - Chapter 2 *Variables and Simple Data Types* (PDF p. 53), *Variables* (p. 54), numbers (p. 64). Boolean values also appear in Chapter 5 (PDF p. 115).
 
 
 ## Values and names
@@ -44,7 +44,7 @@ bool(0)      # False
 bool("")     # False
 bool([])     # False
 bool(None)   # False
-bool("0")    # True — non-empty string
+bool("0")    # True - non-empty string
 ```
 
 Non-empty containers and non-zero numbers are truthy.

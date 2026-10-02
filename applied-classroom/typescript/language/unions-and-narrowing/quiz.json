@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Unions and narrowing",
+  "title": "TypeScript - Unions and narrowing",
   "questions": [
     {
       "question": "What does Status describe?",
@@ -61,8 +61,8 @@
         "books": [
           {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 133,
-            "excerpt": "By writing infer R, we instruct TypeScript to check the provided concrete return type (for example, string for the getA() method) and replace infer R with this concrete type."
+            "page": 41,
+            "excerpt": "In the if statement in listing 2.6, we used the typeof type guard to narrow the type of a variable that can store more than one TypeScript type."
           }
         ]
       },
@@ -82,9 +82,16 @@
       "explanation": "Array.isArray is a built-in type guard. typeof \"object\" would also match null.",
       "reference": {
         "section": "Narrowing",
-        "book": "Programming TypeScript by Boris Cherny",
-        "page": 40,
-        "excerpt": "Like boolean and number, there are four ways to declare string types, and you should let TypeScript infer the type for you whenever you can. symbol symbol is a relatively new language feature that arrived with one of the latest major JavaScript revisions (ES2015)."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 41,
+        "excerpt": "Similarly, the instanceof type guard is used with custom types (with constructors), as will be explained in section 2.2.",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 54,
+            "excerpt": "Seeing what TypeScript thinks a variable’s type is at any given point is essential for building an intuition around widening (Item 20) and narrowing (Item 22)."
+          }
+        ]
       },
       "code": "function contains(text: string, terms: string | string[]) {\n  const list = Array.isArray(terms) ? terms : [terms];\n  return list.includes(text);\n}"
     },
@@ -103,8 +110,15 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 135,
+        "excerpt": "(parameter) e: UploadEvent break; } } This is known as a “tagged union” or “discriminated union,” and it is ubiquitous in TypeScript.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 53,
+            "excerpt": "36 CHAPTER 2 Basic and custom types The union shown in listing 2.22 is an example of a discriminated union because each member has an actionType discriminant."
+          }
+        ]
       },
       "code": "type Shape =\n  | { kind: \"circle\"; radius: number }\n  | { kind: \"square\"; side: number };"
     },
@@ -124,7 +138,14 @@
         "section": "Narrowing",
         "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
         "page": 53,
-        "excerpt": "Let’s create another discriminated union of two types, Rectangle and Circle."
+        "excerpt": "Let’s create another discriminated union of two types, Rectangle and Circle.",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 133,
+            "excerpt": "If elem is null, then the code in the first branch won’t execute."
+          }
+        ]
       },
       "code": "function area(shape: Shape) {\n  if (shape.kind === \"circle\") {\n    return Math.PI * shape.radius ** 2;\n  }\n}"
     },
@@ -142,9 +163,9 @@
       "explanation": "An intersection of conflicting primitives is empty: never.",
       "reference": {
         "section": "Intersections",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 64,
-        "excerpt": "Their intersection is non-empty (it’s string), but neither is a subtype of the other."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 49,
+        "excerpt": "For example, you can’t use types declared as interfaces in unions or intersections."
       },
       "code": "type Impossible = string & number;"
     },
@@ -162,9 +183,16 @@
       "explanation": "Object intersections merge properties. You get both sides.",
       "reference": {
         "section": "Intersections",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 82,
-        "excerpt": "TypeScript types are not “closed” (Item 4). • Be aware of the limits of excess property checking: introducing an intermediate variable will remove these checks. • A “weak type” is an object type with only optional properties."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 49,
+        "excerpt": "For example, you can’t use types declared as interfaces in unions or intersections.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 52,
+            "excerpt": "Union (|) and intersection (&) TypeScript gives us special type operators to describe unions and intersections of types: | for union and & for intersection."
+          }
+        ]
       },
       "code": "type User = { name: string };\ntype Timestamped = { createdAt: Date };\ntype StampedUser = User & Timestamped;"
     },
@@ -183,8 +211,20 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 65,
-        "excerpt": "And indeed this is true (with one caveat, explained below). Unless two types are semantically different and just happen to have the same domain, there’s no reason to define the same type twice."
+        "page": 56,
+        "excerpt": "The second error is because document.getElementById can return null, so you need to handle that case as well, perhaps by throwing an exception: function getElement(elOrId: string|HTMLElement|null): HTMLElement { if (elOrId === null) { return document.body; } else if (typeof elOrId === 'object') {…",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "The rendered block is shown in figure 12.4. You can read about the date pipe in the Angular documentation at The BlockComponent TypeScript class is shown in the next listing."
+          }
+        ]
       },
       "code": "type Payment =\n  | { status: \"paid\"; paidAt: Date }\n  | { status: \"pending\"; reason: string };"
     },
@@ -203,8 +243,15 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 54,
-        "excerpt": "The type of message is string | null outside the branch, but string inside."
+        "page": 133,
+        "excerpt": "So TypeScript is able to exclude null from the union type within this block, resulting in a narrower type which is much easier to work with.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 35,
+            "excerpt": "The value of null represents an intentional absence of value, as in let someVar = null;."
+          }
+        ]
       },
       "code": "function label(x: string | null) {\n  if (x === null) return \"none\";\n  return x.toUpperCase();\n}"
     },
@@ -223,13 +270,13 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 136,
-        "excerpt": "So why did it revert back to the union type, which produced a type error?",
+        "page": 137,
+        "excerpt": "Things to Remember • Understand how TypeScript narrows types based on conditionals and other types of control flow. • Use tagged/discriminated unions and user-defined type guards to help the pro‐ cess of narrowing. • Think about whether code can be refactored to let TypeScript follow along more e…",
         "books": [
           {
-            "book": "Programming TypeScript by Boris Cherny",
-            "page": 177,
-            "excerpt": "The way to do this is to use a literal type to tag each case of your union type."
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 53,
+            "excerpt": "Depending on the value in the kind property, we can calculate the area of the Shape differently."
           }
         ]
       },
@@ -277,8 +324,20 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 64,
-        "excerpt": "(The reverse assignment does work.) Is a triple assignable to a pair?"
+        "page": 56,
+        "excerpt": "(parameter) elOrId: string if (!el) { throw new Error(`No such element ${elOrId}`); } return el; // ^? const el: HTMLElement } The TypeScript language service also provides refactoring tools.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
+          }
+        ]
       },
       "code": "type Status = \"idle\" | \"loading\";\nconst s: Status = \"error\";"
     },
@@ -317,8 +376,15 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 73,
-        "excerpt": "So when should you use a type assertion? Type assertions make the most sense when you truly do know more about a type than TypeScript does, typically from context that isn’t available to the type checker."
+        "page": 132,
+        "excerpt": "Item 22: Understand Type Narrowing Narrowing, or “refinement,” is the process by which TypeScript goes from a broad type to a more specific one.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 35,
+            "excerpt": "Being a superset of JavaScript, TypeScript also has two special values: null and undefined."
+          }
+        ]
       },
       "code": "const elem = document.getElementById(\"app\");\nif (elem) {\n  elem.innerHTML = \"\";\n}"
     },
@@ -409,8 +475,20 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 56,
+        "excerpt": "(parameter) elOrId: string return document.getElementById(elOrId); // ~~~ Type 'HTMLElement | null' is not assignable to type 'HTMLElement' } The intent in the first branch of the if statement was to filter down to just the objects, namely, the HTMLElements.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "Not every JavaScript environment supports every JavaScript feature out of the box, but you should still try to write code in the latest language version."
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 441,
+            "excerpt": "The variable i is still available outside the loop, even though it seems like it was meant to be used only inside the loop."
+          }
+        ]
       },
       "level": 3
     },
@@ -452,19 +530,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Item 7 — Types as sets; Item 22 — Type narrowing",
-      "page": 59,
-      "pageEnd": 134,
-      "sections": [
-        {
-          "heading": "Item 7 — Types as sets of values",
-          "page": 59
-        },
-        {
-          "heading": "Item 22 — Understand type narrowing",
-          "page": 133
-        }
-      ]
+      "page": 54
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 35
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 52
     }
   ]
 }

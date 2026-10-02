@@ -303,9 +303,10 @@ export function leaksAnswer(code, options, answers) {
       );
       if (annotated.test(String(code))) return true;
     } catch (_) { /* ignore bad option text */ }
-    if (needle.length >= 3 && hay.includes(needle)) {
-      const also = otherShapes.filter((s) => s.length >= 3 && hay.includes(s)).length;
-      return also < otherShapes.length;
+    if (needle.length >= 1 && hay.includes(needle)) {
+      const othersShare = otherShapes.filter((s) => s && hay.includes(s)).length;
+      if (othersShare === 0) return true;
+      if (needle.length >= 3 && othersShare < otherShapes.length) return true;
     }
     if (raw.split(/\s+/).length > 6) return false;
     const tokens = raw.split(/[^A-Za-z0-9_]+/).filter((t) => t.length >= 3);

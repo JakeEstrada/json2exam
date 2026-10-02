@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 7: The PCB Design Stackup",
+  "title": "Electronics - Chapter 7: The PCB Design Stackup",
   "questions": [
     {
       "question": "In Chapter 7, “stack-up” refers to:",
@@ -63,7 +63,7 @@
       }
     },
     {
-      "question": "High-Speed guide — a typical tolerance on final impedance is about:",
+      "question": "High-Speed guide - a typical tolerance on final impedance is about:",
       "type": "multiple",
       "level": 1,
       "options": [

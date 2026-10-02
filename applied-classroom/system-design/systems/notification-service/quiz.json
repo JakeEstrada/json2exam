@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Notification service",
+  "title": "System Design - Notification service",
   "questions": [
     {
       "question": "Xu’s notification formats in scope are:",
@@ -14,9 +14,16 @@
       "answer": "b",
       "explanation": "mobile push notification, SMS message, and Email",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 187,
-        "excerpt": "A notification is more than just mobile push notification. Three types of notification formats are: mobile push notification, SMS message, and Email."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 189,
+        "excerpt": "Step 2 - Propose high-level design and get buy-in This section shows the high-level design that supports various notification types: iOS push notification, Android push notification, SMS message, and Email.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "This is nice if the Notification service and the Analytics service need different information, since you can send different messages to each queue."
+          }
+        ]
       }
     },
     {
@@ -32,9 +39,16 @@
       "answer": "b",
       "explanation": "Apple Push Notification Service (APNS)",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 189,
-        "excerpt": "Here is an example: • APNS: This is a remote service provided by Apple to propagate push notifications to iOS devices. • iOS Device: It is the end client, which receives push notifications."
+        "excerpt": "Here is an example: • APNS: This is a remote service provided by Apple to propagate push notifications to iOS devices. • iOS Device: It is the end client, which receives push notifications.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "The Trading service is aware of every system to which it communicates, which makes it harder for another (potentially rogue) service to “listen in.” That’s especially beneficial if security is high on the priority list."
+          }
+        ]
       }
     },
     {
@@ -50,9 +64,16 @@
       "answer": "b",
       "explanation": "Firebase Cloud Messaging (FCM) is commonly used",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 190,
-        "excerpt": "Instead of using APNs, Firebase Cloud Messaging (FCM) is commonly used to send push notifications to android devices."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 209,
+        "excerpt": "Notification service: inform friends that new content is available and send out push notifications.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "The Trading service is tightly coupled to its consumers - ​it knows exactly how many there are."
+          }
+        ]
       }
     },
     {
@@ -68,9 +89,16 @@
       "answer": "a",
       "explanation": "A user can have multiple devices",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 191,
-        "excerpt": "Contact info gathering flow To send notifications, we need to gather mobile device tokens, phone numbers, or email addresses."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 189,
+        "excerpt": "To construct a push notification, the provider provides the following data: • Device token: This is a unique identifier used for sending push notifications. • Payload: This is a JSON dictionary that contains a notification’s payload.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "Because each queue is independent, you can monitor them separately and even scale them independently if needed."
+          }
+        ]
       }
     },
     {
@@ -80,9 +108,16 @@
       "answer": true,
       "explanation": "users who choose to opt-out will no longer receive notifications",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 193,
-        "excerpt": "Notification system: The notification system is the centerpiece of sending/receiving notifications."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 209,
+        "excerpt": "The request looks like this: / v1/me/feed. • Load balancer: load balancer redirects traffic to web servers. • Web servers: web servers route requests to newsfeed service. • Newsfeed service: news feed service fetches news feed from the cache. • Newsfeed cache: store news feed IDs needed to render…",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "With queues, every service that the Trading service needs to notify will need a separate queue."
+          }
+        ]
       }
     },
     {
@@ -98,17 +133,27 @@
       "answer": "b",
       "explanation": "soft real-time… slight delay is acceptable",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 188,
-        "excerpt": "However, if the system is under a high workload, a slight delay is acceptable.",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 209,
+        "excerpt": "The request looks like this: / v1/me/feed. • Load balancer: load balancer redirects traffic to web servers. • Web servers: web servers route requests to newsfeed service. • Newsfeed service: news feed service fetches news feed from the cache. • Newsfeed cache: store news feed IDs needed to render…",
         "books": [
           {
             "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-            "page": 145,
-            "excerpt": "If those calls fail, it impacts the reliability of the calling system."
+            "page": 871,
+            "excerpt": "However, if you need to send messages to the Compliance service, you’ll have to rework the Trading service to start sending messages to a third queue."
           }
         ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 189
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 871
     }
   ]
 }

@@ -11,7 +11,15 @@ Read this page, then start the quiz. The first cards are these shapes. Traps com
 
 ## Assigned reading
 
-Eloquent JavaScript, 4th Edition — *while and do loops* (PDF p. 59), *for loops* (PDF p. 63), *Breaking Out of a Loop* (PDF p. 65). Same topic in the cheat sheet: **CONTROL FLOW**.
+Read these in the local `javascript/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
+
+- Eloquent JavaScript, 4th Edition - *while and do loops* (PDF p. 59), *for loops* (PDF p. 63), *Breaking Out of a Loop* (PDF p. 65).
+- JavaScript: The Definitive Guide, 7th Edition - looping statements and `for...of`.
+- JavaScript: The Good Parts - `for`, `while`, and `break`.
+- You Don't Know JS Yet: Scope & Closures - block scope created by loop braces.
+- Responsible JavaScript - when a busy loop on the main thread becomes a performance problem.
+
+Same topic in the cheat sheet: **CONTROL FLOW**.
 
 JavaScript loops look like C / C#, not Python. `{ }` is the block. There is no preprocessor and no `for i in range`.
 
@@ -100,7 +108,7 @@ for (let i = 0; i < 3; i++) out.push(i);
 
 ## Coding tasks
 
-`sumTo`, `firstEven`, `countPaid` — after the basic cards.
+`sumTo`, `firstEven`, `countPaid` - after the basic cards.
 
 ## Hints
 

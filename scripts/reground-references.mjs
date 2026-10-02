@@ -27,8 +27,8 @@ const ONLY = (() => {
 const PRIMARY_FLOOR = 0.7;
 const KEY_COVERAGE_FLOOR = 0.4;
 const STRONG_SCORE = 1.6;          // phrase/heading hits strong enough to trust alone
-const SECOND_BOOK_RATIO = 0.8;
-const SECOND_BOOK_FLOOR = 1.0;
+const SECOND_BOOK_RATIO = 0.35;
+const SECOND_BOOK_FLOOR = 0.35;
 
 // Words that describe the quiz, not the subject matter: they must not count
 // toward "does this page actually cover the question's topic".
@@ -205,10 +205,11 @@ for (const file of files) {
     }
 
     const citations = [primary];
-    const second = ranked.find((r) => r.book.path !== primary.book.path
-      && r.score >= primary.score * SECOND_BOOK_RATIO
-      && r.score >= SECOND_BOOK_FLOOR);
-    if (second) citations.push(second);
+    ranked.forEach((r) => {
+      if (r.book.path === primary.book.path) return;
+      if (r.score < SECOND_BOOK_FLOOR && r.score < primary.score * SECOND_BOOK_RATIO) return;
+      citations.push(r);
+    });
 
     const built = citations.map((entry) => {
       const pageText = entry.book.pages[entry.page - 1] || '';

@@ -46,6 +46,9 @@ test('detectLanguage tells HTML, CSS, and JavaScript apart', () => {
   assert.equal(detectLanguage('p {\n  color: navy;\n}'), 'css');
   assert.equal(detectLanguage('function add(a, b) { return a + b; }'), 'javascript');
   assert.equal(detectLanguage('def two_sum(nums, target):\n    return []'), 'python');
+  assert.equal(detectLanguage('while i < n:\n    i += 1'), 'python');
+  assert.equal(detectLanguage('i = 0\nwhile i < n\n    i += 1'), 'python');
+  assert.equal(detectLanguage('for item in rows:\n    print(item)'), 'python');
 });
 
 test('highlightPython marks keywords and strings', async () => {

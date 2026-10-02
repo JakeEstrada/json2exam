@@ -12,7 +12,7 @@ Ordered, mutable sequences.
 
 Read these in the local `python/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Python Crash Course, 3rd Edition by Eric Matthes — Chapter 3 *Introducing Lists* (PDF p. 71), indexing (p. 73); Chapter 4 slices (p. 99) and copying (p. 101).
+- Python Crash Course, 3rd Edition by Eric Matthes - Chapter 3 *Introducing Lists* (PDF p. 71), indexing (p. 73); Chapter 4 slices (p. 99) and copying (p. 101).
 
 
 ## Create and index

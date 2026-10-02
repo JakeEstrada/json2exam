@@ -2,7 +2,7 @@
 
 **Live site:** [Json2Exam.com](https://Json2Exam.com)
 
-A personal CS study classroom that is becoming a **fullstack** product: courses, Leitner quizzes, lessons, in-browser code practice, PDF books, owner sign-in, and private progress — with a public recruiter view only when you choose to publish it.
+A personal CS study classroom that is becoming a **fullstack** product: courses, Leitner quizzes, lessons, in-browser code practice, PDF books, owner sign-in, and private progress - with a public recruiter view only when you choose to publish it.
 
 Anyone may study. AskGPT is open when `OPENAI_API_KEY` is set. Progress stays behind owner sign-in. Visitors do not see rings, completion greens, or how far you are.
 
@@ -16,7 +16,7 @@ Anyone may study. AskGPT is open when `OPENAI_API_KEY` is set. Progress stays be
 | **API** | `/api/login`, `/api/progress`, `/api/ask`, `/api/speak` | Same routes (or equivalents) with durable storage |
 | **Auth** | Single owner account (`OWNER_USERNAME` / `OWNER_PASSWORD`) | Keep owner-private by default |
 | **Progress** | Saved when signed in; file-backed on the server | Durable store so progress syncs across PCs |
-| **Recruiters** | No progress visible | Explicit publish/share later — not automatic |
+| **Recruiters** | No progress visible | Explicit publish/share later - not automatic |
 
 **Multi-device:** Browser `localStorage` alone is per machine. Cross-PC progress needs the progress API **plus** durable storage (for example Vercel Blob, KV, or a small database). Local `npm run dev` can write `data/jake-progress.json`; typical serverless deploys need something that survives across instances.
 
@@ -60,15 +60,15 @@ Home groups courses as Software engineering, Languages, Algorithms, Systems, Qua
 
 **Ready language ramps** (lesson, then quiz, colorful code on every multiple-choice card, three in-browser practice functions):
 
-- **TypeScript** — types, unions, functions, arrays/tuples, object types, interfaces, generics
-- **JavaScript** — variables, conditionals, loops, functions, arrays, objects, maps and sets
-- **Python** — variables, conditionals, loops, functions, lists, dicts and sets, comprehensions
-- **HTML** — document structure, text and lists, links and images, semantics, forms, tables, accessibility
-- **CSS** — selectors and cascade, box model, type and color, flexbox, grid, positioning, responsive
+- **TypeScript** - types, unions, functions, arrays/tuples, object types, interfaces, generics
+- **JavaScript** - variables, conditionals, loops, functions, arrays, objects, maps and sets
+- **Python** - variables, conditionals, loops, functions, lists, dicts and sets, comprehensions
+- **HTML** - document structure, text and lists, links and images, semantics, forms, tables, accessibility
+- **CSS** - selectors and cascade, box model, type and color, flexbox, grid, positioning, responsive
 
 Code cards run in the browser via a JavaScript `Function` runner. TypeScript types are erased. HTML, CSS, and Python practice cards are JS functions that **return markup, CSS, or Python source strings**.
 
-**LeetCode topic drills (ready):** arrays, strings/hash, linked lists, trees, graphs, dynamic programming — pattern recognition + Python sketches; reference opens leetcode.com.
+**LeetCode topic drills (ready):** arrays, strings/hash, linked lists, trees, graphs, dynamic programming - pattern recognition + Python sketches; reference opens leetcode.com.
 
 **Also in the catalog:** data structures, algorithms, **Electronics** (PCB chapters + SpaceX sourcing prep), **System Design** (Xu / DDIA / FSA foundations → choices → systems), database, API, testing, debugging, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
 
@@ -184,11 +184,11 @@ data/                     local progress file (dev); not a public recruiter feed
 
 ## Fullstack roadmap (this repo)
 
-1. **Keep studying** — content and Leitner UX stay the product core.
-2. **Durable private progress** — replace ephemeral file writes on deploy with Blob/KV/DB so login works the same on every PC.
-3. **Owner-only dashboard** — richer personal stats still hidden from guests.
-4. **Optional public profile** — when ready, flip a publish switch for recruiters; default remains private.
-5. **Hardening** — session secrets, rate limits, and clear env docs as the backend grows.
+1. **Keep studying** - content and Leitner UX stay the product core.
+2. **Durable private progress** - replace ephemeral file writes on deploy with Blob/KV/DB so login works the same on every PC.
+3. **Owner-only dashboard** - richer personal stats still hidden from guests.
+4. **Optional public profile** - when ready, flip a publish switch for recruiters; default remains private.
+5. **Hardening** - session secrets, rate limits, and clear env docs as the backend grows.
 
 ---
 

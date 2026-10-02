@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 4: Capturing the Schematic",
+  "title": "Electronics - Chapter 4: Capturing the Schematic",
   "questions": [
     {
       "question": "Chapter 4’s guidance on building the schematic library is to:",
@@ -16,7 +16,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 34,
-        "excerpt": "FFStart with a sound schematic library—create and modify new parts yourself using appropriate manufacturers’ data sheets."
+        "excerpt": "FFStart with a sound schematic library - create and modify new parts yourself using appropriate manufacturers’ data sheets."
       }
     },
     {
@@ -74,7 +74,7 @@
       }
     },
     {
-      "question": "High-Speed guide overlap — controlled impedance on the schematic:",
+      "question": "High-Speed guide overlap - controlled impedance on the schematic:",
       "type": "multiple",
       "level": 1,
       "options": [

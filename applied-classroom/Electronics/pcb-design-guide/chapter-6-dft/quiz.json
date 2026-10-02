@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 6: DFT for In-Circuit Test and JTAG",
+  "title": "Electronics - Chapter 6: DFT for In-Circuit Test and JTAG",
   "questions": [
     {
       "question": "When must in-circuit testing capability be designed into the PCB?",
@@ -16,7 +16,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 47,
-        "excerpt": "However, final testing—in-circuit testing capability—must be designed into the PCB at the layout stage."
+        "excerpt": "However, final testing - in-circuit testing capability - must be designed into the PCB at the layout stage."
       }
     },
     {
@@ -27,7 +27,7 @@
         "After every route is finished and copper is poured.",
         "At placement time, prior to routing.",
         "Only during ICT fixture debug on the production floor.",
-        "Never — ICT fixtures invent pads without copper."
+        "Never - ICT fixtures invent pads without copper."
       ],
       "answer": "b",
       "explanation": "at the time placement, prior to routing",
@@ -74,7 +74,7 @@
       }
     },
     {
-      "question": "Chapter 3/6 alignment — recognize the need for testability means:",
+      "question": "Chapter 3/6 alignment - recognize the need for testability means:",
       "type": "multiple",
       "level": 1,
       "options": [

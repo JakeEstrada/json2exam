@@ -171,7 +171,7 @@ export function courseDecks(course) {
 }
 
 export const COURSES = [
-  ...APPLIED_COURSES.filter((c) => c.id === 'electronics' || c.id === 'sd').map(hydrateApplied),
+  ...APPLIED_COURSES.filter((c) => c.id === 'sd').map(hydrateApplied),
   {
     id: '541',
     code: '541',
@@ -396,5 +396,5 @@ export const COURSES = [
       },
     ],
   },
-  ...APPLIED_COURSES.filter((c) => c.id !== 'electronics' && c.id !== 'sd').map(hydrateApplied),
+  ...APPLIED_COURSES.filter((c) => c.id !== 'sd').map(hydrateApplied),
 ];

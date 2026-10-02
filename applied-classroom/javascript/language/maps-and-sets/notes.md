@@ -10,8 +10,8 @@
 
 ## Assigned reading
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — Chapter 6 *Maps* (PDF p. 173).
-- JavaScript: The Definitive Guide, 7th Edition by David Flanagan — standard-library Map and Set after you finish Chapter 3 objects (cite pages only if you open them and verify).
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - Chapter 6 *Maps* (PDF p. 173).
+- JavaScript: The Definitive Guide, 7th Edition by David Flanagan - standard-library Map and Set after you finish Chapter 3 objects (cite pages only if you open them and verify).
 
 ## Why not a plain object as a dictionary
 
@@ -77,7 +77,7 @@ Unique patient ids: `new Set(rows.map((r) => r.patientId))`.
 | Record with fixed field names (`id`, `status`) | Object |
 | Dynamic keys, unknown names, non-string keys, frequent add/delete | Map |
 | Uniqueness / “have I seen this” | Set |
-| Transform a list | `array.map` — not `Map` |
+| Transform a list | `array.map` - not `Map` |
 
 ## From C++
 
@@ -125,13 +125,13 @@ function tally(rows) {
 tally([{ kind: "toString" }]);
 ```
 
-If `out[k]` hits a function on the prototype, `if (!out[k])` is false for `toString` because the method is truthy — you skip initializing and then `out[k] += 1` concatenates or fails. Use `Map` or `Object.create(null)` or `Object.hasOwn`.
+If `out[k]` hits a function on the prototype, `if (!out[k])` is false for `toString` because the method is truthy - you skip initializing and then `out[k] += 1` concatenates or fails. Use `Map` or `Object.create(null)` or `Object.hasOwn`.
 
 ## Coding tasks
 
-1. **Basic.** `unique(ids)` — array of unique values preserving first-seen order (`Set`).
-2. **Applied.** `groupAppointments(appts)` — `Map` from `providerId` to array of appointments.
-3. **Applied.** `chooseCollection(need)` — return `"array"`, `"object"`, `"map"`, or `"set"` for a short need string: `"list"`, `"record"`, `"dict"`, `"unique"`.
+1. **Basic.** `unique(ids)` - array of unique values preserving first-seen order (`Set`).
+2. **Applied.** `groupAppointments(appts)` - `Map` from `providerId` to array of appointments.
+3. **Applied.** `chooseCollection(need)` - return `"array"`, `"object"`, `"map"`, or `"set"` for a short need string: `"list"`, `"record"`, `"dict"`, `"unique"`.
 
 ## Hints
 
@@ -141,7 +141,7 @@ If `out[k]` hits a function on the prototype, `if (!out[k])` is false for `toStr
 
 ## Worked solutions
 
-Predict: `true true` — `in {}` sees inherited `toString`. `m.has("toString")` is a real entry.
+Predict: `true true` - `in {}` sees inherited `toString`. `m.has("toString")` is a real entry.
 
 ```js
 function unique(ids) {

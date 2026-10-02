@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Positioning",
+  "title": "CSS - Positioning",
   "questions": [
     {
       "question": "The initial value of position is?",
@@ -77,7 +77,14 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 205,
-        "excerpt": "As we look at the various types of positioning, I’ll make sure you understand precisely what they do."
+        "excerpt": "As we look at the various types of positioning, I’ll make sure you understand precisely what they do.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 244,
+            "excerpt": "On the other hand, if the user is focused on the text input for a thread and a new message pops in, they’re probably going to want to know about it."
+          }
+        ]
       },
       "code": ".note { position: relative; }"
     },
@@ -95,9 +102,16 @@
       "explanation": "Explore different ways to position elements using normal flow, relative positioning, absolute positioning and floats.",
       "reference": {
         "section": "Types",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 366,
-        "excerpt": "This involves learning about how designing for a screen can be different to designing for other mediums (such as print)."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 213,
+        "excerpt": "Absolute positioning is the heavy hitter among the positioning types.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 250,
+            "excerpt": "We’re not making assumptions for them. Differentiating message types Our singular live region may play host to a variety of notification types."
+          }
+        ]
       },
       "code": "div { position: relative; }"
     },
@@ -115,9 +129,9 @@
       "explanation": "Relative offset is from the element's static position. Inclusive Components uses relative plus top/left on a toggle.",
       "reference": {
         "section": "Types",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 375,
-        "excerpt": "To control where the fixed position box appears in relation to the browser window, the box offset properties are used."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 213,
+        "excerpt": "We’ll get to that in a bit). The top, right, bottom, and left properties, if applied, will shift the element from its original position, but it won’t change the position of any elements around it."
       },
       "code": ".badge {\n  position: relative;\n  top: -0.25rem;\n  left: -0.25rem;\n}"
     },
@@ -137,7 +151,14 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 206,
-        "excerpt": "Applying position: fixed to an element lets you position the element arbitrarily within the viewport."
+        "excerpt": "Applying position: fixed to an element lets you position the element arbitrarily within the viewport.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 250,
+            "excerpt": "Differentiating message types Our singular live region may play host to a variety of notification types."
+          }
+        ]
       },
       "code": ".bar {\n  position: fixed;\n  top: 0;\n}"
     },
@@ -176,8 +197,8 @@
       "reference": {
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 210,
-        "excerpt": "This margin will flow behind your fixed element, and the content won’t overlap. 7.2 Absolute positioning Fixed positioning, as you’ve just seen, lets you position an element relative to the viewport."
+        "page": 213,
+        "excerpt": "Unlike fixed and absolute positioning, you cannot use top, right, bottom, and left to change the size of a relatively positioned element."
       },
       "code": ".parent { position: relative; }\n.child { position: absolute; top: 0; }"
     },
@@ -197,7 +218,14 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 205,
-        "excerpt": "the position property, which you can use to build dropdown menus, modal dialogs"
+        "excerpt": "In this chapter, we’ll look at one important technique: the position property, which you can use to build dropdown menus, modal dialogs, and other essential effects for modern web applications.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 250,
+            "excerpt": "Things like shape, color, position are just not enough on their own to define something inclusively."
+          }
+        ]
       },
       "code": ".menu {\n  position: absolute;\n  top: 100%;\n}"
     },
@@ -217,7 +245,14 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 205,
-        "excerpt": "Positioning can get complicated. It’s a subject where many developers only have a cursory understanding."
+        "excerpt": "Positioning can get complicated. It’s a subject where many developers only have a cursory understanding.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 244,
+            "excerpt": "For a blind screen reader user, you make the new message its own notification with a live region."
+          }
+        ]
       },
       "code": "th {\n  position: sticky;\n  top: 0;\n}"
     },
@@ -227,7 +262,7 @@
       "level": 2,
       "options": [
         "Missing HTML.",
-        "Stacking context problems — a positioned ancestor with z-index creates a new context.",
+        "Stacking context problems - a positioned ancestor with z-index creates a new context.",
         "Invalid hex colors.",
         "Missing doctype only."
       ],
@@ -236,8 +271,20 @@
       "reference": {
         "section": "Stacking",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 219,
-        "excerpt": "For that, we need to take a closer look at how the browser renders a page. 7.4.1 Understanding the rendering process and stacking order As the browser parses HTML into the DOM, it also creates another tree structure called the render tree."
+        "page": 205,
+        "excerpt": "You can find yourself with the wrong elements in front of others and correcting the problem isn’t always straightforward.",
+        "books": [
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 376,
+            "excerpt": "Article Overlapping Elements z-index When you use relative, fixed, or absolute positioning, boxes can overlap."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 302,
+            "excerpt": "I think we can agree this is better than a succession of modal dialogs stacking up."
+          }
+        ]
       },
       "code": ".card { position: relative; z-index: 1; }"
     },
@@ -277,7 +324,19 @@
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 210,
-        "excerpt": "Its parent element is modal-body, which has fixed positioning, so it becomes the containing block for the button."
+        "excerpt": "Its parent element is modal-body, which has fixed positioning, so it becomes the containing block for the button.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 370,
+            "excerpt": "Controlling the Position of Elements CSS has the following positioning schemes that allow you to control the layout of a page: normal flow, relative positioning, and absolute positioning."
+          }
+        ]
       },
       "code": ".parent { position: relative; }\n.child { position: absolute; }"
     },
@@ -296,8 +355,15 @@
       "reference": {
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 210,
-        "excerpt": "As with a fixed element, the properties top, right, bottom, and left place the edges of the element within its containing block. 7.2.1 Absolutely positioning the Close button To see how this works, let’s reposition the Close button to the top right corner of your modal dialog."
+        "page": 209,
+        "excerpt": "You’ve positioned each of its four sides inside the viewport: 3 em from the top and bottom edges and 20% from the left and right sides.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 310,
+            "excerpt": "Good old CSS Tricks offers a clever solution using transform to center the dialog regardless of its size. [role=\"dialog\"] { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); } I finesse this in just one regard."
+          }
+        ]
       },
       "code": ".box { position: relative; top: 1em; }"
     },
@@ -419,35 +485,15 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 7 — Positioning and stacking contexts",
-      "page": 205,
-      "pageEnd": 228,
-      "sections": [
-        {
-          "heading": "Static and positioned",
-          "page": 206
-        },
-        {
-          "heading": "Types",
-          "page": 205
-        },
-        {
-          "heading": "Stacking",
-          "page": 206
-        }
-      ]
+      "page": 205
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 15 — Layout",
-      "page": 365,
-      "pageEnd": 380,
-      "sections": [
-        {
-          "heading": "Types",
-          "page": 366
-        }
-      ]
+      "page": 370
     }
   ]
 }

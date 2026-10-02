@@ -29,7 +29,7 @@ Look up **BASIC TYPES** and **MENTAL MODEL** in the cheat sheet (`tsts BASIC TYP
 
 Read these in the local `typescript/sources/` PDFs. Page numbers in the quiz are **PDF file positions**.
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Chapter 1 *Getting to Know TypeScript* (PDF p. 27), especially Item 1 (TypeScript compiles to JavaScript) and Item 3 (code generation is independent of types, PDF p. 38). Item 7 *Think of Types as Sets of Values* (PDF p. 59). Item 9 *Prefer Type Annotations to Type Assertions* (PDF p. 72).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Chapter 1 *Getting to Know TypeScript* (PDF p. 27), especially Item 1 (TypeScript compiles to JavaScript) and Item 3 (code generation is independent of types, PDF p. 38). Item 7 *Think of Types as Sets of Values* (PDF p. 59). Item 9 *Prefer Type Annotations to Type Assertions* (PDF p. 72).
 
 Cheat sheet: **MENTAL MODEL**, **BASIC TYPES**, **ANY UNKNOWN NEVER VOID**.
 

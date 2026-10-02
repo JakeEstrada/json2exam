@@ -1,3 +1,3 @@
-# Python — Conditionals
+# Python - Conditionals
 
 Python language deck.

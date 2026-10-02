@@ -24,7 +24,7 @@ Look up **OBJECT TYPES** (`tsts OBJECT TYPES`).
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Item 4 *Get Comfortable with Structural Typing* (PDF p. 45). Item 11 / excess property checking (PDF p. 80).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Item 4 *Get Comfortable with Structural Typing* (PDF p. 45). Item 11 / excess property checking (PDF p. 80).
 
 Cheat sheet: **OBJECT TYPES**.
 

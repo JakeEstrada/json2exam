@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Database",
+  "title": "System Design - Database",
   "questions": [
     {
       "question": "Relational databases store data primarily as:",
@@ -14,9 +14,21 @@
       "answer": "b",
       "explanation": "Relational databases represent and store data in tables and rows. You can perform join operations using SQL",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 11,
-        "excerpt": "Relational databases represent and store data in tables and rows."
+        "excerpt": "Relational databases represent and store data in tables and rows.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 218,
+            "excerpt": "“Data Cube: A Relational Aggregation Operator Generalizing Group-By, Cross-Tab, and Sub-Totals.” Data Mining and Knowledge Discovery, volume 1, issue 1, pages 29-53, March 2007. doi:10.1023/A:1009726021843 [83] Frank Ramsak, Volker Markl, Robert Fenk, Martin Zirkel, Klaus Elhardt, and Rudolf Bayer."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 849,
+            "excerpt": "If the data structure is relational - that is, built upon a hierarchy of interdependent relationships - then a relational database will align well."
+          }
+        ]
       }
     },
     {
@@ -32,9 +44,21 @@
       "answer": "b",
       "explanation": "key-value stores, graph stores, column stores, and document stores",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 11,
-        "excerpt": "These databases are grouped into four categories: key-value stores, graph stores, column stores, and document stores."
+        "excerpt": "These databases are grouped into four categories: key-value stores, graph stores, column stores, and document stores.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 671,
+            "excerpt": "Removing a column in the database table will break downstream consumers that depend on that field."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 848,
+            "excerpt": "In our book Software Architecture: The Hard Parts, your authors rated the characteristics of six different database types: relational, key-value, document, columnar, graph, and NoSQL."
+          }
+        ]
       }
     },
     {
@@ -50,9 +74,21 @@
       "answer": "b",
       "explanation": "Join operations are generally not supported in non-relational databases",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 11,
-        "excerpt": "Join operations are generally not supported in non-relational databases."
+        "excerpt": "Join operations are generally not supported in non-relational databases.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 218,
+            "excerpt": "Archived at perma.cc/J6US-3WZS [94] Alexander Korotkov. “Index Support for Regular Expression Search.” At PGConf.EU Prague, October 2012."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 846,
+            "excerpt": "Database Topology A database’s topology, as we discussed in Chapter 15, refers to how its physical databases are configured within the architecture."
+          }
+        ]
       }
     },
     {
@@ -69,8 +105,20 @@
       "explanation": "Store data so that they, or another application, can find it again later (databases)",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 150,
-        "excerpt": "It’s also easier to find the bug because you can rerun the view maintenance code as often as you like and inspect its behavior."
+        "page": 218,
+        "excerpt": "“Integrating the UB-Tree into a Database System Kernel.” At 26th International Conference on Very Large Data Bases (VLDB), September 2000. [84] Octavian Procopiuc, Pankaj K.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 11,
+            "excerpt": "Let us examine their differences. Relational databases are also called a relational database management system (RDBMS) or SQL database."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 849,
+            "excerpt": "Given the potential diversity of data structures within any given architecture, we recommend leveraging polyglot databases whenever feasible."
+          }
+        ]
       }
     },
     {
@@ -80,9 +128,21 @@
       "answer": true,
       "explanation": "For most developers, relational databases are the best option",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 251,
-        "excerpt": "In this section, we will dive deep into a few components and explore optimizations as follows: • Trie data structure • Data gathering service • Query service • Scale the storage • Trie operations Trie data structure Relational databases are used for storage in the high-level design."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 229,
+        "excerpt": "The single point of failure is the biggest among them. However, it is perfectly fine to start with a single server design.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 233,
+            "excerpt": "If a field is added in the new schema, and you read old data that does not yet contain that field, it is filled in with a default value (e.g., the empty string if the field type is string, or 0 if it’s a number)."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 238,
+            "excerpt": "Revised components of the GGG case study The design shown in Figure 8-17 is unlikely to be the final design."
+          }
+        ]
       }
     },
     {
@@ -98,10 +158,36 @@
       "answer": "b",
       "explanation": "database replication",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 17,
-        "excerpt": "The architectural design discussed in Figure 1-5 can handle this case: • If only one slave database is available and it goes offline, read operations will be directed to the master database temporarily."
+        "excerpt": "Advantages of database replication: • Better performance: In the masterslave model, all writes and updates happen in master nodes; whereas, read operations are distributed across slave nodes.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 268,
+            "excerpt": "1. One of the replicas is designated the leader (also known as the primary or source [2])."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 541,
+            "excerpt": "(This might vary based on the type of cache implementation, but regardless, there is one primary owner of the cache in this scenario.) To load the cache, the temporary cache owner sends a message to a queue, requesting data."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 11
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 218
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 238
     }
   ]
 }

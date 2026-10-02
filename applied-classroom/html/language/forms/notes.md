@@ -35,7 +35,7 @@ Each control should have its own `<label>`. That makes the form accessible. Two 
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 7 *Forms* (PDF p. 151), *Form Controls* (p. 155), *How Forms Work* (p. 156), *Labelling Form Controls* (p. 170).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 7 *Forms* (PDF p. 151), *Form Controls* (p. 155), *How Forms Work* (p. 156), *Labelling Form Controls* (p. 170).
 
 ## Coding tasks
 

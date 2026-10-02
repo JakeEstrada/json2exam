@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Arrays and tuples",
+  "title": "TypeScript - Arrays and tuples",
   "questions": [
     {
       "question": "Which annotation is a list of numbers?",
@@ -17,7 +17,19 @@
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 64,
-        "excerpt": "For example: const list = [1, 2]; // ^? const list: number[] const tuple: [number, number] = list; // ~~~~~ Type 'number[]' is not assignable to type '[number, number]' // Target requires 2 element(s) but source may have fewer Are there lists of numbers that are not pairs of numbers?"
+        "excerpt": "For example: const list = [1, 2]; // ^? const list: number[] const tuple: [number, number] = list; // ~~~~~ Type 'number[]' is not assignable to type '[number, number]' // Target requires 2 element(s) but source may have fewer Are there lists of numbers that are not pairs of numbers?",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 57,
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array - one that you can update to produce a new array, leaving the original unch…"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 97,
+            "excerpt": "When to use generic arrays We started this section by showing two different ways of declaring an array of numbers."
+          }
+        ]
       },
       "code": "let a: number[] = [1, 2, 3];\nconsole.log(a.length);"
     },
@@ -36,13 +48,18 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "It corresponds to the never type in TypeScript. Because its domain is empty, no values are assignable to a variable with a never type: const x: never = 12; // ~ Type 'number' is not assignable to type 'never'.",
+        "page": 56,
+        "excerpt": "(parameter) elOrId: string return document.getElementById(elOrId); // ~~~ Type 'HTMLElement | null' is not assignable to type 'HTMLElement' } The intent in the first branch of the if statement was to filter down to just the objects, namely, the HTMLElements.",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 100,
-            "excerpt": "TypeScript notices that we passed in the array [1, 2, 3], so T must be number. 3."
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
           }
         ]
       },
@@ -64,7 +81,14 @@
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 64,
-        "excerpt": "Thinking of types as sets can also clarify the relationships between arrays and tuples."
+        "excerpt": "Thinking of types as sets can also clarify the relationships between arrays and tuples.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 57,
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array - one that you can update to produce a new array, leaving the original unch…"
+          }
+        ]
       },
       "code": "let pair: [string, number] = [\"Ada\", 1];\nconsole.log(pair[0]);"
     },
@@ -83,8 +107,20 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 64,
-        "excerpt": "(The reverse assignment does work.) Is a triple assignable to a pair?"
+        "page": 56,
+        "excerpt": "(parameter) elOrId: string if (!el) { throw new Error(`No such element ${elOrId}`); } return el; // ^? const el: HTMLElement } The TypeScript language service also provides refactoring tools.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 441,
+            "excerpt": "The variable i is still available outside the loop, even though it seems like it was meant to be used only inside the loop."
+          }
+        ]
       },
       "code": "let pair: [string, number] = [1, \"Ada\"];"
     },
@@ -103,13 +139,13 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 40,
-        "excerpt": "(parameter) shape: Square } } This works because class Rectangle introduces both a type and a value, whereas interface only introduced a type.",
+        "page": 64,
+        "excerpt": "(The reverse assignment does work.) Is a triple assignable to a pair?",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 320,
-            "excerpt": "Now, when TypeScript compiles your code it knows toPascalCase’s type is (word: string) => string."
+            "page": 56,
+            "excerpt": "Tuples Tuples are subtypes of array. They’re a special way to type arrays that have fixed lengths, where the values at each index have specific, known types."
           }
         ]
       },
@@ -130,13 +166,13 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 96,
-        "excerpt": "You can fix this by making it take a readonly array instead.",
+        "page": 64,
+        "excerpt": "The empty list and the list [1] are examples. It therefore makes sense that number[] is not assignable to [number, number] since it’s not a subset of it.",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 58,
-            "excerpt": "For small arrays this overhead is rarely noticeable, but for bigger arrays, the overhead can become significant."
+            "page": 57,
+            "excerpt": "TypeScript comes with a readonly array type out of the box, which you can use to create immutable arrays."
           }
         ]
       },
@@ -157,13 +193,18 @@
       "reference": {
         "section": "Indexing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 36,
-        "excerpt": "One of these options is noUncheckedIndexedAccess, which helps to catch errors around object and array access.",
+        "page": 56,
+        "excerpt": "(parameter) elOrId: string return document.getElementById(elOrId); // ~~~ Type 'HTMLElement | null' is not assignable to type 'HTMLElement' } The intent in the first branch of the if statement was to filter down to just the objects, namely, the HTMLElements.",
         "books": [
           {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 40,
+            "excerpt": "You should change this function signature to declare such a use case as follows: function calcTax(state: string, income: number, dependents: number) : ➥ number | undefined 2.1.3 The union type Unions allow you to express that a value can be one of several types."
+          },
+          {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 56,
-            "excerpt": "e to be arrays of number | string. g is the special case: when you initialize an empty array, TypeScript doesn’t know what type the array’s elements should be, so it gives you the benefit of the doubt and makes them any."
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
           }
         ]
       },
@@ -205,7 +246,19 @@
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 64,
-        "excerpt": "The empty list and the list [1] are examples. It therefore makes sense that number[] is not assignable to [number, number] since it’s not a subset of it."
+        "excerpt": "Sure! The empty list and the list [1] are examples.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 97,
+            "excerpt": "For example, you may declare an array that allows only strings and numbers."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 55,
+            "excerpt": "The general rule of thumb is to keep arrays homogeneous. That is, don’t mix apples and oranges and numbers in a single array - try to design your programs so that every element of your array has the same type."
+          }
+        ]
       },
       "code": "let c: (string | number)[] = [1, \"a\"];"
     },
@@ -224,13 +277,13 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 73,
-        "excerpt": "A more concise way is to annotate the return type of the arrow function: const people = ['alice', 'bob', 'jan'].map( (name): Person => ({name}) ); // Type is Person[] This performs all the same checks on the value as the previous version.",
+        "page": 64,
+        "excerpt": "Thinking of types as sets can also clarify the relationships between arrays and tuples.",
         "books": [
           {
-            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 133,
-            "excerpt": "If the provided type is a function, we want to wrap the return of this function into a Promise."
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 113,
+            "excerpt": "We use a similar technique to take advantage of the way TypeScript infers tuple types for rest parameters to improve type inference for tuples in “Improving Type Inference for Tuples”."
           }
         ]
       },
@@ -251,13 +304,13 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 69,
-        "excerpt": "In contrast to the infinite variety of TypeScript types, JavaScript’s typeof operator only has eight possible return values: \"string\", \"number\", \"boolean\", \"undefined\", \"object\", \"function\", \"symbol\", and \"bigint\".",
+        "page": 64,
+        "excerpt": "For example: const list = [1, 2]; // ^? const list: number[] const tuple: [number, number] = list; // ~~~~~ Type 'number[]' is not assignable to type '[number, number]' // Target requires 2 element(s) but source may have fewer Are there lists of numbers that are not pairs of numbers?",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 57,
-            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array—one that you can update to produce a new array, leaving the original unch…"
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array - one that you can update to produce a new array, leaving the original unch…"
           }
         ]
       },
@@ -279,12 +332,12 @@
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 64,
-        "excerpt": "What’s the relationship between string|number and string|Date, for instance?",
+        "excerpt": "Thinking of types as sets can also clarify the relationships between arrays and tuples.",
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
             "page": 57,
-            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array—one that you can update to produce a new array, leaving the original unch…"
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array - one that you can update to produce a new array, leaving the original unch…"
           }
         ]
       },
@@ -324,14 +377,14 @@
       "explanation": "Types do not affect runtime. readonly is a compile-time restriction.",
       "reference": {
         "section": "Arrays",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 52,
-        "excerpt": "If you ask a coworker to review a change, they’ll have to reconstruct whether and how you changed the application state.",
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 58,
+        "excerpt": "That means even small updates to an array result in having to copy the original array first, which can hurt your application’s runtime performance if you’re not careful.",
         "books": [
           {
-            "book": "Programming TypeScript by Boris Cherny",
-            "page": 58,
-            "excerpt": "That means even small updates to an array result in having to copy the original array first, which can hurt your application’s runtime performance if you’re not careful."
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 95,
+            "excerpt": "For example, in Java, arrays are covariant, which means that you can use Employee[] (the subtype) where the array Person[] (the supertype) is allowed."
           }
         ]
       },
@@ -352,8 +405,20 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 64,
-        "excerpt": "Sure! The empty list and the list [1] are examples."
+        "page": 56,
+        "excerpt": "This is more complicated than find and replace because the same name might refer to different variables in different places.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 441,
+            "excerpt": "Look at the following example where we declare the variable i inside a for loop but use it outside as well: function foo() { for (var i=0; i<10; i++) { } console.log(\"i=\" + i); } foo(); Running this code will print i=10."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
+          }
+        ]
       },
       "code": "let named: [name: string, age: number] = [\"Jake\", 30];"
     },
@@ -467,19 +532,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Indexed access and types as sets",
-      "page": 37,
-      "pageEnd": 59,
-      "sections": [
-        {
-          "heading": "noUncheckedIndexedAccess",
-          "page": 37
-        },
-        {
-          "heading": "Item 7 — Types as sets of values",
-          "page": 59
-        }
-      ]
+      "page": 37
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 55
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 40
     }
   ]
 }

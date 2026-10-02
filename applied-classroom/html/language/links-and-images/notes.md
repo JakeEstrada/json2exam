@@ -4,7 +4,7 @@ Read this page first. The quiz starts with `href`, then `src` / `alt`.
 
 ## Writing links
 
-Links use the `<a>` element. Visitors click anything between the opening `<a>` and the closing `</a>`. You specify the destination with the **href** attribute — not `src`.
+Links use the `<a>` element. Visitors click anything between the opening `<a>` and the closing `</a>`. You specify the destination with the **href** attribute - not `src`.
 
 ```html
 <a href="http://www.imdb.com">IMDB</a>
@@ -20,7 +20,7 @@ Same-site pages use a path (`about.html`, `./notes.html`). Other sites use a ful
 <img src="images/quokka.jpg" alt="A family of quokka" />
 ```
 
-If the image is only decoration, alt is still required — use empty quotes.
+If the image is only decoration, alt is still required - use empty quotes.
 
 ## What you should be able to do
 
@@ -30,7 +30,7 @@ If the image is only decoration, alt is still required — use empty quotes.
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 4 *Links* (PDF p. 81), *Writing Links* (p. 84). Chapter 5 *Images* (PDF p. 101), *Adding Images* (p. 106).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 4 *Links* (PDF p. 81), *Writing Links* (p. 84). Chapter 5 *Images* (PDF p. 101), *Adding Images* (p. 106).
 
 ## Coding tasks
 

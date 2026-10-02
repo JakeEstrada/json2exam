@@ -1,5 +1,5 @@
 {
-  "title": "TypeScript — Interfaces",
+  "title": "TypeScript - Interfaces",
   "questions": [
     {
       "question": "Which declares a named object shape?",
@@ -41,8 +41,13 @@
         "books": [
           {
             "book": "Programming TypeScript by Boris Cherny",
-            "page": 106,
-            "excerpt": "Let’s define a MyEvent type that describes a DOM event, like a click or a mousedown: type MyEvent<T> = { target: T type: string } Note that this is the only valid place to declare a generic type in a type alias: right after the type alias’s name, before its assignment (=)."
+            "page": 423,
+            "excerpt": "About Types typechecking, The Compiler for Angular templates, Components JavaScript code, Step 2a: Enable Typechecking for JavaScript (Optional) JavaScript versus TypeScript, When are types checked? typeof operator, Classes Declare Both Va"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
           }
         ]
       },
@@ -83,8 +88,20 @@
       "reference": {
         "section": "Extending",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 88,
+        "excerpt": "What about the differences? You’ve seen one already -  there are union types but no union interfaces: type AorB = 'a' | 'b'; An interface can extend some types, but not this one.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 210,
+            "excerpt": "Safely Extending the Prototype When building JavaScript applications, tradition holds that it’s unsafe to extend prototypes for built-in types."
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 80,
+            "excerpt": "Our SecretServiceCar class must implement these seven methods plus one from Swimmable."
+          }
+        ]
       },
       "code": "interface User { id: number; name: string }\ninterface Admin extends User { level: number }"
     },
@@ -102,9 +119,16 @@
       "explanation": "implements checks the class against the shape. Structural typing still works without it.",
       "reference": {
         "section": "Extending",
-        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-        "page": 77,
-        "excerpt": "In this section, we’ll show you how to use TypeScript interfaces to ensure that a class implements a specific API. 3.2.1 Enforcing the contract An interface can declare not only properties but also methods (no implementations though)."
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 136,
+        "excerpt": "TypeScript throws an error when you forget to implement a required method Implementing Interfaces Versus Extending Abstract Classes Implementing an interface is really similar to extending an abstract class.",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 88,
+            "excerpt": "A class can implement either an interface or a simple type: class StateT implements TState { name: string = ''; capital: string = ''; } class StateI implements IState { name: string = ''; capital: string = ''; } Finally, both type and interface can be recursive (Item 57)."
+          }
+        ]
       },
       "code": "interface User { id: number; name: string }\nclass UserImpl {\n  constructor(public id: number, public name: string) {}\n}"
     },
@@ -123,13 +147,18 @@
       "reference": {
         "section": "When type is required",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 89,
-        "excerpt": "Generally you want more safety checks, so this is a good rea‐ son to use extends with interfaces.",
+        "page": 91,
+        "excerpt": "And for function types, tuple types, and array types, the type syntax is more concise and natural than the interface syntax.",
         "books": [
           {
             "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-            "page": 127,
-            "excerpt": "Hence the error about the missing age. The Required type was introduced in TypeScript 2.8."
+            "page": 126,
+            "excerpt": "It shows an error message because the worker1 variable has the type Person, where each property is required, but the value for age was not provided."
+          },
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 334,
+            "excerpt": "to run your application, ship polyfills for as many of those features as you can, and try to detect when users are on really old browsers that your app won’t run on and show them a message saying that they need to upgrade. If you release an"
           }
         ]
       },
@@ -250,9 +279,16 @@
       "explanation": "Multiple extends lists compose like an intersection of object types.",
       "reference": {
         "section": "Extending",
-        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
-        "page": 80,
-        "excerpt": "63 Working with interfaces interface. In listing 3.17, the SecretServiceCar class inherited from Car and implemented two additional interfaces."
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 132,
+        "excerpt": "The third difference is that multiple interfaces with the same name in the same scope are automatically merged; multiple type aliases with the same name in the same scope will throw a compile-time error.",
+        "books": [
+          {
+            "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
+            "page": 88,
+            "excerpt": "You’ve seen one already -  there are union types but no union interfaces: type AorB = 'a' | 'b'; An interface can extend some types, but not this one."
+          }
+        ]
       },
       "code": "interface Both extends User, Timestamped {}"
     },
@@ -271,8 +307,20 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 88,
+        "excerpt": "The caveat is that an interface can only extend object types that could have been defined with interface (even if you happened to define them with type).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 423,
+            "excerpt": "About Types typechecking, The Compiler for Angular templates, Components JavaScript code, Step 2a: Enable Typechecking for JavaScript (Optional) JavaScript versus TypeScript, When are types checked? typeof operator, Classes Declare Both Va"
+          },
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 326,
+            "excerpt": "Reviewing the BlockComponent 309 Once again, revisit the template of the AppComponent, shown in listing 12.1, and you’ll see a *ngFor loop that renders the <app-block> child components."
+          }
+        ]
       },
       "code": "interface User {\n  id: number;\n  name: string;\n}"
     },
@@ -331,8 +379,15 @@
       "reference": {
         "section": "Extending",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 48,
-        "excerpt": "Because of structural typing, the PostgresDB doesn’t need to say that it implements DB."
+        "page": 88,
+        "excerpt": "A class can implement either an interface or a simple type: class StateT implements TState { name: string = ''; capital: string = ''; } class StateI implements IState { name: string = ''; capital: string = ''; } Finally, both type and interface can be recursive (Item 57).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 136,
+            "excerpt": "An interface is a way to model a shape. At the value level, that means an object, array, function, class, or class instance."
+          }
+        ]
       },
       "code": "class UserImpl implements User {\n  constructor(public id: number, public name: string) {}\n}"
     },
@@ -448,15 +503,15 @@
   "reading": [
     {
       "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-      "chapter": "Item 13 — type vs interface",
-      "page": 86,
-      "pageEnd": 90,
-      "sections": [
-        {
-          "heading": "Item 13 — Know the differences between type and interface",
-          "page": 86
-        }
-      ]
+      "page": 75
+    },
+    {
+      "book": "Programming TypeScript by Boris Cherny",
+      "page": 106
+    },
+    {
+      "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+      "page": 80
     }
   ]
 }

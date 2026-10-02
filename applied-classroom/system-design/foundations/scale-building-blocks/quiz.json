@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Scale from zero to millions",
+  "title": "System Design - Scale from zero to millions",
   "questions": [
     {
       "question": "Why separate web/mobile traffic servers from database servers early?",
@@ -14,7 +14,7 @@
       "answer": "b",
       "explanation": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 11,
         "excerpt": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently.",
         "books": [
@@ -39,7 +39,7 @@
       "answer": "b",
       "explanation": "Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 13,
         "excerpt": "Vertical scaling vs horizontal scaling Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers."
       }
@@ -57,9 +57,9 @@
       "answer": "b",
       "explanation": "Vertical scaling has a hard limit… Vertical scaling does not have failover and redundancy",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 13,
-        "excerpt": "It is impossible to add unlimited CPU and memory to a single server. • Vertical scaling does not have failover and redundancy."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 4,
+        "excerpt": "An Insider’s Guide FOREWORD CHAPTER 1: SCALE FROM ZERO TO MILLIONS OF USERS CHAPTER 2: BACK-OF-THE-ENVELOPE ESTIMATION CHAPTER 3: A FRAMEWORK FOR SYSTEM DESIGN INTERVIEWS CHAPTER 4: DESIGN A RATE LIMITER CHAPTER 5: DESIGN CONSISTENT HASHIN"
       }
     },
     {
@@ -75,7 +75,7 @@
       "answer": "b",
       "explanation": "For most developers, relational databases are the best option because they have been around for over 40 years",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 12,
         "excerpt": "For most developers, relational databases are the best option because they have been around for over 40 years and historically, they have worked well.",
         "books": [
@@ -83,6 +83,11 @@
             "book": "Designing Data-Intensive Applications by Martin Kleppmann",
             "page": 722,
             "excerpt": "The tension between these philosophies has lasted for decades (both Unix and the relational model emerged in the early 1970s) and still isn’t resolved."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 769,
+            "excerpt": "The developers’ corresponding role is to determine how best to implement those logical components, using class diagrams and design patterns."
           }
         ]
       }
@@ -100,7 +105,7 @@
       "answer": "b",
       "explanation": "Non-relational databases might be the right choice if: … super-low latency … unstructured … serialize and deserialize … massive amount of data",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 233,
         "excerpt": "Message ID How to generate message_id is an interesting topic worth exploring.",
         "books": [
@@ -119,7 +124,7 @@
       "answer": true,
       "explanation": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 13,
         "excerpt": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources."
       }
@@ -137,7 +142,7 @@
       "answer": "b",
       "explanation": "CDN",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview - An Insider's Guide",
         "page": 22,
         "excerpt": "CDN"
       }
@@ -155,10 +160,28 @@
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 196,
         "excerpt": "DB: It stores data about user, notification, settings, etc. Message queues: They remove dependencies between components."
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 4
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 250
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 722
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide",
+      "page": 22
     }
   ]
 }

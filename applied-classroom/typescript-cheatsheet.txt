@@ -2100,7 +2100,7 @@ DESCRIPTION
 
     catch (err) is unknown under strict. Narrow with instanceof, or
     normalize to Error. Typed failure belongs in the return type (a Result
-    union), not in a throws clause — TypeScript has none.
+    union), not in a throws clause - TypeScript has none.
 
 -------------------------------------------------------------------------------
 EXAMPLES

@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Document and structure",
+  "title": "HTML - Document and structure",
   "questions": [
     {
       "question": "What kind of language is HTML?",
@@ -56,8 +56,20 @@
       "reference": {
         "section": "Tags and elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 41,
-        "excerpt": "Other systems might have a button (which often shows angle brackets) to indicate how to access the code."
+        "page": 27,
+        "excerpt": "Elements are usually made up of two tags: an opening tag and a closing tag.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 134,
+            "excerpt": "Inside each of these containers, you can add new elements to visually style however you want."
+          }
+        ]
       },
       "code": "<p>A paragraph.</p>"
     },
@@ -67,7 +79,7 @@
       "level": 1,
       "options": [
         "<p/> on a paragraph that has children.",
-        "</p> — a forward slash after <, then the name.",
+        "</p> - a forward slash after <, then the name.",
         "<end p>",
         "<p close>"
       ],
@@ -96,8 +108,20 @@
       "reference": {
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 45,
-        "excerpt": "XX Attributes require a name and a value. XX To learn HTML you need to know what tags are available for you to use, what they do, and where they can go."
+        "page": 32,
+        "excerpt": "They appear on the opening tag of the element and are made up of two parts: a name and a value, separated by an equals sign.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 35,
+            "excerpt": "This is called a declaration. This declaration is made up of a property (color) and a value (black): color: black; Properties aren't to be confused with attributes, which are part of the HTML syntax."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 16,
+            "excerpt": "button type=\"button\" aria-pressed=\"true\"> Notify by email </button> WAI-ARIA state attributes like aria-pressed behave like booleans but, unlike standard HTML state attributes like checked they must have an explicit value of true or false."
+          }
+        ]
       },
       "code": "<p lang=\"en-us\">Paragraph in English</p>"
     },
@@ -117,7 +141,19 @@
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 32,
-        "excerpt": "It should be written in lowercase."
+        "excerpt": "Attribute Name <p lang=\"en-us\">Paragraph in English</p> Attribute Value The attribute name indicates what kind of extra information you are supplying about the element's content.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 448,
+            "excerpt": "Attribute selectors Attribute selectors can be used to target elements based on their HTML attributes."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 106,
+            "excerpt": "I’m a big supporter of using standard HTML elements and attributes wherever they’re available."
+          }
+        ]
       },
       "code": "<p lang=\"en-us\">Paragraph in English</p>"
     },
@@ -177,7 +213,7 @@
         "section": "Document skeleton",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 27,
-        "excerpt": "There may even be sub-sub-headings (or lower-level headings).</p> <h2>Another Sub-Heading</h2> <p>Here you can see another sub-heading.</p> </body> </html> The HTML code (in blue) is made up of characters that live inside angled brackets — these are called HTML elements."
+        "excerpt": "There may even be sub-sub-headings (or lower-level headings).</p> <h2>Another Sub-Heading</h2> <p>Here you can see another sub-heading.</p> </body> </html> The HTML code (in blue) is made up of characters that live inside angled brackets - these are called HTML elements."
       },
       "code": "<html>\n  <head><title>Home</title></head>\n  <body></body>\n</html>"
     },
@@ -237,7 +273,14 @@
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 32,
-        "excerpt": "Attribute Name <p lang=\"en-us\">Paragraph in English</p> Attribute Value The attribute name indicates what kind of extra information you are supplying about the element's content."
+        "excerpt": "Different attributes can have different values. Here an attribute called lang is used to indicate the language used in this element.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 16,
+            "excerpt": "button type=\"button\" aria-pressed=\"true\"> Notify by email </button> WAI-ARIA state attributes like aria-pressed behave like booleans but, unlike standard HTML state attributes like checked they must have an explicit value of true or false."
+          }
+        ]
       },
       "code": "<p lang=\"en-us\">Paragraph in English</p>"
     },
@@ -277,7 +320,19 @@
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 32,
-        "excerpt": "They appear on the opening tag of the element and are made up of two parts: a name and a value"
+        "excerpt": "Here an attribute called lang is used to indicate the language used in this element.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 448,
+            "excerpt": "These have the same specificity as a class selector (0,1,0). ■ [attr] - Targets elements that have the specified attribute attr, regardless of its value."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 16,
+            "excerpt": "Just adding aria-pressed is not reliable. Also, the absence of the attribute would mean the unpressed state would not be communicated (a button without the attribute is just a generic button)."
+          }
+        ]
       },
       "code": "<p lang=\"en-us\">Hi</p>"
     },
@@ -343,7 +398,7 @@
           {
             "book": "CSS in Depth, 1st Edition by Keith J. Grant",
             "page": 64,
-            "excerpt": "Thankfully, there is a better option—rems. 2.2.2 Using rems for font-size When the browser parses an HTML document, it creates a representation in memory of all the elements on the page."
+            "excerpt": "Thankfully, there is a better option - rems. 2.2.2 Using rems for font-size When the browser parses an HTML document, it creates a representation in memory of all the elements on the page."
           }
         ]
       },
@@ -425,40 +480,40 @@
         "Use the tag argument on both the opening and closing tags."
       ],
       "solution": "function wrap(tag, text) {\n  return '<' + tag + '>' + text + '</' + tag + '>';\n}\n",
-      "explanation": "Same shape as a paragraph: open, content, close — with the name supplied.",
+      "explanation": "Same shape as a paragraph: open, content, close - with the name supplied.",
       "reference": {
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 271,
-        "excerpt": "You should avoid targeting based on generic tag types, such as div and span."
+        "page": 277,
+        "excerpt": "This isn’t always an easy task. The name media works well on this level; it supports some sort of image and text.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 27,
+            "excerpt": "HTML Describes the Structure of Pages In the browser window you can see a web page that features exactly the same content as the Word document you met on the page 18."
+          }
+        ]
       },
       "level": 3
     }
   ],
   "reading": [
     {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 35
+    },
+    {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 1 — Structure",
-      "page": 19,
-      "pageEnd": 45,
-      "sections": [
-        {
-          "heading": "What HTML is",
-          "page": 19
-        },
-        {
-          "heading": "Tags and elements",
-          "page": 30
-        },
-        {
-          "heading": "Attributes",
-          "page": 32
-        },
-        {
-          "heading": "Document skeleton",
-          "page": 34
-        }
-      ]
+      "page": 27
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 16
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "title": "System Design — File upload / cloud drive",
+  "title": "System Design - File upload / cloud drive",
   "questions": [
     {
       "question": "Why store file bytes in object storage and metadata in a database?",
@@ -14,7 +14,7 @@
       "answer": "b",
       "explanation": "Google Drive",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 301,
         "excerpt": "“Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance” [3].",
         "books": [
@@ -39,7 +39,7 @@
       "answer": "b",
       "explanation": "CDN",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 289,
         "excerpt": "Safety optimization: pre-signed upload URL Safety is one of the most important aspects of any product."
       }
@@ -57,7 +57,7 @@
       "answer": "b",
       "explanation": "upload",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 286,
         "excerpt": "This allows fast resumable uploads when the previous upload failed."
       }
@@ -87,10 +87,15 @@
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 301,
-        "excerpt": "You decide to do some research to see if it is a good fit. After a lot of reading, you gain a good understanding of the S3 storage system and decide to store files in S3.",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 317,
+        "excerpt": "The advantage of this approach is that it makes file upload faster because a file only needs to be transferred once to the cloud storage.",
         "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 776,
+            "excerpt": "You may be a good worker with a good credit score, but suddenly find yourself in financial difficulties due to a misfortune outside of your control."
+          },
           {
             "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
             "page": 564,
@@ -98,6 +103,20 @@
           }
         ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 286
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 95
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 564
     }
   ]
 }

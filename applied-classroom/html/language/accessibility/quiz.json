@@ -1,5 +1,5 @@
 {
-  "title": "HTML — Accessibility",
+  "title": "HTML - Accessibility",
   "questions": [
     {
       "question": "Why does every form control need a label?",
@@ -16,8 +16,20 @@
       "reference": {
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 177,
-        "excerpt": "The <label> element indicates the purpose of each form control."
+        "page": 170,
+        "excerpt": "When a <label> element is used with a checkbox or radio button, users can click on either the form control or the label to select.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 49,
+            "excerpt": "The question is: should that label be visible, or only accessible by screen reader?"
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 347,
+            "excerpt": "The WCAG recommendations acknowledge this. It’s a good idea for your main body text to meet level AAA, but you can be a little more relaxed and aim for level AA with colored labels or other decorative text."
+          }
+        ]
       },
       "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
     },
@@ -37,7 +49,14 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "It can: R e s u lt 1. Wrap around both the text description and the form input (as shown on the first line of the example to your right). 2."
+        "excerpt": "As a rule of thumb, here are the best places to place labels on form controls.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 49,
+            "excerpt": "In almost all cases, a visible label should be placed above or to the left of the input."
+          }
+        ]
       },
       "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
     },
@@ -157,7 +176,19 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 13,
-        "excerpt": "They are, after all, accessible by mouse, touch, keyboard, and assistive technology software across different devices, browsers, and operating systems."
+        "excerpt": "This doesn’t quite feel right Both the checkbox and radio button implementations are tenable as on/off controls.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 277,
+            "excerpt": "If your existing tile module is more precisely named, it can leave you a little more freedom in how you can name the new one without the two becoming conflated."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 170,
+            "excerpt": "Labelling Form Controls <label> When introducing form controls, the code was kept simple by indicating the purpose of each one in text next to it."
+          }
+        ]
       },
       "code": "<button type=\"button\">Save</button>"
     },
@@ -176,8 +207,20 @@
       "reference": {
         "section": "Meaningful images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 106,
-        "excerpt": "It must carry the following two attributes: HTML chapter-05/adding-images.html <img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial that is similar in size to the domestic cat.\" /> R e s u lt src This tells the browser where it can find the image file."
+        "page": 107,
+        "excerpt": "Height & Article Width of Images HTML chapter-05/height-and-width-of-images.html <img src=\"images/quokka.jpg\" alt=\"A family of quokka\" width=\"600\" height=\"450\" /> You will also often see an <img> element use two other attributes that specify its size: height This specifies the height of the image…",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 245,
+            "excerpt": "Using a print media query lets you control how your page will lay out if the user prints the page, so you can do things like removing background images (to save on ink) and hiding unneeded navigation."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 10,
+            "excerpt": "In the following example, a checkbox serves as the toggle for an email notifications setting. <input type=\"checkbox\" id=\"notify\" name=\"notify\" value=\"on\"> <label for=\"notify\">Notify by email</label> Screen reader software is fairly uniform in its interpretation of this control."
+          }
+        ]
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -187,7 +230,7 @@
       "level": 2,
       "options": [
         "Omit alt so screen readers skip the tag.",
-        "alt=\"\" — the attribute is there, the value is empty.",
+        "alt=\"\" - the attribute is there, the value is empty.",
         "alt=\"decorative image divider\".",
         "alt=\"src\"."
       ],
@@ -217,7 +260,19 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 15,
-        "excerpt": "It’s a case of using WAI-ARIA as a progressive enhancement. WAI-ARIA offers states that are not available in basic HTML, such as the pressed state."
+        "excerpt": "It’s a case of using WAI-ARIA as a progressive enhancement. WAI-ARIA offers states that are not available in basic HTML, such as the pressed state.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 318,
+            "excerpt": "This design will use elements of both design styles. Figure 11.12 A different type of flat button (active state shown on the right) This is still a minimal design, but it has a thick border along the bottom, giving it an appearance much like the front side of a 3-D cube-like object."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 170,
+            "excerpt": "Be kept separate from the form control and use the for attribute to indicate which form control it is a label for (as shown with the radio buttons). for The for attribute states which form control the label belongs to."
+          }
+        ]
       },
       "code": "<button type=\"button\" aria-pressed=\"true\">Mute</button>"
     },
@@ -237,7 +292,7 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 9,
-        "excerpt": "Not only is this entirely untrue—all major screen readers react to changes in the DOM as they occur—but basic state changes, communicated both visually and to assistive technology software, do not necessarily depend on JavaScript to take place anyway."
+        "excerpt": "Not only is this entirely untrue - all major screen readers react to changes in the DOM as they occur - but basic state changes, communicated both visually and to assistive technology software, do not necessarily depend on JavaScript to take place anyway."
       },
       "code": "<input type=\"checkbox\" id=\"on\" />\n<label for=\"on\">Alerts on</label>"
     },
@@ -297,7 +352,19 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "<label for=\"female\">Female</label>"
+        "excerpt": "The expanded clickable area makes the form easier to use. The position of the label is very important.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 49,
+            "excerpt": "The answer is: I haven’t provided a label. Only a placeholder is provided and placeholders are intended for supplementary information only, such as the “adopt an owl” suggestion."
+          },
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 347,
+            "excerpt": "It’s a good idea for your main body text to meet level AAA, but you can be a little more relaxed and aim for level AA with colored labels or other decorative text."
+          }
+        ]
       },
       "code": "<label for=\"age\">Age</label>\n<input id=\"age\" type=\"text\" name=\"age\" />"
     },
@@ -344,7 +411,19 @@
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+        "excerpt": "The position of the label is very important. If users do not know where to enter information or what information to enter, they are less likely to use the form correctly.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 438,
+            "excerpt": "The form is pictured in figure 16.10. It consists of a label, a text area, and a button."
+          },
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 49,
+            "excerpt": "Adopt an owl\"> <button type=\"submit\">Add</button> </form> (Note: Léonie Watson reports that range inputs are non-functional in Firefox + JAWS unless a <form> is employed or forms mode is entered manually, by the user.) Labeling Can you spot the deliberate mistake in the above code snippet?"
+          }
+        ]
       },
       "level": 3
     },
@@ -390,7 +469,7 @@
       "level": 3
     },
     {
-      "question": "Write imgAlt(src, alt, decorative) — if decorative is true, force alt to empty quotes.",
+      "question": "Write imgAlt(src, alt, decorative) - if decorative is true, force alt to empty quotes.",
       "type": "code",
       "language": "javascript",
       "starter": "function imgAlt(src, alt, decorative) {\n  // return markup\n}\n",
@@ -440,35 +519,15 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 7 — Forms",
-      "page": 170,
-      "pageEnd": 175,
-      "sections": [
-        {
-          "heading": "Labels",
-          "page": 170
-        },
-        {
-          "heading": "Meaningful images",
-          "page": 106
-        }
-      ]
+      "page": 106
     },
     {
       "book": "Inclusive Components by Heydon Pickering",
-      "chapter": "Toggle buttons / Todo list",
-      "page": 8,
-      "pageEnd": 39,
-      "sections": [
-        {
-          "heading": "Inclusive controls",
-          "page": 8
-        },
-        {
-          "heading": "Keyboard access",
-          "page": 39
-        }
-      ]
+      "page": 8
+    },
+    {
+      "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+      "page": 245
     }
   ]
 }

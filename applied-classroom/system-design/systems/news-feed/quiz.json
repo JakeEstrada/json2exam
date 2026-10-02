@@ -1,5 +1,5 @@
 {
-  "title": "System Design — News feed",
+  "title": "System Design - News feed",
   "questions": [
     {
       "question": "DDIA’s home-timeline SQL sketch joins posts to follow relationships to:",
@@ -15,8 +15,15 @@
       "explanation": "home timeline, which displays recent posts by people the user is following",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 58,
-        "excerpt": "We have one table for users, one table for posts, and one table for follow relationships."
+        "page": 111,
+        "excerpt": "In a normalized representation, we would create an entity representing an organization or school and store its name, logo URL, and perhaps other attributes (description, news feed, etc.) once as part of that entity.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 205,
+            "excerpt": "News Feed includes status updates, photos, videos, links, app activity, and likes from people, pages, and groups that you follow on Facebook” [1]."
+          }
+        ]
       }
     },
     {
@@ -32,9 +39,16 @@
       "answer": "b",
       "explanation": "news feed",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 212,
-        "excerpt": "Fanout on write. With this approach, news feed is pre-computed during write time."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 205,
+        "excerpt": "This is a popular interview question. Similar questions commonly asked are: design Facebook news feed, Instagram feed, Twitter timeline, etc.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 111,
+            "excerpt": "In a normalized representation, we would create an entity representing an organization or school and store its name, logo URL, and perhaps other attributes (description, news feed, etc.) once as part of that entity."
+          }
+        ]
       }
     },
     {
@@ -51,8 +65,15 @@
       "explanation": "a few celebrities… have over 100 million followers",
       "reference": {
         "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
-        "page": 225,
-        "excerpt": "Another good example is where two parts of a system deal with user input: if one part deals with hundreds of concurrent users and the other needs to support only a few at a time, they will need different architecture characteristics."
+        "page": 209,
+        "excerpt": "Then the architect looks at the architectural characteristics the system must support and determines whether any refactoring is needed to possibly break apart or combine the component based on those characteristics.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 671,
+            "excerpt": "Removing a column in the database table will break downstream consumers that depend on that field."
+          }
+        ]
       }
     },
     {
@@ -61,7 +82,7 @@
       "level": 1,
       "options": [
         "Is free because SQL joins never cost CPU.",
-        "Can create enormous read QPS and expensive joins — hence caching/fan-out designs.",
+        "Can create enormous read QPS and expensive joins - hence caching/fan-out designs.",
         "Is required by the HTTP specification for all social apps.",
         "Removes the need for indexes on follow tables."
       ],
@@ -69,8 +90,20 @@
       "explanation": "running the query 2 million times per second… This query is also quite expensive",
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
-        "page": 59,
-        "excerpt": "One approach is for the user’s client to repeat the preceding query every five seconds while the user is online (this is known as polling)."
+        "page": 60,
+        "excerpt": "Materializing and Updating Timelines How can we do better? First, instead of polling, it would be better if the server actively pushed new posts to any followers who are currently online.",
+        "books": [
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 199,
+            "excerpt": "Notification template A large notification system sends out millions of notifications per day, and many of these notifications follow a similar format."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 142,
+            "excerpt": "One of the first details that should catch your eye is the number of users: currently thousands, perhaps one day, millions (this is a very ambitious sandwich shop!)."
+          }
+        ]
       }
     },
     {
@@ -80,10 +113,31 @@
       "answer": true,
       "explanation": "Everything in software architecture is a trade-off",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 212,
-        "excerpt": "Since fetching the news feed fast is crucial, we use a push model for the majority of users."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 205,
+        "excerpt": "Similar questions commonly asked are: design Facebook news feed, Instagram feed, Twitter timeline, etc.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 111,
+            "excerpt": "In a normalized representation, we would create an entity representing an organization or school and store its name, logo URL, and perhaps other attributes (description, news feed, etc.) once as part of that entity."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 60
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 199
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 142
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 1: A New Design Gig",
+  "title": "Electronics - Chapter 1: A New Design Gig",
   "questions": [
     {
       "question": "In Chapter 1, what does E-Z Galaxy’s culture assume about PCB design after Old Bob leaves?",
@@ -12,7 +12,7 @@
         "That every board must be built in-house on a sixties drafting table with ink pens before any computer is used."
       ],
       "answer": "c",
-      "explanation": "Otto welcomes Ian to a place where “experience moves aside for automation.” Coworkers miss Old Bob but cannot describe his process. The culture treats the role as automated and therefore easy — which is the trap.",
+      "explanation": "Otto welcomes Ian to a place where “experience moves aside for automation.” Coworkers miss Old Bob but cannot describe his process. The culture treats the role as automated and therefore easy - which is the trap.",
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
@@ -57,7 +57,7 @@
         "Automation can make you feel productive while you still lack manufacturing judgment and a real process."
       ],
       "answer": "d",
-      "explanation": "The tools pull Ian along; he feels Old Bob–fast. The story shows that speed from defaults is not the same as a sound, manufacturable design process.",
+      "explanation": "The tools pull Ian along; he feels Old Bob-fast. The story shows that speed from defaults is not the same as a sound, manufacturable design process.",
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
@@ -76,7 +76,7 @@
         "He waits for a written DFM disposition and a stack-up sign-off before releasing any files."
       ],
       "answer": "b",
-      "explanation": "He searches “Quickie-Cheapo PCB fabrication,” picks Etch-O-Matronic on star ratings, and requests the quickest turn — exactly the “cheap and fast” habit his manager praised in Old Bob, without real supplier judgment.",
+      "explanation": "He searches “Quickie-Cheapo PCB fabrication,” picks Etch-O-Matronic on star ratings, and requests the quickest turn - exactly the “cheap and fast” habit his manager praised in Old Bob, without real supplier judgment.",
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
@@ -89,13 +89,13 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Direct Freight Manifest — a shipping label printed when boards leave the fab dock for the customer site.",
-        "Digital File Mirror — an automatic cloud backup of Gerbers, drill files, and assembly drawings together.",
-        "Design for Manufacturing — checking whether the board can be built reliably at the fab/assembly house.",
-        "Department of Facility Maintenance — HVAC and clean-room humidity rules that limit etch-line chemistry."
+        "Direct Freight Manifest - a shipping label printed when boards leave the fab dock for the customer site.",
+        "Digital File Mirror - an automatic cloud backup of Gerbers, drill files, and assembly drawings together.",
+        "Design for Manufacturing - checking whether the board can be built reliably at the fab/assembly house.",
+        "Department of Facility Maintenance - HVAC and clean-room humidity rules that limit etch-line chemistry."
       ],
       "answer": "c",
-      "explanation": "DFM is Design for Manufacturing. Ian has seen the letters but does not understand them — the same gap a technical buyer must not have when talking fab notes and process capability with suppliers.",
+      "explanation": "DFM is Design for Manufacturing. Ian has seen the letters but does not understand them - the same gap a technical buyer must not have when talking fab notes and process capability with suppliers.",
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
@@ -140,7 +140,7 @@
         "PCB, PCBA/contract manufacturing, electronic components, and instrumentation."
       ],
       "answer": "d",
-      "explanation": "The posting’s first responsibility is sourcing strategies for PCB, PCBA/CM, electronic components, and instrumentation — the same domains Chapter 1’s fab decision toys with casually.",
+      "explanation": "The posting’s first responsibility is sourcing strategies for PCB, PCBA/CM, electronic components, and instrumentation - the same domains Chapter 1’s fab decision toys with casually.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "Create sourcing strategies for assigned electronics categories (PCB, PCBA/contract manufacturing, electronic components, and instrumentation)"
@@ -157,7 +157,7 @@
         "Writing flight firmware and running hardware-in-the-loop tests on the pad controller before each launch window."
       ],
       "answer": "c",
-      "explanation": "Preferred skills call out drawings, fab drawings, stack-ups, data sheets, and BOMs — plus avionics manufacturing complexity. That is the literacy Ian lacked when he treated layout automation as enough.",
+      "explanation": "Preferred skills call out drawings, fab drawings, stack-ups, data sheets, and BOMs - plus avionics manufacturing complexity. That is the literacy Ian lacked when he treated layout automation as enough.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "strong ability to read drawings, fab notes, stack-ups, and BOMs and to understand manufacturing complexity"
@@ -174,7 +174,7 @@
         "Skip assessment whenever the fab’s public online rating sits comfortably above four stars."
       ],
       "answer": "a",
-      "explanation": "The posting expects facility visits and assessment of capability, financial health, capacity, and risk before awarding NPI and long-term production — the opposite of Ian’s Quickie-Cheapo click.",
+      "explanation": "The posting expects facility visits and assessment of capability, financial health, capacity, and risk before awarding NPI and long-term production - the opposite of Ian’s Quickie-Cheapo click.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "Visit supplier facilities and assess operational capability, financial health, capacity, and risk before awarding NPI and long-term production"
@@ -191,14 +191,14 @@
         "Planners own MRP; this seat owns the supplier, the contract, and the cost for the category."
       ],
       "answer": "d",
-      "explanation": "The posting is explicit: partner so demand and inventory stay aligned to the build plan — planners own MRP; this seat owns supplier, contract, and cost.",
+      "explanation": "The posting is explicit: partner so demand and inventory stay aligned to the build plan - planners own MRP; this seat owns supplier, contract, and cost.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "planners own MRP; this seat owns the supplier, the contract, and the cost"
       }
     },
     {
-      "question": "Which cost-reduction levers does the posting expect you to execute — not just admire on a spreadsheet?",
+      "question": "Which cost-reduction levers does the posting expect you to execute - not just admire on a spreadsheet?",
       "type": "multi",
       "level": 2,
       "options": [
@@ -212,7 +212,7 @@
         "b",
         "d"
       ],
-      "explanation": "Cost-reduction projects include piece price, yield, tooling, dual-source, and obsolescence — with planning, stakeholders, and updates. Ignoring obsolescence is the failure mode, not a lever.",
+      "explanation": "Cost-reduction projects include piece price, yield, tooling, dual-source, and obsolescence - with planning, stakeholders, and updates. Ignoring obsolescence is the failure mode, not a lever.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "Identify and execute cost-reduction projects (piece price, yield, tooling, dual-source, obsolescence)"
@@ -250,7 +250,7 @@
         "b",
         "c"
       ],
-      "explanation": "Collaborate on SLAs/KPIs for cost, quality, on-time delivery, lead time, and responsiveness — then develop and monitor the supply base. Cafeteria ratings are Chapter 1 satire, not a sourcing KPI.",
+      "explanation": "Collaborate on SLAs/KPIs for cost, quality, on-time delivery, lead time, and responsiveness - then develop and monitor the supply base. Cafeteria ratings are Chapter 1 satire, not a sourcing KPI.",
       "reference": {
         "section": "Why the SpaceX posting sits next to this chapter",
         "lecture": "define SLAs and KPIs for suppliers (cost, quality, on-time delivery, lead time, responsiveness)"
@@ -308,7 +308,7 @@
       "options": [
         "Pick fabs like Ian: highest public star rating, shortest advertised turn, and skip hard DFM talk with the shop.",
         "Automation templates plus a corporate card are enough; drawings and stack-ups can stay engineering-only forever.",
-        "Treat PCB/PCBA cost and schedule as tied to manufacturability — read the package and pressure-test process capability.",
+        "Treat PCB/PCBA cost and schedule as tied to manufacturability - read the package and pressure-test process capability.",
         "Sole-source is fine when piece price looks low this quarter, even if capacity and financial health were never checked."
       ],
       "answer": "c",

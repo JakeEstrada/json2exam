@@ -32,7 +32,7 @@ Use them together. Grid for the page. Flex for a nav row inside a cell.
 
 ## Assigned reading
 
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 6 *Grid layout* (PDF p. 172), grid items (p. 175).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 6 *Grid layout* (PDF p. 172), grid items (p. 175).
 
 ## Coding tasks
 

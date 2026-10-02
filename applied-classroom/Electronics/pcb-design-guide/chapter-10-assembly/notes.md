@@ -1,6 +1,6 @@
-# Chapter 10 — Assembly Data & Process Overview
+# Chapter 10 - Assembly Data & Process Overview
 
-Hitchhiker PDF pages **94–113**.
+Hitchhiker PDF pages **94-113**.
 
 ## Deliver a complete assembly package
 

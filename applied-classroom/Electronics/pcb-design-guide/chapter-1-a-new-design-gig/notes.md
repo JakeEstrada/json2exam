@@ -1,9 +1,9 @@
-# Chapter 1 — A New Design Gig
+# Chapter 1 - A New Design Gig
 
 Read this before the quiz. The deck mixes two sources:
 
-1. **The Hitchhiker’s Guide to PCB Design** — Chapter 1 *A New Design Gig* (PDF pages 8–11).
-2. **SpaceX job posting** — `Electronics/spacex.txt` (*Sourcing Manager, Launch Vehicle Electronic Systems*). Use **Show in lecture** on those cards.
+1. **The Hitchhiker’s Guide to PCB Design** - Chapter 1 *A New Design Gig* (PDF pages 8-11).
+2. **SpaceX job posting** - `Electronics/spacex.txt` (*Sourcing Manager, Launch Vehicle Electronic Systems*). Use **Show in lecture** on those cards.
 
 ## What Chapter 1 is really about
 
@@ -23,7 +23,7 @@ When starting a PCB design role, ask:
 
 ## Why the SpaceX posting sits next to this chapter
 
-The posting is not a layout job — it is **technical procurement** for launch-vehicle electronics (PCB, PCBA, components, instrumentation). The same literacy Ian lacked is what the role expects:
+The posting is not a layout job - it is **technical procurement** for launch-vehicle electronics (PCB, PCBA, components, instrumentation). The same literacy Ian lacked is what the role expects:
 
 - Read drawings, fab notes, stack-ups, and BOMs
 - Talk DFM and manufacturing complexity with engineering

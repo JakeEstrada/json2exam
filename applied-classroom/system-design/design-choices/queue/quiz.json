@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Queue",
+  "title": "System Design - Queue",
   "questions": [
     {
       "question": "A primary benefit of inserting a message queue between services is:",
@@ -14,9 +14,21 @@
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 34,
-        "excerpt": "The basic architecture of a message queue is simple. Input services, called producers/publishers, create messages, and publish them to a message queue."
+        "excerpt": "The basic architecture of a message queue is simple. Input services, called producers/publishers, create messages, and publish them to a message queue.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 869,
+            "excerpt": "To reach multiple consumers, the publisher needs to send a message to one queue for each consumer."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 649,
+            "excerpt": "Message brokers A widely used alternative is to send messages via a message broker (also known as a message queue), which is essentially a kind of database that is optimized for handling message streams [12]."
+          }
+        ]
       }
     },
     {
@@ -32,9 +44,21 @@
       "answer": "b",
       "explanation": "notification sending",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 195,
-        "excerpt": "notification sending"
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 196,
+        "excerpt": "For instance, an iOS push notification event is sent to the iOS PN queue.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "This is nice if the Notification service and the Analytics service need different information, since you can send different messages to each queue."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 441,
+            "excerpt": "For example, say a side effect of processing a message is to send an email, and the email server does not support 2PC."
+          }
+        ]
       }
     },
     {
@@ -50,9 +74,21 @@
       "answer": "b",
       "explanation": "delivery semantics",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
-        "page": 181,
-        "excerpt": "Design locality applies to most of the system components: crawl servers, cache, queue, storage, etc. 4."
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 34,
+        "excerpt": "Other services or servers, called consumers/subscribers, connect to the queue, and perform actions defined by the messages.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "The Trading service is tightly coupled to its consumers - ​it knows exactly how many there are."
+          },
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 454,
+            "excerpt": "Arpaci-Dusseau. “Crash Consistency: Rethinking the Fundamental Abstractions of the File System.” ACM Queue, volume 13, issue 7, pages 20-28, July 2015. doi:10.1145/2800695.2801719 [22] Thanumalayan Sankaranarayana Pillai, Vijay Chidambaram, Ramnatthan Alagappan, Samer AlKiswany, Andrea C."
+          }
+        ]
       }
     },
     {
@@ -62,9 +98,21 @@
       "answer": true,
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 34,
-        "excerpt": "message queue"
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
+        "page": 272,
+        "excerpt": "When you click the play button, a video is streamed from the CDN. • Completion queue: It is a message queue that stores information about video transcoding completion events. • Completion handler: This consists of a list of workers that pull event data from the completion queue and update metadat…",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 356,
+            "excerpt": "For that reason, it can be good to have a human in the loop for rebalancing."
+          },
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 436,
+            "excerpt": "We know that an order in this system has 45 attributes. Because all of that information is contained in the event payload, the event needs some sort of contract - a way of structuring the data being sent."
+          }
+        ]
       }
     },
     {
@@ -82,8 +130,34 @@
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 454,
-        "excerpt": "Arpaci-Dusseau. “Crash Consistency: Rethinking the Fundamental Abstractions of the File System.” ACM Queue, volume 13, issue 7, pages 20–28, July 2015. doi:10.1145/2800695.2801719 [22] Thanumalayan Sankaranarayana Pillai, Vijay Chidambaram, Ramnatthan Alagappan, Samer AlKiswany, Andrea C."
+        "excerpt": "ArpaciDusseau. “Redundancy Does Not Imply Fault Tolerance: Analysis of Distributed Storage Reactions to Single Errors and Corruptions.” At 15th USENIX Conference on File and Storage Technologies (FAST), February 2017.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 871,
+            "excerpt": "However, if you need to send messages to the Compliance service, you’ll have to rework the Trading service to start sending messages to a third queue."
+          },
+          {
+            "book": "System Design Interview - An Insider's Guide by Alex Xu",
+            "page": 200,
+            "excerpt": "Retry mechanism When a third-party service fails to send a notification, the notification will be added to the message queue for retrying."
+          }
+        ]
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 34
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 436
+    },
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 356
     }
   ]
 }

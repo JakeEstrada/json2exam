@@ -1,4 +1,4 @@
-# Arrays — pattern recognition
+# Arrays - pattern recognition
 
 LeetCode · Arrays
 

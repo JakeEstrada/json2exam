@@ -1,5 +1,5 @@
 {
-  "title": "Python — Functions",
+  "title": "Python - Functions",
   "questions": [
     {
       "question": "How do you start a function definition?",
@@ -43,8 +43,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 175,
-        "excerpt": "Instead, it can process some data and then return a value or set of values."
+        "page": 178,
+        "excerpt": "In conditional tests, None evaluates to False. If the function call includes a value for age, that value is stored in the dictionary.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Here we tried to be clever and instead of having a default value of passengers=None, we have passengers=[], thus avoiding the if in the previous __init__."
+          }
+        ]
       },
       "code": "def noop():\n    return"
     },
@@ -64,7 +71,14 @@
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 171,
-        "excerpt": "Keyword Arguments A keyword argument is a name-value pair that you pass to a function."
+        "excerpt": "Keyword Arguments A keyword argument is a name-value pair that you pass to a function.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 376,
+            "excerpt": "That is the same mode used in most OO languages, including Ruby, Smalltalk, and Java (this applies to Java reference types; primitive types use call by value)."
+          }
+        ]
       },
       "code": "greet(\"Ada\", title=\"Dr\")"
     },
@@ -143,8 +157,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 168,
+        "excerpt": "When Python generates documentation for the functions in your programs, it looks for a string immediately after the function's definition.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       },
       "code": "def outer():\n    def inner():\n        return 1\n    return inner()"
     },
@@ -163,8 +184,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 170,
-        "excerpt": "In the function body, these two parameters are used to display information about the pet being described."
+        "page": 168,
+        "excerpt": "Any indented lines that follow def greet_user(): make up the body of the function.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "The tuple t is unchanged. Another issue related to function parameters is the use of mutable values for defaults, as discussed next."
+          }
+        ]
       },
       "code": "def todo():\n    pass"
     },
@@ -183,8 +211,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 177,
-        "excerpt": "Because there’s always a first and last name, these parameters are listed first in the function’s definition."
+        "page": 172,
+        "excerpt": "My dog's name is Willie. Note that the order of the parameters in the function definition had to be changed.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Another issue related to function parameters is the use of mutable values for defaults, as discussed next."
+          }
+        ]
       },
       "code": "def add(a: int, b: int) -> int:\n    return a + b"
     },
@@ -203,8 +238,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 168,
+        "excerpt": "The first line uses the keyword def to inform Python that you’re defining a function.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       },
       "code": "square = lambda n: n * n"
     },
@@ -223,8 +265,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 222,
-        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+        "page": 172,
+        "excerpt": "Python still interprets this as a positional argument, so if the function is called with just a pet’s name, that argument will match up with the first parameter listed in the function’s definition.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       },
       "code": "COUNT = 0\ndef bump():\n    global COUNT\n    COUNT += 1"
     },
@@ -264,7 +313,14 @@
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 186,
-        "excerpt": "Then we return the user_info dictionary to the function call line."
+        "excerpt": "Then we return the user_info dictionary to the function call line.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "The tuple t is unchanged. Another issue related to function parameters is the use of mutable values for defaults, as discussed next."
+          }
+        ]
       },
       "code": "def pair(a, b):\n    return a, b"
     },
@@ -284,7 +340,14 @@
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 168,
-        "excerpt": "Any indented lines that follow def greet_user(): make up the body of the function."
+        "excerpt": "The line print(\"Hello!\") is the only line of actual code in the body of this function, so greet_user() has just one job: print(\"Hello!\").",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       },
       "code": "def add(a, b):\n    \"\"\"Sum a and b.\"\"\"\n    return a + b"
     },
@@ -304,7 +367,14 @@
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 168,
-        "excerpt": "When Python generates documentation for the functions in your programs, it looks for a string immediately after the function's definition."
+        "excerpt": "Defining a Function Here’s a simple function named greet_user() that prints a greeting: greeter.py def greet_user(): \"\"\"Display a simple greeting.\"\"\" print(\"Hello!\") greet_user() This example shows the simplest structure of a function.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "However, you should avoid mutable objects as default values for parameters."
+          }
+        ]
       },
       "code": "def apply(fn, x):\n    return fn(x)"
     },
@@ -326,8 +396,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 177,
-        "excerpt": "Returning a Dictionary A function can return any kind of value you need it to, including more complicated data structures like lists and dictionaries."
+        "page": 162,
+        "excerpt": "A for loop is effective for looping through a list, but you shouldn’t modify a list inside a for loop because Python will have trouble keeping track of the items in the list.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       }
     },
     {
@@ -349,7 +426,14 @@
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 168,
-        "excerpt": "As expected, it prints Hello!: Hello! Passing Information to a Function If you modify the function greet_user() slightly, it can greet the user by name."
+        "excerpt": "As expected, it prints Hello!: Hello! Passing Information to a Function If you modify the function greet_user() slightly, it can greet the user by name.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Another issue related to function parameters is the use of mutable values for defaults, as discussed next."
+          }
+        ]
       }
     },
     {
@@ -371,50 +455,25 @@
         "section": "Mutable default trap",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 378,
-        "excerpt": "Here we tried to be clever and instead of having a default value of passengers=None, we have passengers=[], thus avoiding the if in the previous __init__."
+        "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible.",
+        "books": [
+          {
+            "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+            "page": 162,
+            "excerpt": "To modify a list as you work through it, use a while loop. Using while loops with lists and dictionaries allows you to collect, store, and organize lots of input to examine and report on later."
+          }
+        ]
       }
     }
   ],
   "reading": [
     {
       "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-      "chapter": "Chapter 8 — Functions",
-      "page": 167,
-      "pageEnd": 186,
-      "sections": [
-        {
-          "heading": "def",
-          "page": 167
-        },
-        {
-          "heading": "Defaults and keyword args",
-          "page": 176
-        },
-        {
-          "heading": "Mutable default trap",
-          "page": 378
-        }
-      ]
+      "page": 162
     },
     {
       "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-      "chapter": "Dictionaries and Sets / mutable defaults",
-      "page": 144,
-      "pageEnd": 378,
-      "sections": [
-        {
-          "heading": "Sets",
-          "page": 171
-        },
-        {
-          "heading": "Dict and set",
-          "page": 171
-        },
-        {
-          "heading": "Mutable default trap",
-          "page": 378
-        }
-      ]
+      "page": 323
     }
   ]
 }

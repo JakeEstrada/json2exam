@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Quiz platform (Json2Exam)",
+  "title": "System Design - Quiz platform (Json2Exam)",
   "questions": [
     {
       "question": "Json2Exam’s quiz progress today is primarily stored:",
@@ -50,7 +50,7 @@
       "answer": "b",
       "explanation": "rate limiter limits the number of client requests",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview - An Insider's Guide",
         "page": 66,
         "excerpt": "rate limiter limits the number of client requests"
       }
@@ -82,7 +82,7 @@
       "reference": {
         "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 20,
-        "excerpt": "This has led to a split between two types of systems—a distinction that we will use throughout this book: Operational systems consist of the backend services and data infrastructure where data is created—for example, by serving external users.",
+        "excerpt": "This has led to a split between two types of systems - a distinction that we will use throughout this book: Operational systems consist of the backend services and data infrastructure where data is created - for example, by serving external users.",
         "books": [
           {
             "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
@@ -105,10 +105,24 @@
       "answer": "b",
       "explanation": "notification system",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview - An Insider's Guide",
         "page": 187,
         "excerpt": "notification system"
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 16
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide",
+      "page": 66
+    },
+    {
+      "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+      "page": 280
     }
   ]
 }

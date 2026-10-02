@@ -1,5 +1,5 @@
 {
-  "title": "Electronics — Chapter 9: Fabrication Data & Documentation",
+  "title": "Electronics - Chapter 9: Fabrication Data & Documentation",
   "questions": [
     {
       "question": "CAD data for fabrication should be accompanied by:",
@@ -9,7 +9,7 @@
         "Only a verbal description left on the fab’s voicemail.",
         "Textual fabrication specifications and clear process notes.",
         "A selfie of the monitor showing the auto-router progress bar.",
-        "Nothing — Gerbers alone never need notes or tolerances."
+        "Nothing - Gerbers alone never need notes or tolerances."
       ],
       "answer": "b",
       "explanation": "CAD data must be accompanied by textual fabrication specifications",

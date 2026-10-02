@@ -5,7 +5,7 @@ Read **Designing Data-Intensive Applications** Chapter 2 ideas (PDF ~p. 57+): no
 ## Functional vs nonfunctional
 
 - **Functional**: what screens and operations do.
-- **Nonfunctional**: fast, reliable, secure, maintainable — an app that is unbearably slow or unreliable might as well not exist.
+- **Nonfunctional**: fast, reliable, secure, maintainable - an app that is unbearably slow or unreliable might as well not exist.
 
 ## Three pillars (vocabulary)
 

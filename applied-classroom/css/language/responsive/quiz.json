@@ -1,5 +1,5 @@
 {
-  "title": "CSS — Responsive",
+  "title": "CSS - Responsive",
   "questions": [
     {
       "question": "Why did separate m. and www. sites break down?",
@@ -7,7 +7,7 @@
       "level": 1,
       "options": [
         "Phones cannot load CSS.",
-        "Too many devices: tablet, phablet, mini tablet — which site do they get?",
+        "Too many devices: tablet, phablet, mini tablet - which site do they get?",
         "HTML cannot be served twice.",
         "Media queries were banned."
       ],
@@ -17,7 +17,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "An iPad Mini? What if a mobile user wants to perform an action you only have available on the desktop version of your site?"
+        "excerpt": "After that, we’ll also take a look images, which require special considerations on responsive sites. 8.1 Mobile first The first principle of responsive design is mobile first.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": "/* one stylesheet */\nbody { margin: 0; }"
     },
@@ -37,7 +44,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "A far better approach is to serve the same HTML and CSS to all your users."
+        "excerpt": "A far better approach is to serve the same HTML and CSS to all your users.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -57,7 +71,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "This approach, popularized by web designer Ethan Marcotte, is called responsive design."
+        "excerpt": "This approach, popularized by web designer Ethan Marcotte, is called responsive design.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "But the sheer complexity of a responsive tabbed interface/accordion hybrid is just not worth it in performance terms."
+          }
+        ]
       },
       "code": "@media (min-width: 40em) { .grid { display: grid; } }"
     },
@@ -76,8 +97,8 @@
       "reference": {
         "section": "Media queries",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 242,
-        "excerpt": "For more information on the meta viewport tag, see the MDN documentation at 8.2 Media queries The second component of responsive design is the use of media queries."
+        "page": 230,
+        "excerpt": "This syntax (often called media queries) lets you write styles that only apply under certain conditions."
       },
       "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -97,7 +118,19 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "203 Mobile first Instead, the mobile first approach dictates you design your site with these constraints in mind from the beginning."
+        "excerpt": "203 Mobile first Instead, the mobile first approach dictates you design your site with these constraints in mind from the beginning.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "We just need to remember to label each instance. When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 366,
+            "excerpt": "This involves learning about how designing for a screen can be different to designing for other mediums (such as print)."
+          }
+        ]
       },
       "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -117,7 +150,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "The use of fluid layouts. This approach allows containers to scale to different sizes based on the width of the viewport."
+        "excerpt": "This is responsive design at work. The three key principles to responsive design: 1 2 3 A mobile first approach to design.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": "div { max-width: 960px; }"
     },
@@ -156,8 +196,8 @@
       "reference": {
         "section": "Media queries",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 242,
-        "excerpt": "A basic media query looks like this: @media (min-width: 560px) { .title > h1 { font-size: 2.25rem; } } Any rulesets can be defined within the outer set of braces."
+        "page": 230,
+        "excerpt": "This means you build the mobile version before you construct the desktop layout."
       },
       "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -177,7 +217,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "In the end, a forced dichotomy between desktop and mobile causes more problems than it solves."
+        "excerpt": "In the end, a forced dichotomy between desktop and mobile causes more problems than it solves.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": "/* one site */"
     },
@@ -197,7 +244,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "This is responsive design at work. The three key principles to responsive design: 1 2 3 A mobile first approach to design."
+        "excerpt": "202 CHAPTER 8 Responsive design This approach began to break down as more and more devices emerged on the market.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": ".wrap { max-width: 60rem; width: 90%; }"
     },
@@ -216,13 +270,18 @@
       "reference": {
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 238,
-        "excerpt": "It’s important that you place the button to reveal your menu within the <nav> so it’s quickly discoverable when the user navigates there.",
+        "page": 235,
+        "excerpt": "The nav-menu is placed where it can meet your needs for both mobile and desktop designs.",
         "books": [
           {
             "book": "Inclusive Components by Heydon Pickering",
-            "page": 102,
-            "excerpt": "Using the menu button with a screen reader Video: I’ll show you what it’s like to use the menu button with the Voiceover screen reader and Chrome."
+            "page": 58,
+            "excerpt": "When iterating over the checkbox data, we can write unique values to each for/id pairing using a for loop’s current index and string interpolation."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 355,
+            "excerpt": "Here you can see the <li> element has a class of completed, inside a <ul> with a class called to-do."
           }
         ]
       },
@@ -264,7 +323,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "After that, we’ll also take a look images, which require special considerations on responsive sites. 8.1 Mobile first The first principle of responsive design is mobile first."
+        "excerpt": "The use of fluid layouts. This approach allows containers to scale to different sizes based on the width of the viewport.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": ".wrap {\n  width: 90%;\n  max-width: 60rem;\n}"
     },
@@ -284,7 +350,14 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "What if a mobile user wants to perform an action you only have available on the desktop version of your site?"
+        "excerpt": "An iPad Mini? What if a mobile user wants to perform an action you only have available on the desktop version of your site?",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 157,
+            "excerpt": "Responsive design is inclusive design. Not only is a responsive design compatible with a maximal number of devices, but it’s also sensitive to a user’s zoom settings."
+          }
+        ]
       },
       "code": "/* same actions, rearranged */"
     },
@@ -304,7 +377,19 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "Once your mobile experience works (or is at least planned), you can use “progressive enhancement” to augment the experience for large screen users."
+        "excerpt": "Once your mobile experience works (or is at least planned), you can use “progressive enhancement” to augment the experience for large screen users.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 58,
+            "excerpt": "In my version, I just add a minor enhancement: a line-through style for checked items."
+          },
+          {
+            "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+            "page": 366,
+            "excerpt": "This involves learning about how designing for a screen can be different to designing for other mediums (such as print)."
+          }
+        ]
       },
       "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -435,35 +520,15 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 8 — Responsive design",
-      "page": 229,
-      "pageEnd": 250,
-      "sections": [
-        {
-          "heading": "Responsive design",
-          "page": 229
-        },
-        {
-          "heading": "Media queries",
-          "page": 229
-        },
-        {
-          "heading": "Mobile first",
-          "page": 231
-        }
-      ]
+      "page": 230
+    },
+    {
+      "book": "Inclusive Components by Heydon Pickering",
+      "page": 58
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 15 — Layout",
-      "page": 365,
-      "pageEnd": 380,
-      "sections": [
-        {
-          "heading": "Responsive design",
-          "page": 366
-        }
-      ]
+      "page": 355
     }
   ]
 }

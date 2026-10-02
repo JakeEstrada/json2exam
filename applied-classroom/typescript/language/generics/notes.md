@@ -24,7 +24,7 @@ Look up **GENERICS** (`tsts GENERICS`).
 
 ## Assigned reading
 
-- Effective TypeScript, 2nd Edition by Dan Vanderkam — Chapter 6 *Generics and Type-Level Programming* (PDF p. 241), Item 50 *Think of Generics as Functions Between Types* (PDF p. 242).
+- Effective TypeScript, 2nd Edition by Dan Vanderkam - Chapter 6 *Generics and Type-Level Programming* (PDF p. 241), Item 50 *Think of Generics as Functions Between Types* (PDF p. 242).
 
 Cheat sheet: **GENERICS**.
 

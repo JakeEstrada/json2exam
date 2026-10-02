@@ -61,7 +61,7 @@ export const HTML_SHAPE = [
   '',
   'HTML is a **markup language**. You wrap content in tags so the browser knows what is a heading, a paragraph, a link, or an image. It is not a programming language. There is no `for` loop, no `#include`, and no compile step.',
   '',
-  'A page is a tree of **elements**. An element is an opening tag, optional content, and a closing tag — unless it is empty (`<img>`, `<input>`). Attributes live on the opening tag.',
+  'A page is a tree of **elements**. An element is an opening tag, optional content, and a closing tag - unless it is empty (`<img>`, `<input>`). Attributes live on the opening tag.',
   '',
   '```html',
   '<html>',

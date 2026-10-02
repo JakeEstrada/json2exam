@@ -40,7 +40,14 @@ export function detectLanguage(source) {
   if (!s) return 'javascript';
   if (/^\s*</.test(s) || /<\/[a-zA-Z]/.test(s) || /<!DOCTYPE/i.test(s)) return 'html';
   if (/@(media|import|keyframes|supports)\b/.test(s)) return 'css';
-  if (/\bdef\s+[A-Za-z_]/.test(s) || /\bself\b/.test(s) || /\bNone\b|\bTrue\b|\bFalse\b/.test(s)) {
+  if (
+    /\bdef\s+[A-Za-z_]/.test(s)
+    || /\bself\b/.test(s)
+    || /\bNone\b|\bTrue\b|\bFalse\b/.test(s)
+    || /^\s*(async\s+)?(def|class|elif|except|for|if|while|with)\b.*:\s*$/m.test(s)
+    || /^\s*(for|if|while|with)\b(?!\s*\()[^\n]*$/m.test(s)
+    || /\b(elif|except|pass|yield)\b/.test(s)
+  ) {
     return 'python';
   }
   const cssy = /[{][^}]*:[^}]*[}]/.test(s) || /^[.#a-zA-Z][\w.#:[\]()-]*\s*\{/.test(s);

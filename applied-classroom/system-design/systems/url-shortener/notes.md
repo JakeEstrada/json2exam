@@ -1,6 +1,6 @@
 # URL shortener
 
-Read **System Design Interview – An Insider's Guide** Chapter 8 (PDF ~p. 149–163). Classic interview system that forces API design, hashing/IDs, redirects, and scale math.
+Read **System Design Interview - An Insider's Guide** Chapter 8 (PDF ~p. 149-163). Classic interview system that forces API design, hashing/IDs, redirects, and scale math.
 
 ## Scope reminders
 

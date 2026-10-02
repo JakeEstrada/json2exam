@@ -20,8 +20,8 @@ No `def`, no types on the parameters, no `#define`. A function is a value: you c
 
 ## Assigned reading
 
-- Eloquent JavaScript, 4th Edition by Marijn Haverbeke — Chapter 3 *Functions* (PDF p. 74), *Defining a function* (PDF p. 75), *Bindings and scopes*, *Closure* (PDF p. 86).
-- You Don't Know JS Yet by Kyle Simpson — Chapter 1 *What’s the Scope?* (PDF p. 19) and Chapter 7 *Using Closures* (PDF p. 149). Local file: *You Don't Know JS Yet: Scope & Closures, 2nd Edition*.
+- Eloquent JavaScript, 4th Edition by Marijn Haverbeke - Chapter 3 *Functions* (PDF p. 74), *Defining a function* (PDF p. 75), *Bindings and scopes*, *Closure* (PDF p. 86).
+- You Don't Know JS Yet by Kyle Simpson - Chapter 1 *What’s the Scope?* (PDF p. 19) and Chapter 7 *Using Closures* (PDF p. 149). Local file: *You Don't Know JS Yet: Scope & Closures, 2nd Edition*.
 
 ## Defining a function
 
@@ -39,7 +39,7 @@ function paid(row) {
 const tax = (amount) => amount * 0.08;
 ```
 
-Declarations are hoisted (you can call them above the line). `const fn = function () {}` is not. Arrow functions do not bind their own `this` (module 5–6 and later). For these drills, prefer named functions or `const` arrows without `this`.
+Declarations are hoisted (you can call them above the line). `const fn = function () {}` is not. Arrow functions do not bind their own `this` (module 5-6 and later). For these drills, prefer named functions or `const` arrows without `this`.
 
 Missing `return` yields `undefined`. Extra arguments are ignored; missing ones are `undefined` unless you set defaults: `function greet(name = "guest")`.
 
@@ -91,7 +91,7 @@ function makeStatusMachine(initial) {
 
 ## From C++
 
-- No nested functions in standard C++. Closures here are closer to capturing lambdas (`[=]` / `[&]`) that outlive the stack frame — in JS that is normal and safe for heap bindings.
+- No nested functions in standard C++. Closures here are closer to capturing lambdas (`[=]` / `[&]`) that outlive the stack frame - in JS that is normal and safe for heap bindings.
 - JS locals live as long as something references them. You do not get a dangling stack pointer from returning an inner function.
 - There is no `static` local in the C sense; a closure variable is the replacement.
 
@@ -121,7 +121,7 @@ day.value(); // 52
 - Forgetting `return`.
 - Creating functions in a `var` loop and capturing the same `i`.
 - Mutating a closed-over object and being surprised that every alias sees it.
-- Treating a closure as a copy of a primitive that cannot change — it can if you reassign the binding.
+- Treating a closure as a copy of a primitive that cannot change - it can if you reassign the binding.
 
 ## Predict the output
 
@@ -153,7 +153,7 @@ All three return `3`. `var i` is one binding. Use `let i` or wrap `i` in its own
 
 1. **Basic.** `applyDiscount(rate)` returns a function `(amount) => amount * (1 - rate)`.
 2. **Applied.** `makeStatusMachine(initial)` with `get` and `set` as above. `set` should ignore `undefined`.
-3. **Applied.** `makeIdFactory(prefix)` — each call to the returned function yields `prefix-1`, `prefix-2`, …
+3. **Applied.** `makeIdFactory(prefix)` - each call to the returned function yields `prefix-1`, `prefix-2`, …
 
 ## Hints
 
@@ -163,7 +163,7 @@ All three return `3`. `var i` is one binding. Use `let i` or wrap `i` in its own
 
 ## Worked solutions
 
-Predict: `1 2 1` — the third call is a new machine.
+Predict: `1 2 1` - the third call is a new machine.
 
 Find the bug: `for (let i = 0; i < 3; i++)`.
 

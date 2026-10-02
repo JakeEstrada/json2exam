@@ -57,7 +57,8 @@ function CourseCard({ course, onOpen, onSignIn, log, showProgress, signedIn }) {
         'course-card sheet'
         + (showProgress && roll ? ' has-ring' : '')
         + (done ? ' is-done' : '')
-        + (!ready ? ' is-later is-locked' : '')
+        + ((!ready || course.later) ? ' is-later' : '')
+        + (!ready ? ' is-locked' : '')
       }
       onClick={activate}
       aria-disabled={locked ? 'true' : undefined}
@@ -245,7 +246,9 @@ export default function Loader({ onStart, onOpenCourse, onSignIn, resumePrompt, 
       )}
 
       {COURSE_GROUPS.map((group) => {
-        const list = COURSES.filter((course) => course.group === group.id);
+        const list = COURSES
+          .filter((course) => course.group === group.id)
+          .sort((a, b) => Number(!!a.later) - Number(!!b.later));
         if (!list.length) return null;
         return (
           <section key={group.id} className="course-group">

@@ -10,10 +10,10 @@ Positioning is different from flex and grid: it can **remove elements from norma
 
 ## Types
 
-- **relative** — offset from where it would have been; the original space is kept.
-- **absolute** — taken out of flow; placed relative to the nearest positioned ancestor (or the page).
-- **fixed** — relative to the viewport.
-- **sticky** — a newer type: acts like relative until a threshold, then sticks.
+- **relative** - offset from where it would have been; the original space is kept.
+- **absolute** - taken out of flow; placed relative to the nearest positioned ancestor (or the page).
+- **fixed** - relative to the viewport.
+- **sticky** - a newer type: acts like relative until a threshold, then sticks.
 
 ```css
 .badge {
@@ -37,8 +37,8 @@ Duckett's layout chapter also lists normal flow, relative, absolute, and floats 
 
 ## Assigned reading
 
-- CSS in Depth, 1st Edition by Keith J. Grant — Chapter 7 (PDF p. 205–206).
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 15 *Layout* (PDF p. 365–366).
+- CSS in Depth, 1st Edition by Keith J. Grant - Chapter 7 (PDF p. 205-206).
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 15 *Layout* (PDF p. 365-366).
 
 ## Coding tasks
 

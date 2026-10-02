@@ -1,6 +1,6 @@
 # Queue
 
-**System Design Interview – An Insider's Guide** Ch 1 & notification designs: queues decouple producers from consumers. **Designing Data-Intensive Applications**: stream/event processing builds on durable logs and async delivery.
+**System Design Interview - An Insider's Guide** Ch 1 & notification designs: queues decouple producers from consumers. **Designing Data-Intensive Applications**: stream/event processing builds on durable logs and async delivery.
 
 ## Why queues
 

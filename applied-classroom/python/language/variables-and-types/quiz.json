@@ -1,5 +1,5 @@
 {
-  "title": "Python \u2014 Variables and types",
+  "title": "Python - Variables and types",
   "questions": [
     {
       "question": "How do you bind a name to a value in Python?",
@@ -16,8 +16,15 @@
       "reference": {
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 54,
-        "excerpt": "Every variable is connected to a value, which is the information associated with that variable."
+        "page": 66,
+        "excerpt": "This feature works for both integers and floats. Multiple Assignment You can assign values to more than one variable using just a single line of code.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 58,
+            "excerpt": "That’s why an array with of floats is much more compact than a tuple of floats: the array is a single object holding the raw values of the floats, while the tuple is several objects - the tuple itself and each float object contained in it."
+          }
+        ]
       },
       "code": "x = 1\nx = \"hi\""
     },
@@ -36,8 +43,15 @@
       "reference": {
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 54,
-        "excerpt": "You can change the value of a variable in your program at any time, and Python will always keep track of its current value."
+        "page": 63,
+        "excerpt": "Stripping Names: Use a variable to represent a person’s name, and include some whitespace characters at the beginning and end of the name.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 52,
+            "excerpt": "The metaobject part refers to the objects that are the building blocks of the language itself."
+          }
+        ]
       },
       "code": "x = 1\nx = \"hi\""
     },
@@ -55,9 +69,9 @@
       "explanation": "Booleans are True and False with capital letters.",
       "reference": {
         "section": "Built-in types",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "A Boolean value is either True or False, just like the value of a conditional expression after it has been evaluated."
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 50,
+        "excerpt": "Making the most of sequence types is the subject of Chapter 2, and implementing your own sequence will be covered in [Link to Come] when we create a multidimensional extension of the Vector class."
       },
       "code": "ok = True"
     },
@@ -76,8 +90,8 @@
       "reference": {
         "section": "Built-in types",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 40,
-        "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
+        "page": 50,
+        "excerpt": "Thanks to operator overloading, Python offers a rich selection of numeric types, from the built-ins to decimal.Decimal and fractions.Fraction, all supporting infix arithmetic operators."
       },
       "code": "missing = None"
     },
@@ -95,9 +109,9 @@
       "explanation": "3.0 is a float even when it looks whole.",
       "reference": {
         "section": "Built-in types",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 65,
-        "excerpt": "Python defaults to a float in any operation that uses a float, even if the output is a whole number."
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 112,
+        "excerpt": "However, pickle automatically handles almost all built-in types, including nested containers, and even instances of user-defined classes (if they are not too tricky in their implementation)."
       },
       "code": "rate = 3.0\nprint(type(rate))"
     },
@@ -116,10 +130,17 @@
       "reference": {
         "section": "Truthiness",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "A Boolean expression is just another name for a conditional test. A Boolean value is either True or False."
+        "page": 58,
+        "excerpt": "Using Variables in Strings In some situations, you’ll want to use a variable’s value inside a string.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 40,
+            "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
+          }
+        ]
       },
-      "code": "bool([])  # False\nbool(\"0\")  # True"
+      "code": "bool([])\nbool(\"0\")"
     },
     {
       "question": "What is bool(\"False\")?",
@@ -137,7 +158,14 @@
         "section": "Truthiness",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 40,
-        "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
+        "excerpt": "Otherwise bool returns True. Our implementation of __bool__ is conceptually simple: it returns False if the magnitude of the vector is zero, True otherwise.",
+        "books": [
+          {
+            "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+            "page": 115,
+            "excerpt": "A Boolean value is either True or False, just like the value of a conditional expression after it has been evaluated."
+          }
+        ]
       },
       "code": "bool(\"False\")"
     },
@@ -155,9 +183,9 @@
       "explanation": "Use the int constructor.",
       "reference": {
         "section": "Conversion",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 96,
-        "excerpt": "For example, consider how you might make a list of the first 10 square numbers (that is, the square of each integer from 1 through 10)."
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 113,
+        "excerpt": "tes of all items in array for endianess conversion s.byteswap() s.clear() ● s.__contains__ ● Delete all items ● e in s (e) s.copy() ● s.__copy__() s.count(e) ● Shallow copy of the list ● Support for copy.copy ● Count occurrences of an eleme"
       },
       "code": "amount = int(\"40\")"
     },
@@ -175,9 +203,9 @@
       "explanation": "Invalid literals raise ValueError.",
       "reference": {
         "section": "Conversion",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 378,
-        "excerpt": "If any data is missing, Python will raise a ValueError and we handle it by printing an error message that includes the date of the missing data 2."
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 45,
+        "excerpt": "__bytes__, __f representation spath__ Conversion to number __abs__, __bool__, __complex__, __int__, __fl oat__, __hash__, __index__ Emulating collections __len__, __getitem__, __setitem__, __delitem __, __contains__ Iteration __iter__, __"
       },
       "code": "int(\"hi\")"
     },
@@ -196,8 +224,15 @@
       "reference": {
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 56,
-        "excerpt": "Variables Are Labels Variables are often described as boxes you can store values in."
+        "page": 124,
+        "excerpt": "Soon we’ll let users provide the information that’s stored in a list, so we won’t be able to assume that a list has any items in it each time a loop is run.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 68,
+            "excerpt": "In contrast with Example 2-4, here the six-item list of T-shirts is never built in memory: the generator expression feeds the for loop producing one item at a time."
+          }
+        ]
       },
       "code": "paid_total = 0"
     },
@@ -216,8 +251,8 @@
       "reference": {
         "section": "Built-in types",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 52,
-        "excerpt": "But there\u2019s no way to make the [] notation work with a new collection type that you define."
+        "page": 50,
+        "excerpt": "Making the most of sequence types is the subject of Chapter 2, and implementing your own sequence will be covered in [Link to Come] when we create a multidimensional extension of the Vector class."
       },
       "code": "ok = True\nprint(type(ok))"
     },
@@ -236,8 +271,8 @@
       "reference": {
         "section": "Built-in types",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 309,
-        "excerpt": "Here we\u2019ll mostly see hints with built-in types, such as str, int, and float, which are probably the most common types used to annotate fields of data classes."
+        "page": 50,
+        "excerpt": "Thanks to operator overloading, Python offers a rich selection of numeric types, from the built-ins to decimal.Decimal and fractions.Fraction, all supporting infix arithmetic operators."
       },
       "code": "total = None\ntotal = total + 1  # TypeError"
     },
@@ -255,9 +290,9 @@
       "explanation": "float parses decimals. int(\"1.5\") fails.",
       "reference": {
         "section": "Conversion",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they\u2019re being used. Let\u2019s first look at how Python manages integers, because"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 113,
+        "excerpt": "tes of all items in array for endianess conversion s.byteswap() s.clear() ● s.__contains__ ● Delete all items ● e in s (e) s.copy() ● s.__copy__() s.count(e) ● Shallow copy of the list ● Support for copy.copy ● Count occurrences of an eleme"
       },
       "code": "float(\"1.5\")"
     },
@@ -276,8 +311,15 @@
       "reference": {
         "section": "Truthiness",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you\u2019ll hear the term Boolean expression"
+        "page": 124,
+        "excerpt": "In this situation, it’s useful to check whether a list is empty before running a for loop.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 68,
+            "excerpt": "If the two lists used in the Cartesian product had 1,000 items each, using a generator expression would save the cost of building a list with a million items just to feed the for loop."
+          }
+        ]
       },
       "code": "amount = 0\nif amount:\n    print(\"paid\")  # skips real zero"
     },
@@ -296,8 +338,8 @@
       "reference": {
         "section": "Conversion",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 41,
-        "excerpt": "The explicit conversion to bool is needed because __bool__ must return a boolean and or returns either operand as is: x or y evaluates to x if that is truthy, otherwise the result is y, whatever that is."
+        "page": 45,
+        "excerpt": "__bytes__, __f representation spath__ Conversion to number __abs__, __bool__, __complex__, __int__, __fl oat__, __hash__, __index__ Emulating collections __len__, __getitem__, __setitem__, __delitem __, __contains__ Iteration __iter__, __"
       },
       "code": "label = str(40)"
     },
@@ -323,7 +365,14 @@
         "section": "Values and names",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 58,
-        "excerpt": "Thus, flat sequences are more compact, but they are limited to holding primitive machine values like bytes, integers, and floats."
+        "excerpt": "Thus, flat sequences are more compact, but they are limited to holding primitive machine values like bytes, integers, and floats.",
+        "books": [
+          {
+            "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+            "page": 63,
+            "excerpt": "something in the code as valid Python code, and it thinks the problem might be a string that’s not quoted correctly."
+          }
+        ]
       }
     },
     {
@@ -345,7 +394,7 @@
         "section": "Conversion",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 64,
-        "excerpt": "they\u2019re being used. Let\u2019s first look at how Python manages integers, because"
+        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
       }
     },
     {
@@ -367,34 +416,18 @@
         "section": "Truthiness",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 202,
-        "excerpt": "Keep Using OrderedDict.. PEP 3106 \u2014 Revamping dict.keys(), .values() and .items() is where Guido van Rossum presented the dictionary views feature for Python 3."
+        "excerpt": "Keep Using OrderedDict.. PEP 3106 - Revamping dict.keys(), .values() and .items() is where Guido van Rossum presented the dictionary views feature for Python 3."
       }
     }
   ],
   "reading": [
     {
       "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-      "chapter": "Chapter 2 \u2014 Variables and Simple Data Types",
-      "page": 53,
-      "pageEnd": 70,
-      "sections": [
-        {
-          "heading": "Values and names",
-          "page": 54
-        },
-        {
-          "heading": "Built-in types",
-          "page": 64
-        },
-        {
-          "heading": "Truthiness",
-          "page": 115
-        },
-        {
-          "heading": "Conversion",
-          "page": 64
-        }
-      ]
+      "page": 58
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 40
     }
   ]
 }

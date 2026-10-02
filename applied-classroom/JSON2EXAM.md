@@ -1,4 +1,4 @@
-# Json2Exam — what this app is, and what to add
+# Json2Exam - what this app is, and what to add
 
 Paste this file into ChatGPT when asking for quiz JSON, code-exercise specs, or a code review of the repo. It is the product brief, not a tutorial.
 
@@ -38,7 +38,7 @@ Rules the generator must follow:
 
 ```json
 {
-  "title": "JavaScript — Variables and data types",
+  "title": "JavaScript - Variables and data types",
   "questions": [
     {
       "question": "Which keyword declares a block-scoped variable?",
@@ -106,8 +106,8 @@ Progress is `localStorage` only. Resume bar on the home page. Theme toggle.
 
 ### 4. AskGPT and TTS
 
-- `POST /api/ask` — model chat about the current card. Prompt hides the key until after Check. Optional canned “brains” for 541 Ch1 and 544.
-- `POST /api/speak` — OpenAI `gpt-4o-mini-tts` (voice/model from `.env`). Prefetch + cache. Falls back to browser speech.
+- `POST /api/ask` - model chat about the current card. Prompt hides the key until after Check. Optional canned “brains” for 541 Ch1 and 544.
+- `POST /api/speak` - OpenAI `gpt-4o-mini-tts` (voice/model from `.env`). Prefetch + cache. Falls back to browser speech.
 
 Needs `OPENAI_API_KEY` in `.env`.
 
@@ -117,8 +117,8 @@ Grouped: Platform, Languages, Algorithms, Systems, Quality, Software engineering
 
 Filled (real JSON + lectures):
 
-- Requirements Engineering (`541-Mod1/`) — 5 chapter decks.
-- Advanced Software Process (`544-Mod-1/`) — 5 chapters + Agile/XP + Scrum.
+- Requirements Engineering (`541-Mod1/`) - 5 chapter decks.
+- Advanced Software Process (`544-Mod-1/`) - 5 chapters + Agile/XP + Scrum.
 
 Stubbed (folders + empty `quiz.json`): JavaScript, HTML, CSS, TypeScript, Data Structures, Algorithms, LeetCode-Style Practice, Database, API, System Design, Testing, Debugging, Platform Build.
 
@@ -234,7 +234,7 @@ JSON for a review card (optional later type):
 }
 ```
 
-That last shape is still multiple choice — ship it **now** inside existing `quiz.json` while the real editor does not exist. Debugging and “find the bug” folders can fill this way immediately.
+That last shape is still multiple choice - ship it **now** inside existing `quiz.json` while the real editor does not exist. Debugging and “find the bug” folders can fill this way immediately.
 
 ### D. Playgrounds (after B.2)
 
@@ -255,11 +255,11 @@ That last shape is still multiple choice — ship it **now** inside existing `qu
 
 - Stage 1: already have courses/modules/lessons-as-folders + quizzes.
 - Stage 2: code editor = improvement B.
-- Stage 3: accounts — skip until localStorage is not enough.
+- Stage 3: accounts - skip until localStorage is not enough.
 - Stage 4: LeetCode library = B.3 + filters in UI.
 - Stage 5: Leitner already is spaced repetition; add confidence rating later.
-- Stage 6: community — last.
-- Stage 7: Postgres, auth, Docker — when deploying for more than one browser.
+- Stage 6: community - last.
+- Stage 7: Postgres, auth, Docker - when deploying for more than one browser.
 
 ### F. Quality bar for generated content
 

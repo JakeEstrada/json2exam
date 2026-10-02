@@ -26,7 +26,7 @@ Headings for columns (or rows) use `<th>`, not bold `<td>`. A caption is `<capti
 
 ## Assigned reading
 
-- HTML and CSS: Design and Build Websites by Jon Duckett — Chapter 6 *Tables* (PDF p. 133), *Basic Table Structure* (p. 138). Images remain Chapter 5 (p. 106) when a cell contains a picture.
+- HTML and CSS: Design and Build Websites by Jon Duckett - Chapter 6 *Tables* (PDF p. 133), *Basic Table Structure* (p. 138). Images remain Chapter 5 (p. 106) when a cell contains a picture.
 
 ## Coding tasks
 

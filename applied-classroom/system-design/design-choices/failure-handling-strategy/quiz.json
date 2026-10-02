@@ -1,5 +1,5 @@
 {
-  "title": "System Design — Failure-handling strategy",
+  "title": "System Design - Failure-handling strategy",
   "questions": [
     {
       "question": "Reliability focuses on continuing correct operation when:",
@@ -7,7 +7,7 @@
       "level": 1,
       "options": [
         "Everything is healthy and load is zero.",
-        "Things go wrong — machines, networks, processes, humans.",
+        "Things go wrong - machines, networks, processes, humans.",
         "You disable all monitoring to avoid alert fatigue.",
         "You reject every request before it touches business logic."
       ],
@@ -32,7 +32,7 @@
       "answer": "b",
       "explanation": "If there are any problems with the rate limiter… it does not affect the entire system",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 66,
         "excerpt": "In this chapter, you are asked to design a rate limiter. Before starting the design, we first look at the benefits of using an API rate limiter: • Prevent resource starvation caused by Denial of Service (DoS) attack [1]."
       }
@@ -62,7 +62,7 @@
       "answer": true,
       "explanation": "Uptime is traditionally measured in nines. The more the nines, the better",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "book": "System Design Interview - An Insider's Guide by Alex Xu",
         "page": 50,
         "excerpt": "Uptime is traditionally measured in nines. The more the nines, the better."
       }
@@ -84,6 +84,20 @@
         "page": 257,
         "excerpt": "delivery semantics"
       }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+      "page": 54
+    },
+    {
+      "book": "System Design Interview - An Insider's Guide by Alex Xu",
+      "page": 50
+    },
+    {
+      "book": "Designing Data-Intensive Applications",
+      "page": 257
     }
   ]
 }
