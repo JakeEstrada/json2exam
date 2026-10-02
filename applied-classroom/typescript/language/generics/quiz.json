@@ -16,8 +16,8 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 247,
+        "excerpt": "They would let you fac‐ tor out common operations, like applying a generic type to the value types in an object: type MapValues<T extends object, F> = { [K in keyof T]: F<T[K]>; // ~~~~~~~ Type 'F' is not generic. }; The good news is that this doesn’t limit what you can do with generic types."
       },
       "code": "function identity<T>(value: T): T {\n  return value;\n}"
     },
@@ -36,8 +36,15 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 229,
+        "excerpt": "Here’s an example of a sound type: const x = Math.random(); // ^? const x: number TypeScript infers a static type of number for x, and this is sound: whatever value Math.random() returns at runtime, it will be a number.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 55,
+            "excerpt": "Like with objects, creating arrays with const won’t hint to TypeScript to infer their types more narrowly."
+          }
+        ]
       },
       "code": "const x = identity(\"a\");"
     },
@@ -56,8 +63,8 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 115,
+        "excerpt": "TypeScript makes extensive use of type inference. Used well, this can dramatically reduce the number of type annotations your code requires to get full type safety."
       },
       "code": "const n = identity<number>(1);"
     },
@@ -76,8 +83,8 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 251,
+        "excerpt": "class Joiner { join<T extends string | number>(els: T[]) { return els.map(el => String(el)).join(','); } } By moving the declaration of T closer to its use, we make it possible for TypeScript to infer the type of T."
       },
       "code": "function longest<T extends { length: number }>(a: T, b: T): T {\n  return a.length >= b.length ? a : b;\n}"
     },
@@ -96,8 +103,15 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 244,
+        "excerpt": "There’s no equivalent of this for type parameters. If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 320,
+            "excerpt": "Now, when TypeScript compiles your code it knows toPascalCase’s type is (word: string) => string."
+          }
+        ]
       },
       "code": "longest(1, 2);"
     },
@@ -116,8 +130,15 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 244,
+        "excerpt": "When you write a function, you choose descriptive parameter names and write TSDoc comments (Item 68).",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 122,
+            "excerpt": "Usually the letter T in generics represents type: K for key, V for value, P for property, and so on. keyof is also called an index type query, and it represents a union of allowed property names (the keys) of the given type."
+          }
+        ]
       },
       "code": "type User = { name: string; age: number };\ntype UserKey = keyof User;"
     },
@@ -136,8 +157,15 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 250,
+        "excerpt": "That means this signature is equivalent to: function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] { return obj[key]; } So K does appear twice!",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 133,
+            "excerpt": "By writing infer R, we instruct TypeScript to check the provided concrete return type (for example, string for the getA() method) and replace infer R with this concrete type."
+          }
+        ]
       },
       "code": "function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}"
     },
@@ -156,8 +184,8 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 244,
+        "excerpt": "If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever."
       },
       "code": "const user = { name: \"Jake\", age: 30 };\ngetProp(user, \"nope\");"
     },
@@ -176,8 +204,8 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 27,
-        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+        "page": 44,
+        "excerpt": "Tagged unions and property checking are com‐ mon ways to do this. • Some constructs, such as class, introduce both a TypeScript type and a value that is available at runtime. • Because they are erased as part of compilation, TypeScript types cannot affect the runtime performance of your code."
       },
       "code": "function identity<T>(value: T): T {\n  return value;\n}"
     },
@@ -196,8 +224,8 @@
       "reference": {
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 237,
+        "excerpt": "It can lead to crashes and other bad behavior without type errors. • Be aware of some of the common ways that unsoundness can arise: any types, type assertions (as, is), object and array lookups, and inaccurate type definitions. • Avoid mutating function parameters as this can lead to unsoundness."
       },
       "code": "function pair<K, V>(key: K, value: V): [K, V] {\n  return [key, value];\n}"
     },
@@ -217,7 +245,14 @@
         "section": "identity",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "excerpt": "A generic type takes one or more type parameters and produces a con‐ crete, nongeneric type.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 98,
+            "excerpt": "T is like a placeholder type, to be filled in by the typechecker from context; it parameterizes Filter’s type, which is why we call it a generic type parameter."
+          }
+        ]
       },
       "code": "type MyPartial<T> = { [K in keyof T]?: T[K] };"
     },
@@ -256,8 +291,8 @@
       "reference": {
         "section": "Constraints",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 255,
+        "excerpt": "This could be a single function that behaves differently depend‐ ing on its arguments."
       },
       "code": "const w = longest(\"abc\", \"de\");"
     },
@@ -276,8 +311,15 @@
       "reference": {
         "section": "keyof",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 245,
+        "excerpt": "Item 53 shows you how to do this. You write tests for your value-level code, what about for your type-level code?",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 124,
+            "excerpt": "We also added a restriction that P extends keyof T. In other words, P must be one of the properties of the provided type T."
+          }
+        ]
       },
       "code": "function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}"
     },
@@ -295,9 +337,9 @@
       "explanation": "TSX would parse <T> as a component. The trailing comma disambiguates.",
       "reference": {
         "section": "identity",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 386,
+        "excerpt": "The following listing shows the code of the self-explanatory formatTransactions() function, located in the App.tsx file outside of the App component."
       },
       "code": "const h = <T,>(x: T): T => x;"
     },
@@ -330,8 +372,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 241,
+        "excerpt": "Programmers new to TypeScript often go through a phase of overusing generics to the point of making code confusing to read and overly complex to work with."
       },
       "level": 3
     },
@@ -376,8 +418,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 242,
-        "excerpt": "A generic type takes one or more type parameters and produces a concrete, nongeneric type."
+        "page": 244,
+        "excerpt": "The general rule of thumb in naming is that the length of a name should match its scope."
       },
       "level": 3
     },

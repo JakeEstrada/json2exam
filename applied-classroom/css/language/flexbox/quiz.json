@@ -1,5 +1,5 @@
 {
-  "title": "CSS \u2014 Flexbox",
+  "title": "CSS — Flexbox",
   "questions": [
     {
       "question": "What does display: flex do?",
@@ -57,7 +57,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "The flex container fills the available width like a block element"
+        "excerpt": "The flex container fills the available width like a block element, but the flex items may not necessarily fill the width of their flex container."
       },
       "code": ".nav {\n  display: flex;\n}"
     },
@@ -77,7 +77,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "This creates a flex container that behaves more like an inline-block element rather than a block."
+        "excerpt": "You can also use display: inline-flex. This creates a flex container that behaves more like an inline-block element rather than a block."
       },
       "code": ".pill {\n  display: inline-flex;\n}"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 146,
-        "excerpt": "Because flexbox layout is defined in terms of the main axis and cross axis"
+        "page": 145,
+        "excerpt": "Main axis Cross axis 5.1 Flex container 1 2 Flex items 3 4 Figure 5.1 A flexbox container and its elements The items are placed along a line called the main axis, which goes from the main-start (left) to the main-end (right)."
       },
       "code": ".row {\n  display: flex;\n  flex-direction: row;\n}"
     },
@@ -116,8 +116,8 @@
       "reference": {
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 146,
-        "excerpt": "Applying display: flex gets you pretty far before you\u2019ll need to pick up any of those 12 new properties."
+        "page": 145,
+        "excerpt": "The rest of the properties provide options for aligning and spacing elements."
       },
       "code": ".nav { display: flex; }"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 144,
-        "excerpt": "Element alignment in flexbox"
+        "page": 145,
+        "excerpt": "Perpendicular to the main axis is the cross axis. This goes from the cross-start (top) to the cross-end (bottom)."
       },
       "code": ".row {\n  display: flex;\n  justify-content: space-between;\n}"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 144,
-        "excerpt": "Element alignment in flexbox"
+        "page": 145,
+        "excerpt": "Main axis Cross axis 5.1 Flex container 1 2 Flex items 3 4 Figure 5.1 A flexbox container and its elements The items are placed along a line called the main axis, which goes from the main-start (left) to the main-end (right)."
       },
       "code": ".row {\n  display: flex;\n  align-items: center;\n}"
     },
@@ -177,7 +177,7 @@
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 152,
-        "excerpt": "You\u2019ll also apply an auto left margin to the last button, which causes the margin to fill all the available space"
+        "excerpt": "You’ll also apply an auto left margin to the last button, which causes the margin to fill all the available space, pushing the last button all the way to the right."
       },
       "code": ".site-nav > :last-child {\n  margin-left: auto;\n}"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 158,
-        "excerpt": "Second items fills all remaining space."
+        "page": 145,
+        "excerpt": "The flex items are all the same height, determined naturally by their contents."
       },
       "code": ".main { flex: 1; }"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 158,
-        "excerpt": "Items grow to their natural width. They don\u2019t necessarily fill the width of the container."
+        "page": 154,
+        "excerpt": "Add the following to your stylesheet. Listing 5.7 Using the flex property to set column widths .column-main { flex: 2; } .column-sidebar { flex: 1; } Now the two columns grow to fill the space, so together they are the same width as the nav bar, with the main column twice as wide as the sidebar."
       },
       "code": ".side { flex: none; }"
     },
@@ -237,7 +237,7 @@
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "The flex items are all the same height, determined naturally by their contents."
+        "excerpt": "Flex items within it generally behave the same as with display: flex."
       },
       "code": ".cards { display: flex; }"
     },
@@ -256,8 +256,8 @@
       "reference": {
         "section": "Main axis and cross axis",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 144,
-        "excerpt": "Main axis and cross axis"
+        "page": 145,
+        "excerpt": "This creates a flex container that behaves more like an inline-block element rather than a block."
       },
       "code": ".stack {\n  display: flex;\n  flex-direction: column;\n}"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "Flexbox principles",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 144,
-        "excerpt": "It\u2019s also a simple solution to the long-standing problems of vertical centering and equal height columns."
+        "page": 145,
+        "excerpt": "I’ll cover a few basic principles of the flexbox layout that you’ll need to understand, followed by practical examples."
       },
       "code": ".row { display: flex; }"
     },
@@ -297,7 +297,7 @@
         "section": "Sizing",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 152,
-        "excerpt": "You can achieve this layout by using the margin-left property and an adjacent sibling combinator"
+        "excerpt": "You can achieve this layout by using the margin-left property and an adjacent sibling combinator, which is a method similar to the lobotomized owl from chapter 3."
       },
       "code": ".site-nav > * + * {\n  margin-left: 1em;\n}"
     },
@@ -332,7 +332,7 @@
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 145,
-        "excerpt": "Applying display: flex to an element turns it into a flex container"
+        "excerpt": "A flex container and its items are illustrated in figure 5.1."
       },
       "level": 3
     },
@@ -410,7 +410,7 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 5 \u2014 Flexbox",
+      "chapter": "Chapter 5 — Flexbox",
       "page": 144,
       "pageEnd": 171,
       "sections": [

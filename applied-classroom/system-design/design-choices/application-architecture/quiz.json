@@ -9,14 +9,14 @@
         "Before you know any characteristics or logical components at all.",
         "After analyzing characteristics and logical components the system needs.",
         "Only after rewriting the UI three times in different frameworks.",
-        "Never — styles are banned in modern engineering culture in real production systems at scale."
+        "Never — styles are banned in modern engineering culture."
       ],
       "answer": "b",
       "explanation": "Once an architect has analyzed the architectural characteristics and logical components… they know enough to choose an appropriate architecture style",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 32,
-        "excerpt": "Once an architect has analyzed the architectural characteristics and logical components… they know enough to choose an appropriate architecture style"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 900,
+        "excerpt": "What two input analyses does an architecture need to perform to choose an appropriate architectural style?"
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Because open source databases did not exist as an idea yet in any form in real production systems at scale.",
+        "Because open source databases did not exist as an idea yet in any form.",
         "Commercial licenses for OS, app servers, and DBs per service made isolation costly.",
-        "Because DNS could not resolve more than one hostname per company in real production systems at scale.",
-        "Because load balancers were illegal for commercial websites then in real production systems at scale."
+        "Because DNS could not resolve more than one hostname per company.",
+        "Because load balancers were illegal for commercial websites then."
       ],
       "answer": "b",
       "explanation": "trying to build an architecture like microservices would have been inconceivably expensive",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 30,
-        "excerpt": "trying to build an architecture like microservices would have been inconceivably expensive"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 20,
+        "excerpt": "In 2002, trying to build an architecture like microservices would have been inconceivably expensive."
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "It maximizes network hops and operational complexity from day one in real production systems at scale.",
+        "It maximizes network hops and operational complexity from day one.",
         "It keeps deploy simple while still allowing clear internal module boundaries.",
         "It forbids any database and forces all state into browser cookies only.",
-        "It guarantees infinite scale without ever adding caches or replicas in real production systems at scale."
+        "It guarantees infinite scale without ever adding caches or replicas."
       ],
       "answer": "b",
       "explanation": "Choosing an architectural style involves finding the easiest implementation path",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 32,
-        "excerpt": "Choosing an architectural style involves finding the easiest implementation path"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 892,
+        "excerpt": "What are the three common risks associated with the modular monolith architectural style? 4."
       }
     },
     {
@@ -68,9 +68,9 @@
       "answer": "b",
       "explanation": "stateless",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 28,
-        "excerpt": "stateless"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 29,
+        "excerpt": "A stateless system is simpler, more robust, and scalable. Figure 1-14 shows the updated design with a stateless web tier."
       }
     },
     {
@@ -80,9 +80,9 @@
       "answer": true,
       "explanation": "architecture decisions, which define the rules for how a system should be constructed",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 33,
-        "excerpt": "architecture decisions, which define the rules for how a system should be constructed"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 29,
+        "excerpt": "Make Architecture Decisions An architect is expected to define the architecture decisions and design principles used to guide technology decisions within the team, within the department, or across the enterprise."
       }
     },
     {
@@ -91,16 +91,16 @@
       "level": 1,
       "options": [
         "Developers’ changes undermine required architectural characteristics over time.",
-        "You document every decision in an ADR and review fitness functions in real production systems at scale.",
-        "Load stays flat and characteristics are continuously verified in CI in real production systems at scale.",
-        "Architects continually analyze vitality of older architectures in real production systems at scale."
+        "You document every decision in an ADR and review fitness functions.",
+        "Load stays flat and characteristics are continuously verified in CI.",
+        "Architects continually analyze vitality of older architectures."
       ],
       "answer": "a",
       "explanation": "structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 35,
-        "excerpt": "structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 30,
+        "excerpt": "As a result, most architectures experience elements of structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics, such as performance, availability, and scalability."
       }
     }
   ]

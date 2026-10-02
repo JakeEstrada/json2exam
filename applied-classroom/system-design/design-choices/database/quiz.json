@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "Relational databases represent and store data in tables and rows. You can perform join operations using SQL",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 12,
-        "excerpt": "Relational databases represent and store data in tables and rows. You can perform join operations using SQL"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 11,
+        "excerpt": "Relational databases represent and store data in tables and rows."
       }
     },
     {
@@ -32,9 +32,9 @@
       "answer": "b",
       "explanation": "key-value stores, graph stores, column stores, and document stores",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 12,
-        "excerpt": "key-value stores, graph stores, column stores, and document stores"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 11,
+        "excerpt": "These databases are grouped into four categories: key-value stores, graph stores, column stores, and document stores."
       }
     },
     {
@@ -44,15 +44,15 @@
       "options": [
         "Always richer and faster than SQL joins in every product.",
         "Generally not supported the way SQL databases support them.",
-        "Required on every single read path by definition in real production systems at scale.",
-        "Performed automatically by the DNS layer for free in real production systems at scale."
+        "Required on every single read path by definition.",
+        "Performed automatically by the DNS layer for free."
       ],
       "answer": "b",
       "explanation": "Join operations are generally not supported in non-relational databases",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 12,
-        "excerpt": "Join operations are generally not supported in non-relational databases"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 11,
+        "excerpt": "Join operations are generally not supported in non-relational databases."
       }
     },
     {
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Render CSS animations for marketing pages only in real production systems at scale.",
+        "Render CSS animations for marketing pages only.",
         "Store data so the app (or another app) can find it again later.",
         "Replace all caches, queues, and search indexes permanently.",
-        "Guarantee zero operational cost at infinite scale in real production systems at scale."
+        "Guarantee zero operational cost at infinite scale."
       ],
       "answer": "b",
       "explanation": "Store data so that they, or another application, can find it again later (databases)",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 16,
-        "excerpt": "Store data so that they, or another application, can find it again later (databases)"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 150,
+        "excerpt": "It’s also easier to find the bug because you can rerun the view maintenance code as often as you like and inspect its behavior."
       }
     },
     {
@@ -80,9 +80,9 @@
       "answer": true,
       "explanation": "For most developers, relational databases are the best option",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 12,
-        "excerpt": "For most developers, relational databases are the best option"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 251,
+        "excerpt": "In this section, we will dive deep into a few components and explore optimizations as follows: • Trie data structure • Data gathering service • Query service • Scale the storage • Trie operations Trie data structure Relational databases are used for storage in the high-level design."
       }
     },
     {
@@ -92,15 +92,15 @@
       "options": [
         "You want a single disk with no copies for maximum simplicity under load.",
         "Read load or availability needs exceed what one primary alone should handle.",
-        "You delete indexes so every query becomes a full table scan in real production systems at scale.",
-        "You ban backups because replicas already mean infinite durability in real production systems at scale."
+        "You delete indexes so every query becomes a full table scan.",
+        "You ban backups because replicas already mean infinite durability."
       ],
       "answer": "b",
       "explanation": "database replication",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 18,
-        "excerpt": "database replication"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 17,
+        "excerpt": "The architectural design discussed in Figure 1-5 can handle this case: • If only one slave database is available and it goes offline, read operations will be directed to the master database temporarily."
       }
     }
   ]

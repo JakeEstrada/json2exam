@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "A rate limiter prevents DoS attacks, either intentional or unintentional",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 67,
-        "excerpt": "A rate limiter prevents DoS attacks, either intentional or unintentional"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 66,
+        "excerpt": "A rate limiter prevents DoS attacks, either intentional or unintentional, by blocking the excess calls. • Reduce cost."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "It is optional decoration after the UI ships in real production systems at scale.",
+        "It is optional decoration after the UI ships.",
         "It is a first-class capability that can drive structural decisions.",
-        "Only marketers need to worry about account takeover in real production systems at scale.",
-        "Encryption is banned because it slows microbenchmarks in real production systems at scale."
+        "Only marketers need to worry about account takeover.",
+        "Encryption is banned because it slows microbenchmarks."
       ],
       "answer": "b",
       "explanation": "Architecture characteristics… security",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 31,
-        "excerpt": "Architecture characteristics… security"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 169,
+        "excerpt": "For example, if ease of deployment and testability are high priorities, the architect would emphasize good modularity and isolation at the architecture level—an example of an architecture characteristic driving a structural decision."
       }
     },
     {
@@ -44,9 +44,9 @@
       "answer": true,
       "explanation": "client requests can easily be forged by malicious actors",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 70,
-        "excerpt": "client requests can easily be forged by malicious actors"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 68,
+        "excerpt": "Generally speaking, client is an unreliable place to enforce rate limiting because client requests can easily be forged by malicious actors."
       }
     },
     {
@@ -62,9 +62,9 @@
       "answer": "b",
       "explanation": "architecture characteristics",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 31,
-        "excerpt": "architecture characteristics"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 383,
+        "excerpt": "Services are accessed remotely from a UI using a remote access protocol, typically REST."
       }
     },
     {
@@ -74,15 +74,15 @@
       "options": [
         "Fail silently with HTTP 200 and an empty body always.",
         "Show clear exceptions/signals that requests were throttled.",
-        "Corrupt the user database to discourage retries in real production systems at scale.",
-        "Disable TLS so the response is easier to cache in real production systems at scale."
+        "Corrupt the user database to discourage retries.",
+        "Disable TLS so the response is easier to cache."
       ],
       "answer": "b",
       "explanation": "Show clear exceptions to users when their requests are throttled",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 69,
-        "excerpt": "Show clear exceptions to users when their requests are throttled"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 67,
+        "excerpt": "Show clear exceptions to users when their requests are throttled. • High fault tolerance."
       }
     }
   ]

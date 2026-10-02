@@ -17,7 +17,14 @@
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 8,
-        "excerpt": "Welcome to E-Z Galaxy where experience moves aside for automation"
+        "excerpt": "“It must have been difficult to let him go.” “May your lack of experience, coupled with our culture of automation serve E-Z Galaxy well,” Otto responded.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 8,
+            "excerpt": "This booklet addresses the high-speed PCB design challenges and the best practices to be followed to meet those challenges."
+          }
+        ]
       }
     },
     {
@@ -26,7 +33,7 @@
       "level": 1,
       "options": [
         "Old Bob’s workflow was never written down, so Ian has no process and no mentor to ask.",
-        "His company credit card was declined when he tried to order cake from the cafeteria menu.",
+        "His layout license expired overnight, so the CAD tools would not open the new project.",
         "The company banned all schematic software until HR finished another full-body scan.",
         "Otto refused to unlock the basement office until Ian passed a surprise ITAR quiz on day one."
       ],
@@ -36,7 +43,7 @@
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 9,
-        "excerpt": "with Old Bob gone, who will mentor me in PCB design"
+        "excerpt": "Ian was expected to know things about PCB design he was never taught in university, and had no one to turn to with questions."
       }
     },
     {
@@ -54,8 +61,8 @@
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 9,
-        "excerpt": "it was as if Ian had not led the design software, but the software had led him"
+        "page": 32,
+        "excerpt": "Modern schematic capture tools work very well with layout tools to track and implement design changes."
       }
     },
     {
@@ -73,8 +80,8 @@
       "reference": {
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 10,
-        "excerpt": "He picked one based upon a customer rating of four-point-two stars"
+        "page": 9,
+        "excerpt": "Friday afternoon Ian received his first PCB project: The whiz-bit module."
       }
     },
     {
@@ -93,7 +100,7 @@
         "section": "What Chapter 1 is really about",
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 10,
-        "excerpt": "THANK YOU FOR YOUR 24-HOUR, QUICK-TURN ORDER. DFM REVIEW IN PROCESS."
+        "excerpt": "Ian thought about the acronym “DFM” for a moment. He had seen it before, but really didn’t understand what it meant and brushed it aside from his thoughts."
       }
     },
     {
@@ -111,8 +118,15 @@
       "reference": {
         "section": "Checklist from the book (PDF p. 11)",
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 11,
-        "excerpt": "Does the company you wish to work for give you a sense that your job is valued and appreciated?"
+        "page": 20,
+        "excerpt": "If a PCB designer has a question about materials, hole sizing, or how to achieve a certain impedance requirement, the FSE connects the PCB designer with the right technical person to provide the answers.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 8,
+            "excerpt": "1. Introduction to High-Speed PCB Design In the modern world, complexity of electronic products has increased due to the demand for higher performance such as faster data transfers, better image processing, higher computing power, and greater functionality."
+          }
+        ]
       }
     },
     {
@@ -121,7 +135,7 @@
       "level": 1,
       "options": [
         "Only raw aluminum structural castings and tank dome forgings for the vehicle.",
-        "Only office supplies, facilities services, and cafeteria catering contracts.",
+        "Only office supplies, facilities services, and general facilities contracts.",
         "Only software licenses, cloud spend, and developer-tool subscriptions.",
         "PCB, PCBA/contract manufacturing, electronic components, and instrumentation."
       ],
@@ -229,7 +243,7 @@
         "Cost",
         "Quality",
         "On-time delivery, lead time, and responsiveness",
-        "Employee cafeteria star ratings"
+        "Employee satisfaction survey scores"
       ],
       "answer": [
         "a",
@@ -277,7 +291,7 @@
       "options": [
         "Recruiting adds ITAR language to every California posting as optional branding, with no real eligibility screen.",
         "U.S. export rules require citizenship, permanent residency, refugee/asylee status, or required authorizations.",
-        "ITAR applies only to cafeteria vendors and facilities contractors working on the Hawthorne campus grounds.",
+        "ITAR applies only to facilities contractors working on the Hawthorne campus grounds.",
         "ITAR paperwork replaces reading BOMs, fab notes, and stack-ups when you select and award a fab purchase order."
       ],
       "answer": "b",

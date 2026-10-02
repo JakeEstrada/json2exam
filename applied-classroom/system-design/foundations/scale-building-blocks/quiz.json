@@ -9,14 +9,21 @@
         "So DNS stops resolving and users cannot find the site anymore.",
         "So web tier and data tier can be scaled independently as load grows.",
         "So you can delete the database and keep only static HTML forever.",
-        "So mobile apps are forced to speak FTP instead of HTTP in real production systems at scale."
+        "So mobile apps are forced to speak FTP instead of HTTP."
       ],
       "answer": "b",
       "explanation": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 11,
-        "excerpt": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently"
+        "excerpt": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 250,
+            "excerpt": "Even though the database is separate from the web server, many architects still consider this a two-tier architecture, because the web and database servers run on one class of machine within the operations center, while the UI runs on the user’s browser."
+          }
+        ]
       }
     },
     {
@@ -24,17 +31,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Adding more servers into a pool of identical machines in real production systems at scale.",
+        "Adding more servers into a pool of identical machines.",
         "Adding more power (CPU, RAM, etc.) to your existing servers.",
         "Removing all CPUs so the system uses less electricity overnight.",
-        "Sharding every table on day one with ten users total in real production systems at scale."
+        "Sharding every table on day one with ten users total."
       ],
       "answer": "b",
       "explanation": "Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 14,
-        "excerpt": "Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 13,
+        "excerpt": "Vertical scaling vs horizontal scaling Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers."
       }
     },
     {
@@ -42,17 +49,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "It always provides automatic multi-server failover and redundancy in real production systems at scale.",
+        "It always provides automatic multi-server failover and redundancy.",
         "You cannot add unlimited CPU/memory to one machine, and one failure takes the site down.",
-        "It is illegal in every cloud provider’s terms of service worldwide in real production systems at scale.",
-        "It only works for mobile apps and never for web browsers in real production systems at scale."
+        "It is illegal in every cloud provider’s terms of service worldwide.",
+        "It only works for mobile apps and never for web browsers."
       ],
       "answer": "b",
       "explanation": "Vertical scaling has a hard limit… Vertical scaling does not have failover and redundancy",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 14,
-        "excerpt": "Vertical scaling has a hard limit… Vertical scaling does not have failover and redundancy"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 13,
+        "excerpt": "It is impossible to add unlimited CPU and memory to a single server. • Vertical scaling does not have failover and redundancy."
       }
     },
     {
@@ -60,17 +67,24 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Joins are illegal in SQL and must be avoided at all costs forever in real production systems at scale.",
+        "Joins are illegal in SQL and must be avoided at all costs forever.",
         "They have decades of history and have historically worked well for many apps.",
-        "They never store tables or rows and only store graphs in real production systems at scale.",
-        "They always beat every NoSQL store on every latency benchmark in real production systems at scale."
+        "They never store tables or rows and only store graphs.",
+        "They always beat every NoSQL store on every latency benchmark."
       ],
       "answer": "b",
       "explanation": "For most developers, relational databases are the best option because they have been around for over 40 years",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 12,
-        "excerpt": "For most developers, relational databases are the best option because they have been around for over 40 years"
+        "excerpt": "For most developers, relational databases are the best option because they have been around for over 40 years and historically, they have worked well.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 722,
+            "excerpt": "The tension between these philosophies has lasted for decades (both Unix and the relational model emerged in the early 1970s) and still isn’t resolved."
+          }
+        ]
       }
     },
     {
@@ -78,17 +92,24 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "You need joins across every table on every request without exception in real production systems at scale.",
+        "You need joins across every table on every request without exception.",
         "You need super-low latency, unstructured data, simple serialize/deserialize, or massive scale.",
-        "Your only requirement is ACID transactions with heavy multi-table joins in real production systems at scale.",
-        "You want to ban JSON and only store handwritten paper forms in real production systems at scale."
+        "Your only requirement is ACID transactions with heavy multi-table joins.",
+        "You want to ban JSON and only store handwritten paper forms."
       ],
       "answer": "b",
       "explanation": "Non-relational databases might be the right choice if: … super-low latency … unstructured … serialize and deserialize … massive amount of data",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 13,
-        "excerpt": "Non-relational databases might be the right choice if: … super-low latency … unstructured … serialize and deserialize … massive amount of data"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 233,
+        "excerpt": "Message ID How to generate message_id is an interesting topic worth exploring.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 722,
+            "excerpt": "Nevertheless, the similarities and differences between operating systems and databases are worth exploring."
+          }
+        ]
       }
     },
     {
@@ -98,9 +119,9 @@
       "answer": true,
       "explanation": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 14,
-        "excerpt": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 13,
+        "excerpt": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources."
       }
     },
     {
@@ -110,8 +131,8 @@
       "options": [
         "Replace your transactional database for all strongly consistent writes.",
         "Serve static content from locations closer to users to cut latency.",
-        "Run all business logic inside the user’s DNS resolver process in real production systems at scale.",
-        "Guarantee exactly-once delivery of every database transaction in real production systems at scale."
+        "Run all business logic inside the user’s DNS resolver process.",
+        "Guarantee exactly-once delivery of every database transaction."
       ],
       "answer": "b",
       "explanation": "CDN",
@@ -128,15 +149,15 @@
       "options": [
         "Forcing every request to wait synchronously on the slowest downstream forever.",
         "Decoupling producers and consumers so work can be processed asynchronously.",
-        "Deleting failed jobs so operators never see errors in dashboards in real production systems at scale.",
-        "Replacing TLS so all traffic stays unencrypted for speed in real production systems at scale."
+        "Deleting failed jobs so operators never see errors in dashboards.",
+        "Replacing TLS so all traffic stays unencrypted for speed."
       ],
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 34,
-        "excerpt": "message queue"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 196,
+        "excerpt": "DB: It stores data about user, notification, settings, etc. Message queues: They remove dependencies between components."
       }
     }
   ]

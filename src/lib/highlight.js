@@ -8,6 +8,19 @@ const KEYWORDS = (
 
 const KW = new Set(KEYWORDS);
 
+/**
+ * An English sentence, even one using a semicolon or parentheses. Prose must
+ * not render as a code block: it reads badly and, in a quiz, it makes one
+ * option stand out from the rest.
+ */
+function readsLikeProse(s) {
+  if (!/[.!?]["”']?$/.test(s)) return false;
+  const words = s.split(/\s+/);
+  if (words.length < 5) return false;
+  const wordy = words.filter((w) => /^[("“']?[A-Za-z][A-Za-z'’)"”,;:.!?-]*$/.test(w)).length;
+  return wordy / words.length >= 0.7;
+}
+
 export function looksLikeCode(value) {
   const s = String(value || '').trim();
   if (!s) return false;
@@ -16,8 +29,9 @@ export function looksLikeCode(value) {
   if (/<\/?[a-zA-Z][\w:-]*(?:\s|>|\/)/.test(s) || /<!DOCTYPE/i.test(s)) return true;
   if (/^[.#]?[a-zA-Z][\w-]*\s*\{/.test(s)) return true;
   if (/^[a-z-]+\s*:\s*[^;]+;?\s*$/i.test(s)) return true;
+  if (readsLikeProse(s)) return false;
   if (/[{};]|=>|===|!==/.test(s) && /[A-Za-z_$]/.test(s)) return true;
-  if (/^[A-Za-z_$][\w$]*\s*\(/.test(s)) return true;
+  if (/^[A-Za-z_$][\w$.]*\(/.test(s)) return true;
   return false;
 }
 

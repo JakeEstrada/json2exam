@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Tables and media",
+  "title": "HTML — Tables and media",
   "questions": [
     {
       "question": "Which element creates a table?",
@@ -17,7 +17,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The <table> element is used to create a table."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<table>\n  <tr><td>15</td></tr>\n</table>"
     },
@@ -37,7 +37,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The contents of the table are written out row by row."
+        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
       },
       "code": "<table>\n  <tr><td>15</td><td>30</td></tr>\n</table>"
     },
@@ -57,7 +57,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "You indicate the start of each row using the opening <tr> tag."
+        "excerpt": "(The td stands for table data.) At the end of each cell you use a closing </td> tag."
       },
       "code": "<tr>\n  <td>15</td>\n  <td>30</td>\n</tr>"
     },
@@ -77,7 +77,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "Each cell of a table is represented using a <td> element."
+        "excerpt": "R e s u lt <td> Each cell of a table is represented using a <td> element."
       },
       "code": "<td>15</td>"
     },
@@ -97,7 +97,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "At the end of the row you use a closing </tr> tag."
+        "excerpt": "Some browsers automatically draw lines around the table and/or the individual cells."
       },
       "code": "<tr><td>45</td><td>60</td></tr>"
     },
@@ -117,7 +117,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The <table> element is used to create a table."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<tr><th>Name</th><th>Score</th></tr>"
     },
@@ -132,12 +132,12 @@
         "Images cannot sit on a page otherwise."
       ],
       "answer": "b",
-      "explanation": "Chapter 6 is how to create tables and what information suits tables \u2014 tabular data, not whole-page layout.",
+      "explanation": "Chapter 6 is how to create tables and what information suits tables — tabular data, not whole-page layout.",
       "reference": {
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 133,
-        "excerpt": "What information suits tables"
+        "page": 138,
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<table>\n  <tr><th>Run</th><th>Time</th></tr>\n</table>"
     },
@@ -157,7 +157,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "<td>15</td>"
+        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
       },
       "code": "<tr>\n  <td>15</td>\n  <td>15</td>\n  <td>30</td>\n</tr>"
     },
@@ -177,7 +177,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "Each cell of a table is represented using a <td> element."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<td><img src=\"images/rhodes.jpg\" alt=\"Fender Rhodes\" /></td>"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 133,
-        "excerpt": "How to represent complex data in tables"
+        "page": 138,
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<table>\n  <tr><th>Topic</th><th>Score</th></tr>\n</table>"
     },
@@ -217,7 +217,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "It is followed by one or more <td> elements (one for each cell in that row)."
+        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
       },
       "code": "<tr><td>60</td><td>90</td><td>90</td></tr>"
     },
@@ -232,12 +232,12 @@
         "<tr type=\"caption\">"
       ],
       "answer": "a",
-      "explanation": "A caption belongs with the table element, as a child \u2014 not a sibling after the table.",
+      "explanation": "A caption belongs with the table element, as a child — not a sibling after the table.",
       "reference": {
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The <table> element is used to create a table."
+        "excerpt": "Basic Table Structure <table> The <table> element is used to create a table."
       },
       "code": "<table>\n  <caption>Times</caption>\n  <tr><td>15</td></tr>\n</table>"
     },
@@ -277,7 +277,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "The <table> element is used to create a table."
+        "excerpt": "The contents of the table are written out row by row. <tr> You indicate the start of each row using the opening <tr> tag."
       },
       "code": "<tr><th>Run</th><th>Time</th></tr>"
     },
@@ -297,7 +297,7 @@
         "section": "Basic table structure",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 138,
-        "excerpt": "At the end of each cell you use a closing </td> tag."
+        "excerpt": "(The td stands for table data.) At the end of each cell you use a closing </td> tag."
       },
       "code": "<td>45</td>"
     },
@@ -452,8 +452,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 138,
-        "excerpt": "The contents of the table are written out row by row."
+        "page": 344,
+        "excerpt": "Article Table Properties You have already met several properties that are commonly used with tables."
       },
       "level": 3
     }
@@ -461,7 +461,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 6 \u2014 Tables",
+      "chapter": "Chapter 6 — Tables",
       "page": 133,
       "pageEnd": 150,
       "sections": [

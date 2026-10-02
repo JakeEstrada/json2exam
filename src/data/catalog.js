@@ -52,6 +52,7 @@ import lecture544Scrum from '../../544-Mod-1/Scrum/Scrum_video.txt?raw';
 import slides544Scrum from '../../544-Mod-1/Scrum/Scrum.pdf?url';
 
 import { APPLIED_COURSES } from './appliedClassroom.js';
+import { canonicalBookTitle } from '../lib/bookTitles.js';
 import jsCheatsheet from '../../applied-classroom/javascript-cheatsheet.txt?raw';
 import tsCheatsheet from '../../applied-classroom/typescript-cheatsheet.txt?raw';
 import pyCheatsheet from '../../applied-classroom/python-cheatsheet.txt?raw';
@@ -88,34 +89,35 @@ function appliedQuiz(folder) {
   return (mod && mod.default) || mod || null;
 }
 
-function booksIn(folder) {
+// Courses that legitimately cite a PDF stored under another course folder.
+const SHARED_SOURCES = {
+  'applied-classroom/css': ['applied-classroom/html'],
+  'applied-classroom/html': ['applied-classroom/css'],
+  'applied-classroom/leetcode': ['applied-classroom/algorithms', 'applied-classroom/data-structures'],
+  'applied-classroom/algorithms': ['applied-classroom/data-structures'],
+  'applied-classroom/data-structures': ['applied-classroom/algorithms'],
+};
+
+function booksFrom(folder, list, seen) {
   const prefix = '../../' + folder + '/sources/';
-  const list = [];
   Object.keys(appliedBookFiles).forEach((key) => {
     if (!key.startsWith(prefix) || !key.toLowerCase().endsWith('.pdf')) return;
     const file = key.slice(prefix.length);
-    let title = file.replace(/\.pdf$/i, '');
-    if (/hitchhikers-guide-to-pcb-design/i.test(file)) {
-      title = "The Hitchhiker's Guide to PCB Design";
-    }
-    if (/high-speed-pcb-design-guide/i.test(file)) {
-      title = 'High-Speed PCB Design Guide';
-    }
-    if (/system-design-interview/i.test(file)) {
-      title = "System Design Interview – An Insider's Guide";
-    }
-    if (/designing-data-intensive/i.test(file)) {
-      title = 'Designing Data-Intensive Applications';
-    }
-    if (/fundamentals-of-software-architecture/i.test(file)) {
-      title = 'Fundamentals of Software Architecture, 2nd Edition';
-    }
+    if (seen.has(file)) return;
+    seen.add(file);
     list.push({
-      title,
+      title: canonicalBookTitle(file),
       file,
       url: appliedBookFiles[key],
     });
   });
+}
+
+function booksIn(folder) {
+  const list = [];
+  const seen = new Set();
+  booksFrom(folder, list, seen);
+  (SHARED_SOURCES[folder] || []).forEach((shared) => booksFrom(shared, list, seen));
   list.sort((a, b) => a.title.localeCompare(b.title));
   return list;
 }

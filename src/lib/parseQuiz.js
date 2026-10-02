@@ -265,19 +265,56 @@ export function normalizeQuestion(raw, i) {
 
   if (type !== 'multi' && indices.length > 1) type = 'multi';
 
-  return {
-    question: withCode({
-      id: i + '::' + text.slice(0, 90),
-      text,
-      type,
-      options: clean,
-      answers: indices,
-      explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
-      reference: readReference(raw),
-      level: readLevel(raw, type),
-      index: i,
-    }, raw, text),
-  };
+  const question = withCode({
+    id: i + '::' + text.slice(0, 90),
+    text,
+    type,
+    options: clean,
+    answers: indices,
+    explanation: String(firstDefined(raw.explanation, raw.rationale, raw.note, '')).trim(),
+    reference: readReference(raw),
+    level: readLevel(raw, type),
+    index: i,
+  }, raw, text);
+
+  if (question.code && leaksAnswer(question.code, clean, indices)) question.codeRevealsAnswer = true;
+
+  return { question };
+}
+
+function codeShape(text) {
+  return String(text || '').toLowerCase().replace(/\s+/g, '');
+}
+
+/** True when the snippet shown above the options spells out the correct choice. */
+export function leaksAnswer(code, options, answers) {
+  const hay = codeShape(code);
+  if (hay.length < 2) return false;
+  const others = (options || []).filter((_, i) => (answers || []).indexOf(i) === -1);
+  const otherShapes = others.map((o) => codeShape(String(o || '').replace(/[`]/g, '')));
+
+  return (answers || []).some((idx) => {
+    const raw = String(options[idx] || '').replace(/[`]/g, '').trim();
+    const needle = codeShape(raw);
+    try {
+      const annotated = new RegExp(
+        raw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\)?\\s*#\\s*(true|false)',
+        'i'
+      );
+      if (annotated.test(String(code))) return true;
+    } catch (_) { /* ignore bad option text */ }
+    if (needle.length >= 3 && hay.includes(needle)) {
+      const also = otherShapes.filter((s) => s.length >= 3 && hay.includes(s)).length;
+      return also < otherShapes.length;
+    }
+    if (raw.split(/\s+/).length > 6) return false;
+    const tokens = raw.split(/[^A-Za-z0-9_]+/).filter((t) => t.length >= 3);
+    return tokens.some((t) => {
+      const tok = t.toLowerCase();
+      if (!hay.includes(tok)) return false;
+      return !otherShapes.some((s) => s.includes(tok));
+    });
+  });
 }
 
 export function headingId(text) {
@@ -288,23 +325,61 @@ export function headingId(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+function positiveInt(value) {
+  const n = Number(value);
+  return n >= 1 && isFinite(n) ? Math.trunc(n) : 0;
+}
+
+function readCitation(raw) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+  const book = String(firstDefined(raw.book, raw.title, '')).trim();
+  const excerpt = String(firstDefined(raw.excerpt, raw.quote, '')).trim();
+  const page = positiveInt(firstDefined(raw.page, raw.pdfPage, 0));
+  const pageEnd = positiveInt(firstDefined(raw.pageEnd, raw.endPage, 0));
+  const chapter = String(firstDefined(raw.chapter, '')).trim();
+  if (!book && !excerpt && !page) return null;
+  return { book, chapter, page, pageEnd, excerpt };
+}
+
+function dedupeCitations(list) {
+  const seen = new Set();
+  const out = [];
+  list.forEach((row) => {
+    if (!row) return;
+    const key = row.book.toLowerCase() + '::' + row.page;
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(row);
+  });
+  return out;
+}
+
 function readReference(raw) {
   const refRaw = firstDefined(raw.reference, raw.ref, raw.source);
   if (!refRaw || typeof refRaw !== 'object' || Array.isArray(refRaw)) return null;
   const section = String(firstDefined(refRaw.section, refRaw.notes, refRaw.heading, '')).trim();
-  const book = String(firstDefined(refRaw.book, refRaw.title, '')).trim();
-  const excerpt = String(firstDefined(refRaw.excerpt, refRaw.quote, '')).trim();
   const lecture = String(firstDefined(refRaw.lecture, refRaw.transcript, '')).trim();
   const url = String(firstDefined(refRaw.url, refRaw.link, refRaw.href, '')).trim();
-  const pageNum = Number(firstDefined(refRaw.page, refRaw.pdfPage, 0));
-  const page = pageNum >= 1 && isFinite(pageNum) ? Math.trunc(pageNum) : 0;
-  const pageEndNum = Number(firstDefined(refRaw.pageEnd, refRaw.endPage, 0));
-  const pageEnd = pageEndNum >= 1 && isFinite(pageEndNum) ? Math.trunc(pageEndNum) : 0;
-  const chapter = String(firstDefined(refRaw.chapter, '')).trim();
-  const slideNum = Number(firstDefined(refRaw.slide, refRaw.slides, 0));
-  const slide = slideNum >= 1 && isFinite(slideNum) ? Math.trunc(slideNum) : 0;
-  if (!section && !book && !excerpt && !page && !lecture && !slide && !chapter && !url) return null;
-  return { section, book, chapter, excerpt, page, pageEnd, lecture, slide, url };
+  const slide = positiveInt(firstDefined(refRaw.slide, refRaw.slides, 0));
+
+  const extraRaw = firstDefined(refRaw.books, refRaw.sources, refRaw.citations, null);
+  const extra = Array.isArray(extraRaw) ? extraRaw.map(readCitation) : [];
+  const citations = dedupeCitations([readCitation(refRaw)].concat(extra));
+  const primary = citations[0] || { book: '', chapter: '', page: 0, pageEnd: 0, excerpt: '' };
+
+  if (!section && !citations.length && !lecture && !slide && !url) return null;
+  return {
+    section,
+    book: primary.book,
+    chapter: primary.chapter || String(firstDefined(refRaw.chapter, '')).trim(),
+    excerpt: primary.excerpt,
+    page: primary.page,
+    pageEnd: primary.pageEnd,
+    lecture,
+    slide,
+    url,
+    citations,
+  };
 }
 
 export function normalizeQuiz(data, fallbackTitle) {

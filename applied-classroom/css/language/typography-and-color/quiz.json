@@ -1,5 +1,5 @@
 {
-  "title": "CSS \u2014 Type and color",
+  "title": "CSS — Type and color",
   "questions": [
     {
       "question": "Which property colors the text?",
@@ -15,9 +15,9 @@
       "explanation": "Duckett's sample rule uses color: yellow on headings. There is no font-color property.",
       "reference": {
         "section": "Color",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "in a yellow color."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 46,
+        "excerpt": "They are primarily properties pertaining to text: color, font, font-family, font-size, font-weight, font-variant, font-style, line-height, letter-spacing, text-align, text-indent, text-transform, white-space, and word-spacing."
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Color",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 253,
-        "excerpt": "Background color"
+        "page": 265,
+        "excerpt": "There are two values for the background-color property of the <h1> element."
       },
       "code": "body {\n  background-color: cream;\n}"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "Type",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "all <p> elements should be shown in the Arial typeface."
+        "page": 239,
+        "excerpt": "You can specify several properties in one declaration, each separated by a semi-colon. h1, h2, h3 { font-family: Arial; color: yellow;} Property This rule indicates that all <h1>, <h2> and <h3> elements should be shown in the Arial typeface, in a yellow color."
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -75,9 +75,9 @@
       "explanation": "The text chapter lists size and typeface, then bold, italics, capitals, underlines, then spacing.",
       "reference": {
         "section": "Type",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 271,
-        "excerpt": "Size and typeface of text"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 358,
+        "excerpt": "By doing nothing more than changing the typeface, you can completely change the tone of the page."
       },
       "code": "p {\n  font-size: 16px;\n  font-family: Arial;\n}"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 56,
-        "excerpt": "These are known as absolute units; that is, 5 px always means the same thing."
+        "page": 66,
+        "excerpt": "I’ll continue to mention pixels throughout this chapter. This will help me reiterate why the relative units behave the way they do, as well as help you get accustomed to the calculation of ems."
       },
       "code": "p { font-size: 16px; }"
     },
@@ -117,7 +117,7 @@
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 56,
-        "excerpt": "Other units, such as em and rem, are not absolute, but relative."
+        "excerpt": "The value of relative units changes, based on external factors; for example, the meaning of 2 em changes depending on which element (and sometimes even which property) you’re using it on."
       },
       "code": "h1 { font-size: 2em; }"
     },
@@ -137,7 +137,7 @@
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 56,
-        "excerpt": "the meaning of 2 em changes depending on which element (and sometimes even which property) you\u2019re using it on."
+        "excerpt": "Developers, even experienced CSS developers, often dislike working with relative units, the notorious em included."
       },
       "code": "ul { font-size: 1.2em; }\nul ul { font-size: 1.2em; }"
     },
@@ -155,9 +155,9 @@
       "explanation": "Hex colors start with #. The property is color.",
       "reference": {
         "section": "Color",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 253,
-        "excerpt": "How to specify colors"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 340,
+        "excerpt": "Instead, it blends in and subconsciously tells the user, “This section of the page is probably not what you’re looking for.” 12.2.1 Understanding color notations The colors in our palette are specified using hex notation."
       },
       "code": "h1 {\n  color: #334455;\n}"
     },
@@ -175,9 +175,9 @@
       "explanation": "The chapter lists color terminology and contrast next to how to specify colors.",
       "reference": {
         "section": "Color",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 253,
-        "excerpt": "Color terminology and contrast"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 340,
+        "excerpt": "This indicates the 360 degrees around the color circle, transitioning evenly through red (0), yellow (60), green (120), cyan (180), blue (240), magenta (300), and back to red."
       },
       "code": "p {\n  color: #222;\n  background-color: #fff;\n}"
     },
@@ -196,13 +196,13 @@
       "reference": {
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 56,
-        "excerpt": "How to use ems and rems, without letting them drive you mad"
+        "page": 66,
+        "excerpt": "(I press Command-Space on my Mac, and type the equation into Spotlight.) Putting a root font size in place defines a rem."
       },
       "code": "html { font-size: 100%; }\nh1 { font-size: 2rem; }"
     },
     {
-      "question": "font-weight: bold vs <h1> \u2014 which is which job?",
+      "question": "font-weight: bold vs <h1> — which is which job?",
       "type": "multiple",
       "level": 2,
       "options": [
@@ -256,8 +256,8 @@
       "reference": {
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 56,
-        "excerpt": "Using viewport-relative units"
+        "page": 66,
+        "excerpt": "This practice simplifies the math: If your designer tells you to make the font 14 px, you can easily divide by 10 in your head and type 1.4 rem, all while still using relative units."
       },
       "code": ".hero { min-height: 100vh; }"
     },
@@ -275,9 +275,9 @@
       "explanation": "color is text. background-color is the box fill.",
       "reference": {
         "section": "Color",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 253,
-        "excerpt": "Background color"
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 140,
+        "excerpt": "This way, the icon color will change along with the surrounding text color when the high contrast theme is activated."
       },
       "code": "header {\n  background-color: navy;\n  color: white;\n}"
     },
@@ -292,12 +292,12 @@
         "em is absolute inside ul."
       ],
       "answer": "b",
-      "explanation": "Relative units change based on external factors. Nested 1.2em \u00d7 1.2em compounds.",
+      "explanation": "Relative units change based on external factors. Nested 1.2em × 1.2em compounds.",
       "reference": {
         "section": "Relative units",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 56,
-        "excerpt": "The value of relative units changes, based on external factors"
+        "page": 62,
+        "excerpt": "34 CHAPTER 2 Working with relative units padding of 1.2 em and a gray background to make the padding size more apparent."
       },
       "code": "ul { font-size: 1.2em; }"
     },
@@ -336,9 +336,16 @@
       "explanation": "color paints the text.",
       "reference": {
         "section": "Coding tasks",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "in a yellow color."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 340,
+        "excerpt": "To break the color value down, its red value (20) is fairly low, its green value (97) is middle of the road, and its blue value (c9) is higher.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 140,
+            "excerpt": "This way, the icon color will change along with the surrounding text color when the high contrast theme is activated."
+          }
+        ]
       },
       "level": 3
     },
@@ -377,9 +384,9 @@
       "explanation": "font-family names the typeface (and fallbacks).",
       "reference": {
         "section": "Coding tasks",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "all <p> elements should be shown in the Arial typeface."
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 6,
+        "excerpt": "This book, an anthology of updated and expanded blog posts originally written for inclusive-components.design, is designed to help you catch up on the kind of coding not taught in Java 101: the code of communication, interaction, and most of all accommodation."
       },
       "level": 3
     },
@@ -419,8 +426,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 56,
-        "excerpt": "How to use ems and rems, without letting them drive you mad"
+        "page": 66,
+        "excerpt": "First, it forces you to write a lot of duplicate styles. Ten pixels is too small for most text, so you’ll have to override it throughout the page."
       },
       "level": 3
     }
@@ -428,7 +435,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 11 \u2014 Color",
+      "chapter": "Chapter 11 — Color",
       "page": 253,
       "pageEnd": 270,
       "sections": [
@@ -440,7 +447,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 12 \u2014 Text",
+      "chapter": "Chapter 12 — Text",
       "page": 271,
       "pageEnd": 306,
       "sections": [
@@ -452,7 +459,7 @@
     },
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 2 \u2014 Working with relative units",
+      "chapter": "Chapter 2 — Working with relative units",
       "page": 56,
       "pageEnd": 82,
       "sections": [

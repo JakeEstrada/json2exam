@@ -16,8 +16,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 146,
+        "excerpt": "One key in the dictionary is 'crust', and the associated value is the string 'thick'."
       },
       "code": "d = {\"a\": 1, \"b\": 2}"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Sets",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 181,
+        "excerpt": "A Performance Experiment From experience, all Pythonistas know that dicts and sets are fast."
       },
       "code": "s = set()\nd = {}"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 139,
+        "excerpt": "You can access the value associated with any key you care about inside the loop, by using the current key."
       },
       "code": "d.get(\"z\", 0)"
     },
@@ -75,9 +75,9 @@
       "explanation": "Use get if absence is normal.",
       "reference": {
         "section": "Dicts",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 157,
+        "excerpt": "If no default_factory is provided, the usual KeyError is raised for missing keys."
       },
       "code": "d[\"missing\"]  # KeyError"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 142,
+        "excerpt": "Glossary 2: Now that you know how to loop through a dictionary, clean up the code from Exercise 6-3 (page 99) by replacing your series of print() calls with a loop that runs through the dictionary’s keys and values."
       },
       "code": "for k, v in d.items():\n    print(k, v)"
     },
@@ -115,9 +115,9 @@
       "explanation": "in is membership.",
       "reference": {
         "section": "Sets",
-        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 117,
+        "excerpt": "Python’s if- else syntax makes this possible. An if- else block is similar to a simple if statement, but the else statement allows you to define an action or set of actions that are executed when the conditional test fails."
       },
       "code": "2 in s"
     },
@@ -135,9 +135,9 @@
       "explanation": "Use a tuple if you need a sequence key.",
       "reference": {
         "section": "Dicts",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 181,
+        "excerpt": "Why does the order of the dict keys depend on insertion order?"
       },
       "code": "d = {[1, 2]: 3}  # TypeError"
     },
@@ -155,9 +155,9 @@
       "explanation": "Sets are mutable (frozenset is not).",
       "reference": {
         "section": "Sets",
-        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 130,
+        "excerpt": "In Python, a dictionary is wrapped in braces ({}) with a series of key-value pairs inside the braces, as shown in the earlier example: alien_0 = {'color': 'green', 'points': 5} A key-value pair is a set of values associated with each other."
       },
       "code": "s.add(4)"
     },
@@ -175,9 +175,9 @@
       "explanation": "fromkeys builds a dict.",
       "reference": {
         "section": "Dicts",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 181,
+        "excerpt": "For the dict benchmark, I used dict.fromkeys() to create a dict named haystack with 1,000 floats."
       },
       "code": "dict.fromkeys([\"a\", \"b\"], 0)"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 236,
+        "excerpt": "We’ll try to count the words for Alice in Wonderland, Siddhartha, Moby Dick, and Little Women, which are all available in the public domain."
       },
       "code": "if d.get(\"count\"):\n    use(d[\"count\"])"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "Sets",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 144,
+        "excerpt": "These offer richer APIs and operators than the sets you may have encountered in other popular languages."
       },
       "code": "s | t"
     },
@@ -236,8 +236,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 130,
+        "excerpt": "Working with Dictionaries A dictionary in Python is a collection of key-value pairs."
       },
       "code": "d.clear()"
     },
@@ -256,8 +256,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 146,
+        "excerpt": "The following output summarizes the pizza that we plan to build: You ordered a thick-crust pizza with the following toppings: mushrooms extra cheese You can nest a list inside a dictionary anytime you want more than one value to be associated with a single key in a dictionary."
       },
       "code": "list({\"b\": 1, \"a\": 2})  # [\"b\", \"a\"]"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "Sets",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 181,
+        "excerpt": "Why does the order of set elements seem random? To motivate the study of hash tables, we start by showcasing the amazing performance of dict and set with a simple test involving millions of items."
       },
       "code": "set([1, 1, 2])"
     },
@@ -319,8 +319,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 146,
+        "excerpt": "Indent the next line, add an opening quotation mark, and continue the string."
       }
     },
     {
@@ -341,8 +341,8 @@
       "reference": {
         "section": "Dicts",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 129,
-        "excerpt": "dictionaries can store an almost limitless amount of"
+        "page": 146,
+        "excerpt": "Python will automatically combine all of the strings it finds inside the parentheses."
       }
     },
     {
@@ -363,8 +363,8 @@
       "reference": {
         "section": "Sets",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 184,
+        "excerpt": "The ordering looks random. In CPython built for a 64-bit CPU, each bucket in a set has two fields: a 64-bit hash code, and a 64-bit pointer to the element value—which is a Python object stored elsewhere in memory."
       }
     }
   ],

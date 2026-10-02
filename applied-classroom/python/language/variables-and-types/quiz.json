@@ -1,5 +1,5 @@
 {
-  "title": "Python — Variables and types",
+  "title": "Python \u2014 Variables and types",
   "questions": [
     {
       "question": "How do you bind a name to a value in Python?",
@@ -17,7 +17,7 @@
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 54,
-        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+        "excerpt": "Every variable is connected to a value, which is the information associated with that variable."
       },
       "code": "x = 1\nx = \"hi\""
     },
@@ -37,7 +37,7 @@
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 54,
-        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+        "excerpt": "You can change the value of a variable in your program at any time, and Python will always keep track of its current value."
       },
       "code": "x = 1\nx = \"hi\""
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "Built-in types",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "page": 115,
+        "excerpt": "A Boolean value is either True or False, just like the value of a conditional expression after it has been evaluated."
       },
       "code": "ok = True"
     },
@@ -75,9 +75,9 @@
       "explanation": "None is its own singleton. Compare with is, not ==, by convention.",
       "reference": {
         "section": "Built-in types",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 40,
+        "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
       },
       "code": "missing = None"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Built-in types",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "page": 65,
+        "excerpt": "Python defaults to a float in any operation that uses a float, even if the output is a whole number."
       },
       "code": "rate = 3.0\nprint(type(rate))"
     },
@@ -117,7 +117,7 @@
         "section": "Truthiness",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "excerpt": "A Boolean expression is just another name for a conditional test. A Boolean value is either True or False."
       },
       "code": "bool([])  # False\nbool(\"0\")  # True"
     },
@@ -135,9 +135,9 @@
       "explanation": "Only empty string is falsy among strings.",
       "reference": {
         "section": "Truthiness",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 40,
+        "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
       },
       "code": "bool(\"False\")"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Conversion",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "page": 96,
+        "excerpt": "For example, consider how you might make a list of the first 10 square numbers (that is, the square of each integer from 1 through 10)."
       },
       "code": "amount = int(\"40\")"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "Conversion",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "page": 378,
+        "excerpt": "If any data is missing, Python will raise a ValueError and we handle it by printing an error message that includes the date of the missing data 2."
       },
       "code": "int(\"hi\")"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Values and names",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 54,
-        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+        "page": 56,
+        "excerpt": "Variables Are Labels Variables are often described as boxes you can store values in."
       },
       "code": "paid_total = 0"
     },
@@ -215,9 +215,9 @@
       "explanation": "bool is a separate type (subclass of int, but treat it as bool).",
       "reference": {
         "section": "Built-in types",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 52,
+        "excerpt": "But there\u2019s no way to make the [] notation work with a new collection type that you define."
       },
       "code": "ok = True\nprint(type(ok))"
     },
@@ -235,9 +235,9 @@
       "explanation": "None is not a number.",
       "reference": {
         "section": "Built-in types",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 309,
+        "excerpt": "Here we\u2019ll mostly see hints with built-in types, such as str, int, and float, which are probably the most common types used to annotate fields of data classes."
       },
       "code": "total = None\ntotal = total + 1  # TypeError"
     },
@@ -257,7 +257,7 @@
         "section": "Conversion",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "excerpt": "they\u2019re being used. Let\u2019s first look at how Python manages integers, because"
       },
       "code": "float(\"1.5\")"
     },
@@ -277,7 +277,7 @@
         "section": "Truthiness",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "excerpt": "As you learn more about programming, you\u2019ll hear the term Boolean expression"
       },
       "code": "amount = 0\nif amount:\n    print(\"paid\")  # skips real zero"
     },
@@ -295,9 +295,9 @@
       "explanation": "str builds a text representation.",
       "reference": {
         "section": "Conversion",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The explicit conversion to bool is needed because __bool__ must return a boolean and or returns either operand as is: x or y evaluates to x if that is truthy, otherwise the result is y, whatever that is."
       },
       "code": "label = str(40)"
     },
@@ -321,9 +321,9 @@
       "explanation": "The runner is JavaScript. Return a Python source string.",
       "reference": {
         "section": "Values and names",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 54,
-        "excerpt": "Let’s try using a variable in hello_world.py. Add a new line at the beginning"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 58,
+        "excerpt": "Thus, flat sequences are more compact, but they are limited to holding primitive machine values like bytes, integers, and floats."
       }
     },
     {
@@ -345,7 +345,7 @@
         "section": "Conversion",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 64,
-        "excerpt": "they’re being used. Let’s first look at how Python manages integers, because"
+        "excerpt": "they\u2019re being used. Let\u2019s first look at how Python manages integers, because"
       }
     },
     {
@@ -365,16 +365,16 @@
       "explanation": "The runner is JavaScript. Return a Python source string.",
       "reference": {
         "section": "Truthiness",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 202,
+        "excerpt": "Keep Using OrderedDict.. PEP 3106 \u2014 Revamping dict.keys(), .values() and .items() is where Guido van Rossum presented the dictionary views feature for Python 3."
       }
     }
   ],
   "reading": [
     {
       "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-      "chapter": "Chapter 2 — Variables and Simple Data Types",
+      "chapter": "Chapter 2 \u2014 Variables and Simple Data Types",
       "page": 53,
       "pageEnd": 70,
       "sections": [

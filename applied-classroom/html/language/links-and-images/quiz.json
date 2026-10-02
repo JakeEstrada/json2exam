@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Links and images",
+  "title": "HTML — Links and images",
   "questions": [
     {
       "question": "Which attribute names the page a link opens?",
@@ -37,7 +37,7 @@
         "section": "Writing links",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 84,
-        "excerpt": "Links are created using the <a> element."
+        "excerpt": "Writing Links Links are created using the <a> element. Users can click on anything between the opening <a> tag and the closing </a> tag."
       },
       "code": "<a href=\"about.html\">About</a>"
     },
@@ -77,7 +77,7 @@
         "section": "Writing links",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 84,
-        "excerpt": "<a href=\"http://www.imdb.com\">IMDB</a>"
+        "excerpt": "Writing Links Links are created using the <a> element. Users can click on anything between the opening <a> tag and the closing </a> tag."
       },
       "code": "<a href=\"http://www.imdb.com\">IMDB</a>"
     },
@@ -97,7 +97,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "To add an image into the page you need to use an <img> element."
+        "excerpt": "Adding Images <img> To add an image into the page you need to use an <img> element."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -137,7 +137,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "This tells the browser where it can find the image file."
+        "excerpt": "It must carry the following two attributes: HTML chapter-05/adding-images.html <img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial that is similar in size to the domestic cat.\" /> R e s u lt src This tells the browser where it can find the image file."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -157,7 +157,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "This provides a text description of the image which describes the image if you cannot see it."
+        "excerpt": "Most browsers will display the content of this attribute in a tootip when the user hovers over the image. 99 IMAGES The text used in the alt attribute is often referred to as alt text."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -177,7 +177,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "It must carry the following two attributes:"
+        "excerpt": "If the image is just to make a page look more attractive (and it has no meaning, such as a graphic dividing line), then the alt attribute should still be used but the quotes should be left empty."
       },
       "code": "<img src=\"photo.jpg\" alt=\"Red door\" />"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Writing links",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 81,
-        "excerpt": "Email links"
+        "page": 92,
+        "excerpt": "Email Links mailto: To create a link that starts up the user's email program and addresses an email to a specified email address, you use the <a> element."
       },
       "code": "<a href=\"mailto:ada@example.com\">Email Ada</a>"
     },
@@ -207,7 +207,7 @@
       "level": 2,
       "options": [
         "alt=\"divider image decorative\" always.",
-        "alt=\"\" \u2014 still present, quotes empty.",
+        "alt=\"\" — still present, quotes empty.",
         "Omit alt entirely.",
         "alt=\"src\"."
       ],
@@ -217,7 +217,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "then the alt attribute should still be used but the quotes should be left"
+        "excerpt": "If the image is just to make a page look more attractive (and it has no meaning, such as a graphic dividing line), then the alt attribute should still be used but the quotes should be left empty."
       },
       "code": "<img src=\"line.png\" alt=\"\" />"
     },
@@ -237,7 +237,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "You can also use the title attribute with the <img> element to provide additional information about the image."
+        "excerpt": "It should give an accurate description of the image content so it can be understood by screen reader software (used by people with visual impairments) and search engines."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial\" />"
     },
@@ -257,7 +257,7 @@
         "section": "Adding images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "the images are in a child folder called images"
+        "excerpt": "It must carry the following two attributes: HTML chapter-05/adding-images.html <img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial that is similar in size to the domestic cat.\" /> R e s u lt src This tells the browser where it can find the image file."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -277,7 +277,7 @@
         "section": "Writing links",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 84,
-        "excerpt": "Links are created using the <a> element."
+        "excerpt": "Writing Links Links are created using the <a> element. Users can click on anything between the opening <a> tag and the closing </a> tag."
       },
       "code": "<a href=\"about.html\">About</a>"
     },
@@ -297,7 +297,7 @@
         "section": "Writing links",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 84,
-        "excerpt": "You specify which page you want to link to using the href attribute."
+        "excerpt": "Writing Links Links are created using the <a> element. Users can click on anything between the opening <a> tag and the closing </a> tag."
       },
       "code": "<a href=\"page.html\">Open</a>"
     },
@@ -340,8 +340,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 84,
-        "excerpt": "Links are created using the <a> element."
+        "page": 87,
+        "excerpt": "We will take a closer look at relative URLs on pages 83-84 as there are several helpful shortcuts you can use to write links to other pages on your own website.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 241,
+            "excerpt": "213 Mobile first .nav-menu > li > a { display: block; padding: 0.8em 1em; color: #fff; font-weight: normal; } Uses a healthy amount of padding to ensure a large clickable area Again, this is nothing new."
+          }
+        ]
       },
       "level": 3
     },
@@ -437,7 +444,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 4 \u2014 Links",
+      "chapter": "Chapter 4 — Links",
       "page": 81,
       "pageEnd": 100,
       "sections": [
@@ -449,7 +456,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 5 \u2014 Images",
+      "chapter": "Chapter 5 — Images",
       "page": 101,
       "pageEnd": 132,
       "sections": [

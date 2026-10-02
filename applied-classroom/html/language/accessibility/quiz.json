@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Accessibility",
+  "title": "HTML — Accessibility",
   "questions": [
     {
       "question": "Why does every form control need a label?",
@@ -16,8 +16,8 @@
       "reference": {
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 170,
-        "excerpt": "each form control should have its own <label> element as this makes the form accessible to vision-impaired users."
+        "page": 177,
+        "excerpt": "The <label> element indicates the purpose of each form control."
       },
       "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
     },
@@ -37,7 +37,7 @@
         "section": "Labels",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 170,
-        "excerpt": "Wrap around both the text description and the form input"
+        "excerpt": "It can: R e s u lt 1. Wrap around both the text description and the form input (as shown on the first line of the example to your right). 2."
       },
       "code": "<label>Age: <input type=\"text\" name=\"age\" /></label>"
     },
@@ -57,7 +57,7 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 8,
-        "excerpt": "In this inaugural chapter, I\u2019ll be exploring what it takes to make toggle buttons inclusive."
+        "excerpt": "In this inaugural chapter, I’ll be exploring what it takes to make toggle buttons inclusive."
       },
       "code": "<button type=\"button\" aria-pressed=\"false\">Mute</button>"
     },
@@ -77,7 +77,7 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 8,
-        "excerpt": "yet on/off switches (or toggle buttons) are not all alike."
+        "excerpt": "Although their purpose is simple, their applications and forms vary greatly."
       },
       "code": "<button type=\"button\" aria-pressed=\"true\">On</button>"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 9,
-        "excerpt": "A popular misconception has been that screen readers don\u2019t understand JavaScript."
+        "page": 11,
+        "excerpt": "As with many so-called ‘assistive technologies’, screen readers are just a tool anyone can add to their tool set."
       },
       "code": "<button type=\"button\" aria-pressed=\"false\">Mute</button>"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "Keyboard access",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 39,
-        "excerpt": "the delete functionality only appears on hover, making it an entirely inaccessible feature by keyboard."
+        "page": 10,
+        "excerpt": "Where labelled correctly, it has all the fundamental ingredients of an accessible control: it’s screen reader and keyboard accessible between platforms and devices, and it communicates its change of state (checked to unchecked or vice versa) without needing to rebuild the entire document."
       },
       "code": "<button type=\"button\">Delete</button>"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 8,
-        "excerpt": "what it takes to make toggle buttons inclusive"
+        "page": 13,
+        "excerpt": "They are, after all, accessible by mouse, touch, keyboard, and assistive technology software across different devices, browsers, and operating systems."
       },
       "code": "<button type=\"button\">Save</button>"
     },
@@ -177,7 +177,7 @@
         "section": "Meaningful images",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 106,
-        "excerpt": "It should give an accurate description of the image content so it can be understood by screen reader software"
+        "excerpt": "It must carry the following two attributes: HTML chapter-05/adding-images.html <img src=\"images/quokka.jpg\" alt=\"A family of quokka\" title=\"The quokka is an Australian marsupial that is similar in size to the domestic cat.\" /> R e s u lt src This tells the browser where it can find the image file."
       },
       "code": "<img src=\"images/quokka.jpg\" alt=\"A family of quokka\" />"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 20,
-        "excerpt": "[aria-pressed='true']"
+        "page": 15,
+        "excerpt": "It’s a case of using WAI-ARIA as a progressive enhancement. WAI-ARIA offers states that are not available in basic HTML, such as the pressed state."
       },
       "code": "<button type=\"button\" aria-pressed=\"true\">Mute</button>"
     },
@@ -237,7 +237,7 @@
         "section": "Inclusive controls",
         "book": "Inclusive Components by Heydon Pickering",
         "page": 9,
-        "excerpt": "basic state changes, communicated both visually and to assistive technology software, do not necessarily depend on JavaScript to take place anyway."
+        "excerpt": "Not only is this entirely untrue—all major screen readers react to changes in the DOM as they occur—but basic state changes, communicated both visually and to assistive technology software, do not necessarily depend on JavaScript to take place anyway."
       },
       "code": "<input type=\"checkbox\" id=\"on\" />\n<label for=\"on\">Alerts on</label>"
     },
@@ -384,13 +384,13 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Inclusive Components by Heydon Pickering",
-        "page": 39,
-        "excerpt": "the delete functionality only appears on hover, making it an entirely inaccessible feature by keyboard."
+        "page": 53,
+        "excerpt": "It’s usually better to let users focus and press the button, then let them know if there are any errors. <form> <input type=\"text\" aria-invalid=\"true\" aria-label=\"Write a new todo item\" placeholder=\"E.g."
       },
       "level": 3
     },
     {
-      "question": "Write imgAlt(src, alt, decorative) \u2014 if decorative is true, force alt to empty quotes.",
+      "question": "Write imgAlt(src, alt, decorative) — if decorative is true, force alt to empty quotes.",
       "type": "code",
       "language": "javascript",
       "starter": "function imgAlt(src, alt, decorative) {\n  // return markup\n}\n",
@@ -440,7 +440,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 7 \u2014 Forms",
+      "chapter": "Chapter 7 — Forms",
       "page": 170,
       "pageEnd": 175,
       "sections": [

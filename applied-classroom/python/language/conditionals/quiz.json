@@ -16,8 +16,8 @@
       "reference": {
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "page": 112,
+        "excerpt": "Most of the conditional expressions you write will test for equality, but sometimes you’ll find it more efficient to test for inequality."
       },
       "code": "x == 3"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "page": 112,
+        "excerpt": "During this check, a username like 'John' will be rejected if any variation of 'john' is already in use."
       },
       "code": "if x is None:\n    return"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 120,
+        "excerpt": "Omitting the else Block Python does not require an else block at the end of an if- elif chain."
       },
       "code": "if ok:\n    print(\"yes\")"
     },
@@ -76,8 +76,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 120,
+        "excerpt": "The else block is a catchall statement. It matches any condition that wasn’t matched by a specific if or elif test, and that can sometimes include invalid or even malicious data."
       },
       "code": "elif status == \"pending\":\n    waiting += 1"
     },
@@ -95,9 +95,9 @@
       "explanation": "Classic mistake: = vs ==. (Walrus := exists but is different.)",
       "reference": {
         "section": "Comparisons",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 288,
+        "excerpt": "As such, they are allowed to enter their “national teams” in the FIFA World Cup—therefore media outlets need their flags to display tournament charts."
       },
       "code": "if x == 1:\n    pass"
     },
@@ -115,9 +115,9 @@
       "explanation": "and returns the deciding operand.",
       "reference": {
         "section": "Boolean operators",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 40,
+        "excerpt": "To determine whether a value x is truthy or falsy, Python applies bool(x), which always returns True or False."
       },
       "code": "0 and 5  # 0"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "Boolean operators",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "page": 127,
+        "excerpt": "The only recommendation PEP 8 provides for styling conditional tests is to use a single space around comparison operators, such as ==, >=, and <=."
       },
       "code": "not []"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 120,
+        "excerpt": "It matches any condition that wasn’t matched by a specific if or elif test, and that can sometimes include invalid or even malicious data."
       },
       "code": "else:\n    skipped += 1"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "page": 112,
+        "excerpt": "If these two values do not match, Python returns True and executes the code following the if statement."
       },
       "code": "if 0 < x < 10:\n    print(\"in range\")"
     },
@@ -215,9 +215,9 @@
       "explanation": "or returns the first truthy operand.",
       "reference": {
         "section": "Boolean operators",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 99,
+        "excerpt": "This is an important Python API convention: functions or methods that change an object in-place should return None to make it clear to the caller that the receiver was changed, and no new object was created."
       },
       "code": "\"paid\" or \"pending\"  # \"paid\""
     },
@@ -236,8 +236,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 106,
+        "excerpt": "Indentation PEP 8 recommends that you use four spaces per indentation level."
       },
       "code": "if ok:\n    print(\"yes\")"
     },
@@ -256,8 +256,8 @@
       "reference": {
         "section": "Comparisons",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "page": 112,
+        "excerpt": "For example, the following code checks whether a person is 18 years old: >>> age = 18 >>> age == 18 True You can also test to see if two numbers are not equal."
       },
       "code": "if x is not None:\n    use(x)"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 120,
+        "excerpt": "Testing Multiple Conditions The if- elif- else chain is powerful, but it’s only appropriate to use when you just need one test to pass."
       },
       "code": "if a:\n    ...\nelif b:\n    ...\nelse:\n    ..."
     },
@@ -296,8 +296,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 120,
+        "excerpt": "If you have a specific final condition you’re testing for, consider using a final elif block and omit the else block."
       },
       "code": "label = \"paid\" if ok else \"due\""
     },
@@ -319,8 +319,8 @@
       "reference": {
         "section": "If / elif / else",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 109,
-        "excerpt": "a set of conditions and deciding which"
+        "page": 504,
+        "excerpt": "It’s important to be aware of these when you’re naming things in Python: your names cannot be the same as these keywords and shouldn’t be the same as the function names, or you’ll overwrite the functions."
       }
     },
     {
@@ -340,9 +340,9 @@
       "explanation": "The runner is JavaScript. Return a Python source string.",
       "reference": {
         "section": "Comparisons",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 111,
-        "excerpt": "The first line sets the value of car to 'bmw' using a single equal sign, as"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 99,
+        "excerpt": "It returns None to remind us that it changes the receiver7 and does not create a new list."
       }
     },
     {
@@ -362,9 +362,9 @@
       "explanation": "The runner is JavaScript. Return a Python source string.",
       "reference": {
         "section": "Boolean operators",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 115,
-        "excerpt": "As you learn more about programming, you’ll hear the term Boolean expression"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 161,
+        "excerpt": "The following mapping types are ready to instantiate and use: collections.OrderedDict Maintains keys in insertion order, allowing iteration over items in a predictable order."
       }
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Text and lists",
+  "title": "HTML — Text and lists",
   "questions": [
     {
       "question": "Which heading is for the main title of the page?",
@@ -17,7 +17,14 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "<h1> is used for main headings"
+        "excerpt": "The exact size at which each browser shows the headings can vary slightly.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 271,
+            "excerpt": "I was able to do this because <h4> is an element that should only represent a minor heading."
+          }
+        ]
       },
       "code": "<h1>This is a Main Heading</h1>"
     },
@@ -37,7 +44,14 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "HTML has six \"levels\" of headings:"
+        "excerpt": "Browsers display the contents of headings at different sizes.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 42,
+            "excerpt": "However, it is possible to automate the appointment of heading levels using some nesting logic."
+          }
+        ]
       },
       "code": "<h1>Main</h1>\n<h2>Sub</h2>\n<h6>Smallest</h6>"
     },
@@ -57,7 +71,7 @@
         "section": "Headings",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 50,
-        "excerpt": "<h2> is used for subheadings"
+        "excerpt": "The exact size at which each browser shows the headings can vary slightly."
       },
       "code": "<h1>News</h1>\n<h2>Local</h2>"
     },
@@ -75,9 +89,9 @@
       "explanation": "A paragraph is the p element. There is no text or para tag.",
       "reference": {
         "section": "Paragraphs",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 47,
-        "excerpt": "Headings and paragraphs"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 331,
+        "excerpt": "For example, 10 px between buttons in the navigational menu; 40 px between the bottom of the hero image and the top of the three white columns; 30 px between each column’s heading and the following paragraph of text; and so on."
       },
       "code": "<p>A paragraph is a block of text.</p>"
     },
@@ -95,9 +109,9 @@
       "explanation": "Ordered lists are numbered. ul is bullets. dl is terms and definitions.",
       "reference": {
         "section": "Lists",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "Ordered lists are lists where each item in the list is numbered."
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 31,
+        "excerpt": "The virtue of lists is that, both visually and non-visually, they group items together, showing they are related."
       },
       "code": "<ol>\n  <li>Preheat the oven.</li>\n  <li>Mix the batter.</li>\n</ol>"
     },
@@ -117,7 +131,14 @@
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 70,
-        "excerpt": "Unordered lists are lists that begin with a bullet point"
+        "excerpt": "There are lots of occasions when we need to use lists. HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 241,
+            "excerpt": "Because the menu is a list (<ul>), you override the user agent left padding and remove the list bullets."
+          }
+        ]
       },
       "code": "<ul>\n  <li>Eggs</li>\n  <li>Flour</li>\n</ul>"
     },
@@ -136,8 +157,8 @@
       "reference": {
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "Definition lists are made up of a set of terms along with the definitions for each of those terms."
+        "page": 74,
+        "excerpt": "Definition Lists <dl> The definition list is created with the <dl> element and usually consists of a series of terms and their definitions."
       },
       "code": "<dl>\n  <dt>HTML</dt>\n  <dd>A markup language.</dd>\n</dl>"
     },
@@ -156,8 +177,8 @@
       "reference": {
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "each item in the list is numbered"
+        "page": 142,
+        "excerpt": "Long Tables There are three elements that help distinguish between the main content of the table and the first and last rows (which can contain different content)."
       },
       "code": "<ul>\n  <li>Eggs</li>\n</ul>"
     },
@@ -195,9 +216,9 @@
       "explanation": "A nested list lives inside an li of the parent list, not as a sibling of li.",
       "reference": {
         "section": "Lists",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "Unordered lists are lists that begin with a bullet point"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 64,
+        "excerpt": "The second selector in the listing then targets all unordered lists within an unordered list—all of them except the top level."
       },
       "code": "<ul>\n  <li>Fruit\n    <ul><li>Apple</li></ul>\n  </li>\n</ul>"
     },
@@ -217,7 +238,7 @@
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 70,
-        "excerpt": "the list might be a set of steps for a recipe that must be performed in order"
+        "excerpt": "HTML provides us with three different types: ●● Ordered lists are lists where each item in the list is numbered."
       },
       "code": "<ol>\n  <li>Preheat.</li>\n  <li>Mix.</li>\n</ol>"
     },
@@ -235,9 +256,9 @@
       "explanation": "One h1 for the page. Each section is an h2. Do not skip to invent a look.",
       "reference": {
         "section": "Headings",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 50,
-        "excerpt": "If there are further sections under the subheadings then the <h3> element is used, and so on"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 36,
+        "excerpt": "Links are blue and underlined. The heading and the list have top and bottom margins."
       },
       "code": "<h1>Cookbook</h1>\n<h2>Soups</h2>\n<h2>Breads</h2>"
     },
@@ -256,8 +277,8 @@
       "reference": {
         "section": "Lists",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 70,
-        "excerpt": "a set of terms along with the definitions for each of those terms"
+        "page": 74,
+        "excerpt": "Inside the <dl> element you will usually see pairs of <dt> and <dd> elements. <dt> This is used to contain the term being defined (the definition term). <dd> This is used to contain the definition."
       },
       "code": "<dl>\n  <dt>ol</dt>\n  <dd>Ordered list.</dd>\n</dl>"
     },
@@ -295,14 +316,14 @@
       "explanation": "Headings label sections. Running copy is p.",
       "reference": {
         "section": "Paragraphs",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 47,
-        "excerpt": "Headings and paragraphs"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 36,
+        "excerpt": "User agent styles vary slightly from browser to browser, but generally they do the same things: headings (<h1> through <h6>) and paragraphs (<p>) are given a top and bottom margin, lists (<ol> and <ul>) are given a left padding, and link colors and default font sizes are set."
       },
       "code": "<h1>News</h1>\n<p>Today the lab opened at noon.</p>"
     },
     {
-      "question": "Write heading(level, text) that returns <hN>text</hN> for level 1\u20136.",
+      "question": "Write heading(level, text) that returns <hN>text</hN> for level 1–6.",
       "type": "code",
       "language": "javascript",
       "starter": "function heading(level, text) {\n  // return markup\n}\n",
@@ -336,12 +357,12 @@
         "Concatenate 'h' with the level number."
       ],
       "solution": "function heading(level, text) {\n  return '<h' + level + '>' + text + '</h' + level + '>';\n}\n",
-      "explanation": "h1\u2013h6 are the six heading levels. The number is the outline depth.",
+      "explanation": "h1–h6 are the six heading levels. The number is the outline depth.",
       "reference": {
         "section": "Coding tasks",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 50,
-        "excerpt": "HTML has six \"levels\" of headings:"
+        "book": "Inclusive Components by Heydon Pickering",
+        "page": 42,
+        "excerpt": "That’s three levels of belonging, hence the <h3>s. Even if you feel that your packing todo list is less important than establishing which bars are good to visit, it’s still on the same level in terms of belonging, so it must have the same heading level."
       },
       "level": 3
     },
@@ -379,7 +400,7 @@
         }
       ],
       "hints": [
-        "Map each item to <li>\u2026</li> and join them inside <ul>."
+        "Map each item to <li>…</li> and join them inside <ul>."
       ],
       "solution": "function unordered(items) {\n  return '<ul>' + items.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul>';\n}\n",
       "explanation": "Unordered lists are li children of ul.",
@@ -441,7 +462,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 2 \u2014 Text",
+      "chapter": "Chapter 2 — Text",
       "page": 47,
       "pageEnd": 68,
       "sections": [
@@ -457,7 +478,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 3 \u2014 Lists",
+      "chapter": "Chapter 3 — Lists",
       "page": 69,
       "pageEnd": 80,
       "sections": [

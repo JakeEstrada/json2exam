@@ -41,9 +41,16 @@
       "explanation": "`i` starts at 0. The loop continues while `i < 3`, so the body runs three times: 0, 1, and 2.",
       "reference": {
         "section": "for loops",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 72,
+        "excerpt": "Each of these loops includes a loop variable that gets a new value assigned to it on each iteration of the loop.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 156,
+            "excerpt": "A number wrapped in curly braces means that the factor should match that many times."
+          }
+        ]
       },
       "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
@@ -61,9 +68,16 @@
       "explanation": "`for...of` yields values. `for...in` yields keys (as strings). For arrays, use `of`.",
       "reference": {
         "section": "Walking arrays",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 50,
+        "excerpt": "JavaScript’s strings (and its arrays) use zero-based indexing: the first 16-bit value is at position 0, the second at position 1, and so on.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 306,
+            "excerpt": "2 The JSON array is an ordered sequence of values. A value can be any JSON value, including arrays and objects."
+          }
+        ]
       },
       "code": "const items = [\"a\", \"b\", \"c\"];\nfor (const item of items) {\n  console.log(item);\n}"
     },
@@ -81,9 +95,9 @@
       "explanation": "while tests first. do/while tests after and is rare.",
       "reference": {
         "section": "while and do loops",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 59,
-        "excerpt": "while and do loops"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 26,
+        "excerpt": "The other broad category of statement is control structures, such as conditionals and loops."
       },
       "code": "while (i < n) {\n  i += 1;\n}"
     },
@@ -100,9 +114,9 @@
       "explanation": "`do`/`while` always runs once. `while` and `for` test first.",
       "reference": {
         "section": "while and do loops",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 59,
-        "excerpt": "while and do loops"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 72,
+        "excerpt": "JavaScript class and function definitions are blocks, and so are the bodies of if/else statements, while loops, for loops, and so on."
       },
       "level": 1,
       "code": "do {\n  n += 1;\n} while (n < 3);"
@@ -120,9 +134,9 @@
       "explanation": "The loop body runs for 0, 1, and 2. After the last increment `n` is 3 and the test fails.",
       "reference": {
         "section": "while and do loops",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 59,
-        "excerpt": "Consider a program that outputs all even numbers from 0 to 12."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 73,
+        "excerpt": "declared as part of a for, for/in, or for/of loop have the loop body as their scope, even though they technically appear outside of the curly braces."
       },
       "level": 1,
       "code": "let n = 0;\nwhile (n < 3) {\n  n += 1;\n}\nconsole.log(n);"
@@ -142,7 +156,7 @@
         "section": "for loops",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "excerpt": "Then comes a while loop, usually with a test expression that checks whether the counter has reached its end value."
       },
       "level": 1,
       "code": "for (let i = 0; i < n; i++) {\n  console.log(i);\n}"
@@ -160,9 +174,9 @@
       "explanation": "`for...of` yields values. `for...in` yields keys, including inherited ones.",
       "reference": {
         "section": "Walking arrays",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 50,
+        "excerpt": "The empty string is the string of length 0. Java‐ Script does not have a special type that represents a single element of a string."
       },
       "level": 1,
       "code": "for (const row of rows) {\n  console.log(row.status);\n}"
@@ -180,9 +194,9 @@
       "explanation": "Use `for...of` or a numeric `for`. `for...in` is for object keys.",
       "reference": {
         "section": "Find the bug",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 130,
+        "excerpt": "It does not enumerate properties whose names are symbols. And of the properties whose names are strings, it only loops over the enumerable properties (see §14.1)."
       },
       "level": 3,
       "code": "function firstPaid(rows) {\n  for (const i in rows) {\n    if (rows[i].status === \"paid\") return rows[i];\n  }\n}"
@@ -222,7 +236,7 @@
         "section": "Breaking Out of a Loop",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 65,
-        "excerpt": "Having the looping condition produce false is not the only way a loop can finish."
+        "excerpt": "Breaking Out of a Loop Having the looping condition produce false is not the only way a loop can finish."
       },
       "level": 2,
       "code": "for (let current = 20; ; current = current + 1) {\n  if (current % 7 == 0) {\n    console.log(current);\n    break;\n  }\n}"
@@ -240,9 +254,9 @@
       "explanation": "`break` only works in `for`/`while`/`switch`. Use `for...of` or `Array.prototype.find`.",
       "reference": {
         "section": "Walking arrays",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 130,
+        "excerpt": "The break statement makes the interpreter jump to the end of a loop or other state‐ ment. continue makes the interpreter skip the rest of the body of a loop and jump back to the top of a loop to begin a new iteration."
       },
       "level": 2,
       "code": "rows.forEach((row) => {\n  if (row.id === id) break;\n});"
@@ -260,9 +274,9 @@
       "explanation": "Missing indexes are `undefined`. A loop test `i <= rows.length` reads one extra hole.",
       "reference": {
         "section": "From C++",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 562,
+        "excerpt": "If you want to look up the objects for a range of keys, you create an IDBRange object that specifies the upper and lower bounds of the range and pass it to the getAll() or openCursor() methods of the object store."
       },
       "level": 2,
       "code": "const rows = [\"a\", \"b\"];\nconsole.log(rows[rows.length]);"
@@ -323,9 +337,9 @@
       "explanation": "`continue` does not skip the `for` update. The counter still moves.",
       "reference": {
         "section": "Breaking Out of a Loop",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 65,
-        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 130,
+        "excerpt": "If the body of the loop defines new properties on the object, those properties may or may not be enumerated."
       },
       "level": 2,
       "code": "for (let i = 0; i < 5; i++) {\n  if (i % 2 === 1) continue;\n  console.log(i);\n}"
@@ -363,9 +377,9 @@
       "explanation": "Zero elements, zero iterations. Seed counters at 0 before the loop.",
       "reference": {
         "section": "Walking arrays",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 130,
+        "excerpt": "If the body of a for/in loop deletes a property that has not yet been enumerated, that property will not be enumerated."
       },
       "level": 2,
       "code": "const rows = [];\nfor (const row of rows) {\n  console.log(row);\n}"
@@ -403,9 +417,9 @@
       "explanation": "Primitives are copied by value. Object elements are still the same objects.",
       "reference": {
         "section": "From C++",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 63,
-        "excerpt": "Many loops follow the pattern shown in the while examples."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 50,
+        "excerpt": "Java‐ Script does not have a special type that represents a single element of a string."
       },
       "level": 2,
       "code": "for (const row of rows) {\n  row.status = \"seen\";\n}"
@@ -477,8 +491,8 @@
       "reference": {
         "section": "Worked examples",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 65,
-        "excerpt": "The break statement has the effect of immediately jumping out of the enclosing loop."
+        "page": 59,
+        "excerpt": "If it doesn’t, the second and last else branch is chosen. The schema for this program looks something like this: while and do loops Consider a program that outputs all even numbers from 0 to 12."
       },
       "level": 3
     },

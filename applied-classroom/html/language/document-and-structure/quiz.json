@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Document and structure",
+  "title": "HTML — Document and structure",
   "questions": [
     {
       "question": "What kind of language is HTML?",
@@ -15,9 +15,9 @@
       "explanation": "HTML marks up content. CSS styles it. JavaScript programs it. The first chapter is structure, not color.",
       "reference": {
         "section": "What HTML is",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 19,
-        "excerpt": "Understanding structure"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 299,
+        "excerpt": "As long as the key pieces of the API (class names and DOM structure) remain unaltered, you are free to edit the CSS however you want."
       },
       "code": "<h1>Home</h1>\n<p>A page is marked-up text.</p>"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Tags and elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 31,
-        "excerpt": "an element comprises the opening tag and the closing tag and any content that lies between them."
+        "page": 27,
+        "excerpt": "Elements are usually made up of two tags: an opening tag and a closing tag."
       },
       "code": "<p>Hello</p>"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "Tags and elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 30,
-        "excerpt": "The characters in the brackets indicate the tag's purpose."
+        "page": 41,
+        "excerpt": "Other systems might have a button (which often shows angle brackets) to indicate how to access the code."
       },
       "code": "<p>A paragraph.</p>"
     },
@@ -67,7 +67,7 @@
       "level": 1,
       "options": [
         "<p/> on a paragraph that has children.",
-        "</p> \u2014 a forward slash after <, then the name.",
+        "</p> — a forward slash after <, then the name.",
         "<end p>",
         "<p close>"
       ],
@@ -76,8 +76,8 @@
       "reference": {
         "section": "Tags and elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 30,
-        "excerpt": "The closing tag has a forward slash after the the < symbol."
+        "page": 27,
+        "excerpt": "(The closing tag has an extra forward slash in it.) Each HTML element tells the browser something about the information that sits between its opening and closing tags."
       },
       "code": "<p>Hello</p>"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 32,
-        "excerpt": "Attributes provide additional information about the contents of an element."
+        "page": 45,
+        "excerpt": "XX Attributes require a name and a value. XX To learn HTML you need to know what tags are available for you to use, what they do, and where they can go."
       },
       "code": "<p lang=\"en-us\">Paragraph in English</p>"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "Document skeleton",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "Everything inside this element is shown inside the main browser window."
+        "page": 27,
+        "excerpt": "HTML Describes the Structure of Pages In the browser window you can see a web page that features exactly the same content as the Word document you met on the page 18."
       },
       "code": "<body>\n  <h1>This is the Body of the Page</h1>\n</body>"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Document skeleton",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "This contains information about the page (rather than information that is shown within"
+        "page": 27,
+        "excerpt": "We start to look at it in more detail on the next page. Note that the HTML code is in blue, and the text you see on screen is in black. <html> <body> <h1>This is the Main Heading</h1> <p>This text might be an introduction to the rest of the page."
       },
       "code": "<head>\n  <title>This is the Title of the Page</title>\n</head>"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "Document skeleton",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "Before the <body> element you will often see a <head> element."
+        "page": 27,
+        "excerpt": "There may even be sub-sub-headings (or lower-level headings).</p> <h2>Another Sub-Heading</h2> <p>Here you can see another sub-heading.</p> </body> </html> The HTML code (in blue) is made up of characters that live inside angled brackets — these are called HTML elements."
       },
       "code": "<html>\n  <head><title>Home</title></head>\n  <body></body>\n</html>"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "What HTML is",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 19,
-        "excerpt": "Learning about markup"
+        "page": 27,
+        "excerpt": "And if the page is a long one it might be split up into several sub-headings.<p> <h2>This is a Sub-Heading</h2> <p>Many long articles have sub-headings so to help you follow the structure of what is being written."
       },
       "code": "<h1>News</h1>\n<p>A headline, then text.</p>"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "Tags and elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 31,
-        "excerpt": "an element comprises the opening tag and the closing tag and any content that lies between them."
+        "page": 27,
+        "excerpt": "Elements are usually made up of two tags: an opening tag and a closing tag."
       },
       "code": "<p>Hi</p>"
     },
@@ -237,7 +237,7 @@
         "section": "Attributes",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 32,
-        "excerpt": "Here an attribute called lang is used to indicate the language used in this element."
+        "excerpt": "Attribute Name <p lang=\"en-us\">Paragraph in English</p> Attribute Value The attribute name indicates what kind of extra information you are supplying about the element's content."
       },
       "code": "<p lang=\"en-us\">Paragraph in English</p>"
     },
@@ -255,9 +255,9 @@
       "explanation": "title sits in head. It is information about the page, not a heading in the window.",
       "reference": {
         "section": "Document skeleton",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "<title>This is the Title of the Page</title>"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 271,
+        "excerpt": "When you initially build the module, you might only be using a span in that module for one thing, but nothing says you won’t come back later and need to add a second span for a different purpose."
       },
       "code": "<head>\n  <title>This is the Title of the Page</title>\n</head>"
     },
@@ -296,8 +296,8 @@
       "reference": {
         "section": "Document skeleton",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "information about the page (rather than information that is shown within"
+        "page": 29,
+        "excerpt": "The <body> tag indicates that anything between it and the closing </body> tag should be shown inside the main browser window."
       },
       "code": "<html>\n  <head><title>Home</title></head>\n  <body></body>\n</html>"
     },
@@ -337,8 +337,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 34,
-        "excerpt": "Before the <body> element you will often see a <head> element."
+        "page": 242,
+        "excerpt": "It is an empty element (meaning it does not need a closing tag), and it lives inside the <head> element.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 64,
+            "excerpt": "Thankfully, there is a better option—rems. 2.2.2 Using rems for font-size When the browser parses an HTML document, it creates a representation in memory of all the elements on the page."
+          }
+        ]
       },
       "level": 3
     },
@@ -418,12 +425,12 @@
         "Use the tag argument on both the opening and closing tags."
       ],
       "solution": "function wrap(tag, text) {\n  return '<' + tag + '>' + text + '</' + tag + '>';\n}\n",
-      "explanation": "Same shape as a paragraph: open, content, close \u2014 with the name supplied.",
+      "explanation": "Same shape as a paragraph: open, content, close — with the name supplied.",
       "reference": {
         "section": "Coding tasks",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 30,
-        "excerpt": "The characters in the brackets indicate the tag's purpose."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 271,
+        "excerpt": "You should avoid targeting based on generic tag types, such as div and span."
       },
       "level": 3
     }
@@ -431,7 +438,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 1 \u2014 Structure",
+      "chapter": "Chapter 1 — Structure",
       "page": 19,
       "pageEnd": 45,
       "sections": [

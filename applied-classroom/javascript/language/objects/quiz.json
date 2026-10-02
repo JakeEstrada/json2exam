@@ -15,8 +15,8 @@
       "reference": {
         "section": "Mutability and identity",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "When we have two numbers, 120 and 120, we can consider them precisely the same number, whether or not they refer to the same physical bits."
+        "page": 111,
+        "excerpt": "They are said to have the same identity. The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life."
       },
       "level": 1,
       "code": "let object1 = { value: 10 };\nlet object2 = object1;\nlet object3 = { value: 10 };"
@@ -35,8 +35,8 @@
       "reference": {
         "section": "Mutability and identity",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
+        "page": 111,
+        "excerpt": "object1.value = 15; console.log(object2.value); // → 15 console.log(object3.value); // → 10 The object1 and object2 bindings grasp the same object, which is why changing object1 also changes the value of object2."
       },
       "level": 1,
       "code": "let object1 = { value: 10 };\nlet object2 = object1;\nobject1.value = 15;"
@@ -74,9 +74,9 @@
       "explanation": "Shallow copy. Nested arrays stay aliased.",
       "reference": {
         "section": "Copying",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "Objects work differently. You can change their properties, causing a single object value to have different content at different times."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 413,
+        "excerpt": "This means that you can find a list of the newest Array methods by evaluating: let newArrayMethods = Object.keys(Array.prototype[Symbol.unscopables]); 14.5 Template Tags Strings within backticks are known as “template literals” and were covered in §3.3.4."
       },
       "level": 1,
       "code": "const task = { status: \"open\", tags: [\"home\"] };\nconst copy = { ...task };\ncopy.tags.push(\"late\");"
@@ -134,9 +134,16 @@
       "explanation": "Optional chaining short-circuits to undefined. It does not invent data.",
       "reference": {
         "section": "Objects",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 100,
-        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 61,
+        "excerpt": "As of early 2020, this feature has been implemented by all modern browsers and by Node. 3.8 Immutable Primitive Values and Mutable Object References There is a fundamental difference in JavaScript between primitive values (undefined, null, booleans, numbers, and strings) and objects (including ar…",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 47,
+            "excerpt": "1 Chapter 3. Objects Upon a homely object Love can wink. â William Shakespeare, The Two Gentlemen of Verona The simple types of JavaScript are numbers, strings, booleans (true and false), null, and undefined."
+          }
+        ]
       },
       "level": 2,
       "code": "const row = { customer: null };\nconsole.log(row.customer?.name);"
@@ -154,9 +161,9 @@
       "explanation": "Give each appointment its own nested copy if they must diverge.",
       "reference": {
         "section": "Worked examples",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 152,
+        "excerpt": "So, for example, you can write the following code in JavaScript: let addr = \"\"; for(let i = 0; i < 4; i++) { addr += customer[`address${i}`] + \"\\n\"; } This code reads and concatenates the address0, address1, address2, and address3 properties of the customer object."
       },
       "level": 2,
       "code": "const customer = { name: \"Ada\" };\nconst a = { customer };\nconst b = { customer };\nb.customer.name = \"Grace\";"
@@ -175,8 +182,8 @@
       "reference": {
         "section": "From C++",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 62,
-        "excerpt": "Objects are different than primitives. First, they are mutable—their values can change."
+        "page": 531,
+        "excerpt": "The structured clone algorithm can serialize anything that JSON.stringify() can, but in addition, it enables serialization of most other JavaScript types, including Map, Set, Date, RegExp, and typed arrays, and it can handle data structures that include cir‐ cular references."
       },
       "level": 2,
       "code": "function close(task) {\n  task.status = \"done\";\n}\nconst task = { status: \"open\" };\nclose(task);"
@@ -194,9 +201,9 @@
       "explanation": "t.status stays \"open\". u is a different object.",
       "reference": {
         "section": "Predict the output",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 161,
+        "excerpt": "Objects, arrays, strings, finite numbers, true, false, and null are supported and can be serialized and restored."
       },
       "level": 2,
       "code": "const t = { id: 1, status: \"open\" };\nconst u = { ...t, status: \"done\" };"
@@ -214,9 +221,9 @@
       "explanation": "Rebinding a number is not mutating the number 1. Object fields change in place.",
       "reference": {
         "section": "Mutability and identity",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "The types of values discussed in earlier chapters, such as numbers, strings, and Booleans, are all immutable"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 61,
+        "excerpt": "As of early 2020, this feature has been implemented by all modern browsers and by Node. 3.8 Immutable Primitive Values and Mutable Object References There is a fundamental difference in JavaScript between primitive values (undefined, null, booleans, numbers, and strings) and objects (including ar…"
       },
       "level": 2,
       "code": "let s = \"paid\";\ns[0] = \"X\";\nconst task = { status: \"open\" };\ntask.status = \"done\";"
@@ -278,8 +285,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "The binding object3 points to a different object"
+        "page": 96,
+        "excerpt": "Functions and side effects Functions can be roughly divided into those that are called for their side effects and those that are called for their return value (though it is also possible to both have side effects and return a value).",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 131,
+            "excerpt": "We can work around that deficiency by defining our own is_array function: var is_array = function (value) { return value && typeof value === 'object' && value.constructor === Array; }; Unfortunately, it fails to identify arrays that were constructed in a different window or frame."
+          }
+        ]
       },
       "level": 2,
       "code": "renameCustomer(appt, \"Grace\");"
@@ -332,9 +346,16 @@
       "explanation": "Do not assign task.status. Return a new object.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "With objects, there is a difference between having two references to the same object and having two different objects that contain the same properties."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 115,
+        "excerpt": "The contents of the spec could be copied into private variables or transformed by other functions.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 210,
+            "excerpt": "If the constructor uses return with no value, or if it returns a primitive value, that return value is ignored and the new object is used as the value of the invocation. 8.2.4 Indirect Invocation JavaScript functions are objects, and like all JavaScript objects, they have methods."
+          }
+        ]
       },
       "level": 3
     },
@@ -358,9 +379,16 @@
       "explanation": "Unmatched elements must be the same reference, not a spread copy.",
       "reference": {
         "section": "Copying",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 110,
-        "excerpt": "They are said to have the same identity."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 176,
+        "excerpt": "It is also a simple way to make a copy of an array: let copy = Array.from(original); Array.from() is also important because it defines a way to make a true-array copy of an array-like object.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 206,
+            "excerpt": "Write a new class PGroup, similar to the Group class from Chapter 6, which stores a set of values."
+          }
+        ]
       },
       "level": 3
     },

@@ -6,17 +6,24 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only the cardboard box used to ship bare boards for real production programs.",
+        "Only the cardboard box used to ship bare boards.",
         "The composition and layering order of materials used in PCB lamination.",
-        "The order of emails sent to CAM during a disposition loop for real production programs.",
-        "The sequence of cafeteria cake flavors during an all-nighter for real production programs."
+        "The order of emails sent to CAM during a disposition loop.",
+        "The sequence of quote revisions sent during a disposition loop."
       ],
       "answer": "b",
       "explanation": "composition and layering order of the materials used in lamination",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 54,
-        "excerpt": "composition and layering order of the materials used in lamination"
+        "page": 55,
+        "excerpt": "From Two to More The term “stack-up” refers to the composition and layering order of the materials used in lamination of the PCB.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 55,
+            "excerpt": "Rogers is not suitable for sequential lamination process, and there are other material vendors, like Taconic and Isola, who make materials that perform similar to Rogers and do not have these limitations."
+          }
+        ]
       }
     },
     {
@@ -24,17 +31,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only the PDF thumbnail color in the file browser for real production programs.",
+        "Only the PDF thumbnail color in the file browser.",
         "Electrical performance and manufacturing/cost realities of the board.",
-        "Nothing if the schematic used IEEE reference designators for real production programs.",
-        "Only the silk-screen font licensed by marketing for real production programs."
+        "Nothing if the schematic used IEEE reference designators.",
+        "Only the silk-screen font licensed by marketing."
       ],
       "answer": "b",
       "explanation": "will not only affect the PCB’s electrical performance",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 54,
-        "excerpt": "will not only affect the PCB’s electrical performance"
+        "page": 55,
+        "excerpt": "Click to Enlarge Selecting a sound PCB stack-up strategy is important because where the etched and plated layers are positioned and laminated from topto-bottom will not only affect the PCB’s electrical performance, but its mechanical performance as well."
       }
     },
     {
@@ -42,17 +49,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Invent dielectric constants so fabs cannot change anything for real production programs for real production programs.",
+        "Invent dielectric constants so fabs cannot change anything.",
         "Validate impedance line widths in the stack-up and let suppliers adjust process variables carefully.",
-        "Omit reference planes so impedance becomes a surprise at ICT for real production programs for real production programs.",
-        "Set every layer to one mil dielectric by software default for real production programs for real production programs."
+        "Omit reference planes so impedance becomes a surprise at ICT.",
+        "Set every layer to one mil dielectric by software default."
       ],
       "answer": "b",
       "explanation": "validate the values in the stack-up",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 54,
-        "excerpt": "validate the values in the stack-up"
+        "page": 84,
+        "excerpt": "For controlled impedance, adopting a stack-up philosophy which allows the board supplier to vary the dielectric constant of materials, trace widths, and spacing to achieve the specified impedance is recommended."
       }
     },
     {
@@ -70,7 +77,7 @@
       "reference": {
         "book": "High-Speed PCB Design Guide",
         "page": 30,
-        "excerpt": "A typical tolerance on the final impedance is +/- 10%"
+        "excerpt": "A typical tolerance on the final impedance is +/- 10%. But Sierra Circuits is capable of achieving +/- 5% impedance tolerance."
       }
     },
     {
@@ -78,17 +85,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Ignoring materials entirely and only checking silk-screen for real production programs for real production programs.",
+        "Ignoring materials entirely and only checking silk-screen.",
         "Building the specified dielectric construction when impedance traces are not the control method.",
-        "Deleting all ground planes to save laminate cost for real production programs for real production programs.",
-        "Using only air as the dielectric between every copper layer for real production programs for real production programs."
+        "Deleting all ground planes to save laminate cost.",
+        "Using only air as the dielectric between every copper layer."
       ],
       "answer": "b",
       "explanation": "The designer provides the controlled dielectric stack-up",
       "reference": {
         "book": "High-Speed PCB Design Guide",
         "page": 30,
-        "excerpt": "The designer provides the controlled dielectric stack-up"
+        "excerpt": "Since impedance traces are not specified here, the manufacturing focus is completely upon building a board within +/- 10% tolerance of the specified dielectric thickness from layer to layer."
       }
     },
     {
@@ -96,17 +103,24 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Free in every fab quote with no cost impact ever for real production programs.",
+        "Free in every fab quote with no cost impact ever.",
         "A common multi-layer choice that increases cost versus a simple two-layer board.",
-        "Illegal under ITAR for all commercial products for real production programs for real production programs.",
-        "Only useful for making the board thicker for shipping weight for real production programs."
+        "Illegal under ITAR for all commercial products.",
+        "Only useful for making the board thicker for shipping weight."
       ],
       "answer": "b",
       "explanation": "average cost of adding a layer",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 54,
-        "excerpt": "average cost of adding a layer"
+        "page": 68,
+        "excerpt": "Power planes are simply formed by adding layers of copper foil to the stack-up and connecting them to power or ground.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 84,
+            "excerpt": "The routing is then completed. 7.3.1 Best Routing Practices for High-Speed Routing 7.3.1.1 Ground and Power Planes One of the most usual problems in PCB design, and also in the system design, is the lack of a good ground structure."
+          }
+        ]
       }
     },
     {
@@ -117,8 +131,8 @@
       "explanation": "Knowing certain “cost adders” related to PCB stack-up",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 54,
-        "excerpt": "Knowing certain “cost adders” related to PCB stack-up"
+        "page": 56,
+        "excerpt": "Knowing certain “cost adders” related to PCB stack-up will help the designer to make critical decisions while considering appropriate cost vs. performance compromises for the layout."
       }
     },
     {
@@ -126,10 +140,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Buyers never need to read stack-ups if piece price looks low for real production programs.",
+        "Buyers never need to read stack-ups if piece price looks low.",
         "Reading stack-ups/fab notes is required literacy for guiding suppliers and DFM trades.",
-        "Stack-up is only a mechanical drawing title block field for real production programs.",
-        "Any stack-up works if the online fab rating is above four stars for real production programs."
+        "Stack-up is only a mechanical drawing title block field.",
+        "Any stack-up works if the online fab rating is above four stars."
       ],
       "answer": "b",
       "explanation": "Selecting a sound PCB stack-up strategy is important",

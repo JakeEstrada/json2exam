@@ -15,8 +15,8 @@
       "reference": {
         "section": "map, filter, reduce",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass the test."
+        "page": 157,
+        "excerpt": "You can use forEach to loop over the elements in an array. The filter method returns a new array containing only the elements that pass the predicate function."
       },
       "level": 1,
       "code": "const rows = [\n  { status: \"paid\", amount: 10 },\n  { status: \"pending\", amount: 4 },\n];"
@@ -35,8 +35,8 @@
       "reference": {
         "section": "Predict the output",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "This function is pure. It does not modify the array it is given."
+        "page": 206,
+        "excerpt": "Arrays have slice and concat methods, which allow us to easily create new arrays without damaging the old one."
       },
       "level": 1,
       "code": "const src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);"
@@ -75,8 +75,8 @@
       "reference": {
         "section": "Arrays are objects",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+        "page": 605,
+        "excerpt": "The includes or indexOf methods can be used to check whether a given value is in the array."
       },
       "level": 1,
       "code": "const arr = [\"a\", \"b\", \"c\"];\nconst x = \"a\";\nif (arr.indexOf(x)) {\n  console.log(\"found\");\n}"
@@ -114,9 +114,16 @@
       "explanation": "Always seed reduce when the array might be empty.",
       "reference": {
         "section": "map, filter, reduce",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "From now on, we’ll use it like this instead"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 141,
+        "excerpt": "(In nonstrict mode, such a delete expression does nothing and evaluates to false.) • In strict mode, an attempt to delete a nonconfigurable property throws a TypeEr‐ ror.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 135,
+            "excerpt": "If you want them to have a different initial value, you must explicitly set them."
+          }
+        ]
       },
       "level": 2,
       "code": "[].reduce((sum, n) => sum + n);"
@@ -134,9 +141,16 @@
       "explanation": "[] === [] is false (different objects). Array.isArray is the right test.",
       "reference": {
         "section": "Arrays are objects",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 100,
-        "excerpt": "Numbers, Booleans, and strings are the atoms from which data structures are built."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 157,
+        "excerpt": "It returns false for inherited properties: let o = { x: 1 }; o.hasOwnProperty(\"x\") // => true: o has an own property x o.hasOwnProperty(\"y\") // => false: o doesn't have a property y o.hasOwnProperty(\"toString\") // => false: toString is an inherited property The propertyIsEnumerable() refines the…",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 57,
+            "excerpt": "All objects created from object literals are linked to Object.prototype, an object that comes standard with JavaScript."
+          }
+        ]
       },
       "level": 2,
       "code": "console.log(typeof []);\nconst value = [];"
@@ -155,8 +169,8 @@
       "reference": {
         "section": "Arrays are objects",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "We saw push and pop, which add and remove elements at the end of an array, earlier in this chapter."
+        "page": 206,
+        "excerpt": "Like Group, it has add, delete, and has methods. Its add method, however, should return a new PGroup instance with the given member added and leave the old one unchanged."
       },
       "level": 2,
       "code": "const payments = [{ amount: 10 }];\npayments.push({ amount: 4 });\npayments.concat({ amount: 7 });"
@@ -175,8 +189,8 @@
       "reference": {
         "section": "Common mistakes",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 100,
-        "excerpt": "Objects allow us to group values—including other objects—to build more complex structures."
+        "page": 153,
+        "excerpt": "UTF-16 is generally considered a bad idea today. It seems almost intentionally designed to invite mistakes."
       },
       "level": 2,
       "code": "const arr = [\"a\", \"b\", \"c\"];\nconsole.log(arr[-1]);"
@@ -239,8 +253,15 @@
       "reference": {
         "section": "map, filter, reduce",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "This function is pure. It does not modify the array it is given."
+        "page": 157,
+        "excerpt": "The filter method returns a new array containing only the elements that pass the predicate function.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 97,
+            "excerpt": "Cascade Some methods do not have a return value. For example, it is typical for methods that set or change the state of an object to return nothing."
+          }
+        ]
       },
       "level": 2,
       "code": "const src = [1, 2, 3];\nsrc.map(n => n * 2);\nsrc.filter(n => n > 1);\nsrc.push(4);\nsrc.slice(1);"
@@ -278,9 +299,9 @@
       "explanation": "Same as object spread. Nested mutation is visible through both arrays.",
       "reference": {
         "section": "Arrays are objects",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "Another fundamental array method is slice, which takes start and end indices and returns an array that has only the elements between them."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 159,
+        "excerpt": "3 array.slice(start, end ) The slice method makes a shallow copy of a portion of an array ."
       },
       "level": 2,
       "code": "const src = [{ id: 1 }];\nconst copy = src.slice();\ncopy[0].id = 2;"
@@ -299,8 +320,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+        "page": 153,
+        "excerpt": "It describes most common characters using a single 16-bit code unit but uses a pair of two such units for others."
       },
       "level": 2,
       "code": "last([]);"
@@ -336,8 +357,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 121,
-        "excerpt": "To search for a specific value, arrays provide an indexOf method."
+        "page": 153,
+        "excerpt": "It seems almost intentionally designed to invite mistakes. It’s easy to write programs that pretend code units and characters are the same thing.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 248,
+            "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
+          }
+        ]
       },
       "level": 3
     },
@@ -417,8 +445,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 146,
-        "excerpt": "The map method transforms an array by applying a function to all of its elements"
+        "page": 157,
+        "excerpt": "You can use reduce to combine all the elements in an array into a single value.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 248,
+            "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
+          }
+        ]
       },
       "level": 3
     }

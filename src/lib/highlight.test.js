@@ -29,6 +29,16 @@ test('looksLikeCode spots snippets and ignores prose', () => {
   assert.equal(looksLikeCode('A scripting language with no compile step.'), false);
   assert.equal(looksLikeCode('<div class="card">Hello</div>'), true);
   assert.equal(looksLikeCode('display: flex;'), true);
+  assert.equal(looksLikeCode('Array.isArray(value)'), true);
+  assert.equal(looksLikeCode('n => n * 2'), true);
+});
+
+test('looksLikeCode leaves prose that uses punctuation alone', () => {
+  // A quiz option that renders as code stands out from the other choices.
+  assert.equal(looksLikeCode('It turns the element into a flex container; direct children become flex items.'), false);
+  assert.equal(looksLikeCode('Padding doesn’t make the element wider; it makes the content narrower.'), false);
+  assert.equal(looksLikeCode('margin (outside the border).'), false);
+  assert.equal(looksLikeCode('1 2 1 because make()() is a new closure.'), false);
 });
 
 test('detectLanguage tells HTML, CSS, and JavaScript apart', () => {

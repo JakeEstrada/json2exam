@@ -9,14 +9,14 @@
         "Only in an in-process memory map that dies with each instance.",
         "In a shared store (DB/cache) or in a verified client token design.",
         "Only inside the load balancer’s TLS certificate private key.",
-        "Only on the user’s floppy disk mailed to the datacenter in real production systems at scale."
+        "Only in each browser’s address-bar fragment, with no server store."
       ],
       "answer": "b",
       "explanation": "stateless",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 28,
-        "excerpt": "stateless"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 29,
+        "excerpt": "stored in a shared data store and kept out of web servers. A stateless system is simpler, more robust, and scalable."
       }
     },
     {
@@ -44,9 +44,9 @@
       "answer": true,
       "explanation": "occasions where architects need to make specific technology decisions in order to preserve a particular architectural characteristic",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 35,
-        "excerpt": "occasions where architects need to make specific technology decisions in order to preserve a particular architectural characteristic"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 30,
+        "excerpt": "That said, there are some occasions where architects need to make specific technology decisions in order to preserve a particular architectural characteristic, such as scalability, performance, or availability."
       }
     },
     {
@@ -54,17 +54,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Browsers cannot display forms without exponential backoff in real production systems at scale.",
+        "Browsers cannot display forms without exponential backoff.",
         "Attackers can brute-force credentials or overload auth infrastructure.",
-        "JWT libraries refuse to run if rate limits are missing in real production systems at scale.",
-        "DNS will stop resolving the hostname automatically in real production systems at scale."
+        "JWT libraries refuse to run if rate limits are missing.",
+        "DNS will stop resolving the hostname automatically."
       ],
       "answer": "b",
       "explanation": "Prevent resource starvation… Prevent servers from being overloaded",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 67,
-        "excerpt": "Prevent resource starvation… Prevent servers from being overloaded"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 69,
+        "excerpt": "API gateway is a fully managed service that supports rate limiting, SSL termination, authentication, IP whitelisting, servicing static content, etc."
       }
     },
     {
@@ -74,15 +74,15 @@
       "options": [
         "Maximize spend with no upper bound on outbound calls.",
         "Control cost by capping excess requests to paid dependencies.",
-        "Disable invoices so finance never sees usage in real production systems at scale.",
-        "Force all calls onto a single shared password in real production systems at scale."
+        "Disable invoices so finance never sees usage.",
+        "Force all calls onto a single shared password."
       ],
       "answer": "b",
       "explanation": "Limiting the number of calls is essential to reduce costs",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 67,
-        "excerpt": "Limiting the number of calls is essential to reduce costs"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 66,
+        "excerpt": "Limiting excess requests means fewer servers and allocating more resources to high priority APIs."
       }
     }
   ]

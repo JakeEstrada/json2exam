@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "logging",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 40,
-        "excerpt": "logging"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 35,
+        "excerpt": "Logging, metrics, automation When working with a small website that runs on a few servers, logging, metrics, and automation support are good practices but not a necessity."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Avoid verifying that teams follow decisions in real production systems at scale.",
+        "Avoid verifying that teams follow decisions.",
         "Measure compliance with architecture characteristics automatically.",
-        "Replace all production monitoring with slideware in real production systems at scale.",
-        "Ban metrics because they encourage premature optimization in real production systems at scale."
+        "Replace all production monitoring with slideware.",
+        "Ban metrics because they encourage premature optimization."
       ],
       "answer": "b",
       "explanation": "measuring compliance using automated fitness functions",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 36,
-        "excerpt": "measuring compliance using automated fitness functions"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 170,
+        "excerpt": "The book Building Evolutionary Architectures (O’Reilly, 2022) by Neal Ford et al. describes a family of techniques called fitness functions used to automate many aspects of architecture governance."
       }
     },
     {
@@ -54,17 +54,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Every debug log line in development laptops in real production systems at scale.",
+        "Every debug log line in development laptops.",
         "User-visible symptoms (errors, latency, saturation) that need action.",
-        "Successful health checks that return 200 OK continuously in real production systems at scale.",
-        "CDN cache hits for static logo images only in real production systems at scale."
+        "Successful health checks that return 200 OK continuously.",
+        "CDN cache hits for static logo images only."
       ],
       "answer": "b",
       "explanation": "automation",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 40,
-        "excerpt": "automation"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 35,
+        "excerpt": "Logging: Monitoring error logs is important because it helps to identify errors and problems in the system."
       }
     },
     {
@@ -74,15 +74,15 @@
       "options": [
         "Hide the path of a request across services during an incident.",
         "Trace one request across services when diagnosing failures.",
-        "Encrypt the database by renaming columns randomly in real production systems at scale.",
-        "Increase QPS without adding any capacity in real production systems at scale."
+        "Encrypt the database by renaming columns randomly.",
+        "Increase QPS without adding any capacity."
       ],
       "answer": "b",
       "explanation": "logging",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 40,
-        "excerpt": "logging"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 67,
+        "excerpt": "The interactions between an interviewer and a candidate help to clarify the type of rate limiters we are trying to build."
       }
     }
   ]

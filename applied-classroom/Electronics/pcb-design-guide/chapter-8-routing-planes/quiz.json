@@ -8,7 +8,7 @@
       "options": [
         "Silk-screen fonts first, then ignore power pins entirely.",
         "Via fanout first, power second, then remaining signal routing.",
-        "Random nets in alphabetical order only for real production programs.",
+        "Random nets in alphabetical order only.",
         "Differential pairs last after deleting all ground vias."
       ],
       "answer": "b",
@@ -16,7 +16,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 78,
-        "excerpt": "via fanout first, routing of power second"
+        "excerpt": "FFFollow a routing order which allows via fanout first, routing of power second, and attention to remaining signal routing third."
       }
     },
     {
@@ -25,16 +25,23 @@
       "level": 2,
       "options": [
         "EMI shielding and heat sinking in addition to power distribution.",
-        "Only increasing the board’s postage weight class for real production programs.",
-        "Replacing the need for any bypass capacitors forever for real production programs.",
-        "Preventing CAM from ever reading Excellon drill files for real production programs."
+        "Only increasing the board’s postage weight class.",
+        "Replacing the need for any bypass capacitors forever.",
+        "Preventing CAM from ever reading Excellon drill files."
       ],
       "answer": "a",
       "explanation": "EMI shielding and heat sinking",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 78,
-        "excerpt": "EMI shielding and heat sinking"
+        "page": 71,
+        "excerpt": "Click to Enlarge Planes as a Heat Sink A side benefit of solid power planes is they are very good thermal conductors.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 84,
+            "excerpt": "The second inner layer is used for power distribution and different power islands are placed in this layer such as 3.3V, 1.8V, 5V, etc."
+          }
+        ]
       }
     },
     {
@@ -42,17 +49,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Ship immediately without reviewing circuitous paths or SI for real production programs.",
+        "Ship immediately without reviewing circuitous paths or SI.",
         "Review routes, mitigate signals crossing adjacent plane splits, and perform SI checks.",
-        "Delete all ground pours so DRC finishes faster for real production programs for real production programs.",
-        "Convert every signal to one mil width for consistency for real production programs."
+        "Delete all ground pours so DRC finishes faster.",
+        "Convert every signal to one mil width for consistency."
       ],
       "answer": "b",
       "explanation": "signal lines crossing splits from an adjacent power plane",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 78,
-        "excerpt": "signal lines crossing splits from an adjacent power plane"
+        "excerpt": "Always check for signal lines crossing splits from an adjacent power plane and mitigate."
       }
     },
     {
@@ -60,17 +67,24 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Twitter polls among interns on preferred mil widths for real production programs.",
+        "Twitter polls among interns on preferred mil widths.",
         "Copper thickness and proven current-carrying calculations such as in IPC-2221.",
-        "Always 1 mil regardless of current for real production programs for real production programs.",
-        "Whatever default the auto-router used on Friday night for real production programs."
+        "Always 1 mil regardless of current.",
+        "Whatever default the auto-router used on Friday night."
       ],
       "answer": "b",
       "explanation": "calculations in IPC-2221",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 78,
-        "excerpt": "calculations in IPC-2221"
+        "page": 60,
+        "excerpt": "Trace width vs Copper Thickness Sometimes making the decision to add layer pairs to a PCB stackup is based upon a designer running out of routing space.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 42,
+            "excerpt": "Additionally, the trace width is estimated from the bottom as well as the top of the affected impedance trace along with the copper thickness or the trace height."
+          }
+        ]
       }
     },
     {
@@ -78,17 +92,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Always maximize via stub length for filtering for real production programs for real production programs.",
+        "Always maximize via stub length for filtering.",
         "Minimize discontinuity effects (e.g., smaller microvias / HDI approaches where appropriate).",
-        "Place vias between differential pairs whenever possible for real production programs for real production programs.",
-        "Remove all reference planes under high-speed nets for real production programs for real production programs."
+        "Place vias between differential pairs whenever possible.",
+        "Remove all reference planes under high-speed nets."
       ],
       "answer": "b",
       "explanation": "Minimizing the effects of discontinuities caused by vias",
       "reference": {
         "book": "High-Speed PCB Design Guide",
-        "page": 16,
-        "excerpt": "Minimizing the effects of discontinuities caused by vias"
+        "page": 91,
+        "excerpt": "The geometry of serpentine traces should be carefully designed in order to reduce impedance discontinuity."
       }
     },
     {
@@ -99,14 +113,14 @@
         "No return path if the trace looks short on the screen.",
         "A continuous reference plane for the return path.",
         "A split plane under every differential pair by default.",
-        "Floating copper islands with no DC connection for real production programs."
+        "Floating copper islands with no DC connection."
       ],
       "answer": "b",
       "explanation": "continuous reference plane for a return path",
       "reference": {
         "book": "High-Speed PCB Design Guide",
         "page": 36,
-        "excerpt": "continuous reference plane for a return path"
+        "excerpt": "Generally, the return path for high-speed signals is provided in the reference planes nearest to the signal layer."
       }
     },
     {
@@ -118,7 +132,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 78,
-        "excerpt": "perform a via fanout operation manually"
+        "excerpt": "FFOn multi-layer designs, perform a via fanout operation manually or automatically to reserve multi-layer interconnection points for each pin prior to routing."
       }
     },
     {
@@ -128,8 +142,8 @@
       "options": [
         "Rise times get faster and aggressor/victim coupling is strong.",
         "All traces are spaced infinitely far on a single-layer board of infinite size.",
-        "You disable every clock in the design for real production programs for real production programs.",
-        "Soldermask is glossy rather than matte for real production programs for real production programs."
+        "You disable every clock in the design.",
+        "Soldermask is glossy rather than matte."
       ],
       "answer": "a",
       "explanation": "faster rise time signals create more crosstalk",

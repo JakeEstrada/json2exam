@@ -1,5 +1,5 @@
 {
-  "title": "CSS \u2014 Positioning",
+  "title": "CSS — Positioning",
   "questions": [
     {
       "question": "The initial value of position is?",
@@ -17,7 +17,7 @@
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 206,
-        "excerpt": "The initial value of the position property is static."
+        "excerpt": "The initial value of the position property is static. Everything we’ve done in previous chapters is with static positioning."
       },
       "code": ".box { position: static; }"
     },
@@ -57,7 +57,7 @@
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 206,
-        "excerpt": "it removes elements from the document flow entirely."
+        "excerpt": "Positioning is different: it removes elements from the document flow entirely."
       },
       "code": ".modal { position: fixed; }"
     },
@@ -77,7 +77,7 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 205,
-        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+        "excerpt": "As we look at the various types of positioning, I’ll make sure you understand precisely what they do."
       },
       "code": ".note { position: relative; }"
     },
@@ -97,7 +97,7 @@
         "section": "Types",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 366,
-        "excerpt": "Explore different ways to position elements using normal flow, relative positioning, absolute positioning and floats."
+        "excerpt": "This involves learning about how designing for a screen can be different to designing for other mediums (such as print)."
       },
       "code": "div { position: relative; }"
     },
@@ -115,9 +115,9 @@
       "explanation": "Relative offset is from the element's static position. Inclusive Components uses relative plus top/left on a toggle.",
       "reference": {
         "section": "Types",
-        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 205,
-        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 375,
+        "excerpt": "To control where the fixed position box appears in relation to the browser window, the box offset properties are used."
       },
       "code": ".badge {\n  position: relative;\n  top: -0.25rem;\n  left: -0.25rem;\n}"
     },
@@ -137,7 +137,7 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 206,
-        "excerpt": "Fixed positioning"
+        "excerpt": "Applying position: fixed to an element lets you position the element arbitrarily within the viewport."
       },
       "code": ".bar {\n  position: fixed;\n  top: 0;\n}"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 206,
-        "excerpt": "It can place elements in front of or behind one another, thus overlapping one another."
+        "page": 220,
+        "excerpt": "This brings them to the front, covering the statically positioned third element, even though the order of the elements in the HTML is unchanged."
       },
       "code": ".overlay { position: absolute; z-index: 2; }"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 205,
-        "excerpt": "The types of element positioning: fixed, relative, and absolute"
+        "page": 210,
+        "excerpt": "This margin will flow behind your fixed element, and the content won’t overlap. 7.2 Absolute positioning Fixed positioning, as you’ve just seen, lets you position an element relative to the viewport."
       },
       "code": ".parent { position: relative; }\n.child { position: absolute; top: 0; }"
     },
@@ -217,7 +217,7 @@
         "section": "Types",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 205,
-        "excerpt": "A new type of positioning: sticky"
+        "excerpt": "Positioning can get complicated. It’s a subject where many developers only have a cursory understanding."
       },
       "code": "th {\n  position: sticky;\n  top: 0;\n}"
     },
@@ -227,7 +227,7 @@
       "level": 2,
       "options": [
         "Missing HTML.",
-        "Stacking context problems \u2014 a positioned ancestor with z-index creates a new context.",
+        "Stacking context problems — a positioned ancestor with z-index creates a new context.",
         "Invalid hex colors.",
         "Missing doctype only."
       ],
@@ -236,8 +236,8 @@
       "reference": {
         "section": "Stacking",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 206,
-        "excerpt": "Understanding the stacking context will keep you out of trouble"
+        "page": 219,
+        "excerpt": "For that, we need to take a closer look at how the browser renders a page. 7.4.1 Understanding the rendering process and stacking order As the browser parses HTML into the DOM, it also creates another tree structure called the render tree."
       },
       "code": ".card { position: relative; z-index: 1; }"
     },
@@ -257,7 +257,7 @@
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 206,
-        "excerpt": "The layout methods we\u2019ve covered in previous chapters do various things to manipulate the way document flow behaves."
+        "excerpt": "An element with static positioning is thus not positioned. The layout methods we’ve covered in previous chapters do various things to manipulate the way document flow behaves."
       },
       "code": ".page { display: grid; }"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 206,
-        "excerpt": "An element with static positioning is thus not positioned."
+        "page": 210,
+        "excerpt": "Its parent element is modal-body, which has fixed positioning, so it becomes the containing block for the button."
       },
       "code": ".parent { position: relative; }\n.child { position: absolute; }"
     },
@@ -296,8 +296,8 @@
       "reference": {
         "section": "Static and positioned",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 206,
-        "excerpt": "The initial value of the position property is static."
+        "page": 210,
+        "excerpt": "As with a fixed element, the properties top, right, bottom, and left place the edges of the element within its containing block. 7.2.1 Absolutely positioning the Close button To see how this works, let’s reposition the Close button to the top right corner of your modal dialog."
       },
       "code": ".box { position: relative; top: 1em; }"
     },
@@ -419,7 +419,7 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 7 \u2014 Positioning and stacking contexts",
+      "chapter": "Chapter 7 — Positioning and stacking contexts",
       "page": 205,
       "pageEnd": 228,
       "sections": [
@@ -439,7 +439,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 15 \u2014 Layout",
+      "chapter": "Chapter 15 — Layout",
       "page": 365,
       "pageEnd": 380,
       "sections": [

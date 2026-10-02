@@ -6,7 +6,7 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only carrier pigeons and fax machines in real production systems at scale.",
+        "Only carrier pigeons and fax machines.",
         "Mobile push, SMS, and email.",
         "Only in-process log lines with no user delivery.",
         "Only browser localStorage writes on the same device."
@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "mobile push notification, SMS message, and Email",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 187,
-        "excerpt": "mobile push notification, SMS message, and Email"
+        "excerpt": "A notification is more than just mobile push notification. Three types of notification formats are: mobile push notification, SMS message, and Email."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "A random public MQTT broker with no auth in real production systems at scale.",
+        "A random public MQTT broker with no auth.",
         "Apple Push Notification Service (APNS) using device token + payload.",
-        "Direct SMS gateways that ignore device tokens in real production systems at scale.",
-        "FTP uploads to each phone overnight in real production systems at scale."
+        "Direct SMS gateways that ignore device tokens.",
+        "FTP uploads to each phone overnight."
       ],
       "answer": "b",
       "explanation": "Apple Push Notification Service (APNS)",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 190,
-        "excerpt": "Apple Push Notification Service (APNS)"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 189,
+        "excerpt": "Here is an example: • APNS: This is a remote service provided by Apple to propagate push notifications to iOS devices. • iOS Device: It is the end client, which receives push notifications."
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "APNS exclusively for all Android devices in real production systems at scale.",
+        "APNS exclusively for all Android devices.",
         "Firebase Cloud Messaging (FCM) as a common path.",
-        "Only postal mail with printed QR codes in real production systems at scale.",
+        "APNS exclusively for all Android devices as well.",
         "Direct SQL inserts into the phone’s SQLite over the open internet."
       ],
       "answer": "b",
       "explanation": "Firebase Cloud Messaging (FCM) is commonly used",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 191,
-        "excerpt": "Firebase Cloud Messaging (FCM) is commonly used"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 190,
+        "excerpt": "Instead of using APNs, Firebase Cloud Messaging (FCM) is commonly used to send push notifications to android devices."
       }
     },
     {
@@ -61,16 +61,16 @@
       "level": 2,
       "options": [
         "A user can have multiple devices that should all receive pushes.",
-        "Device tokens must never be associated with a user id in real production systems at scale.",
-        "Email and SMS cannot be stored in any database table in real production systems at scale.",
-        "APNS forbids persisting tokens longer than one second in real production systems at scale."
+        "Device tokens must never be associated with a user id.",
+        "Email and SMS cannot be stored in any database table.",
+        "APNS forbids persisting tokens longer than one second."
       ],
       "answer": "a",
       "explanation": "A user can have multiple devices",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 193,
-        "excerpt": "A user can have multiple devices"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 191,
+        "excerpt": "Contact info gathering flow To send notifications, we need to gather mobile device tokens, phone numbers, or email addresses."
       }
     },
     {
@@ -80,9 +80,9 @@
       "answer": true,
       "explanation": "users who choose to opt-out will no longer receive notifications",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 188,
-        "excerpt": "users who choose to opt-out will no longer receive notifications"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 193,
+        "excerpt": "Notification system: The notification system is the centerpiece of sending/receiving notifications."
       }
     },
     {
@@ -90,7 +90,7 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Messages may be delayed forever with no delivery goal in real production systems at scale.",
+        "Messages may be delayed forever with no delivery goal.",
         "Deliver ASAP, but slight delay under high load is acceptable.",
         "Every notification must arrive within one microsecond worldwide.",
         "Notifications only send when the on-call engineer presses a button."
@@ -98,9 +98,16 @@
       "answer": "b",
       "explanation": "soft real-time… slight delay is acceptable",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 188,
-        "excerpt": "soft real-time… slight delay is acceptable"
+        "excerpt": "However, if the system is under a high workload, a slight delay is acceptable.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 145,
+            "excerpt": "If those calls fail, it impacts the reliability of the calling system."
+          }
+        ]
       }
     }
   ]

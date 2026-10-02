@@ -16,8 +16,8 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "Union types may not fit into a hierarchy but can be thought of in terms of sets of values."
       },
       "code": "type Status = \"idle\" | \"loading\" | \"error\";\nconst s: Status = \"idle\";"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "you can think of the number type as the set of all number values."
+        "page": 255,
+        "excerpt": "For example: function double<T extends string | number>( x: T ): T extends string ? string : number; function double(x: string | number): string | number { return typeof x === 'string' ? x + x : x + x; } Here we use the conditional type for the externally visible API, but use a simpler type for t…"
       },
       "code": "function f(x: string | number) {\n  return x.toString();\n}"
     },
@@ -57,7 +57,14 @@
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "excerpt": "The type checker is generally quite good at following your logic and narrowing types in conditionals like these, though it can occasionally be thwarted by aliasing (Item 23).",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 133,
+            "excerpt": "By writing infer R, we instruct TypeScript to check the provided concrete return type (for example, string for the getA() method) and replace infer R with this concrete type."
+          }
+        ]
       },
       "code": "function upper(x: string | number) {\n  if (typeof x === \"string\") {\n    return x.toUpperCase();\n  }\n  return String(x);\n}"
     },
@@ -75,9 +82,9 @@
       "explanation": "Array.isArray is a built-in type guard. typeof \"object\" would also match null.",
       "reference": {
         "section": "Narrowing",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 40,
+        "excerpt": "Like boolean and number, there are four ways to declare string types, and you should let TypeScript infer the type for you whenever you can. symbol symbol is a relatively new language feature that arrived with one of the latest major JavaScript revisions (ES2015)."
       },
       "code": "function contains(text: string, terms: string | string[]) {\n  const list = Array.isArray(terms) ? terms : [terms];\n  return list.includes(text);\n}"
     },
@@ -115,9 +122,9 @@
       "explanation": "The discriminant check narrows to the circle branch. side is not on that branch.",
       "reference": {
         "section": "Narrowing",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 53,
+        "excerpt": "Let’s create another discriminated union of two types, Rectangle and Circle."
       },
       "code": "function area(shape: Shape) {\n  if (shape.kind === \"circle\") {\n    return Math.PI * shape.radius ** 2;\n  }\n}"
     },
@@ -136,8 +143,8 @@
       "reference": {
         "section": "Intersections",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "Their intersection is non-empty (it’s string), but neither is a subtype of the other."
       },
       "code": "type Impossible = string & number;"
     },
@@ -156,8 +163,8 @@
       "reference": {
         "section": "Intersections",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 82,
+        "excerpt": "TypeScript types are not “closed” (Item 4). • Be aware of the limits of excess property checking: introducing an intermediate variable will remove these checks. • A “weak type” is an object type with only optional properties."
       },
       "code": "type User = { name: string };\ntype Timestamped = { createdAt: Date };\ntype StampedUser = User & Timestamped;"
     },
@@ -176,8 +183,8 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 65,
+        "excerpt": "And indeed this is true (with one caveat, explained below). Unless two types are semantically different and just happen to have the same domain, there’s no reason to define the same type twice."
       },
       "code": "type Payment =\n  | { status: \"paid\"; paidAt: Date }\n  | { status: \"pending\"; reason: string };"
     },
@@ -196,8 +203,8 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 54,
+        "excerpt": "The type of message is string | null outside the branch, but string inside."
       },
       "code": "function label(x: string | null) {\n  if (x === null) return \"none\";\n  return x.toUpperCase();\n}"
     },
@@ -216,8 +223,15 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 136,
+        "excerpt": "So why did it revert back to the union type, which produced a type error?",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 177,
+            "excerpt": "The way to do this is to use a literal type to tag each case of your union type."
+          }
+        ]
       },
       "code": "function area(shape: Shape) {\n  if (typeof shape === \"object\") {\n    return shape.radius;\n  }\n}"
     },
@@ -236,8 +250,15 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 61,
+        "excerpt": "That’s all it says. As Item 4 explained, TypeScript’s structural typing rules mean that the value could have other properties, too.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 294,
+            "excerpt": "If using the second option, a common pattern is to statically import the module, but use it only in a type position, so that TypeScript compiles away the static import (to learn more, see “The types Directive”)."
+          }
+        ]
       },
       "code": "type Id = string | number;\nconst id: Id = 12;"
     },
@@ -256,8 +277,8 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "(The reverse assignment does work.) Is a triple assignable to a pair?"
       },
       "code": "type Status = \"idle\" | \"loading\";\nconst s: Status = \"error\";"
     },
@@ -276,8 +297,8 @@
       "reference": {
         "section": "What a union is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "you can think of the number type as the set of all number values."
+        "page": 136,
+        "excerpt": "So why did it revert back to the union type, which produced a type error?"
       },
       "code": "function f(x: string | number) {\n  return x.toUpperCase();\n}"
     },
@@ -296,8 +317,8 @@
       "reference": {
         "section": "Narrowing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 73,
+        "excerpt": "So when should you use a type assertion? Type assertions make the most sense when you truly do know more about a type than TypeScript does, typically from context that isn’t available to the type checker."
       },
       "code": "const elem = document.getElementById(\"app\");\nif (elem) {\n  elem.innerHTML = \"\";\n}"
     },
@@ -338,8 +359,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 133,
-        "excerpt": "TypeScript is able to exclude null from the union type within this block"
+        "page": 373,
+        "excerpt": "This encourages consistent naming of variables. Conversely you can write [x, y] = pair to unpack values from an array (or object)."
       },
       "level": 3
     },

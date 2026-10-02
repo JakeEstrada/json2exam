@@ -17,9 +17,9 @@
         "section": "What JavaScript is",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
         "page": 31,
-        "excerpt": "Values"
+        "excerpt": "In the computer’s world, there is only data. You can read data, modify data, create new data—but that which isn’t data cannot be mentioned."
       },
-      "code": "// main.js — the engine reads this file and runs it\nconsole.log(\"hello\");"
+      "code": "console.log(\"hello\");"
     },
     {
       "question": "Which statement makes `total` available to this file?",
@@ -35,9 +35,9 @@
       "explanation": "Named ESM imports use `import { name } from \"./file.js\"`. The braces, `from`, and quotes are all required. Older Node used `require(\"./file.js\")`, which is a function call, not `require { }`.",
       "reference": {
         "section": "What JavaScript is",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 31,
-        "excerpt": "Values"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "Values that are exported from one module are available for use in modules that explicitly import them."
       },
       "code": "console.log(total([{ amount: 10 }]));"
     },
@@ -55,9 +55,9 @@
       "explanation": "`i` starts at 0. The test is `i < n` with n = 3, so the body runs for 0, 1, and 2. After i becomes 3 the test fails.",
       "reference": {
         "section": "What JavaScript is",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 31,
-        "excerpt": "Values"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 68,
+        "excerpt": "This kind of conversion happens, for example, if you pass an object to a built-in func‐ tion that expects a string argument, if you call String() as a conversion function, and when you interpolate objects into template literals (§3.3.4)."
       },
       "code": "const n = 3;\nfor (let i = 0; i < n; i++) {\n  console.log(i);\n}"
     },
@@ -75,9 +75,16 @@
       "explanation": "`const` blocks retargeting `name`. `let` allows `count = count + 1`. The string value is still a string; const does not mean \"only objects\".",
       "reference": {
         "section": "Bindings: let, const, and var",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 50,
-        "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 43,
+        "excerpt": "Constants are declared with const and variables are declared with let (or with var in older JavaScript code).",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 235,
+            "excerpt": "My counter-argument would be: if you’re favoring consistency, be consistent with var instead of const; let is definitely more like var than let."
+          }
+        ]
       },
       "code": "const name = \"Ada\";\nlet count = 0;\ncount = count + 1;"
     },
@@ -95,8 +102,15 @@
       "reference": {
         "section": "Bindings: let, const, and var",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 50,
-        "excerpt": "To catch and hold values, JavaScript provides a thing called a binding, or variable."
+        "page": 111,
+        "excerpt": "They are said to have the same identity. The binding object3 points to a different object, which initially contains the same properties as object1 but lives a separate life.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 235,
+            "excerpt": "My counter-argument would be: if you’re favoring consistency, be consistent with var instead of const; let is definitely more like var than let."
+          }
+        ]
       },
       "level": 1,
       "code": "const customer = { id: 7 };\ncustomer.id = 8;"
@@ -116,7 +130,7 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+        "excerpt": "Certain JavaScript operators perform implicit type conversions and are sometimes used explicitly for the purpose of type conversion."
       },
       "level": 1,
       "code": "console.log(Boolean(0), Boolean(\"0\"));"
@@ -134,9 +148,9 @@
       "explanation": "+ is addition or concatenation and prefers strings. - has no concatenation meaning, so \"5\" becomes 5.",
       "reference": {
         "section": "Type conversion",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 43,
-        "excerpt": "This is called type coercion."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "If you do not specify the argument, the conversion is done in base 10."
       },
       "level": 1,
       "code": "console.log(\"5\" + 1);\nconsole.log(\"5\" - 1);"
@@ -154,9 +168,9 @@
       "explanation": "typeof null is a historical bug. Strict equality to null is the precise check. !value also catches 0, \"\", and false.",
       "reference": {
         "section": "Values and primitive types",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 43,
-        "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 41,
+        "excerpt": "Booleans are covered in §3.4. The special JavaScript values null and undefined are primitive values, but they are not numbers, strings, or booleans."
       },
       "level": 3,
       "code": "console.log(typeof null);\nconst value = null;"
@@ -176,7 +190,7 @@
         "section": "Type conversion",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
         "page": 65,
-        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+        "excerpt": "The Number class defines three methods for these kinds of number-to-string conversions. toFixed() converts a number to a string with a speci‐ fied number of digits after the decimal point."
       },
       "level": 2,
       "code": "Number(\"\");\nNumber(null);\nNumber(undefined);"
@@ -194,9 +208,16 @@
       "explanation": "Assignment copies the reference. Mutating through either name changes the one object. const only blocks q = somethingElse.",
       "reference": {
         "section": "Bindings: let, const, and var",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 51,
-        "excerpt": "You should imagine bindings as tentacles rather than boxes."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 43,
+        "excerpt": "The rules for value conversion are explained in §3.9. JavaScript’s liberal value conversion rules affect its definition of equality, and the == equality operator performs type conversions as described in §3.9.1.",
+        "books": [
+          {
+            "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+            "page": 235,
+            "excerpt": "What about let? Well, TC39 made the decision: since we need a TDZ for const, we might as well have a TDZ for let as well."
+          }
+        ]
       },
       "level": 2,
       "code": "let p = { amount: 10 };\nconst q = p;\nq.amount = 3;"
@@ -217,9 +238,9 @@
       "explanation": "string and boolean are primitives. Arrays and plain objects are objects with identity.",
       "reference": {
         "section": "Values and primitive types",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 31,
-        "excerpt": "All this data is stored as long sequences of bits and is thus fundamentally alike."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 41,
+        "excerpt": "JavaScript’s primitive types include numbers, strings of text (known as strings), and Boolean truth values (known as booleans)."
       },
       "level": 2,
       "code": "const name = \"Ada\";\nconst ok = true;\nconst nums = [1, 2];\nconst row = { id: 1 };"
@@ -257,9 +278,9 @@
       "explanation": "JS const protects the binding, not the object’s fields. Freeze separately if you need immutability.",
       "reference": {
         "section": "From C++",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 50,
-        "excerpt": "That gives us a second kind of statement. The special word (keyword) let indicates that this sentence is going to define a binding."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 401,
+        "excerpt": "This is normally what we want, but it does mean, for example, that if one of the source objects has an accessor property, it is the value returned by the getter function that is copied to the target object, not the getter function itself."
       },
       "level": 2,
       "code": "const customer = { id: 1 };\ncustomer.id = 2;"
@@ -317,9 +338,9 @@
       "explanation": "0 + \"10\" becomes the string \"010\", then \"0104\". Convert with Number and reject non-finite values first.",
       "reference": {
         "section": "Find the bug",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 43,
-        "excerpt": "Yet in the third expression, + tries string concatenation before numeric addition, so the 1 is converted to \"1\"."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 374,
+        "excerpt": "When something goes wrong in synchronous code, we can speak of an exception “bubbling up the call stack” until it finds a catch block."
       },
       "level": 3,
       "code": "function total(rows) {\n  let sum = 0;\n  for (const row of rows) sum += row.amount;\n}"
@@ -357,9 +378,9 @@
       "explanation": "== coerces and makes 0, false, and \"\" look interchangeable. === compares type and value.",
       "reference": {
         "section": "Type conversion",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 44,
-        "excerpt": "console.log(false == 0)"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 65,
+        "excerpt": "These wrap‐ per objects are a historical leftover from the earliest days of JavaScript, and there is never really any good reason to use them."
       },
       "level": 2,
       "code": "console.log(false == 0);\nconsole.log(false === 0);"
@@ -378,8 +399,15 @@
       "reference": {
         "section": "From C++",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 41,
-        "excerpt": "Computer programs work by manipulating values, such as the number 3.14 or the text “Hello World.”"
+        "page": 49,
+        "excerpt": "But neither type is more general than the other: BigInt can represent extraordinarily large values, making it more general than regular numbers.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 306,
+            "excerpt": "JSON numbers are like JavaScript numbers. A leading zero is not allowed on integers because some languages use that to indicate the octal."
+          }
+        ]
       },
       "level": 2,
       "code": "const n = 1;\nconsole.log(n / 2);\nconsole.log(typeof n);"
@@ -397,9 +425,9 @@
       "explanation": "Primitives are immutable. String methods return new values. Index assignment on a string does not change it in ordinary code.",
       "reference": {
         "section": "Values and primitive types",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 31,
-        "excerpt": "In the computer’s world, there is only data."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 41,
+        "excerpt": "The special JavaScript values null and undefined are primitive values, but they are not numbers, strings, or booleans."
       },
       "level": 2,
       "code": "let status = \"paid\";\nstatus[0] = \"X\";\nconsole.log(status);"
@@ -481,8 +509,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 65,
-        "excerpt": "The simplest way to perform an explicit type conversion is to use the Boolean(), Number(), and String() functions."
+        "page": 98,
+        "excerpt": "If the two values have different types, they are not equal. • If both values are null or both values are undefined, they are equal. • If both values are the boolean value true or both are the boolean value false, they are equal. • If one or both values is NaN, they are not equal."
       },
       "level": 3
     },

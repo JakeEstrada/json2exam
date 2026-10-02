@@ -16,8 +16,8 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 37,
-        "excerpt": "const tenses = ['past', 'present', 'future'];"
+        "page": 64,
+        "excerpt": "For example: const list = [1, 2]; // ^? const list: number[] const tuple: [number, number] = list; // ~~~~~ Type 'number[]' is not assignable to type '[number, number]' // Target requires 2 element(s) but source may have fewer Are there lists of numbers that are not pairs of numbers?"
       },
       "code": "let a: number[] = [1, 2, 3];\nconsole.log(a.length);"
     },
@@ -37,7 +37,14 @@
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "excerpt": "It corresponds to the never type in TypeScript. Because its domain is empty, no values are assignable to a variable with a never type: const x: never = 12; // ~ Type 'number' is not assignable to type 'never'.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 100,
+            "excerpt": "TypeScript notices that we passed in the array [1, 2, 3], so T must be number. 3."
+          }
+        ]
       },
       "code": "let a: number[] = [1];\nlet b: Array<number> = a;"
     },
@@ -56,8 +63,8 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "Thinking of types as sets can also clarify the relationships between arrays and tuples."
       },
       "code": "let pair: [string, number] = [\"Ada\", 1];\nconsole.log(pair[0]);"
     },
@@ -76,8 +83,8 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "(The reverse assignment does work.) Is a triple assignable to a pair?"
       },
       "code": "let pair: [string, number] = [1, \"Ada\"];"
     },
@@ -96,8 +103,15 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 40,
+        "excerpt": "(parameter) shape: Square } } This works because class Rectangle introduces both a type and a value, whereas interface only introduced a type.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 320,
+            "excerpt": "Now, when TypeScript compiles your code it knows toPascalCase’s type is (word: string) => string."
+          }
+        ]
       },
       "code": "let pair: [string, number] = [\"Ada\", 1];\nconsole.log(pair[2]);"
     },
@@ -116,8 +130,15 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 96,
+        "excerpt": "You can fix this by making it take a readonly array instead.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 58,
+            "excerpt": "For small arrays this overhead is rarely noticeable, but for bigger arrays, the overhead can become significant."
+          }
+        ]
       },
       "code": "let a: readonly number[] = [1, 2, 3];\na.push(4);"
     },
@@ -136,8 +157,15 @@
       "reference": {
         "section": "Indexing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 37,
-        "excerpt": "Object is possibly 'undefined'."
+        "page": 36,
+        "excerpt": "One of these options is noUncheckedIndexedAccess, which helps to catch errors around object and array access.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 56,
+            "excerpt": "e to be arrays of number | string. g is the special case: when you initialize an empty array, TypeScript doesn’t know what type the array’s elements should be, so it gives you the benefit of the doubt and makes them any."
+          }
+        ]
       },
       "code": "const arr: number[] = [];\nconst first = arr[0];"
     },
@@ -176,8 +204,8 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "The empty list and the list [1] are examples. It therefore makes sense that number[] is not assignable to [number, number] since it’s not a subset of it."
       },
       "code": "let c: (string | number)[] = [1, \"a\"];"
     },
@@ -196,8 +224,15 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 73,
+        "excerpt": "A more concise way is to annotate the return type of the arrow function: const people = ['alice', 'bob', 'jan'].map( (name): Person => ({name}) ); // Type is Person[] This performs all the same checks on the value as the previous version.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 133,
+            "excerpt": "If the provided type is a function, we want to wrap the return of this function into a Promise."
+          }
+        ]
       },
       "code": "function useToggle(): [boolean, () => void] {\n  return [false, () => {}];\n}"
     },
@@ -216,8 +251,15 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 69,
+        "excerpt": "In contrast to the infinite variety of TypeScript types, JavaScript’s typeof operator only has eight possible return values: \"string\", \"number\", \"boolean\", \"undefined\", \"object\", \"function\", \"symbol\", and \"bigint\".",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 57,
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array—one that you can update to produce a new array, leaving the original unch…"
+          }
+        ]
       },
       "code": "let optional: [string, number?] = [\"a\"];"
     },
@@ -236,8 +278,15 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "What’s the relationship between string|number and string|Date, for instance?",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 57,
+            "excerpt": "Read-only arrays and tuples While regular arrays are mutable (meaning you can .push onto them, .splice them, and update them in place), which is probably what you want most of the time, sometimes you want an immutable array—one that you can update to produce a new array, leaving the original unch…"
+          }
+        ]
       },
       "code": "let rest: [string, ...number[]] = [\"a\", 1, 2, 3];"
     },
@@ -255,9 +304,9 @@
       "explanation": "A guard is how you live with noUncheckedIndexedAccess.",
       "reference": {
         "section": "Indexing",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 37,
-        "excerpt": "Object is possibly 'undefined'."
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 180,
+        "excerpt": "This error message is telling us that either we missed some cases and should cover them with a catchall return statement at the end that returns something like 'Sat' (that’d be nice, huh), or we should adjust getNextDay’s return type to Day | undefined."
       },
       "code": "const arr: number[] = [1];\nconst first = arr[0];\nif (first === undefined) return;\nconsole.log(first + 1);"
     },
@@ -276,8 +325,15 @@
       "reference": {
         "section": "Arrays",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 38,
-        "excerpt": "your types can’t affect the way your code runs."
+        "page": 52,
+        "excerpt": "If you ask a coworker to review a change, they’ll have to reconstruct whether and how you changed the application state.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 58,
+            "excerpt": "That means even small updates to an array result in having to copy the original array first, which can hurt your application’s runtime performance if you’re not careful."
+          }
+        ]
       },
       "code": "let a: readonly number[] = [1, 2, 3];"
     },
@@ -296,8 +352,8 @@
       "reference": {
         "section": "Tuples",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 64,
+        "excerpt": "Sure! The empty list and the list [1] are examples."
       },
       "code": "let named: [name: string, age: number] = [\"Jake\", 30];"
     },
@@ -333,8 +389,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 37,
-        "excerpt": "Object is possibly 'undefined'."
+        "page": 373,
+        "excerpt": "Rather than writing x && x.y, you can just write x?.y. You can also use this to conditionally call a function that could be undefined: fn.?()."
       },
       "level": 3
     },
@@ -364,8 +420,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 373,
+        "excerpt": "Conversely you can write [x, y] = pair to unpack values from an array (or object)."
       },
       "level": 3
     },
@@ -402,8 +458,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 279,
+        "excerpt": "For me, using Node.js, this happens when the array has somewhere between 7,000 and 8,000 elements: const arr = Array(7875).fill(1); console.log(sum(arr)); return nums[0] + sum(nums.slice(1)); ^ RangeError: Maximum call stack size exceeded A version of sum implemented using a for-of loop would hav…"
       },
       "level": 3
     }

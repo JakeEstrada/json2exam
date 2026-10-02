@@ -8,15 +8,15 @@
       "options": [
         "In a globally sharded Postgres cluster with automatic failover.",
         "Locally (e.g. browser localStorage) for a single device profile.",
-        "Only on paper flashcards mailed to CSUF each week in real production systems at scale.",
-        "Inside the PDF binary as hidden XMP metadata in real production systems at scale."
+        "Only on paper flashcards mailed to CSUF each week.",
+        "Inside the PDF binary as hidden XMP metadata."
       ],
       "answer": "b",
       "explanation": "Small amounts of data, which can be stored and processed on a single machine, are often fairly easy to deal with",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 16,
-        "excerpt": "Small amounts of data, which can be stored and processed on a single machine, are often fairly easy to deal with"
+        "excerpt": "Small amounts of data, which can be stored and processed on a single machine, are often fairly easy to deal with."
       }
     },
     {
@@ -26,15 +26,15 @@
       "options": [
         "Jumping straight to multi-region Kafka before any auth exists.",
         "Add authentication and a durable shared database for progress.",
-        "Delete all quizzes so there is nothing to sync in real production systems at scale.",
-        "Put the entire SPA inside a CDN edge SQL engine in real production systems at scale."
+        "Delete all quizzes so there is nothing to sync.",
+        "Put the entire SPA inside a CDN edge SQL engine."
       ],
       "answer": "b",
       "explanation": "Separating web/mobile traffic… and database",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 11,
-        "excerpt": "Separating web/mobile traffic… and database"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 768,
+        "excerpt": "“Global Sequence Protocol: A Robust Abstraction for Replicated Shared State.” At 29th European Conference on Object-Oriented Programming (ECOOP), July 2015. doi:10.4230/LIPIcs.ECOOP.2015.568 [33] Evan Czaplicki and Stephen Chong."
       }
     },
     {
@@ -42,7 +42,7 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Unlimited free calls with no throttling in real production systems at scale.",
+        "Unlimited free calls with no throttling.",
         "Server-side rate limiting and clear throttle errors.",
         "Client-only alerts that attackers will politely obey.",
         "A requirement that every prompt be sung aloud."
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Law of nature with no downside either way in real production systems at scale.",
+        "Law of nature with no downside either way.",
         "Trade-off among simplicity, durability, multi-device access, and cost.",
-        "Decision that AI should make without human context in real production systems at scale.",
-        "Problem that microservices always solve automatically in real production systems at scale."
+        "Decision that AI should make without human context.",
+        "Problem that microservices always solve automatically."
       ],
       "answer": "b",
       "explanation": "Everything in software architecture is a trade-off",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 34,
-        "excerpt": "Everything in software architecture is a trade-off"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 646,
+        "excerpt": "It’s important to know how much data the application will need to store and how much data can move around (which can incur significant costs), among a host of other concerns."
       }
     },
     {
@@ -80,9 +80,16 @@
       "answer": true,
       "explanation": "demonstrate your design skill",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 54,
-        "excerpt": "demonstrate your design skill"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 20,
+        "excerpt": "This has led to a split between two types of systems—a distinction that we will use throughout this book: Operational systems consist of the backend services and data infrastructure where data is created—for example, by serving external users.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 280,
+            "excerpt": "By learning the different styles and their underlying philosophies, an architect better understands when each one works best (or least worst, anyway)."
+          }
+        ]
       }
     },
     {
@@ -90,10 +97,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only a larger CSS file with more animations in real production systems at scale.",
+        "Only a larger CSS file with more animations.",
         "A scheduled job or queue worker that triggers notifications.",
-        "Deleting the Leitner algorithm entirely in real production systems at scale.",
-        "Storing due dates only in DNS TXT records in real production systems at scale."
+        "Deleting the Leitner algorithm entirely.",
+        "Storing due dates only in DNS TXT records."
       ],
       "answer": "b",
       "explanation": "notification system",

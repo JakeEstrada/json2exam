@@ -6,17 +6,24 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Because databases cannot store integers smaller than one million in real production systems at scale.",
+        "Because databases cannot store integers smaller than one million.",
         "Blobs scale differently than relational metadata (permissions, names, versions).",
-        "Object stores forbid any metadata and databases forbid files always in real production systems at scale.",
-        "CDNs require every file to be embedded in a SQL row as base64 in real production systems at scale."
+        "Object stores forbid any metadata and databases forbid files always.",
+        "CDNs require every file to be embedded in a SQL row as base64."
       ],
       "answer": "b",
       "explanation": "Google Drive",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 295,
-        "excerpt": "Google Drive"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 301,
+        "excerpt": "“Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance” [3].",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 274,
+            "excerpt": "Many databases are beginning to use object stores such as Amazon S3, Google Cloud Storage, and Azure Blob Storage to serve data for live queries."
+          }
+        ]
       }
     },
     {
@@ -32,9 +39,9 @@
       "answer": "b",
       "explanation": "CDN",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 22,
-        "excerpt": "CDN"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 289,
+        "excerpt": "Safety optimization: pre-signed upload URL Safety is one of the most important aspects of any product."
       }
     },
     {
@@ -42,17 +49,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Networks never fail mid-transfer on mobile clients in real production systems at scale.",
+        "Networks never fail mid-transfer on mobile clients.",
         "Large transfers fail often; retrying from offsets saves bandwidth/time.",
         "HTTP cannot send more than 1 KB per connection by specification.",
-        "Object storage rejects files larger than a JPEG thumbnail in real production systems at scale."
+        "Object storage rejects files larger than a JPEG thumbnail."
       ],
       "answer": "b",
       "explanation": "upload",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 295,
-        "excerpt": "upload"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 286,
+        "excerpt": "This allows fast resumable uploads when the previous upload failed."
       }
     },
     {
@@ -62,9 +69,9 @@
       "answer": true,
       "explanation": "architecture characteristics",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 31,
-        "excerpt": "architecture characteristics"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 95,
+        "excerpt": "“Worst Case.” tbray.org, October 2021. Archived at perma.cc/4QQM-RTHN [57] Sangeetha Abdu Jyothi."
       }
     },
     {
@@ -75,14 +82,21 @@
         "The user’s browser alert() synchronously before upload returns.",
         "An async queue worker so the upload API stays fast.",
         "A full table lock on all metadata until thumbnails finish.",
-        "Manual Photoshop by on-call engineers for each photo in real production systems at scale."
+        "Manual Photoshop by on-call engineers for each photo."
       ],
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 34,
-        "excerpt": "message queue"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 301,
+        "excerpt": "You decide to do some research to see if it is a good fit. After a lot of reading, you gain a good understanding of the S3 storage system and decide to store files in S3.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 564,
+            "excerpt": "Space-based architecture would be a good fit for a concert ticketing system, due to its high elasticity requirements."
+          }
+        ]
       }
     }
   ]

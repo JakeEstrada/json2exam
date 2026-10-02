@@ -6,17 +6,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Produce exact production capacity plans down to the last disk platter in real production systems at scale.",
+        "Produce exact production capacity plans down to the last disk platter.",
         "Use thought experiments and common numbers to feel which designs can meet requirements.",
-        "Replace load testing forever so you never measure a real system in real production systems at scale.",
-        "Prove that every design needs exactly 64 servers and no other count in real production systems at scale."
+        "Replace load testing forever so you never measure a real system.",
+        "Prove that every design needs exactly 64 servers and no other count."
       ],
       "answer": "b",
       "explanation": "estimates you create using a combination of thought experiments and common performance numbers",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 45,
-        "excerpt": "estimates you create using a combination of thought experiments and common performance numbers"
+        "excerpt": "According to Jeff Dean, Google Senior Fellow, “back-of-theenvelope calculations are estimates you create using a combination of thought experiments and common performance numbers to get a good feel for which designs will meet your requirements” [1]."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Disk seeks are faster than memory access in almost every case in real production systems at scale.",
+        "Disk seeks are faster than memory access in almost every case.",
         "Memory is fast but disk is slow — avoid unnecessary disk seeks when possible.",
-        "Cross-datacenter network hops are free and should be ignored in real production systems at scale.",
+        "Cross-datacenter network hops are free and should be ignored.",
         "Compression is always slower than sending raw terabytes over the internet."
       ],
       "answer": "b",
       "explanation": "Memory is fast but the disk is slow. Avoid disk seeks if possible",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 48,
-        "excerpt": "Memory is fast but the disk is slow. Avoid disk seeks if possible"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 121,
+        "excerpt": "The configuration of W, R and N is a typical tradeoff between latency and consistency."
       }
     },
     {
@@ -44,7 +44,7 @@
       "options": [
         "Buy GPUs before clarifying monthly active users or posts per day.",
         "State assumptions (MAU, daily usage, posts/day) then derive DAU and QPS.",
-        "Assume zero reads because only writes matter for capacity in real production systems at scale.",
+        "Assume zero reads because only writes matter for capacity.",
         "Skip units so 5 might mean 5 bytes or 5 petabytes interchangeably."
       ],
       "answer": "b",
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Answering instantly like Jimmy without clarifying requirements in real production systems at scale.",
+        "Answering instantly like Jimmy without clarifying requirements.",
         "Slowing down to ask questions, clarify requirements, and state assumptions.",
-        "Drawing microservices before you know what the product does in real production systems at scale.",
-        "Refusing to discuss scale until after coding every endpoint in real production systems at scale."
+        "Drawing microservices before you know what the product does.",
+        "Refusing to discuss scale until after coding every endpoint."
       ],
       "answer": "b",
       "explanation": "DON’T be like Jimmy… Slow down. Think deeply and ask questions to clarify requirements",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 56,
-        "excerpt": "DON’T be like Jimmy… Slow down. Think deeply and ask questions to clarify requirements"
+        "excerpt": "Slow down. Think deeply and ask questions to clarify requirements and assumptions."
       }
     },
     {
@@ -80,15 +80,15 @@
       "options": [
         "Interviewers only want the most complex possible topology every time.",
         "Engineers chase design purity and ignore trade-offs and compounding costs.",
-        "Simple designs are illegal in all FAANG interview rubrics in real production systems at scale.",
-        "Trade-offs only exist after the company has a billion users in real production systems at scale."
+        "Simple designs are illegal in all FAANG interview rubrics.",
+        "Trade-offs only exist after the company has a billion users."
       ],
       "answer": "b",
       "explanation": "Over-engineering is a real disease… ignore tradeoffs",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 55,
-        "excerpt": "Over-engineering is a real disease… ignore tradeoffs"
+        "excerpt": "A good interviewer also looks for red flags. Over-engineering is a real disease of many engineers as they delight in design purity and ignore tradeoffs."
       }
     },
     {
@@ -98,9 +98,9 @@
       "answer": true,
       "explanation": "The problem is open-ended, and there is no perfect answer",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 54,
-        "excerpt": "The problem is open-ended, and there is no perfect answer"
+        "excerpt": "The system design interview simulates real-life problem solving where two co-workers collaborate on an ambiguous problem and come up with a solution that meets their goals."
       }
     },
     {
@@ -116,9 +116,9 @@
       "answer": "b",
       "explanation": "Rounding and Approximation… Write down your assumptions… Label your units",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 52,
-        "excerpt": "Rounding and Approximation… Write down your assumptions… Label your units"
+        "excerpt": "It is a good idea to write down your assumptions to be referenced later. • Label your units."
       }
     }
   ]

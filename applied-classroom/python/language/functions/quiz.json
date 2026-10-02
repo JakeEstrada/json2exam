@@ -16,8 +16,15 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 168,
+        "excerpt": "This is the function definition, which tells Python the name of the function and, if applicable, what kind of information the function needs to do its job.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 378,
+            "excerpt": "Mutable Types as Parameter Defaults: Bad Idea Optional parameters with default values are a great feature of Python function definitions, allowing our APIs to evolve while remaining backward-compatible."
+          }
+        ]
       },
       "code": "def add(a, b):\n    return a + b"
     },
@@ -36,8 +43,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 175,
+        "excerpt": "Instead, it can process some data and then return a value or set of values."
       },
       "code": "def noop():\n    return"
     },
@@ -56,8 +63,8 @@
       "reference": {
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 176,
-        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+        "page": 171,
+        "excerpt": "Keyword Arguments A keyword argument is a name-value pair that you pass to a function."
       },
       "code": "greet(\"Ada\", title=\"Dr\")"
     },
@@ -76,8 +83,8 @@
       "reference": {
         "section": "Mutable default trap",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 378,
-        "excerpt": "Another issue related to function parameters is the use of mutable"
+        "page": 323,
+        "excerpt": "Mutable default values are a common source of bugs for beginning Python developers."
       },
       "code": "def append_item(x, bucket=None):\n    if bucket is None:\n        bucket = []"
     },
@@ -96,8 +103,8 @@
       "reference": {
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 176,
-        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+        "page": 186,
+        "excerpt": "Making a 12-inch pizza with the following toppings: - mushrooms - green peppers - extra cheese NOTE You’ll often see the generic parameter name *args, which collects arbitrary positional arguments like this."
       },
       "code": "def sum_all(*args):\n    return sum(args)"
     },
@@ -116,8 +123,8 @@
       "reference": {
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 176,
-        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+        "page": 186,
+        "excerpt": "The double asterisks before the parameter **user_info cause Python to create a dictionary called user_info containing all the extra name-value pairs the function receives."
       },
       "code": "def label(**kwargs):\n    return kwargs"
     },
@@ -156,8 +163,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 170,
+        "excerpt": "In the function body, these two parameters are used to display information about the pet being described."
       },
       "code": "def todo():\n    pass"
     },
@@ -176,8 +183,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 177,
+        "excerpt": "Because there’s always a first and last name, these parameters are listed first in the function’s definition."
       },
       "code": "def add(a: int, b: int) -> int:\n    return a + b"
     },
@@ -216,8 +223,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
       },
       "code": "COUNT = 0\ndef bump():\n    global COUNT\n    COUNT += 1"
     },
@@ -256,8 +263,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 186,
+        "excerpt": "Then we return the user_info dictionary to the function call line."
       },
       "code": "def pair(a, b):\n    return a, b"
     },
@@ -276,8 +283,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 168,
+        "excerpt": "Any indented lines that follow def greet_user(): make up the body of the function."
       },
       "code": "def add(a, b):\n    \"\"\"Sum a and b.\"\"\"\n    return a + b"
     },
@@ -296,8 +303,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 168,
+        "excerpt": "When Python generates documentation for the functions in your programs, it looks for a string immediately after the function's definition."
       },
       "code": "def apply(fn, x):\n    return fn(x)"
     },
@@ -319,8 +326,8 @@
       "reference": {
         "section": "def",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 167,
-        "excerpt": "designed to do one specific job. When you"
+        "page": 177,
+        "excerpt": "Returning a Dictionary A function can return any kind of value you need it to, including more complicated data structures like lists and dictionaries."
       }
     },
     {
@@ -341,8 +348,8 @@
       "reference": {
         "section": "Defaults and keyword args",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 176,
-        "excerpt": "Sometimes it makes sense to make an argument optional, so that people"
+        "page": 168,
+        "excerpt": "As expected, it prints Hello!: Hello! Passing Information to a Function If you modify the function greet_user() slightly, it can greet the user by name."
       }
     },
     {
@@ -364,7 +371,7 @@
         "section": "Mutable default trap",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
         "page": 378,
-        "excerpt": "Another issue related to function parameters is the use of mutable"
+        "excerpt": "Here we tried to be clever and instead of having a default value of passengers=None, we have passengers=[], thus avoiding the if in the previous __init__."
       }
     }
   ],

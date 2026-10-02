@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { headingId, normalizeQuiz } from './parseQuiz.js';
+import { headingId, leaksAnswer, normalizeQuiz } from './parseQuiz.js';
 import { lectureParagraphs, matchingLectureIndexes } from './lecture.js';
 
 const one = (raw) => normalizeQuiz([raw], 't').questions[0];
@@ -546,6 +546,50 @@ test('loads the Chapter 1 bank with nothing skipped', async () => {
 
 test('headingId strips quotes and punctuation', () => {
   assert.equal(headingId('Who counts as a "customer"'), 'who-counts-as-a-customer');
+});
+
+test('hides hero code when the snippet is the correct option', () => {
+  const leaked = one({
+    question: 'How do you bind a name in Python?',
+    options: ['x = 1', 'let x = 1', 'const x = 1', 'int x = 1'],
+    answer: 'a',
+    code: 'x = 1\nx = "hi"',
+  });
+  assert.equal(leaked.codeRevealsAnswer, true);
+  assert.equal(leaksAnswer('ok = True', ['true', 'True', 'TRUE', 'yes'], [1]), true);
+  assert.equal(leaksAnswer('bool([])  # False\nbool("0")  # True', ['"0"', '1', '[]', '[0]'], [2]), true);
+
+  const tracing = one({
+    question: 'What does type(3.0) report?',
+    options: ['int', 'float', 'number', 'double'],
+    answer: 'b',
+    code: 'rate = 3.0\nprint(type(rate))',
+  });
+  assert.equal(tracing.codeRevealsAnswer, undefined);
+});
+
+test('keeps every cited book on a reference, not just the first', () => {
+  const q = one({
+    question: 'What is a list comprehension for?',
+    options: ['Build a list from an iterable', 'Declare a class'],
+    answer: 'a',
+    reference: {
+      section: 'Comprehensions',
+      book: 'Python Crash Course, 3rd Edition by Eric Matthes',
+      page: 64,
+      excerpt: 'A list comprehension allows you to generate this same list in one line of code.',
+      books: [
+        {
+          book: 'Fluent Python, 2nd Edition by Luciano Ramalho',
+          page: 42,
+          excerpt: 'Listcomps are more readable than map and filter.',
+        },
+      ],
+    },
+  });
+  assert.equal(q.reference.citations.length, 2);
+  assert.equal(q.reference.citations[1].book, 'Fluent Python, 2nd Edition by Luciano Ramalho');
+  assert.equal(q.reference.citations[1].page, 42);
 });
 
 test('preserves a chapter reference on a question', () => {

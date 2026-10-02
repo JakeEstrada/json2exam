@@ -1,5 +1,5 @@
 {
-  "title": "CSS \u2014 Responsive",
+  "title": "CSS — Responsive",
   "questions": [
     {
       "question": "Why did separate m. and www. sites break down?",
@@ -7,7 +7,7 @@
       "level": 1,
       "options": [
         "Phones cannot load CSS.",
-        "Too many devices: tablet, phablet, mini tablet \u2014 which site do they get?",
+        "Too many devices: tablet, phablet, mini tablet — which site do they get?",
         "HTML cannot be served twice.",
         "Media queries were banned."
       ],
@@ -17,7 +17,7 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "Do you direct a tablet to the mobile website or to the desktop?"
+        "excerpt": "An iPad Mini? What if a mobile user wants to perform an action you only have available on the desktop version of your site?"
       },
       "code": "/* one stylesheet */\nbody { margin: 0; }"
     },
@@ -76,8 +76,8 @@
       "reference": {
         "section": "Media queries",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 229,
-        "excerpt": "Using media queries to alter your design based on viewport size"
+        "page": 242,
+        "excerpt": "For more information on the meta viewport tag, see the MDN documentation at 8.2 Media queries The second component of responsive design is the use of media queries."
       },
       "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -97,7 +97,7 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "the mobile first approach dictates you design your site with these constraints in mind from the beginning."
+        "excerpt": "203 Mobile first Instead, the mobile first approach dictates you design your site with these constraints in mind from the beginning."
       },
       "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -115,9 +115,9 @@
       "explanation": "Discover how various devices have different screen sizes... Learn the difference between fixed width and liquid layouts.",
       "reference": {
         "section": "Responsive design",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 366,
-        "excerpt": "Discover how various devices have different screen sizes and resolution"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "The use of fluid layouts. This approach allows containers to scale to different sizes based on the width of the viewport."
       },
       "code": "div { max-width: 960px; }"
     },
@@ -137,7 +137,7 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "This icon, with three horizontal lines, is often called a hamburger icon"
+        "excerpt": "This icon, with three horizontal lines, is often called a hamburger icon because it resembles the buns and patty of a burger."
       },
       "code": "button.menu-toggle { display: block; }"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "Media queries",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 229,
-        "excerpt": "Taking the \u201cmobile first\u201d approach"
+        "page": 242,
+        "excerpt": "A basic media query looks like this: @media (min-width: 560px) { .title > h1 { font-size: 2.25rem; } } Any rulesets can be defined within the outer set of braces."
       },
       "code": "@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -177,7 +177,7 @@
         "section": "Responsive design",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 230,
-        "excerpt": "a forced dichotomy between desktop and mobile causes more problems than it solves."
+        "excerpt": "In the end, a forced dichotomy between desktop and mobile causes more problems than it solves."
       },
       "code": "/* one site */"
     },
@@ -195,9 +195,9 @@
       "explanation": "Learn the difference between fixed width and liquid layouts, and how they are created.",
       "reference": {
         "section": "Responsive design",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 366,
-        "excerpt": "Learn the difference between fixed width and liquid layouts, and how they are created."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "This is responsive design at work. The three key principles to responsive design: 1 2 3 A mobile first approach to design."
       },
       "code": ".wrap { max-width: 60rem; width: 90%; }"
     },
@@ -216,10 +216,17 @@
       "reference": {
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 235,
-        "excerpt": "the button to toggle the menu for mobile screens is inside the nav element."
+        "page": 238,
+        "excerpt": "It’s important that you place the button to reveal your menu within the <nav> so it’s quickly discoverable when the user navigates there.",
+        "books": [
+          {
+            "book": "Inclusive Components by Heydon Pickering",
+            "page": 102,
+            "excerpt": "Using the menu button with a screen reader Video: I’ll show you what it’s like to use the menu button with the Voiceover screen reader and Chrome."
+          }
+        ]
       },
-      "code": "<nav>\n  <button class=\"menu-toggle\">Menu</button>\n  <ul class=\"nav-menu\">\u2026</ul>\n</nav>"
+      "code": "<nav>\n  <button class=\"menu-toggle\">Menu</button>\n  <ul class=\"nav-menu\">…</ul>\n</nav>"
     },
     {
       "question": "A mobile layout, in this chapter, is mostly?",
@@ -237,7 +244,7 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "A mobile layout is mostly a no-frills design."
+        "excerpt": "A mobile layout is mostly a no-frills design. Apart from the interactive menu, this design is highly focused on the content."
       },
       "code": "main { padding: 1rem; }"
     },
@@ -255,9 +262,9 @@
       "explanation": "A percentage width plus a max-width is a liquid box that will not grow past a readable measure.",
       "reference": {
         "section": "Responsive design",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 366,
-        "excerpt": "fixed width and liquid layouts"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 230,
+        "excerpt": "After that, we’ll also take a look images, which require special considerations on responsive sites. 8.1 Mobile first The first principle of responsive design is mobile first."
       },
       "code": ".wrap {\n  width: 90%;\n  max-width: 60rem;\n}"
     },
@@ -297,7 +304,7 @@
         "section": "Mobile first",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 231,
-        "excerpt": "you can use \u201cprogressive enhancement\u201d to augment the experience for large screen users."
+        "excerpt": "Once your mobile experience works (or is at least planned), you can use “progressive enhancement” to augment the experience for large screen users."
       },
       "code": ".nav { display: block; }\n@media (min-width: 40em) {\n  .nav { display: flex; }\n}"
     },
@@ -340,8 +347,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 229,
-        "excerpt": "Using media queries to alter your design based on viewport size"
+        "page": 242,
+        "excerpt": "Media queries allow you to write a set of styles that only apply to the page under certain conditions."
       },
       "level": 3
     },
@@ -384,8 +391,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 231,
-        "excerpt": "the mobile first approach dictates you design your site with these constraints in mind from the beginning."
+        "page": 242,
+        "excerpt": "They can override rules outside of the media query (based on selector specificity or source order), or they can be overridden by those rules."
       },
       "level": 3
     },
@@ -428,7 +435,7 @@
   "reading": [
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 8 \u2014 Responsive design",
+      "chapter": "Chapter 8 — Responsive design",
       "page": 229,
       "pageEnd": 250,
       "sections": [
@@ -448,7 +455,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 15 \u2014 Layout",
+      "chapter": "Chapter 15 — Layout",
       "page": 365,
       "pageEnd": 380,
       "sections": [

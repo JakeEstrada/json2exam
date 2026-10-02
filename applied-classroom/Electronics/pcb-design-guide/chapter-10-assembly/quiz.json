@@ -6,17 +6,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only the bare-board Gerbers with no BOM or placement file for real production programs for real production programs.",
+        "Only the bare-board Gerbers with no BOM or placement file.",
         "BOM, neutral database, XY placement, paste stencil artwork, and test-point file when DFT applies.",
-        "Only a photo of the stuffed prototype on a lab bench for real production programs for real production programs.",
-        "Only the schematic PDF without reference designators for real production programs for real production programs."
+        "Only a photo of the stuffed prototype on a lab bench.",
+        "Only the schematic PDF without reference designators."
       ],
       "answer": "b",
       "explanation": "BOM, neutral database file, XY placement file, solder paste stencil",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "BOM, neutral database file, XY placement file, solder paste stencil"
+        "page": 94,
+        "excerpt": "After the PCB layout is complete and the data and documentation for the PCB has been generated, the fabrication package has most likely been released for fabrication."
       }
     },
     {
@@ -26,15 +26,15 @@
       "options": [
         "A spreadsheet someone edited from memory last year.",
         "The source schematic.",
-        "The fab’s online star-rating page for real production programs.",
-        "Random distributor cart screenshots for real production programs."
+        "The fab’s online star-rating page.",
+        "Random distributor cart screenshots."
       ],
       "answer": "b",
       "explanation": "pull BOM information from the source schematic",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 113,
-        "excerpt": "pull BOM information from the source schematic"
+        "excerpt": "FFPrior to release, always pull BOM information from the source schematic."
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only the supplier’s DUNS number for real production programs.",
+        "Only the supplier’s DUNS number.",
         "Reference designator, side, X/Y location, and orientation angle.",
-        "Only the color of the tape used on the reel for real production programs.",
-        "Nothing if the EMS can guess from the silkscreen art for real production programs."
+        "Only the color of the tape used on the reel.",
+        "Nothing if the EMS can guess from the silkscreen art."
       ],
       "answer": "b",
       "explanation": "reference designator side of placement, X,Y location, and angle",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "reference designator side of placement, X,Y location, and angle"
+        "page": 95,
+        "excerpt": "Source data provides intelligent data, net names, etc. These can be helpful in sorting out component placement, orientation anomalies, and moving the design through the placement CAM setup process quickly."
       }
     },
     {
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Better Wi-Fi antenna gain exclusively for real production programs.",
+        "Better Wi-Fi antenna gain exclusively.",
         "Singulation via v-score or tab-route without damaging copper.",
-        "Thicker soldermask dams under every BGA for real production programs.",
-        "Skipping stencil design entirely for real production programs."
+        "Thicker soldermask dams under every BGA.",
+        "Skipping stencil design entirely."
       ],
       "answer": "b",
       "explanation": "clearance between the PCB edge and any copper",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "clearance between the PCB edge and any copper"
+        "page": 106,
+        "excerpt": "Depending on the design of the tab, this operation can leave a quite nasty burr on the board edge."
       }
     },
     {
@@ -88,7 +88,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 113,
-        "excerpt": "wave solder operation will have easy access to component pins"
+        "excerpt": "FFConsider the importance of biasing thru-hole components to the top side of the assembly so the wave solder operation will have easy access to component pins."
       }
     },
     {
@@ -97,16 +97,16 @@
       "level": 2,
       "options": [
         "Provide 1:1 openings and let the stencil supplier coordinate compensation with the assembly ME.",
-        "Always oversize apertures 300% without talking to EMS for real production programs for real production programs.",
-        "Omit paste layers because operators will hand-solder BGAs for real production programs for real production programs.",
-        "Draw paste openings freehand on the fab drawing only for real production programs for real production programs."
+        "Always oversize apertures 300% without talking to EMS.",
+        "Omit paste layers because operators will hand-solder BGAs.",
+        "Draw paste openings freehand on the fab drawing only."
       ],
       "answer": "a",
       "explanation": "Provide 1:1 ratio openings on stencil artwork",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "Provide 1:1 ratio openings on stencil artwork"
+        "page": 96,
+        "excerpt": "A solder paste stencil artwork file is usually output in Gerber format from the source design layout and includes all the required openings to allow solder to be screened onto the SMT lands."
       }
     },
     {
@@ -115,16 +115,16 @@
       "level": 2,
       "options": [
         "IPC-A-610 as a comprehensive conformance guideline.",
-        "Only the fab’s Twitter poll results for real production programs.",
-        "Whatever the night-shift operator prefers that evening for real production programs.",
+        "Only the fab’s Twitter poll results.",
+        "Whatever the night-shift operator prefers that evening.",
         "No written criteria — “looks fine” is enough for flight hardware."
       ],
       "answer": "a",
       "explanation": "Leverage the power of IPC-A-610",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "Leverage the power of IPC-A-610"
+        "page": 111,
+        "excerpt": "Adding a simple note: “Acceptance criteria per IPC-A-610,” says all the right things to your final inspection department."
       }
     },
     {
@@ -136,7 +136,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 113,
-        "excerpt": "less of a how-to document and more of an inspection document"
+        "excerpt": "FFConsider that the PCB assembly drawing is less of a how-to document and more of an inspection document."
       }
     },
     {
@@ -144,10 +144,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Ship incomplete BOMs and hope EMS invents missing hardware lines for real production programs.",
+        "Ship incomplete BOMs and hope EMS invents missing hardware lines.",
         "Deliver complete assembly data and keep EMS communication tight through prototype → rate.",
-        "Skip XY data because “the pick-and-place will learn.” for real production programs for real production programs.",
-        "Treat panelization and stencil as optional until after launch for real production programs."
+        "Skip XY data because “the pick-and-place will learn.”.",
+        "Treat panelization and stencil as optional until after launch."
       ],
       "answer": "b",
       "explanation": "communicate often with the assembly supplier stakeholder",

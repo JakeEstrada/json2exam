@@ -15,9 +15,9 @@
       "explanation": "== converts before comparing. === compares type and value. Prefer === unless you have a specific reason to coerce.",
       "reference": {
         "section": "Strict equality and coercion",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 40,
-        "excerpt": "This is called type coercion."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 87,
+        "excerpt": "The column labeled Types lists the expected types of the operands and (after the → symbol) the result type for the operator."
       },
       "code": "console.log(0 == false);\nconsole.log(0 === false);"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Control flow",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 57,
-        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+        "page": 56,
+        "excerpt": "Control flow When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
       },
       "code": "const score = 90;"
     },
@@ -54,9 +54,9 @@
       "explanation": "== coerces. === compares type and value. 0 is a real amount, not false.",
       "reference": {
         "section": "Strict equality and coercion",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 43,
-        "excerpt": "This is called type coercion."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 87,
+        "excerpt": "The subsections that follow the table explain the concepts of precedence, associativity, and operand type."
       },
       "level": 3,
       "code": "console.log(0 == false);\nconsole.log(0 === false);"
@@ -97,9 +97,9 @@
       "explanation": "0 and \"\" are falsy. \"0\" is a non-empty string. [] is a truthy object.",
       "reference": {
         "section": "Truthiness",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 40,
-        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 70,
+        "excerpt": "If the method is defined and returns a primitive value, then JavaScript uses that primitive value (even if it is not a string!)."
       },
       "level": 3,
       "code": "Boolean(0);\nBoolean(\"\");\nBoolean(\"0\");\nBoolean([]);"
@@ -137,9 +137,9 @@
       "explanation": "if (row.amount) treats 0 as missing. Check finite numbers instead.",
       "reference": {
         "section": "Find the bug",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 57,
-        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+        "book": "JavaScript: The Good Parts by Douglas Crockford",
+        "page": 11,
+        "excerpt": "That stuff you can easily find online. Instead, this book just contains the things that are really important."
       },
       "level": 3,
       "code": "function firstPaid(rows) {\n  for (const row of rows) {\n    if (row.amount) return row;\n  }\n}"
@@ -157,9 +157,9 @@
       "explanation": "Without break or return, execution falls through into default.",
       "reference": {
         "section": "Control flow",
-        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
-        "page": 79,
-        "excerpt": "This chapter documents JavaScript expressions and the operators with which many of those expressions are built."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 56,
+        "excerpt": "Control flow When your program contains more than one statement, the statements are executed as though they were a story, from top to bottom."
       },
       "level": 2,
       "code": "let s = \"pending\";\nswitch (s) {\n  case \"paid\":\n    console.log(\"a\");\n  case \"pending\":\n    console.log(\"b\");\n  default:\n    console.log(\"c\");\n}"
@@ -178,8 +178,8 @@
       "reference": {
         "section": "Logical operators",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 42,
-        "excerpt": "The || operator denotes logical or."
+        "page": 45,
+        "excerpt": "Short-circuiting of logical operators The logical operators && and || handle values of different types in a peculiar way."
       },
       "level": 2,
       "code": "const customer = { name: \"\" };\ncustomer.name || \"guest\";\ncustomer.name ?? \"guest\";"
@@ -198,8 +198,15 @@
       "reference": {
         "section": "Logical operators",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 42,
-        "excerpt": "The || operator denotes logical or. It produces true if either of the values given to it is true."
+        "page": 45,
+        "excerpt": "When you do not want any type conversions to happen, there are two additional operators: === and !==.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 275,
+            "excerpt": "They are rarely useful in browser applications. The similarity to the logical operators can mask some programming errors."
+          }
+        ]
       },
       "level": 2,
       "code": "console.log(\"Ada\" || \"guest\");\nconsole.log(0 && \"x\");"
@@ -237,9 +244,9 @@
       "explanation": "JS if tests truthiness, not nullness. Amounts need an explicit numeric check.",
       "reference": {
         "section": "From C++",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 40,
-        "excerpt": "It is often useful to have a value that distinguishes between only two possibilities, like “yes” and “no” or “on” and “off”."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 57,
+        "excerpt": "The following values convert to, and therefore work like, false: undefined null 0 -0 NaN \"\" // the empty string All other values, including all objects (and arrays) convert to, and work like, true. false, and the six values that convert to it, are sometimes called falsy values, and all other valu…"
       },
       "level": 2,
       "code": "const order = { amount: 0 };\nif (order.amount) {\n  charge(order.amount);\n}"
@@ -297,9 +304,9 @@
       "explanation": "That is the one common == idiom: a combined nullish check. It does not catch 0.",
       "reference": {
         "section": "Strict equality and coercion",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 43,
-        "excerpt": "There are two special values, written null and undefined, that are used to denote the absence of a meaningful value."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 97,
+        "excerpt": "The subsections that follow document the equality and inequality operators, the compari‐ son operators, and JavaScript’s other two relational operators, in and instanceof. 4.9.1 Equality and Inequality Operators The == and === operators check whether two values are the same, using two different d…"
       },
       "level": 2,
       "code": "console.log(null == null);\nconsole.log(undefined == null);\nconsole.log(0 == null);"
@@ -337,9 +344,9 @@
       "explanation": "The ternary uses truthiness. 0 picks the else branch.",
       "reference": {
         "section": "Truthiness",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 42,
-        "excerpt": "This one is called the conditional operator (or sometimes just the ternary operator since it is the only such operator in the language)."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 123,
+        "excerpt": "If the value of the expression is falsy, then the interpreter skips over the statement that serves as the loop body and moves on to the next statement in the program."
       },
       "level": 2,
       "code": "const n = 0;\nconsole.log(n ? \"yes\" : \"no\");"
@@ -392,9 +399,9 @@
       "explanation": "Do not use == or truthiness. Unexpected strings stay closed.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 57,
-        "excerpt": "Conditional execution is created with the if keyword in JavaScript."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 3
     },
@@ -480,8 +487,8 @@
       "reference": {
         "section": "Truthiness",
         "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 40,
-        "excerpt": "JavaScript has a Boolean type, which has just two values, true and false, written as those words."
+        "page": 28,
+        "excerpt": "website requires some care. Many examples stand on their own and should work in any JavaScript environment."
       },
       "level": 3
     }

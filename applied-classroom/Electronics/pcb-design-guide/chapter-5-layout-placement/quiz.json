@@ -7,16 +7,16 @@
       "level": 1,
       "options": [
         "Layout is performed once while manufacturing may run millions of times.",
-        "Placement never affects routing, test, or assembly automation for real production programs.",
-        "DFx only applies to silk-screen fonts and company logos for real production programs.",
-        "Locking parts is optional until after the fab scrap report for real production programs."
+        "Placement never affects routing, test, or assembly automation.",
+        "DFx only applies to silk-screen fonts and company logos.",
+        "Locking parts is optional until after the fab scrap report."
       ],
       "answer": "a",
       "explanation": "PCB layout is only performed once, and the manufacturing process",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 45,
-        "excerpt": "PCB layout is only performed once, and the manufacturing process"
+        "page": 46,
+        "excerpt": "Tips for Placing Parts: FFConsidering the PCB layout is only performed once, and the manufacturing process dictated by the PCB layout can be performed millions of times, Design for Excellence (including design for Fabrication, Assembly, and Test) must be considered during placement."
       }
     },
     {
@@ -26,15 +26,15 @@
       "options": [
         "Leave them unlocked so auto-place can shuffle them overnight.",
         "Lock them into place before moving functional groups.",
-        "Delete them from the database to simplify DRC for real production programs.",
-        "Move them only after every signal is fully routed for real production programs."
+        "Delete them from the database to simplify DRC.",
+        "Move them only after every signal is fully routed."
       ],
       "answer": "b",
       "explanation": "Once fixed components are located, lock them into place",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 45,
-        "excerpt": "Once fixed components are located, lock them into place"
+        "page": 46,
+        "excerpt": "FFOnce fixed components are located, lock them into place. FFColor code nets in the layout based on their node count and their criticality."
       }
     },
     {
@@ -51,8 +51,8 @@
       "explanation": "Color code nets in the layout based on their node count",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 45,
-        "excerpt": "Color code nets in the layout based on their node count"
+        "page": 46,
+        "excerpt": "FFColor code nets in the layout based on their node count and their criticality."
       }
     },
     {
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Are encouraged to shorten the pair length at any cost for real production programs.",
+        "Are encouraged to shorten the pair length at any cost.",
         "Should not be placed between pairs; they create impedance discontinuity.",
-        "Are required by IPC whenever pairs change layers for real production programs.",
-        "Only matter for power nets, never for high-speed pairs for real production programs."
+        "Are required by IPC whenever pairs change layers.",
+        "Only matter for power nets, never for high-speed pairs."
       ],
       "answer": "b",
       "explanation": "components or vias should not be placed between differential pairs",
       "reference": {
         "book": "High-Speed PCB Design Guide",
-        "page": 33,
-        "excerpt": "components or vias should not be placed between differential pairs"
+        "page": 32,
+        "excerpt": "When differential pairs change layers and therefore change reference ground planes, ground transition vias are required which connect the two different ground references."
       }
     },
     {
@@ -78,17 +78,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only maximizing unconnected air wires on purpose for real production programs.",
+        "Only maximizing unconnected air wires on purpose.",
         "Better routing, future test points, automated placement, and heat considerations.",
-        "Hiding all reference designators under large BGAs forever for real production programs.",
-        "Packing parts so no probe or nozzle can ever reach a pad for real production programs."
+        "Hiding all reference designators under large BGAs forever.",
+        "Packing parts so no probe or nozzle can ever reach a pad."
       ],
       "answer": "b",
       "explanation": "Aim for similar",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 45,
-        "excerpt": "Aim for similar"
+        "page": 46,
+        "excerpt": "FFConsider balancing out the spacing between less-critical parts at this point such as adding spacing between components for better routing, future test points, automated placement, heat profiling, and inspection."
       }
     },
     {
@@ -99,8 +99,8 @@
       "explanation": "Group components together off-board",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 45,
-        "excerpt": "Group components together off-board"
+        "page": 46,
+        "excerpt": "FFGroup components together off-board; primarily based upon their functionality with shortest distance between signal and power pins, and secondarily how they are shown in the schematic."
       }
     },
     {
@@ -108,10 +108,10 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Placement density never affects assembly yield or test access for real production programs.",
+        "Placement density never affects assembly yield or test access.",
         "Supplier process capability must match how parts are grouped and accessed for build/test.",
-        "Auto-place defaults guarantee rate production without EMS review for real production programs.",
-        "Only schematic capture quality matters for launch-vehicle electronics for real production programs."
+        "Auto-place defaults guarantee rate production without EMS review.",
+        "Only schematic capture quality matters for launch-vehicle electronics."
       ],
       "answer": "b",
       "explanation": "Smooth out the placement in consideration for DFx",

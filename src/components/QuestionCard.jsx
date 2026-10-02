@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
 import { matchReading } from '../lib/reading.js';
+import { findBook, shortBookLabel } from '../lib/books.js';
 import { formatTest, previewValue, runJavascript } from '../lib/runCode.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
 import { cardSpeechParts } from '../lib/speech.js';
@@ -22,14 +23,15 @@ const CODE_KICKER = {
   css: 'Read this CSS',
 };
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading, books }) {
   const reviewing = phase === 'review';
   const correct = reviewing && q.type !== 'code' && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
   const parts = useMemo(() => cardSpeechParts(q, order), [q, order]);
   const speech = useSpeechReader(parts, voice, speechRate, { prefetchAll: true, keys: true });
   const reading = speech.spoken;
-  const showHero = !!(q.passage || (q.code && q.code !== q.starter));
+  const heroCode = q.code && q.code !== q.starter && !q.codeRevealsAnswer;
+  const showHero = !!(q.passage || heroCode);
 
   if (q.type === 'code') {
     return (
@@ -55,10 +57,13 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         {reviewing && (
           <CodeVerdict gotIt={picked[0] === 1} explanation={q.explanation} run={codeWork && codeWork.run} />
         )}
-        <QuestionSource q={q} bookReading={bookReading} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
+        <QuestionSource q={q} bookReading={bookReading} books={books} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} reviewing={reviewing} />
       </div>
     );
   }
+
+  const optionIsCode = (q.options || []).map((opt) => looksLikeCode(opt));
+  const mixedCodeOpts = optionIsCode.some(Boolean) && !optionIsCode.every(Boolean);
 
   return (
     <div className="sheet qcard">
@@ -89,7 +94,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
           }
           if (reading && reading.option === realIdx) cls += ' is-reading';
           const option = q.options[realIdx];
-          const codeOpt = looksLikeCode(option);
+          const codeOpt = !mixedCodeOpts && looksLikeCode(option);
           return (
             <button
               key={realIdx}
@@ -121,7 +126,7 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} bookReading={bookReading} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} />
+      <QuestionSource q={q} bookReading={bookReading} books={books} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} reviewing={reviewing} />
     </div>
   );
 }
@@ -329,13 +334,26 @@ function Verdict({ q, correct }) {
             <CodeBlock code={solution} language={lang} label="Python solution" />
           </div>
         ) : null}
+        {q.codeRevealsAnswer && q.code ? (
+          <div className="solution-code">
+            <p className="code-label">In code</p>
+            <CodeBlock code={q.code} />
+          </div>
+        ) : null}
         <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
       </div>
     </div>
   );
 }
 
-function QuestionSource({ q, bookReading, onOpen, hasLecture, hasVideo, hasSlides, hasBook }) {
+function usableExcerpt(text) {
+  const s = String(text || '').replace(/\s+/g, ' ').trim();
+  if (s.length < 40) return '';
+  if (s.split(' ').length < 8) return '';
+  return s;
+}
+
+function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, hasSlides, hasBook, reviewing }) {
   const ref = q && q.reference;
   if (ref && ref.url) {
     const href = String(ref.url);
@@ -363,19 +381,46 @@ function QuestionSource({ q, bookReading, onOpen, hasLecture, hasVideo, hasSlide
   );
   const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
   const canSlides = hasSlides || slideStart > 0;
-  const canBook = hasBook || (ref && ref.page > 0) || (ref && ref.book) || !!(bookReading && bookReading.length);
-  if (!ref || (!ref.section && !ref.book && !ref.excerpt && !ref.page && !ref.lecture && !canLecture && !canSlides && !canBook)) {
+  const citations = (ref && ref.citations && ref.citations.length
+    ? ref.citations
+    : (ref && (ref.book || ref.page) ? [{ book: ref.book, page: ref.page, pageEnd: ref.pageEnd, excerpt: ref.excerpt }] : [])
+  ).map((row) => ({ row, hit: row.book ? findBook(books || [], row.book) : null }))
+    .filter(({ row, hit }) => hit || !row.book);
+  const canBook = citations.length > 0
+    || (!(ref && ref.book) && (hasBook || !!(bookReading && bookReading.length)));
+  if (!ref || (!ref.section && !ref.excerpt && !ref.lecture && !canLecture && !canSlides && !canBook)) {
     if (!(bookReading && bookReading.length) || !canBook) return null;
   }
   const chapterLabel = (ref && ref.chapter) || (chapter && chapter.chapter) || '';
+  const multiBook = citations.length > 1;
   return (
     <div className="q-source">
-      <p className="q-source-label">Chapter reference</p>
-      {ref && ref.book && <p className="q-source-book">{ref.book}</p>}
+      <p className="q-source-label">{multiBook ? 'In the books' : 'In the book'}</p>
+      {citations.length ? (
+        <ul className="q-source-books">
+          {citations.map(({ row, hit }, i) => {
+            const title = (hit && hit.title) || row.book;
+            const quote = reviewing ? usableExcerpt(row.excerpt) : '';
+            return (
+              <li key={i}>
+                <p className="q-source-book">{shortBookLabel(title) || title}</p>
+                {row.page ? <p className="q-source-page">PDF page {row.page}</p> : null}
+                {quote ? <blockquote className="q-source-excerpt">{quote}</blockquote> : null}
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <>
+          {ref && ref.book && <p className="q-source-book">{ref.book}</p>}
+          {reviewing && usableExcerpt(ref && ref.excerpt) && (
+            <blockquote className="q-source-excerpt">{usableExcerpt(ref.excerpt)}</blockquote>
+          )}
+        </>
+      )}
       {chapterLabel && <p className="q-source-chapter">{chapterLabel}</p>}
-      {ref && ref.section && <p className="q-source-notes">Notes: {ref.section}</p>}
+      {ref && ref.section && <p className="q-source-notes">Notes · {ref.section}</p>}
       {slideLabel && <p className="q-source-notes">{slideLabel}</p>}
-      {ref && ref.excerpt && <blockquote className="q-source-excerpt">{ref.excerpt}</blockquote>}
       <div className="q-source-actions">
         {ref && ref.section && onOpen && (
           <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: 0 })}>
@@ -403,19 +448,40 @@ function QuestionSource({ q, bookReading, onOpen, hasLecture, hasVideo, hasSlide
           </button>
         )}
         {canBook && onOpen && (
-          <button
-            type="button"
-            className="text-link"
-            onClick={() => onOpen({
-              heading: ref && ref.section,
-              page: (ref && ref.page) || 0,
-              pageEnd: (ref && ref.pageEnd) || (chapter && chapter.pageEnd) || 0,
-              excerpt: ref && ref.excerpt,
-              book: (ref && ref.book) || (chapter && chapter.book) || '',
-            })}
-          >
-            Show in book
-          </button>
+          citations.length
+            ? citations.map(({ row, hit }, i) => (
+              <button
+                key={i}
+                type="button"
+                className="text-link"
+                onClick={() => onOpen({
+                  heading: ref && ref.section,
+                  page: row.page || 0,
+                  pageEnd: row.pageEnd || (chapter && chapter.pageEnd) || 0,
+                  excerpt: row.excerpt || (ref && ref.excerpt),
+                  book: row.book || (chapter && chapter.book) || '',
+                })}
+              >
+                {citations.length > 1
+                  ? 'Open ' + shortBookLabel((hit && hit.title) || row.book)
+                  : 'Show in book'}
+              </button>
+            ))
+            : (
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => onOpen({
+                  heading: ref && ref.section,
+                  page: (ref && ref.page) || 0,
+                  pageEnd: (ref && ref.pageEnd) || (chapter && chapter.pageEnd) || 0,
+                  excerpt: ref && ref.excerpt,
+                  book: (chapter && chapter.book) || '',
+                })}
+              >
+                Show in book
+              </button>
+            )
         )}
       </div>
     </div>

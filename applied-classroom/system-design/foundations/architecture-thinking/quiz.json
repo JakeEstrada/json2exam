@@ -6,7 +6,7 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "How is more important than why, so never document intent in real production systems at scale.",
+        "How is more important than why, so never document intent.",
         "Why is more important than how.",
         "Diagrams without reasons always age better than written decisions.",
         "Only microservices have a “why”; monoliths never need reasons."
@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "Why is more important than how",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 34,
-        "excerpt": "Why is more important than how"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 27,
+        "excerpt": "See “Choreography and Orchestration” for our discussion.) Architecture is broader than just the combination of structural elements, which is why our dimensional definition incorporates principles, characteristics, and so on."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "The exact hex color of every button in the design system in real production systems at scale.",
+        "The exact hex color of every button in the design system.",
         "Capabilities and success criteria of the system (what it must support).",
-        "Only the marketing slogan on the landing page hero in real production systems at scale.",
-        "The number of emoji allowed in commit messages in real production systems at scale."
+        "Only the marketing slogan on the landing page hero.",
+        "The exact list of npm packages pinned in package-lock.json."
       ],
       "answer": "b",
       "explanation": "Architecture characteristics… define the capabilities of a system… and the criteria for its success",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 31,
-        "excerpt": "Architecture characteristics… define the capabilities of a system… and the criteria for its success"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 21,
+        "excerpt": "support, the logical components to implement its behavior, and finally the architecture decisions justifying it all."
       }
     },
     {
@@ -50,9 +50,9 @@
       "answer": "b",
       "explanation": "logical components form the domains, entities, and workflows of the application",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 32,
-        "excerpt": "logical components form the domains, entities, and workflows of the application"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 201,
+        "excerpt": "Component-based thinking is seeing the structure of a system as a set of logical components, all interacting to perform certain business functions."
       }
     },
     {
@@ -61,16 +61,16 @@
       "level": 1,
       "options": [
         "Forbidding Presentation from calling the database directly in a layered system.",
-        "Requiring every function name to be exactly twelve characters long in real production systems at scale.",
-        "Banning all automated tests so releases feel more exciting in real production systems at scale.",
-        "Choosing comic sans for all production error messages forever in real production systems at scale."
+        "Requiring every function name to be exactly twelve characters long.",
+        "Banning all automated tests so releases feel more exciting.",
+        "Requiring every production log line to use the same timestamp format only."
       ],
       "answer": "a",
       "explanation": "only the Business and Services layers… can access the database… restricting the Presentation layer",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 33,
-        "excerpt": "only the Business and Services layers… can access the database… restricting the Presentation layer"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 29,
+        "excerpt": "Make Architecture Decisions An architect is expected to define the architecture decisions and design principles used to guide technology decisions within the team, within the department, or across the enterprise."
       }
     },
     {
@@ -86,9 +86,9 @@
       "answer": "a",
       "explanation": "every situation requires us to re-evaluate all those trade-offs",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 34,
-        "excerpt": "every situation requires us to re-evaluate all those trade-offs"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 27,
+        "excerpt": "But we can’t, because every situation requires us to re-evaluate all those trade-offs."
       }
     },
     {
@@ -98,9 +98,9 @@
       "answer": true,
       "explanation": "All architectures are products of their context—keep that in mind as you read this book",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 30,
-        "excerpt": "All architectures are products of their context—keep that in mind as you read this book"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 20,
+        "excerpt": "All architectures are products of their context—keep that in mind as you read this book."
       }
     },
     {
@@ -111,14 +111,14 @@
         "Never checking whether teams follow constraints after the first slide deck.",
         "Continually verifying teams follow documented decisions and design principles.",
         "Deleting the architecture decision records so nobody can violate them.",
-        "Letting every layer call every database to maximize “agility.” in real production systems at scale."
+        "Letting every layer call every database to maximize “agility.”."
       ],
       "answer": "b",
       "explanation": "Ensuring compliance means continually verifying that the development teams are following the decisions",
       "reference": {
-        "book": "Fundamentals of Software Architecture, 2nd Edition",
-        "page": 36,
-        "excerpt": "Ensuring compliance means continually verifying that the development teams are following the decisions"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 32,
+        "excerpt": "Ensuring compliance means continually verifying that the development teams are following the decisions and design principles defined, documented, and communicated by the architect."
       }
     }
   ]

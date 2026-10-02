@@ -770,6 +770,7 @@ export default function App() {
               hasSlides={!!quiz.slidesUrl}
               hasBook={!!(quiz.bookUrl && quiz.bookUrl !== quiz.slidesUrl) || !!(quiz.books && quiz.books.length)}
               bookReading={quiz.reading || []}
+              books={quiz.books || []}
               voice={settings.voice}
               speechRate={settings.speechRate}
               codeWork={codeWork[current.q.id] || null}

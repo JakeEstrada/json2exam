@@ -8,15 +8,15 @@
       "options": [
         "Only after the first field failure is returned from a customer.",
         "At the layout stage (DFT), not as an afterthought.",
-        "Only in the purchasing PO notes, never in copper for real production programs.",
-        "After silk-screen is approved by marketing for real production programs."
+        "Only in the purchasing PO notes, never in copper.",
+        "After silk-screen is approved by marketing."
       ],
       "answer": "b",
       "explanation": "must be designed into the PCB at the layout stage",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 47,
-        "excerpt": "must be designed into the PCB at the layout stage"
+        "excerpt": "However, final testing—in-circuit testing capability—must be designed into the PCB at the layout stage."
       }
     },
     {
@@ -33,8 +33,8 @@
       "explanation": "at the time placement, prior to routing",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 47,
-        "excerpt": "at the time placement, prior to routing"
+        "page": 48,
+        "excerpt": "With dense designs it is far too difficult to try to wedge test points into a routed bus after the fact."
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Zero test points to protect signal integrity always for real production programs.",
+        "Zero test points to protect signal integrity always.",
         "At least one test point per net for full testing coverage goals.",
-        "Test points only on the company logo net for real production programs.",
-        "That all nets remain completely inaccessible by probe for real production programs."
+        "Test points only on the company logo net.",
+        "That all nets remain completely inaccessible by probe."
       ],
       "answer": "b",
       "explanation": "at least one test point per net",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 47,
-        "excerpt": "at least one test point per net"
+        "page": 48,
+        "excerpt": "However, if full testing is required on a PCBA without JTAG, it is very common for test engineers to require at least one test point per net, except for power and GND which should include many test points sprinkled about the PCB for adequate access."
       }
     },
     {
@@ -61,16 +61,16 @@
       "level": 1,
       "options": [
         "There are many fixture/process parts and software costs tied to coverage choices.",
-        "Test points are free and never affect schedule or BOM cost for real production programs.",
-        "ICT fixtures are always included with Quickie-Cheapo fab quotes for real production programs.",
-        "JTAG eliminates every cost related to manufacturing test for real production programs."
+        "Test points are free and never affect schedule or BOM cost.",
+        "ICT fixtures are always included with Quickie-Cheapo fab quotes.",
+        "JTAG eliminates every cost related to manufacturing test."
       ],
       "answer": "a",
       "explanation": "DFT for ICT can get expensive",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 47,
-        "excerpt": "DFT for ICT can get expensive"
+        "page": 48,
+        "excerpt": "There are many factors weighing into the decision of whether to include DFT for ICT into a design layout."
       }
     },
     {
@@ -78,10 +78,10 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Ignoring how assemblies will be tested until after release for real production programs.",
+        "Ignoring how assemblies will be tested until after release.",
         "Planning bed-of-nails/functional (etc.) approaches with stakeholders early.",
-        "Assuming VR goggles replace ICT fixtures entirely for real production programs.",
-        "Testing only the cafeteria POS terminal connected to the lab for real production programs."
+        "Assuming optical inspection replaces ICT fixtures entirely.",
+        "Testing only the programming header and skipping in-circuit coverage."
       ],
       "answer": "b",
       "explanation": "Recognize the need for testability",
@@ -99,8 +99,8 @@
       "explanation": "too late to begin thinking about it at the PCB documentation stage",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 113,
-        "excerpt": "too late to begin thinking about it at the PCB documentation stage"
+        "page": 81,
+        "excerpt": "PCB Documentation Finishing the routing, drilling, and design-checking completes only the graphic portion of a design, but there are other aspects of the design which the CAD data cannot address alone."
       }
     },
     {
@@ -110,15 +110,15 @@
       "options": [
         "Claim test is free so piece price can ignore fixture and coverage tradeoffs.",
         "Discuss how layout decisions change ICT/JTAG cost, yield learning, and NPI risk.",
-        "Delete test requirements from every RFQ to win on schedule alone for real production programs.",
+        "Delete test requirements from every RFQ to win on schedule alone.",
         "Treat EMS test capability as unrelated to the bare-board supplier choice."
       ],
       "answer": "b",
       "explanation": "Incorporation of simple DFT for",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 47,
-        "excerpt": "Incorporation of simple DFT for"
+        "page": 48,
+        "excerpt": "In this case, reducing spacing by .025 [0.64] -- .100, .075, .050 -- grid spacing is considered acceptable though the smaller spacing will yield a higher cost fixture."
       }
     }
   ]

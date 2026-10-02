@@ -6,17 +6,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only deleting URLs with no create or redirect paths in real production systems at scale.",
+        "Only deleting URLs with no create or redirect paths.",
         "Shorten long→short, redirect short→long, plus HA/scalability/fault tolerance.",
-        "Training ML models on video frames exclusively in real production systems at scale.",
-        "Replacing DNS for the entire public internet in real production systems at scale."
+        "Training ML models on video frames exclusively.",
+        "Replacing DNS for the entire public internet."
       ],
       "answer": "b",
       "explanation": "URL shortening… URL redirecting… High availability, scalability, and fault tolerance",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 150,
-        "excerpt": "URL shortening… URL redirecting… High availability, scalability, and fault tolerance"
+        "excerpt": "Candidate: How long is the shortened URL? Interviewer: As short as possible."
       }
     },
     {
@@ -26,15 +26,15 @@
       "options": [
         "Temporary, so every later click still hits the shortener first.",
         "Permanent, so browsers may cache and skip the shortener later.",
-        "Invalid, so clients must poll with HTTP 100 Continue in real production systems at scale.",
-        "Encrypted, so only POST can resolve the alias in real production systems at scale."
+        "Invalid, so clients must poll with HTTP 100 Continue.",
+        "Encrypted, so only POST can resolve the alias."
       ],
       "answer": "b",
       "explanation": "A 301 redirect shows that the requested URL is “permanently” moved",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 153,
-        "excerpt": "A 301 redirect shows that the requested URL is “permanently” moved"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 152,
+        "excerpt": "To redirect a short URL to the corresponding long URL, a client sends a GET request."
       }
     },
     {
@@ -42,10 +42,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "302 always reduces shortener load more than 301 in real production systems at scale.",
+        "302 always reduces shortener load more than 301.",
         "302 keeps traffic flowing through the shortener for easier click analytics.",
-        "302 disables HTTPS for all subsequent navigations in real production systems at scale.",
-        "302 stores the long URL only in the DNS CNAME record in real production systems at scale."
+        "302 disables HTTPS for all subsequent navigations.",
+        "302 stores the long URL only in the DNS CNAME record."
       ],
       "answer": "b",
       "explanation": "if analytics is important, 302 redirect is a better choice",
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only emoji and whitespace characters in real production systems at scale.",
+        "Only punctuation and whitespace characters.",
         "Digits 0-9 and letters a-z / A-Z (base62-style).",
         "Only hexadecimal with mandatory dashes every two chars.",
-        "Only Morse code transmitted over SMS in real production systems at scale."
+        "Only Unicode combining marks, with no ASCII letters."
       ],
       "answer": "b",
       "explanation": "combination of numbers (0-9) and characters (a-z, A-Z)",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 150,
-        "excerpt": "combination of numbers (0-9) and characters (a-z, A-Z)"
+        "excerpt": "Interviewer: Shortened URL can be a combination of numbers (0-9) and characters (a-z, A-Z)."
       }
     },
     {
@@ -78,10 +78,10 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "100 million writes per second sustained all day in real production systems at scale.",
+        "100 million writes per second sustained all day.",
         "About 100M/86400 ≈ ~1k+ writes/sec order of magnitude (Xu ~1160).",
-        "Exactly 2 writes per second regardless of assumptions in real production systems at scale.",
-        "Zero writes because shorteners only redirect in real production systems at scale."
+        "Exactly 2 writes per second regardless of assumptions.",
+        "Zero writes because shorteners only redirect."
       ],
       "answer": "b",
       "explanation": "100 million / 24 /3600 = 1160",
@@ -98,9 +98,9 @@
       "answer": true,
       "explanation": "Can shortened URLs be deleted or updated?",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 150,
-        "excerpt": "Can shortened URLs be deleted or updated?"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 166,
+        "excerpt": "Step 1 - Understand the problem and establish design scope The basic algorithm of a web crawler is simple: 1."
       }
     }
   ]

@@ -16,8 +16,8 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 90,
+        "excerpt": "This definition includes all the properties and methods that were available on arrays when ES5 was published in 2009."
       },
       "code": "console.log(add(2, 3));"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 122,
+        "excerpt": "The parameters to the add function have named types, but the inferred return value does not."
       },
       "code": "type BinaryOp = (a: number, b: number) => number;\nconst add: BinaryOp = (a, b) => a + b;"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "Optional, default, rest",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 74,
+        "excerpt": "Since you have information that TypeScript does not, a type assertion makes sense here."
       },
       "code": "function f(a: number, b?: number): void {\n  console.log(a, b);\n}"
     },
@@ -76,8 +76,8 @@
       "reference": {
         "section": "Optional, default, rest",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 220,
+        "excerpt": "This is a fine use of an any type and a type assertion. Your code is correct, the type signature is clear, and your users will be none the wiser."
       },
       "code": "function g(a: number, b: number = 10): number {\n  return a + b;\n}"
     },
@@ -96,8 +96,15 @@
       "reference": {
         "section": "Optional, default, rest",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 85,
+        "excerpt": "Item 62 will discuss rest parameters in the context of generic types.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 75,
+            "excerpt": "A function can have at most one rest parameter, and that parameter has to be the last one in the function’s parameter list."
+          }
+        ]
       },
       "code": "function h(...nums: number[]): number {\n  return nums.length;\n}"
     },
@@ -116,8 +123,15 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 91,
+        "excerpt": "return ruby; }; const rubyThroat = getHummer(); // ^? const rubyThroat: Hummingbird It’s interesting that TypeScript reports the type here using an out-of-scope type name (Hummingbird).",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 36,
+            "excerpt": "If a function body doesn’t have a return statement, it still returns a value of type undefined."
+          }
+        ]
       },
       "code": "function logTotal(n: number): void {\n  console.log(n);\n}"
     },
@@ -135,9 +149,9 @@
       "explanation": "b?: number cannot come before a required a: number.",
       "reference": {
         "section": "Optional, default, rest",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 73,
+        "excerpt": "Semantically it’s similar to making a parameter optional, in that callers no longer have to pass it in (a difference is that default parameters don’t have to be at the end of your list of parameters, while optional parameters do)."
       },
       "code": "function bad(b?: number, a: number): void {}"
     },
@@ -156,8 +170,15 @@
       "reference": {
         "section": "Object parameters",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 69,
+        "excerpt": "shape.radius // ^? (property) Cylinder.radius: number } } The TypeScript type introduced by a class is based on its shape (its properties and methods), while the value is the constructor.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 163,
+            "excerpt": "Bivariance You’re OK with either <:T or >:T. In TypeScript, every complex type is covariant in its members—objects, classes, arrays, and function return types—with one exception: function parameter types, which are contravariant."
+          }
+        ]
       },
       "code": "function createUser({ name, age = 0 }: { name: string; age?: number }) {\n  return name + age;\n}"
     },
@@ -176,8 +197,8 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 82,
+        "excerpt": "Excess property checking is an effective way of catching typos and other mistakes in property names that would otherwise be allowed by the structural typing system."
       },
       "code": "type BinaryOp = (a: number, b: number) => number;\nconst mul: BinaryOp = (a, b) => a * b;"
     },
@@ -196,8 +217,15 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 97,
+        "excerpt": "But as we’ll see time and again in this book (particularly Items 31 and 33), these sorts of implicit understandings can lead to trouble with type checking.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 98,
+            "excerpt": "T is like a placeholder type, to be filled in by the typechecker from context; it parameterizes Filter’s type, which is why we call it a generic type parameter."
+          }
+        ]
       },
       "code": "function handler(this: HTMLButtonElement, e: Event): void {\n  this.disabled = true;\n}"
     },
@@ -216,8 +244,8 @@
       "reference": {
         "section": "Optional, default, rest",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 373,
+        "excerpt": "In TypeScript this has the added advantage that it allows the parameter’s type to be inferred from the default value. • Use compact object literals and destructuring assignment."
       },
       "code": "function h(...nums: number[]): number {\n  return nums.reduce((n, x) => n + x, 0);\n}\nconsole.log(h(1, 2, 3));"
     },
@@ -236,8 +264,15 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 72,
-        "excerpt": "In general, you should prefer type annotations to type assertions."
+        "page": 75,
+        "excerpt": "Things to Remember • Prefer type annotations (: Type) to type assertions (as Type). • Know how to annotate the return type of an arrow function.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 75,
+            "excerpt": "So, how can we safely type variadic functions? Rest parameters to the rescue!"
+          }
+        ]
       },
       "code": "function add(a: number, b: number) {\n  return a + b;\n}"
     },
@@ -256,8 +291,15 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 91,
+        "excerpt": "For complex types, you have no choice: you need to use a type alias.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 88,
+            "excerpt": "In most programming languages, once you declare a function that takes some set of parameters and yields some return type, you can call that function with exactly that set of parameters, and you will always get that same return type back."
+          }
+        ]
       },
       "code": "type BinaryOp = (a: number, b: number) => number;"
     },
@@ -296,8 +338,15 @@
       "reference": {
         "section": "Defining a function",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 38,
-        "excerpt": "your types can’t affect the way your code runs."
+        "page": 82,
+        "excerpt": "TypeScript types are not “closed” (Item 4). • Be aware of the limits of excess property checking: introducing an intermediate variable will remove these checks. • A “weak type” is an object type with only optional properties.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 459,
+            "excerpt": "Under the hood, JavaScript still uses prototypal inheritance, which allows you to replace the ancestor dynamically at runtime, whereas a class can have only one direct ancestor."
+          }
+        ]
       },
       "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
     },
@@ -332,8 +381,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 359,
+        "excerpt": "There are whole classes of implementation errors that it can prevent: returning the wrong type or performing invalid operations on the inputs."
       },
       "level": 3
     },
@@ -365,8 +414,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 244,
+        "excerpt": "There’s no equivalent of this for type parameters. If you don’t specify a constraint, it defaults to unknown, which allows users to pass in any type whatsoever."
       },
       "level": 3
     },
@@ -395,8 +444,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 83,
-        "excerpt": "If you wanted to write several functions for doing arithmetic on numbers"
+        "page": 133,
+        "excerpt": "But in TypeScript, a symbol has a type at a location. Learn to take advantage of this and you’ll write more concise, idiomatic TypeScript."
       },
       "level": 3
     }

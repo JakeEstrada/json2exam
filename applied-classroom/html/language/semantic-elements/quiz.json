@@ -1,5 +1,5 @@
 {
-  "title": "HTML \u2014 Semantic elements",
+  "title": "HTML — Semantic elements",
   "questions": [
     {
       "question": "What is class for?",
@@ -17,7 +17,7 @@
         "section": "Class and id",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 191,
-        "excerpt": "you will want a way to identify several elements as being different from the other elements on the page."
+        "excerpt": "Sometimes, rather than uniquely identifying one element within a document, you will want a way to identify several elements as being different from the other elements on the page."
       },
       "code": "<p class=\"important\">For a one-year period from November 2010...</p>"
     },
@@ -57,7 +57,7 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 436,
-        "excerpt": "you'll find it easier to understand how they can be used now that you have seen how CSS can control the layout a page."
+        "excerpt": "They are covered here (rather than with the other HTML elements you met earlier in the book) because you'll find it easier to understand how they can be used now that you have seen how CSS can control the layout a page."
       },
       "code": "<header><h1>Site</h1></header>"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 438,
-        "excerpt": "web page authors used <div> elements to group together related elements on the page"
+        "page": 439,
+        "excerpt": "The point of creating these new elements is so that web page authors can use them to help describe the structure of the page."
       },
       "code": "<div id=\"header\"><h1>Logo</h1></div>"
     },
@@ -117,7 +117,7 @@
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 436,
-        "excerpt": "How they offer helpful alternatives to the <div> element"
+        "excerpt": "These new elements are going to play an important part in creating layouts going forward."
       },
       "code": "<nav><a href=\"/\">Home</a></nav>"
     },
@@ -155,9 +155,9 @@
       "explanation": "id uniquely identifies one element. class is the shared marker.",
       "reference": {
         "section": "Class and id",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 191,
-        "excerpt": "uniquely identifying one element within a document"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 262,
+        "excerpt": "Each module will be identified by a unique class name applied to a DOM element."
       },
       "code": "<h1 id=\"page-title\">Home</h1>"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 438,
-        "excerpt": "<div class=\"article\">"
+        "page": 439,
+        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page."
       },
       "code": "<article><h2>Post</h2><p>Body</p></article>"
     },
@@ -196,10 +196,10 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 438,
-        "excerpt": "At the top of the page is the header, containing a logo and the primary navigation."
+        "page": 439,
+        "excerpt": "Similarly, search engines might place more weight on the content in an <article> element than that in the <header> or <footer> elements."
       },
-      "code": "<header><h1>Logo</h1><nav>\u2026</nav></header>"
+      "code": "<header><h1>Logo</h1><nav>…</nav></header>"
     },
     {
       "question": "Can one page have more than one <header>?",
@@ -216,8 +216,8 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 436,
-        "excerpt": "The new HTML5 layout elements and their uses"
+        "page": 439,
+        "excerpt": "Similarly, search engines might place more weight on the content in an <article> element than that in the <header> or <footer> elements."
       },
       "code": "<header><h1>Site</h1></header>\n<article><header><h2>Post</h2></header></article>"
     },
@@ -236,10 +236,10 @@
       "reference": {
         "section": "HTML5 layout elements",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 438,
-        "excerpt": "<div id=\"footer\">"
+        "page": 439,
+        "excerpt": "New Html5 Layout Elements HTML5 introduces a new set of elements that allow you to divide up the parts of a page."
       },
-      "code": "<footer><p>\u00a9 Course</p></footer>"
+      "code": "<footer><p>© Course</p></footer>"
     },
     {
       "question": "Which class attribute is written the usual way?",
@@ -257,7 +257,7 @@
         "section": "Class and id",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 191,
-        "excerpt": "<p class=\"important\">For a one-year period from"
+        "excerpt": "In this example, CSS has been applied to make elements with a class attribute whose value is important uppercase, and elements with a class attribute whose value is admittance red."
       },
       "code": "<p class=\"important\">Hi</p>"
     },
@@ -343,7 +343,7 @@
       "level": 3
     },
     {
-      "question": "Write navList(items) that returns <nav><ul>\u2026<li><a href=\"#\">item</a></li>\u2026</ul></nav>.",
+      "question": "Write navList(items) that returns <nav><ul>…<li><a href=\"#\">item</a></li>…</ul></nav>.",
       "type": "code",
       "language": "javascript",
       "starter": "function navList(items) {\n  // return markup\n}\n",
@@ -426,9 +426,9 @@
       "explanation": "article is the self-contained layout element, not a classed div.",
       "reference": {
         "section": "Coding tasks",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 438,
-        "excerpt": "web page authors used <div> elements to group together related elements on the page"
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 269,
+        "excerpt": "Instead of writing .page-header .dropdown, for example, write .dropdown--dark."
       },
       "level": 3
     }
@@ -436,7 +436,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 8 \u2014 Extra Markup",
+      "chapter": "Chapter 8 — Extra Markup",
       "page": 183,
       "pageEnd": 199,
       "sections": [
@@ -452,7 +452,7 @@
     },
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 17 \u2014 HTML5 Layout",
+      "chapter": "Chapter 17 — HTML5 Layout",
       "page": 435,
       "pageEnd": 450,
       "sections": [

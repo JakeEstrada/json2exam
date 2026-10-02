@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "What it means for a service to be reliable—namely, continuing to work correctly, even when things go wrong",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 57,
-        "excerpt": "What it means for a service to be reliable—namely, continuing to work correctly, even when things go wrong"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 460,
+        "excerpt": "Milne, The House at Pooh Corner (1928) As discussed in “Reliability and Fault Tolerance”, making a system reliable means ensuring that the system as a whole continues working, even when things go wrong (i.e., when there is a fault)."
       }
     },
     {
@@ -27,14 +27,14 @@
         "Buying one infinitely powerful machine so you never rethink architecture.",
         "Having efficient ways to add computing capacity as load on the system grows.",
         "Deleting all indexes so writes are always fast regardless of read patterns.",
-        "Turning off monitoring so you do not notice when load increases in real production systems at scale."
+        "Turning off monitoring so you do not notice when load increases."
       ],
       "answer": "b",
       "explanation": "Allowing a system to be scalable by having efficient ways of adding computing capacity as the load on the system grows",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 57,
-        "excerpt": "Allowing a system to be scalable by having efficient ways of adding computing capacity as the load on the system grows"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 81,
+        "excerpt": "Scalability is not a one-dimensional label—it is meaningless to say “X is scalable” or “Y doesn’t scale.” Rather, discussing scalability means considering questions like these: If the system grows in a particular way, what are our options for coping with the growth?"
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Always handles 10× load with zero changes if the logo is redesigned in real production systems at scale.",
+        "Always handles 10× load with zero changes if the logo is redesigned.",
         "Is unlikely to cope with 10× that load — rethink on each order-of-magnitude growth.",
-        "Must be microservices from day one even with ten users in real production systems at scale.",
-        "Can ignore databases entirely once traffic doubles once in real production systems at scale."
+        "Must be microservices from day one even with ten users.",
+        "Can ignore databases entirely once traffic doubles once."
       ],
       "answer": "b",
       "explanation": "an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 85,
-        "excerpt": "an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load"
+        "excerpt": "Moreover, an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load."
       }
     },
     {
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Can be ignored because only button labels matter to users in real production systems at scale.",
+        "Can be ignored because only button labels matter to users.",
         "Are as important as functionality — a slow or unreliable app is barely usable.",
-        "Only apply to mainframe systems from the 1970s and never web apps in real production systems at scale.",
-        "Are automatically satisfied by any framework with a popular name in real production systems at scale."
+        "Only apply to mainframe systems from the 1970s and never web apps.",
+        "Are automatically satisfied by any framework with a popular name."
       ],
       "answer": "b",
       "explanation": "an app that is unbearably slow or unreliable might as well not exist",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 57,
-        "excerpt": "an app that is unbearably slow or unreliable might as well not exist"
+        "excerpt": "These requirements might not be explicitly written down, because they may seem somewhat obvious, but they are just as important as the app’s functionality; an app that is unbearably slow or unreliable might as well not exist."
       }
     },
     {
@@ -80,9 +80,9 @@
       "answer": true,
       "explanation": "Making it easier to maintain a system in the long term",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 57,
-        "excerpt": "Making it easier to maintain a system in the long term"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 58,
+        "excerpt": "Making it easier to maintain a system in the long term The terminology introduced in this chapter will also be useful in the following chapters, when we go into the details of how data-intensive systems are implemented."
       }
     },
     {
@@ -90,17 +90,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only the color of the status page banner during an outage in real production systems at scale.",
+        "Only the color of the status page banner during an outage.",
         "Load parameters (QPS, users, data size, read/write mix) before proposing scale-out.",
-        "That vertical scaling forever is always cheaper than any other option in real production systems at scale.",
-        "That caching is illegal in all production systems worldwide in real production systems at scale."
+        "That vertical scaling forever is always cheaper than any other option.",
+        "That caching is illegal in all production systems worldwide."
       ],
       "answer": "b",
       "explanation": "back-of-the-envelope calculations… to get a good feel for which designs will meet your requirements",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 45,
-        "excerpt": "back-of-the-envelope calculations… to get a good feel for which designs will meet your requirements"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 81,
+        "excerpt": "Sometimes, when discussing scalability, people make comments along the lines of, “You’re not Google or Amazon."
       }
     },
     {
@@ -108,17 +108,24 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Running a single server with no backups so failures are simple in real production systems at scale.",
+        "Running a single server with no backups so failures are simple.",
         "Using multiple machines for redundancy so another can take over on failure.",
-        "Never writing logs because logs cause all outages in real production systems at scale.",
-        "Blocking all users permanently to keep error rates at zero in real production systems at scale."
+        "Never writing logs because logs cause all outages.",
+        "Blocking all users permanently to keep error rates at zero."
       ],
       "answer": "b",
       "explanation": "you can use multiple machines to give you redundancy. When one fails, another one can take over",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 42,
-        "excerpt": "you can use multiple machines to give you redundancy. When one fails, another one can take over"
+        "excerpt": "Fault tolerance/high availability If your application needs to continue working even if one machine (or several machines, or the network, or an entire datacenter) goes down, you can use multiple machines to give you redundancy.",
+        "books": [
+          {
+            "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+            "page": 530,
+            "excerpt": "fault tolerance will always be better with a replicated cache."
+          }
+        ]
       }
     }
   ]

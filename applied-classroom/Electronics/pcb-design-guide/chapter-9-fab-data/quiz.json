@@ -15,8 +15,8 @@
       "explanation": "CAD data must be accompanied by textual fabrication specifications",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 93,
-        "excerpt": "CAD data must be accompanied by textual fabrication specifications"
+        "page": 81,
+        "excerpt": "PCB Documentation Finishing the routing, drilling, and design-checking completes only the graphic portion of a design, but there are other aspects of the design which the CAD data cannot address alone."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Hand-drawn sketches without hole sizes for real production programs.",
+        "Hand-drawn sketches without hole sizes.",
         "Industry-standard Excellon drill files reflecting finished hole sizes.",
-        "Optional if the board uses only slots and no holes for real production programs.",
-        "Named randomly so competitors cannot find them for real production programs."
+        "Optional if the board uses only slots and no holes.",
+        "Named randomly so competitors cannot find them."
       ],
       "answer": "b",
       "explanation": "Excellon drill files which reflect finished hole sizes",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 93,
-        "excerpt": "Excellon drill files which reflect finished hole sizes"
+        "excerpt": "FFInclude industry standard, Excellon drill files which reflect finished hole sizes."
       }
     },
     {
@@ -43,16 +43,16 @@
       "level": 2,
       "options": [
         "±10% for boards ≥0.039 in and a wider ±15% range for thinner boards (work with mechanical stakeholders).",
-        "Zero tolerance on thickness for every consumer toy PCB for real production programs for real production programs.",
-        "No thickness tolerance because laminate never varies for real production programs for real production programs.",
-        "±90% so any core in inventory can be used blindly for real production programs for real production programs."
+        "Zero tolerance on thickness for every consumer toy PCB.",
+        "No thickness tolerance because laminate never varies.",
+        "±90% so any core in inventory can be used blindly."
       ],
       "answer": "a",
       "explanation": "PCB thickness tolerance of +/-10%",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 93,
-        "excerpt": "PCB thickness tolerance of +/-10%"
+        "excerpt": "Work with mechanical stakeholders to allow a PCB thickness tolerance of +/-10% for boards .039[0.99] thickness and greater and +/-15% range for a PCB thickness less than .039 [0.99]."
       }
     },
     {
@@ -60,7 +60,7 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "routed; drilled for real production programs.",
+        "routed; drilled.",
         "drilled; routed",
         "ignored; plated only",
         "laser-only; never machined"
@@ -69,8 +69,8 @@
       "explanation": "Designate holes </= .200 to be drilled",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 93,
-        "excerpt": "Designate holes </= .200 to be drilled"
+        "page": 90,
+        "excerpt": "Holes larger than .250[6.35] are typically routed (not drilled) and need tolerancing like those applied to a routed board outline edge."
       }
     },
     {
@@ -78,17 +78,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Only JPEG screenshots of the layout canvas for real production programs for real production programs.",
+        "Only JPEG screenshots of the layout canvas.",
         "IPC-2581, ODB++, or ASCII, ideally with source design database when permitted.",
-        "Only Morse code netlists etched on the panel rails for real production programs.",
-        "Encrypted MP3s of the auto-router log file for real production programs for real production programs."
+        "Only screenshot PNGs of the layout canvas exported at screen resolution.",
+        "Encrypted MP3s of the auto-router log file."
       ],
       "answer": "b",
       "explanation": "IPC-2581, ODB++, or ASCII",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 93,
-        "excerpt": "IPC-2581, ODB++, or ASCII"
+        "page": 95,
+        "excerpt": "Intelligent source database formats are best output in IPC-2581 or ODB++ because they provide the most usable information to the board fabricator and assembly processor."
       }
     },
     {
@@ -97,16 +97,16 @@
       "level": 2,
       "options": [
         "Use part number, revision, and file function in a tangible convention.",
-        "Name every file final_final2_reallyfinal.gbr for real production programs.",
+        "Name every file final_final2_reallyfinal.gbr.",
         "Omit revision so fabs always build the newest mystery version.",
-        "Use spaces and emoji only so FOSS tools refuse to open them for real production programs."
+        "Use spaces and reserved shell characters so CAM tools fail to open them."
       ],
       "answer": "a",
       "explanation": "part number, revision, and file function",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 93,
-        "excerpt": "part number, revision, and file function"
+        "page": 79,
+        "excerpt": "File Naming Convention Avoid using non-descript or vague names like “TOP.GBR” for files."
       }
     },
     {
@@ -118,7 +118,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 93,
-        "excerpt": "Include a complete fabrication drawing"
+        "excerpt": "FFInclude a complete fabrication drawing in the manufacturing data package."
       }
     },
     {
@@ -126,17 +126,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Hide them and hope CAM never asks for real production programs for real production programs.",
+        "Hide them and hope CAM never asks.",
         "Show X,Y locations and net names in a table so the supplier’s question is answered early.",
-        "Delete the nets entirely from the fab drawing for real production programs for real production programs.",
-        "Only mention them in a private Slack DM after award for real production programs for real production programs."
+        "Delete the nets entirely from the fab drawing.",
+        "Only mention them in a private Slack DM after award."
       ],
       "answer": "b",
       "explanation": "If intentional shorts exist in the design",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 93,
-        "excerpt": "If intentional shorts exist in the design"
+        "page": 86,
+        "excerpt": "Tab-route Detail Intentional Shorts Table Like the V-Score detail, the tab-route detail is only provided if there is in-house assembly processing."
       }
     }
   ]

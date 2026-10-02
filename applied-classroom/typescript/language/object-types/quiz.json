@@ -16,8 +16,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 91,
+        "excerpt": "return ruby; }; const rubyThroat = getHummer(); // ^? const rubyThroat: Hummingbird It’s interesting that TypeScript reports the type here using an out-of-scope type name (Hummingbird).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "There are two ways to do that, as you’ll learn in “The Record Type” and “Mapped Types”; but before we get there, let’s take a slight detour into type operators for object types."
+          }
+        ]
       },
       "code": "let user: { name: string; age: number } = { name: \"Ada\", age: 36 };"
     },
@@ -36,8 +43,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 80,
-        "excerpt": "Object literal may"
+        "page": 82,
+        "excerpt": "TypeScript types are not “closed” (Item 4). • Be aware of the limits of excess property checking: introducing an intermediate variable will remove these checks. • A “weak type” is an object type with only optional properties.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "Advanced Object Types Objects are central to JavaScript, and TypeScript gives you a whole bunch of ways to express and manipulate them safely."
+          }
+        ]
       },
       "code": "function greet(p: { name: string }): string {\n  return p.name;\n}\ngreet({ name: \"Ada\", age: 36 });"
     },
@@ -56,8 +70,15 @@
       "reference": {
         "section": "Structural typing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 47,
+        "excerpt": "So the structures match. This might lead to trouble if you write a function that assumes the validation logic in SmallNumContainer’s constructor has run.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 42,
+            "excerpt": "Wait, that’s not very useful! What’s the point of typing something as an object if you can’t do anything with it?"
+          }
+        ]
       },
       "code": "type Point = { x: number; y: number };\nconst p = { x: 1, y: 2, z: 3 };\nconst q: Point = p;"
     },
@@ -76,8 +97,15 @@
       "reference": {
         "section": "Optional and readonly",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 74,
+        "excerpt": "What if a variable’s type includes null but you know from context that this isn’t possi‐ ble?",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 190,
+            "excerpt": "You will probably never use this operator directly, because it’s implied: within a mapped type, readonly is equivalent to +readonly, and ? is equivalent to +?. + is just there for completeness."
+          }
+        ]
       },
       "code": "type User = { name: string; age?: number };\nconst u: User = { name: \"Ada\" };"
     },
@@ -96,8 +124,15 @@
       "reference": {
         "section": "Optional and readonly",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 93,
+        "excerpt": "Mutation is the root cause of many hard-to-find bugs. Mutable is the default in Java‐ Script, but TypeScript’s readonly modifier can help you catch and prevent surprise mutations.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 190,
+            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (–) operator."
+          }
+        ]
       },
       "code": "type User = { readonly id: number; name: string };\nconst user: User = { id: 1, name: \"Ada\" };\nuser.id = 2;"
     },
@@ -116,8 +151,8 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 80,
-        "excerpt": "Object literal may"
+        "page": 82,
+        "excerpt": "This will help you build a mental model of both. For a concrete example of how excess property checking can catch bugs and open up new design possibilities, see Item 61."
       },
       "code": "type Options = { title: string; darkMode?: boolean };\ncreateWindow({ title: \"Ski\", darkmode: true });"
     },
@@ -136,8 +171,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 80,
-        "excerpt": "Object literal may"
+        "page": 82,
+        "excerpt": "But it is also very limited in scope: it only applies to object literals.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "Type Operators for Object Types Remember union (|) and intersection (&), the two type operators I introduced in “Union and intersection types”?"
+          }
+        ]
       },
       "code": "const intermediate = { darkmode: true, title: \"Ski Free\" };\nconst o: Options = intermediate;"
     },
@@ -156,8 +198,8 @@
       "reference": {
         "section": "Structural typing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 47,
+        "excerpt": "It has a num property that’s a number. So the structures match."
       },
       "code": "interface Point { x: number; y: number }\nconst p = { x: 1, y: 2, z: 3 };\nconst q: Point = p;"
     },
@@ -176,8 +218,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 87,
+        "excerpt": "First, the similarities: the two State types are nearly indistinguishable from one another.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 47,
+            "excerpt": "The way to read it is, “For this object, all keys of type T must have values of type U.” Index signatures let you safely add more keys to an object, in addition to any keys that you explicitly declared."
+          }
+        ]
       },
       "code": "interface StringMap {\n  [key: string]: string;\n}"
     },
@@ -196,8 +245,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 91,
+        "excerpt": "The name is gone and only the structure remains. Because the type system is structural (Item 4) this has no effect on the values assignable to the type.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "While TypeScript will give you an error the next time you try to access nextDay.Tue, you could have been more proactive about it when declaring nextDay in the first place."
+          }
+        ]
       },
       "code": "interface Bad {\n  [key: string]: string;\n  count: number;\n}"
     },
@@ -215,9 +271,9 @@
       "explanation": "Put extra fields on a variable, then pass it. Or widen the parameter type to include age.",
       "reference": {
         "section": "Structural typing",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 42,
+        "excerpt": "What’s the point of typing something as an object if you can’t do anything with it?"
       },
       "code": "const person = { name: \"Ada\", age: 36 };\ngreet(person);"
     },
@@ -236,8 +292,15 @@
       "reference": {
         "section": "Optional and readonly",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 74,
+        "excerpt": "But as a suffix, ! is interpreted as a type assertion that the value is non-null.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 190,
+            "excerpt": "You will probably never use this operator directly, because it’s implied: within a mapped type, readonly is equivalent to +readonly, and ? is equivalent to +?. + is just there for completeness."
+          }
+        ]
       },
       "code": "type User = { name: string; age?: number };\nfunction years(user: User) {\n  return user.age;\n}"
     },
@@ -256,8 +319,15 @@
       "reference": {
         "section": "Optional and readonly",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 38,
-        "excerpt": "your types can’t affect the way your code runs."
+        "page": 74,
+        "excerpt": "Still, you should treat ! with as much caution as any other assertion: it is erased dur‐ ing compilation, so you should only use it if you have information that the type checker lacks and can ensure that the value is non-null.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 190,
+            "excerpt": "We create a new object type Account3, equivalent to our original Account type, by mapping over OptionalAccount and removing the optional (?) operator with the minus (–) operator."
+          }
+        ]
       },
       "code": "type User = { readonly id: number };\nconst user: User = { id: 1 };"
     },
@@ -276,8 +346,15 @@
       "reference": {
         "section": "Object type literals",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 91,
+        "excerpt": "The better solution here is to keep the interface and make it a top-level export.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "There are two ways to do that, as you’ll learn in “The Record Type” and “Mapped Types”; but before we get there, let’s take a slight detour into type operators for object types."
+          }
+        ]
       },
       "code": "const counts: Record<string, number> = { paid: 3 };"
     },
@@ -296,8 +373,8 @@
       "reference": {
         "section": "Structural typing",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 47,
+        "excerpt": "Why is b assignable to SmallNumContainer? It has a num property that’s a number."
       },
       "code": "function calculateLength(v: { x: number; y: number }) {\n  return Math.sqrt(v.x ** 2 + v.y ** 2);\n}"
     },
@@ -326,8 +403,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "page": 278,
+        "excerpt": "Make judicious use of this to clarify type display and hide implementation details. • Consider handling important special cases of generic types to improve type display. • Write tests for your generic types and their display to avoid regressions."
       },
       "level": 3
     },
@@ -390,9 +467,9 @@
       "explanation": "A patch type in .ts is Partial<User> or a smaller object type.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 45,
-        "excerpt": "The calculateLength function will work with NamedVectors because they"
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 189,
+        "excerpt": "We create a new object type ReadonlyAccount by taking Account and making each of its fields read-only (that is, readable but not writable)."
       },
       "level": 3
     }

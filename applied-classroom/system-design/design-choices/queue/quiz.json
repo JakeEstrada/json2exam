@@ -8,15 +8,15 @@
       "options": [
         "Forcing synchronous coupling so both sides fail together always.",
         "Decoupling producers and consumers and absorbing bursts asynchronously.",
-        "Guaranteeing the UI paints pixels without any backend at all in real production systems at scale.",
-        "Removing the need for authentication on every public API in real production systems at scale."
+        "Guaranteeing the UI paints pixels without any backend at all.",
+        "Removing the need for authentication on every public API."
       ],
       "answer": "b",
       "explanation": "message queue",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 34,
-        "excerpt": "message queue"
+        "excerpt": "The basic architecture of a message queue is simple. Input services, called producers/publishers, create messages, and publish them to a message queue."
       }
     },
     {
@@ -24,9 +24,9 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Drop all messages silently when traffic is high in real production systems at scale.",
+        "Drop all messages silently when traffic is high.",
         "Buffer send jobs and scale workers independently of API traffic.",
-        "Encrypt the queue by turning off TLS on purpose in real production systems at scale.",
+        "Encrypt the queue by turning off TLS on purpose.",
         "Make push notifications require a human operator to click Send."
       ],
       "answer": "b",
@@ -50,9 +50,9 @@
       "answer": "b",
       "explanation": "delivery semantics",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 257,
-        "excerpt": "delivery semantics"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 181,
+        "excerpt": "Design locality applies to most of the system components: crawl servers, cache, queue, storage, etc. 4."
       }
     },
     {
@@ -72,17 +72,17 @@
       "type": "multiple",
       "level": 2,
       "options": [
-        "Every message succeeds on the first try forever in real production systems at scale.",
+        "Every message succeeds on the first try forever.",
         "Poison messages fail repeatedly and need isolation / inspection.",
         "You want to delete monitoring because failures never happen.",
-        "Producers should block forever without any backoff in real production systems at scale."
+        "Producers should block forever without any backoff."
       ],
       "answer": "b",
       "explanation": "fault tolerance",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 195,
-        "excerpt": "fault tolerance"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 454,
+        "excerpt": "Arpaci-Dusseau. “Crash Consistency: Rethinking the Fundamental Abstractions of the File System.” ACM Queue, volume 13, issue 7, pages 20–28, July 2015. doi:10.1145/2800695.2801719 [22] Thanumalayan Sankaranarayana Pillai, Vijay Chidambaram, Ramnatthan Alagappan, Samer AlKiswany, Andrea C."
       }
     }
   ]

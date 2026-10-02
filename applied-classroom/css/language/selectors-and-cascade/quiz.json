@@ -1,5 +1,5 @@
 {
-  "title": "CSS \u2014 Selectors and cascade",
+  "title": "CSS — Selectors and cascade",
   "questions": [
     {
       "question": "What is CSS?",
@@ -15,9 +15,9 @@
       "explanation": "CSS works by associating rules with HTML elements. Those rules govern how specified elements should be displayed.",
       "reference": {
         "section": "What CSS is",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "CSS works by associating rules with HTML elements."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 32,
+        "excerpt": "With any luck, you’ll also better appreciate and even enjoy working with CSS. 1.1 The cascade Fundamentally, CSS is about declaring rules: Under various conditions, we want certain things to happen."
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "A CSS rule contains two parts: a selector and a declaration."
+        "page": 246,
+        "excerpt": "SPECIFICITY If one selector is more specific than the others, the more specific rule will take precedence over more general ones."
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -57,7 +57,14 @@
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 238,
-        "excerpt": "Selectors indicate which element the rule applies to."
+        "excerpt": "A CSS rule contains two parts: a selector and a declaration.",
+        "books": [
+          {
+            "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+            "page": 17,
+            "excerpt": "You write a selector that attempts to match elements, then you write key/value pairs that style those elements."
+          }
+        ]
       },
       "code": "p {\n  font-family: Arial;\n}"
     },
@@ -77,7 +84,7 @@
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
         "page": 239,
-        "excerpt": "each is made up of two parts: a property and a value, separated by a colon."
+        "excerpt": "CSS Properties Affect How Elements Are Displayed CSS declarations sit inside curly brackets and each is made up of two parts: a property and a value, separated by a colon."
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -95,9 +102,9 @@
       "explanation": "You can specify several properties in one declaration block, each separated by a semi-colon.",
       "reference": {
         "section": "Rules",
-        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "You can specify several properties in one declaration, each separated by a semi-colon."
+        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
+        "page": 427,
+        "excerpt": "You should see the animation repeat three times, then stop. The animation property is a shorthand for several properties."
       },
       "code": "h1 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -112,12 +119,12 @@
         "The compiler."
       ],
       "answer": "b",
-      "explanation": "In this chapter, we begin with the C in CSS\u2014the cascade.",
+      "explanation": "In this chapter, we begin with the C in CSS—the cascade.",
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 32,
-        "excerpt": "In this chapter, we begin with the C in CSS\u2014the cascade."
+        "page": 33,
+        "excerpt": "The cascade 5 To illustrate, you’ll build a basic page header like one you might see at the top of a web page (figure 1.1)."
       },
       "code": "a:hover {\n  text-decoration: underline;\n}"
     },
@@ -137,7 +144,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 36,
-        "excerpt": "Yours are called author styles; there are also user agent styles, which are the browser\u2019s default styles."
+        "excerpt": "There are different types, or origins, of stylesheets. Yours are called author styles; there are also user agent styles, which are the browser’s default styles."
       },
       "code": "p {\n  margin: 0;\n}"
     },
@@ -157,7 +164,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "given the same specificity, later styles override earlier styles."
+        "excerpt": "The cascade 17 a:visited { color: purple; } a:hover { text-decoration: underline; } a:active { color: red; } The cascade is the reason this order matters: given the same specificity, later styles override earlier styles."
       },
       "code": "a:visited { color: purple; }\na:hover { text-decoration: underline; }"
     },
@@ -176,8 +183,8 @@
       "reference": {
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 40,
-        "excerpt": "The most specific selector here is e, with one ID"
+        "page": 39,
+        "excerpt": "The first selector here is more specific than the second. It’s made up of an ID and a tag name, whereas the second is made up of a class name."
       },
       "code": "#page-title {\n  color: red;\n}"
     },
@@ -197,7 +204,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 40,
-        "excerpt": "two classes are more specific than one class."
+        "excerpt": "This would be applied if the ID selector e were absent. Selector d has a higher specificity than selector c, despite its length: two classes are more specific than one class."
       },
       "code": ".page-header .title {\n  color: green;\n}"
     },
@@ -217,7 +224,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "There's at most one cascaded value per property per element."
+        "excerpt": "This is the cascaded value. cascaded value—A value for a particular property applied to an element as a result of the cascade."
       },
       "code": "p {\n  margin-top: 1em;\n}"
     },
@@ -237,7 +244,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "it can\u2019t have two different top margins or two different bottom margins."
+        "excerpt": "A particular paragraph (<p>) on the page can have a top margin and a bottom margin, but it can’t have two different top margins or two different bottom margins."
       },
       "code": "p { margin-top: 1em; }\np { margin-top: 2em; }"
     },
@@ -256,8 +263,8 @@
       "reference": {
         "section": "Rules",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 239,
-        "excerpt": "This rule indicates that all <h1>, <h2> and <h3> elements should be shown in the Arial typeface, in a yellow color."
+        "page": 238,
+        "excerpt": "The same rule can apply to more than one element if you separate the element names with commas."
       },
       "code": "h1, h2, h3 {\n  font-family: Arial;\n  color: yellow;\n}"
     },
@@ -297,7 +304,7 @@
         "section": "The cascade",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 36,
-        "excerpt": "The stylesheets you add to your web page aren\u2019t the only ones the browser applies."
+        "excerpt": "This is considered a third origin, with a priority between user agent and author styles."
       },
       "code": "body {\n  font-family: Arial;\n}"
     },
@@ -343,8 +350,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-        "page": 238,
-        "excerpt": "A CSS rule contains two parts: a selector and a declaration."
+        "page": 246,
+        "excerpt": "LAST RULE If the two selectors are identical, the latter of the two will take precedence."
       },
       "level": 3
     },
@@ -389,14 +396,14 @@
       "explanation": "An ID selector is the most specific of the usual trio (id / class / tag).",
       "reference": {
         "section": "Coding tasks",
-        "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-        "page": 40,
-        "excerpt": "The most specific selector here is e, with one ID"
+        "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
+        "page": 246,
+        "excerpt": "In this example: h1 is more specific than * p b is more specific than p p#intro is more specific than p IMPORTANT You can add !important after any property value to indicate that it should be considered more important than other rules that apply to the same element."
       },
       "level": 3
     },
     {
-      "question": "Write laterWins(first, second) that returns second \u2014 the later same-specificity rule.",
+      "question": "Write laterWins(first, second) that returns second — the later same-specificity rule.",
       "type": "code",
       "language": "javascript",
       "starter": "function laterWins(first, second) {\n  // return css\n}\n",
@@ -435,7 +442,7 @@
         "section": "Coding tasks",
         "book": "CSS in Depth, 1st Edition by Keith J. Grant",
         "page": 45,
-        "excerpt": "given the same specificity, later styles override earlier styles."
+        "excerpt": "Even one ID ratchets up the specificity a lot. When you need to override the selector, you often don’t have another meaningful ID you can use, so you wind up having to copy the original selector and add another class to distinguish it from the one you are trying to override."
       },
       "level": 3
     }
@@ -443,7 +450,7 @@
   "reading": [
     {
       "book": "HTML and CSS: Design and Build Websites by Jon Duckett",
-      "chapter": "Chapter 10 \u2014 Introducing CSS",
+      "chapter": "Chapter 10 — Introducing CSS",
       "page": 233,
       "pageEnd": 245,
       "sections": [
@@ -459,7 +466,7 @@
     },
     {
       "book": "CSS in Depth, 1st Edition by Keith J. Grant",
-      "chapter": "Chapter 1 \u2014 Cascade, specificity, and inheritance",
+      "chapter": "Chapter 1 — Cascade, specificity, and inheritance",
       "page": 31,
       "pageEnd": 55,
       "sections": [

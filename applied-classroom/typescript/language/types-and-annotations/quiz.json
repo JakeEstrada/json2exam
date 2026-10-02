@@ -17,7 +17,14 @@
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 27,
-        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+        "excerpt": "And ducks? TypeScript is an unusual language in that it neither runs in an interpreter (as Python and Ruby do) nor compiles down to a lower-level language (as Java and C do).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 272,
+            "excerpt": "If you’re following along, either enable esModuleInterop in your own tsconfig.json, or use a wildcard import instead: import * as React from 'react' The nice thing about JSX is you can write what looks a lot like normal HTML, then compile it automatically to a JavaScript engine–friendly format."
+          }
+        ]
       },
       "code": "let count: number = 0;\ncount = 1;\nconsole.log(count);"
     },
@@ -36,8 +43,8 @@
       "reference": {
         "section": "string versus String",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 27,
-        "excerpt": "TypeScript is an unusual language"
+        "page": 75,
+        "excerpt": "Things to Remember • Prefer type annotations (: Type) to type assertions (as Type). • Know how to annotate the return type of an arrow function."
       },
       "code": "let name: string = \"Ada\";\nconsole.log(name);"
     },
@@ -56,8 +63,15 @@
       "reference": {
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 38,
-        "excerpt": "your types can’t affect the way your code runs."
+        "page": 34,
+        "excerpt": "Item 2: Know Which TypeScript Options You’re Using Does this code pass the type checker? function add(a, b) { return a + b; } add(10, null); Without knowing which options you’re using, it’s impossible to say!",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 49,
+            "excerpt": "Neither interfaces nor types declared with the type keyword have representations in the emitted JavaScript code, which makes the runtime code smaller (bytewise)."
+          }
+        ]
       },
       "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
     },
@@ -76,8 +90,15 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "you can think of the number type as the set of all number values."
+        "page": 58,
+        "excerpt": "Type declara‐ tions can be challenging to read at first, but they’re an excellent way to see what can be done with TypeScript, how the library you’re using is modeled, and how you might debug errors.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 37,
+            "excerpt": "To learn more about why TypeScript infers different types for let and const, jump ahead to “Type Widening”."
+          }
+        ]
       },
       "code": "let n = 42;\nconsole.log(n);"
     },
@@ -96,8 +117,15 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "42 and -37.25 are in it, but 'Canada' is not."
+        "page": 58,
+        "excerpt": "Selecting this option takes you into lib.dom.d.ts, the type declarations that TypeScript includes for the DOM: declare function fetch( input: RequestInfo | URL, init?: RequestInit ): Promise<Response>; You can see that fetch returns a Promise and takes two arguments.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 37,
+            "excerpt": "In the fourth case I explicitly annotated my variables with type literals, and in the second case TypeScript inferred a literal type for me because I used const instead of let or var."
+          }
+        ]
       },
       "code": "const y = 42;\nconsole.log(y);"
     },
@@ -116,8 +144,15 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 72,
-        "excerpt": "In general, you should prefer type annotations to type assertions."
+        "page": 75,
+        "excerpt": "It’s also possible to use generic type inference to assert a type, but this is a bad idea since it’s easy to convince yourself that TypeScript is checking your types when it’s really not.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 377,
+            "excerpt": "An empty array means that this effect doesn’t use any values that could participate in the React data flow, so it’s safe to invoke only once."
+          }
+        ]
       },
       "code": "const items: string[] = [];\nitems.push(\"paid\");"
     },
@@ -136,8 +171,8 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "42 and -37.25 are in it, but 'Canada' is not."
+        "page": 41,
+        "excerpt": "You’ll often hear people say that their TypeScript “doesn’t compile” as a way of saying that it has errors."
       },
       "code": "let x: number = 1;\nx = \"hi\";"
     },
@@ -156,8 +191,15 @@
       "reference": {
         "section": "string versus String",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 27,
-        "excerpt": "TypeScript is an unusual language"
+        "page": 78,
+        "excerpt": "Things to Remember • Avoid TypeScript object wrapper types. Use the primitive types instead: string instead of String, number instead of Number, boolean instead of Boolean, symbol instead of Symbol, and bigint instead of BigInt. • Understand how object wrapper types are used to provide methods on…",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 181,
+            "excerpt": "There are two ways to do that, as you’ll learn in “The Record Type” and “Mapped Types”; but before we get there, let’s take a slight detour into type operators for object types."
+          }
+        ]
       },
       "code": "let label: String = \"paid\";\nlet ok: string = \"paid\";"
     },
@@ -176,8 +218,8 @@
       "reference": {
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 72,
-        "excerpt": "In general, you should prefer type annotations to type assertions."
+        "page": 75,
+        "excerpt": "This lets you convert between arbitrary types, but at least you’re being explicit that you’re doing something suspicious! const el = document.body as unknown as Person; // OK Not every type assertion uses the keyword as."
       },
       "code": "const raw: unknown = \"Ada\";\nconst name = raw as string;"
     },
@@ -196,8 +238,8 @@
       "reference": {
         "section": "any, unknown, never, void",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 65,
+        "excerpt": "Every type is assignable to unknown. Since it sits on top of the type hierarchy, it’s called a “top type.” Item 46 explains how to use the unknown type in your own code."
       },
       "code": "function label(value: unknown) {\n  return value.toUpperCase();\n}"
     },
@@ -216,8 +258,15 @@
       "reference": {
         "section": "any, unknown, never, void",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 85,
+        "excerpt": "Things to Remember • Consider applying type annotations to entire function expressions, rather than to their parameters and return type. • If you’re writing the same type signature repeatedly, factor out a function type or look for an existing one.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 88,
+            "excerpt": "The first of these is overloading a function type. But first, what does it even mean to overload a function?"
+          }
+        ]
       },
       "code": "function logName(name: string): void {\n  console.log(name);\n}"
     },
@@ -236,8 +285,15 @@
       "reference": {
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 38,
-        "excerpt": "your types can’t affect the way your code runs."
+        "page": 40,
+        "excerpt": "(parameter) shape: Square } } This works because class Rectangle introduces both a type and a value, whereas interface only introduced a type.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 320,
+            "excerpt": "Do it fast. Mass-rename your JavaScript files to the .ts extension, and keep your tsconfig.json settings lax (meaning strict set to false) to throw as few type errors as possible after renaming."
+          }
+        ]
       },
       "code": "let n: number = \"hi\";\nconsole.log(n);"
     },
@@ -256,8 +312,15 @@
       "reference": {
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 27,
-        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+        "page": 28,
+        "excerpt": "This is because TypeScript adds additional syntax for specifying types.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 36,
+            "excerpt": "If some variables don’t have explicit type annotations, TypeScript’s type checker will try to infer the types."
+          }
+        ]
       },
       "code": "import { add } from \"./math.js\";\nconsole.log(add(2, 3));"
     },
@@ -277,7 +340,7 @@
         "section": "Annotations and inference",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "excerpt": "This is best thought of as a set of possible values. This set is known as the domain of the type."
       },
       "code": "let amount: number = 40;\namount = 0;"
     },
@@ -296,8 +359,15 @@
       "reference": {
         "section": "What TypeScript is",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 27,
-        "excerpt": "It is this JavaScript that runs, not your TypeScript."
+        "page": 36,
+        "excerpt": "The “!” on the last line is called a “non-null asser‐ tion.” Type assertions have their place in TypeScript, but they can also lead to runtime exceptions.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 187,
+            "excerpt": "That’s what is meant by implicit any. But ideally, noImplicitAny should be set to true, so don’t forget to turn it back on when the migration to TypeScript is complete."
+          }
+        ]
       },
       "code": "function f<T>(x: T) {\n  console.log(typeof x);\n}"
     },
@@ -379,8 +449,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 59,
-        "excerpt": "This is best thought of as a set of possible values."
+        "page": 75,
+        "excerpt": "Finally, there’s as const. While this looks like a type assertion, it’s more properly called a “const context.” While as T should make you suspicious, as const makes types more precise and is completely safe.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 90,
+            "excerpt": "Using enums 73 not interested in the numeric value of this member."
+          }
+        ]
       },
       "level": 3
     },
@@ -423,8 +500,15 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 72,
-        "excerpt": "In general, you should prefer type annotations to type assertions."
+        "page": 36,
+        "excerpt": "Item 9 will explain when you should and should not use a type assertion. strictNullChecks is tremendously helpful for catching errors involving null and undefined values, but it does increase the difficulty of using the language.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 218,
+            "excerpt": "Throwing Exceptions Let’s throw an exception instead of returning null, so that we can handle specific failure modes and have some metadata about the failure so we can debug it more easily."
+          }
+        ]
       },
       "level": 3
     }

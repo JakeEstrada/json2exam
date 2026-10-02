@@ -16,8 +16,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "List Comprehensions The approach described earlier for generating the list squares consisted of using three or four lines of code."
       },
       "code": "squares = [n * n for n in nums]"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "A list comprehension allows you to generate this same list in just one line of code."
       },
       "code": "positives = [n for n in nums if n > 0]"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "List comprehensions are not always presented to beginners, but I’ve included them here because you’ll most likely see them as soon as you start looking at other people’s code."
       },
       "code": "gen = (n * n for n in nums)"
     },
@@ -76,8 +76,8 @@
       "reference": {
         "section": "Dict and set",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 172,
+        "excerpt": "Set Comprehensions Set comprehensions (setcomps) were added in Python 2.7, together with the dictcomps that we saw in “dict Comprehensions”."
       },
       "code": "index = {name: i for i, name in enumerate(names)}"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "Dict and set",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 172,
+        "excerpt": "Build set of characters with codes from 32 to 255 that have the word 'SIGN' in their names."
       },
       "code": "unique = {n for n in nums}"
     },
@@ -116,8 +116,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "A list comprehension combines the for loop and the creation of new elements into one line, and automatically appends each new element."
       },
       "code": "# use a for-loop if nested logic grows"
     },
@@ -136,8 +136,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "Each value in the loop is raised to the second power and then immediately appended to the list of squares."
       },
       "code": "pairs = [(i, j) for i in a for j in b]"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "To write this code more concisely, omit the temporary variable square and append each new value directly to the list: squares = [] for value in range(1,11): squares.append(value**2) print(squares) This line does the same work as the lines inside the for loop in the previous listing."
       },
       "code": "for n in nums:\n    print(n)"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "Simple Statistics with a List of Numbers A few Python functions are helpful when working with lists of numbers."
       },
       "code": "# [y for x in xs if (y := f(x)) > 0]"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "They would work just as well if your list contained a million or more numbers."
       },
       "code": "[n for n in nums if n]"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "Dict and set",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 160,
+        "excerpt": "The check for the unmodified key—key in self.keys()—is necessary for correctness because StrKeyDict0 does not enforce that all keys in the dictionary must be of type str."
       },
       "code": "{k: 0 for k in keys}"
     },
@@ -236,8 +236,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "A list comprehension allows you to generate this same list in just one line of code."
       },
       "code": "sum(n * n for n in nums)"
     },
@@ -256,8 +256,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "List comprehensions are not always presented to beginners, but I’ve included them here because you’ll most likely see them as soon as you start looking at other people’s code."
       },
       "code": "squares = [n * n for n in nums]"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "A list comprehension allows you to generate this same list in just one line of code."
       },
       "code": "\",\".join(str(n) for n in nums)"
     },
@@ -296,8 +296,8 @@
       "reference": {
         "section": "Dict and set",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 148,
+        "excerpt": "See the next section. dict Comprehensions Since Python 2.7, the syntax of listcomps and genexps was adapted to dict comprehensions (and set comprehensions as well, which we’ll soon visit)."
       },
       "code": "{c: i for i, c in enumerate(\"aba\")}  # {\"a\": 2, \"b\": 1}"
     },
@@ -319,8 +319,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "List Comprehensions The approach described earlier for generating the list squares consisted of using three or four lines of code."
       }
     },
     {
@@ -341,8 +341,8 @@
       "reference": {
         "section": "List comprehensions",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 98,
-        "excerpt": "squares. Next, open a set of square brackets and define the expression for"
+        "page": 97,
+        "excerpt": "List comprehensions are not always presented to beginners, but I’ve included them here because you’ll most likely see them as soon as you start looking at other people’s code."
       }
     },
     {
@@ -363,8 +363,8 @@
       "reference": {
         "section": "Dict and set",
         "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
-        "page": 171,
-        "excerpt": "notation, with one important exception: there’s no literal notation for the empty set,"
+        "page": 169,
+        "excerpt": "Smart use of set operations can reduce both the line count and the execution time of Python programs, at the same time making code easier to read and reason about—by removing loops and conditional logic."
       }
     }
   ],

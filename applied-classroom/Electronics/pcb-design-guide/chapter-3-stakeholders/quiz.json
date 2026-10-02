@@ -6,7 +6,7 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only after the first fab disposition email arrives for real production programs.",
+        "Only after the first fab disposition email arrives.",
         "At the start of the project, before ever starting the layout.",
         "After silk-screen fonts are locked for marketing photos.",
         "Never — constraints slow automation and Old Bob–speed delivery."
@@ -15,8 +15,8 @@
       "explanation": "Examine all the constraints at the start of a design project before",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 25,
-        "excerpt": "Examine all the constraints at the start of a design project before"
+        "page": 56,
+        "excerpt": "It is important to note here that a project manager, along with the team of stakeholders, have already set many of the design and manufacturing goals for the PCB, which are translated into the term, “constraints,” by the time the project has moved to the layout phase."
       }
     },
     {
@@ -24,17 +24,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Only the color of the soldermask legend ink for real production programs.",
+        "Only the color of the soldermask legend ink.",
         "Availability, size, shape, and performance of the design.",
         "Whether ITAR text appears on the purchase order footer.",
-        "The cafeteria star rating used to pick EMS suppliers."
+        "The public review score used to pick EMS suppliers."
       ],
       "answer": "b",
       "explanation": "what goes into a parts list will influence",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 25,
-        "excerpt": "what goes into a parts list will influence"
+        "page": 21,
+        "excerpt": "Most of the assembly process relies on auditing these listed parts for pricing, availability and lead time."
       }
     },
     {
@@ -43,16 +43,16 @@
       "level": 1,
       "options": [
         "Raw materials are stocked in sheet form; confirm the outline fits available material.",
-        "Fabs only cut boards from liquid copper poured at the dock for real production programs.",
-        "Sheet stock is irrelevant once defaults route at one mil for real production programs.",
-        "Outline size is chosen randomly after Gerbers are emailed for real production programs."
+        "Fabs only cut boards from liquid copper poured at the dock.",
+        "Sheet stock is irrelevant once defaults route at one mil.",
+        "Outline size is chosen randomly after Gerbers are emailed."
       ],
       "answer": "a",
       "explanation": "Raw materials for PCB fabrication are stocked in sheet form",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 25,
-        "excerpt": "Raw materials for PCB fabrication are stocked in sheet form"
+        "excerpt": "FFRaw materials for PCB fabrication are stocked in sheet form by the supplier."
       }
     },
     {
@@ -61,16 +61,16 @@
       "level": 1,
       "options": [
         "Whether bed-of-nails or functional test (etc.) will be used on the assemblies.",
-        "Only whether the fab offers overnight cake delivery with the panels for real production programs.",
-        "Whether star ratings exceed 4.2 on Quickie-Cheapo directories for real production programs.",
-        "Whether Otto can perform ICT using only the HR body scanner for real production programs."
+        "Only whether the fab offers overnight panel shipment with no test plan.",
+        "Whether star ratings exceed 4.2 on Quickie-Cheapo directories.",
+        "Whether Otto can perform ICT using only the HR body scanner."
       ],
       "answer": "a",
       "explanation": "How the assemblies will be tested. Bed-of-nails or functional test",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 25,
-        "excerpt": "How the assemblies will be tested. Bed-of-nails or functional test"
+        "excerpt": "How the assemblies will be tested. Bed-of-nails or functional test, etc."
       }
     },
     {
@@ -78,9 +78,9 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "You pick the cheapest fab on star ratings every time for real production programs.",
+        "You pick the cheapest fab on star ratings every time.",
         "All stakeholder needs are met before and during the project.",
-        "You disable DFM checks to protect schedule optimism for real production programs.",
+        "You disable DFM checks to protect schedule optimism.",
         "You sole-source every bare board without visiting the facility."
       ],
       "answer": "b",
@@ -88,7 +88,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 25,
-        "excerpt": "if all stakeholder needs are met before and during the project"
+        "excerpt": "All customer needs will be met in the end if all stakeholder needs are met before and during the project."
       }
     },
     {
@@ -99,14 +99,14 @@
         "Only the PDF page count of the assembly drawing notes.",
         "Thousands of parts and operations downstream in manufacturing.",
         "Nothing once the schematic symbol library is approved.",
-        "Only the color of the shipping box used by the EMS for real production programs."
+        "Only the color of the shipping box used by the EMS."
       ],
       "answer": "b",
       "explanation": "how a single design placement influences thousands of parts",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 25,
-        "excerpt": "how a single design placement influences thousands of parts"
+        "excerpt": "Bed-of-nails or functional test, etc. FFAcknowledge that what goes into a parts list will influence availability, size, shape, and performance."
       }
     },
     {
@@ -126,10 +126,10 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Ignore internal stakeholders; only the fab star rating matters for real production programs.",
+        "Ignore internal stakeholders; only the fab star rating matters.",
         "Work across disciplines so supplier capability and design constraints stay aligned.",
-        "Let engineering place POs with no commercial or process input for real production programs.",
-        "Treat the BOM as optional until after NPI scrap is accepted for real production programs."
+        "Let engineering place POs with no commercial or process input.",
+        "Treat the BOM as optional until after NPI scrap is accepted."
       ],
       "answer": "b",
       "explanation": "Communication with all stakeholders is critical",

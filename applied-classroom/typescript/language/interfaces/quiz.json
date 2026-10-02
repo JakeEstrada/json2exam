@@ -17,7 +17,7 @@
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "excerpt": "You can use a type alias, as shown here: type TState = { name: string; capital: string; }; or define an interface: interface IState { name: string; capital: string; } (You could also use a class, but that is a JavaScript runtime concept that also intro‐ duces a value."
       },
       "code": "interface State {\n  name: string;\n  capital: string;\n}"
     },
@@ -36,8 +36,15 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 91,
+        "excerpt": "In some cases, this inlining behavior can cause duplication of types extreme enough to affect compiler performance (Item 78).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 106,
+            "excerpt": "Let’s define a MyEvent type that describes a DOM event, like a click or a mousedown: type MyEvent<T> = { target: T type: string } Note that this is the only valid place to declare a generic type in a type alias: right after the type alias’s name, before its assignment (=)."
+          }
+        ]
       },
       "code": "type TState = {\n  name: string;\n  capital: string;\n};"
     },
@@ -56,8 +63,8 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 90,
+        "excerpt": "Another difference is that TypeScript will always try to refer to an interface by its name, whereas it takes more liberties replacing a type alias with its underlying defini‐ tion."
       },
       "code": "interface Window {\n  myApp: string;\n}"
     },
@@ -95,9 +102,9 @@
       "explanation": "implements checks the class against the shape. Structural typing still works without it.",
       "reference": {
         "section": "Extending",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 77,
+        "excerpt": "In this section, we’ll show you how to use TypeScript interfaces to ensure that a class implements a specific API. 3.2.1 Enforcing the contract An interface can declare not only properties but also methods (no implementations though)."
       },
       "code": "interface User { id: number; name: string }\nclass UserImpl {\n  constructor(public id: number, public name: string) {}\n}"
     },
@@ -116,8 +123,15 @@
       "reference": {
         "section": "When type is required",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 89,
+        "excerpt": "Generally you want more safety checks, so this is a good rea‐ son to use extends with interfaces.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 127,
+            "excerpt": "Hence the error about the missing age. The Required type was introduced in TypeScript 2.8."
+          }
+        ]
       },
       "code": "type Id = string | number;\nconst id: Id = 12;"
     },
@@ -136,8 +150,15 @@
       "reference": {
         "section": "When type is required",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 91,
+        "excerpt": "And for function types, tuple types, and array types, the type syntax is more concise and natural than the interface syntax.",
+        "books": [
+          {
+            "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+            "page": 126,
+            "excerpt": "It shows an error message because the worker1 variable has the type Person, where each property is required, but the value for age was not provided."
+          }
+        ]
       },
       "code": "type Pair = [string, number];\nconst p: Pair = [\"Ada\", 1];"
     },
@@ -156,8 +177,15 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 90,
+        "excerpt": "It can happen in user code, but only if the two interfaces are defined in the same module (i.e., the same .ts file).",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 210,
+            "excerpt": "While back in the day extending these prototypes was unsafe, if your code is covered by a static type system like TypeScript, then you can now do it safely.6 For example, we’ll add a zip method to the Array prototype."
+          }
+        ]
       },
       "code": "interface User {\n  id: number;\n  greet(): string;\n}"
     },
@@ -176,8 +204,8 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 93,
+        "excerpt": "(You may reassign a variable declared with let to another primitive, but you are not changing the primitive value itself.) As you saw with the destructive arraySum function, arrays (and objects) very much are mutable."
       },
       "code": "interface User {\n  greet(): string;\n  onChange: (value: string) => void;\n}"
     },
@@ -196,8 +224,15 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 89,
+        "excerpt": "This is primarily used with type declaration files (Chapter 8), and if you’re writing one, you should follow the norms and use interface to support it.",
+        "books": [
+          {
+            "book": "Programming TypeScript by Boris Cherny",
+            "page": 106,
+            "excerpt": "And if you recall the Array and ReadonlyArray types from the last chapter (see “Read-only arrays and tuples”), those are generic type aliases too!"
+          }
+        ]
       },
       "code": "type State = { name: string };\ntype State = { capital: string };"
     },
@@ -215,9 +250,9 @@
       "explanation": "Multiple extends lists compose like an intersection of object types.",
       "reference": {
         "section": "Extending",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "book": "TypeScript Quickly by Yakov Fain and Anton Moiseev",
+        "page": 80,
+        "excerpt": "63 Working with interfaces interface. In listing 3.17, the SecretServiceCar class inherited from Car and implemented two additional interfaces."
       },
       "code": "interface Both extends User, Timestamped {}"
     },
@@ -257,7 +292,7 @@
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
         "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "excerpt": "Item 13: Know the Differences Between type and interface If you want to define a named type in TypeScript, you have two options."
       },
       "code": "class User {\n  name: string = \"\";\n}"
     },
@@ -276,8 +311,8 @@
       "reference": {
         "section": "interface versus type",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 75,
+        "excerpt": "They don’t change a value. Rather, they “assert” something that is already true about it."
       },
       "code": "interface Formatter {\n  (value: string): string;\n  locale: string;\n}"
     },
@@ -296,8 +331,8 @@
       "reference": {
         "section": "Extending",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 48,
+        "excerpt": "Because of structural typing, the PostgresDB doesn’t need to say that it implements DB."
       },
       "code": "class UserImpl implements User {\n  constructor(public id: number, public name: string) {}\n}"
     },
@@ -327,8 +362,8 @@
       "reference": {
         "section": "Coding tasks",
         "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "page": 373,
+        "excerpt": "Even just knowing the name of the feature can be helpful. • Use let and const instead of var to declare variables."
       },
       "level": 3
     },
@@ -361,9 +396,9 @@
       "explanation": "Admin extends User with level. At runtime it is still a plain object.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Effective TypeScript, 2nd Edition by Dan Vanderkam",
-        "page": 86,
-        "excerpt": "If you want to define a named type in TypeScript, you have two options."
+        "book": "Programming TypeScript by Boris Cherny",
+        "page": 189,
+        "excerpt": "We create a new object type NullableAccount by mapping over Account, adding null as a possible value for each field along the way."
       },
       "level": 3
     },

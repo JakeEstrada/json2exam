@@ -14,9 +14,16 @@
       "answer": "b",
       "explanation": "Horizontal scaling is more desirable for large scale applications due to the limitation of vertical scaling",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 14,
-        "excerpt": "Horizontal scaling is more desirable for large scale applications due to the limitation of vertical scaling"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 13,
+        "excerpt": "Horizontal scaling is more desirable for large scale applications due to the limitations of vertical scaling.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 340,
+            "excerpt": "While replication is useful at both small and large scale, because it enables fault tolerance and offline operation, sharding is a heavyweight solution that is mostly relevant at large scale."
+          }
+        ]
       }
     },
     {
@@ -24,17 +31,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "A way to run the database inside each user’s browser only in real production systems at scale.",
+        "A way to run the database inside each user’s browser only.",
         "Distribution of traffic across servers and a path to remove a single web SPOF.",
-        "Automatic conversion of SQL to NoSQL without migrations in real production systems at scale.",
-        "Free multi-region replication for every disk block in real production systems at scale."
+        "Automatic conversion of SQL to NoSQL without migrations.",
+        "Free multi-region replication for every disk block."
       ],
       "answer": "b",
       "explanation": "load balancer",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 16,
-        "excerpt": "load balancer"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 302,
+        "excerpt": "Here are a few areas you find: • Load balancer: Add a load balancer to distribute network traffic."
       }
     },
     {
@@ -44,15 +51,15 @@
       "options": [
         "One primary can easily hold all data and write throughput forever.",
         "Data volume or write throughput exceeds what a single primary can handle.",
-        "You want to delete all secondary indexes for simplicity in real production systems at scale.",
-        "CDN hit ratio reaches one hundred percent on HTML pages in real production systems at scale."
+        "You want to delete all secondary indexes for simplicity.",
+        "CDN hit ratio reaches one hundred percent on HTML pages."
       ],
       "answer": "b",
       "explanation": "If there’s so much data or such a high write throughput that a single",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 337,
-        "excerpt": "If there’s so much data or such a high write throughput that a single"
+        "book": "Fundamentals of Software Architecture, 2nd Edition by Mark Richards and Neal Ford",
+        "page": 249,
+        "excerpt": "Generally, software systems tend to add functionality over time, and separating concerns becomes necessary to maintain their operational architecture characteristics, such as performance and scale."
       }
     },
     {
@@ -68,9 +75,16 @@
       "answer": "b",
       "explanation": "only k/n keys need to be remapped on average",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 93,
-        "excerpt": "only k/n keys need to be remapped on average"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 181,
+        "excerpt": "Refer to Chapter 5: Design consistent hashing for more details. • Save crawl states and data: To guard against failures, crawl states and data are written to a storage system.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 354,
+            "excerpt": "Consistent hashing A consistent hashing algorithm is a hash function that maps keys to a specified number of shards in a way that satisfies two properties: The number of keys mapped to each shard is roughly equal."
+          }
+        ]
       }
     },
     {
@@ -80,9 +94,9 @@
       "answer": true,
       "explanation": "rethink your architecture on every order of magnitude load increase",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
         "page": 85,
-        "excerpt": "rethink your architecture on every order of magnitude load increase"
+        "excerpt": "If you are working on a fastgrowing service, it is therefore probable that you will need to rethink your architecture on every order of magnitude load increase."
       }
     }
   ]

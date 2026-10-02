@@ -15,9 +15,9 @@
       "explanation": "A function declaration needs `function`, a parameter list, braces, and `return`. `=>` belongs on an arrow function (`const add = (a, b) => a + b`), not after `function`.",
       "reference": {
         "section": "Defining a function",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 75,
-        "excerpt": "A function definition is a regular binding where the value of the binding is a function."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 146,
+        "excerpt": "So for the earlier if..else example, my suggestion is to avoid conditionally defining functions if at all possible."
       },
       "code": "console.log(add(2, 3));"
     },
@@ -34,9 +34,9 @@
       "explanation": "Functions are values. That is what makes closures and higher-order helpers possible.",
       "reference": {
         "section": "Defining a function",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 75,
-        "excerpt": "A function definition is a regular binding where the value of the binding is a function."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 146,
+        "excerpt": "So for the earlier if..else example, my suggestion is to avoid conditionally defining functions if at all possible."
       },
       "level": 1,
       "code": "const add = function (a, b) {\n  return a + b;\n};\nconsole.log(typeof add);"
@@ -54,9 +54,16 @@
       "explanation": "Missing return produces undefined. That is not an error by itself.",
       "reference": {
         "section": "Defining a function",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 75,
-        "excerpt": "Functions have a set of parameters (in this case, only x) and a body, which contains the statements that are to be executed when the function is called."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 82,
+        "excerpt": "If the value is null or undefined, the expression throws a TypeError, since these are the two JavaScript values that cannot have properties.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 87,
+            "excerpt": "Thinking about programs like this takes some practice. A good mental model is to think of function values as containing both the code in their body and the environment in which they are created."
+          }
+        ]
       },
       "level": 1,
       "code": "function greet(name) {\n  console.log(\"hi \" + name);\n}\nconsole.log(greet(\"Ada\"));"
@@ -74,9 +81,9 @@
       "explanation": "f keeps one n. A separate make() call creates a new n starting at 0.",
       "reference": {
         "section": "Closure",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 86,
-        "excerpt": "The ability to treat functions as values, combined with the fact that local bindings are re-created every time a function is called, brings up an interesting question."
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 227,
+        "excerpt": "It is important to remember that the scope associated with a closure is “live.” Nested functions do not make private copies of the scope or make static snapshots of the variable bindings."
       },
       "level": 1,
       "code": "function make() {\n  let n = 0;\n  return () => { n += 1; return n; };\n}\nconst f = make();"
@@ -94,9 +101,9 @@
       "explanation": "var is function-scoped. After the loop i is 3. Use let i or bind i in its own closure.",
       "reference": {
         "section": "Find the bug",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 19,
-        "excerpt": "Working with variables is one of the most foundational things we do in programming!"
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 77,
+        "excerpt": "Bindings declared with let and const are in fact local to the block in which they are declared, so if you create one of those inside of a loop, the code before and after the loop cannot “see” it."
       },
       "level": 3,
       "code": "const fns = [];\nfor (var i = 0; i < 3; i++) {\n  fns.push(function () { return i; });\n}"
@@ -114,9 +121,9 @@
       "explanation": "JS is lexically scoped. Closures still see live bindings, not snapshots.",
       "reference": {
         "section": "Bindings and scopes",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 19,
-        "excerpt": "how does JS know which variables are accessible by any given statement, and how does it handle two variables of the same name?"
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 34,
+        "excerpt": "Lexical Scope We’ve demonstrated that JS’s scope is determined at compile time; the term for this kind of scope is “lexical scope”."
       },
       "level": 2,
       "code": "function outer() {\n  const n = 1;\n  function inner() {\n    return n;\n  }\n  return inner();\n}"
@@ -134,9 +141,16 @@
       "explanation": "That is the heap-based model behind closures. C++ lambdas that capture stack by reference can dangle; JS locals do not.",
       "reference": {
         "section": "From C++",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 149,
-        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 152,
+        "excerpt": "Each of those references from the inner function to the variable in an outer scope is called a closure.",
+        "books": [
+          {
+            "book": "JavaScript: The Good Parts by Douglas Crockford",
+            "page": 89,
+            "excerpt": "1 4.10. Closure The good news about scope is that inner functions get access to the parameters and variables of the functions they are defined within (with the exception of this and arguments)."
+          }
+        ]
       },
       "level": 2,
       "code": "function make() {\n  let n = 0;\n  return function () {\n    n += 1;\n    return n;\n  };\n}"
@@ -177,9 +191,9 @@
       "explanation": "Extra args are ignored. Objects are passed as references (the binding is local; the object is shared).",
       "reference": {
         "section": "Defining a function",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 75,
-        "excerpt": "A function is created with an expression that starts with the keyword function."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 146,
+        "excerpt": "So for the earlier if..else example, my suggestion is to avoid conditionally defining functions if at all possible."
       },
       "level": 2,
       "code": "function label(status) {\n  status = status || \"open\";\n  return status;\n}"
@@ -197,9 +211,9 @@
       "explanation": "A function declaration can be called earlier in the same scope. A const function lives in the temporal dead zone until its line.",
       "reference": {
         "section": "Defining a function",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 74,
-        "excerpt": "Functions are one of the most central tools in JavaScript programming."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 146,
+        "excerpt": "Always place function declarations anywhere in the top-level scope of a function (or in the global scope)."
       },
       "level": 2,
       "code": "console.log(declared());\nfunction declared() { return 1; }\nconsole.log(expr());\nconst expr = function () { return 2; };"
@@ -217,9 +231,9 @@
       "explanation": "YDKJS: live link, not a snapshot. Reassignment is visible.",
       "reference": {
         "section": "Closure",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 149,
-        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "Live Link, Not a Snapshot In both examples from the previous sections, we read the value from a variable that was held in a closure."
       },
       "level": 2,
       "code": "function make() {\n  let n = 1;\n  const read = () => n;\n  n = 2;\n  return read;\n}"
@@ -237,9 +251,9 @@
       "explanation": "The outer function captures rate. The inner multiplies amount.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 86,
-        "excerpt": "With a slight change, we can turn the previous example into a way to create functions that multiply by an arbitrary amount."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "There’s no judging you on how you write your code. My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "function applyDiscount(rate) {\n  return function (amount) {\n    return amount * (1 - rate);\n  };\n}"
@@ -257,9 +271,16 @@
       "explanation": "let/const honor the block. var does not.",
       "reference": {
         "section": "Bindings and scopes",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 19,
-        "excerpt": "The answers to questions like these take the form of welldefined rules called scope."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 149,
+        "excerpt": "Closure builds on this approach: for variables we need to use over time, instead of placing them in larger outer scopes, we can encapsulate (more narrowly scope) them but still preserve access from inside functions, for broader use.",
+        "books": [
+          {
+            "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+            "page": 62,
+            "excerpt": "To reflect this, the test appears after the body of the loop: let yourName; do { yourName = prompt(\"Who are you?\"); } while (!yourName); console.log(\"Hello \" + yourName); This program will force you to enter a name."
+          }
+        ]
       },
       "level": 2,
       "code": "function demo(ok) {\n  if (ok) {\n    var leaked = 1;\n    let blocked = 2;\n  }\n  return leaked;\n}"
@@ -277,9 +298,9 @@
       "explanation": "A private counter is the point of the factory. Do not put n on the function unless you want it public.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 86,
-        "excerpt": "The explicit local binding from the wrapValue example isn’t really needed since a parameter is itself a local binding."
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 248,
+        "excerpt": "My hope is that you come away from this book feeling confident that you can tackle these sorts of coding tasks built on a strong foundation of knowledge."
       },
       "level": 2,
       "code": "const next = makeIdFactory(\"inv\");\nnext();\nnext();"
@@ -297,9 +318,9 @@
       "explanation": "YDKJS: you observe closure when a function uses an outer binding from a scope that has already finished.",
       "reference": {
         "section": "Closure",
-        "book": "You Don't Know JS Yet by Kyle Simpson",
-        "page": 149,
-        "excerpt": "Closure is one of the most important language characteristics ever invented in programming"
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 153,
+        "excerpt": "Closure allows greetStudent(..) to continue to access those outer variables even after the outer scope is finished (when each call to lookupStudent(..) completes)."
       },
       "level": 2,
       "code": "function make() {\n  let n = 0;\n  return function () {\n    n += 1;\n    return n;\n  };\n}\nconst f = make();\nf();"
@@ -343,9 +364,9 @@
       "explanation": "Each rate gets its own closed-over binding.",
       "reference": {
         "section": "Coding tasks",
-        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
-        "page": 86,
-        "excerpt": "function multiplier(factor) {"
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 379,
+        "excerpt": "Promises based on other Promises It is easy to write a function that returns a Promise if you have some other Promisereturning function to start with."
       },
       "level": 3
     },

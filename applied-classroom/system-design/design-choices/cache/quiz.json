@@ -14,9 +14,9 @@
       "answer": "b",
       "explanation": "Remember the result of an expensive operation, to speed up reads (caches)",
       "reference": {
-        "book": "Designing Data-Intensive Applications",
-        "page": 16,
-        "excerpt": "Remember the result of an expensive operation, to speed up reads (caches)"
+        "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+        "page": 17,
+        "excerpt": "If you are doing exactly what the data systems were designed for, this process can be quite easy."
       }
     },
     {
@@ -24,9 +24,9 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "To make every write slower on purpose for fairness in real production systems at scale.",
+        "To make every write slower on purpose for fairness.",
         "To absorb repeated reads so the database is not overwhelmed.",
-        "To remove the need for any load balancer forever in real production systems at scale.",
+        "To remove the need for any load balancer forever.",
         "To store passwords in plaintext closer to the browser."
       ],
       "answer": "b",
@@ -45,14 +45,14 @@
         "Only that one key moves; all other keys stay perfectly mapped.",
         "Most keys remapping, causing a storm of cache misses.",
         "That consistent hashing becomes illegal to use afterward.",
-        "That N can never change in any distributed system in real production systems at scale."
+        "That N can never change in any distributed system."
       ],
       "answer": "b",
       "explanation": "most keys are redistributed… This causes a storm of cache misses",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 92,
-        "excerpt": "most keys are redistributed… This causes a storm of cache misses"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 97,
+        "excerpt": "Hash keys One thing worth mentioning is that hash function used here is different from the one in “the rehashing problem,” and there is no modular operation."
       }
     },
     {
@@ -62,15 +62,22 @@
       "options": [
         "Every key in the cluster must move to a new server immediately.",
         "Only about k/n keys need remapping on average, not nearly all keys.",
-        "No keys ever move even if you remove every server in real production systems at scale.",
+        "No keys ever move even if you remove every server.",
         "Keys are stored on all servers at once with no lookup rule."
       ],
       "answer": "b",
       "explanation": "only k/n keys need to be remapped on average",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 93,
-        "excerpt": "only k/n keys need to be remapped on average"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 96,
+        "excerpt": "Consistent hashing Quoted from Wikipedia: \"Consistent hashing is a special kind of hashing such that when a hash table is re-sized and consistent hashing is used, only k/n keys need to be remapped on average, where k is the number of keys, and n is the number of slots.",
+        "books": [
+          {
+            "book": "Designing Data-Intensive Applications by Martin Kleppmann",
+            "page": 354,
+            "excerpt": "Consistent hashing A consistent hashing algorithm is a hash function that maps keys to a specified number of shards in a way that satisfies two properties: The number of keys mapped to each shard is roughly equal."
+          }
+        ]
       }
     },
     {
@@ -80,9 +87,9 @@
       "answer": true,
       "explanation": "we go clockwise from the key position on the ring until a server is found",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 96,
-        "excerpt": "we go clockwise from the key position on the ring until a server is found"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 98,
+        "excerpt": "onto the hash ring Server lookup To determine which server a key is stored on, we go clockwise from the key position on the ring until a server is found."
       }
     },
     {
@@ -90,17 +97,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Make the ring square instead of circular for easier drawing in real production systems at scale.",
+        "Make the ring square instead of circular for easier drawing.",
         "Improve balance / reduce hot spots when servers are unevenly placed.",
-        "Eliminate the need for any hash function at all in real production systems at scale.",
+        "Eliminate the need for any hash function at all.",
         "Force every key to live on exactly one physical disk platter forever."
       ],
       "answer": "b",
       "explanation": "virtual nodes",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 100,
-        "excerpt": "virtual nodes"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 105,
+        "excerpt": "This is a tradeoff, and we can tune the number of virtual nodes to fit our system requirements."
       }
     }
   ]

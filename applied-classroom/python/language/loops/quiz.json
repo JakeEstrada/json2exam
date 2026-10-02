@@ -16,8 +16,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 96,
+        "excerpt": "It adds 2 repeatedly until it reaches or passes the end value, 11, and produces this result: [2, 4, 6, 8, 10] You can create almost any set of numbers you want to using the range() function."
       },
       "code": "for i in range(3):\n    print(i)"
     },
@@ -36,8 +36,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 98,
+        "excerpt": "The for loop in this example is for value in range(1, 11), which feeds the values 1 through 10 into the expression value**2."
       },
       "code": "for item in rows:\n    print(item)"
     },
@@ -56,8 +56,8 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 168,
+        "excerpt": "(Even so, the parentheses are required.) Finally, the definition ends in a colon."
       },
       "code": "while i < n:\n    i += 1"
     },
@@ -75,9 +75,9 @@
       "explanation": "break leaves the loop.",
       "reference": {
         "section": "break and continue",
-        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 144,
+        "excerpt": "The built-in functions are all in __builtins__.__dict__. Because of their crucial role, Python dicts are highly optimized—and continue to get improvements."
       },
       "code": "if x == 0:\n    break"
     },
@@ -96,8 +96,8 @@
       "reference": {
         "section": "break and continue",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 160,
+        "excerpt": "If the current number is not divisible by 2, the rest of the loop is executed and Python prints the current number: 1 3 5 7 9 Avoiding Infinite Loops Every while loop needs a way to stop running so it won’t continue to run forever."
       },
       "code": "if x < 0:\n    continue"
     },
@@ -116,8 +116,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 98,
+        "excerpt": "Odd Numbers: Use the third argument of the range() function to make a list of the odd numbers from 1 to 20."
       },
       "code": "list(range(2, 5))  # [2, 3, 4]"
     },
@@ -156,8 +156,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 100,
+        "excerpt": "If a third value is included, this tells Python how many items to skip between items in the specified range."
       },
       "code": "for i, x in enumerate(rows):\n    print(i, x)"
     },
@@ -176,8 +176,8 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 159,
+        "excerpt": "have a flag to indicate whether the overall program is in an active state, it would be easy to add more tests (such as elif statements) for events that should cause active to become False."
       },
       "code": "while True:\n    if done:\n        break"
     },
@@ -196,8 +196,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 144,
+        "excerpt": "The range() function 1 returns a series of numbers, which just tells Python how many times we want the loop to repeat."
       },
       "code": "for i in range(0):\n    print(i)"
     },
@@ -216,8 +216,8 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 434,
+        "excerpt": "Python uses indentation to indicate which lines of a for statement are part of a loop."
       },
       "code": "while i < n:\n    i += 1"
     },
@@ -236,8 +236,8 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 156,
+        "excerpt": "(The += operator is shorthand for current_number = current_number + 1.) Python repeats the loop as long as the condition current_number <= 5 is true."
       },
       "code": "i += 1"
     },
@@ -256,8 +256,8 @@
       "reference": {
         "section": "break and continue",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 159,
+        "excerpt": "When they enter 'quit', the break statement runs, causing Python to exit the loop: Please enter the name of a city you have visited: (Enter 'quit' when you are finished.) New York I'd love to go to New York!"
       },
       "code": "for x in nums:\n    if x < 0:\n        break\nelse:\n    print(\"all ok\")"
     },
@@ -276,8 +276,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 149,
+        "excerpt": "If each user’s dictionary had different keys, the code inside the for loop would be more complicated."
       },
       "code": "for k in d:\n    print(k, d[k])"
     },
@@ -297,7 +297,7 @@
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
         "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "excerpt": "The range() function causes Python to start counting at the first value you give it, and it stops when it reaches the second value you provide."
       },
       "code": "list(range(5, 0, -1))"
     },
@@ -319,8 +319,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 100,
+        "excerpt": "For example, if we want to output the last three players on the roster, we can use the slice players[-3:]: players = ['charles', 'martina', 'michael', 'florence', 'eli'] print(players[-3:]) This prints the names of the last three players and will continue to work as the list of players changes in…"
       }
     },
     {
@@ -341,8 +341,8 @@
       "reference": {
         "section": "for and range",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 95,
-        "excerpt": "Python’s range() function makes it easy to generate a series of numbers."
+        "page": 146,
+        "excerpt": "To print the toppings, we write a for loop 2. To access the list of toppings, we use the key 'toppings', and Python grabs the list of toppings from the dictionary."
       }
     },
     {
@@ -363,8 +363,8 @@
       "reference": {
         "section": "while",
         "book": "Python Crash Course, 3rd Edition by Eric Matthes",
-        "page": 155,
-        "excerpt": "for each item in the collection. In contrast, the while loop runs as long as, or"
+        "page": 153,
+        "excerpt": "\") How old are you? 21 >>> age '21' The user enters the number 21, but when we ask Python for the value of age, it returns '21', the string representation of the numerical value entered."
       }
     }
   ],

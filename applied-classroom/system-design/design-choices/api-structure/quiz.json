@@ -7,16 +7,16 @@
       "level": 2,
       "options": [
         "POST to create a short URL; GET to resolve/redirect a short URL.",
-        "DELETE only, with no way to create or resolve aliases in real production systems at scale.",
-        "FTP upload of CSV files with no HTTP interface at all in real production systems at scale.",
-        "WebSocket-only binary frames with no resource URLs in real production systems at scale."
+        "DELETE only, with no way to create or resolve aliases.",
+        "FTP upload of CSV files with no HTTP interface at all.",
+        "WebSocket-only binary frames with no resource URLs."
       ],
       "answer": "a",
       "explanation": "URL shortening… POST… URL redirecting… GET",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 152,
-        "excerpt": "URL shortening… POST… URL redirecting… GET"
+        "excerpt": "To create a new short URL, a client sends a POST request, which contains one parameter: the original long URL."
       }
     },
     {
@@ -32,9 +32,9 @@
       "answer": "b",
       "explanation": "a rate limiter limits the number of client requests allowed to be sent over a specified period",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 66,
-        "excerpt": "a rate limiter limits the number of client requests allowed to be sent over a specified period"
+        "excerpt": "In the HTTP world, a rate limiter limits the number of client requests allowed to be sent over a specified period."
       }
     },
     {
@@ -42,17 +42,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Encouraging intentional DoS so capacity planning is realistic in real production systems at scale.",
+        "Encouraging intentional DoS so capacity planning is realistic.",
         "Preventing resource starvation from DoS (intentional or not) and reducing cost/load.",
-        "Removing the need for authentication on admin endpoints in real production systems at scale.",
-        "Guaranteeing unlimited free calls to paid third-party APIs in real production systems at scale."
+        "Removing the need for authentication on admin endpoints.",
+        "Guaranteeing unlimited free calls to paid third-party APIs."
       ],
       "answer": "b",
       "explanation": "Prevent resource starvation caused by Denial of Service (DoS) attack… Reduce cost… Prevent servers from being overloaded",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 67,
-        "excerpt": "Prevent resource starvation caused by Denial of Service (DoS) attack… Reduce cost… Prevent servers from being overloaded"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 66,
+        "excerpt": "In this chapter, you are asked to design a rate limiter. Before starting the design, we first look at the benefits of using an API rate limiter: • Prevent resource starvation caused by Denial of Service (DoS) attack [1]."
       }
     },
     {
@@ -60,17 +60,17 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Browsers cannot send HTTP requests at all without it in real production systems at scale.",
+        "Browsers cannot send HTTP requests at all without it.",
         "Clients can be forged/uncontrolled; enforcement belongs server-side or in middleware.",
-        "Servers are not allowed to count requests in distributed systems in real production systems at scale.",
-        "HTTP status codes cannot express throttling to clients in real production systems at scale."
+        "Servers are not allowed to count requests in distributed systems.",
+        "HTTP status codes cannot express throttling to clients."
       ],
       "answer": "b",
       "explanation": "client is an unreliable place to enforce rate limiting because client requests can easily be forged",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 70,
-        "excerpt": "client is an unreliable place to enforce rate limiting because client requests can easily be forged"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 69,
+        "excerpt": "For now, we only need to know that the API gateway is a middleware that supports rate limiting."
       }
     },
     {
@@ -80,9 +80,9 @@
       "answer": true,
       "explanation": "Low latency… little memory… Distributed rate limiting… Exception handling… High fault tolerance",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
-        "page": 69,
-        "excerpt": "Low latency… little memory… Distributed rate limiting… Exception handling… High fault tolerance"
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
+        "page": 67,
+        "excerpt": "Show clear exceptions to users when their requests are throttled. • High fault tolerance."
       }
     },
     {
@@ -92,15 +92,15 @@
       "options": [
         "Hide endpoints until after coding every storage engine quirk.",
         "Propose endpoints and get interviewer buy-in before deep dives.",
-        "Only use SOAP envelopes with no resource naming in real production systems at scale.",
+        "Only use SOAP envelopes with no resource naming.",
         "Avoid status codes so clients guess success from latency."
       ],
       "answer": "b",
       "explanation": "Propose high-level design and get buy-in",
       "reference": {
-        "book": "System Design Interview – An Insider's Guide",
+        "book": "System Design Interview – An Insider's Guide by Alex Xu",
         "page": 58,
-        "excerpt": "Propose high-level design and get buy-in"
+        "excerpt": "It is important to understand the requirements and clarify ambiguities Step 2 - Propose high-level design and get buy-in In this step, we aim to develop a high-level design and reach an agreement with the interviewer on the design."
       }
     }
   ]

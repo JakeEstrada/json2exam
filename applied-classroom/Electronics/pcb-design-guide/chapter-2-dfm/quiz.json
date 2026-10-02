@@ -7,16 +7,23 @@
       "level": 1,
       "options": [
         "The CAM department rejected automated defaults that made 1 mil traces incompatible with process capability.",
-        "The credit card was declined before any CAM review started on the Gerber package for real production programs.",
-        "Otto deleted the design rules file during orientation and the fab refused unsigned jobs for real production programs.",
-        "Old Bob required every board to use only silk-screen artwork with no copper at all for real production programs."
+        "The credit card was declined before any CAM review started on the Gerber package.",
+        "Otto deleted the design rules file during orientation and the fab refused unsigned jobs.",
+        "Old Bob required every board to use only silk-screen artwork with no copper at all."
       ],
       "answer": "a",
       "explanation": "TRACE WIDTH AND SPACING INCOMPATABLE WITH OUR PROCESSING CAPABILITY",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 12,
-        "excerpt": "TRACE WIDTH AND SPACING INCOMPATABLE WITH OUR PROCESSING CAPABILITY"
+        "excerpt": "Ian was relieved to see this. Since the spacing between the two one mil lines was set so wide, Old Bob’s CAM department at Etch-O-Matronic could increase the traces automatically to a more manufacturable width of seven mils and still allow eight mils space between traces and continue with fabrica…",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 42,
+            "excerpt": "When it is a differential pair, the spacing between the two traces is measured to understand whether or not the projected impedance is in alignment with the recorded impedance."
+          }
+        ]
       }
     },
     {
@@ -26,15 +33,15 @@
       "options": [
         "If the layout tool permits a geometry, the fab process can always etch and plate it reliably.",
         "Tool permission is not process capability — choose trace width for performance and DFM.",
-        "One mil traces are mandatory for every avionics board regardless of the fab process for real production programs.",
-        "Defaults are always safer than talking to a manufacturing engineer about capability for real production programs."
+        "One mil traces are mandatory for every avionics board regardless of the fab process.",
+        "Defaults are always safer than talking to a manufacturing engineer about capability."
       ],
       "answer": "b",
       "explanation": "just because his layout software allowed him to create one mil traces doesn’t mean he should have",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 12,
-        "excerpt": "just because his layout software allowed him to create one mil traces doesn’t mean he should have"
+        "excerpt": "He explained the nature of the disposition and helped Ian to see that just because his layout software allowed him to create one mil traces doesn’t mean he should have."
       }
     },
     {
@@ -44,15 +51,15 @@
       "options": [
         "Fab DFM and assembly DFA are identical, so the hold must be a shipping error only.",
         "The finished bare PCB is a component; assembly quality is outside the fabricator’s scope.",
-        "The fab must reflow every connector before the board leaves the etch line for real production programs.",
-        "Assembly holds only happen when the BOM lists cake from the cafeteria menu for real production programs."
+        "The fab must reflow every connector before the board leaves the etch line.",
+        "Assembly holds only happen when the fabricator forgot to etch the soldermask."
       ],
       "answer": "b",
       "explanation": "It is the fabricator’s job to create a quality component",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 13,
-        "excerpt": "It is the fabricator’s job to create a quality component"
+        "excerpt": "Old Bob explained how, when finished, the bare PCB is considered a component."
       }
     },
     {
@@ -63,7 +70,7 @@
         "Trust default software settings because automation equals manufacturability.",
         "Do not trust default software settings — understand how to optimize them.",
         "Disable all design-rule checks so CAM never sends disposition emails.",
-        "Set every trace to one mil so the fab can always fatten them later for real production programs."
+        "Set every trace to one mil so the fab can always fatten them later."
       ],
       "answer": "b",
       "explanation": "Do not trust default software settings to design your PCB",
@@ -98,7 +105,7 @@
       "options": [
         "Only “How much did the Quickie-Cheapo fab charge per square inch?”",
         "Who, What, When, Where, Why, and How across the manufacturing flow.",
-        "Only the cafeteria menu options available during an all-nighter.",
+        "Only the overnight turn-time options listed on the fab quote.",
         "Which star rating to click when choosing the next fab vendor."
       ],
       "answer": "b",
@@ -106,7 +113,7 @@
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
         "page": 14,
-        "excerpt": "Who, What, When, Where, Why, and How"
+        "excerpt": "The app kind of freaks out when there are too many DFM problems on a design.” With a grandfather-like voice, Old Bob had a heart-to-heart with Ian."
       }
     },
     {
@@ -114,17 +121,24 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Are wiped out automatically by any fab’s free online DFM button for real production programs.",
+        "Are wiped out automatically by any fab’s free online DFM button.",
         "Get baked into prototypes, stay through the lifecycle, and raise defect/cost risk.",
-        "Only matter for hobby boards and never for production avionics for real production programs.",
-        "Are fixed by increasing the public star rating of the chosen fab for real production programs."
+        "Only matter for hobby boards and never for production avionics.",
+        "Are fixed by increasing the public star rating of the chosen fab."
       ],
       "answer": "b",
       "explanation": "impractical design decisions made at the initial design stage will eventually get baked into the prototype",
       "reference": {
-        "book": "High-Speed PCB Design Guide",
-        "page": 2,
-        "excerpt": "impractical design decisions made at the initial design stage will eventually get baked into the prototype"
+        "book": "The Hitchhiker's Guide to PCB Design",
+        "page": 7,
+        "excerpt": "The job of an electronics engineer is evolving. Electronics Engineers are now tasked with additional PCB design tasks such as layout, component sourcing, DFM, collaborating with manufacturing, etc.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 54,
+            "excerpt": "What is really important to note from a manufacturing perspective is that a board with a tighter weave is easier to manufacture."
+          }
+        ]
       }
     },
     {
@@ -135,8 +149,15 @@
       "explanation": "Communication with all stakeholders is critical",
       "reference": {
         "book": "The Hitchhiker's Guide to PCB Design",
-        "page": 14,
-        "excerpt": "Communication with all stakeholders is critical"
+        "page": 17,
+        "excerpt": "If the PCB is destined for use in mission critical life support equipment, it will need to be designed with robust features and quality materials, regardless of cost.",
+        "books": [
+          {
+            "book": "High-Speed PCB Design Guide",
+            "page": 9,
+            "excerpt": "Once the PCB design is complete, reviewed, and approved by all the stakeholders, it goes for PCB fabrication and ultimately PCB assembly."
+          }
+        ]
       }
     },
     {
@@ -144,10 +165,10 @@
       "type": "multiple",
       "level": 1,
       "options": [
-        "Piece price alone proves a fab can support rate production without process review for real production programs.",
+        "Piece price alone proves a fab can support rate production without process review.",
         "Technical buyers must challenge “tool defaults” and verify fab/assembly process capability.",
-        "Drawings and stack-ups are optional once the layout auto-router finishes for real production programs.",
-        "Sole-source is fine if the Gerber package opened without a CRC error for real production programs."
+        "Drawings and stack-ups are optional once the layout auto-router finishes.",
+        "Sole-source is fine if the Gerber package opened without a CRC error."
       ],
       "answer": "b",
       "explanation": "successful PCB design is not done in a vacuum",
