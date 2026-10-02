@@ -1,0 +1,125 @@
+{
+  "title": "System Design — Estimation and interview framework",
+  "questions": [
+    {
+      "question": "Back-of-the-envelope estimation is meant to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Produce exact production capacity plans down to the last disk platter in real production systems at scale.",
+        "Use thought experiments and common numbers to feel which designs can meet requirements.",
+        "Replace load testing forever so you never measure a real system in real production systems at scale.",
+        "Prove that every design needs exactly 64 servers and no other count in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "estimates you create using a combination of thought experiments and common performance numbers",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 45,
+        "excerpt": "estimates you create using a combination of thought experiments and common performance numbers"
+      }
+    },
+    {
+      "question": "From typical latency intuition Xu highlights:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Disk seeks are faster than memory access in almost every case in real production systems at scale.",
+        "Memory is fast but disk is slow — avoid unnecessary disk seeks when possible.",
+        "Cross-datacenter network hops are free and should be ignored in real production systems at scale.",
+        "Compression is always slower than sending raw terabytes over the internet."
+      ],
+      "answer": "b",
+      "explanation": "Memory is fast but the disk is slow. Avoid disk seeks if possible",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 48,
+        "excerpt": "Memory is fast but the disk is slow. Avoid disk seeks if possible"
+      }
+    },
+    {
+      "question": "In Xu’s Twitter-style QPS exercise, the first move is to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Buy GPUs before clarifying monthly active users or posts per day.",
+        "State assumptions (MAU, daily usage, posts/day) then derive DAU and QPS.",
+        "Assume zero reads because only writes matter for capacity in real production systems at scale.",
+        "Skip units so 5 might mean 5 bytes or 5 petabytes interchangeably."
+      ],
+      "answer": "b",
+      "explanation": "Assumptions: • 300 million monthly active users… Estimations: Query per second (QPS)",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 50,
+        "excerpt": "Assumptions: • 300 million monthly active users… Estimations: Query per second (QPS)"
+      }
+    },
+    {
+      "question": "Step 1 of Xu’s interview framework emphasizes:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Answering instantly like Jimmy without clarifying requirements in real production systems at scale.",
+        "Slowing down to ask questions, clarify requirements, and state assumptions.",
+        "Drawing microservices before you know what the product does in real production systems at scale.",
+        "Refusing to discuss scale until after coding every endpoint in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "DON’T be like Jimmy… Slow down. Think deeply and ask questions to clarify requirements",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 56,
+        "excerpt": "DON’T be like Jimmy… Slow down. Think deeply and ask questions to clarify requirements"
+      }
+    },
+    {
+      "question": "Over-engineering in interviews is a red flag because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Interviewers only want the most complex possible topology every time.",
+        "Engineers chase design purity and ignore trade-offs and compounding costs.",
+        "Simple designs are illegal in all FAANG interview rubrics in real production systems at scale.",
+        "Trade-offs only exist after the company has a billion users in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Over-engineering is a real disease… ignore tradeoffs",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 55,
+        "excerpt": "Over-engineering is a real disease… ignore tradeoffs"
+      }
+    },
+    {
+      "question": "True or false: Xu says there is no perfect answer; the interview simulates collaborative problem solving on an ambiguous problem.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "The problem is open-ended, and there is no perfect answer",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 54,
+        "excerpt": "The problem is open-ended, and there is no perfect answer"
+      }
+    },
+    {
+      "question": "When doing estimation math in an interview, Xu advises:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Spend minutes computing 99987 / 9.1 exactly with long division.",
+        "Round and approximate; write assumptions; label units clearly.",
+        "Never say QPS out loud because interviewers dislike numbers.",
+        "Hide all assumptions so the interviewer cannot challenge them."
+      ],
+      "answer": "b",
+      "explanation": "Rounding and Approximation… Write down your assumptions… Label your units",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 52,
+        "excerpt": "Rounding and Approximation… Write down your assumptions… Label your units"
+      }
+    }
+  ]
+}

@@ -1,4 +1,89 @@
 {
   "title": "System Design — Queue",
-  "questions": []
+  "questions": [
+    {
+      "question": "A primary benefit of inserting a message queue between services is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Forcing synchronous coupling so both sides fail together always.",
+        "Decoupling producers and consumers and absorbing bursts asynchronously.",
+        "Guaranteeing the UI paints pixels without any backend at all in real production systems at scale.",
+        "Removing the need for authentication on every public API in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "message queue",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 34,
+        "excerpt": "message queue"
+      }
+    },
+    {
+      "question": "Notification systems often place a queue before SMS/email/push workers to:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Drop all messages silently when traffic is high in real production systems at scale.",
+        "Buffer send jobs and scale workers independently of API traffic.",
+        "Encrypt the queue by turning off TLS on purpose in real production systems at scale.",
+        "Make push notifications require a human operator to click Send."
+      ],
+      "answer": "b",
+      "explanation": "notification sending",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 195,
+        "excerpt": "notification sending"
+      }
+    },
+    {
+      "question": "If a queue delivers at-least-once, consumers should:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Assume exactly-once and double-charge users freely.",
+        "Be idempotent so retries do not corrupt state.",
+        "Crash the whole cluster on the first duplicate delivery.",
+        "Disable acknowledgements so messages never leave the queue."
+      ],
+      "answer": "b",
+      "explanation": "delivery semantics",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 257,
+        "excerpt": "delivery semantics"
+      }
+    },
+    {
+      "question": "True or false: Queues trade immediate completion for resilience and smoother load.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "message queue",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 34,
+        "excerpt": "message queue"
+      }
+    },
+    {
+      "question": "A dead-letter queue (DLQ) is useful when:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Every message succeeds on the first try forever in real production systems at scale.",
+        "Poison messages fail repeatedly and need isolation / inspection.",
+        "You want to delete monitoring because failures never happen.",
+        "Producers should block forever without any backoff in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "fault tolerance",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 195,
+        "excerpt": "fault tolerance"
+      }
+    }
+  ]
 }

@@ -1,4 +1,89 @@
 {
   "title": "System Design — Authentication strategy",
-  "questions": []
+  "questions": [
+    {
+      "question": "Stateless web servers typically require session data to live:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only in an in-process memory map that dies with each instance.",
+        "In a shared store (DB/cache) or in a verified client token design.",
+        "Only inside the load balancer’s TLS certificate private key.",
+        "Only on the user’s floppy disk mailed to the datacenter in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "stateless",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 28,
+        "excerpt": "stateless"
+      }
+    },
+    {
+      "question": "Authentication differs from authorization in that authentication:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Decides which resources a verified identity may access.",
+        "Establishes identity (who the caller is).",
+        "Only compresses response bodies for CDN edge caches.",
+        "Only chooses which SQL index to use for a query plan."
+      ],
+      "answer": "b",
+      "explanation": "architecture characteristics",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "architecture characteristics"
+      }
+    },
+    {
+      "question": "True or false: Security/availability characteristics can force architects to make specific technology decisions.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "occasions where architects need to make specific technology decisions in order to preserve a particular architectural characteristic",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 35,
+        "excerpt": "occasions where architects need to make specific technology decisions in order to preserve a particular architectural characteristic"
+      }
+    },
+    {
+      "question": "A login endpoint without rate limiting is risky because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Browsers cannot display forms without exponential backoff in real production systems at scale.",
+        "Attackers can brute-force credentials or overload auth infrastructure.",
+        "JWT libraries refuse to run if rate limits are missing in real production systems at scale.",
+        "DNS will stop resolving the hostname automatically in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Prevent resource starvation… Prevent servers from being overloaded",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 67,
+        "excerpt": "Prevent resource starvation… Prevent servers from being overloaded"
+      }
+    },
+    {
+      "question": "For APIs that charge per third-party call, rate limiting also helps:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Maximize spend with no upper bound on outbound calls.",
+        "Control cost by capping excess requests to paid dependencies.",
+        "Disable invoices so finance never sees usage in real production systems at scale.",
+        "Force all calls onto a single shared password in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Limiting the number of calls is essential to reduce costs",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 67,
+        "excerpt": "Limiting the number of calls is essential to reduce costs"
+      }
+    }
+  ]
 }

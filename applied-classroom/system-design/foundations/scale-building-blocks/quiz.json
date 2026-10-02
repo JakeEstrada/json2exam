@@ -1,0 +1,143 @@
+{
+  "title": "System Design — Scale from zero to millions",
+  "questions": [
+    {
+      "question": "Why separate web/mobile traffic servers from database servers early?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "So DNS stops resolving and users cannot find the site anymore.",
+        "So web tier and data tier can be scaled independently as load grows.",
+        "So you can delete the database and keep only static HTML forever.",
+        "So mobile apps are forced to speak FTP instead of HTTP in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 11,
+        "excerpt": "Separating web/mobile traffic (web tier) and database (data tier) servers allows them to be scaled independently"
+      }
+    },
+    {
+      "question": "Vertical scaling (“scale up”) means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Adding more servers into a pool of identical machines in real production systems at scale.",
+        "Adding more power (CPU, RAM, etc.) to your existing servers.",
+        "Removing all CPUs so the system uses less electricity overnight.",
+        "Sharding every table on day one with ten users total in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 14,
+        "excerpt": "Vertical scaling, referred to as “scale up”, means the process of adding more power (CPU, RAM, etc.) to your servers"
+      }
+    },
+    {
+      "question": "A hard limitation of vertical scaling alone is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It always provides automatic multi-server failover and redundancy in real production systems at scale.",
+        "You cannot add unlimited CPU/memory to one machine, and one failure takes the site down.",
+        "It is illegal in every cloud provider’s terms of service worldwide in real production systems at scale.",
+        "It only works for mobile apps and never for web browsers in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Vertical scaling has a hard limit… Vertical scaling does not have failover and redundancy",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 14,
+        "excerpt": "Vertical scaling has a hard limit… Vertical scaling does not have failover and redundancy"
+      }
+    },
+    {
+      "question": "For most developers, Xu says relational databases are often best first because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Joins are illegal in SQL and must be avoided at all costs forever in real production systems at scale.",
+        "They have decades of history and have historically worked well for many apps.",
+        "They never store tables or rows and only store graphs in real production systems at scale.",
+        "They always beat every NoSQL store on every latency benchmark in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "For most developers, relational databases are the best option because they have been around for over 40 years",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 12,
+        "excerpt": "For most developers, relational databases are the best option because they have been around for over 40 years"
+      }
+    },
+    {
+      "question": "NoSQL may be worth exploring when, among other reasons:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "You need joins across every table on every request without exception in real production systems at scale.",
+        "You need super-low latency, unstructured data, simple serialize/deserialize, or massive scale.",
+        "Your only requirement is ACID transactions with heavy multi-table joins in real production systems at scale.",
+        "You want to ban JSON and only store handwritten paper forms in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Non-relational databases might be the right choice if: … super-low latency … unstructured … serialize and deserialize … massive amount of data",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 13,
+        "excerpt": "Non-relational databases might be the right choice if: … super-low latency … unstructured … serialize and deserialize … massive amount of data"
+      }
+    },
+    {
+      "question": "True or false: Horizontal scaling adds more servers to your resource pool (“scale-out”).",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 14,
+        "excerpt": "Horizontal scaling, referred to as “scale-out”, allows you to scale by adding more servers into your pool of resources"
+      }
+    },
+    {
+      "question": "A CDN is primarily used to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Replace your transactional database for all strongly consistent writes.",
+        "Serve static content from locations closer to users to cut latency.",
+        "Run all business logic inside the user’s DNS resolver process in real production systems at scale.",
+        "Guarantee exactly-once delivery of every database transaction in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "CDN",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 22,
+        "excerpt": "CDN"
+      }
+    },
+    {
+      "question": "Message queues help large systems mainly by:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Forcing every request to wait synchronously on the slowest downstream forever.",
+        "Decoupling producers and consumers so work can be processed asynchronously.",
+        "Deleting failed jobs so operators never see errors in dashboards in real production systems at scale.",
+        "Replacing TLS so all traffic stays unencrypted for speed in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "message queue",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 34,
+        "excerpt": "message queue"
+      }
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # Failure-handling strategy
 
-System Design · Design choices
+**Designing Data-Intensive Applications** reliability = correct behavior under faults. **System Design Interview – An Insider's Guide**: redundancy, retries via queues, rate limiter fault tolerance (fail open vs closed carefully).
 
-Paste notes, links, and free-source excerpts here.
+## Patterns
+
+- Timeouts, retries with backoff, idempotency
+- Replication / multi-AZ
+- Circuit breakers; graceful degradation
+- Dead-letter queues
+- Clear user-visible errors when throttled

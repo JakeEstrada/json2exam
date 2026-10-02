@@ -1,4 +1,107 @@
 {
-  "title": "System Design — Quiz platform",
-  "questions": []
+  "title": "System Design — Quiz platform (Json2Exam)",
+  "questions": [
+    {
+      "question": "Json2Exam’s quiz progress today is primarily stored:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "In a globally sharded Postgres cluster with automatic failover.",
+        "Locally (e.g. browser localStorage) for a single device profile.",
+        "Only on paper flashcards mailed to CSUF each week in real production systems at scale.",
+        "Inside the PDF binary as hidden XMP metadata in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Small amounts of data, which can be stored and processed on a single machine, are often fairly easy to deal with",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "Small amounts of data, which can be stored and processed on a single machine, are often fairly easy to deal with"
+      }
+    },
+    {
+      "question": "The first scaling step if many classmates need shared progress is usually:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Jumping straight to multi-region Kafka before any auth exists.",
+        "Add authentication and a durable shared database for progress.",
+        "Delete all quizzes so there is nothing to sync in real production systems at scale.",
+        "Put the entire SPA inside a CDN edge SQL engine in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Separating web/mobile traffic… and database",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 11,
+        "excerpt": "Separating web/mobile traffic… and database"
+      }
+    },
+    {
+      "question": "AskGPT endpoints under heavy abuse should get:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Unlimited free calls with no throttling in real production systems at scale.",
+        "Server-side rate limiting and clear throttle errors.",
+        "Client-only alerts that attackers will politely obey.",
+        "A requirement that every prompt be sung aloud."
+      ],
+      "answer": "b",
+      "explanation": "rate limiter limits the number of client requests",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 66,
+        "excerpt": "rate limiter limits the number of client requests"
+      }
+    },
+    {
+      "question": "FSA would call “offline-first localStorage” vs “synced cloud progress” a:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Law of nature with no downside either way in real production systems at scale.",
+        "Trade-off among simplicity, durability, multi-device access, and cost.",
+        "Decision that AI should make without human context in real production systems at scale.",
+        "Problem that microservices always solve automatically in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Everything in software architecture is a trade-off",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "Everything in software architecture is a trade-off"
+      }
+    },
+    {
+      "question": "True or false: Book page references on cards are a product feature that ties learning to source PDFs.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "demonstrate your design skill",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 54,
+        "excerpt": "demonstrate your design skill"
+      }
+    },
+    {
+      "question": "Moving spaced-repetition reminders server-side suggests which building block?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only a larger CSS file with more animations in real production systems at scale.",
+        "A scheduled job or queue worker that triggers notifications.",
+        "Deleting the Leitner algorithm entirely in real production systems at scale.",
+        "Storing due dates only in DNS TXT records in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "notification system",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 187,
+        "excerpt": "notification system"
+      }
+    }
+  ]
 }

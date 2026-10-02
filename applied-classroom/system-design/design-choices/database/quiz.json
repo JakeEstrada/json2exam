@@ -1,4 +1,107 @@
 {
   "title": "System Design — Database",
-  "questions": []
+  "questions": [
+    {
+      "question": "Relational databases store data primarily as:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only opaque blobs with no query language at all.",
+        "Tables and rows, with SQL joins across tables.",
+        "Only ring positions on a consistent-hashing circle.",
+        "Only DNS TXT records replicated to every resolver."
+      ],
+      "answer": "b",
+      "explanation": "Relational databases represent and store data in tables and rows. You can perform join operations using SQL",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 12,
+        "excerpt": "Relational databases represent and store data in tables and rows. You can perform join operations using SQL"
+      }
+    },
+    {
+      "question": "NoSQL stores are commonly grouped into categories such as:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only “fast” and “slow” with no other distinctions.",
+        "Key-value, document, column, and graph stores.",
+        "Only Oracle and DB2 under different marketing names.",
+        "Only in-memory caches that never persist to disk."
+      ],
+      "answer": "b",
+      "explanation": "key-value stores, graph stores, column stores, and document stores",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 12,
+        "excerpt": "key-value stores, graph stores, column stores, and document stores"
+      }
+    },
+    {
+      "question": "Joins in non-relational databases are:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always richer and faster than SQL joins in every product.",
+        "Generally not supported the way SQL databases support them.",
+        "Required on every single read path by definition in real production systems at scale.",
+        "Performed automatically by the DNS layer for free in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Join operations are generally not supported in non-relational databases",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 12,
+        "excerpt": "Join operations are generally not supported in non-relational databases"
+      }
+    },
+    {
+      "question": "DDIA’s building-block view says databases exist to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Render CSS animations for marketing pages only in real production systems at scale.",
+        "Store data so the app (or another app) can find it again later.",
+        "Replace all caches, queues, and search indexes permanently.",
+        "Guarantee zero operational cost at infinite scale in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Store data so that they, or another application, can find it again later (databases)",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "Store data so that they, or another application, can find it again later (databases)"
+      }
+    },
+    {
+      "question": "True or false: Xu’s default advice is still “start with relational” unless your use case clearly does not fit.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "For most developers, relational databases are the best option",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 12,
+        "excerpt": "For most developers, relational databases are the best option"
+      }
+    },
+    {
+      "question": "Replication is introduced when:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "You want a single disk with no copies for maximum simplicity under load.",
+        "Read load or availability needs exceed what one primary alone should handle.",
+        "You delete indexes so every query becomes a full table scan in real production systems at scale.",
+        "You ban backups because replicas already mean infinite durability in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "database replication",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 18,
+        "excerpt": "database replication"
+      }
+    }
+  ]
 }

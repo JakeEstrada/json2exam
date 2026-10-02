@@ -1,4 +1,89 @@
 {
   "title": "System Design — Security controls",
-  "questions": []
+  "questions": [
+    {
+      "question": "Rate limiting helps security posture by:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Allowing unlimited credential stuffing for realism.",
+        "Blunting DoS and abusive request patterns against APIs.",
+        "Removing passwords so attackers have nothing to steal.",
+        "Publishing admin tokens in mobile app binaries."
+      ],
+      "answer": "b",
+      "explanation": "A rate limiter prevents DoS attacks, either intentional or unintentional",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 67,
+        "excerpt": "A rate limiter prevents DoS attacks, either intentional or unintentional"
+      }
+    },
+    {
+      "question": "Security as an architecture characteristic means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It is optional decoration after the UI ships in real production systems at scale.",
+        "It is a first-class capability that can drive structural decisions.",
+        "Only marketers need to worry about account takeover in real production systems at scale.",
+        "Encryption is banned because it slows microbenchmarks in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Architecture characteristics… security",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "Architecture characteristics… security"
+      }
+    },
+    {
+      "question": "True or false: Client-side enforcement alone is insufficient against malicious actors who forge requests.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "client requests can easily be forged by malicious actors",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 70,
+        "excerpt": "client requests can easily be forged by malicious actors"
+      }
+    },
+    {
+      "question": "Least privilege for services typically means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Every service uses the root cloud account for convenience.",
+        "Each component gets only the permissions it needs to do its job.",
+        "Database credentials are hardcoded into public mobile apps.",
+        "All environments share one writable production credential."
+      ],
+      "answer": "b",
+      "explanation": "architecture characteristics",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "architecture characteristics"
+      }
+    },
+    {
+      "question": "When users are throttled, Xu says the system should:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Fail silently with HTTP 200 and an empty body always.",
+        "Show clear exceptions/signals that requests were throttled.",
+        "Corrupt the user database to discourage retries in real production systems at scale.",
+        "Disable TLS so the response is easier to cache in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Show clear exceptions to users when their requests are throttled",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 69,
+        "excerpt": "Show clear exceptions to users when their requests are throttled"
+      }
+    }
+  ]
 }

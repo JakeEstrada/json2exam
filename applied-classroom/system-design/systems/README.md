@@ -1,14 +1,7 @@
 # Systems
 
-System Design Classroom · module
+End-to-end designs. Prefer **Foundations** and **Design choices** first.
 
-## Topics
+Ready: URL shortener, notification service, news feed, file-upload / drive, quiz platform (Json2Exam).
 
-- URL shortener
-- Quiz platform
-- Timecard system
-- File-upload system
-- Notification service
-- Product catalog
-- Order-processing system
-- Photo-processing pipeline
+Stubs for later: timecard, product catalog, order-processing, photo-processing.

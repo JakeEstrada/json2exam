@@ -1,4 +1,107 @@
 {
   "title": "System Design — Application architecture",
-  "questions": []
+  "questions": [
+    {
+      "question": "When should you choose an architecture style, per FSA’s flow?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Before you know any characteristics or logical components at all.",
+        "After analyzing characteristics and logical components the system needs.",
+        "Only after rewriting the UI three times in different frameworks.",
+        "Never — styles are banned in modern engineering culture in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Once an architect has analyzed the architectural characteristics and logical components… they know enough to choose an appropriate architecture style",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 32,
+        "excerpt": "Once an architect has analyzed the architectural characteristics and logical components… they know enough to choose an appropriate architecture style"
+      }
+    },
+    {
+      "question": "Why would microservices have been “inconceivably expensive” in 2002?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Because open source databases did not exist as an idea yet in any form in real production systems at scale.",
+        "Commercial licenses for OS, app servers, and DBs per service made isolation costly.",
+        "Because DNS could not resolve more than one hostname per company in real production systems at scale.",
+        "Because load balancers were illegal for commercial websites then in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "trying to build an architecture like microservices would have been inconceivably expensive",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 30,
+        "excerpt": "trying to build an architecture like microservices would have been inconceivably expensive"
+      }
+    },
+    {
+      "question": "A modular monolith is often a good early choice because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "It maximizes network hops and operational complexity from day one in real production systems at scale.",
+        "It keeps deploy simple while still allowing clear internal module boundaries.",
+        "It forbids any database and forces all state into browser cookies only.",
+        "It guarantees infinite scale without ever adding caches or replicas in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Choosing an architectural style involves finding the easiest implementation path",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 32,
+        "excerpt": "Choosing an architectural style involves finding the easiest implementation path"
+      }
+    },
+    {
+      "question": "Making the web tier stateless supports:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Pinning every user forever to one specific web server process only.",
+        "Horizontal scaling of web servers behind a load balancer.",
+        "Deleting the load balancer because sticky sessions become mandatory.",
+        "Storing all sessions only in local disk folders on each web box."
+      ],
+      "answer": "b",
+      "explanation": "stateless",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 28,
+        "excerpt": "stateless"
+      }
+    },
+    {
+      "question": "True or false: Architecture decisions define rules/constraints for how a system should be constructed.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "architecture decisions, which define the rules for how a system should be constructed",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 33,
+        "excerpt": "architecture decisions, which define the rules for how a system should be constructed"
+      }
+    },
+    {
+      "question": "Structural decay happens when:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Developers’ changes undermine required architectural characteristics over time.",
+        "You document every decision in an ADR and review fitness functions in real production systems at scale.",
+        "Load stays flat and characteristics are continuously verified in CI in real production systems at scale.",
+        "Architects continually analyze vitality of older architectures in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 35,
+        "excerpt": "structural decay, which occurs when developers make coding or design changes that impact the required architectural characteristics"
+      }
+    }
+  ]
 }

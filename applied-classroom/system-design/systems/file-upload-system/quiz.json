@@ -1,4 +1,89 @@
 {
-  "title": "System Design — File-upload system",
-  "questions": []
+  "title": "System Design — File upload / cloud drive",
+  "questions": [
+    {
+      "question": "Why store file bytes in object storage and metadata in a database?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Because databases cannot store integers smaller than one million in real production systems at scale.",
+        "Blobs scale differently than relational metadata (permissions, names, versions).",
+        "Object stores forbid any metadata and databases forbid files always in real production systems at scale.",
+        "CDNs require every file to be embedded in a SQL row as base64 in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Google Drive",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 295,
+        "excerpt": "Google Drive"
+      }
+    },
+    {
+      "question": "A CDN in a download-heavy file product mainly helps:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Transactional ACID writes to the metadata database.",
+        "Delivering bytes from edge locations closer to users.",
+        "Generating unique primary keys without any coordination.",
+        "Running antivirus inside the user’s DNS resolver."
+      ],
+      "answer": "b",
+      "explanation": "CDN",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 22,
+        "excerpt": "CDN"
+      }
+    },
+    {
+      "question": "Resumable uploads matter because:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Networks never fail mid-transfer on mobile clients in real production systems at scale.",
+        "Large transfers fail often; retrying from offsets saves bandwidth/time.",
+        "HTTP cannot send more than 1 KB per connection by specification.",
+        "Object storage rejects files larger than a JPEG thumbnail in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "upload",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 295,
+        "excerpt": "upload"
+      }
+    },
+    {
+      "question": "True or false: Authz/ACLs are part of a drive product because sharing is a core use case.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "architecture characteristics",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "architecture characteristics"
+      }
+    },
+    {
+      "question": "Thumbnail generation after upload is a good fit for:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The user’s browser alert() synchronously before upload returns.",
+        "An async queue worker so the upload API stays fast.",
+        "A full table lock on all metadata until thumbnails finish.",
+        "Manual Photoshop by on-call engineers for each photo in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "message queue",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 34,
+        "excerpt": "message queue"
+      }
+    }
+  ]
 }

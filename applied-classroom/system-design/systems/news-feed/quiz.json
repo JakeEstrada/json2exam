@@ -1,0 +1,89 @@
+{
+  "title": "System Design — News feed",
+  "questions": [
+    {
+      "question": "DDIA’s home-timeline SQL sketch joins posts to follow relationships to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Charge every user a fee before showing ads only.",
+        "Fetch recent posts from people the user follows.",
+        "Delete all followers older than one day automatically.",
+        "Convert the social graph into a CDN edge certificate."
+      ],
+      "answer": "b",
+      "explanation": "home timeline, which displays recent posts by people the user is following",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 60,
+        "excerpt": "home timeline, which displays recent posts by people the user is following"
+      }
+    },
+    {
+      "question": "Fan-out on write means:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Computing the feed only when the user opens the app in real production systems at scale.",
+        "Pushing a new post into followers’ feed caches/stores at write time.",
+        "Never storing posts so feeds are always empty in real production systems at scale.",
+        "Sending each post via postal mail before any digital write in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "news feed",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 205,
+        "excerpt": "news feed"
+      }
+    },
+    {
+      "question": "Celebrity users break naive fan-out-on-write because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "They have so many followers that write amplification explodes.",
+        "They are not allowed to post more than one byte of text.",
+        "Databases refuse to store posts from verified accounts.",
+        "Load balancers drop packets only for famous accounts in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "a few celebrities… have over 100 million followers",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 58,
+        "excerpt": "a few celebrities… have over 100 million followers"
+      }
+    },
+    {
+      "question": "Polling the timeline query every few seconds for millions online users:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Is free because SQL joins never cost CPU in real production systems at scale in real production systems at scale.",
+        "Can create enormous read QPS and expensive joins — hence caching/fan-out designs.",
+        "Is required by the HTTP specification for all social apps in real production systems at scale.",
+        "Removes the need for indexes on follow tables in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "running the query 2 million times per second… This query is also quite expensive",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 60,
+        "excerpt": "running the query 2 million times per second… This query is also quite expensive"
+      }
+    },
+    {
+      "question": "True or false: Hybrid feed strategies exist because push and pull have opposite trade-offs.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Everything in software architecture is a trade-off",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "Everything in software architecture is a trade-off"
+      }
+    }
+  ]
+}

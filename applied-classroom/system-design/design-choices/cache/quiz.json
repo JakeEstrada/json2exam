@@ -1,4 +1,107 @@
 {
   "title": "System Design — Cache",
-  "questions": []
+  "questions": [
+    {
+      "question": "DDIA describes caches as systems that:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Permanently replace durable databases for all financial ledgers.",
+        "Remember the result of an expensive operation to speed up reads.",
+        "Only store data that must survive datacenter fires without backups.",
+        "Always provide serializable multi-row transactions by default."
+      ],
+      "answer": "b",
+      "explanation": "Remember the result of an expensive operation, to speed up reads (caches)",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "Remember the result of an expensive operation, to speed up reads (caches)"
+      }
+    },
+    {
+      "question": "A classic reason to add a cache layer while scaling is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "To make every write slower on purpose for fairness in real production systems at scale.",
+        "To absorb repeated reads so the database is not overwhelmed.",
+        "To remove the need for any load balancer forever in real production systems at scale.",
+        "To store passwords in plaintext closer to the browser."
+      ],
+      "answer": "b",
+      "explanation": "cache",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 20,
+        "excerpt": "cache"
+      }
+    },
+    {
+      "question": "The rehashing problem with `hash(key) % N` when a cache node dies is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only that one key moves; all other keys stay perfectly mapped.",
+        "Most keys remapping, causing a storm of cache misses.",
+        "That consistent hashing becomes illegal to use afterward.",
+        "That N can never change in any distributed system in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "most keys are redistributed… This causes a storm of cache misses",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 92,
+        "excerpt": "most keys are redistributed… This causes a storm of cache misses"
+      }
+    },
+    {
+      "question": "Consistent hashing reduces remapping so that when the ring changes:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Every key in the cluster must move to a new server immediately.",
+        "Only about k/n keys need remapping on average, not nearly all keys.",
+        "No keys ever move even if you remove every server in real production systems at scale.",
+        "Keys are stored on all servers at once with no lookup rule."
+      ],
+      "answer": "b",
+      "explanation": "only k/n keys need to be remapped on average",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 93,
+        "excerpt": "only k/n keys need to be remapped on average"
+      }
+    },
+    {
+      "question": "True or false: On a consistent-hash ring, you look up a key by walking clockwise until you hit a server.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "we go clockwise from the key position on the ring until a server is found",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 96,
+        "excerpt": "we go clockwise from the key position on the ring until a server is found"
+      }
+    },
+    {
+      "question": "Virtual nodes on a consistent-hash ring help primarily to:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Make the ring square instead of circular for easier drawing in real production systems at scale.",
+        "Improve balance / reduce hot spots when servers are unevenly placed.",
+        "Eliminate the need for any hash function at all in real production systems at scale.",
+        "Force every key to live on exactly one physical disk platter forever."
+      ],
+      "answer": "b",
+      "explanation": "virtual nodes",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 100,
+        "excerpt": "virtual nodes"
+      }
+    }
+  ]
 }

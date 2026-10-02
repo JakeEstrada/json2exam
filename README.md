@@ -70,7 +70,7 @@ Code cards run in the browser via a JavaScript `Function` runner. TypeScript typ
 
 **LeetCode topic drills (ready):** arrays, strings/hash, linked lists, trees, graphs, dynamic programming — pattern recognition + Python sketches; reference opens leetcode.com.
 
-**Also in the catalog:** data structures, algorithms, **Electronics** (PCB Chapter 1 + SpaceX sourcing interview prep), database, API, testing, debugging, system design, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
+**Also in the catalog:** data structures, algorithms, **Electronics** (PCB chapters + SpaceX sourcing prep), **System Design** (Xu / DDIA / FSA foundations → choices → systems), database, API, testing, debugging, and Platform Build (mostly planned folders). Graduate leftovers (Requirements Engineering, process / agile) sit at the bottom.
 
 Ordered path, books, and which decks are ready vs planned: [`applied-classroom/STUDY_PLAN.md`](applied-classroom/STUDY_PLAN.md). Source book lists live under each course’s `sources.md` / `sources/`.
 

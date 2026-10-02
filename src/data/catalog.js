@@ -101,6 +101,15 @@ function booksIn(folder) {
     if (/high-speed-pcb-design-guide/i.test(file)) {
       title = 'High-Speed PCB Design Guide';
     }
+    if (/system-design-interview/i.test(file)) {
+      title = "System Design Interview – An Insider's Guide";
+    }
+    if (/designing-data-intensive/i.test(file)) {
+      title = 'Designing Data-Intensive Applications';
+    }
+    if (/fundamentals-of-software-architecture/i.test(file)) {
+      title = 'Fundamentals of Software Architecture, 2nd Edition';
+    }
     list.push({
       title,
       file,
@@ -160,7 +169,7 @@ export function courseDecks(course) {
 }
 
 export const COURSES = [
-  ...APPLIED_COURSES.filter((c) => c.id === 'electronics').map(hydrateApplied),
+  ...APPLIED_COURSES.filter((c) => c.id === 'electronics' || c.id === 'sd').map(hydrateApplied),
   {
     id: '541',
     code: '541',
@@ -385,5 +394,5 @@ export const COURSES = [
       },
     ],
   },
-  ...APPLIED_COURSES.filter((c) => c.id !== 'electronics').map(hydrateApplied),
+  ...APPLIED_COURSES.filter((c) => c.id !== 'electronics' && c.id !== 'sd').map(hydrateApplied),
 ];

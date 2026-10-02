@@ -1,4 +1,89 @@
 {
   "title": "System Design — Logging and monitoring",
-  "questions": []
+  "questions": [
+    {
+      "question": "As systems scale, Xu emphasizes adding operational tooling such as:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Deleting logs so disks stay empty during incidents.",
+        "Logging, metrics, and automation to run the system.",
+        "Manual SSH only with no metrics ever collected.",
+        "Disabling alerts so on-call never wakes up."
+      ],
+      "answer": "b",
+      "explanation": "logging",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 40,
+        "excerpt": "logging"
+      }
+    },
+    {
+      "question": "Architecture fitness functions (FSA) help architects:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Avoid verifying that teams follow decisions in real production systems at scale.",
+        "Measure compliance with architecture characteristics automatically.",
+        "Replace all production monitoring with slideware in real production systems at scale.",
+        "Ban metrics because they encourage premature optimization in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "measuring compliance using automated fitness functions",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 36,
+        "excerpt": "measuring compliance using automated fitness functions"
+      }
+    },
+    {
+      "question": "True or false: Without monitoring, you cannot tell whether scalability or reliability goals are actually met.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Defining and measuring the performance of a system",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "Defining and measuring the performance of a system"
+      }
+    },
+    {
+      "question": "Good alerts should primarily fire on:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Every debug log line in development laptops in real production systems at scale.",
+        "User-visible symptoms (errors, latency, saturation) that need action.",
+        "Successful health checks that return 200 OK continuously in real production systems at scale.",
+        "CDN cache hits for static logo images only in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "automation",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 40,
+        "excerpt": "automation"
+      }
+    },
+    {
+      "question": "Correlation IDs in logs help you:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Hide the path of a request across services during an incident.",
+        "Trace one request across services when diagnosing failures.",
+        "Encrypt the database by renaming columns randomly in real production systems at scale.",
+        "Increase QPS without adding any capacity in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "logging",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 40,
+        "excerpt": "logging"
+      }
+    }
+  ]
 }

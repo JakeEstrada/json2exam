@@ -1,4 +1,89 @@
 {
   "title": "System Design — Failure-handling strategy",
-  "questions": []
+  "questions": [
+    {
+      "question": "Reliability focuses on continuing correct operation when:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Everything is healthy and load is zero in real production systems at scale.",
+        "Things go wrong — machines, networks, processes, humans.",
+        "You disable all monitoring to avoid alert fatigue.",
+        "You reject every request before it touches business logic."
+      ],
+      "answer": "b",
+      "explanation": "continuing to work correctly, even when things go wrong",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "continuing to work correctly, even when things go wrong"
+      }
+    },
+    {
+      "question": "Xu’s rate limiter fault-tolerance requirement says if the limiter/cache fails:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The entire site must go offline until cache returns in real production systems at scale.",
+        "Problems with the rate limiter should not take down the whole system.",
+        "All users must be permanently banned automatically in real production systems at scale.",
+        "DNS should return NXDOMAIN for the marketing site in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "If there are any problems with the rate limiter… it does not affect the entire system",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 69,
+        "excerpt": "If there are any problems with the rate limiter… it does not affect the entire system"
+      }
+    },
+    {
+      "question": "Redundancy helps availability because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "One server failure can be absorbed by another taking over.",
+        "Identical bugs on all replicas magically cancel out.",
+        "You can delete backups once two servers exist in real production systems at scale.",
+        "Load disappears when you double the number of machines."
+      ],
+      "answer": "a",
+      "explanation": "When one fails, another one can take over",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 42,
+        "excerpt": "When one fails, another one can take over"
+      }
+    },
+    {
+      "question": "True or false: High availability is often expressed as “nines” of uptime in an SLA.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Uptime is traditionally measured in nines. The more the nines, the better",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 49,
+        "excerpt": "Uptime is traditionally measured in nines. The more the nines, the better"
+      }
+    },
+    {
+      "question": "Retries without idempotency are dangerous because:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Networks never duplicate or delay packets in practice in real production systems at scale.",
+        "Duplicate side effects (double charge, double notify) can occur.",
+        "HTTP forbids clients from ever resending a request in real production systems at scale.",
+        "Queues delete messages before workers can see them always."
+      ],
+      "answer": "b",
+      "explanation": "delivery semantics",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 257,
+        "excerpt": "delivery semantics"
+      }
+    }
+  ]
 }

@@ -1,0 +1,143 @@
+{
+  "title": "System Design — What is system design?",
+  "questions": [
+    {
+      "question": "What does “system design” mainly ask you to do?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Memorize one perfect diagram that works for every product forever without changing.",
+        "Choose and combine building blocks under constraints so the product meets its goals.",
+        "Only write frontend CSS until the design looks modern enough for users in real production systems at scale.",
+        "Pick the newest database brand because newer always means more scalable in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "no one approach is fundamentally better than others; everything has pros and cons",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "no one approach is fundamentally better than others; everything has pros and cons"
+      }
+    },
+    {
+      "question": "DDIA calls an application data-intensive when:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The only challenge is parallelizing a single huge numerical computation on GPUs.",
+        "Data management (volume, change, consistency, availability) is a primary challenge.",
+        "The UI uses more than three colors and must animate every button click in real production systems at scale.",
+        "The team refuses to use any database and stores everything in email attachments."
+      ],
+      "answer": "b",
+      "explanation": "We call an application data-intensive if data management is one of the primary challenges",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "We call an application data-intensive if data management is one of the primary challenges"
+      }
+    },
+    {
+      "question": "Which set are the standard building blocks DDIA lists for many apps?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Databases, caches, search indexes, stream processing, and batch processing.",
+        "Only Photoshop, Figma, and slide decks with no servers at all in real production systems at scale.",
+        "Only punch cards and magnetic tape with no network protocols allowed.",
+        "Only one shared Excel file emailed around the company each Friday in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "Store data… (databases) Remember the result… (caches) … stream processing … batch processing",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 16,
+        "excerpt": "Store data… (databases) Remember the result… (caches) … stream processing … batch processing"
+      }
+    },
+    {
+      "question": "FSA’s First Law of Software Architecture is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always use microservices before you have any users or traffic.",
+        "Everything in software architecture is a trade-off.",
+        "The newest cloud product is never a trade-off for anyone.",
+        "Architecture decisions should never be written down for teams."
+      ],
+      "answer": "b",
+      "explanation": "Everything in software architecture is a trade-off",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "Everything in software architecture is a trade-off"
+      }
+    },
+    {
+      "question": "True or false: If you think you found something that is not a trade-off, FSA says you likely have not identified the trade-off yet.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "If you think you’ve discovered something that isn’t a trade-off, more likely you just haven’t identified the trade-off…yet",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "If you think you’ve discovered something that isn’t a trade-off, more likely you just haven’t identified the trade-off…yet"
+      }
+    },
+    {
+      "question": "FSA defines software architecture as combining which dimensions?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the logo font and the homepage hero image with no structure underneath.",
+        "Architecture style, characteristics (“-ilities”), logical components, and decisions.",
+        "Only the number of GitHub stars on a framework repository in real production systems at scale.",
+        "Only the CEO’s favorite color for the login button background in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "architecture style… architecture characteristics… logical components… architecture decisions",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "architecture style… architecture characteristics… logical components… architecture decisions"
+      }
+    },
+    {
+      "question": "According to Xu’s interview framing, the final diagram matters less than:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "How fast you shout buzzwords before clarifying any requirements at all in real production systems at scale.",
+        "The design process: clarifying, proposing, defending trade-offs, taking feedback.",
+        "Copying a famous company’s public blog post word-for-word without trade-offs.",
+        "Refusing to discuss failure modes because interviews are only about happy paths."
+      ],
+      "answer": "b",
+      "explanation": "The final design is less important compared to the work you put in the design process",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 54,
+        "excerpt": "The final design is less important compared to the work you put in the design process"
+      }
+    },
+    {
+      "question": "Why do companies use system design interviews?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "To grade calligraphy of boxes and arrows with no discussion of constraints in real production systems at scale.",
+        "Because communication and step-by-step problem solving match daily engineering work.",
+        "To force one unique correct topology that every candidate must memorize in real production systems at scale.",
+        "To avoid talking about scale, failures, or APIs entirely during hiring in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "communication and problem-solving skills tested… are similar to those required by a software engineer’s daily work",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 5,
+        "excerpt": "communication and problem-solving skills tested… are similar to those required by a software engineer’s daily work"
+      }
+    }
+  ]
+}

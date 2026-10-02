@@ -1,4 +1,107 @@
 {
   "title": "System Design — API structure",
-  "questions": []
+  "questions": [
+    {
+      "question": "In Xu’s URL shortener, the two primary REST-style endpoints are roughly:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "POST to create a short URL; GET to resolve/redirect a short URL.",
+        "DELETE only, with no way to create or resolve aliases in real production systems at scale.",
+        "FTP upload of CSV files with no HTTP interface at all in real production systems at scale.",
+        "WebSocket-only binary frames with no resource URLs in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "URL shortening… POST… URL redirecting… GET",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 152,
+        "excerpt": "URL shortening… POST… URL redirecting… GET"
+      }
+    },
+    {
+      "question": "A rate limiter in the HTTP world primarily:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Increases every client’s QPS without bound for fairness.",
+        "Limits how many client requests are allowed in a time window.",
+        "Replaces TLS certificates every millisecond automatically.",
+        "Stores all request bodies forever in browser localStorage."
+      ],
+      "answer": "b",
+      "explanation": "a rate limiter limits the number of client requests allowed to be sent over a specified period",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 66,
+        "excerpt": "a rate limiter limits the number of client requests allowed to be sent over a specified period"
+      }
+    },
+    {
+      "question": "Xu lists a benefit of API rate limiting as:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Encouraging intentional DoS so capacity planning is realistic in real production systems at scale.",
+        "Preventing resource starvation from DoS (intentional or not) and reducing cost/load.",
+        "Removing the need for authentication on admin endpoints in real production systems at scale.",
+        "Guaranteeing unlimited free calls to paid third-party APIs in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Prevent resource starvation caused by Denial of Service (DoS) attack… Reduce cost… Prevent servers from being overloaded",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 67,
+        "excerpt": "Prevent resource starvation caused by Denial of Service (DoS) attack… Reduce cost… Prevent servers from being overloaded"
+      }
+    },
+    {
+      "question": "Client-side-only rate limiting is weak because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Browsers cannot send HTTP requests at all without it in real production systems at scale.",
+        "Clients can be forged/uncontrolled; enforcement belongs server-side or in middleware.",
+        "Servers are not allowed to count requests in distributed systems in real production systems at scale.",
+        "HTTP status codes cannot express throttling to clients in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "client is an unreliable place to enforce rate limiting because client requests can easily be forged",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 70,
+        "excerpt": "client is an unreliable place to enforce rate limiting because client requests can easily be forged"
+      }
+    },
+    {
+      "question": "True or false: Xu’s rate limiter requirements include low latency, low memory, distributed use, clear exceptions, and fault tolerance.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Low latency… little memory… Distributed rate limiting… Exception handling… High fault tolerance",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 69,
+        "excerpt": "Low latency… little memory… Distributed rate limiting… Exception handling… High fault tolerance"
+      }
+    },
+    {
+      "question": "When designing APIs in Step 2, you should:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Hide endpoints until after coding every storage engine quirk.",
+        "Propose endpoints and get interviewer buy-in before deep dives.",
+        "Only use SOAP envelopes with no resource naming in real production systems at scale.",
+        "Avoid status codes so clients guess success from latency."
+      ],
+      "answer": "b",
+      "explanation": "Propose high-level design and get buy-in",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 58,
+        "excerpt": "Propose high-level design and get buy-in"
+      }
+    }
+  ]
 }

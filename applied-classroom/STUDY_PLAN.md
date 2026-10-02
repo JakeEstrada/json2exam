@@ -182,11 +182,19 @@ Follow `api/studio/*`: requests → headers → methods → status codes → bod
 
 ---
 
-## 9. System design and scaling — planned
+## 9. System design and scaling — ready
 
-**Course:** `system-design/`. No dedicated design textbook in `sources/` yet. Use the API/DB books plus this app as the running example (`system-design/systems/quiz-platform`).
+**Course:** `system-design/`. **Books in `system-design/sources/`:**
 
-Path: small systems (URL shortener, quiz platform, timecard, …) then design choices (architecture, database, cache, queue, auth, scaling, failure, logging, security). Practical work: write a one-page design for Json2Exam (what is local now vs what would need Postgres later). Still JSON tradeoff questions until a diagram tool exists.
+- *System Design Interview – An Insider’s Guide* (Alex Xu)
+- *Designing Data-Intensive Applications* (Kleppmann & Riccomini)
+- *Fundamentals of Software Architecture*, 2nd Edition (Richards & Ford)
+
+**Path:** Foundations (what SD is, DDIA pillars, FSA trade-off laws, Xu scale journey, estimation + 4-step framework) → design choices (DB, cache, queue, API/rate limit, auth, scaling, failure, logging, security) → systems (URL shortener, notifications, news feed, file/drive, quiz platform / Json2Exam).
+
+Practical work: one-page design for Json2Exam (localStorage today vs Postgres + auth later). Cards cite PDF pages via **Show in book**.
+
+Regenerate: `node scripts/gen-system-design.mjs`.
 
 ---
 

@@ -1,4 +1,107 @@
 {
   "title": "System Design — Notification service",
-  "questions": []
+  "questions": [
+    {
+      "question": "Xu’s notification formats in scope are:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only carrier pigeons and fax machines in real production systems at scale.",
+        "Mobile push, SMS, and email.",
+        "Only in-process log lines with no user delivery.",
+        "Only browser localStorage writes on the same device."
+      ],
+      "answer": "b",
+      "explanation": "mobile push notification, SMS message, and Email",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 187,
+        "excerpt": "mobile push notification, SMS message, and Email"
+      }
+    },
+    {
+      "question": "iOS push delivery commonly goes through:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A random public MQTT broker with no auth in real production systems at scale.",
+        "Apple Push Notification Service (APNS) using device token + payload.",
+        "Direct SMS gateways that ignore device tokens in real production systems at scale.",
+        "FTP uploads to each phone overnight in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Apple Push Notification Service (APNS)",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 190,
+        "excerpt": "Apple Push Notification Service (APNS)"
+      }
+    },
+    {
+      "question": "Android push in Xu’s overview commonly uses:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "APNS exclusively for all Android devices in real production systems at scale.",
+        "Firebase Cloud Messaging (FCM) as a common path.",
+        "Only postal mail with printed QR codes in real production systems at scale.",
+        "Direct SQL inserts into the phone’s SQLite over the open internet."
+      ],
+      "answer": "b",
+      "explanation": "Firebase Cloud Messaging (FCM) is commonly used",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 191,
+        "excerpt": "Firebase Cloud Messaging (FCM) is commonly used"
+      }
+    },
+    {
+      "question": "Contact info gathering stores device tokens separately because:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A user can have multiple devices that should all receive pushes.",
+        "Device tokens must never be associated with a user id in real production systems at scale.",
+        "Email and SMS cannot be stored in any database table in real production systems at scale.",
+        "APNS forbids persisting tokens longer than one second in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "A user can have multiple devices",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 193,
+        "excerpt": "A user can have multiple devices"
+      }
+    },
+    {
+      "question": "True or false: Users who opt out should stop receiving notifications.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "users who choose to opt-out will no longer receive notifications",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 188,
+        "excerpt": "users who choose to opt-out will no longer receive notifications"
+      }
+    },
+    {
+      "question": "Calling the system “soft real-time” means:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Messages may be delayed forever with no delivery goal in real production systems at scale.",
+        "Deliver ASAP, but slight delay under high load is acceptable.",
+        "Every notification must arrive within one microsecond worldwide.",
+        "Notifications only send when the on-call engineer presses a button."
+      ],
+      "answer": "b",
+      "explanation": "soft real-time… slight delay is acceptable",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 188,
+        "excerpt": "soft real-time… slight delay is acceptable"
+      }
+    }
+  ]
 }

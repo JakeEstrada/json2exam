@@ -1,0 +1,125 @@
+{
+  "title": "System Design — Reliability, scalability, maintainability",
+  "questions": [
+    {
+      "question": "In DDIA terms, reliability mainly means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The UI always uses the same shade of blue on every button forever.",
+        "The system continues to work correctly even when things go wrong.",
+        "You never deploy new features so nothing can ever break again.",
+        "Every request is rejected so the servers stay idle and “stable.”"
+      ],
+      "answer": "b",
+      "explanation": "What it means for a service to be reliable—namely, continuing to work correctly, even when things go wrong",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "What it means for a service to be reliable—namely, continuing to work correctly, even when things go wrong"
+      }
+    },
+    {
+      "question": "Scalability, as framed in DDIA, is about:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Buying one infinitely powerful machine so you never rethink architecture.",
+        "Having efficient ways to add computing capacity as load on the system grows.",
+        "Deleting all indexes so writes are always fast regardless of read patterns.",
+        "Turning off monitoring so you do not notice when load increases in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Allowing a system to be scalable by having efficient ways of adding computing capacity as the load on the system grows",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "Allowing a system to be scalable by having efficient ways of adding computing capacity as the load on the system grows"
+      }
+    },
+    {
+      "question": "DDIA notes that an architecture appropriate for one load level:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Always handles 10× load with zero changes if the logo is redesigned in real production systems at scale.",
+        "Is unlikely to cope with 10× that load — rethink on each order-of-magnitude growth.",
+        "Must be microservices from day one even with ten users in real production systems at scale.",
+        "Can ignore databases entirely once traffic doubles once in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 85,
+        "excerpt": "an architecture that is appropriate for one level of load is unlikely to cope with 10 times that load"
+      }
+    },
+    {
+      "question": "Nonfunctional requirements such as speed and reliability:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Can be ignored because only button labels matter to users in real production systems at scale.",
+        "Are as important as functionality — a slow or unreliable app is barely usable.",
+        "Only apply to mainframe systems from the 1970s and never web apps in real production systems at scale.",
+        "Are automatically satisfied by any framework with a popular name in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "an app that is unbearably slow or unreliable might as well not exist",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "an app that is unbearably slow or unreliable might as well not exist"
+      }
+    },
+    {
+      "question": "True or false: Maintainability is about making the system easier to keep evolving over the long term.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Making it easier to maintain a system in the long term",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 57,
+        "excerpt": "Making it easier to maintain a system in the long term"
+      }
+    },
+    {
+      "question": "When discussing scalability in an interview, you should first clarify:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only the color of the status page banner during an outage in real production systems at scale.",
+        "Load parameters (QPS, users, data size, read/write mix) before proposing scale-out.",
+        "That vertical scaling forever is always cheaper than any other option in real production systems at scale.",
+        "That caching is illegal in all production systems worldwide in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "back-of-the-envelope calculations… to get a good feel for which designs will meet your requirements",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 45,
+        "excerpt": "back-of-the-envelope calculations… to get a good feel for which designs will meet your requirements"
+      }
+    },
+    {
+      "question": "Fault tolerance / high availability typically involves:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Running a single server with no backups so failures are simple in real production systems at scale.",
+        "Using multiple machines for redundancy so another can take over on failure.",
+        "Never writing logs because logs cause all outages in real production systems at scale.",
+        "Blocking all users permanently to keep error rates at zero in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "you can use multiple machines to give you redundancy. When one fails, another one can take over",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 42,
+        "excerpt": "you can use multiple machines to give you redundancy. When one fails, another one can take over"
+      }
+    }
+  ]
+}

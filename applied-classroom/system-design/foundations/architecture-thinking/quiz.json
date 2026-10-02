@@ -1,0 +1,125 @@
+{
+  "title": "System Design — Architecture thinking",
+  "questions": [
+    {
+      "question": "FSA’s Second Law of Software Architecture is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "How is more important than why, so never document intent in real production systems at scale.",
+        "Why is more important than how.",
+        "Diagrams without reasons always age better than written decisions.",
+        "Only microservices have a “why”; monoliths never need reasons."
+      ],
+      "answer": "b",
+      "explanation": "Why is more important than how",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "Why is more important than how"
+      }
+    },
+    {
+      "question": "Architecture characteristics (“-ilities”) primarily describe:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The exact hex color of every button in the design system in real production systems at scale.",
+        "Capabilities and success criteria of the system (what it must support).",
+        "Only the marketing slogan on the landing page hero in real production systems at scale.",
+        "The number of emoji allowed in commit messages in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Architecture characteristics… define the capabilities of a system… and the criteria for its success",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 31,
+        "excerpt": "Architecture characteristics… define the capabilities of a system… and the criteria for its success"
+      }
+    },
+    {
+      "question": "Logical components in FSA’s model mainly structure:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only DNS TTL values for the marketing CDN edge nodes.",
+        "The behavior of the system: domains, entities, and workflows.",
+        "Only the physical rack layout in a single data center.",
+        "Only the choice of laptop stickers for the architecture team."
+      ],
+      "answer": "b",
+      "explanation": "logical components form the domains, entities, and workflows of the application",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 32,
+        "excerpt": "logical components form the domains, entities, and workflows of the application"
+      }
+    },
+    {
+      "question": "An architecture decision example from FSA is:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Forbidding Presentation from calling the database directly in a layered system.",
+        "Requiring every function name to be exactly twelve characters long in real production systems at scale.",
+        "Banning all automated tests so releases feel more exciting in real production systems at scale.",
+        "Choosing comic sans for all production error messages forever in real production systems at scale."
+      ],
+      "answer": "a",
+      "explanation": "only the Business and Services layers… can access the database… restricting the Presentation layer",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 33,
+        "excerpt": "only the Business and Services layers… can access the database… restricting the Presentation layer"
+      }
+    },
+    {
+      "question": "Why can’t architects do “one big trade-off jamboree” and freeze defaults forever?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Because every situation requires re-evaluating trade-offs in context.",
+        "Because trade-offs only exist in textbooks and never in production.",
+        "Because cloud vendors legally forbid changing architecture decisions.",
+        "Because diagram tools crash if you revisit a decision after a week."
+      ],
+      "answer": "a",
+      "explanation": "every situation requires us to re-evaluate all those trade-offs",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 34,
+        "excerpt": "every situation requires us to re-evaluate all those trade-offs"
+      }
+    },
+    {
+      "question": "True or false: All architectures are products of their context (cost, ops, tooling of their era).",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "All architectures are products of their context—keep that in mind as you read this book",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 30,
+        "excerpt": "All architectures are products of their context—keep that in mind as you read this book"
+      }
+    },
+    {
+      "question": "Ensuring compliance with architecture decisions means:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Never checking whether teams follow constraints after the first slide deck.",
+        "Continually verifying teams follow documented decisions and design principles.",
+        "Deleting the architecture decision records so nobody can violate them.",
+        "Letting every layer call every database to maximize “agility.” in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "Ensuring compliance means continually verifying that the development teams are following the decisions",
+      "reference": {
+        "book": "Fundamentals of Software Architecture, 2nd Edition",
+        "page": 36,
+        "excerpt": "Ensuring compliance means continually verifying that the development teams are following the decisions"
+      }
+    }
+  ]
+}

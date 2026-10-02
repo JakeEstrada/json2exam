@@ -1,16 +1,5 @@
 # Design choices
 
-System Design Classroom · module
+One concern at a time. Each deck cites Xu, DDIA, and/or Fundamentals of Software Architecture.
 
-## Topics
-
-- Application architecture
-- Database
-- Cache
-- Queue
-- API structure
-- Authentication strategy
-- Scaling strategy
-- Failure-handling strategy
-- Logging and monitoring
-- Security controls
+Do foundations first if the vocabulary is new.

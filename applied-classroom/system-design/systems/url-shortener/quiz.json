@@ -1,4 +1,107 @@
 {
   "title": "System Design — URL shortener",
-  "questions": []
+  "questions": [
+    {
+      "question": "Basic use cases Xu lists for a URL shortener include:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only deleting URLs with no create or redirect paths in real production systems at scale.",
+        "Shorten long→short, redirect short→long, plus HA/scalability/fault tolerance.",
+        "Training ML models on video frames exclusively in real production systems at scale.",
+        "Replacing DNS for the entire public internet in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "URL shortening… URL redirecting… High availability, scalability, and fault tolerance",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 150,
+        "excerpt": "URL shortening… URL redirecting… High availability, scalability, and fault tolerance"
+      }
+    },
+    {
+      "question": "A 301 redirect implies the short URL mapping is treated as:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Temporary, so every later click still hits the shortener first.",
+        "Permanent, so browsers may cache and skip the shortener later.",
+        "Invalid, so clients must poll with HTTP 100 Continue in real production systems at scale.",
+        "Encrypted, so only POST can resolve the alias in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "A 301 redirect shows that the requested URL is “permanently” moved",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 153,
+        "excerpt": "A 301 redirect shows that the requested URL is “permanently” moved"
+      }
+    },
+    {
+      "question": "A reason to prefer 302 over 301 for a shortener is:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "302 always reduces shortener load more than 301 in real production systems at scale.",
+        "302 keeps traffic flowing through the shortener for easier click analytics.",
+        "302 disables HTTPS for all subsequent navigations in real production systems at scale.",
+        "302 stores the long URL only in the DNS CNAME record in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "if analytics is important, 302 redirect is a better choice",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 153,
+        "excerpt": "if analytics is important, 302 redirect is a better choice"
+      }
+    },
+    {
+      "question": "Xu’s example shortened URL charset is described as:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only emoji and whitespace characters in real production systems at scale.",
+        "Digits 0-9 and letters a-z / A-Z (base62-style).",
+        "Only hexadecimal with mandatory dashes every two chars.",
+        "Only Morse code transmitted over SMS in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "combination of numbers (0-9) and characters (a-z, A-Z)",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 150,
+        "excerpt": "combination of numbers (0-9) and characters (a-z, A-Z)"
+      }
+    },
+    {
+      "question": "With 100M new URLs/day, write QPS is roughly:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "100 million writes per second sustained all day in real production systems at scale.",
+        "About 100M/86400 ≈ ~1k+ writes/sec order of magnitude (Xu ~1160).",
+        "Exactly 2 writes per second regardless of assumptions in real production systems at scale.",
+        "Zero writes because shorteners only redirect in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "100 million / 24 /3600 = 1160",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 151,
+        "excerpt": "100 million / 24 /3600 = 1160"
+      }
+    },
+    {
+      "question": "True or false: Clarifying whether aliases can be deleted/updated is part of establishing design scope.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "Can shortened URLs be deleted or updated?",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 150,
+        "excerpt": "Can shortened URLs be deleted or updated?"
+      }
+    }
+  ]
 }

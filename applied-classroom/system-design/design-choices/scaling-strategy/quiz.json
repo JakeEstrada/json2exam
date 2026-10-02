@@ -1,4 +1,89 @@
 {
   "title": "System Design — Scaling strategy",
-  "questions": []
+  "questions": [
+    {
+      "question": "Horizontal scaling is more desirable at large scale mainly because:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A single machine can take unlimited RAM with no failures.",
+        "Vertical scaling hits hard limits and lacks built-in redundancy.",
+        "Load balancers are forbidden once you have more than one user.",
+        "Sharding is illegal until you finish vertical scaling forever."
+      ],
+      "answer": "b",
+      "explanation": "Horizontal scaling is more desirable for large scale applications due to the limitation of vertical scaling",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 14,
+        "excerpt": "Horizontal scaling is more desirable for large scale applications due to the limitation of vertical scaling"
+      }
+    },
+    {
+      "question": "A load balancer in front of web servers primarily provides:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A way to run the database inside each user’s browser only in real production systems at scale.",
+        "Distribution of traffic across servers and a path to remove a single web SPOF.",
+        "Automatic conversion of SQL to NoSQL without migrations in real production systems at scale.",
+        "Free multi-region replication for every disk block in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "load balancer",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 16,
+        "excerpt": "load balancer"
+      }
+    },
+    {
+      "question": "Sharding becomes necessary when:",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "One primary can easily hold all data and write throughput forever.",
+        "Data volume or write throughput exceeds what a single primary can handle.",
+        "You want to delete all secondary indexes for simplicity in real production systems at scale.",
+        "CDN hit ratio reaches one hundred percent on HTML pages in real production systems at scale."
+      ],
+      "answer": "b",
+      "explanation": "If there’s so much data or such a high write throughput that a single",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 337,
+        "excerpt": "If there’s so much data or such a high write throughput that a single"
+      }
+    },
+    {
+      "question": "Consistent hashing is used when scaling caches/servers so that:",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Changing cluster size remaps nearly every key every time.",
+        "Adding/removing a node remaps only a fraction of keys.",
+        "Hash functions are replaced by round-robin DNS only.",
+        "Keys are never stored and only computed from the weather."
+      ],
+      "answer": "b",
+      "explanation": "only k/n keys need to be remapped on average",
+      "reference": {
+        "book": "System Design Interview – An Insider's Guide",
+        "page": 93,
+        "excerpt": "only k/n keys need to be remapped on average"
+      }
+    },
+    {
+      "question": "True or false: DDIA warns you will likely rethink architecture on each order-of-magnitude load increase for a fast-growing service.",
+      "type": "boolean",
+      "level": 1,
+      "answer": true,
+      "explanation": "rethink your architecture on every order of magnitude load increase",
+      "reference": {
+        "book": "Designing Data-Intensive Applications",
+        "page": 85,
+        "excerpt": "rethink your architecture on every order of magnitude load increase"
+      }
+    }
+  ]
 }
