@@ -1,5 +1,5 @@
 import { readJsonBody } from './ask-core.js';
-import { runLogin } from './owner-core.js';
+import { runAnyLogin } from './auth-core.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -13,6 +13,6 @@ export default async function handler(req, res) {
     res.status(400).json({ error: 'bad_json', detail: 'Could not parse the request body.' });
     return;
   }
-  const out = runLogin(body);
+  const out = await runAnyLogin(body);
   res.status(out.status).json(out.json);
 }

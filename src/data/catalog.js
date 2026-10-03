@@ -155,6 +155,7 @@ function hydrateApplied(course) {
           htmlIntro: course.id === 'html' && mod.label === 'Language',
           cssIntro: course.id === 'css' && mod.label === 'Language',
           pyIntro: course.id === 'py' && mod.label === 'Language',
+          csIntro: course.id === 'cs' && mod.label === 'Language',
           comingSoon: questions.length === 0,
           subtitle: questions.length ? (deck.subtitle || '') : (deck.folder + '/quiz.json'),
         }, electronicsLecture || {});

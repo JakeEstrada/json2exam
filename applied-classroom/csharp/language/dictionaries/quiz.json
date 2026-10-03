@@ -1,0 +1,359 @@
+{
+  "title": "C# - Dictionaries",
+  "questions": [
+    {
+      "question": "How do you initialize an empty string-to-int dictionary?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "new Map<string, int>()",
+        "new Dictionary<string, int>()",
+        "new dict[string, int]",
+        "{} as Dictionary"
+      ],
+      "answer": "b",
+      "explanation": "Generic Dictionary, key then value.",
+      "reference": {
+        "section": "Initialize",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var ages = new Dictionary<string, int>();"
+    },
+    {
+      "question": "Collection initializer ages[\"Ada\"] = 36 inside new Dictionary<string,int> { ... } …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Is illegal",
+        "Inserts that pair",
+        "Only works for lists",
+        "Needs Add only"
+      ],
+      "answer": "b",
+      "explanation": "Indexer initializer syntax.",
+      "reference": {
+        "section": "Initialize",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var known = new Dictionary<string, int> {\n    [\"Ada\"] = 36\n};"
+    },
+    {
+      "question": "ages[\"Ada\"] when Ada is missing…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns 0",
+        "Returns null",
+        "Throws KeyNotFoundException",
+        "Inserts 0"
+      ],
+      "answer": "c",
+      "explanation": "Indexer get is the strict path.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int n = ages[\"Ada\"];"
+    },
+    {
+      "question": "How do you get a value if the key might be missing?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "ages.Get(\"Ada\")",
+        "ages.TryGetValue(\"Ada\", out int age)",
+        "ages[\"Ada\"] ?? 0",
+        "ages.has(\"Ada\")"
+      ],
+      "answer": "b",
+      "explanation": "TryGetValue is the dictionary equivalent of a safe get.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "bool ok = ages.TryGetValue(\"Ada\", out int age);"
+    },
+    {
+      "question": "GetValueOrDefault(\"Ada\") on a missing key returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "null always",
+        "default(TValue), 0 for int",
+        "throws",
+        "false"
+      ],
+      "answer": "b",
+      "explanation": "A convenience over TryGetValue.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int orZero = ages.GetValueOrDefault(\"Ada\");"
+    },
+    {
+      "question": "How do you test that a key exists?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "\"Ada\" in ages",
+        "ages.ContainsKey(\"Ada\")",
+        "ages.Has(\"Ada\")",
+        "ages.Exists(\"Ada\")"
+      ],
+      "answer": "b",
+      "explanation": "ContainsKey is the membership test.",
+      "reference": {
+        "section": "Exists",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "ages.ContainsKey(\"Ada\")"
+    },
+    {
+      "question": "ContainsValue(36) vs ContainsKey(\"Ada\")…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "They are the same speed",
+        "ContainsValue scans values; ContainsKey hashes the key",
+        "ContainsValue is O(1) always",
+        "ContainsKey scans"
+      ],
+      "answer": "b",
+      "explanation": "Prefer keys for membership.",
+      "reference": {
+        "section": "Exists",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "ages.ContainsValue(36);"
+    },
+    {
+      "question": "ages[\"Ada\"] = 37 when Ada already exists…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Throws",
+        "Replaces the value",
+        "Adds a second Ada",
+        "No-ops"
+      ],
+      "answer": "b",
+      "explanation": "Indexer set is add-or-replace.",
+      "reference": {
+        "section": "Mutate",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "ages[\"Ada\"] = 37;"
+    },
+    {
+      "question": "ages.Add(\"Ada\", 36) when Ada exists…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Replaces",
+        "Throws ArgumentException",
+        "Returns false",
+        "Ignores"
+      ],
+      "answer": "b",
+      "explanation": "Add is insert-only.",
+      "reference": {
+        "section": "Mutate",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "ages.Add(\"Ada\", 36);"
+    },
+    {
+      "question": "foreach (var pair in ages) gives…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "only keys",
+        "KeyValuePair<TKey,TValue> with .Key and .Value",
+        "only values",
+        "indexes"
+      ],
+      "answer": "b",
+      "explanation": "Or deconstruct: foreach (var (k, v) in ages).",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "foreach (var pair in ages) {\n    Console.WriteLine(pair.Key);\n}"
+    },
+    {
+      "question": "Dictionary keys must…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Be strings",
+        "Provide a hash and equality (default comparers do this for string and int)",
+        "Be classes",
+        "Be unique values too"
+      ],
+      "answer": "b",
+      "explanation": "Mutable keys that change after insert break lookup.",
+      "reference": {
+        "section": "Initialize",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var ages = new Dictionary<string, int>();"
+    },
+    {
+      "question": "new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase) means…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Values are case-insensitive",
+        "\"Ada\" and \"ada\" are the same key",
+        "Keys are interned",
+        "It sorts"
+      ],
+      "answer": "b",
+      "explanation": "The comparer is part of the map.",
+      "reference": {
+        "section": "Initialize",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var ages = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);"
+    },
+    {
+      "question": "Remove(\"Ada\") returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "the value",
+        "bool: whether the key was present",
+        "void",
+        "the key"
+      ],
+      "answer": "b",
+      "explanation": "Safe to call if missing.",
+      "reference": {
+        "section": "Mutate",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "ages.Remove(\"Ada\");"
+    },
+    {
+      "question": "TryGetValue is preferred over ContainsKey plus indexer because…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "It is two hashes otherwise",
+        "The indexer is slower at compile time",
+        "ContainsKey is deprecated",
+        "out is required by C#"
+      ],
+      "answer": "a",
+      "explanation": "One lookup instead of two.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "if (ages.TryGetValue(\"Ada\", out int age)) {\n    use(age);\n}"
+    },
+    {
+      "question": "A Dictionary is not ordered by key. If you need sorted keys…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Dictionary sorts if you Add in order",
+        "Use SortedDictionary or sort Keys",
+        "Use an array",
+        "Set Comparer to Sorted"
+      ],
+      "answer": "b",
+      "explanation": "Dictionary enumerates in an undefined order.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "foreach (var key in ages.Keys.OrderBy(k => k)) {\n}"
+    },
+    {
+      "question": "Return C#: var ages = new Dictionary<string, int>();",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function newDict() {\n  return \"\";\n}",
+      "solution": "function newDict() {\n  return \"var ages = new Dictionary<string, int>();\";\n}",
+      "tests": [
+        {
+          "call": "newDict()",
+          "expected": "var ages = new Dictionary<string, int>();"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Initialize",
+        "book": "C# language notes",
+        "excerpt": "See Dictionaries in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: ages.TryGetValue(\"Ada\", out int age);",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function tryGet() {\n  return \"\";\n}",
+      "solution": "function tryGet() {\n  return \"ages.TryGetValue(\\\"Ada\\\", out int age);\";\n}",
+      "tests": [
+        {
+          "call": "tryGet()",
+          "expected": "ages.TryGetValue(\"Ada\", out int age);"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Lookup",
+        "book": "C# language notes",
+        "excerpt": "See Dictionaries in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: ages.ContainsKey(\"Ada\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function containsKey() {\n  return \"\";\n}",
+      "solution": "function containsKey() {\n  return \"ages.ContainsKey(\\\"Ada\\\")\";\n}",
+      "tests": [
+        {
+          "call": "containsKey()",
+          "expected": "ages.ContainsKey(\"Ada\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Exists",
+        "book": "C# language notes",
+        "excerpt": "See Dictionaries in the C# notes."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "C# language notes",
+      "chapter": "Dictionaries"
+    }
+  ]
+}

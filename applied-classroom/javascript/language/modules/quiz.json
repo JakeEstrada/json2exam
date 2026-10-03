@@ -1,0 +1,381 @@
+{
+  "title": "JavaScript - Modules",
+  "questions": [
+    {
+      "question": "What problem are modules trying to avoid?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Slow loops",
+        "Everything sharing one scope and accidentally coupling",
+        "Missing this",
+        "JSON size"
+      ],
+      "answer": "b",
+      "explanation": "A module lists what it needs and what it provides.",
+      "reference": {
+        "section": "export",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "A module is a piece of program that specifies which other pieces it relies on and which functionality it provides for other modules to use (its interface)."
+      },
+      "code": "export function add(a, b) {\n  return a + b;\n}"
+    },
+    {
+      "question": "The original language had no modules. Scripts then…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Each had a private scope.",
+        "Ran in the same scope and created global bindings.",
+        "Required import.",
+        "Could not call functions."
+      ],
+      "answer": "b",
+      "explanation": "That invited accidental entanglement.",
+      "reference": {
+        "section": "import",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 267,
+        "excerpt": "The original JavaScript language did not have any concept of a module. All scripts ran in the same scope."
+      },
+      "code": "import { add } from \"./math.js\""
+    },
+    {
+      "question": "import { add } from \"./math.js\" needs the ./ because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "ES modules require a relative or URL specifier in the browser.",
+        "./ marks a default export.",
+        "math.js is a package name.",
+        "import is CommonJS only."
+      ],
+      "answer": "a",
+      "explanation": "Bare \"math\" would be a package specifier.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "import { add } from \"./math.js\""
+    },
+    {
+      "question": "export const VERSION = 1 is a…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "default export",
+        "named export",
+        "global",
+        "dynamic import"
+      ],
+      "answer": "b",
+      "explanation": "The importer must use the name VERSION.",
+      "reference": {
+        "section": "export",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "export const VERSION = 1"
+    },
+    {
+      "question": "How many default exports may a module have?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Unlimited",
+        "One",
+        "Two if one is a class",
+        "Zero; default is illegal"
+      ],
+      "answer": "b",
+      "explanation": "default is the unnamed main value.",
+      "reference": {
+        "section": "default",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "They make part of the module available to the outside world."
+      },
+      "code": "export default function load() {\n  return true;\n}"
+    },
+    {
+      "question": "import load from \"./load.js\" matches…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "export function load",
+        "export default function load",
+        "export const load",
+        "module.exports.load"
+      ],
+      "answer": "b",
+      "explanation": "Default import pairs with default export.",
+      "reference": {
+        "section": "default",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "import load from \"./load.js\""
+    },
+    {
+      "question": "import { add as plus } renames…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The export in the source file",
+        "The local binding only",
+        "The filename",
+        "default"
+      ],
+      "answer": "b",
+      "explanation": "The exporting module still uses add.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "import { add as plus } from \"./math.js\""
+    },
+    {
+      "question": "Code inside ES modules is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "sloppy this",
+        "automatically strict",
+        "CommonJS",
+        "hoisted as var"
+      ],
+      "answer": "b",
+      "explanation": "Eloquent: class and module code is strict.",
+      "reference": {
+        "section": "import",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 267,
+        "excerpt": "The original JavaScript language did not have any concept of a module."
+      },
+      "code": "export function add(a, b) {\n  return a + b;\n}"
+    },
+    {
+      "question": "import(\"./math.js\") returns…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "the add function",
+        "a Promise for the module namespace",
+        "undefined",
+        "a script tag"
+      ],
+      "answer": "b",
+      "explanation": "Dynamic import is async.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "const math = await import(\"./math.js\")"
+    },
+    {
+      "question": "Circular imports can work if…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "You only use the bindings after both modules finish evaluating",
+        "You use var",
+        "You avoid export",
+        "You default-export a number"
+      ],
+      "answer": "a",
+      "explanation": "Do not call the other module at the top level.",
+      "reference": {
+        "section": "export",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "Module interfaces have a lot in common with object interfaces."
+      },
+      "code": "import { add } from \"./math.js\""
+    },
+    {
+      "question": "export { add } from \"./math.js\" does…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Nothing",
+        "Re-exports add without a local binding",
+        "Copies the file",
+        "Creates default"
+      ],
+      "answer": "b",
+      "explanation": "A barrel module.",
+      "reference": {
+        "section": "export",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "export { add } from \"./math.js\""
+    },
+    {
+      "question": "Named imports are live bindings. If math.js later assigns add…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The importer still sees the old function.",
+        "The importer sees the new value.",
+        "It throws.",
+        "Only default is live."
+      ],
+      "answer": "b",
+      "explanation": "They are not copies.",
+      "reference": {
+        "section": "import",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "A module is a piece of program that specifies which other pieces it relies on and which functionality it provides for other modules to use (its interface)."
+      },
+      "code": "import { add } from \"./math.js\""
+    },
+    {
+      "question": "A module specifier \"lodash\" without ./ usually means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A relative file lodash.js in this folder",
+        "A package the bundler or Node resolves",
+        "A built-in browser API",
+        "An error always"
+      ],
+      "answer": "b",
+      "explanation": "Bare specifiers are for Node/bundlers.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "import _ from \"lodash\""
+    },
+    {
+      "question": "Why not dump helpers on window?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "window is read-only.",
+        "Name clashes and hidden coupling, which modules were designed to avoid.",
+        "window cannot hold functions.",
+        "Browsers forbid it."
+      ],
+      "answer": "b",
+      "explanation": "The old script model invited that mess.",
+      "reference": {
+        "section": "export",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "Modules are an attempt to avoid these problems."
+      },
+      "code": "window.add = add"
+    },
+    {
+      "question": "import type is TypeScript. In plain JS you…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Still write import type",
+        "Use import { add } for values",
+        "Cannot import",
+        "Use #include"
+      ],
+      "answer": "b",
+      "explanation": "JS imports values, not types.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      },
+      "code": "import { add } from \"./math.js\""
+    },
+    {
+      "question": "Return JavaScript: export function add(a, b) {\\n  return a + b;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function namedExport() {\n  return \"\";\n}",
+      "solution": "function namedExport() {\n  return \"export function add(a, b) {\\n  return a + b;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "namedExport()",
+          "expected": "export function add(a, b) {\n  return a + b;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "export",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "A module is a piece of program that specifies which other pieces it relies on and which functionality it provides for other modules to use (its interface)."
+      }
+    },
+    {
+      "question": "Return JavaScript: import { add } from \"./math.js\"",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function namedImport() {\n  return \"\";\n}",
+      "solution": "function namedImport() {\n  return \"import { add } from \\\"./math.js\\\"\";\n}",
+      "tests": [
+        {
+          "call": "namedImport()",
+          "expected": "import { add } from \"./math.js\""
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "import",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 273,
+        "excerpt": "The import and export declarations are used together to make values in one module available in another."
+      }
+    },
+    {
+      "question": "Return JavaScript: export default function load() {\\n  return true;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function defaultExport() {\n  return \"\";\n}",
+      "solution": "function defaultExport() {\n  return \"export default function load() {\\n  return true;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "defaultExport()",
+          "expected": "export default function load() {\n  return true;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "default",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 266,
+        "excerpt": "They make part of the module available to the outside world."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 266
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 273
+    }
+  ]
+}

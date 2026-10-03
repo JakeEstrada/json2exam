@@ -1,0 +1,377 @@
+{
+  "title": "Python - Exceptions",
+  "questions": [
+    {
+      "question": "What does a try/except block do when 5/0 runs?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Ignores the error and returns 0.",
+        "Runs the except if ZeroDivisionError is raised.",
+        "Crashes anyway.",
+        "Compiles the except first."
+      ],
+      "answer": "b",
+      "explanation": "try runs; a matching except handles the exception.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      },
+      "code": "try:\n    print(5 / 0)\nexcept ZeroDivisionError:\n    print(\"no\")"
+    },
+    {
+      "question": "Why catch ZeroDivisionError instead of a bare except:?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Bare except is a syntax error.",
+        "A bare except also swallows KeyboardInterrupt and unexpected bugs.",
+        "ZeroDivisionError is faster.",
+        "except needs a string."
+      ],
+      "answer": "b",
+      "explanation": "Catch the error you expect.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "Here’s what a try- except block for handling the ZeroDivisionError exception looks like."
+      },
+      "code": "except ZeroDivisionError:\n    print(\"no\")"
+    },
+    {
+      "question": "What happens if the try block succeeds?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "except still runs.",
+        "except is skipped.",
+        "finally is skipped.",
+        "Python reruns try."
+      ],
+      "answer": "b",
+      "explanation": "except is only for the listed failure.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "When you think an error may occur, you can write a try- except block to handle the exception that might be raised."
+      },
+      "code": "try:\n    print(5 / 1)\nexcept ZeroDivisionError:\n    print(\"no\")"
+    },
+    {
+      "question": "When does the else clause on try run?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always.",
+        "Only if an exception was raised.",
+        "Only if no exception was raised.",
+        "Only after finally."
+      ],
+      "answer": "c",
+      "explanation": "else is the success path.",
+      "reference": {
+        "section": "else and finally",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 232,
+        "excerpt": "This program does nothing to handle errors, so asking it to divide by zero causes it to crash."
+      },
+      "code": "try:\n    n = int(text)\nexcept ValueError:\n    n = 0\nelse:\n    use(n)"
+    },
+    {
+      "question": "When does finally run?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only on success.",
+        "Only on failure.",
+        "Always, after try/except/else.",
+        "Never with return."
+      ],
+      "answer": "c",
+      "explanation": "finally is for cleanup.",
+      "reference": {
+        "section": "else and finally",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      },
+      "code": "try:\n    n = int(text)\nfinally:\n    log(\"done\")"
+    },
+    {
+      "question": "int(\"hi\") without a handler…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns 0",
+        "Returns None",
+        "Raises ValueError",
+        "Raises KeyError"
+      ],
+      "answer": "c",
+      "explanation": "Invalid literals raise ValueError.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 232,
+        "excerpt": "This program does nothing to handle errors, so asking it to divide by zero causes it to crash."
+      },
+      "code": "int(\"hi\")"
+    },
+    {
+      "question": "How do you signal a failed precondition yourself?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "return False only",
+        "raise ValueError(\"reason\")",
+        "except ValueError",
+        "assert is illegal"
+      ],
+      "answer": "b",
+      "explanation": "raise builds an exception and unwinds.",
+      "reference": {
+        "section": "Raising",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "When you think an error may occur, you can write a try- except block to handle the exception that might be raised."
+      },
+      "code": "if age < 0:\n    raise ValueError(\"age\")"
+    },
+    {
+      "question": "except Exception as err: binds…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The type only",
+        "The instance, so you can read str(err)",
+        "A traceback string only",
+        "The try source"
+      ],
+      "answer": "b",
+      "explanation": "as names the exception object.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      },
+      "code": "except ValueError as err:\n    print(err)"
+    },
+    {
+      "question": "You can list more than one type in one except. Which is valid?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "except ValueError or TypeError:",
+        "except (ValueError, TypeError):",
+        "except ValueError, TypeError:",
+        "except [ValueError]"
+      ],
+      "answer": "b",
+      "explanation": "A tuple of types.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "Here’s what a try- except block for handling the ZeroDivisionError exception looks like."
+      },
+      "code": "except (ValueError, TypeError):\n    pass"
+    },
+    {
+      "question": "What is wrong with catching Exception and returning None everywhere?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "It is a syntax error.",
+        "It hides real bugs and makes later diagnosis harder.",
+        "None cannot be returned.",
+        "except cannot return."
+      ],
+      "answer": "b",
+      "explanation": "Handle the failure you understand.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 232,
+        "excerpt": "This program does nothing to handle errors, so asking it to divide by zero causes it to crash."
+      },
+      "code": "try:\n    return work()\nexcept Exception:\n    return None"
+    },
+    {
+      "question": "A try that opens a file should usually…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Leave the file open on except.",
+        "Use with open(...) so the file closes even on error.",
+        "Call close() only in else.",
+        "Never use except."
+      ],
+      "answer": "b",
+      "explanation": "with is a finally that closes the resource.",
+      "reference": {
+        "section": "else and finally",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "When you think an error may occur, you can write a try- except block to handle the exception that might be raised."
+      },
+      "code": "with open(path) as f:\n    return f.read()"
+    },
+    {
+      "question": "raise without an argument inside except…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Raises RuntimeError",
+        "Re-raises the exception being handled",
+        "Clears the error",
+        "Is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "Bare raise continues the same failure.",
+      "reference": {
+        "section": "Raising",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      },
+      "code": "except ValueError:\n    log(\"bad\")\n    raise"
+    },
+    {
+      "question": "Which exception is 5 / 0 in Python 3?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "IOError",
+        "ZeroDivisionError",
+        "ValueError",
+        "KeyError"
+      ],
+      "answer": "b",
+      "explanation": "Integer or float divide-by-zero.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "Here’s what a try- except block for handling the ZeroDivisionError exception looks like: try: print(5/0) except ZeroD"
+      },
+      "code": "print(5 / 0)"
+    },
+    {
+      "question": "Can one try have several except clauses?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No.",
+        "Yes; the first matching type wins.",
+        "Yes; every except runs.",
+        "Only with finally."
+      ],
+      "answer": "b",
+      "explanation": "Python walks except clauses in order.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "When you think an error may occur, you can write a try- except block to handle the exception that might be raised."
+      },
+      "code": "try:\n    n = int(text)\nexcept ValueError:\n    n = 0\nexcept TypeError:\n    n = -1"
+    },
+    {
+      "question": "What does the Crash Course division example crash on if you skip try?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Empty string only",
+        "Second number 0",
+        "q to quit",
+        "A missing import"
+      ],
+      "answer": "b",
+      "explanation": "Uncaught ZeroDivisionError ends the program.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 232,
+        "excerpt": "This program does nothing to handle errors, so asking it to divide by zero causes it to crash."
+      },
+      "code": "print(first / second)"
+    },
+    {
+      "question": "Return Python: try:\\n    print(5 / 0)\\nexcept ZeroDivisionError:\\n    print(\"no\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function tryDiv() {\n  return \"\";\n}",
+      "solution": "function tryDiv() {\n  return \"try:\\n    print(5 / 0)\\nexcept ZeroDivisionError:\\n    print(\\\"no\\\")\";\n}",
+      "tests": [
+        {
+          "call": "tryDiv()",
+          "expected": "try:\n    print(5 / 0)\nexcept ZeroDivisionError:\n    print(\"no\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "try and except",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      }
+    },
+    {
+      "question": "Return Python: raise ValueError(\"age\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function raiseAge() {\n  return \"\";\n}",
+      "solution": "function raiseAge() {\n  return \"raise ValueError(\\\"age\\\")\";\n}",
+      "tests": [
+        {
+          "call": "raiseAge()",
+          "expected": "raise ValueError(\"age\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Raising",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "When you think an error may occur, you can write a try- except block to handle the exception that might be raised."
+      }
+    },
+    {
+      "question": "Return Python: try:\\n    n = int(text)\\nfinally:\\n    log(\"done\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function tryFinally() {\n  return \"\";\n}",
+      "solution": "function tryFinally() {\n  return \"try:\\n    n = int(text)\\nfinally:\\n    log(\\\"done\\\")\";\n}",
+      "tests": [
+        {
+          "call": "tryFinally()",
+          "expected": "try:\n    n = int(text)\nfinally:\n    log(\"done\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "else and finally",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 231,
+        "excerpt": "You tell Python to try running some code, and you tell it what to do if the code results in a particular kind of exception."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "page": 231
+    }
+  ]
+}

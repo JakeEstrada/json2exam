@@ -21,6 +21,8 @@ const CODE_KICKER = {
   html: 'Read this HTML',
   markup: 'Read this HTML',
   css: 'Read this CSS',
+  csharp: 'Read this C#',
+  cs: 'Read this C#',
 };
 
 export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading, books }) {

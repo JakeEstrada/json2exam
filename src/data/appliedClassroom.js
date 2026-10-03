@@ -237,7 +237,7 @@ export const APPLIED_COURSES = [
     title: 'JavaScript',
     folder: 'javascript',
     group: 'languages',
-    tagline: 'Seven short lessons. Read the code, then practice it.',
+    tagline: 'Syntax first, then maps, prototypes, modules, and generators.',
     modules: [
       {
         label: 'Language',
@@ -255,6 +255,9 @@ export const APPLIED_COURSES = [
           { label: 'Classes', sheet: 'CLASSES' },
           { label: 'Error handling', sheet: 'ERROR HANDLING' },
           { label: 'Asynchronous JavaScript', sheet: 'ASYNC' },
+          { label: 'Prototypes and this', slug: 'prototypes-and-this' },
+          { label: 'Modules', slug: 'modules' },
+          { label: 'Iterators', slug: 'iterators-and-generators' },
         ],
       },
       {
@@ -347,7 +350,7 @@ export const APPLIED_COURSES = [
     title: 'Python',
     folder: 'python',
     group: 'languages',
-    tagline: 'Seven short lessons. Indentation, then lists, dicts, and comprehensions.',
+    tagline: 'Syntax first, then dicts, classes, files, exceptions, and generators.',
     modules: [
       {
         label: 'Language',
@@ -359,6 +362,42 @@ export const APPLIED_COURSES = [
           { label: 'Lists', slug: 'lists', sheet: 'LISTS' },
           { label: 'Dicts and sets', slug: 'dicts-and-sets', sheet: 'DICTS AND SETS' },
           { label: 'Comprehensions', slug: 'comprehensions', sheet: 'COMPREHENSIONS' },
+          { label: 'Classes', slug: 'classes', sheet: 'CLASSES' },
+          { label: 'Exceptions', slug: 'exceptions' },
+          { label: 'Files', slug: 'files' },
+          { label: 'Iterators', slug: 'iterators-and-generators' },
+        ],
+      },
+      {
+        label: 'Studio',
+        decks: [
+          'Predict the output',
+          'Complete the function',
+          'Find the bug',
+          'Refactor the code',
+          'Choose the correct data structure',
+          'Pass the provided test cases',
+          'Explain why the output occurred',
+        ],
+      },
+    ],
+  }),
+  plannedCourse({
+    id: 'cs',
+    code: 'CS',
+    title: 'C#',
+    folder: 'csharp',
+    group: 'languages',
+    tagline: 'Types and methods first, then dictionaries, classes, and LINQ.',
+    modules: [
+      {
+        label: 'Language',
+        decks: [
+          { label: 'Types', slug: 'types-and-variables' },
+          { label: 'Methods', slug: 'methods' },
+          { label: 'Dictionaries', slug: 'dictionaries' },
+          { label: 'Classes', slug: 'classes' },
+          { label: 'LINQ', slug: 'linq' },
         ],
       },
       {

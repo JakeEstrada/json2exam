@@ -1,0 +1,359 @@
+{
+  "title": "C# - LINQ",
+  "questions": [
+    {
+      "question": "people.Where(p => p.Age >= 18) returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "a List immediately",
+        "a deferred query; nothing walks yet",
+        "an array",
+        "only the first"
+      ],
+      "answer": "b",
+      "explanation": "LINQ to Objects is lazy.",
+      "reference": {
+        "section": "Deferred execution",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var q = people.Where(p => p.Age >= 18);"
+    },
+    {
+      "question": "Select(p => p.Name) is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A filter",
+        "A projection / map",
+        "A join",
+        "A sort"
+      ],
+      "answer": "b",
+      "explanation": "One output per input (unless you SelectMany).",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var names = people.Select(p => p.Name);"
+    },
+    {
+      "question": "ToList() is needed when…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "You want to run the query and hold the results",
+        "Select is used",
+        "the source is a List already always",
+        "Where is used"
+      ],
+      "answer": "a",
+      "explanation": "Materialize.",
+      "reference": {
+        "section": "Deferred execution",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var names = people.Where(p => p.Age >= 18).ToList();"
+    },
+    {
+      "question": "First() on an empty sequence…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Returns null",
+        "Throws InvalidOperationException",
+        "Returns 0",
+        "Waits"
+      ],
+      "answer": "b",
+      "explanation": "Use FirstOrDefault when empty is normal.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var first = people.First();"
+    },
+    {
+      "question": "FirstOrDefault() on empty List<int> returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "null",
+        "0",
+        "throws",
+        "-1"
+      ],
+      "answer": "b",
+      "explanation": "default(int).",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var n = nums.FirstOrDefault();"
+    },
+    {
+      "question": "Any(p => p.Age < 0) is better than Count(...) > 0 because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Any is deprecated",
+        "Any can stop at the first match",
+        "Count is illegal on IEnumerable",
+        "Any allocates a list"
+      ],
+      "answer": "b",
+      "explanation": "Short-circuit.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "bool bad = people.Any(p => p.Age < 0);"
+    },
+    {
+      "question": "OrderBy(p => p.Name).ThenBy(p => p.Age) …",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "ThenBy replaces OrderBy",
+        "ThenBy is a secondary sort",
+        "Is a filter",
+        "Needs ToList first always"
+      ],
+      "answer": "b",
+      "explanation": "Stable multi-key sort.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "people.OrderBy(p => p.Name).ThenBy(p => p.Age)"
+    },
+    {
+      "question": "GroupBy(p => p.City) yields…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "a Dictionary always",
+        "groups with a Key and items",
+        "only keys",
+        "only the first city"
+      ],
+      "answer": "b",
+      "explanation": "IGrouping<TKey,T>. ToDictionary if you need a map.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "foreach (var g in people.GroupBy(p => p.City)) {\n}"
+    },
+    {
+      "question": "SelectMany(p => p.Tags) …",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Nests lists",
+        "Flattens each person's tags into one sequence",
+        "Filters tags",
+        "Joins SQL only"
+      ],
+      "answer": "b",
+      "explanation": "Map then flatten.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var tags = people.SelectMany(p => p.Tags);"
+    },
+    {
+      "question": "people.Where(...).Where(...) …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Is illegal",
+        "Ands the predicates; still deferred",
+        "Runs twice now",
+        "Needs Concat"
+      ],
+      "answer": "b",
+      "explanation": "Compose queries.",
+      "reference": {
+        "section": "Deferred execution",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var q = people.Where(p => p.Age >= 18).Where(p => p.City == \"X\");"
+    },
+    {
+      "question": "If you mutate people after creating q but before ToList…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "q is frozen",
+        "ToList sees the new contents",
+        "It throws",
+        "LINQ copies on Where"
+      ],
+      "answer": "b",
+      "explanation": "Deferred: the source is read later.",
+      "reference": {
+        "section": "Deferred execution",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var q = people.Where(p => p.Age >= 18);\npeople.Add(new Person());"
+    },
+    {
+      "question": "IQueryable vs IEnumerable LINQ…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "They are the same",
+        "IQueryable can translate to SQL; IEnumerable runs in process",
+        "IEnumerable is only arrays",
+        "IQueryable cannot Where"
+      ],
+      "answer": "b",
+      "explanation": "EF Core uses IQueryable.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var q = db.People.Where(p => p.Age >= 18);"
+    },
+    {
+      "question": "Count() without a predicate vs .Count on List…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Always the same speed",
+        "Count() on IEnumerable<T> that is a List uses the Count property; still prefer .Count on a known list",
+        "Count() never uses Count",
+        "They throw"
+      ],
+      "answer": "b",
+      "explanation": "Know what you have.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int n = people.Count();"
+    },
+    {
+      "question": "The query syntax from p in people where p.Age >= 18 select p.Name is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "SQL sent to the server always",
+        "C# that compiles to the same Where/Select calls",
+        "A string",
+        "F#"
+      ],
+      "answer": "b",
+      "explanation": "Two syntaxes, one API.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var names = from p in people\n    where p.Age >= 18\n    select p.Name;"
+    },
+    {
+      "question": "Single() vs First()…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "They are equal",
+        "Single throws if there is not exactly one match",
+        "Single is faster",
+        "First throws if there are two"
+      ],
+      "answer": "b",
+      "explanation": "Single is a uniqueness check.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var ada = people.Single(p => p.Name == \"Ada\");"
+    },
+    {
+      "question": "Return C#: var names = people.Where(p => p.Age >= 18).Select(p => p.Name).ToList();",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function whereSelect() {\n  return \"\";\n}",
+      "solution": "function whereSelect() {\n  return \"var names = people.Where(p => p.Age >= 18).Select(p => p.Name).ToList();\";\n}",
+      "tests": [
+        {
+          "call": "whereSelect()",
+          "expected": "var names = people.Where(p => p.Age >= 18).Select(p => p.Name).ToList();"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Where and Select",
+        "book": "C# language notes",
+        "excerpt": "See LINQ in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: bool bad = people.Any(p => p.Age < 0);",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function anyBad() {\n  return \"\";\n}",
+      "solution": "function anyBad() {\n  return \"bool bad = people.Any(p => p.Age < 0);\";\n}",
+      "tests": [
+        {
+          "call": "anyBad()",
+          "expected": "bool bad = people.Any(p => p.Age < 0);"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See LINQ in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: var n = nums.FirstOrDefault();",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function firstOrDefault() {\n  return \"\";\n}",
+      "solution": "function firstOrDefault() {\n  return \"var n = nums.FirstOrDefault();\";\n}",
+      "tests": [
+        {
+          "call": "firstOrDefault()",
+          "expected": "var n = nums.FirstOrDefault();"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Aggregates",
+        "book": "C# language notes",
+        "excerpt": "See LINQ in the C# notes."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "C# language notes",
+      "chapter": "LINQ"
+    }
+  ]
+}

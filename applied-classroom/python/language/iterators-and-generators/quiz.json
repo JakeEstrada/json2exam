@@ -1,0 +1,381 @@
+{
+  "title": "Python - Iterators and generators",
+  "questions": [
+    {
+      "question": "What does a for loop call first on rows?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "rows.next()",
+        "iter(rows)",
+        "list(rows) always",
+        "len(rows) only"
+      ],
+      "answer": "b",
+      "explanation": "iter produces an iterator.",
+      "reference": {
+        "section": "Iterables",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules defined in the Built-in Types chapter."
+      },
+      "code": "for row in rows:\n    print(row)"
+    },
+    {
+      "question": "What does yield do inside a function?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Returns and destroys the function.",
+        "Pauses the function and produces a value.",
+        "Starts a thread.",
+        "Copies the list."
+      ],
+      "answer": "b",
+      "explanation": "The function becomes a generator.",
+      "reference": {
+        "section": "yield",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "In Python 3, list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "def squares(n):\n    for i in range(n):\n        yield i * i"
+    },
+    {
+      "question": "squares(4) returns…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "[0, 1, 4, 9]",
+        "a generator object",
+        "None",
+        "4"
+      ],
+      "answer": "b",
+      "explanation": "You iterate it to get values.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "g = squares(4)"
+    },
+    {
+      "question": "list(squares(4)) is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "a generator",
+        "[0, 1, 4, 9]",
+        "[4]",
+        "an error"
+      ],
+      "answer": "b",
+      "explanation": "list consumes the generator.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "list(squares(4))"
+    },
+    {
+      "question": "After list(g) on a generator g, a second list(g) is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The same list",
+        "[] because it is exhausted",
+        "A copy",
+        "An error"
+      ],
+      "answer": "b",
+      "explanation": "Generators are single-pass.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "print(list(g))\nprint(list(g))"
+    },
+    {
+      "question": "(i * i for i in range(n)) is a…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "list comprehension",
+        "generator expression",
+        "tuple",
+        "set"
+      ],
+      "answer": "b",
+      "explanation": "Parentheses, not brackets.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "g = (i * i for i in range(n))"
+    },
+    {
+      "question": "Why use a generator instead of building a list of a million rows?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Generators sort faster.",
+        "They produce one item at a time and skip the huge list.",
+        "They parallelize automatically.",
+        "Lists cannot hold a million items."
+      ],
+      "answer": "b",
+      "explanation": "Memory stays flat.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "Keep in mind these common traits: mutable versus immutable; container versus flat."
+      },
+      "code": "for row in read_rows(path):\n    use(row)"
+    },
+    {
+      "question": "next(g) on an exhausted generator raises…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "KeyError",
+        "StopIteration",
+        "ValueError",
+        "RuntimeError always"
+      ],
+      "answer": "b",
+      "explanation": "for loops catch that to finish.",
+      "reference": {
+        "section": "Iterables",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules."
+      },
+      "code": "next(g)"
+    },
+    {
+      "question": "yield from xs is equivalent to…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "return xs",
+        "for x in xs: yield x",
+        "list(xs)",
+        "iter(xs) only"
+      ],
+      "answer": "b",
+      "explanation": "It forwards another iterable.",
+      "reference": {
+        "section": "yield",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "yield from xs"
+    },
+    {
+      "question": "A class is iterable if it defines…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "__next__ only",
+        "__iter__ that returns an iterator",
+        "__len__",
+        "__bool__"
+      ],
+      "answer": "b",
+      "explanation": "__iter__ is the hook for iter().",
+      "reference": {
+        "section": "Iterables",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules defined in the Built-in Types chapter."
+      },
+      "code": "def __iter__(self):\n    return iter(self.rows)"
+    },
+    {
+      "question": "range(1_000_000) is not a list. That is the same idea as…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A generator: values are produced as needed",
+        "A set",
+        "A dict view that copies",
+        "A tuple"
+      ],
+      "answer": "a",
+      "explanation": "range is a lazy iterable.",
+      "reference": {
+        "section": "Iterables",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "for i in range(1_000_000):\n    if i == 10:\n        break"
+    },
+    {
+      "question": "Can a generator use return value?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "No.",
+        "Yes; value goes to StopIteration.value, not into the for-loop variable.",
+        "Yes; it becomes the last yielded item.",
+        "It becomes a list."
+      ],
+      "answer": "b",
+      "explanation": "for ignores the return value.",
+      "reference": {
+        "section": "yield",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "def g():\n    yield 1\n    return 2"
+    },
+    {
+      "question": "Which is a generator function?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "def f(): return [1, 2]",
+        "def f(): yield 1",
+        "f = lambda: 1",
+        "def f(): pass"
+      ],
+      "answer": "b",
+      "explanation": "The presence of yield is enough.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "def f():\n    yield 1"
+    },
+    {
+      "question": "sum(n * n for n in nums) works because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "sum requires a list",
+        "sum accepts any iterable, including a generator expression",
+        "for is illegal in sum",
+        "n * n must be yielded from a class"
+      ],
+      "answer": "b",
+      "explanation": "No extra list is built.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      },
+      "code": "sum(n * n for n in nums)"
+    },
+    {
+      "question": "iter(xs) twice on a list gives…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The same exhausted iterator",
+        "Two independent iterators",
+        "An error",
+        "A generator function"
+      ],
+      "answer": "b",
+      "explanation": "The list can be walked again.",
+      "reference": {
+        "section": "Iterables",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules."
+      },
+      "code": "a = iter(xs)\nb = iter(xs)"
+    },
+    {
+      "question": "Return Python: def squares(n):\\n    for i in range(n):\\n        yield i * i",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function genFn() {\n  return \"\";\n}",
+      "solution": "function genFn() {\n  return \"def squares(n):\\n    for i in range(n):\\n        yield i * i\";\n}",
+      "tests": [
+        {
+          "call": "genFn()",
+          "expected": "def squares(n):\n    for i in range(n):\n        yield i * i"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      }
+    },
+    {
+      "question": "Return Python: g = (i * i for i in range(n))",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function genExpr() {\n  return \"\";\n}",
+      "solution": "function genExpr() {\n  return \"g = (i * i for i in range(n))\";\n}",
+      "tests": [
+        {
+          "call": "genExpr()",
+          "expected": "g = (i * i for i in range(n))"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Generators",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      }
+    },
+    {
+      "question": "Return Python: yield from xs",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function yieldFrom() {\n  return \"\";\n}",
+      "solution": "function yieldFrom() {\n  return \"yield from xs\";\n}",
+      "tests": [
+        {
+          "call": "yieldFrom()",
+          "expected": "yield from xs"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "yield",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 63,
+        "excerpt": "list comprehensions, generator expressions, and their siblings set and dict comprehensions have their own local scope."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 63
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 41
+    }
+  ]
+}

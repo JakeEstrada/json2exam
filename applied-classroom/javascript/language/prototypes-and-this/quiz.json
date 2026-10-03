@@ -1,0 +1,388 @@
+{
+  "title": "JavaScript - Prototypes and this",
+  "questions": [
+    {
+      "question": "What does Object.getPrototypeOf({}) return?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "null",
+        "Object.prototype",
+        "the object itself",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "Ordinary objects inherit from Object.prototype.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "Prototypes One way to create a rabbit object type with a speak method would be to create a helper function that has a rabbit type as its parameter.",
+        "books": [
+          {
+            "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+            "page": 148,
+            "excerpt": "Any value in JavaScript that is not a string, a number, a Symbol, or true, false, null, or undefined is an object."
+          }
+        ]
+      },
+      "code": "Object.getPrototypeOf({})"
+    },
+    {
+      "question": "Why put speak on a shared prototype instead of on every rabbit object?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Prototypes are faster to JSON.",
+        "One function is reused by every instance.",
+        "this cannot work otherwise.",
+        "Methods cannot be own properties."
+      ],
+      "answer": "b",
+      "explanation": "Especially for types with many methods.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "All rabbits share that same method. Especially for types with many methods, it would be nice if there were a way to share them."
+      },
+      "code": "Rabbit.prototype.speak = function (line) {\n  console.log(this.type + \" says \" + line);\n}"
+    },
+    {
+      "question": "whiteRabbit.speak(\"Hurry\") sets this to…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "undefined",
+        "the global object always",
+        "whiteRabbit",
+        "Rabbit"
+      ],
+      "answer": "c",
+      "explanation": "A method call binds this to the receiver.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "speak.call(whiteRabbit, \"Hurry\"); // → The white rabbit says 'Hurry'"
+      },
+      "code": "whiteRabbit.speak(\"Hurry\")"
+    },
+    {
+      "question": "speak.call(whiteRabbit, \"Hurry\") is useful because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It clones whiteRabbit.",
+        "It sets this without a method-style call.",
+        "It binds permanently.",
+        "call is only for arrows."
+      ],
+      "answer": "b",
+      "explanation": "call/apply/bind choose this.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "speak.call(whiteRabbit, \"Hurry\"); // → The white rabbit says 'Hurry'"
+      },
+      "code": "speak.call(whiteRabbit, \"Hurry\")"
+    },
+    {
+      "question": "Why can a regular function inside a method not see the outer this?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "this is syntax-only.",
+        "Each function has its own this from how it is called.",
+        "this is always global in modules.",
+        "Nested functions are illegal."
+      ],
+      "answer": "b",
+      "explanation": "Eloquent: you cannot refer to the this of the wrapping scope in a regular function.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "you cannot refer to the this of the wrapping scope in a regular function defined with the function keyword."
+      },
+      "code": "function method() {\n  function inner() { return this; }\n  return inner();\n}"
+    },
+    {
+      "question": "Arrow functions and this…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always bind this to the global object.",
+        "Do not bind their own this; they use the enclosing one.",
+        "Require call.",
+        "Cannot be methods."
+      ],
+      "answer": "b",
+      "explanation": "That is why arrows work as inner callbacks.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Arrow functions are different—they do not bind their own this but can see the this of the surrounding scope."
+      },
+      "code": "const speak = () => this.line"
+    },
+    {
+      "question": "const fn = whiteRabbit.speak; fn(\"Hurry\") typically…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Works the same.",
+        "Loses this (undefined in strict mode).",
+        "Binds Rabbit.",
+        "Throws SyntaxError."
+      ],
+      "answer": "b",
+      "explanation": "Detaching the function drops the receiver.",
+      "reference": {
+        "section": "Methods",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Since each function has its own this binding whose value depends on the way it is called."
+      },
+      "code": "const fn = whiteRabbit.speak;\nfn(\"Hurry\")"
+    },
+    {
+      "question": "class Rabbit { speak(line) {} } puts speak on…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "each instance as an own property",
+        "Rabbit.prototype",
+        "Object.prototype",
+        "the constructor only"
+      ],
+      "answer": "b",
+      "explanation": "class methods are on the prototype.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "Especially for types with many methods, it would be nice if there were a way to share them."
+      },
+      "code": "class Rabbit {\n  speak(line) {\n    console.log(this.type + \" \" + line);\n  }\n}"
+    },
+    {
+      "question": "Object.getPrototypeOf(Object.prototype) is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Object",
+        "Function.prototype",
+        "null",
+        "undefined"
+      ],
+      "answer": "c",
+      "explanation": "The chain ends at null.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "As you’d guess, Object.getPrototypeOf returns the prototype of an object."
+      },
+      "code": "Object.getPrototypeOf(Object.prototype)"
+    },
+    {
+      "question": "obj.hasOwnProperty is usually inherited. Object.hasOwn(obj, key) is safer because…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "hasOwn is a keyword.",
+        "It does not go through a possibly overwritten method.",
+        "It sees the prototype too.",
+        "It only works on Maps."
+      ],
+      "answer": "b",
+      "explanation": "Own-key checks should not use a borrowed method blindly.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 148,
+        "excerpt": "And even though strings, numbers, and booleans are not objects, they can behave like immutable objects."
+      },
+      "code": "Object.hasOwn(obj, \"id\")"
+    },
+    {
+      "question": "new Rabbit() sets the instance prototype to…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Object.prototype only",
+        "Rabbit.prototype",
+        "Rabbit",
+        "null"
+      ],
+      "answer": "b",
+      "explanation": "The constructor’s prototype property.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "All rabbits share that same method."
+      },
+      "code": "const r = new Rabbit()"
+    },
+    {
+      "question": "In a module or class body, a bare function(){} this is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "window",
+        "undefined (strict)",
+        "the module object",
+        "globalThis always"
+      ],
+      "answer": "b",
+      "explanation": "Class and module code is strict.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Since each function has its own this binding whose value depends on the way it is called."
+      },
+      "code": "function loose() {\n  return this;\n}"
+    },
+    {
+      "question": "rabbit.speak = rabbit.speak.bind(rabbit) is a way to…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Copy the prototype.",
+        "Lock this so you can pass the function around.",
+        "Remove speak.",
+        "Make an arrow."
+      ],
+      "answer": "b",
+      "explanation": "bind returns a bound function.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "speak.call(whiteRabbit, \"Hurry\");"
+      },
+      "code": "const speak = rabbit.speak.bind(rabbit)"
+    },
+    {
+      "question": "Changing Rabbit.prototype.speak later…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Does nothing for existing instances.",
+        "Is seen by instances that inherit that prototype.",
+        "Rewrites Object.prototype.",
+        "Requires new."
+      ],
+      "answer": "b",
+      "explanation": "Lookup walks the chain at call time.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "All rabbits share that same method."
+      },
+      "code": "Rabbit.prototype.speak = function () {\n  return \"new\";\n}"
+    },
+    {
+      "question": "A primitive can still have methods because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Numbers are objects.",
+        "JS boxes them to call methods on a prototype, then discards the box.",
+        "Methods are macros.",
+        "You must new Number."
+      ],
+      "answer": "b",
+      "explanation": "Definitive Guide: they can behave like immutable objects.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 148,
+        "excerpt": "And even though strings, numbers, and booleans are not objects, they can behave like immutable objects."
+      },
+      "code": "\"hi\".toUpperCase()"
+    },
+    {
+      "question": "Return JavaScript: whiteRabbit.speak(\"Hurry\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function methodCall() {\n  return \"\";\n}",
+      "solution": "function methodCall() {\n  return \"whiteRabbit.speak(\\\"Hurry\\\")\";\n}",
+      "tests": [
+        {
+          "call": "methodCall()",
+          "expected": "whiteRabbit.speak(\"Hurry\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "Methods",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "speak.call(whiteRabbit, \"Hurry\"); // → The white rabbit says 'Hurry'"
+      }
+    },
+    {
+      "question": "Return JavaScript: Object.getPrototypeOf({})",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function getProto() {\n  return \"\";\n}",
+      "solution": "function getProto() {\n  return \"Object.getPrototypeOf({})\";\n}",
+      "tests": [
+        {
+          "call": "getProto()",
+          "expected": "Object.getPrototypeOf({})"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "Prototypes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 164,
+        "excerpt": "Object.getPrototypeOf returns the prototype of an object."
+      }
+    },
+    {
+      "question": "Return JavaScript: const speak = () => this.line",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function arrowThis() {\n  return \"\";\n}",
+      "solution": "function arrowThis() {\n  return \"const speak = () => this.line\";\n}",
+      "tests": [
+        {
+          "call": "arrowThis()",
+          "expected": "const speak = () => this.line"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "this",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Arrow functions are different—they do not bind their own this but can see the this of the surrounding scope."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 164
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 148
+    }
+  ]
+}

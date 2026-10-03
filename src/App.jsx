@@ -182,7 +182,7 @@ export default function App() {
     setSidePane(null);
     lastIdRef.current = null;
     const hasLesson = !!(
-      ready.jsIntro || ready.tsIntro || ready.htmlIntro || ready.cssIntro || ready.pyIntro
+      ready.jsIntro || ready.tsIntro || ready.htmlIntro || ready.cssIntro || ready.pyIntro || ready.csIntro
       || (ready.cheatsheet && ready.notes)
     );
     if (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length) {
@@ -236,6 +236,7 @@ export default function App() {
     if (extra && extra.htmlIntro) qz.htmlIntro = true;
     if (extra && extra.cssIntro) qz.cssIntro = true;
     if (extra && extra.pyIntro) qz.pyIntro = true;
+    if (extra && extra.csIntro) qz.csIntro = true;
     if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
       qz.sheet = [].concat(extra.sheet).filter(Boolean);
     }

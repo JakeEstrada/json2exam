@@ -1,0 +1,359 @@
+{
+  "title": "C# - Types and variables",
+  "questions": [
+    {
+      "question": "int count = 0; then count = \"hi\";",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Works; C# is dynamic.",
+        "Does not compile; count is int.",
+        "Becomes null.",
+        "Becomes 0."
+      ],
+      "answer": "b",
+      "explanation": "The type is fixed at compile time.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int count = 0;\ncount = 1;"
+    },
+    {
+      "question": "var total = 1.5; makes total…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "object",
+        "double",
+        "int",
+        "dynamic"
+      ],
+      "answer": "b",
+      "explanation": "var is inference, not Variant.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var total = 1.5;"
+    },
+    {
+      "question": "Can you write var x; with no initializer?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Yes",
+        "No; the compiler cannot infer a type",
+        "Yes if x is a field",
+        "Only in a class"
+      ],
+      "answer": "b",
+      "explanation": "Locals with var need an initializer.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var total = 1.5;"
+    },
+    {
+      "question": "string name; as a local, then Console.Write(name)…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Prints null",
+        "Does not compile; unassigned local",
+        "Prints \"\"",
+        "Throws"
+      ],
+      "answer": "b",
+      "explanation": "Locals must be definitely assigned.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "string name = \"Ada\";"
+    },
+    {
+      "question": "int? score means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "int or null",
+        "only 0",
+        "a pointer",
+        "dynamic"
+      ],
+      "answer": "a",
+      "explanation": "Nullable value type.",
+      "reference": {
+        "section": "Null",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int? score = null;"
+    },
+    {
+      "question": "string? in a nullable-enabled project means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A char array",
+        "string or null; the compiler warns if you forget to check",
+        "A span",
+        "Always empty"
+      ],
+      "answer": "b",
+      "explanation": "Nullability is part of the type.",
+      "reference": {
+        "section": "Null",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "string? name = null;"
+    },
+    {
+      "question": "default(int) is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "null",
+        "0",
+        "-1",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "Value types zero; refs null.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int count = default;"
+    },
+    {
+      "question": "const double Tax = 0.08; must be…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A computed runtime value",
+        "A compile-time constant",
+        "static only",
+        "var"
+      ],
+      "answer": "b",
+      "explanation": "No new, no method calls (except a few literals).",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "const double Tax = 0.08;"
+    },
+    {
+      "question": "readonly on a field means…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Never set",
+        "Set in the declaration or constructor only",
+        "Same as const",
+        "Thread-local"
+      ],
+      "answer": "b",
+      "explanation": "Instance immutable after construction.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "readonly int id;"
+    },
+    {
+      "question": "object box = 3; is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A compile error",
+        "Boxing the int onto the heap",
+        "An alias",
+        "unsafe"
+      ],
+      "answer": "b",
+      "explanation": "Value types boxed when stored as object.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "object box = 3;"
+    },
+    {
+      "question": "typeof(int) vs 3.GetType()…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The same always",
+        "typeof is the compile-time type; GetType is the runtime type",
+        "typeof is slower",
+        "GetType is only for classes"
+      ],
+      "answer": "b",
+      "explanation": "After boxing they can differ from the static type.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "typeof(int)"
+    },
+    {
+      "question": "string is a reference type. == on strings…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Always compares references",
+        "Compares contents (overloaded)",
+        "Is illegal",
+        "Trims first"
+      ],
+      "answer": "b",
+      "explanation": "Use SequenceEqual for collections, not for string.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "string name = \"Ada\";"
+    },
+    {
+      "question": "char c = \"A\";",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Works",
+        "Does not compile; \"A\" is string, 'A' is char",
+        "Works in unsafe",
+        "Becomes int"
+      ],
+      "answer": "b",
+      "explanation": "Quotes matter.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "char c = 'A';"
+    },
+    {
+      "question": "dynamic x = 1; x = \"hi\";",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Does not compile",
+        "Compiles; checks happen at runtime",
+        "Becomes object only if cast",
+        "Needs var"
+      ],
+      "answer": "b",
+      "explanation": "dynamic opts out of static checking. Prefer real types.",
+      "reference": {
+        "section": "Types",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "dynamic x = 1;"
+    },
+    {
+      "question": "n!.Value on int? n when n is null…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Returns 0",
+        "Throws InvalidOperationException",
+        "Returns null",
+        "Does not compile"
+      ],
+      "answer": "b",
+      "explanation": "Use n ?? 0 or Try pattern.",
+      "reference": {
+        "section": "Null",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "int score = n ?? 0;"
+    },
+    {
+      "question": "Return C#: int count = 0;",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function intLocal() {\n  return \"\";\n}",
+      "solution": "function intLocal() {\n  return \"int count = 0;\";\n}",
+      "tests": [
+        {
+          "call": "intLocal()",
+          "expected": "int count = 0;"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See Types and variables in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: var total = 1.5;",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function varDouble() {\n  return \"\";\n}",
+      "solution": "function varDouble() {\n  return \"var total = 1.5;\";\n}",
+      "tests": [
+        {
+          "call": "varDouble()",
+          "expected": "var total = 1.5;"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Variables",
+        "book": "C# language notes",
+        "excerpt": "See Types and variables in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: int? score = null;",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function nullableInt() {\n  return \"\";\n}",
+      "solution": "function nullableInt() {\n  return \"int? score = null;\";\n}",
+      "tests": [
+        {
+          "call": "nullableInt()",
+          "expected": "int? score = null;"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Null",
+        "book": "C# language notes",
+        "excerpt": "See Types and variables in the C# notes."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "C# language notes",
+      "chapter": "Types and variables"
+    }
+  ]
+}

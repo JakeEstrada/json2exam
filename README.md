@@ -47,10 +47,12 @@ npm test               # node --test
 | --- | --- |
 | `OPENAI_API_KEY` | Server-side AskGPT (`/api/ask`) and text-to-speech (`/api/speak`). Never sent to the browser. |
 | `OPENAI_MODEL` / `OPENAI_TTS_*` | Optional model and voice defaults. |
-| `OWNER_USERNAME` / `OWNER_PASSWORD` | Sign-in for private progress tracking. |
+| `OWNER_USERNAME` / `OWNER_PASSWORD` | Owner sign-in for private progress tracking. |
+| `MONGODB_URI` | Atlas connection string. Required for visitor signup / user login. |
+| `SESSION_SECRET` | Signs tokens for registered users. |
 | `VITE_LECTURE_VIDEO_BASE` | Public base URL for CPSC 544 lecture videos (Cloudflare R2). Files are `{base}/Ch1/….mp4`. |
 
-Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still exist for that deck). Without owner credentials, visitors can study and use AskGPT, but cannot save progress.
+Without an API key, AskGPT is unavailable (older canned Chapter 1 replies still exist for that deck). Visitors can create an account when `MONGODB_URI` is set. Progress saving is still owner-only.
 
 ---
 
@@ -172,7 +174,7 @@ src/
   components/             Lesson, Course, QuestionCard, Loader, Login, …
   lib/                    parseQuiz, leitner, runCode, highlight, speech, learningLog, …
   data/                   catalog, appliedClassroom, 541/544 wiring
-api/                      ask, speak, login, progress (owner-gated where needed)
+api/                      ask, speak, login, signup, progress (owner-gated where needed)
 applied-classroom/        courses, language decks, LeetCode topics, studio stubs, PDFs, STUDY_PLAN.md
 541-Mod1/  544-Mod-1/     graduate leftover modules
 data/                     local progress file (dev); not a public recruiter feed

@@ -446,6 +446,126 @@
       "code": "const groups = new Map();\nconst list = groups.get(id) || [];\nlist.push(appt);\ngroups.set(id, list);"
     },
     {
+      "question": "How do you initialize an empty Map?",
+      "type": "multiple",
+      "options": [
+        "const m = {}",
+        "const m = new Map()",
+        "const m = Map.empty()",
+        "const m = []"
+      ],
+      "answer": "b",
+      "explanation": "new Map() is empty. {} is a plain object, not a Map.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map."
+      },
+      "level": 1,
+      "code": "const ages = new Map();"
+    },
+    {
+      "question": "How do you initialize a Map with one pair Ada → 36?",
+      "type": "multiple",
+      "options": [
+        "new Map({ Ada: 36 })",
+        "new Map([[\"Ada\", 36]])",
+        "Map.of(\"Ada\", 36)",
+        "new Map(\"Ada\", 36)"
+      ],
+      "answer": "b",
+      "explanation": "The constructor takes an iterable of [key, value] pairs, not a plain object.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map."
+      },
+      "level": 2,
+      "code": "const known = new Map([[\"Ada\", 36]]);"
+    },
+    {
+      "question": "How do you get the value for key \"Ada\"?",
+      "type": "multiple",
+      "options": [
+        "ages.Ada",
+        "ages.get(\"Ada\")",
+        "ages[\"Ada\"]",
+        "ages.fetch(\"Ada\")"
+      ],
+      "answer": "b",
+      "explanation": "Use get. Missing keys return undefined. ages[\"Ada\"] is an object property, not a Map entry.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map."
+      },
+      "level": 1,
+      "code": "ages.get(\"Ada\")"
+    },
+    {
+      "question": "How do you test that a key exists on a Map?",
+      "type": "multiple",
+      "options": [
+        "\"Ada\" in ages",
+        "ages.has(\"Ada\")",
+        "ages.contains(\"Ada\")",
+        "ages.get(\"Ada\") === true"
+      ],
+      "answer": "b",
+      "explanation": "has tests entries. in tests object properties, including inherited ones.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 173,
+        "excerpt": "Yet because plain objects derive from Object.prototype, it looks like the property is there."
+      },
+      "level": 1,
+      "code": "ages.has(\"Ada\")"
+    },
+    {
+      "question": "How do you test that a value exists in a Map?",
+      "type": "multiple",
+      "options": [
+        "ages.has(36)",
+        "[...ages.values()].includes(36)",
+        "36 in ages",
+        "ages.containsValue(36)"
+      ],
+      "answer": "b",
+      "explanation": "has tests keys. Values need a scan of ages.values().",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map."
+      },
+      "level": 2,
+      "code": "[...ages.values()].includes(36)"
+    },
+    {
+      "question": "ages.get(\"missing\") when the key is absent is…",
+      "type": "multiple",
+      "options": [
+        "a thrown error",
+        "null",
+        "undefined",
+        "0"
+      ],
+      "answer": "c",
+      "explanation": "Map.get returns undefined. It does not throw.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 174,
+        "excerpt": "If you need a map whose keys can’t easily be converted to strings - such as objects - you cannot use an object as your map."
+      },
+      "level": 1,
+      "code": "console.log(ages.get(\"missing\"));"
+    },
+    {
       "question": "Write unique(ids): unique values in first-seen order.",
       "type": "code",
       "language": "javascript",

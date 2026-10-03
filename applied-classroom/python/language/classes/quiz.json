@@ -1,0 +1,395 @@
+{
+  "title": "Python - Classes",
+  "questions": [
+    {
+      "question": "What runs automatically when you write Dog(\"Willie\", 6)?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "sit()",
+        "__str__",
+        "__init__",
+        "the class body only"
+      ],
+      "answer": "c",
+      "explanation": "`__init__` constructs the instance.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "The __init__() method is a special method that Python runs automatically whenever we create a new instance based on the Dog class.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 41,
+            "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules defined in the Built-in Types chapter."
+          }
+        ]
+      },
+      "code": "my_dog = Dog(\"Willie\", 6)"
+    },
+    {
+      "question": "What is the first parameter of an instance method?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "cls",
+        "self",
+        "this",
+        "Me"
+      ],
+      "answer": "b",
+      "explanation": "Convention is self: the instance.",
+      "reference": {
+        "section": "Methods",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "A function that’s part of a class is a method. Everything you learned about functions applies to methods as well."
+      },
+      "code": "def sit(self):\n    print(self.name)"
+    },
+    {
+      "question": "After my_dog = Dog(\"Willie\", 6), how do you read the name?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Dog.name",
+        "my_dog.name",
+        "name(my_dog)",
+        "my_dog[\"name\"]"
+      ],
+      "answer": "b",
+      "explanation": "Instance attributes are dotted.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "print(f\"My dog's name is {my_dog.name}.\") print(f\"My dog is {my_dog.age} years old.\")"
+      },
+      "code": "print(my_dog.name)"
+    },
+    {
+      "question": "Why does __init__ have two leading and trailing underscores?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "It is private and you must not call it.",
+        "It is a special method Python looks up by name.",
+        "It is required C syntax.",
+        "It marks a generator."
+      ],
+      "answer": "b",
+      "explanation": "Dunder methods are the data model hooks.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "This method has two leading underscores and two trailing underscores, a convention that helps prevent Python default method names from conflicting with your method names.",
+        "books": [
+          {
+            "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+            "page": 41,
+            "excerpt": "Note how the special method __bool__ allows your objects to be consistent with the truth value testing rules."
+          }
+        ]
+      },
+      "code": "def __init__(self, name):\n    self.name = name"
+    },
+    {
+      "question": "What does super().__init__(name, age) do in a subclass?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Copies the parent source.",
+        "Calls the parent constructor.",
+        "Deletes self.",
+        "Registers a metaclass."
+      ],
+      "answer": "b",
+      "explanation": "super() forwards to the next class in the MRO.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "When Python reads this line, it calls the __init__ method with my_dog and the values Willie and 6."
+      },
+      "code": "super().__init__(name, age)"
+    },
+    {
+      "question": "Where should you put per-instance state like name and age?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "On the class body as Dog.name",
+        "On self inside __init__",
+        "In a global",
+        "In __slots__ only"
+      ],
+      "answer": "b",
+      "explanation": "Assign self.name = name.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "The __init__() method is a special method that Python runs automatically whenever we create a new instance based on the Dog class."
+      },
+      "code": "self.name = name\nself.age = age"
+    },
+    {
+      "question": "Calling my_dog.sit() is equivalent to…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Dog.sit(my_dog)",
+        "sit(my_dog)",
+        "Dog.sit()",
+        "my_dog.__init__()"
+      ],
+      "answer": "a",
+      "explanation": "The instance is passed as self.",
+      "reference": {
+        "section": "Methods",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "A function that’s part of a class is a method."
+      },
+      "code": "my_dog.sit()"
+    },
+    {
+      "question": "Two Dog instances share which of these?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The same self.name always",
+        "The sit method on the class",
+        "The same __dict__ object",
+        "Nothing; copies are deep"
+      ],
+      "answer": "b",
+      "explanation": "Methods live on the class; attributes live on the instance.",
+      "reference": {
+        "section": "Methods",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "The Dog class we’re using here is the one we just wrote in the previous example."
+      },
+      "code": "a = Dog(\"A\", 1)\nb = Dog(\"B\", 2)"
+    },
+    {
+      "question": "What is wrong with def __init__(name, age): self.name = name?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "age is unused.",
+        "The instance is never received, so self is undefined.",
+        "name must be global.",
+        "Dog cannot take arguments."
+      ],
+      "answer": "b",
+      "explanation": "The first parameter must be the instance.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "The only practical difference for now is the way we’ll call methods."
+      },
+      "code": "def __init__(name, age):\n    self.name = name"
+    },
+    {
+      "question": "class SearchDog(Dog): means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "SearchDog is an alias.",
+        "SearchDog inherits Dog’s methods.",
+        "Dog is deleted.",
+        "Multiple inheritance of int."
+      ],
+      "answer": "b",
+      "explanation": "The parent is listed in parentheses.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "Here, we tell Python to create a dog whose name is 'Willie' and whose age is 6."
+      },
+      "code": "class SearchDog(Dog):\n    pass"
+    },
+    {
+      "question": "How do you override sit on a subclass and still run the parent sit?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Dog.sit() with no instance",
+        "super().sit()",
+        "this.sit()",
+        "inherit.sit()"
+      ],
+      "answer": "b",
+      "explanation": "super().sit() binds the parent method to self.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "Everything you learned about functions applies to methods as well."
+      },
+      "code": "def sit(self):\n    super().sit()\n    print(\"extra\")"
+    },
+    {
+      "question": "isinstance(my_dog, Dog) is True after my_dog = SearchDog(...) if SearchDog subclasses Dog. Why?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "isinstance only checks the exact class.",
+        "A subclass instance is also an instance of its parents.",
+        "SearchDog rewrites Dog.",
+        "It is always True."
+      ],
+      "answer": "b",
+      "explanation": "Inheritance is an is-a relationship.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "The Dog class we’re using here is the one we just wrote in the previous example."
+      },
+      "code": "isinstance(my_dog, Dog)"
+    },
+    {
+      "question": "What does my_dog.__dict__ hold after __init__ sets name and age?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The class methods",
+        "The instance attributes",
+        "The MRO",
+        "Only slots"
+      ],
+      "answer": "b",
+      "explanation": "Regular instances store attributes in __dict__.",
+      "reference": {
+        "section": "Classes",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 41,
+        "excerpt": "The special method __bool__ allows your objects to be consistent with the truth value testing rules defined in the Built-in Types chapter."
+      },
+      "code": "print(my_dog.__dict__)"
+    },
+    {
+      "question": "Can you add an attribute after construction: my_dog.weight = 20?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "No; attributes are frozen.",
+        "Yes; instances are open unless you lock them.",
+        "Only inside __init__.",
+        "Only if weight is in the class body."
+      ],
+      "answer": "b",
+      "explanation": "Normal instances accept new attributes.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "print(f\"My dog is {my_dog.age} years old.\")"
+      },
+      "code": "my_dog.weight = 20"
+    },
+    {
+      "question": "Which call constructs two different dogs?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Dog(); Dog()",
+        "Dog(\"A\", 1); Dog(\"B\", 2)",
+        "Dog.copy()",
+        "class Dog: twice"
+      ],
+      "answer": "b",
+      "explanation": "Each constructor call is a new instance.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "Let’s make an instance representing a specific dog."
+      },
+      "code": "a = Dog(\"A\", 1)\nb = Dog(\"B\", 2)"
+    },
+    {
+      "question": "Return Python: def __init__(self, name):\\n    self.name = name",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function dogInit() {\n  return \"\";\n}",
+      "solution": "function dogInit() {\n  return \"def __init__(self, name):\\n    self.name = name\";\n}",
+      "tests": [
+        {
+          "call": "dogInit()",
+          "expected": "def __init__(self, name):\n    self.name = name"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "The __init__() method is a special method that Python runs automatically whenever we create a new instance based on the Dog class."
+      }
+    },
+    {
+      "question": "Return Python: my_dog = Dog(\"Willie\", 6)",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function makeDog() {\n  return \"\";\n}",
+      "solution": "function makeDog() {\n  return \"my_dog = Dog(\\\"Willie\\\", 6)\";\n}",
+      "tests": [
+        {
+          "call": "makeDog()",
+          "expected": "my_dog = Dog(\"Willie\", 6)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Classes",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 198,
+        "excerpt": "my_dog = Dog('Willie', 6)"
+      }
+    },
+    {
+      "question": "Return Python: my_dog.sit()",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function callSit() {\n  return \"\";\n}",
+      "solution": "function callSit() {\n  return \"my_dog.sit()\";\n}",
+      "tests": [
+        {
+          "call": "callSit()",
+          "expected": "my_dog.sit()"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Methods",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 197,
+        "excerpt": "A function that’s part of a class is a method."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "page": 196
+    },
+    {
+      "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+      "page": 41
+    }
+  ]
+}

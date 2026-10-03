@@ -1,0 +1,381 @@
+{
+  "title": "JavaScript - Iterators and generators",
+  "questions": [
+    {
+      "question": "When you call powers(3), the body…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Runs to completion",
+        "Stays frozen at the start until next()",
+        "Throws",
+        "Returns [3, 9, 27]"
+      ],
+      "answer": "b",
+      "explanation": "The call only builds the generator.",
+      "reference": {
+        "section": "Generators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Initially, when you call powers, the function is frozen at its start."
+      },
+      "code": "const g = powers(3)"
+    },
+    {
+      "question": "Each next() on a generator…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Restarts the function",
+        "Runs until the next yield and produces that value",
+        "Always returns done: true",
+        "Copies the array"
+      ],
+      "answer": "b",
+      "explanation": "yield pauses and supplies value.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Every time you call next on the iterator, the function runs until it hits a yield expression, which pauses it."
+      },
+      "code": "console.log(g.next().value)"
+    },
+    {
+      "question": "function* is required because…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "yield is a syntax error in a normal function",
+        "* makes it async",
+        "It enables this",
+        "It is only for classes"
+      ],
+      "answer": "a",
+      "explanation": "The star marks a generator function.",
+      "reference": {
+        "section": "Generators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Every time you call next on the iterator, the function runs until it hits a yield expression."
+      },
+      "code": "function* powers(n) {\n  yield n;\n}"
+    },
+    {
+      "question": "for (const x of powers(3)) without a break…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Runs three times",
+        "Never ends if the generator never returns",
+        "Calls next once",
+        "Is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "The Eloquent example never returns.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "When the function returns (the one in the example never returns) the iterator is done."
+      },
+      "code": "for (const power of powers(3)) {\n  if (power > 20) break;\n}"
+    },
+    {
+      "question": "g.next().done is true when…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The first yield runs",
+        "The generator function returns",
+        "You call powers()",
+        "yield is 0"
+      ],
+      "answer": "b",
+      "explanation": "Return (or falling off the end) finishes it.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "When the function returns the iterator is done."
+      },
+      "code": "g.next()"
+    },
+    {
+      "question": "yield* xs forwards…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A return only",
+        "Every value from another iterable",
+        "The first value",
+        "A Promise"
+      ],
+      "answer": "b",
+      "explanation": "Same idea as Python yield from.",
+      "reference": {
+        "section": "yield",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "function* wrap(xs) {\n  yield* xs;\n}"
+    },
+    {
+      "question": "[...g] on a finite generator…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Leaves g reusable",
+        "Consumes g into an array",
+        "Clones the function",
+        "Is illegal"
+      ],
+      "answer": "b",
+      "explanation": "Spread uses the iterator protocol.",
+      "reference": {
+        "section": "Iterators",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "const xs = [...g]"
+    },
+    {
+      "question": "A Map is iterable. for (const x of map) yields…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "keys only",
+        "[key, value] pairs",
+        "values only",
+        "size"
+      ],
+      "answer": "b",
+      "explanation": "Same as map.entries().",
+      "reference": {
+        "section": "Iterators",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "for (const [k, v] of map) {\n  use(k, v);\n}"
+    },
+    {
+      "question": "for...of vs for...in on an array…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "of yields values; in yields keys as strings",
+        "they are the same",
+        "of yields keys",
+        "in yields values"
+      ],
+      "answer": "a",
+      "explanation": "Do not use in for arrays.",
+      "reference": {
+        "section": "Iterators",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "for (const item of items) {\n  console.log(item);\n}"
+    },
+    {
+      "question": "An object is iterable if it has…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "length",
+        "[Symbol.iterator]()",
+        "next as a number",
+        "forEach"
+      ],
+      "answer": "b",
+      "explanation": "That method must return an iterator.",
+      "reference": {
+        "section": "Iterators",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "obj[Symbol.iterator] = function* () {\n  yield 1;\n}"
+    },
+    {
+      "question": "g.next(x) after a yield expr…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Is ignored",
+        "Resumes; yield expr becomes x",
+        "Restarts",
+        "Throws if x is 0"
+      ],
+      "answer": "b",
+      "explanation": "Two-way generators; rare but real.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "which pauses it and causes the yielded value to become the next value produced by the iterator."
+      },
+      "code": "function* echo() {\n  const x = yield 1;\n  yield x;\n}"
+    },
+    {
+      "question": "async function* is for…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Normal arrays",
+        "Async iterators you consume with for await...of",
+        "Promises only",
+        "JSON"
+      ],
+      "answer": "b",
+      "explanation": "Each yield can wait.",
+      "reference": {
+        "section": "Generators",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 347,
+        "excerpt": "Chapter 12, Iterators and Generators Explains how the for/of loop works with iterable objects."
+      },
+      "code": "for await (const row of stream()) {\n  use(row);\n}"
+    },
+    {
+      "question": "Why write a generator instead of returning a huge array?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Generators sort.",
+        "You can produce values lazily as the consumer asks.",
+        "Yield is parallel.",
+        "Arrays cannot grow."
+      ],
+      "answer": "b",
+      "explanation": "Same memory reason as Python generators.",
+      "reference": {
+        "section": "Generators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Initially, when you call powers, the function is frozen at its start."
+      },
+      "code": "function* rows() {\n  yield \"a\";\n  yield \"b\";\n}"
+    },
+    {
+      "question": "The first next() runs from the start to the first yield. The value of that next is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "undefined always",
+        "the first yielded value",
+        "the argument to powers",
+        "done: true"
+      ],
+      "answer": "b",
+      "explanation": "Eloquent prints 3, then 9, then 27.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Every time you call next on the iterator, the function runs until it hits a yield expression, which pauses it and causes the yielded value to become the next value produced by the iterator."
+      },
+      "code": "powers(3).next().value"
+    },
+    {
+      "question": "return() on a generator…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Is ignored",
+        "Finishes the iterator and runs finally in the generator if present",
+        "Restarts",
+        "Deletes the function"
+      ],
+      "answer": "b",
+      "explanation": "for-of calls return() on a break.",
+      "reference": {
+        "section": "Iterators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "When the function returns the iterator is done."
+      },
+      "code": "g.return()"
+    },
+    {
+      "question": "Return JavaScript: function* powers(n) {\\n  yield n;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function genFn() {\n  return \"\";\n}",
+      "solution": "function genFn() {\n  return \"function* powers(n) {\\n  yield n;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "genFn()",
+          "expected": "function* powers(n) {\n  yield n;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "Generators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Initially, when you call powers, the function is frozen at its start."
+      }
+    },
+    {
+      "question": "Return JavaScript: yield current",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function yieldVal() {\n  return \"\";\n}",
+      "solution": "function yieldVal() {\n  return \"yield current\";\n}",
+      "tests": [
+        {
+          "call": "yieldVal()",
+          "expected": "yield current"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "yield",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "the function runs until it hits a yield expression, which pauses it"
+      }
+    },
+    {
+      "question": "Return JavaScript: for (const power of powers(3)) {\\n  if (power > 20) break;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function forOfGen() {\n  return \"\";\n}",
+      "solution": "function forOfGen() {\n  return \"for (const power of powers(3)) {\\n  if (power > 20) break;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "forOfGen()",
+          "expected": "for (const power of powers(3)) {\n  if (power > 20) break;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a JavaScript source string.",
+      "reference": {
+        "section": "Iterators",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 302,
+        "excerpt": "Every time you call next on the iterator, the function runs until it hits a yield expression."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 302
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 347
+    }
+  ]
+}

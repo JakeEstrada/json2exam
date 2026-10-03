@@ -1,0 +1,377 @@
+{
+  "title": "Python - Files",
+  "questions": [
+    {
+      "question": "Why prefer with open(path) as f: over f = open(path)?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "with is faster.",
+        "with closes the file if an error happens later.",
+        "open is deprecated.",
+        "with reads binary only."
+      ],
+      "answer": "b",
+      "explanation": "The context manager is a guaranteed close.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      },
+      "code": "with open(\"pi.txt\") as f:\n    contents = f.read()"
+    },
+    {
+      "question": "What does f.read() return for a text file?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A list of lines",
+        "A str of the whole file",
+        "bytes always",
+        "An iterator only"
+      ],
+      "answer": "b",
+      "explanation": "The remaining contents as one string.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a file is particularly useful in data analysis applications."
+      },
+      "code": "contents = f.read()"
+    },
+    {
+      "question": "How do you walk lines without loading the file twice?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "f.read().split then f.read()",
+        "for line in f:",
+        "f.lines",
+        "open.lines(f)"
+      ],
+      "answer": "b",
+      "explanation": "A text file is iterable by line.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "You can use the splitlines() method to turn a long string into a list of lines."
+      },
+      "code": "for line in f:\n    print(line)"
+    },
+    {
+      "question": "splitlines() is useful because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It opens the file.",
+        "It drops newline characters from each line.",
+        "It writes CSV.",
+        "It seeks to the start."
+      ],
+      "answer": "b",
+      "explanation": "read() keeps \\n; splitlines() does not.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "You can use the splitlines() method to turn a long string into a list of lines."
+      },
+      "code": "lines = contents.splitlines()"
+    },
+    {
+      "question": "open(path, \"w\") when the file exists…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fails",
+        "Appends",
+        "Truncates and replaces",
+        "Opens read-only"
+      ],
+      "answer": "c",
+      "explanation": "Write mode starts empty.",
+      "reference": {
+        "section": "Writing",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      },
+      "code": "with open(\"out.txt\", \"w\") as f:\n    f.write(\"hello\\n\")"
+    },
+    {
+      "question": "Which mode appends?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "\"r\"",
+        "\"w\"",
+        "\"a\"",
+        "\"x+\""
+      ],
+      "answer": "c",
+      "explanation": "a writes at the end.",
+      "reference": {
+        "section": "Writing",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "you might want to modify the text in the file in some way."
+      },
+      "code": "with open(\"out.txt\", \"a\") as f:\n    f.write(\"more\\n\")"
+    },
+    {
+      "question": "Default mode for open(path) is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "\"w\"",
+        "\"r\"",
+        "\"b\"",
+        "\"a\""
+      ],
+      "answer": "b",
+      "explanation": "Read text.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      },
+      "code": "f = open(\"pi.txt\")"
+    },
+    {
+      "question": "A missing file opened for read raises…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "KeyError",
+        "ValueError",
+        "FileNotFoundError",
+        "ZeroDivisionError"
+      ],
+      "answer": "c",
+      "explanation": "Catch that around open if the path is optional.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "With the skills you’ll learn in this chapter, you’ll make your programs more applicable, usable, and stable."
+      },
+      "code": "open(\"missing.txt\")"
+    },
+    {
+      "question": "f.write(n) when n is an int…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Writes the digits",
+        "Raises TypeError; write wants str",
+        "Writes one byte",
+        "Coerces silently"
+      ],
+      "answer": "b",
+      "explanation": "Convert first: f.write(str(n)).",
+      "reference": {
+        "section": "Writing",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "you might want to modify the text in the file in some way."
+      },
+      "code": "f.write(str(n))"
+    },
+    {
+      "question": "After a with block, using f.read()…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Works; with is only indent.",
+        "Fails; the file is closed.",
+        "Rewinds automatically.",
+        "Reopens."
+      ],
+      "answer": "b",
+      "explanation": "The name f still exists, the handle does not.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      },
+      "code": "with open(\"pi.txt\") as f:\n    text = f.read()\nf.read()"
+    },
+    {
+      "question": "pathlib.Path(\"a.txt\").read_text() is equivalent to…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "os.system(\"cat\")",
+        "opening the path, reading, and closing",
+        "a directory listing",
+        "binary read"
+      ],
+      "answer": "b",
+      "explanation": "A convenience around open/read/close.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "You can use the splitlines() method to turn a long string into a list of lines."
+      },
+      "code": "Path(\"a.txt\").read_text()"
+    },
+    {
+      "question": "To read bytes you pass…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "\"r\"",
+        "\"rb\"",
+        "\"rt+\"",
+        "\"w\""
+      ],
+      "answer": "b",
+      "explanation": "b is binary.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Text files can contain weather data, traffic data, socioeconomic data, literary works, and more."
+      },
+      "code": "with open(\"img.bin\", \"rb\") as f:\n    data = f.read()"
+    },
+    {
+      "question": "encoding=\"utf-8\" on open matters because…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Files are always ASCII.",
+        "Text mode decodes bytes; UTF-8 is the usual default you should set.",
+        "It enables binary.",
+        "It sets the extension."
+      ],
+      "answer": "b",
+      "explanation": "Be explicit on machines with a different locale.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      },
+      "code": "open(\"pi.txt\", encoding=\"utf-8\")"
+    },
+    {
+      "question": "Crash Course walks weather lines to…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Compile them.",
+        "Find lines that mention a word such as sunny.",
+        "Upload them.",
+        "Zip them."
+      ],
+      "answer": "b",
+      "explanation": "Read, then filter.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "you might want to read through a file of weather data and work with any line that includes the word sunny in the description of that day’s weather."
+      },
+      "code": "if \"sunny\" in line:\n    print(line)"
+    },
+    {
+      "question": "write() does not add a newline unless you…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Use print",
+        "Include \\n in the string",
+        "Open with \"n\"",
+        "Call flush"
+      ],
+      "answer": "b",
+      "explanation": "write is raw.",
+      "reference": {
+        "section": "Writing",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "you might want to modify the text in the file in some way."
+      },
+      "code": "f.write(\"hello\\n\")"
+    },
+    {
+      "question": "Return Python: with open(\"pi.txt\") as f:\\n    contents = f.read()",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function readFile() {\n  return \"\";\n}",
+      "solution": "function readFile() {\n  return \"with open(\\\"pi.txt\\\") as f:\\n    contents = f.read()\";\n}",
+      "tests": [
+        {
+          "call": "readFile()",
+          "expected": "with open(\"pi.txt\") as f:\n    contents = f.read()"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Opening a file",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 222,
+        "excerpt": "Reading from a File An incredible amount of data is available in text files."
+      }
+    },
+    {
+      "question": "Return Python: with open(\"out.txt\", \"w\") as f:\\n    f.write(\"hello\\n\")",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function writeFile() {\n  return \"\";\n}",
+      "solution": "function writeFile() {\n  return \"with open(\\\"out.txt\\\", \\\"w\\\") as f:\\n    f.write(\\\"hello\\\\n\\\")\";\n}",
+      "tests": [
+        {
+          "call": "writeFile()",
+          "expected": "with open(\"out.txt\", \"w\") as f:\n    f.write(\"hello\\n\")"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Writing",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "you might want to modify the text in the file in some way."
+      }
+    },
+    {
+      "question": "Return Python: for line in f:\\n    print(line)",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function walkLines() {\n  return \"\";\n}",
+      "solution": "function walkLines() {\n  return \"for line in f:\\n    print(line)\";\n}",
+      "tests": [
+        {
+          "call": "walkLines()",
+          "expected": "for line in f:\n    print(line)"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a Python source string.",
+      "reference": {
+        "section": "Reading",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 225,
+        "excerpt": "You can use the splitlines() method to turn a long string into a list of lines."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+      "page": 222
+    }
+  ]
+}

@@ -118,16 +118,38 @@ export const PY_SHAPE = [
   'This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
 ].join('\n');
 
+export const CS_SHAPE = [
+  '# What C# is',
+  '',
+  'C# is a **compiled, statically typed** language. Types live on names: `int n = 1` then `n = "hi"` does not compile.',
+  '',
+  'The **shape is C-like**. Blocks are `{ }`. Methods declare a return type. `null` is a reference absence; value types like `int` are not null unless you write `int?`.',
+  '',
+  'The dictionary type is `Dictionary<TKey, TValue>`:',
+  '',
+  '```csharp',
+  'var ages = new Dictionary<string, int>();',
+  'ages["Ada"] = 36;',
+  'bool ok = ages.TryGetValue("Ada", out int age);',
+  'bool has = ages.ContainsKey("Ada");',
+  '```',
+  '',
+  'The indexer throws `KeyNotFoundException` when the key is missing. Prefer `TryGetValue` if the key might be absent. `ContainsKey` tests keys; `ContainsValue` scans values.',
+  '',
+  'This lesson is the basics for this topic. The quiz after it starts with those basics, then practice, then the sharp edges.',
+].join('\n');
+
 function lessonShape(quiz) {
   if (quiz && quiz.tsIntro) return TS_SHAPE;
   if (quiz && quiz.htmlIntro) return HTML_SHAPE;
   if (quiz && quiz.cssIntro) return CSS_SHAPE;
   if (quiz && quiz.pyIntro) return PY_SHAPE;
+  if (quiz && quiz.csIntro) return CS_SHAPE;
   return JS_SHAPE;
 }
 
 function hasShape(quiz) {
-  return !!(quiz && (quiz.jsIntro || quiz.tsIntro || quiz.htmlIntro || quiz.cssIntro || quiz.pyIntro));
+  return !!(quiz && (quiz.jsIntro || quiz.tsIntro || quiz.htmlIntro || quiz.cssIntro || quiz.pyIntro || quiz.csIntro));
 }
 
 export function CheatsheetLookup({ source, topic, heading }) {
@@ -169,6 +191,7 @@ export function lessonAskNotes(quiz) {
   if (quiz && quiz.htmlIntro) parts.push(HTML_SHAPE);
   if (quiz && quiz.cssIntro) parts.push(CSS_SHAPE);
   if (quiz && quiz.pyIntro) parts.push(PY_SHAPE);
+  if (quiz && quiz.csIntro) parts.push(CS_SHAPE);
   const rest = formatAskNotes(quiz);
   if (rest) parts.push(rest);
   return parts.join('\n\n');

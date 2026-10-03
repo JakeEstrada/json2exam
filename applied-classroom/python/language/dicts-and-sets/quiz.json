@@ -344,6 +344,126 @@
       "code": "for k in d.keys():\n    print(k)"
     },
     {
+      "question": "How do you initialize an empty dict?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "d = []",
+        "d = {}",
+        "d = set()",
+        "d = dict[]"
+      ],
+      "answer": "b",
+      "explanation": "{} is an empty dict. set() is an empty set.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 136,
+        "excerpt": "Let’s see what happens when you ask for the point value of an alien that doesn’t have a point value set."
+      },
+      "code": "d = {}"
+    },
+    {
+      "question": "dict(a=1, b=2) builds a dict from…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A JSON string",
+        "Keyword arguments as keys",
+        "Two lists that must be zipped first",
+        "A set of pairs"
+      ],
+      "answer": "b",
+      "explanation": "The names become string keys.",
+      "reference": {
+        "section": "Dicts",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 135,
+        "excerpt": "When you know you’ll need more than one line to define a dictionary, press ENTER after the opening brace."
+      },
+      "code": "d = dict(a=1, b=2)"
+    },
+    {
+      "question": "How do you get the value for key \"a\" when you know it exists?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "d.get_a()",
+        "d[\"a\"]",
+        "d.a()",
+        "d->a"
+      ],
+      "answer": "b",
+      "explanation": "Indexer. Missing keys raise KeyError.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 136,
+        "excerpt": "print(alien_0['points']) This results in a traceback, showing a KeyError."
+      },
+      "code": "print(d[\"a\"])"
+    },
+    {
+      "question": "How do you test that a key exists?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "d.has(\"a\")",
+        "\"a\" in d",
+        "d.contains(\"a\")",
+        "d[\"a\"] is True"
+      ],
+      "answer": "b",
+      "explanation": "`in` on a dict tests keys, not values.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 136,
+        "excerpt": "This results in a traceback, showing a KeyError: KeyError:"
+      },
+      "code": "if \"a\" in d:\n    print(d[\"a\"])"
+    },
+    {
+      "question": "How do you test that a value exists?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "2 in d",
+        "2 in d.values()",
+        "d.hasValue(2)",
+        "d[2]"
+      ],
+      "answer": "b",
+      "explanation": "`in d` is keys. Values require `.values()` and scan.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Python Crash Course, 3rd Edition by Eric Matthes",
+        "page": 135,
+        "excerpt": "Each key is the name of a person who responded to the poll, and each value is their language choice."
+      },
+      "code": "2 in d.values()"
+    },
+    {
+      "question": "d.setdefault(\"c\", 3) when c is missing…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Returns 3 and inserts c: 3",
+        "Raises KeyError",
+        "Returns None and does not insert",
+        "Replaces every value with 3"
+      ],
+      "answer": "a",
+      "explanation": "get + insert in one call. If c exists, it returns the old value.",
+      "reference": {
+        "section": "Lookup and membership",
+        "book": "Fluent Python, 2nd Edition by Luciano Ramalho",
+        "page": 180,
+        "excerpt": "Internals of sets and dicts Understanding how Python dictionaries and sets are built with hash tables is helpful to make sense of their strengths and limitations."
+      },
+      "code": "d.setdefault(\"c\", 3)"
+    },
+    {
       "question": "Return Python: d = {\"a\": 1}",
       "type": "code",
       "level": 3,

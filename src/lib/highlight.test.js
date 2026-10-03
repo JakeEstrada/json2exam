@@ -49,6 +49,10 @@ test('detectLanguage tells HTML, CSS, and JavaScript apart', () => {
   assert.equal(detectLanguage('while i < n:\n    i += 1'), 'python');
   assert.equal(detectLanguage('i = 0\nwhile i < n\n    i += 1'), 'python');
   assert.equal(detectLanguage('for item in rows:\n    print(item)'), 'python');
+  assert.equal(detectLanguage('d = {"a": 1, "b": 2}'), 'python');
+  assert.equal(detectLanguage('function* powers(n) {\n  yield n;\n}'), 'javascript');
+  assert.equal(detectLanguage('var ages = new Dictionary<string, int>();'), 'csharp');
+  assert.equal(detectLanguage('ages.TryGetValue("Ada", out int age);'), 'csharp');
 });
 
 test('highlightPython marks keywords and strings', async () => {

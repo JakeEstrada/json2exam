@@ -1,0 +1,359 @@
+{
+  "title": "C# - Methods",
+  "questions": [
+    {
+      "question": "static int Add(int a, int b) is called as…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "this.Add",
+        "TypeName.Add(1, 2) or Add(1, 2) in the same type",
+        "new Add()",
+        "Add<int>"
+      ],
+      "answer": "b",
+      "explanation": "static has no instance.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "static int Add(int a, int b) {\n    return a + b;\n}"
+    },
+    {
+      "question": "A missing return on a non-void method…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns default",
+        "Does not compile",
+        "Returns null",
+        "Throws"
+      ],
+      "answer": "b",
+      "explanation": "Every path must return.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "return a + b;"
+    },
+    {
+      "question": "void Log(string msg) returns…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "null",
+        "nothing; you cannot use it as a value",
+        "0",
+        "Task"
+      ],
+      "answer": "b",
+      "explanation": "void is not a value.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "void Log(string msg) {\n    Console.WriteLine(msg);\n}"
+    },
+    {
+      "question": "this in an instance method is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The class",
+        "The current instance",
+        "null on structs",
+        "static"
+      ],
+      "answer": "b",
+      "explanation": "Omitted when you write Name = name.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "this.name = name;"
+    },
+    {
+      "question": "out int n as a parameter means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "n is readonly",
+        "The callee must assign n before return",
+        "n is optional",
+        "n is boxed"
+      ],
+      "answer": "b",
+      "explanation": "The caller writes Add(a, b, out int sum).",
+      "reference": {
+        "section": "Parameters",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "Add(1, 2, out int sum);"
+    },
+    {
+      "question": "ref int n lets the method…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only read n",
+        "Assign a new value that the caller sees",
+        "Copy n",
+        "Pin n in GC"
+      ],
+      "answer": "b",
+      "explanation": "The argument must be a variable.",
+      "reference": {
+        "section": "Parameters",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "Swap(ref a, ref b);"
+    },
+    {
+      "question": "Prefer (int q, int r) Divide(...) over out because…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "out is illegal",
+        "A return value is harder to ignore accidentally and reads as data",
+        "Tuples are slower so you should not",
+        "out cannot be named"
+      ],
+      "answer": "b",
+      "explanation": "out is for TryParse-style APIs.",
+      "reference": {
+        "section": "Parameters",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "return (q, r);"
+    },
+    {
+      "question": "Optional parameters must…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Come first",
+        "Come last and have a compile-time default",
+        "Be ref",
+        "Be dynamic"
+      ],
+      "answer": "b",
+      "explanation": "void Log(string msg, bool verbose = false)",
+      "reference": {
+        "section": "Overloads",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "void Log(string msg, bool verbose = false) {\n}"
+    },
+    {
+      "question": "Two Add methods, Add(int,int) and Add(double,double), are…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Invalid",
+        "Overloads; the compiler picks by argument types",
+        "Overrides",
+        "Generics"
+      ],
+      "answer": "b",
+      "explanation": "Same name, different signature.",
+      "reference": {
+        "section": "Overloads",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "static int Add(int a, int b) {\n    return a + b;\n}"
+    },
+    {
+      "question": "override vs overload…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "They are the same",
+        "override replaces a virtual parent method; overload is another signature",
+        "override is for static only",
+        "overload needs virtual"
+      ],
+      "answer": "b",
+      "explanation": "Different features.",
+      "reference": {
+        "section": "Overloads",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public override string ToString() {\n    return Name;\n}"
+    },
+    {
+      "question": "Expression-bodied Add => a + b; is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A field",
+        "A compact method body",
+        "An anonymous type",
+        "unsafe"
+      ],
+      "answer": "b",
+      "explanation": "Same as a one-line return.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "static int Add(int a, int b) => a + b;"
+    },
+    {
+      "question": "params int[] xs lets the caller write Add(1, 2, 3). It must be…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The first parameter",
+        "The last parameter",
+        "ref",
+        "generic"
+      ],
+      "answer": "b",
+      "explanation": "A params array at the end.",
+      "reference": {
+        "section": "Parameters",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "static int Add(params int[] xs) {\n    return xs.Sum();\n}"
+    },
+    {
+      "question": "async Task<int> Load() should be returned with…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "return 3; (the 3 is wrapped in a Task)",
+        "return Task only",
+        "void",
+        "out int"
+      ],
+      "answer": "a",
+      "explanation": "async wraps the value.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "async Task<int> Load() {\n    return 3;\n}"
+    },
+    {
+      "question": "Extension methods look like instance calls but are…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "virtual",
+        "static methods with this on the first parameter",
+        "macros",
+        "LINQ only"
+      ],
+      "answer": "b",
+      "explanation": "static int WordCount(this string s)",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "static int WordCount(this string s) {\n    return s.Split(' ').Length;\n}"
+    },
+    {
+      "question": "Named arguments Add(b: 2, a: 1) …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Are illegal",
+        "Bind by name, so order can change",
+        "Ignore types",
+        "Only work with out"
+      ],
+      "answer": "b",
+      "explanation": "Useful when many optionals exist.",
+      "reference": {
+        "section": "Overloads",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "Add(a: 1, b: 2)"
+    },
+    {
+      "question": "Return C#: static int Add(int a, int b) {\\n    return a + b;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function addMethod() {\n  return \"\";\n}",
+      "solution": "function addMethod() {\n  return \"static int Add(int a, int b) {\\n    return a + b;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "addMethod()",
+          "expected": "static int Add(int a, int b) {\n    return a + b;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See Methods in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: int sum = Add(1, 2);",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function callAdd() {\n  return \"\";\n}",
+      "solution": "function callAdd() {\n  return \"int sum = Add(1, 2);\";\n}",
+      "tests": [
+        {
+          "call": "callAdd()",
+          "expected": "int sum = Add(1, 2);"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Methods",
+        "book": "C# language notes",
+        "excerpt": "See Methods in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: int.TryParse(text, out int n);",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function outParse() {\n  return \"\";\n}",
+      "solution": "function outParse() {\n  return \"int.TryParse(text, out int n);\";\n}",
+      "tests": [
+        {
+          "call": "outParse()",
+          "expected": "int.TryParse(text, out int n);"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Parameters",
+        "book": "C# language notes",
+        "excerpt": "See Methods in the C# notes."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "C# language notes",
+      "chapter": "Methods"
+    }
+  ]
+}

@@ -21,12 +21,21 @@ Read these in the local `python/sources/` PDFs. Page numbers in the quiz are **P
 
 ```python
 d = {"a": 1, "b": 2}
-d["a"]
-d.get("z", 0)
-d["c"] = 3
-for k, v in d.items():
-    print(k, v)
+d = dict(a=1, b=2)
+d = dict([("a", 1), ("b", 2)])
 ```
+
+## Lookup and membership
+
+```python
+d["a"]              # KeyError if missing
+d.get("z", 0)       # default when missing
+"a" in d            # key exists?
+2 in d.values()     # value exists? (scans)
+d.setdefault("c", 3)
+```
+
+Do not write `d.has("a")`. Membership for keys is `in`.
 
 ## Sets
 

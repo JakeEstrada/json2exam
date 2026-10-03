@@ -46,9 +46,21 @@ export function detectLanguage(source) {
     || /\bNone\b|\bTrue\b|\bFalse\b/.test(s)
     || /^\s*(async\s+)?(def|class|elif|except|for|if|while|with)\b.*:\s*$/m.test(s)
     || /^\s*(for|if|while|with)\b(?!\s*\()[^\n]*$/m.test(s)
-    || /\b(elif|except|pass|yield)\b/.test(s)
+    || /\b(elif|except|pass)\b/.test(s)
+    || (/\byield\b/.test(s) && !/\bfunction\s*\*/.test(s) && !/\b(const|let|=>)\b/.test(s))
+    || (!/\b(const|let|var|function)\b/.test(s) && /=\s*\{["']/.test(s))
   ) {
     return 'python';
+  }
+  if (
+    /\bDictionary\s*</.test(s)
+    || /\bTryGetValue\b/.test(s)
+    || /\bContainsKey\b/.test(s)
+    || /\bnamespace\s+[A-Za-z_]/.test(s)
+    || /\busing\s+System\b/.test(s)
+    || /\bout\s+(int|var|string|bool)\b/.test(s)
+  ) {
+    return 'csharp';
   }
   const cssy = /[{][^}]*:[^}]*[}]/.test(s) || /^[.#a-zA-Z][\w.#:[\]()-]*\s*\{/.test(s);
   const jsy = /\b(function|const|let|var|return|=>)\b/.test(s);

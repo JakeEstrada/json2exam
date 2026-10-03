@@ -17,3 +17,6 @@ JavaScript Classroom · module
 - Classes
 - Error handling
 - Asynchronous JavaScript
+- Prototypes and this
+- Modules
+- Iterators and generators

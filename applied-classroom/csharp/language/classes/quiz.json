@@ -1,0 +1,359 @@
+{
+  "title": "C# - Classes",
+  "questions": [
+    {
+      "question": "new Dog(\"Willie\", 6) calls…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Sit",
+        "the constructor matching those arguments",
+        "Dispose",
+        "the class body as a function"
+      ],
+      "answer": "b",
+      "explanation": "Constructors have the type name.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public Dog(string name, int age) {\n    Name = name;\n}"
+    },
+    {
+      "question": "public string Name { get; } is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A field",
+        "A get-only auto-property",
+        "A method",
+        "const"
+      ],
+      "answer": "b",
+      "explanation": "Set it in the constructor.",
+      "reference": {
+        "section": "Properties",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public string Name { get; }"
+    },
+    {
+      "question": "private set on Age means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Nobody can read Age",
+        "Only the type can assign Age after init",
+        "It is readonly forever including constructor",
+        "It is static"
+      ],
+      "answer": "b",
+      "explanation": "The constructor and methods inside Dog can set it.",
+      "reference": {
+        "section": "Properties",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public int Age { get; private set; }"
+    },
+    {
+      "question": "class SearchDog : Dog means…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "An alias",
+        "SearchDog inherits Dog",
+        "A mixin",
+        "An interface only"
+      ],
+      "answer": "b",
+      "explanation": "C# uses a colon for the parent.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "class SearchDog : Dog {\n}"
+    },
+    {
+      "question": "base(name, age) in a subclass constructor…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Copies fields by hand",
+        "Calls the parent constructor",
+        "Is optional always",
+        "Boxes the parent"
+      ],
+      "answer": "b",
+      "explanation": "Must be first if the parent has no empty constructor.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public SearchDog(string name, int age) : base(name, age) {\n}"
+    },
+    {
+      "question": "virtual Sit() plus override Sit() …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Hides without polymorphism",
+        "Lets a Dog variable call SearchDog.Sit",
+        "Is an overload",
+        "Needs static"
+      ],
+      "answer": "b",
+      "explanation": "The runtime type picks the method.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public override void Sit() {\n}"
+    },
+    {
+      "question": "new on a method (not override) …",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Is override",
+        "Hides the parent method; a Dog variable still calls Dog.Sit",
+        "Is required",
+        "Implements an interface"
+      ],
+      "answer": "b",
+      "explanation": "Prefer override when you meant polymorphism.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public new void Sit() {\n}"
+    },
+    {
+      "question": "A class can inherit how many classes?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Unlimited",
+        "One class, plus any number of interfaces",
+        "Two",
+        "None; only structs"
+      ],
+      "answer": "b",
+      "explanation": "Single inheritance.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "class SearchDog : Dog, IDisposable {\n}"
+    },
+    {
+      "question": "record Dog(string Name, int Age) is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A Java record only",
+        "A reference type with value-like equality and a primary constructor",
+        "A struct always",
+        "unsafe"
+      ],
+      "answer": "b",
+      "explanation": "Shorthand for an immutable data class.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "record Dog(string Name, int Age);"
+    },
+    {
+      "question": "struct vs class for Dog…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "They are the same",
+        "struct is a value type (copied); class is a reference",
+        "struct cannot have methods",
+        "class cannot have fields"
+      ],
+      "answer": "b",
+      "explanation": "Default to class unless you need a small value.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "class Dog {\n    public string Name { get; }\n}"
+    },
+    {
+      "question": "this() in a constructor…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Calls another constructor on the same type",
+        "Calls the parent",
+        "Allocates this",
+        "Is Dispose"
+      ],
+      "answer": "a",
+      "explanation": "Constructor chaining.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public Dog() : this(\"Ada\", 1) {\n}"
+    },
+    {
+      "question": "~Dog() is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A constructor",
+        "A finalizer; prefer IDisposable for cleanup",
+        "Required",
+        "async"
+      ],
+      "answer": "b",
+      "explanation": "Do not put normal cleanup there.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public void Dispose() {\n}"
+    },
+    {
+      "question": "internal means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Only this file",
+        "Only this assembly",
+        "Public",
+        "Private to the method"
+      ],
+      "answer": "b",
+      "explanation": "The default for types with no modifier in a typical project.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "internal class Dog {\n}"
+    },
+    {
+      "question": "An auto-property { get; init; } can be set…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Anytime",
+        "In the constructor or an object initializer",
+        "Only via reflection",
+        "Never"
+      ],
+      "answer": "b",
+      "explanation": "init-only for immutable objects.",
+      "reference": {
+        "section": "Properties",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "public string Name { get; init; }"
+    },
+    {
+      "question": "new Dog { Name = \"Willie\" } requires…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "A set or init accessor on Name",
+        "Name to be a field",
+        "params",
+        "unsafe"
+      ],
+      "answer": "a",
+      "explanation": "Object initializers call setters/init.",
+      "reference": {
+        "section": "Properties",
+        "book": "C# language notes",
+        "excerpt": "See the matching heading in the C# language notes for this deck."
+      },
+      "code": "var d = new Dog { Name = \"Willie\" };"
+    },
+    {
+      "question": "Return C#: class Dog {\\n    public string Name { get; }\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function dogClass() {\n  return \"\";\n}",
+      "solution": "function dogClass() {\n  return \"class Dog {\\n    public string Name { get; }\\n}\";\n}",
+      "tests": [
+        {
+          "call": "dogClass()",
+          "expected": "class Dog {\n    public string Name { get; }\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See Classes in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: public Dog(string name) {\\n    Name = name;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function dogCtor() {\n  return \"\";\n}",
+      "solution": "function dogCtor() {\n  return \"public Dog(string name) {\\n    Name = name;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "dogCtor()",
+          "expected": "public Dog(string name) {\n    Name = name;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Classes",
+        "book": "C# language notes",
+        "excerpt": "See Classes in the C# notes."
+      }
+    },
+    {
+      "question": "Return C#: class SearchDog : Dog {\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function inherit() {\n  return \"\";\n}",
+      "solution": "function inherit() {\n  return \"class SearchDog : Dog {\\n}\";\n}",
+      "tests": [
+        {
+          "call": "inherit()",
+          "expected": "class SearchDog : Dog {\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "The runner is JavaScript. Return a C# source string.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "C# language notes",
+        "excerpt": "See Classes in the C# notes."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "C# language notes",
+      "chapter": "Classes"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 ## What you should be able to do
 
 - State when an array, a plain object, a `Map`, or a `Set` is the right tool.
+- Initialize a `Map`, get a value, and test whether a key or value exists.
 - Use `Map` for key/value data whose keys are not already safe property names.
 - Use `Set` for uniqueness and membership.
 - Group appointments by provider without `in` prototype traps.
@@ -40,6 +41,18 @@ for (const [name, age] of ages) { /* ... */ }
 ```
 
 Keys can be any value, compared with `SameValueZero` (like `===` but `NaN` matches `NaN`).
+
+## Lookup and membership
+
+```js
+const ages = new Map();            // initialize empty
+const known = new Map([["Ada", 36]]);
+ages.get("Ada");                   // undefined if missing
+ages.has("Ada");                   // key exists?
+[...ages.values()].includes(36);   // value exists? (scans)
+```
+
+Do not write `ages["Ada"]` for entries. Bracket assignment sets a property on the Map object, not a Map entry. There is no `ages.contains("Ada")`.
 
 Group appointments:
 
