@@ -36,3 +36,27 @@ A regular `function` has its own `this` from the call site. Arrow functions do n
 ## Coding tasks
 
 Return JavaScript source for a method call and an arrow that keeps `this`.
+
+## Arrow methods
+
+A method written as `speak(line) {}` on a class, or `speak: function () {}` on an object, receives `this` from the call. Pull it off the object and call it, and `this` is `undefined` in strict mode.
+
+An arrow never gets that call-site `this`.
+
+```js
+const o = { n: 1, get: () => this };
+o.get(); // not o. The arrow sees the this around the object literal.
+```
+
+A class field arrow is created while the instance is being built, so it closes over that instance:
+
+```js
+class Box {
+  n = 1;
+  get = () => this.n;
+}
+const f = new Box().get;
+f(); // 1
+```
+
+Use a field arrow for a callback you will pass away. Use a prototype method when many instances should share one function.

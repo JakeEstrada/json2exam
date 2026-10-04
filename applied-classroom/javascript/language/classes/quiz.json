@@ -1,4 +1,396 @@
 {
   "title": "JavaScript - Classes",
-  "questions": []
+  "questions": [
+    {
+      "question": "class Rabbit { constructor(type) { this.type = type; } speak(line) {} } puts speak on…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Each instance, as an own property",
+        "Rabbit.prototype",
+        "Object.prototype",
+        "the constructor's local variables"
+      ],
+      "answer": "b",
+      "explanation": "Methods are shared. new runs the constructor with this set to the new object.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      },
+      "code": "class Rabbit {\n  constructor(type) { this.type = type; }\n  speak(line) {}\n}"
+    },
+    {
+      "question": "Rabbit() without new…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Works the same as new Rabbit()",
+        "Throws. Constructors from class must be called with new",
+        "Returns Rabbit.prototype",
+        "Returns undefined and still sets this"
+      ],
+      "answer": "b",
+      "explanation": "class constructors cannot be called as plain functions.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "This function cannot be called like a normal function. Constructors, in JavaScript, are called by putting the keyword new in front of them."
+      },
+      "code": "new Rabbit(\"killer\");"
+    },
+    {
+      "question": "A class field speed = 0 is stored…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "On the prototype, shared by every instance",
+        "On each instance",
+        "As a # private always",
+        "On Function.prototype"
+      ],
+      "answer": "b",
+      "explanation": "Methods go on the prototype. Fields are per object.",
+      "reference": {
+        "section": "Private properties",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 169,
+        "excerpt": "Unlike methods, such properties are added to instance objects and not the prototype."
+      },
+      "code": "class Particle {\n  speed = 0;\n}"
+    },
+    {
+      "question": "#n on a class…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Is a normal property named \"n\"",
+        "Must be declared in the class and is invisible outside it",
+        "Is inherited from Object.prototype",
+        "Can be read as obj[\"#n\"]"
+      ],
+      "answer": "b",
+      "explanation": "Outside the class, mentioning the private name is a syntax error.",
+      "reference": {
+        "section": "Private properties",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 169,
+        "excerpt": "To declare a private method, put a # sign in front of its name."
+      },
+      "code": "class Counter {\n  #n = 0;\n  inc() { this.#n += 1; return this.#n; }\n}"
+    },
+    {
+      "question": "Object.hasOwn(new Counter(), \"inc\") is false because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "inc was not defined",
+        "inc lives on Counter.prototype",
+        "private methods are not functions",
+        "new does not set the prototype"
+      ],
+      "answer": "b",
+      "explanation": "The instance inherits inc. It does not own it.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      },
+      "code": "Object.hasOwn(new Counter(), \"inc\");\nObject.hasOwn(Counter.prototype, \"inc\");"
+    },
+    {
+      "question": "A derived constructor that uses this before super()…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Sees this as Object.prototype",
+        "Throws. this is uninitialized until super returns",
+        "Works if you assign a field",
+        "Calls the parent automatically first"
+      ],
+      "answer": "b",
+      "explanation": "super(start) has to finish before this.step = step.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 185,
+        "excerpt": "To initialize a LengthList instance, the constructor calls the constructor of its superclass through the super keyword."
+      },
+      "code": "class StepCounter extends Counter {\n  constructor(start, step) {\n    super(start);\n    this.step = step;\n  }\n}"
+    },
+    {
+      "question": "new StepCounter(0, 2) instanceof Counter is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "false, because instanceof checks the constructor name only",
+        "true, because the prototype chain includes Counter",
+        "true only if you copy methods",
+        "a TypeError"
+      ],
+      "answer": "b",
+      "explanation": "instanceof walks prototypes. extends wires that up.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 186,
+        "excerpt": "The instanceof operator"
+      },
+      "code": "new StepCounter(0, 2) instanceof Counter;"
+    },
+    {
+      "question": "super.inc() inside a subclass method…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Calls the subclass inc again",
+        "Calls inc on the superclass prototype",
+        "Is the same as this.inc()",
+        "Is only legal in the constructor"
+      ],
+      "answer": "b",
+      "explanation": "super.something reads the parent, which is how an override reuses behavior.",
+      "reference": {
+        "section": "Inheritance",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 186,
+        "excerpt": "We can use super.something to call methods and getters on the superclass’s prototype"
+      },
+      "code": "inc() {\n  return super.inc();\n}"
+    },
+    {
+      "question": "An arrow in a class field, get = () => this.n, when pulled off the instance…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Loses this, like a prototype method",
+        "Still sees the instance, because the arrow closed over this at construction",
+        "Sees the class constructor",
+        "Throws a SyntaxError"
+      ],
+      "answer": "b",
+      "explanation": "The field initializer runs with this set to the new object. The arrow keeps that this.",
+      "reference": {
+        "section": "Private properties",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 169,
+        "excerpt": "Unlike methods, such properties are added to instance objects and not the prototype."
+      },
+      "code": "class Box {\n  n = 1;\n  get = () => this.n;\n}\nconst f = new Box().get;\nf();"
+    },
+    {
+      "question": "class declarations and hoisting…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "You can new the class anywhere above its line",
+        "The name is in a temporal dead zone until the class line runs",
+        "They behave like function declarations and are fully initialized first",
+        "They are not bindings"
+      ],
+      "answer": "b",
+      "explanation": "Referencing the class before its statement throws.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      },
+      "code": "class Rabbit {\n  constructor(type) { this.type = type; }\n}"
+    },
+    {
+      "question": "If a constructor returns an object, new…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Ignores that return and always gives you this",
+        "Uses the returned object instead of this",
+        "Throws",
+        "Returns undefined"
+      ],
+      "answer": "b",
+      "explanation": "Returning a non-object (or nothing) keeps this. Returning an object replaces it.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "Doing so creates a fresh instance object whose prototype is the object from the function’s prototype property, then runs the function with this bound to the new object, and finally returns the object."
+      },
+      "code": "constructor() {\n  return { replaced: true };\n}"
+    },
+    {
+      "question": "static parse(text) is called as…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "new Counter().parse(text)",
+        "Counter.parse(text)",
+        "Counter.prototype.parse(text)",
+        "super.parse(text) from outside"
+      ],
+      "answer": "b",
+      "explanation": "Static methods sit on the constructor, not on instances.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      },
+      "code": "class Counter {\n  static zero() { return new Counter(); }\n}\nCounter.zero();"
+    },
+    {
+      "question": "Omitting constructor in a subclass…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Leaves this undefined forever",
+        "Uses a default constructor that calls super(...args)",
+        "Copies the parent fields by assignment",
+        "Is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "You only write a constructor when you need extra parameters or extra fields.",
+      "reference": {
+        "section": "Private properties",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 170,
+        "excerpt": "When a class does not declare a constructor, it will automatically get an empty one."
+      },
+      "code": "class Loud extends Counter {}\nnew Loud();"
+    },
+    {
+      "question": "Changing Rabbit.prototype.speak later…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Affects only rabbits created after the change",
+        "Is seen by instances that still inherit that prototype",
+        "Is impossible",
+        "Updates # private methods"
+      ],
+      "answer": "b",
+      "explanation": "Instances do not own the method. They look it up.",
+      "reference": {
+        "section": "Classes",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      },
+      "code": "Rabbit.prototype.speak = function () { return this.type; };"
+    },
+    {
+      "question": "A public field and a method of the same name: which wins on the instance?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "The prototype method, always",
+        "The own field shadows the prototype method",
+        "A TypeError",
+        "The one declared first in the file"
+      ],
+      "answer": "b",
+      "explanation": "Own properties are found before the prototype chain.",
+      "reference": {
+        "section": "Private properties",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 169,
+        "excerpt": "Unlike methods, such properties are added to instance objects and not the prototype."
+      },
+      "code": "class Box {\n  get = () => this.n;\n  get() { return 0; }\n}"
+    },
+    {
+      "question": "Write class Counter. new Counter(start).inc() adds 1 and returns the new count. value() reads it. Keep the count private.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "class Counter {\n}\n",
+      "solution": "class Counter {\n  #n;\n  constructor(start = 0) {\n    this.#n = start;\n  }\n  inc() {\n    this.#n += 1;\n    return this.#n;\n  }\n  value() {\n    return this.#n;\n  }\n}\n",
+      "tests": [
+        {
+          "setup": "const c = new Counter(2); c.inc();",
+          "call": "c.value()",
+          "expected": 3
+        },
+        {
+          "setup": "const c = new Counter();",
+          "call": "c.inc()",
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "Declare #n. inc returns this.#n after adding 1."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 170,
+        "excerpt": "class RandomSource {\n   #max;\n   constructor(max) {\n     this.#max = max;\n   }"
+      }
+    },
+    {
+      "question": "Write class StepCounter extends Counter. constructor(start, step) stores step. inc() calls super.inc() that many times and returns the last count. step is at least 1. Counter is already in the file.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "class Counter {\n  #n;\n  constructor(start = 0) {\n    this.#n = start;\n  }\n  inc() {\n    this.#n += 1;\n    return this.#n;\n  }\n  value() {\n    return this.#n;\n  }\n}\nclass StepCounter extends Counter {\n}\n",
+      "solution": "class Counter {\n  #n;\n  constructor(start = 0) {\n    this.#n = start;\n  }\n  inc() {\n    this.#n += 1;\n    return this.#n;\n  }\n  value() {\n    return this.#n;\n  }\n}\nclass StepCounter extends Counter {\n  constructor(start, step) {\n    super(start);\n    this.step = step;\n  }\n  inc() {\n    let n = this.value();\n    for (let i = 0; i < this.step; i++) n = super.inc();\n    return n;\n  }\n}\n",
+      "tests": [
+        {
+          "setup": "const c = new StepCounter(0, 2);",
+          "call": "c.inc()",
+          "expected": 2
+        }
+      ],
+      "hints": [
+        "Call super(start) before touching this."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 185,
+        "excerpt": "The use of the word extends indicates that this class shouldn’t be directly based on the default Object prototype but on some other class."
+      }
+    },
+    {
+      "question": "Write hasSpeak(obj): true when obj has a function property named speak, own or inherited.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function hasSpeak(obj) {\n}\n",
+      "solution": "function hasSpeak(obj) {\n  return typeof obj.speak === \"function\";\n}\n",
+      "tests": [
+        {
+          "setup": "class Rabbit { speak() {} }",
+          "call": "hasSpeak(new Rabbit())",
+          "expected": true
+        },
+        {
+          "call": "hasSpeak({})",
+          "expected": false
+        }
+      ],
+      "hints": [
+        "typeof obj.speak === \"function\" follows the prototype."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 167,
+        "excerpt": "The class keyword starts a class declaration, which allows us to define a constructor and a set of methods together."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 167,
+      "chapter": "Classes"
+    }
+  ]
 }

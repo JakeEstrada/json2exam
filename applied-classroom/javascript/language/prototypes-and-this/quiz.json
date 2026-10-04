@@ -373,6 +373,66 @@
         "page": 163,
         "excerpt": "Arrow functions are different—they do not bind their own this but can see the this of the surrounding scope."
       }
+    },
+    {
+      "question": "const o = { n: 1, get: () => this }; o.get() uses which this?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "o",
+        "The this surrounding the arrow, not o",
+        "Object.prototype",
+        "undefined only inside class bodies"
+      ],
+      "answer": "b",
+      "explanation": "The arrow does not get a method call. At the top of a module, that surrounding this is undefined.",
+      "reference": {
+        "section": "Arrow methods",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Arrow functions are different—they do not bind their own this but can see the this binding of the scope around them."
+      },
+      "code": "const o = { n: 1, get: () => this };\no.get();"
+    },
+    {
+      "question": "class Box { n = 1; get = () => this.n } and const f = new Box().get; f() is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "a TypeError, this was lost",
+        "1",
+        "undefined",
+        "the class Box"
+      ],
+      "answer": "b",
+      "explanation": "The field arrow is created with this bound to the new instance.",
+      "reference": {
+        "section": "Arrow methods",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 169,
+        "excerpt": "Unlike methods, such properties are added to instance objects and not the prototype."
+      },
+      "code": "class Box {\n  n = 1;\n  get = () => this.n;\n}\nconst f = new Box().get;\nf();"
+    },
+    {
+      "question": "const m = new Box().speak; m() when speak is a prototype method in strict mode…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Still sees the instance",
+        "Throws TypeError because this is undefined",
+        "Returns Box.prototype",
+        "Calls the constructor again"
+      ],
+      "answer": "b",
+      "explanation": "A detached method call has no receiver. Bind it, or use a field arrow, if you must pass it.",
+      "reference": {
+        "section": "Arrow methods",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 163,
+        "excerpt": "Since each function has its own this binding whose value depends on the way it is called, you cannot refer to the this of the wrapping scope in a regular function defined with the function keyword."
+      },
+      "code": "const m = box.speak;\nm();"
     }
   ],
   "reading": [

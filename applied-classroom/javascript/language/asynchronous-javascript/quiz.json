@@ -1,4 +1,378 @@
 {
   "title": "JavaScript - Asynchronous JavaScript",
-  "questions": []
+  "questions": [
+    {
+      "question": "A promise is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A thread",
+        "A receipt for a value that might not be ready",
+        "A callback registry that runs inside the caller",
+        "Only the return type of fetch"
+      ],
+      "answer": "b",
+      "explanation": "then registers work for when it settles. Already settled promises still run then later.",
+      "reference": {
+        "section": "Promises",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 289,
+        "excerpt": "A promise is a receipt representing a value that may not be available yet."
+      },
+      "code": "Promise.resolve(15).then((value) => console.log(value));"
+    },
+    {
+      "question": "Order of: log(\"sync\"); Promise.resolve().then(() => log(\"promise\")); setTimeout(() => log(\"timeout\"), 0);",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "sync, timeout, promise",
+        "sync, promise, timeout",
+        "promise, sync, timeout",
+        "timeout, promise, sync"
+      ],
+      "answer": "b",
+      "explanation": "The current stack finishes, then promise reactions, then timers.",
+      "reference": {
+        "section": "The event loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 309,
+        "excerpt": "Promises always resolve or reject as a new event."
+      },
+      "code": "console.log(\"sync\");\nPromise.resolve().then(() => console.log(\"promise\"));\nsetTimeout(() => console.log(\"timeout\"), 0);"
+    },
+    {
+      "question": "then on a promise returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The original promise",
+        "A new promise for the callback result",
+        "The callback return value immediately",
+        "undefined always"
+      ],
+      "answer": "b",
+      "explanation": "That is how a chain waits on a promise returned from a callback.",
+      "reference": {
+        "section": "Promises",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 290,
+        "excerpt": "A useful thing about the then method is that it itself returns another promise."
+      },
+      "code": "textFile(name).then((text) => textFile(other));"
+    },
+    {
+      "question": "If a then callback throws, the promise returned by then…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fulfills with the Error",
+        "Rejects",
+        "Is unchanged",
+        "Retries the callback"
+      ],
+      "answer": "b",
+      "explanation": "A throw in a reaction is a rejection of the next promise.",
+      "reference": {
+        "section": "Promises",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 294,
+        "excerpt": "rejection when they throw an exception, and the outcome of the promise when they return a promise."
+      },
+      "code": "Promise.resolve(1).then(() => { throw new Error(\"Fail\"); });"
+    },
+    {
+      "question": "Calling an async function…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Runs it to the end on this stack before you continue",
+        "Returns a promise immediately",
+        "Returns the bare return value",
+        "Throws synchronously if the function throws"
+      ],
+      "answer": "b",
+      "explanation": "return 1 fulfills that promise. throw rejects it. The caller must await or then.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "When such a function or method is called, it returns a promise."
+      },
+      "code": "async function add(a, b) {\n  return a + b;\n}"
+    },
+    {
+      "question": "await inside an async function…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Blocks every other script on the page until it finishes",
+        "Pauses that function and lets other turns run",
+        "Is legal in any function",
+        "Converts a rejection into a return value of null"
+      ],
+      "answer": "b",
+      "explanation": "await on a plain value wraps it. await on a rejection throws into the async function, which rejects its promise unless you catch.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "An async function is marked by the word async before the function keyword."
+      },
+      "code": "const text = await read(path);"
+    },
+    {
+      "question": "try { setTimeout(() => { throw new Error(\"Woosh\"); }, 20); } catch (e) {} …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Prints nothing and swallows Woosh",
+        "Does not catch Woosh",
+        "Prevents the timer",
+        "Rejects a promise"
+      ],
+      "answer": "b",
+      "explanation": "The book: the catch will not run. The callback starts on an empty stack.",
+      "reference": {
+        "section": "The event loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 309,
+        "excerpt": "try {\n   setTimeout(() => {\n     throw new Error(\"Woosh\");\n   }, 20);\n } catch (e) {\n   // This will not run\n   console.log(\"Caught\", e);\n }"
+      },
+      "code": "try {\n  setTimeout(() => { throw new Error(\"Woosh\"); }, 20);\n} catch (e) {\n  console.log(\"Caught\", e);\n}"
+    },
+    {
+      "question": "A while loop that burns 50ms after scheduling a 20ms timeout…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Lets the timeout run at 20ms, in parallel",
+        "Delays the timeout until the loop finishes",
+        "Cancels the timeout",
+        "Throws"
+      ],
+      "answer": "b",
+      "explanation": "One turn at a time. The loop is the turn. The timer waits.",
+      "reference": {
+        "section": "The event loop",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 309,
+        "excerpt": "while (Date.now() < start + 50) {}\n console.log(\"Wasted time until\", Date.now() - start);"
+      },
+      "code": "setTimeout(fn, 20);\nwhile (Date.now() < start + 50) {}"
+    },
+    {
+      "question": "Promise.all of three request promises…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Fulfills with the first result only",
+        "Fulfills with an array of results in input order",
+        "Runs the requests one at a time",
+        "Ignores rejections"
+      ],
+      "answer": "b",
+      "explanation": "One rejection rejects the combined promise. The others are not cancelled.",
+      "reference": {
+        "section": "Promise.all",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 306,
+        "excerpt": "Promise has a static method all that can be used to convert an array of promises into a single promise that resolves to an array of results."
+      },
+      "code": "return Promise.all(frame.map((data, i) => request(screenAddresses[i], data)));"
+    },
+    {
+      "question": "Promise.all([]) …",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Rejects",
+        "Fulfills with []",
+        "Hangs",
+        "Fulfills with undefined"
+      ],
+      "answer": "b",
+      "explanation": "There is no input that can reject.",
+      "reference": {
+        "section": "Promise.all",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 306,
+        "excerpt": "Promise has a static method all that can be used to convert an array of promises into a single promise that resolves to an array of results."
+      },
+      "code": "Promise.all([]);"
+    },
+    {
+      "question": "await inside a for loop versus Promise.all(items.map(...))",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "They start the work the same way",
+        "The loop waits for each step; map plus all can overlap",
+        "all always runs in series",
+        "The loop is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "Use the loop when the next call needs the previous result. Use all when the calls are independent.",
+      "reference": {
+        "section": "Promise.all",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 306,
+        "excerpt": "Promise has a static method all that can be used to convert an array of promises into a single promise that resolves to an array of results."
+      },
+      "code": "for (const item of items) {\n  await save(item);\n}\nawait Promise.all(items.map(save));"
+    },
+    {
+      "question": "How do you catch a rejection from await read(path)?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "try/catch around the call that created the promise, after you have already left the function",
+        "try/catch around the await, inside the async function",
+        "if (promise === Error)",
+        "window.onerror only"
+      ],
+      "answer": "b",
+      "explanation": "await turns rejection into a throw in that function.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "try {\n         await withTimeout(joinWifi(networkID, newCode), 50);"
+      },
+      "code": "try {\n  return await read(path);\n} catch (err) {\n  return null;\n}"
+    },
+    {
+      "question": "read(path).then(handler) with no catch, when read rejects…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Becomes a normal return of undefined",
+        "Is an unhandled rejection unless something later catches that chain",
+        "Is a SyntaxError",
+        "Retries read"
+      ],
+      "answer": "b",
+      "explanation": "Attach catch, or await it inside try.",
+      "reference": {
+        "section": "Promises",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 294,
+        "excerpt": "if (error) reject(error);\n       else resolve(text);"
+      },
+      "code": "read(path).then(console.log);"
+    },
+    {
+      "question": "Promise.resolve(1).then(() => 2) fulfills with…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "1",
+        "2",
+        "a function",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "The callback return becomes the next result. The original value is the callback argument, which this arrow ignores.",
+      "reference": {
+        "section": "Promises",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 290,
+        "excerpt": "A useful thing about the then method is that it itself returns another promise."
+      },
+      "code": "Promise.resolve(1).then(() => 2);"
+    },
+    {
+      "question": "An async function that returns Promise.resolve(5) causes the caller's await to see…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A promise of a promise",
+        "5",
+        "undefined",
+        "the async function object"
+      ],
+      "answer": "b",
+      "explanation": "await and then flatten a returned promise one level.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "When such a function or method is called, it returns a promise."
+      },
+      "code": "async function n() {\n  return Promise.resolve(5);\n}"
+    },
+    {
+      "question": "Return JavaScript: async function add(a, b) {\\n  return a + b;\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function asyncAdd() {\n  return \"\";\n}",
+      "solution": "function asyncAdd() {\n  return \"async function add(a, b) {\\n  return a + b;\\n}\";\n}",
+      "tests": [
+        {
+          "call": "asyncAdd()",
+          "expected": "async function add(a, b) {\n  return a + b;\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "Type the JavaScript source as a string. The runner cannot await a live promise.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "When such a function or method is called, it returns a promise."
+      }
+    },
+    {
+      "question": "Return JavaScript: return Promise.all(frame.map((data, i) => request(screenAddresses[i], data)));",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function allFrames() {\n  return \"\";\n}",
+      "solution": "function allFrames() {\n  return \"return Promise.all(frame.map((data, i) => request(screenAddresses[i], data)));\";\n}",
+      "tests": [
+        {
+          "call": "allFrames()",
+          "expected": "return Promise.all(frame.map((data, i) => request(screenAddresses[i], data)));"
+        }
+      ],
+      "hints": [],
+      "explanation": "Type the JavaScript source as a string. The runner cannot await a live promise.",
+      "reference": {
+        "section": "Promise.all",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 306,
+        "excerpt": "Promise has a static method all that can be used to convert an array of promises into a single promise that resolves to an array of results."
+      }
+    },
+    {
+      "question": "Return JavaScript: async function load(path) {\\n  try {\\n    return await read(path);\\n  } catch (err) {\\n    return null;\\n  }\\n}",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function loadOrNull() {\n  return \"\";\n}",
+      "solution": "function loadOrNull() {\n  return \"async function load(path) {\\n  try {\\n    return await read(path);\\n  } catch (err) {\\n    return null;\\n  }\\n}\";\n}",
+      "tests": [
+        {
+          "call": "loadOrNull()",
+          "expected": "async function load(path) {\n  try {\n    return await read(path);\n  } catch (err) {\n    return null;\n  }\n}"
+        }
+      ],
+      "hints": [],
+      "explanation": "Type the JavaScript source as a string. The runner cannot await a live promise.",
+      "reference": {
+        "section": "async and await",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 300,
+        "excerpt": "try {\n         await withTimeout(joinWifi(networkID, newCode), 50);"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 289,
+      "chapter": "Asynchronous Programming"
+    }
+  ]
 }

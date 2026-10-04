@@ -1,5 +1,3 @@
-# Recursion
+# JavaScript - Recursion
 
-JavaScript Classroom · Language
-
-Drop quiz JSON, notes, lecture files, or exercises here when you have them.
+Read notes.md, then take the quiz.

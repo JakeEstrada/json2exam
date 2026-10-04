@@ -196,9 +196,9 @@
       "explanation": "Extra args are ignored. Objects are passed as references (the binding is local; the object is shared).",
       "reference": {
         "section": "Defining a function",
-        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
-        "page": 146,
-        "excerpt": "So for the earlier if..else example, my suggestion is to avoid conditionally defining functions if at all possible."
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 84,
+        "excerpt": "If you pass too many, the extra ones are ignored. If you pass too few, the missing parameters are assigned the value undefined."
       },
       "level": 2,
       "code": "function label(status) {\n  status = status || \"open\";\n  return status;\n}"

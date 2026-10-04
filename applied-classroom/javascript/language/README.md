@@ -11,7 +11,7 @@ JavaScript Classroom · module
 - Arrays
 - Objects
 - Maps and sets
-- Array methods
+- Array methods (map, filter, reduce, sort, splice)
 - Closures
 - Recursion
 - Classes

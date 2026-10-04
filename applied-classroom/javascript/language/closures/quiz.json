@@ -1,4 +1,404 @@
 {
   "title": "JavaScript - Closures",
-  "questions": []
+  "questions": [
+    {
+      "question": "Eloquent's definition: a closure is a function that…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Copies every outer variable when it is created",
+        "References bindings from local scopes around it",
+        "Runs only once",
+        "Cannot return a value"
+      ],
+      "answer": "b",
+      "explanation": "The function and those surrounding bindings travel together.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 87,
+        "excerpt": "A function that references bindings from local scopes around it is called a closure."
+      },
+      "code": "function wrapValue(n) {\n  let local = n;\n  return () => local;\n}"
+    },
+    {
+      "question": "wrapValue(1)() and wrapValue(2)() return…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "2 and 2, because local is global",
+        "1 and 2, because each call has its own local",
+        "undefined and undefined",
+        "1 and 1"
+      ],
+      "answer": "b",
+      "explanation": "Each invocation of wrapValue builds a fresh environment.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "let wrap1 = wrapValue(1);\n let wrap2 = wrapValue(2);\n console.log(wrap1());\n // → 1\n console.log(wrap2());\n // → 2"
+      },
+      "code": "wrapValue(1)();\nwrapValue(2)();"
+    },
+    {
+      "question": "multiplier(2) returns a function. twice(5) is 10 because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "5 is closed over and factor is ignored",
+        "factor is still 2 in the environment where the arrow was created",
+        "twice is a global",
+        "Arrow functions ignore parameters"
+      ],
+      "answer": "b",
+      "explanation": "The call to twice does not create factor. multiplier did.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 87,
+        "excerpt": "When called, the function body sees the environment in which it was created, not the environment in which it is called."
+      },
+      "code": "function multiplier(factor) {\n  return (number) => number * factor;\n}\nconst twice = multiplier(2);\ntwice(5);"
+    },
+    {
+      "question": "A closure sees which environment?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The environment where it is called",
+        "The environment where it was created",
+        "Only global bindings",
+        "The caller's parameters"
+      ],
+      "answer": "b",
+      "explanation": "Call site does not rebuild the closed-over bindings.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 87,
+        "excerpt": "When called, the function body sees the environment in which it was created, not the environment in which it is called."
+      },
+      "code": "const twice = multiplier(2);\ntwice(5);"
+    },
+    {
+      "question": "Closure is a snapshot of the value. That claim is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "True for let, false for var",
+        "False. It is a live link to the variable",
+        "True, which is why loops are safe",
+        "Only true for const"
+      ],
+      "answer": "b",
+      "explanation": "You can read and write the closed-over variable later.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "Closure is actually a live link, preserving access to the full variable itself."
+      },
+      "code": "let name = \"Ada\";\nconst greet = () => name;\nname = \"Grace\";\ngreet();"
+    },
+    {
+      "question": "later() assigns name = \"Grace\" after creating greet. greet() returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "\"Ada\"",
+        "\"Grace\"",
+        "undefined",
+        "the function later"
+      ],
+      "answer": "b",
+      "explanation": "greet reads name when it runs, not when it was created.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "We’re not limited to merely reading a value; the closed-over variable can be updated (re-assigned) as well!"
+      },
+      "code": "function later() {\n  let name = \"Ada\";\n  const greet = () => name;\n  name = \"Grace\";\n  return greet;\n}"
+    },
+    {
+      "question": "Three functions saved from for (var i = 0; i < 3; i++) all return…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "0, 1, and 2",
+        "3",
+        "undefined",
+        "the function objects"
+      ],
+      "answer": "b",
+      "explanation": "var i is one binding. After the loop it is 3.",
+      "reference": {
+        "section": "Loop bindings",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 161,
+        "excerpt": "var keeps = [];\n\nfor (var i = 0; i < 3; i++) {"
+      },
+      "code": "for (var i = 0; i < 3; i++) {\n  fns.push(() => i);\n}"
+    },
+    {
+      "question": "The same loop with let i returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "3, 3, and 3",
+        "0, 1, and 2",
+        "undefined",
+        "a SyntaxError"
+      ],
+      "answer": "b",
+      "explanation": "Each iteration gets its own i.",
+      "reference": {
+        "section": "Loop bindings",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 162,
+        "excerpt": "Since we’re using let, three i’s are created, one for each loop, so each of the three closures just work as expected."
+      },
+      "code": "for (let i = 0; i < 3; i++) {\n  fns.push(() => i);\n}"
+    },
+    {
+      "question": "Two arrows returned from one call, both reading the same let count…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Each has a private copy of the number",
+        "Share that one binding",
+        "See count only if it is const",
+        "Throw when count changes"
+      ],
+      "answer": "b",
+      "explanation": "One environment, two functions.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "Closure is actually a live link, preserving access to the full variable itself."
+      },
+      "code": "function pair() {\n  let count = 0;\n  return [() => count, (n) => { count = n; }];\n}"
+    },
+    {
+      "question": "Why can a returned inner function still read a local after the outer call finished?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Locals are copied onto the heap at return",
+        "The binding stays reachable through the function",
+        "JavaScript promotes every let to global",
+        "The call stack never pops"
+      ],
+      "answer": "b",
+      "explanation": "If something still references the inner function, the closed-over binding stays alive.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 87,
+        "excerpt": "A function that references bindings from local scopes around it is called a closure."
+      },
+      "code": "function make() {\n  let secret = 1;\n  return () => secret;\n}"
+    },
+    {
+      "question": "makeCounter()() then again on the same function returns 1 then 2. A second makeCounter() starts at…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "3, because count is global",
+        "1, because that call has its own count",
+        "0",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "Each factory call creates a new binding.",
+      "reference": {
+        "section": "Closure",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "This feature—being able to reference a specific instance of a local binding in an enclosing scope—is called closure."
+      },
+      "code": "function makeCounter() {\n  let n = 0;\n  return () => ++n;\n}"
+    },
+    {
+      "question": "An inner function that never reads an outer local…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Still observably closes over those locals",
+        "Does not show closure over them",
+        "Is a syntax error",
+        "Freezes the outer variables"
+      ],
+      "answer": "b",
+      "explanation": "Simpson's test is observable use. Unused outer bindings are not kept for that function.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "Closure is actually a live link, preserving access to the full variable itself."
+      },
+      "code": "function outer() {\n  let unused = [1, 2, 3];\n  return function inner() { return 1; };\n}"
+    },
+    {
+      "question": "A callback passed to an event or ajax call is a closure when…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It is an arrow",
+        "It reads a binding from the function that registered it, later",
+        "It is named",
+        "It returns a promise"
+      ],
+      "answer": "b",
+      "explanation": "The outer call has finished before the callback runs, and the callback still sees those bindings.",
+      "reference": {
+        "section": "Loop bindings",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 162,
+        "excerpt": "The onRecord(..) callback is going to be invoked at some point in the future"
+      },
+      "code": "function lookup(id) {\n  return function onRecord(record) {\n    return id + \":\" + record.name;\n  };\n}"
+    },
+    {
+      "question": "Closing over a huge array you no longer need…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Lets the array be collected immediately",
+        "Keeps the array alive while the function is reachable",
+        "Copies only the array length",
+        "Is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "Drop the reference, or don't close over the array, if you need it collected.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 168,
+        "excerpt": "The Closure Lifecycle and Garbage Collection (GC) Since closure is inherently tied to a function instance"
+      },
+      "code": "function hold(rows) {\n  return () => rows.length;\n}"
+    },
+    {
+      "question": "const versus let for a closed-over binding…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "const is a snapshot; let is a live link",
+        "Both are live links. const only forbids reassignment",
+        "let copies; const closes",
+        "Neither can be read inside an inner function"
+      ],
+      "answer": "b",
+      "explanation": "You can still mutate an object held by const. You cannot reassign the binding.",
+      "reference": {
+        "section": "Live link",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 156,
+        "excerpt": "Closure is actually a live link, preserving access to the full variable itself."
+      },
+      "code": "const box = { n: 1 };\nconst read = () => box.n;\nbox.n = 2;"
+    },
+    {
+      "question": "Write makeMultiplier(factor), returning a function of one number.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function makeMultiplier(factor) {\n}\n",
+      "solution": "function makeMultiplier(factor) {\n  return (number) => number * factor;\n}\n",
+      "tests": [
+        {
+          "setup": "const twice = makeMultiplier(2);",
+          "call": "twice(5)",
+          "expected": 10
+        }
+      ],
+      "hints": [
+        "Return an arrow that multiplies by factor."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 87,
+        "excerpt": "function multiplier(factor) {\n   return number => number * factor;\n }"
+      }
+    },
+    {
+      "question": "Write makeCounter(). Each call to the returned function returns 1, then 2, then 3. Two counters do not share state.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function makeCounter() {\n}\n",
+      "solution": "function makeCounter() {\n  let n = 0;\n  return function next() {\n    n += 1;\n    return n;\n  };\n}\n",
+      "tests": [
+        {
+          "setup": "const a = makeCounter();",
+          "call": "[a(), a()]",
+          "expected": [
+            1,
+            2
+          ]
+        },
+        {
+          "setup": "const a = makeCounter(); const b = makeCounter(); a();",
+          "call": "b()",
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "Close over let n = 0."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 86,
+        "excerpt": "A function that references bindings from local scopes around it is called a closure."
+      }
+    },
+    {
+      "question": "Write capture(n): an array of n functions. The function at index i returns i. Use let, not var.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function capture(n) {\n}\n",
+      "solution": "function capture(n) {\n  const fns = [];\n  for (let i = 0; i < n; i++) fns.push(() => i);\n  return fns;\n}\n",
+      "tests": [
+        {
+          "setup": "const fns = capture(3);",
+          "call": "[fns[0](), fns[1](), fns[2]()]",
+          "expected": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "hints": [
+        "for (let i = 0; i < n; i++)"
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+        "page": 162,
+        "excerpt": "Since we’re using let, three i’s are created, one for each loop, so each of the three closures just work as expected."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 86,
+      "chapter": "Closure"
+    },
+    {
+      "book": "You Don't Know JS Yet: Scope & Closures, 2nd Edition by Kyle Simpson",
+      "page": 156,
+      "chapter": "Using Closures"
+    }
+  ]
 }

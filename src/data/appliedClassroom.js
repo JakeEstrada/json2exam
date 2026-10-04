@@ -237,7 +237,7 @@ export const APPLIED_COURSES = [
     title: 'JavaScript',
     folder: 'javascript',
     group: 'languages',
-    tagline: 'Syntax first, then maps, prototypes, modules, and generators.',
+    tagline: 'Syntax, then arrays, closures, classes, async, and prototypes.',
     modules: [
       {
         label: 'Language',

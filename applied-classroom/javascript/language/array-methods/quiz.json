@@ -1,4 +1,478 @@
 {
   "title": "JavaScript - Array methods",
-  "questions": []
+  "questions": [
+    {
+      "question": "What does map return?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "The original array, mutated",
+        "A new array of the same length",
+        "undefined",
+        "Only the elements that pass a test"
+      ],
+      "answer": "b",
+      "explanation": "The callback return values become the new elements.",
+      "reference": {
+        "section": "map",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 147,
+        "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
+      },
+      "code": "[1, 2, 3].map((n) => n * 2);"
+    },
+    {
+      "question": "What does forEach return?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "A new array of callback results",
+        "The original array",
+        "undefined",
+        "The last callback return"
+      ],
+      "answer": "c",
+      "explanation": "forEach is for side effects. The callback return is ignored.",
+      "reference": {
+        "section": "map",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 184,
+        "excerpt": "None of the methods described here modify the array on which they are invoked"
+      },
+      "code": "[1, 2, 3].forEach((n) => n * 2);"
+    },
+    {
+      "question": "[\"10\", \"10\", \"10\"].map(parseInt) is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "[10, 10, 10]",
+        "[10, NaN, 2]",
+        "[NaN, NaN, NaN]",
+        "a thrown TypeError"
+      ],
+      "answer": "b",
+      "explanation": "map passes the index as parseInt's radix. Use Number, or (s) => parseInt(s, 10).",
+      "reference": {
+        "section": "map",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 147,
+        "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
+      },
+      "code": "[\"10\", \"10\", \"10\"].map(parseInt);"
+    },
+    {
+      "question": "filter compared with deleting inside a loop…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Removes elements from the same array",
+        "Builds a new array and leaves the original",
+        "Always returns the same length",
+        "Throws if the predicate is false"
+      ],
+      "answer": "b",
+      "explanation": "The book version pushes keepers into a fresh array.",
+      "reference": {
+        "section": "filter",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass"
+      },
+      "code": "[5, 4, 3, 2, 1].filter((x) => x < 3);"
+    },
+    {
+      "question": "[5, 4, 3, 2, 1].filter((x) => x < 3) is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "[5, 4, 3]",
+        "[2, 1]",
+        "[1, 2]",
+        "[5, 4]"
+      ],
+      "answer": "b",
+      "explanation": "Order of survivors is preserved. It does not sort them.",
+      "reference": {
+        "section": "filter",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 185,
+        "excerpt": "a.filter(x => x < 3)         // => [2, 1]; values less than 3"
+      },
+      "code": "[5, 4, 3, 2, 1].filter((x) => x < 3);"
+    },
+    {
+      "question": "reduce([1, 2, 3, 4], (a, b) => a + b, 0) is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "10",
+        "24",
+        "4",
+        "undefined"
+      ],
+      "answer": "a",
+      "explanation": "Start at 0, then add each element.",
+      "reference": {
+        "section": "reduce",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 148,
+        "excerpt": "The parameters to reduce are, apart from the array, a combining function and a start value."
+      },
+      "code": "[1, 2, 3, 4].reduce((a, b) => a + b, 0);"
+    },
+    {
+      "question": "[].reduce((a, b) => a + b) does what?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Returns 0",
+        "Returns undefined",
+        "Throws TypeError",
+        "Returns []"
+      ],
+      "answer": "c",
+      "explanation": "No start value and no first element. Pass 0 if the array might be empty.",
+      "reference": {
+        "section": "reduce",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 187,
+        "excerpt": "Calling reduce() on an empty array with no initial value argument causes a TypeError."
+      },
+      "code": "[].reduce((a, b) => a + b);"
+    },
+    {
+      "question": "[7].reduce((a, b) => a + b) with no start value…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Throws, because the callback needs two numbers",
+        "Returns 7 and does not call the callback",
+        "Returns 0",
+        "Returns undefined"
+      ],
+      "answer": "b",
+      "explanation": "One element and no initial value: that element is the result.",
+      "reference": {
+        "section": "reduce",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 187,
+        "excerpt": "If you call it with only one value—either an array with one element and no initial value or an empty array and an initial value—it simply returns that one value without ever calling the reduction function."
+      },
+      "code": "[7].reduce((a, b) => a + b);"
+    },
+    {
+      "question": "some and every stop early when…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The array is sparse",
+        "The answer is already known",
+        "The callback returns 0",
+        "You forget the start value"
+      ],
+      "answer": "b",
+      "explanation": "some returns on the first truthy predicate. every returns on the first falsy one.",
+      "reference": {
+        "section": "some and every",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 186,
+        "excerpt": "Note that both every() and some() stop iterating array elements as soon as they know what value to return."
+      },
+      "code": "[1, 2, 3, 4, 5].some((x) => x % 2 === 0);"
+    },
+    {
+      "question": "every([]) is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "false",
+        "true",
+        "undefined",
+        "a thrown TypeError"
+      ],
+      "answer": "b",
+      "explanation": "There is no element that fails the test. some([]) is false.",
+      "reference": {
+        "section": "some and every",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 186,
+        "excerpt": "Note that both every() and some() stop iterating array elements as soon as they know what value to return."
+      },
+      "code": "[].every(() => false);"
+    },
+    {
+      "question": "slice(1, 3) on [1, 2, 3, 4]…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Mutates the array to [1, 4] and returns [2, 3]",
+        "Returns [2, 3] and leaves the original",
+        "Returns [2, 3, 4]",
+        "Returns [1, 2, 3]"
+      ],
+      "answer": "b",
+      "explanation": "End is exclusive. slice copies.",
+      "reference": {
+        "section": "slice and splice",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 190,
+        "excerpt": "The slice() method returns a slice, or subarray, of the specified array."
+      },
+      "code": "[1, 2, 3, 4].slice(1, 3);"
+    },
+    {
+      "question": "splice(1, 2) on [1, 2, 3, 4] returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "[1, 4], the array after deletion",
+        "[2, 3], the deleted elements",
+        "undefined",
+        "[1, 2, 3, 4]"
+      ],
+      "answer": "b",
+      "explanation": "The array itself becomes [1, 4]. The return value is what was removed.",
+      "reference": {
+        "section": "slice and splice",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 191,
+        "excerpt": "a.splice(1,2)   // => [2,3]; a is now [1,4]"
+      },
+      "code": "const a = [1, 2, 3, 4];\na.splice(1, 2);"
+    },
+    {
+      "question": "[33, 4, 1111, 222].sort() with no comparator is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "[4, 33, 222, 1111]",
+        "[1111, 222, 33, 4]",
+        "[33, 4, 222, 1111]",
+        "a thrown TypeError"
+      ],
+      "answer": "b",
+      "explanation": "Default sort compares strings. \"1111\" comes before \"4\".",
+      "reference": {
+        "section": "sort",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 194,
+        "excerpt": "a.sort();               // a == [1111, 222, 33, 4]; alphabetical order"
+      },
+      "code": "[33, 4, 1111, 222].sort();"
+    },
+    {
+      "question": "A numeric sort comparator (a, b) => a - b means…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Negative puts a first, positive puts b first",
+        "Always sort descending",
+        "Return true to swap",
+        "The original array is copied first"
+      ],
+      "answer": "a",
+      "explanation": "sort still mutates. Copy with slice if you need the old order.",
+      "reference": {
+        "section": "sort",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 194,
+        "excerpt": "a.sort((a,b) => b-a);   // a == [1111, 222, 33, 4]; reverse numerical order"
+      },
+      "code": "nums.slice().sort((a, b) => a - b);"
+    },
+    {
+      "question": "find when nothing matches returns…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "-1",
+        "null",
+        "undefined",
+        "[]"
+      ],
+      "answer": "c",
+      "explanation": "findIndex returns -1. find returns undefined.",
+      "reference": {
+        "section": "some and every",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 185,
+        "excerpt": "Unlike filter(), however, these two methods stop iterating the first time the predicate finds an element. When that happens, find() returns the matching element, and findIndex() returns the index of the"
+      },
+      "code": "[1, 2, 3].find((n) => n > 9);"
+    },
+    {
+      "question": "[1, [2, [3]]].flat() is…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "[1, 2, 3]",
+        "[1, 2, [3]]",
+        "[[1, 2, 3]]",
+        "[1, [2, [3]]]"
+      ],
+      "answer": "b",
+      "explanation": "flat() defaults to depth 1. flat(Infinity) goes all the way.",
+      "reference": {
+        "section": "map",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 188,
+        "excerpt": "let a = [1, [2, [3, [4]]]];"
+      },
+      "code": "[1, [2, [3]]].flat();"
+    },
+    {
+      "question": "Which chain leaves the source array unchanged?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "arr.sort((a, b) => a - b)",
+        "arr.splice(0, 1)",
+        "arr.filter(Boolean).map(Number)",
+        "arr.reverse()"
+      ],
+      "answer": "c",
+      "explanation": "filter and map copy. sort, splice, and reverse mutate.",
+      "reference": {
+        "section": "filter",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 146,
+        "excerpt": "Note how the filter function, rather than deleting elements from the existing array, builds up a new array with only the elements that pass"
+      },
+      "code": "nums.filter((n) => n % 2 === 0).map((n) => n * 2);"
+    },
+    {
+      "question": "Why is a hole in a sparse array different under filter than under map?",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "filter calls the predicate on the hole",
+        "map keeps the hole; filter skips holes and returns a dense array",
+        "Both throw on holes",
+        "map deletes holes"
+      ],
+      "answer": "b",
+      "explanation": "Flanagan: filter skips missing elements and the result is always dense.",
+      "reference": {
+        "section": "filter",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 185,
+        "excerpt": "Note that filter() skips missing elements in sparse arrays and that its return value is always dense."
+      },
+      "code": "const sparse = [1, , 3];\nsparse.map((n) => n);\nsparse.filter(() => true);"
+    },
+    {
+      "question": "Write doubleEvens(nums): a new array of the even numbers, each doubled. Do not mutate nums.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function doubleEvens(nums) {\n}\n",
+      "solution": "function doubleEvens(nums) {\n  return nums.filter((n) => n % 2 === 0).map((n) => n * 2);\n}\n",
+      "tests": [
+        {
+          "call": "doubleEvens([1, 2, 3, 4])",
+          "expected": [
+            4,
+            8
+          ]
+        },
+        {
+          "label": "does not mutate",
+          "setup": "const nums = [1, 2]; doubleEvens(nums);",
+          "call": "nums",
+          "expected": [
+            1,
+            2
+          ]
+        }
+      ],
+      "hints": [
+        "filter, then map."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 147,
+        "excerpt": "The map method transforms an array by applying a function to all of its elements and building a new array from the returned values."
+      }
+    },
+    {
+      "question": "Write sum(nums). An empty array sums to 0.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function sum(nums) {\n}\n",
+      "solution": "function sum(nums) {\n  return nums.reduce((total, n) => total + n, 0);\n}\n",
+      "tests": [
+        {
+          "call": "sum([1, 2, 3, 4])",
+          "expected": 10
+        },
+        {
+          "call": "sum([])",
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "Pass 0 as the start value."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 148,
+        "excerpt": "The parameters to reduce are, apart from the array, a combining function and a start value."
+      }
+    },
+    {
+      "question": "Write numericSorted(nums): a new array in ascending numeric order. Do not mutate nums.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function numericSorted(nums) {\n}\n",
+      "solution": "function numericSorted(nums) {\n  return nums.slice().sort((a, b) => a - b);\n}\n",
+      "tests": [
+        {
+          "call": "numericSorted([10, 2, 1])",
+          "expected": [
+            1,
+            2,
+            10
+          ]
+        },
+        {
+          "label": "does not mutate",
+          "setup": "const nums = [10, 2]; numericSorted(nums);",
+          "call": "nums",
+          "expected": [
+            10,
+            2
+          ]
+        }
+      ],
+      "hints": [
+        "slice() first, then sort with a - b."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+        "page": 194,
+        "excerpt": "a.sort();               // a == [1111, 222, 33, 4]; alphabetical order"
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 147,
+      "chapter": "Higher-order functions"
+    },
+    {
+      "book": "JavaScript: The Definitive Guide, 7th Edition by David Flanagan",
+      "page": 185,
+      "chapter": "Array methods"
+    }
+  ]
 }

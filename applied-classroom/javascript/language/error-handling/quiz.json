@@ -1,4 +1,394 @@
 {
   "title": "JavaScript - Error handling",
-  "questions": []
+  "questions": [
+    {
+      "question": "throw new Error(\"bad\") does what to the caller?",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Returns the Error object",
+        "Unwinds until a catch, or crashes the turn",
+        "Sets a global errno",
+        "Converts the function into a promise"
+      ],
+      "answer": "b",
+      "explanation": "It is not a return value. Intermediate functions do not have to mention it.",
+      "reference": {
+        "section": "Exceptions",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      },
+      "code": "throw new Error(\"positive integer required\");"
+    },
+    {
+      "question": "The book says an exception…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Must be an Error",
+        "Can be any value",
+        "Must be a string",
+        "Must be a number"
+      ],
+      "answer": "b",
+      "explanation": "Still throw new Error so stacks and messages work.",
+      "reference": {
+        "section": "Exceptions",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "An exception can be any value."
+      },
+      "code": "throw \"bad\";"
+    },
+    {
+      "question": "JSON.parse(\"{\") throws…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "TypeError",
+        "SyntaxError",
+        "ReferenceError",
+        "nothing; it returns null"
+      ],
+      "answer": "b",
+      "explanation": "That SyntaxError is catchable. A syntax error in your own file is not, because the file never starts.",
+      "reference": {
+        "section": "Error kinds",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      },
+      "code": "JSON.parse(\"{\");"
+    },
+    {
+      "question": "null.foo throws…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "ReferenceError",
+        "TypeError",
+        "SyntaxError",
+        "RangeError"
+      ],
+      "answer": "b",
+      "explanation": "The name null exists. Reading a property of null is a type error.",
+      "reference": {
+        "section": "Error kinds",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "An exception can be any value."
+      },
+      "code": "null.foo;"
+    },
+    {
+      "question": "Reading a name that was never declared throws…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "TypeError",
+        "ReferenceError",
+        "SyntaxError at the call",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "The binding is missing. A typo of a let in the temporal dead zone is also a ReferenceError.",
+      "reference": {
+        "section": "Error kinds",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      },
+      "code": "notDeclared;"
+    },
+    {
+      "question": "finally runs…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Only when the try throws",
+        "Only when the try succeeds",
+        "On the way out, success or throw",
+        "Only if there is no catch"
+      ],
+      "answer": "c",
+      "explanation": "Use it for cleanup that must happen either way.",
+      "reference": {
+        "section": "finally",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "Note that even though the finally code is run when an exception is thrown in the try block, it does not interfere with the exception. After the finally block runs, the stack continues unwinding."
+      },
+      "code": "try {\n  work();\n} finally {\n  cleanup();\n}"
+    },
+    {
+      "question": "After finally, an exception that was not caught…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Is swallowed",
+        "Keeps unwinding",
+        "Becomes the return value",
+        "Is converted to null"
+      ],
+      "answer": "b",
+      "explanation": "finally does not handle the error. catch does.",
+      "reference": {
+        "section": "finally",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "Note that even though the finally code is run when an exception is thrown in the try block, it does not interfere with the exception. After the finally block runs, the stack continues unwinding."
+      },
+      "code": "try {\n  throw new Error(\"x\");\n} finally {\n  log(\"out\");\n}"
+    },
+    {
+      "question": "function demo(){ try { return 1; } finally { return 2; } } returns…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "1",
+        "2",
+        "undefined",
+        "an Error"
+      ],
+      "answer": "b",
+      "explanation": "A return inside finally replaces the pending return.",
+      "reference": {
+        "section": "finally",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "After the finally block runs, the stack continues unwinding."
+      },
+      "code": "function demo() {\n  try { return 1; }\n  finally { return 2; }\n}"
+    },
+    {
+      "question": "try pushes \"try\" onto an array and returns that array. finally pushes \"finally\". The caller sees…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "[\"try\"]",
+        "[\"try\", \"finally\"]",
+        "[\"finally\"]",
+        "[\"finally\", \"try\"]"
+      ],
+      "answer": "b",
+      "explanation": "finally runs before the caller receives the object, and it is the same object.",
+      "reference": {
+        "section": "finally",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "Note that even though the finally code is run when an exception is thrown in the try block, it does not interfere with the exception. After the finally block runs, the stack continues unwinding."
+      },
+      "code": "const log = [];\ntry {\n  log.push(\"try\");\n  return log;\n} finally {\n  log.push(\"finally\");\n}"
+    },
+    {
+      "question": "catch (err) { if (!(err instanceof RangeError)) throw err; } …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Swallows every error",
+        "Handles RangeError and lets other errors continue",
+        "Converts the error into a string",
+        "Is a syntax error"
+      ],
+      "answer": "b",
+      "explanation": "Recover from the kind you expect. Do not hide TypeError bugs.",
+      "reference": {
+        "section": "Error kinds",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      },
+      "code": "catch (err) {\n  if (!(err instanceof RangeError)) throw err;\n  return null;\n}"
+    },
+    {
+      "question": "An empty catch { } …",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Is a syntax error",
+        "Hides every exception from that try",
+        "Only hides Error instances",
+        "Rethrows automatically"
+      ],
+      "answer": "b",
+      "explanation": "Legal since ES2019. It also hides programmer mistakes.",
+      "reference": {
+        "section": "Exceptions",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "An exception can be any value."
+      },
+      "code": "try {\n  JSON.parse(text);\n} catch {\n  return null;\n}"
+    },
+    {
+      "question": "parsePositive(\"0\") should…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Return 0",
+        "Throw, if the contract is a positive integer",
+        "Return NaN",
+        "Return \"0\""
+      ],
+      "answer": "b",
+      "explanation": "0 is an integer and is not positive. Number(\"0\") is 0.",
+      "reference": {
+        "section": "Exceptions",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "throw new Error(\"Invalid direction: \" + result);"
+      },
+      "code": "function parsePositive(text) {\n  const n = Number(text);\n  if (!Number.isInteger(n) || n <= 0) throw new Error(\"positive integer required\");\n  return n;\n}"
+    },
+    {
+      "question": "parsePositive(\"3.5\") should throw because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Number() cannot parse decimals",
+        "The contract asks for an integer and 3.5 is not one",
+        "Strings always throw",
+        "3.5 is a RangeError by default"
+      ],
+      "answer": "b",
+      "explanation": "Number.isInteger(3.5) is false.",
+      "reference": {
+        "section": "Exceptions",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      },
+      "code": "Number.isInteger(Number(\"3.5\"));"
+    },
+    {
+      "question": "err.message on throw new Error(\"nope\") is…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "undefined",
+        "\"nope\"",
+        "the stack string only",
+        "the constructor name"
+      ],
+      "answer": "b",
+      "explanation": "error.name is \"Error\". The stack is separate.",
+      "reference": {
+        "section": "Error kinds",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "throw new Error(\"Invalid direction: \" + result);"
+      },
+      "code": "try {\n  throw new Error(\"nope\");\n} catch (err) {\n  err.message;\n}"
+    },
+    {
+      "question": "A try around setTimeout(() => { throw new Error(\"later\"); }, 0) …",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Catches \"later\"",
+        "Does not catch it. The timer runs on a later turn",
+        "Prevents the timeout",
+        "Turns it into a rejected promise automatically"
+      ],
+      "answer": "b",
+      "explanation": "The try has finished before the callback runs. That is the async chapter.",
+      "reference": {
+        "section": "finally",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "Note that even though the finally code is run when an exception is thrown in the try block, it does not interfere with the exception. After the finally block runs, the stack continues unwinding."
+      },
+      "code": "try {\n  setTimeout(() => { throw new Error(\"later\"); }, 0);\n} catch (err) {\n  console.log(\"caught\");\n}"
+    },
+    {
+      "question": "Write parsePositive(text). Return the integer when it is > 0. Otherwise throw new Error(\"positive integer required\").",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function parsePositive(text) {\n}\n",
+      "solution": "function parsePositive(text) {\n  const n = Number(text);\n  if (!Number.isInteger(n) || n <= 0) {\n    throw new Error(\"positive integer required\");\n  }\n  return n;\n}\n",
+      "tests": [
+        {
+          "call": "parsePositive(\"4\")",
+          "expected": 4
+        },
+        {
+          "label": "rejects 3.5",
+          "setup": "let threw = false; try { parsePositive(\"3.5\"); } catch (e) { threw = e instanceof Error && e.message === \"positive integer required\"; }",
+          "call": "threw",
+          "expected": true
+        }
+      ],
+      "hints": [
+        "Number.isInteger and n > 0."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "throw new Error(\"Invalid direction: \" + result);"
+      }
+    },
+    {
+      "question": "Write demoReturn(). try returns 1. finally returns 2.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function demoReturn() {\n}\n",
+      "solution": "function demoReturn() {\n  try {\n    return 1;\n  } finally {\n    return 2;\n  }\n}\n",
+      "tests": [
+        {
+          "call": "demoReturn()",
+          "expected": 2
+        }
+      ],
+      "hints": [
+        "The finally return wins."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 222,
+        "excerpt": "Note that even though the finally code is run when an exception is thrown in the try block, it does not interfere with the exception. After the finally block runs, the stack continues unwinding."
+      }
+    },
+    {
+      "question": "Write messageOf(fn). Call fn. Return err.message if it throws an Error. If it does not throw, return \"ok\".",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function messageOf(fn) {\n}\n",
+      "solution": "function messageOf(fn) {\n  try {\n    fn();\n    return \"ok\";\n  } catch (err) {\n    return err.message;\n  }\n}\n",
+      "tests": [
+        {
+          "call": "messageOf(() => { throw new Error(\"nope\"); })",
+          "expected": "nope"
+        },
+        {
+          "call": "messageOf(() => 1)",
+          "expected": "ok"
+        }
+      ],
+      "hints": [
+        "try { fn(); return \"ok\"; } catch (err) { return err.message; }"
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 218,
+        "excerpt": "Exceptions are a mechanism that makes it possible for code that runs into a problem to raise (or throw) an exception."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 218,
+      "chapter": "Exceptions"
+    }
+  ]
 }

@@ -1,4 +1,393 @@
 {
   "title": "JavaScript - Recursion",
-  "questions": []
+  "questions": [
+    {
+      "question": "power(2, 3) in the book returns…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "6",
+        "8",
+        "9",
+        "undefined"
+      ],
+      "answer": "b",
+      "explanation": "2 * 2 * 2, with power(2, 0) as 1.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "console.log(power(2, 3));\n // → 8"
+      },
+      "code": "function power(base, exponent) {\n  if (exponent === 0) return 1;\n  return base * power(base, exponent - 1);\n}"
+    },
+    {
+      "question": "A recursive function is one that…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "Calls itself",
+        "Is declared with function*",
+        "Uses a for loop",
+        "Returns a closure"
+      ],
+      "answer": "a",
+      "explanation": "The call stack holds each invocation until the base case returns.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "A function that calls itself is called recursive."
+      },
+      "code": "return base * power(base, exponent - 1);"
+    },
+    {
+      "question": "What happens if power never hits exponent === 0?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "It returns undefined",
+        "The stack overflows",
+        "JavaScript rewrites it as a loop",
+        "It returns 0"
+      ],
+      "answer": "b",
+      "explanation": "The book's limit is overflowing the stack.",
+      "reference": {
+        "section": "Base case",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "It is perfectly okay for a function to call itself, as long as it doesn’t do it so often that it overflows the stack."
+      },
+      "code": "function power(base, exponent) {\n  return base * power(base, exponent - 1);\n}"
+    },
+    {
+      "question": "Each recursive call's parameters…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Are the same bindings as the caller",
+        "Are a fresh set for that call",
+        "Are globals",
+        "Are frozen copies of the original arguments only"
+      ],
+      "answer": "b",
+      "explanation": "exponent - 1 is the next call's parameter. The caller's exponent stays.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "A function that calls itself is called recursive."
+      },
+      "code": "return base * power(base, exponent - 1);"
+    },
+    {
+      "question": "power(2, 0) must return 1 because…",
+      "type": "multiple",
+      "level": 1,
+      "options": [
+        "0 to any power is 0",
+        "That is the base case the multiplications build on",
+        "JavaScript defines 2 ** 0 as undefined",
+        "The function should throw"
+      ],
+      "answer": "b",
+      "explanation": "Any positive exponent bottoms out there.",
+      "reference": {
+        "section": "Base case",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "if (exponent == 0) {\n     return 1;\n   }"
+      },
+      "code": "power(2, 0);"
+    },
+    {
+      "question": "Forgetting return in front of the recursive call…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Still multiplies on the way back",
+        "Returns undefined and throws away the inner result",
+        "Is a syntax error",
+        "Makes the function tail-call optimized"
+      ],
+      "answer": "b",
+      "explanation": "The inner call may run, but its value is discarded.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "return base * power(base, exponent - 1);"
+      },
+      "code": "function power(base, exponent) {\n  if (exponent === 0) return 1;\n  base * power(base, exponent - 1);\n}"
+    },
+    {
+      "question": "Why does the book still show a loop for a simple product?",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Recursion is illegal for numbers",
+        "The recursive power was about three times slower in typical engines",
+        "Loops cannot multiply",
+        "Recursion cannot return numbers"
+      ],
+      "answer": "b",
+      "explanation": "Use recursion when it makes the branching structure clearer, not by habit.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "However, this implementation has one problem: in typical JavaScript implementations, it’s about three times slower than a version using a"
+      },
+      "code": "function power(base, exponent) {\n  let result = 1;\n  for (let i = 0; i < exponent; i++) result *= base;\n  return result;\n}"
+    },
+    {
+      "question": "A tree of nodes with children is a better fit for recursion than one loop because…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "Loops cannot read objects",
+        "Each child is another list to walk, nested arbitrarily deep",
+        "Trees are arrays",
+        "Recursion is always faster"
+      ],
+      "answer": "b",
+      "explanation": "The book: some problems are easier with recursion than with loops, usually ones that branch.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 89,
+        "excerpt": "Recursion is not always just an inefficient alternative to looping."
+      },
+      "code": "function sumTree(node) {\n  let total = node.value;\n  for (const kid of node.children || []) total += sumTree(kid);\n  return total;\n}"
+    },
+    {
+      "question": "JavaScript tail calls…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Are eliminated in every browser, so deep recursion is free",
+        "Are in the spec, but you should not rely on engines to remove the stack frame",
+        "Are a syntax error",
+        "Only work for arrows"
+      ],
+      "answer": "b",
+      "explanation": "Write a base case. Do not count on the stack disappearing.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "It is perfectly okay for a function to call itself, as long as it doesn’t do it so often that it overflows the stack."
+      },
+      "code": "return power(base, exponent - 1);"
+    },
+    {
+      "question": "power(2, -1) with only an exponent === 0 base case…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Returns 0.5",
+        "Never hits the base case and overflows",
+        "Returns -1",
+        "Is a SyntaxError"
+      ],
+      "answer": "b",
+      "explanation": "The exponent moves away from 0. Guard the precondition or switch direction.",
+      "reference": {
+        "section": "Base case",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "It is perfectly okay for a function to call itself, as long as it doesn’t do it so often that it overflows the stack."
+      },
+      "code": "power(2, -1);"
+    },
+    {
+      "question": "sumTree({ value: 1, children: [{ value: 2 }, { value: 3 }] }) is…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "6",
+        "1",
+        "5",
+        "undefined"
+      ],
+      "answer": "a",
+      "explanation": "1 + 2 + 3. Missing children is an empty list, not a crash.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 89,
+        "excerpt": "Some problems really are easier to solve with recursion than with loops."
+      },
+      "code": "sumTree({ value: 1, children: [{ value: 2 }, { value: 3 }] });"
+    },
+    {
+      "question": "flatten([1, [2, [3]], 4]) by recurring on arrays should be…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "[1, 2, 3, 4]",
+        "[1, [2, [3]], 4]",
+        "10",
+        "[4, 3, 2, 1]"
+      ],
+      "answer": "a",
+      "explanation": "A non-array is a one-element list. An array is the concat of flattening each item.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "A function that calls itself is called recursive."
+      },
+      "code": "function flatten(value) {\n  if (!Array.isArray(value)) return [value];\n  return value.flatMap(flatten);\n}"
+    },
+    {
+      "question": "Mutual recursion means…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "A function calls itself twice",
+        "Two functions call each other",
+        "A loop inside a function",
+        "A generator yields twice"
+      ],
+      "answer": "b",
+      "explanation": "isEven calls isOdd and the other way around. Both still need a base case.",
+      "reference": {
+        "section": "Recursion",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "A function that calls itself is called recursive."
+      },
+      "code": "function isEven(n) {\n  if (n === 0) return true;\n  return isOdd(n - 1);\n}"
+    },
+    {
+      "question": "Memoizing a pure recursive function stores…",
+      "type": "multiple",
+      "level": 3,
+      "options": [
+        "Every local variable of the caller",
+        "Results for arguments you have already computed",
+        "The call stack on disk",
+        "Only the base case"
+      ],
+      "answer": "b",
+      "explanation": "The next call with the same arguments returns the stored result.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 89,
+        "excerpt": "Worrying about efficiency can be a distraction."
+      },
+      "code": "const seen = new Map();\nfunction fib(n) {\n  if (seen.has(n)) return seen.get(n);\n}"
+    },
+    {
+      "question": "The stack frame for a recursive call is popped when…",
+      "type": "multiple",
+      "level": 2,
+      "options": [
+        "The function is declared",
+        "That call returns",
+        "The program starts",
+        "You use let"
+      ],
+      "answer": "b",
+      "explanation": "Until then it holds that call's locals. That is why depth costs memory.",
+      "reference": {
+        "section": "Call stack",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "It is perfectly okay for a function to call itself, as long as it doesn’t do it so often that it overflows the stack."
+      },
+      "code": "return base * power(base, exponent - 1);"
+    },
+    {
+      "question": "Write power(base, exponent) for exponent >= 0. power(base, 0) is 1.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function power(base, exponent) {\n}\n",
+      "solution": "function power(base, exponent) {\n  if (exponent === 0) return 1;\n  return base * power(base, exponent - 1);\n}\n",
+      "tests": [
+        {
+          "call": "power(2, 3)",
+          "expected": 8
+        },
+        {
+          "call": "power(5, 0)",
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "Base case first, then return base * power(base, exponent - 1)."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "console.log(power(2, 3));\n // → 8"
+      }
+    },
+    {
+      "question": "Write sumTree(node). node has value and an optional children array.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function sumTree(node) {\n}\n",
+      "solution": "function sumTree(node) {\n  const kids = node.children || [];\n  return kids.reduce((total, kid) => total + sumTree(kid), node.value);\n}\n",
+      "tests": [
+        {
+          "call": "sumTree({ value: 1, children: [{ value: 2 }, { value: 4, children: [{ value: 8 }] }] })",
+          "expected": 15
+        }
+      ],
+      "hints": [
+        "Add node.value to the sum of sumTree on each child."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 89,
+        "excerpt": "Some problems really are easier to solve with recursion than with loops."
+      }
+    },
+    {
+      "question": "Write flatten(value). Arrays are walked. Anything else becomes a one-element array.",
+      "type": "code",
+      "level": 3,
+      "language": "javascript",
+      "starter": "function flatten(value) {\n}\n",
+      "solution": "function flatten(value) {\n  if (!Array.isArray(value)) return [value];\n  return value.reduce((out, item) => out.concat(flatten(item)), []);\n}\n",
+      "tests": [
+        {
+          "call": "flatten([1, [2, [3]], 4])",
+          "expected": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "hints": [
+        "If it is not an array, return [value]."
+      ],
+      "explanation": "Run it. The tests call your function.",
+      "reference": {
+        "section": "Coding tasks",
+        "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+        "page": 88,
+        "excerpt": "A function that calls itself is called recursive."
+      }
+    }
+  ],
+  "reading": [
+    {
+      "book": "Eloquent JavaScript, 4th Edition by Marijn Haverbeke",
+      "page": 88,
+      "chapter": "Recursion"
+    }
+  ]
 }
