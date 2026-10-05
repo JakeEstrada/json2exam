@@ -23,6 +23,7 @@ import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './li
 import { resolveBook } from './lib/books.js';
 import { formatAskNotes, resolveReading } from './lib/reading.js';
 import { emptyLog, leftoverStudy, mergeLog, withDeck } from './lib/learningLog.js';
+import { parseRoute, routePath, routeTrail } from './lib/route.js';
 
 function withLectureMedia(qz) {
   if (!qz) return qz;
@@ -49,6 +50,50 @@ function withLectureMedia(qz) {
     qz.bookFile = deck.bookFile;
   }
   if (deck.books && deck.books.length) qz.books = deck.books;
+  return qz;
+}
+
+function assembleQuiz(data, title, extra) {
+  const qz = normalizeQuiz(data, title);
+  if (extra && extra.notes) {
+    qz.notes = extra.notes;
+    qz.notesFile = extra.notesFile || 'notes.md';
+  }
+  if (extra && extra.bookUrl) {
+    qz.bookUrl = extra.bookUrl;
+    qz.bookFile = extra.bookFile || 'chapter.pdf';
+  }
+  if (extra && extra.books) qz.books = extra.books;
+  if (extra && extra.slidesUrl) {
+    qz.slidesUrl = extra.slidesUrl;
+    qz.slidesFile = extra.slidesFile || 'slides.pdf';
+  }
+  if (extra && extra.lecture) {
+    qz.lecture = extra.lecture;
+    qz.lectureFile = extra.lectureFile || 'lecture.txt';
+  }
+  if (extra && extra.lectureAudio) {
+    qz.lectureAudio = extra.lectureAudio;
+    qz.lectureAudioFile = extra.lectureAudioFile || 'lecture.mp3';
+  }
+  if (extra && extra.lectureVideo) {
+    qz.lectureVideo = extra.lectureVideo;
+    qz.lectureVideoFile = extra.lectureVideoFile || 'lecture.mp4';
+  }
+  if (extra && extra.cheatsheet) qz.cheatsheet = extra.cheatsheet;
+  if (extra && extra.jsIntro) qz.jsIntro = true;
+  if (extra && extra.tsIntro) qz.tsIntro = true;
+  if (extra && extra.htmlIntro) qz.htmlIntro = true;
+  if (extra && extra.cssIntro) qz.cssIntro = true;
+  if (extra && extra.pyIntro) qz.pyIntro = true;
+  if (extra && extra.csIntro) qz.csIntro = true;
+  if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
+    qz.sheet = [].concat(extra.sheet).filter(Boolean);
+  }
+  if (extra && extra.courseId) qz.courseId = extra.courseId;
+  if (extra && extra.courseTitle) qz.courseTitle = extra.courseTitle;
+  if (extra && extra.deckId) qz.deckId = extra.deckId;
+  if (extra && extra.deckLabel) qz.deckLabel = extra.deckLabel;
   return qz;
 }
 
@@ -101,7 +146,7 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide, voice, sp
       || (resolved && resolved.title)
       || paneTitle(sidePane, quiz))
     : paneTitle(sidePane, quiz);
-  const reader = sidePane === 'book' || sidePane === 'slides';
+  const reader = sidePane === 'book' || sidePane === 'slides' || sidePane === 'notes' || sidePane === 'sheet' || sidePane === 'lecture';
   return (
     <SidePane
       title={bookTitle}
@@ -159,6 +204,8 @@ export default function App() {
   const [owner, setOwner] = useState(() => loadOwner());
   const [loginOpen, setLoginOpen] = useState(false);
   const [log, setLog] = useState(() => emptyLog());
+  const [routeReady, setRouteReady] = useState(() => parseRoute(window.location.pathname).screen === 'home');
+  const applyRef = useRef(null);
   const logTimer = useRef(null);
   const logRef = useRef(log);
   logRef.current = log;
@@ -176,6 +223,22 @@ export default function App() {
     setSidePane((pane) => (pane === 'ask' ? 'ask' : null));
   }, []);
 
+  function commitTrail(route, mode) {
+    if (mode === 'none' || typeof window === 'undefined') return;
+    const steps = routeTrail(route);
+    const last = steps[steps.length - 1];
+    if (mode === 'replace') {
+      window.history.replaceState(last, '', routePath(last));
+      return;
+    }
+    const here = window.location.pathname;
+    const idx = steps.findIndex((step) => routePath(step) === here);
+    const next = idx >= 0 ? steps.slice(idx + 1) : [last];
+    next.forEach((step) => {
+      window.history.pushState(step, '', routePath(step));
+    });
+  }
+
   function begin(qz, bx, st, cfg, work, opts) {
     const ready = withLectureMedia(qz);
     setQuiz(ready);
@@ -187,11 +250,21 @@ export default function App() {
     setStudyFocus(null);
     setSidePane(null);
     lastIdRef.current = null;
+    if (ready.courseId) setCourseId(ready.courseId);
     const hasLesson = !!(
       ready.jsIntro || ready.tsIntro || ready.htmlIntro || ready.cssIntro || ready.pyIntro || ready.csIntro
       || (ready.cheatsheet && ready.notes)
     );
-    if (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length) {
+    const showLesson = !!(opts && opts.forceLesson)
+      || (!(opts && opts.skipLesson) && hasLesson && !Object.keys(bx || {}).length);
+    if (!(opts && opts.history === 'none')) {
+      commitTrail({
+        screen: showLesson ? 'lesson' : 'quiz',
+        courseId: ready.courseId || '',
+        deckId: ready.deckId || '',
+      }, (opts && opts.history) || 'push');
+    }
+    if (showLesson) {
       setCurrent(null);
       setScreen('lesson');
       return;
@@ -207,50 +280,11 @@ export default function App() {
   function openCourse(id) {
     setCourseId(id);
     setScreen('course');
+    commitTrail({ screen: 'course', courseId: id }, 'push');
   }
 
   function startDeck(data, title, extra) {
-    const qz = normalizeQuiz(data, title);
-    if (extra && extra.notes) {
-      qz.notes = extra.notes;
-      qz.notesFile = extra.notesFile || 'notes.md';
-    }
-    if (extra && extra.bookUrl) {
-      qz.bookUrl = extra.bookUrl;
-      qz.bookFile = extra.bookFile || 'chapter.pdf';
-    }
-    if (extra && extra.books) qz.books = extra.books;
-    if (extra && extra.slidesUrl) {
-      qz.slidesUrl = extra.slidesUrl;
-      qz.slidesFile = extra.slidesFile || 'slides.pdf';
-    }
-    if (extra && extra.lecture) {
-      qz.lecture = extra.lecture;
-      qz.lectureFile = extra.lectureFile || 'lecture.txt';
-    }
-    if (extra && extra.lectureAudio) {
-      qz.lectureAudio = extra.lectureAudio;
-      qz.lectureAudioFile = extra.lectureAudioFile || 'lecture.mp3';
-    }
-    if (extra && extra.lectureVideo) {
-      qz.lectureVideo = extra.lectureVideo;
-      qz.lectureVideoFile = extra.lectureVideoFile || 'lecture.mp4';
-    }
-    if (extra && extra.cheatsheet) qz.cheatsheet = extra.cheatsheet;
-    if (extra && extra.jsIntro) qz.jsIntro = true;
-    if (extra && extra.tsIntro) qz.tsIntro = true;
-    if (extra && extra.htmlIntro) qz.htmlIntro = true;
-    if (extra && extra.cssIntro) qz.cssIntro = true;
-    if (extra && extra.pyIntro) qz.pyIntro = true;
-    if (extra && extra.csIntro) qz.csIntro = true;
-    if (extra && extra.sheet && (!qz.sheet || !qz.sheet.length)) {
-      qz.sheet = [].concat(extra.sheet).filter(Boolean);
-    }
-    if (extra && extra.courseId) qz.courseId = extra.courseId;
-    if (extra && extra.courseTitle) qz.courseTitle = extra.courseTitle;
-    if (extra && extra.deckId) qz.deckId = extra.deckId;
-    if (extra && extra.deckLabel) qz.deckLabel = extra.deckLabel;
-    startFresh(qz);
+    startFresh(assembleQuiz(data, title, extra));
   }
 
   function openModuleBook() {
@@ -285,13 +319,16 @@ export default function App() {
     setSidePane(null);
     setStudyFocus(null);
     setShowSettings(false);
-    if (courseId || (quiz && quiz.courseId)) {
-      if (quiz && quiz.courseId) setCourseId(quiz.courseId);
+    const id = (quiz && quiz.courseId) || courseId;
+    if (id) {
+      setCourseId(id);
       setScreen('course');
+      commitTrail({ screen: 'course', courseId: id }, 'push');
       return;
     }
     setQuiz(null);
     setScreen('load');
+    commitTrail({ screen: 'home' }, 'push');
   }
 
   function saveAndExit() {
@@ -337,7 +374,68 @@ export default function App() {
     setStudyFocus(null);
     setShowSettings(false);
     setScreen('load');
+    commitTrail({ screen: 'home' }, 'push');
   }
+
+  function locateDeck(courseId, deckId) {
+    const course = COURSES.find((c) => c.id === courseId);
+    if (!course) return null;
+    const deck = courseDecks(course).find((d) => d.id === deckId);
+    if (!deck || !deck.data) return null;
+    return { course, deck };
+  }
+
+  function applyRoute(route) {
+    stopSpeech();
+    setSidePane(null);
+    setStudyFocus(null);
+    setPaneMin(false);
+    setShowSettings(false);
+    if (!route || route.screen === 'home') {
+      setScreen('load');
+      return;
+    }
+    if (route.screen === 'course') {
+      const course = COURSES.find((c) => c.id === route.courseId);
+      if (!course) {
+        commitTrail({ screen: 'home' }, 'replace');
+        setScreen('load');
+        return;
+      }
+      setCourseId(course.id);
+      setScreen('course');
+      return;
+    }
+    if (route.courseId && route.deckId && (route.screen === 'lesson' || route.screen === 'quiz')) {
+      const found = locateDeck(route.courseId, route.deckId);
+      if (!found) {
+        commitTrail({ screen: 'home' }, 'replace');
+        setScreen('load');
+        return;
+      }
+      const built = assembleQuiz(found.deck.data, found.deck.label, deckLaunchExtra(found.deck, found.course));
+      const stored = loadSession();
+      const same = stored && stored.quiz && stored.quiz.deckId === found.deck.id ? stored : null;
+      begin(same ? same.quiz : built, same ? (same.boxes || {}) : {}, same ? same.stats : { right: 0, wrong: 0, misses: {} }, same ? mergeSettings(same.settings) : settings, same ? (same.codeWork || {}) : {}, {
+        history: 'none',
+        skipLesson: route.screen === 'quiz',
+        forceLesson: route.screen === 'lesson',
+      });
+      return;
+    }
+    const stored = loadSession();
+    if (stored && stored.quiz && (route.screen === 'quiz' || route.screen === 'lesson')) {
+      begin(stored.quiz, stored.boxes || {}, stored.stats, mergeSettings(stored.settings), stored.codeWork || {}, {
+        history: 'none',
+        skipLesson: route.screen === 'quiz',
+        forceLesson: route.screen === 'lesson',
+      });
+      return;
+    }
+    commitTrail({ screen: 'home' }, 'replace');
+    setScreen('load');
+  }
+  applyRef.current = applyRoute;
 
   function closePane() {
     setPaneMin(false);
@@ -426,6 +524,20 @@ export default function App() {
     clearSession();
     setSaved(null);
   }
+
+  useEffect(() => {
+    function onPop() {
+      applyRef.current(parseRoute(window.location.pathname));
+    }
+    window.addEventListener('popstate', onPop);
+    const initial = parseRoute(window.location.pathname);
+    if (initial.screen !== 'home') {
+      commitTrail(initial, 'replace');
+      applyRef.current(initial);
+    }
+    setRouteReady(true);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   useEffect(() => {
     if (!owner || !owner.token) {
@@ -568,6 +680,8 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey);
   });
 
+  if (!routeReady) return null;
+
   const authHead = {
     owner,
     onSignIn: () => setLoginOpen(true),
@@ -633,7 +747,7 @@ export default function App() {
         <Masthead onHome={goHome} {...authHead} />
         <Lesson
           quiz={quiz}
-          onStart={() => begin(quiz, {}, { right: 0, wrong: 0, misses: {} }, settings, {}, { skipLesson: true })}
+          onStart={() => begin(quiz, boxes, stats, settings, codeWork, { skipLesson: true })}
           onHome={saveAndExit}
           owner={owner}
           voice={settings.voice}
@@ -646,9 +760,11 @@ export default function App() {
 
   const brain = findBrain(quiz, BRAINS);
   const readerOpen = sidePane === 'book' || sidePane === 'slides';
-  const paneOpen = !!sidePane && !(readerOpen && paneMin);
+  const coverOpen = sidePane === 'notes' || sidePane === 'sheet' || sidePane === 'lecture';
+  const overlayOpen = readerOpen || coverOpen;
+  const paneOpen = !!sidePane && !(overlayOpen && paneMin);
   const shellClass = 'shell shell-wide'
-    + (paneOpen && !readerOpen ? ' is-split' : '');
+    + (paneOpen && !overlayOpen ? ' is-split' : '');
   const askProps = {
     brain,
     notes: formatAskNotes(quiz) || quiz.notes,
@@ -665,7 +781,7 @@ export default function App() {
     return (
       <div className={shellClass}>
         <Masthead onHome={goHome} {...authHead} />
-        <div className={'quiz-split' + (paneOpen && !readerOpen ? ' is-split' : '')}>
+        <div className={'quiz-split' + (paneOpen && !overlayOpen ? ' is-split' : '')}>
           <div className="quiz-main">
             <Summary
               quiz={quiz}
@@ -730,6 +846,7 @@ export default function App() {
     ? bookReferenceTabs(current.q, quiz.reading || [], quiz.books || [])
     : [];
   const refOpen = sidePane === 'book' && !paneMin;
+  const refCover = coverOpen && !paneMin;
   const refActive = sidePane === 'notes'
     ? refTabs.findIndex((tab) => tab.kind === 'notes')
     : (refOpen ? activeReferenceIndex(refTabs, studyFocus) : -1);
@@ -738,7 +855,7 @@ export default function App() {
     <div className={shellClass}>
       <Masthead onHome={goHome} {...authHead} />
 
-      <div className={'quiz-split' + (paneOpen && !readerOpen ? ' is-split' : '')}>
+      <div className={'quiz-split' + (paneOpen && !overlayOpen ? ' is-split' : '')}>
         <div className="quiz-main">
           <div className="bar">
             <h2>{quiz.title}</h2>
@@ -753,8 +870,6 @@ export default function App() {
                 <b>{stats.right}</b> right, <b>{stats.wrong}</b> wrong, <b>{pct}%</b> mastered
               </span>
               <button className="btn quiet" onClick={() => setShowSettings((s) => !s)}>Settings</button>
-              <button className="btn quiet" onClick={saveAndExit}>Save &amp; exit</button>
-              <button className="btn quiet" onClick={() => { stopSpeech(); setSidePane(null); setScreen('done'); }}>Finish</button>
             </div>
           </div>
 
@@ -829,6 +944,11 @@ export default function App() {
             </div>
           )}
 
+          <div className="row quiz-exit">
+            <button className="btn" onClick={saveAndExit}>Save &amp; exit</button>
+            <button className="btn" onClick={() => { stopSpeech(); setSidePane(null); setScreen('done'); }}>Finish</button>
+          </div>
+
           <AskGPT
             {...askProps}
             card={current}
@@ -847,12 +967,12 @@ export default function App() {
             voice={settings.voice}
             speechRate={settings.speechRate}
             minimized={paneMin}
-            onToggleMin={sidePane === 'book' ? null : () => setPaneMin((v) => !v)}
+            onToggleMin={sidePane === 'book' || sidePane === 'notes' || sidePane === 'sheet' || sidePane === 'lecture' ? null : () => setPaneMin((v) => !v)}
           />
         )}
         <RefArrows
           tabs={refTabs}
-          docked={refOpen}
+          docked={refOpen || refCover}
           active={refActive}
           onPick={(tab, i) => {
             if (refActive === i) {

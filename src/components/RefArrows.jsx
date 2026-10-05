@@ -1,7 +1,14 @@
 import { matchReading, resolveReading } from '../lib/reading.js';
 import { bookKey, findBook, shortBookLabel } from '../lib/books.js';
 
-const COLORS = ['#2f6fed', '#e07a2f', '#1f9d6a', '#8b5cf6', '#d6456a', '#0e8a8a'];
+const COLORS = [
+  { fill: '#2f5ea8', ink: '#ffffff' },
+  { fill: '#2a6a72', ink: '#ffffff' },
+  { fill: '#7a4b38', ink: '#ffffff' },
+  { fill: '#534878', ink: '#ffffff' },
+  { fill: '#7d4550', ink: '#ffffff' },
+  { fill: '#3d5c4a', ink: '#ffffff' },
+];
 
 function openFor(row, ref, located, chapter) {
   return {
@@ -64,11 +71,15 @@ export function bookReferenceTabs(q, bookReading, books) {
       focus: openFor(null, ref, null, chapter),
     });
   }
-  return tabs.map((tab, i) => ({
-    ...tab,
-    label: 'Ref ' + (i + 1) + '.',
-    color: COLORS[i % COLORS.length],
-  }));
+  return tabs.map((tab, i) => {
+    const tone = COLORS[i % COLORS.length];
+    return {
+      ...tab,
+      label: 'Ref ' + (i + 1) + '.',
+      color: tone.fill,
+      ink: tone.ink,
+    };
+  });
 }
 
 export function activeReferenceIndex(tabs, focus) {
@@ -92,13 +103,14 @@ export default function RefArrows({ tabs, docked, active, onPick }) {
             key={tab.label}
             type="button"
             className={'ref-arrow' + (on ? ' is-on' : '')}
-            style={{ '--ref': tab.color }}
-            aria-label={tab.label + ', ' + tab.hover}
+            style={{ '--ref': tab.color, '--ref-ink': tab.ink }}
+            aria-label={on ? 'Minimize ' + tab.label : tab.label + ', ' + tab.hover}
             onClick={() => onPick(tab, i)}
           >
-            <span className={'ref-arrow-mark' + (docked ? '' : ' is-in')} aria-hidden="true" />
-            <span className="ref-arrow-label">{tab.label}</span>
-            <span className="ref-arrow-tip" role="tooltip">{tab.hover}</span>
+            <span className="ref-arrow-body">
+              <span className="ref-arrow-label">{tab.label}</span>
+            </span>
+            <span className="ref-arrow-tip" role="tooltip">{on ? 'Click to minimize' : tab.hover}</span>
           </button>
         );
       })}

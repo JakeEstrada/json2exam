@@ -190,7 +190,7 @@
   }
   .quiz-side.is-reader {
     top: 0;
-    right: 0;
+    right: calc(100% - 100vw);
     left: auto;
     width: 75vw;
     height: 100vh;
@@ -221,56 +221,61 @@
   .ref-arrows {
     position: fixed;
     z-index: 25;
-    top: 76px;
-    right: 0;
+    top: 176px;
+    right: calc(100% - 100vw);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 16px;
+    gap: 8px;
   }
   .ref-arrows.is-docked {
-    right: 75vw;
+    right: calc(75vw + (100% - 100vw));
     left: auto;
   }
   .ref-arrow {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 72px;
-    min-height: 88px;
-    padding: 12px 8px 10px;
-    border: 1px solid var(--card-edge);
-    border-right: 0;
-    border-radius: 10px 0 0 10px;
-    background: var(--card);
-    box-shadow: -8px 0 16px var(--card-shadow);
-    color: var(--ink);
+    display: block;
+    width: 118px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--ref-ink, #fff);
     cursor: pointer;
   }
+  .ref-arrow-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 8px 0 22px;
+    background: var(--ref);
+    color: var(--ref-ink, #fff);
+    clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);
+    filter: drop-shadow(0 2px 0 color-mix(in srgb, var(--ref) 62%, #000));
+  }
   .ref-arrow.is-on {
-    background: color-mix(in srgb, var(--ref) 16%, var(--card));
-    border-color: var(--ref);
+    width: 26px;
+    height: 34px;
   }
-  .ref-arrow-mark {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 16px 0 16px 26px;
-    border-color: transparent transparent transparent var(--ref);
+  .ref-arrow.is-on .ref-arrow-body {
+    padding: 0;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    filter: drop-shadow(2px 2px 0 color-mix(in srgb, var(--ref) 45%, #000));
   }
-  .ref-arrow-mark.is-in {
-    border-width: 16px 26px 16px 0;
-    border-color: transparent var(--ref) transparent transparent;
+  .ref-arrow.is-on .ref-arrow-label {
+    display: none;
   }
   .ref-arrow-label {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
     letter-spacing: .01em;
-    line-height: 1.1;
+    line-height: 1;
     text-align: center;
+    white-space: nowrap;
   }
   .ref-arrow-tip {
     display: none;
@@ -983,10 +988,17 @@
     max-height: none;
     overflow: auto;
     margin: 0;
-    padding: 12px 14px 18px;
+    padding: 0;
     border-top: 0;
-    background: var(--study-paper);
-    color: var(--study-ink);
+    background: var(--paper);
+    color: var(--paper-ink);
+  }
+  .quiz-study.is-pane .md-preview {
+    max-width: none;
+    margin: 0;
+    padding: 40px 52px 48px;
+    font-size: 18px;
+    line-height: 1.65;
   }
   .quiz-study.is-pane .quiz-notes-body.is-lecture {
     padding: 0;
@@ -1505,6 +1517,12 @@
   }
   .bar .tally b { color: var(--ink); font-weight: 600; }
   .bar .progress-ring { flex: none; }
+  .quiz-exit {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--card-edge);
+    justify-content: flex-end;
+  }
 
   .panel {
     margin-bottom: 14px;

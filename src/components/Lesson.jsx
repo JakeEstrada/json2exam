@@ -221,7 +221,6 @@ export default function Lesson({ quiz, onStart, onHome, owner, voice, speechRate
             onToggle={() => (speech.on ? speech.stop() : speech.playFrom(speech.at))}
             onStep={speech.step}
           />
-          <button type="button" className="btn quiet" onClick={onHome}>Save &amp; exit</button>
           <button type="button" className="btn primary" onClick={onStart}>Start the quiz</button>
         </div>
       </div>
@@ -240,7 +239,8 @@ export default function Lesson({ quiz, onStart, onHome, owner, voice, speechRate
           </div>
         )}
         <CheatsheetLookup source={sheet} topic={topic} />
-        <div className="row" style={{ marginTop: '18px' }}>
+        <div className="row quiz-exit">
+          <button type="button" className="btn" onClick={onHome}>Save &amp; exit</button>
           <button type="button" className="btn primary" onClick={onStart}>Start the quiz</button>
         </div>
       </div>

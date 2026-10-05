@@ -6,5 +6,3 @@ import './styles.css';
 applyTheme(loadTheme());
 
 createRoot(document.getElementById('root')).render(<App />);
-
-createRoot(document.getElementById('root')).render(<App />);
