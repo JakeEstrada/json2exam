@@ -40,6 +40,36 @@ test('resolveReading jumps to a named section inside the chapter', () => {
   });
   assert.equal(hit.page, 86);
   assert.equal(hit.section, 'Closure');
+  assert.equal(hit.scanFrom, 86);
+});
+
+test('resolveReading keeps a page that sits inside the chapter', () => {
+  const hit = resolveReading({ reading, books: [] }, {
+    book: 'Eloquent JavaScript, 4th Edition by Marijn Haverbeke',
+    page: 80,
+  });
+  assert.equal(hit.page, 80);
+  assert.equal(hit.scanFrom, 74);
+  assert.equal(hit.scanTo, 99);
+});
+
+test('resolveReading replaces a contents page with the chapter', () => {
+  const hit = resolveReading({ reading, books: [] }, {
+    book: 'Eloquent JavaScript, 4th Edition by Marijn Haverbeke',
+    page: 9,
+  });
+  assert.equal(hit.page, 74);
+  assert.equal(hit.chapter, 'Chapter 3 - Functions');
+  assert.equal(hit.scanTo, 99);
+});
+
+test('resolveReading opens the assigned chapter when the cited book has none', () => {
+  const hit = resolveReading({ reading, books: [] }, {
+    book: 'Some Other Guide',
+    page: 6,
+  });
+  assert.equal(hit.book, 'Eloquent JavaScript, 4th Edition by Marijn Haverbeke');
+  assert.equal(hit.page, 74);
 });
 
 test('formatAskNotes lists the assigned chapter for the tutor', () => {

@@ -83,25 +83,53 @@ function sectionFor(entry, heading) {
   return entry.sections.find((row) => headingId(row.heading) === want) || null;
 }
 
+function covers(page, start, end) {
+  if (!page || !start) return false;
+  const last = end >= start ? end : start;
+  return page >= start && page <= last;
+}
+
+function pickEntry(reading, requestedBook) {
+  if (!reading.length) return { entry: null, matched: false };
+  if (!requestedBook) return { entry: reading[0], matched: true };
+  let best = null;
+  let bestScore = 0;
+  reading.forEach((row) => {
+    const score = Math.max(scoreTitle(row.book, requestedBook), scoreTitle(row.chapter, requestedBook));
+    if (score > bestScore) {
+      best = row;
+      bestScore = score;
+    }
+  });
+  if (best && bestScore >= 40) return { entry: best, matched: true };
+  return { entry: reading[0], matched: false };
+}
+
 export function resolveReading(quiz, focus) {
   const reading = (quiz && quiz.reading) || [];
   const heading = (focus && (focus.heading || focus.section)) || '';
   const requestedBook = (focus && focus.book) || '';
-  const entry = matchReading(reading, requestedBook);
+  const picked = pickEntry(reading, requestedBook);
+  const entry = picked.entry;
   const section = sectionFor(entry, heading);
-  const page = pageNum(focus && focus.page) || (section && section.page) || (entry && entry.page) || 0;
-  const pageEnd = pageNum(focus && focus.pageEnd)
-    || (section && section.pageEnd)
-    || (entry && entry.pageEnd)
-    || 0;
-  const book = requestedBook || (entry && entry.book) || '';
+  const cited = pageNum(focus && focus.page);
+  const chapterStart = pageNum(entry && entry.page);
+  const chapterEnd = pageNum(entry && entry.pageEnd);
+  const scanFrom = (section && section.page) || chapterStart || 0;
+  const scanTo = (section && section.pageEnd) || chapterEnd || scanFrom || 0;
+  let page = cited;
+  if (scanFrom && !covers(cited, scanFrom, scanTo)) page = scanFrom;
+  if (!page) page = scanFrom;
+  const book = (entry && entry.book) || requestedBook || '';
   const found = findBook((quiz && quiz.books) || [], book);
   return {
     book,
     chapter: (entry && entry.chapter) || '',
     section: heading,
     page,
-    pageEnd,
+    pageEnd: scanTo || pageNum(focus && focus.pageEnd) || 0,
+    scanFrom: scanFrom || page,
+    scanTo: scanTo || page,
     excerpt: (focus && focus.excerpt) || '',
     bookUrl: found && found.url,
     bookTitle: (found && found.title) || book,

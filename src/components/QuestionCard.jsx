@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
-import { matchReading } from '../lib/reading.js';
+import { matchReading, resolveReading } from '../lib/reading.js';
 import { findBook, shortBookLabel } from '../lib/books.js';
 import { formatTest, previewValue, runJavascript } from '../lib/runCode.js';
 import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
@@ -386,8 +386,21 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
   const citations = (ref && ref.citations && ref.citations.length
     ? ref.citations
     : (ref && (ref.book || ref.page) ? [{ book: ref.book, page: ref.page, pageEnd: ref.pageEnd, excerpt: ref.excerpt }] : [])
-  ).map((row) => ({ row, hit: row.book ? findBook(books || [], row.book) : null }))
-    .filter(({ row, hit }) => hit || !row.book);
+  ).map((row) => {
+    const located = resolveReading({ reading: bookReading || [], books: books || [] }, {
+      book: row.book || '',
+      page: row.page || 0,
+      pageEnd: row.pageEnd || 0,
+      heading: ref && ref.section,
+      excerpt: row.excerpt || (ref && ref.excerpt) || '',
+    });
+    const bookName = (located.chapter && located.book) || row.book || '';
+    return {
+      row,
+      located,
+      hit: bookName ? findBook(books || [], bookName) : null,
+    };
+  }).filter(({ row, hit }) => hit || !row.book);
   const canBook = citations.length > 0
     || (!(ref && ref.book) && (hasBook || !!(bookReading && bookReading.length)));
   if (!ref || (!ref.section && !ref.excerpt && !ref.lecture && !canLecture && !canSlides && !canBook)) {
@@ -400,13 +413,15 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
       <p className="q-source-label">{multiBook ? 'In the books' : 'In the book'}</p>
       {citations.length ? (
         <ul className="q-source-books">
-          {citations.map(({ row, hit }, i) => {
-            const title = (hit && hit.title) || row.book;
+          {citations.map(({ row, hit, located }, i) => {
+            const title = (hit && hit.title) || (located && located.book) || row.book;
             const quote = reviewing ? usableExcerpt(row.excerpt) : '';
+            const page = located && located.chapter ? located.page : row.page;
             return (
               <li key={i}>
                 <p className="q-source-book">{shortBookLabel(title) || title}</p>
-                {row.page ? <p className="q-source-page">PDF page {row.page}</p> : null}
+                {located && located.chapter ? <p className="q-source-chapter">{located.chapter}</p> : null}
+                {page ? <p className="q-source-page">PDF page {page}</p> : null}
                 {quote ? <blockquote className="q-source-excerpt">{quote}</blockquote> : null}
               </li>
             );
@@ -420,7 +435,7 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
           )}
         </>
       )}
-      {chapterLabel && <p className="q-source-chapter">{chapterLabel}</p>}
+      {!citations.length && chapterLabel && <p className="q-source-chapter">{chapterLabel}</p>}
       {ref && ref.section && <p className="q-source-notes">Notes · {ref.section}</p>}
       {slideLabel && <p className="q-source-notes">{slideLabel}</p>}
       <div className="q-source-actions">
@@ -451,21 +466,24 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
         )}
         {canBook && onOpen && (
           citations.length
-            ? citations.map(({ row, hit }, i) => (
+            ? citations.map(({ row, hit, located }, i) => (
               <button
                 key={i}
                 type="button"
                 className="text-link"
                 onClick={() => onOpen({
                   heading: ref && ref.section,
-                  page: row.page || 0,
-                  pageEnd: row.pageEnd || (chapter && chapter.pageEnd) || 0,
+                  page: (located && located.page) || row.page || 0,
+                  pageEnd: (located && located.pageEnd) || row.pageEnd || (chapter && chapter.pageEnd) || 0,
+                  scanFrom: located && located.scanFrom,
+                  scanTo: located && located.scanTo,
                   excerpt: row.excerpt || (ref && ref.excerpt),
-                  book: row.book || (chapter && chapter.book) || '',
+                  book: (located && located.book) || row.book || (chapter && chapter.book) || '',
+                  chapter: (located && located.chapter) || '',
                 })}
               >
                 {citations.length > 1
-                  ? 'Open ' + shortBookLabel((hit && hit.title) || row.book)
+                  ? 'Open ' + shortBookLabel((hit && hit.title) || (located && located.book) || row.book)
                   : 'Show in book'}
               </button>
             ))
@@ -475,10 +493,13 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
                 className="text-link"
                 onClick={() => onOpen({
                   heading: ref && ref.section,
-                  page: (ref && ref.page) || 0,
-                  pageEnd: (ref && ref.pageEnd) || (chapter && chapter.pageEnd) || 0,
+                  page: (chapter && chapter.page) || (ref && ref.page) || 0,
+                  pageEnd: (chapter && chapter.pageEnd) || (ref && ref.pageEnd) || 0,
+                  scanFrom: chapter && chapter.page,
+                  scanTo: chapter && chapter.pageEnd,
                   excerpt: ref && ref.excerpt,
                   book: (chapter && chapter.book) || '',
+                  chapter: (chapter && chapter.chapter) || '',
                 })}
               >
                 Show in book

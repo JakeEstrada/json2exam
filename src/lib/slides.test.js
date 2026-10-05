@@ -47,6 +47,24 @@ test('slidePageList stacks a range and fills in neighbors for a single slide', (
   assert.equal(slideHighlightQuery('Look at slide 8, then the feature tree').indexOf('slide'), -1);
 });
 
+test('findBestSlidePages stays inside a chapter instead of the contents', () => {
+  const pages = [
+    'Contents Arrays Functions Closures filter map reduce',
+    'Index filter map reduce arrays',
+    'other',
+    'other',
+    'Filtering arrays The filter method builds a new array',
+    'map transform',
+  ];
+  const found = findBestSlidePages(
+    pages,
+    'The filter method builds a new array with the elements that pass the test',
+    { from: 4, to: 6, fallback: 4 }
+  );
+  assert.ok(found.start >= 4, 'expected the chapter body, got ' + found.start);
+  assert.ok(found.end <= 6);
+});
+
 test('findBestSlidePages prefers distinctive lecture words over the outline slide', () => {
   const pages = [
     'CPSC 544 Advanced Software Process A Software Maturity Framework',

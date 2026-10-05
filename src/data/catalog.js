@@ -52,6 +52,7 @@ import lecture544Scrum from '../../544-Mod-1/Scrum/Scrum_video.txt?raw';
 import slides544Scrum from '../../544-Mod-1/Scrum/Scrum.pdf?url';
 
 import { APPLIED_COURSES } from './appliedClassroom.js';
+import { chaptersForDeck } from './bookChapters.js';
 import { canonicalBookTitle } from '../lib/bookTitles.js';
 import jsCheatsheet from '../../applied-classroom/javascript-cheatsheet.txt?raw';
 import tsCheatsheet from '../../applied-classroom/typescript-cheatsheet.txt?raw';
@@ -87,6 +88,12 @@ const appliedBookFiles = import.meta.glob('../../applied-classroom/**/sources/*.
 function appliedQuiz(folder) {
   const mod = appliedQuizzes['../../' + folder + '/quiz.json'];
   return (mod && mod.default) || mod || null;
+}
+
+function withChapters(deckId, data) {
+  const chapters = chaptersForDeck(deckId);
+  if (!data || !chapters) return data;
+  return Object.assign({}, data, { reading: chapters });
 }
 
 // Courses that legitimately cite a PDF stored under another course folder.
@@ -137,7 +144,7 @@ function hydrateApplied(course) {
     cheatsheet,
     modules: (course.modules || []).map((mod) => Object.assign({}, mod, {
       decks: (mod.decks || []).map((deck) => {
-        const data = appliedQuiz(deck.folder);
+        const data = withChapters(deck.id, appliedQuiz(deck.folder));
         const questions = data && Array.isArray(data.questions) ? data.questions : [];
         const notes = appliedNotes['../../' + deck.folder + '/notes.md'] || '';
         const electronicsLecture = course.id === 'electronics'

@@ -5,15 +5,18 @@ import { findBestSlidePages } from '../lib/slides.js';
 const docs = {};
 const textCache = {};
 
-async function pageTexts(url, pdf) {
-  if (textCache[url]) return textCache[url];
-  const out = [];
-  for (let i = 1; i <= pdf.numPages; i += 1) {
+async function pageTexts(url, pdf, range) {
+  const start = range && range.from >= 1 ? Math.trunc(range.from) : 1;
+  const end = range && range.to >= start ? Math.min(pdf.numPages, Math.trunc(range.to)) : pdf.numPages;
+  const key = range ? url + ':' + start + ':' + end : url;
+  if (textCache[key]) return textCache[key];
+  const out = new Array(pdf.numPages).fill('');
+  for (let i = start; i <= end; i += 1) {
     const page = await pdf.getPage(i);
     const content = await page.getTextContent();
-    out.push(content.items.map((it) => (it && it.str) || '').join(' '));
+    out[i - 1] = content.items.map((it) => (it && it.str) || '').join(' ');
   }
-  textCache[url] = out;
+  textCache[key] = out;
   return out;
 }
 
@@ -159,7 +162,7 @@ function PdfSlot({ page, eager, pdf, width, query, slideMode, kind }) {
   );
 }
 
-export default function PdfPage({ url, page, pageEnd, query, label, stack, auto }) {
+export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, label, stack, auto }) {
   const wrapRef = useRef(null);
   const [pdf, setPdf] = useState(null);
   const [pages, setPages] = useState(0);
@@ -170,7 +173,10 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
   const [seen, setSeen] = useState(() => Math.max(1, page || 1));
   const slideMode = !!stack;
   const kind = label || (slideMode ? 'Slide' : 'Page');
-  const search = !!(auto && slideMode && query);
+  const rangeFrom = Math.max(1, Number(scanFrom) || Number(page) || 1);
+  const rangeTo = Math.max(rangeFrom, Number(scanTo) || Number(pageEnd) || rangeFrom);
+  const chapterSearch = !slideMode && !!query && rangeTo > rangeFrom;
+  const search = !!(auto && slideMode && query) || chapterSearch;
   const focusStart = Math.max(1, (located && located.start) || page || 1);
   const focusEnd = Math.max(focusStart, (located && located.end) || pageEnd || focusStart);
 
@@ -217,13 +223,14 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
     let gone = false;
     setLocated(null);
     if (!pdf || !search) return undefined;
-    pageTexts(url, pdf).then((texts) => {
-      if (!gone) setLocated(findBestSlidePages(texts, query));
+    const bounds = chapterSearch ? { from: rangeFrom, to: rangeTo, fallback: page || rangeFrom } : null;
+    pageTexts(url, pdf, bounds).then((texts) => {
+      if (!gone) setLocated(findBestSlidePages(texts, query, bounds));
     }, () => {
-      if (!gone) setLocated({ start: 1, end: 3 });
+      if (!gone) setLocated(bounds ? { start: bounds.fallback, end: bounds.fallback } : { start: 1, end: 3 });
     });
     return () => { gone = true; };
-  }, [pdf, url, search, query]);
+  }, [pdf, url, search, query, chapterSearch, rangeFrom, rangeTo, page]);
 
   useEffect(() => {
     if (!pages) return;
@@ -231,17 +238,18 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
   }, [url, focusStart, pages]);
 
   useEffect(() => {
-    if (!pdf || !pages || (search && !located)) return undefined;
+    if (!pdf || !pages || !width || (search && !located)) return undefined;
     const t = window.setTimeout(() => {
       const wrap = wrapRef.current;
+      const sc = wrap && wrap.querySelector('.pdf-page-scroll');
       const hit = wrap && (
         wrap.querySelector('.pdf-sheet.has-hit')
         || wrap.querySelector('[data-page="' + focusStart + '"]')
       );
-      if (hit) hit.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 120);
+      if (sc && hit) sc.scrollTop = hit.offsetTop;
+    }, 60);
     return () => window.clearTimeout(t);
-  }, [url, focusStart, query, pdf, pages, search, located]);
+  }, [url, focusStart, query, pdf, pages, width, search, located]);
 
   useEffect(() => {
     const sc = wrapRef.current && wrapRef.current.querySelector('.pdf-page-scroll');
@@ -272,11 +280,12 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
 
   function jumpToHighlight() {
     const wrap = wrapRef.current;
+    const sc = wrap && wrap.querySelector('.pdf-page-scroll');
     const hit = wrap && (
       wrap.querySelector('.pdf-sheet.has-hit')
       || wrap.querySelector('[data-page="' + focusStart + '"]')
     );
-    if (hit) hit.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (sc && hit) sc.scrollTop = hit.offsetTop;
   }
 
   return (
@@ -310,7 +319,7 @@ export default function PdfPage({ url, page, pageEnd, query, label, stack, auto 
       </div>
       {status === 'loading' && <p className="pdf-page-status">Loading…</p>}
       {search && !located && status === 'ready' && (
-        <p className="pdf-page-status">Finding the matching slides…</p>
+        <p className="pdf-page-status">{slideMode ? 'Finding the matching slides…' : 'Finding the passage in this chapter…'}</p>
       )}
       {status === 'error' && <p className="pdf-page-status">Could not open this page.</p>}
       <div className="pdf-page-scroll">

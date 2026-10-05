@@ -13,14 +13,14 @@ export default function QuizNotes({
 }) {
   const page = focus && focus.page ? focus.page : 0;
   const pageEnd = focus && focus.pageEnd ? focus.pageEnd : 0;
+  const scanFrom = focus && focus.scanFrom ? focus.scanFrom : 0;
+  const scanTo = focus && focus.scanTo ? focus.scanTo : 0;
   const chapter = focus && focus.chapter ? focus.chapter : '';
   const slide = focus && focus.slide ? focus.slide : 0;
   const slideEnd = focus && focus.slideEnd ? focus.slideEnd : 0;
   const heading = focus && focus.heading ? focus.heading : '';
   const lectureQuote = focus && focus.lecture ? focus.lecture : '';
-  const bookQuery = focus && (focus.excerpt || focus.book)
-    ? [focus.excerpt, focus.book].filter(Boolean).join(' ')
-    : '';
+  const bookQuery = focus && focus.excerpt ? focus.excerpt : '';
   const slideQuery = [focus && focus.excerpt, slideHighlightQuery(lectureQuote)]
     .filter(Boolean)
     .join(' ');
@@ -93,7 +93,15 @@ export default function QuizNotes({
               {chapter}{heading ? ' · ' + heading : ''}{page ? ' · PDF p. ' + page : ''}
             </p>
           )}
-          <PdfPage url={bookUrl} page={page || 1} pageEnd={pageEnd} query={bookQuery} label="Page" />
+          <PdfPage
+            url={bookUrl}
+            page={page || 1}
+            pageEnd={pageEnd}
+            scanFrom={scanFrom || page}
+            scanTo={scanTo || pageEnd}
+            query={bookQuery}
+            label="Page"
+          />
         </div>
       )}
       {active === 'book' && !bookUrl && (

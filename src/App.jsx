@@ -253,6 +253,8 @@ export default function App() {
       book: located.book,
       page: located.page,
       pageEnd: located.pageEnd,
+      scanFrom: located.scanFrom,
+      scanTo: located.scanTo,
       chapter: located.chapter,
       bookUrl: located.bookUrl,
       bookTitle: located.bookTitle,
@@ -336,12 +338,20 @@ export default function App() {
 
   function openReference(focus) {
     const next = Object.assign({}, focus || {});
-    if (next.book || next.page > 0) {
+    if (next.book || next.page > 0 || next.excerpt) {
       const located = resolveReading(quiz, next);
-      if (located.book && !next.book) next.book = located.book;
-      if (located.chapter) next.chapter = located.chapter;
-      if (!(next.page > 0) && located.page) next.page = located.page;
-      if (!(next.pageEnd > 0) && located.pageEnd) next.pageEnd = located.pageEnd;
+      if (located.chapter && located.page) {
+        if (located.book) next.book = located.book;
+        next.page = located.page;
+        next.pageEnd = located.pageEnd || 0;
+        next.scanFrom = located.scanFrom || located.page;
+        next.scanTo = located.scanTo || located.pageEnd || located.page;
+        next.chapter = located.chapter;
+      } else {
+        if (located.book && !next.book) next.book = located.book;
+        if (!(next.page > 0) && located.page) next.page = located.page;
+        if (!(next.pageEnd > 0) && located.pageEnd) next.pageEnd = located.pageEnd;
+      }
       if (located.bookUrl) {
         next.bookUrl = located.bookUrl;
         next.bookTitle = located.bookTitle;

@@ -81,45 +81,59 @@ export function slidePageList(start, end, total) {
   return pages;
 }
 
-export function findBestSlidePages(pageTexts, query) {
+export function findBestSlidePages(pageTexts, query, bounds) {
   const pages = Array.isArray(pageTexts) ? pageTexts : [];
-  const keys = queryTokens(slideHighlightQuery(query));
-  if (!pages.length) return { start: 1, end: 1 };
-  if (keys.length < 2) return { start: 1, end: Math.min(3, pages.length) };
-
-  const sets = pages.map((text) => {
-    const set = {};
-    queryTokens(text).forEach((w) => { set[w] = true; });
-    return set;
-  });
-  const df = {};
-  sets.forEach((set) => {
-    Object.keys(set).forEach((w) => { df[w] = (df[w] || 0) + 1; });
-  });
   const n = pages.length;
-  const scores = sets.map((set) => keys.reduce((sum, k) => {
-    if (!set[k]) return sum;
-    return sum + ((df[k] || 0) > n * 0.55 ? 0.35 : 1);
-  }, 0));
-  let best = 0;
-  for (let i = 1; i < scores.length; i += 1) {
+  const limited = !!(bounds && bounds.from >= 1);
+  const from = limited ? Math.min(n || 1, Math.trunc(bounds.from)) : 1;
+  const to = limited && bounds.to >= from ? Math.min(n || from, Math.trunc(bounds.to)) : n;
+  const prefer = limited && bounds.fallback >= from && bounds.fallback <= to
+    ? Math.trunc(bounds.fallback)
+    : from;
+  const fallback = limited
+    ? { start: prefer || 1, end: prefer || 1 }
+    : { start: 1, end: Math.min(3, n || 1) };
+  if (!n) return { start: 1, end: 1 };
+  const keys = queryTokens(slideHighlightQuery(query));
+  if (keys.length < 2) return fallback;
+
+  const lo = from - 1;
+  const hi = Math.max(lo, (to || n) - 1);
+  const sets = pages.map(() => ({}));
+  for (let i = lo; i <= hi; i += 1) {
+    queryTokens(pages[i]).forEach((w) => { sets[i][w] = true; });
+  }
+  const df = {};
+  for (let i = lo; i <= hi; i += 1) {
+    Object.keys(sets[i]).forEach((w) => { df[w] = (df[w] || 0) + 1; });
+  }
+  const span = hi - lo + 1;
+  const scores = pages.map(() => 0);
+  for (let i = lo; i <= hi; i += 1) {
+    scores[i] = keys.reduce((sum, k) => {
+      if (!sets[i][k]) return sum;
+      return sum + ((df[k] || 0) > span * 0.55 ? 0.35 : 1);
+    }, 0);
+  }
+  let best = lo;
+  for (let i = lo + 1; i <= hi; i += 1) {
     if (scores[i] > scores[best]) best = i;
   }
-  if (scores[best] < 2) return { start: 1, end: Math.min(3, n) };
+  if (scores[best] < 2) return fallback;
 
-  let lo = best;
-  let hi = best;
-  while (lo > 0 && scores[lo - 1] >= 2) lo -= 1;
-  while (hi < n - 1 && scores[hi + 1] >= 2) hi += 1;
-  if (lo === hi) {
-    if (hi < n - 1) hi += 1;
-    if (lo > 0 && hi - lo < 2) lo -= 1;
+  let start = best;
+  let end = best;
+  while (start > lo && scores[start - 1] >= 2) start -= 1;
+  while (end < hi && scores[end + 1] >= 2) end += 1;
+  if (start === end) {
+    if (end < hi) end += 1;
+    if (start > lo && end - start < 2) start -= 1;
   }
-  if (hi - lo >= 8) {
-    lo = Math.max(0, best - 1);
-    hi = Math.min(n - 1, best + 2);
+  if (end - start >= 8) {
+    start = Math.max(lo, best - 1);
+    end = Math.min(hi, best + 2);
   }
-  return { start: lo + 1, end: hi + 1 };
+  return { start: start + 1, end: end + 1 };
 }
 
 const REL_RE = /\b(?:(?:and|then|so|okay|the)\s+)*(?:next|following|previous|last|this)\s+slide\b/gi;
