@@ -1,9 +1,23 @@
-export default function SidePane({ title, onClose, ask, bookHref, children }) {
+export default function SidePane({ title, onClose, ask, bookHref, reader, minimized, onToggleMin, children }) {
+  const cls = 'quiz-side'
+    + (ask ? ' is-ask' : '')
+    + (reader ? ' is-reader' : '')
+    + (minimized ? ' is-min' : '');
   return (
-    <aside className={'quiz-side' + (ask ? ' is-ask' : '')} role="complementary" aria-label={title}>
+    <aside className={cls} role="complementary" aria-label={title}>
+      {onToggleMin && (
+        <button
+          type="button"
+          className="quiz-side-corner"
+          onClick={onToggleMin}
+          aria-label={minimized ? 'Restore' : 'Minimize'}
+        >
+          <span className={'quiz-side-corner-arrow' + (minimized ? ' is-open' : '')} aria-hidden="true" />
+        </button>
+      )}
       <div className="quiz-side-bar">
         <strong>{title}</strong>
-        {bookHref && (
+        {bookHref && !minimized && (
           <a className="text-link quiz-side-open" href={bookHref} target="_blank" rel="noreferrer">
             Open in new tab
           </a>
@@ -12,7 +26,7 @@ export default function SidePane({ title, onClose, ask, bookHref, children }) {
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div className="quiz-side-body" id="quiz-side-body">{children}</div>
+      {!minimized && <div className="quiz-side-body" id="quiz-side-body">{children}</div>}
     </aside>
   );
 }

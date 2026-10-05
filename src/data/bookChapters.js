@@ -356,8 +356,8 @@ const DECK_CHAPTERS = {
     span(INC, 'Data Tables', 259, 292),
   ],
   'html-language-accessibility': [
-    span(INC, 'Introduction', 4, 7, [
-      bit('Labels', 4, 7),
+    span(INC, 'Toggle buttons', 8, 37, [
+      bit('Labels', 8, 37),
       bit('Inclusive controls', 8, 37),
       bit('Keyboard access', 8, 37),
     ]),

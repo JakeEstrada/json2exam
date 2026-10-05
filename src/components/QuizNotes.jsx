@@ -90,7 +90,10 @@ export default function QuizNotes({
         <div className="quiz-notes-body is-pdf">
           {chapter && (
             <p className="pdf-chapter-label">
-              {chapter}{heading ? ' · ' + heading : ''}{page ? ' · PDF p. ' + page : ''}
+              {chapter}
+              {heading ? ' · ' + heading : ''}
+              {scanFrom && scanTo && scanTo > scanFrom ? ' · PDF ' + scanFrom + '–' + scanTo : ''}
+              {page ? ' · open p. ' + page : ''}
             </p>
           )}
           <PdfPage
@@ -99,6 +102,7 @@ export default function QuizNotes({
             pageEnd={pageEnd}
             scanFrom={scanFrom || page}
             scanTo={scanTo || pageEnd}
+            chapterSpan={!!chapter && scanTo > scanFrom}
             query={bookQuery}
             label="Page"
           />

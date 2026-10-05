@@ -17,6 +17,7 @@ import Login from './components/Login.jsx';
 import ProgressRing from './components/ProgressRing.jsx';
 import QuizNotes from './components/QuizNotes.jsx';
 import SidePane, { paneTitle } from './components/SidePane.jsx';
+import RefArrows, { activeReferenceIndex, bookReferenceTabs } from './components/RefArrows.jsx';
 import { COURSES, courseDecks } from './data/catalog.js';
 import { applySpeechRate, normalizeRate, normalizeVoice, stopSpeech } from './lib/speech.js';
 import { resolveBook } from './lib/books.js';
@@ -79,7 +80,7 @@ function sessionView(s) {
   };
 }
 
-function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide, voice, speechRate }) {
+function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide, voice, speechRate, minimized, onToggleMin }) {
   if (!sidePane) return null;
   const resolved = sidePane === 'book'
     ? (studyFocus && studyFocus.bookUrl
@@ -100,10 +101,14 @@ function StudyPane({ quiz, sidePane, studyFocus, onClose, onOpenSlide, voice, sp
       || (resolved && resolved.title)
       || paneTitle(sidePane, quiz))
     : paneTitle(sidePane, quiz);
+  const reader = sidePane === 'book' || sidePane === 'slides';
   return (
     <SidePane
       title={bookTitle}
       ask={sidePane === 'ask'}
+      reader={reader}
+      minimized={!!minimized}
+      onToggleMin={reader ? onToggleMin : null}
       onClose={onClose}
       bookHref={bookHref}
     >
@@ -149,6 +154,7 @@ export default function App() {
   const [saved, setSaved] = useState(() => sessionView(loadSession()));
   const [studyFocus, setStudyFocus] = useState(null);
   const [sidePane, setSidePane] = useState(null);
+  const [paneMin, setPaneMin] = useState(false);
   const [codeWork, setCodeWork] = useState({});
   const [owner, setOwner] = useState(() => loadOwner());
   const [loginOpen, setLoginOpen] = useState(false);
@@ -248,6 +254,7 @@ export default function App() {
   }
 
   function openModuleBook() {
+    setPaneMin(false);
     const located = resolveReading(quiz, {});
     setStudyFocus({
       book: located.book,
@@ -333,10 +340,12 @@ export default function App() {
   }
 
   function closePane() {
+    setPaneMin(false);
     setSidePane(null);
   }
 
   function openReference(focus) {
+    setPaneMin(false);
     const next = Object.assign({}, focus || {});
     if (next.book || next.page > 0 || next.excerpt) {
       const located = resolveReading(quiz, next);
@@ -347,6 +356,7 @@ export default function App() {
         next.scanFrom = located.scanFrom || located.page;
         next.scanTo = located.scanTo || located.pageEnd || located.page;
         next.chapter = located.chapter;
+        next.excerpt = located.excerpt || '';
       } else {
         if (located.book && !next.book) next.book = located.book;
         if (!(next.page > 0) && located.page) next.page = located.page;
@@ -382,6 +392,7 @@ export default function App() {
   }
 
   function openSlide(slide, slideEnd, quote) {
+    setPaneMin(false);
     const page = Number(slide) || 0;
     const last = Number(slideEnd) || 0;
     setStudyFocus({
@@ -534,7 +545,11 @@ export default function App() {
       if (e.key === 'Escape') {
         e.preventDefault();
         if (showSettings) { setShowSettings(false); return; }
-        if (sidePane) { setSidePane(null); return; }
+        if ((sidePane === 'book' || sidePane === 'slides') && !paneMin) {
+          setPaneMin(true);
+          return;
+        }
+        if (sidePane) { setSidePane(null); setPaneMin(false); return; }
         saveAndExit();
         return;
       }
@@ -630,12 +645,16 @@ export default function App() {
   }
 
   const brain = findBrain(quiz, BRAINS);
+  const readerOpen = sidePane === 'book' || sidePane === 'slides';
+  const paneOpen = !!sidePane && !(readerOpen && paneMin);
+  const shellClass = 'shell shell-wide'
+    + (paneOpen && !readerOpen ? ' is-split' : '');
   const askProps = {
     brain,
     notes: formatAskNotes(quiz) || quiz.notes,
     fill: sidePane === 'ask',
     open: sidePane === 'ask',
-    hideFab: !!sidePane,
+    hideFab: paneOpen,
     onOpen: () => setSidePane('ask'),
     onClose: closePane,
     allowed: true,
@@ -644,9 +663,9 @@ export default function App() {
 
   if (screen === 'done') {
     return (
-      <div className={'shell shell-wide' + (sidePane ? ' is-split' : '')}>
+      <div className={shellClass}>
         <Masthead onHome={goHome} {...authHead} />
-        <div className={'quiz-split' + (sidePane ? ' is-split' : '')}>
+        <div className={'quiz-split' + (paneOpen && !readerOpen ? ' is-split' : '')}>
           <div className="quiz-main">
             <Summary
               quiz={quiz}
@@ -695,6 +714,8 @@ export default function App() {
             onOpenSlide={openSlide}
             voice={settings.voice}
             speechRate={settings.speechRate}
+            minimized={paneMin}
+            onToggleMin={() => setPaneMin((v) => !v)}
           />
         </div>
         {loginUi}
@@ -705,12 +726,17 @@ export default function App() {
   const mastered = quiz.questions.filter((q) => boxOf(boxes, q) >= settings.maxBox).length;
   const seen = quiz.questions.filter((q) => boxes[q.id]).length;
   const pct = Math.round((mastered / quiz.questions.length) * 100);
+  const refTabs = current
+    ? bookReferenceTabs(current.q, quiz.reading || [], quiz.books || [])
+    : [];
+  const refOpen = sidePane === 'book' && !paneMin;
+  const refActive = refOpen ? activeReferenceIndex(refTabs, studyFocus) : -1;
 
   return (
-    <div className={'shell shell-wide' + (sidePane ? ' is-split' : '')}>
+    <div className={shellClass}>
       <Masthead onHome={goHome} {...authHead} />
 
-      <div className={'quiz-split' + (sidePane ? ' is-split' : '')}>
+      <div className={'quiz-split' + (paneOpen && !readerOpen ? ' is-split' : '')}>
         <div className="quiz-main">
           <div className="bar">
             <h2>{quiz.title}</h2>
@@ -809,14 +835,30 @@ export default function App() {
           />
         </div>
 
-        <StudyPane
-          quiz={quiz}
-          sidePane={sidePane}
-          studyFocus={studyFocus}
-          onClose={closePane}
-          onOpenSlide={openSlide}
-          voice={settings.voice}
-          speechRate={settings.speechRate}
+        {!(sidePane === 'book' && paneMin) && (
+          <StudyPane
+            quiz={quiz}
+            sidePane={sidePane}
+            studyFocus={studyFocus}
+            onClose={closePane}
+            onOpenSlide={openSlide}
+            voice={settings.voice}
+            speechRate={settings.speechRate}
+            minimized={paneMin}
+            onToggleMin={sidePane === 'book' ? null : () => setPaneMin((v) => !v)}
+          />
+        )}
+        <RefArrows
+          tabs={refTabs}
+          docked={refOpen}
+          active={refActive}
+          onPick={(tab, i) => {
+            if (refOpen && refActive === i) {
+              setPaneMin(true);
+              return;
+            }
+            openReference(tab.focus);
+          }}
         />
       </div>
       {loginUi}

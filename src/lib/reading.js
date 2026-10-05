@@ -89,6 +89,37 @@ function covers(page, start, end) {
   return page >= start && page <= last;
 }
 
+// PDF file positions before the first real chapter, and the index (or later).
+// A citation in either range is the cover, contents, preface, or index.
+const BOOK_BOUNDS = [
+  { test: /eloquent javascript/, content: 31, index: 630 },
+  { test: /definitive guide/, content: 19, index: 685 },
+  { test: /good parts/, content: 47, index: 330 },
+  { test: /you don.?t know js/, content: 19 },
+  { test: /programming typescript/, content: 31, index: 379 },
+  { test: /effective typescript/, content: 27, index: 393 },
+  { test: /typescript quickly/, content: 33, index: 476 },
+  { test: /css in depth/, content: 29, index: 463 },
+  { test: /design and build websites/, content: 19, index: 501 },
+  { test: /inclusive components/, content: 8 },
+  { test: /crash course/, content: 39, index: 541 },
+  { test: /fluent python/, content: 24 },
+];
+
+function boundsFor(title) {
+  const key = bookKey(title);
+  if (!key) return null;
+  return BOOK_BOUNDS.find((row) => row.test.test(key)) || null;
+}
+
+function inBook(bounds, page) {
+  if (!page) return false;
+  if (!bounds) return true;
+  if (page < bounds.content) return false;
+  if (bounds.index && page >= bounds.index) return false;
+  return true;
+}
+
 function pickEntry(reading, requestedBook) {
   if (!reading.length) return { entry: null, matched: false };
   if (!requestedBook) return { entry: reading[0], matched: true };
@@ -112,15 +143,35 @@ export function resolveReading(quiz, focus) {
   const picked = pickEntry(reading, requestedBook);
   const entry = picked.entry;
   const section = sectionFor(entry, heading);
-  const cited = pageNum(focus && focus.page);
+  const book = (entry && entry.book) || requestedBook || '';
+  const bounds = boundsFor(book) || boundsFor(requestedBook);
+  let cited = pageNum(focus && focus.page);
+  let excerpt = (focus && focus.excerpt) || '';
+  if (cited && !inBook(boundsFor(requestedBook), cited)) {
+    cited = 0;
+    excerpt = '';
+  }
   const chapterStart = pageNum(entry && entry.page);
   const chapterEnd = pageNum(entry && entry.pageEnd);
-  const scanFrom = (section && section.page) || chapterStart || 0;
-  const scanTo = (section && section.pageEnd) || chapterEnd || scanFrom || 0;
+  const sectionPage = section && inBook(bounds, section.page) ? section.page : 0;
+  let scanFrom = chapterStart || sectionPage || 0;
+  let scanTo = chapterEnd || scanFrom;
+  if (sectionPage) {
+    if (!scanFrom || sectionPage < scanFrom) scanFrom = sectionPage;
+    const secEnd = section.pageEnd || sectionPage;
+    if (secEnd > scanTo) scanTo = secEnd;
+  }
+  if (bounds) {
+    if (scanFrom && scanFrom < bounds.content) scanFrom = bounds.content;
+    if (bounds.index && scanTo >= bounds.index) scanTo = bounds.index - 1;
+    if (scanTo < scanFrom) scanTo = scanFrom;
+  }
   let page = cited;
-  if (scanFrom && !covers(cited, scanFrom, scanTo)) page = scanFrom;
-  if (!page) page = scanFrom;
-  const book = (entry && entry.book) || requestedBook || '';
+  const inside = cited && covers(cited, scanFrom, scanTo);
+  if (!inside) {
+    excerpt = '';
+    page = (sectionPage && covers(sectionPage, scanFrom, scanTo) ? sectionPage : 0) || scanFrom;
+  }
   const found = findBook((quiz && quiz.books) || [], book);
   return {
     book,
@@ -130,7 +181,7 @@ export function resolveReading(quiz, focus) {
     pageEnd: scanTo || pageNum(focus && focus.pageEnd) || 0,
     scanFrom: scanFrom || page,
     scanTo: scanTo || page,
-    excerpt: (focus && focus.excerpt) || '',
+    excerpt,
     bookUrl: found && found.url,
     bookTitle: (found && found.title) || book,
   };

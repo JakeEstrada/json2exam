@@ -162,13 +162,13 @@ function PdfSlot({ page, eager, pdf, width, query, slideMode, kind }) {
   );
 }
 
-export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, label, stack, auto }) {
+export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, chapterSpan, query, label, stack, auto }) {
   const wrapRef = useRef(null);
   const [pdf, setPdf] = useState(null);
   const [pages, setPages] = useState(0);
   const [status, setStatus] = useState('loading');
   const [width, setWidth] = useState(0);
-  const [zoom, setZoom] = useState(1.25);
+  const [zoom, setZoom] = useState(1);
   const [located, setLocated] = useState(null);
   const [seen, setSeen] = useState(() => Math.max(1, page || 1));
   const slideMode = !!stack;
@@ -185,10 +185,9 @@ export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, l
     if (!wrap) return undefined;
     const apply = () => {
       const sc = wrap.querySelector('.pdf-page-scroll') || wrap;
-      // Leave room for sheet side margins so the canvas is not CSS-shrunk (blur).
-      const raw = Math.floor(sc.clientWidth);
-      const w = Math.max(240, raw - 28);
-      if (w > 0) setWidth(Math.floor(w * zoom));
+      const availW = Math.max(280, Math.floor(sc.clientWidth) - 36);
+      const fit = availW;
+      setWidth(Math.floor(fit * zoom));
     };
     apply();
     const later = window.requestAnimationFrame(apply);
@@ -246,7 +245,10 @@ export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, l
         wrap.querySelector('.pdf-sheet.has-hit')
         || wrap.querySelector('[data-page="' + focusStart + '"]')
       );
-      if (sc && hit) sc.scrollTop = hit.offsetTop;
+      if (sc && hit) {
+        const top = hit.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop;
+        sc.scrollTop = Math.max(0, top - 4);
+      }
     }, 60);
     return () => window.clearTimeout(t);
   }, [url, focusStart, query, pdf, pages, width, search, located]);
@@ -258,9 +260,9 @@ export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, l
       const slots = sc.querySelectorAll('[data-page]');
       let best = seen;
       let bestDist = Infinity;
-      const top = sc.scrollTop + 24;
+      const top = sc.getBoundingClientRect().top + 24;
       slots.forEach((el) => {
-        const dist = Math.abs(el.offsetTop - top);
+        const dist = Math.abs(el.getBoundingClientRect().top - top);
         if (dist < bestDist) {
           bestDist = dist;
           best = Number(el.getAttribute('data-page')) || best;
@@ -272,11 +274,16 @@ export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, l
     return () => sc.removeEventListener('scroll', onScroll);
   }, [pdf, pages, seen]);
 
+  const clipped = !slideMode && chapterSpan && rangeFrom >= 1 && rangeTo >= rangeFrom;
+  const listStart = clipped ? rangeFrom : 1;
+  const listEnd = clipped ? (pages ? Math.min(pages, rangeTo) : rangeTo) : pages;
   const list = [];
-  for (let n = 1; n <= pages; n += 1) list.push(n);
-  const rangeLabel = pages
-    ? kind + ' ' + seen + ' of ' + pages
-    : 'Opening…';
+  for (let n = listStart; n <= listEnd; n += 1) list.push(n);
+  const rangeLabel = !pages
+    ? 'Opening…'
+    : clipped
+      ? 'Chapter PDF ' + rangeFrom + '–' + rangeTo + ' · page ' + seen
+      : kind + ' ' + seen + ' of ' + pages;
 
   function jumpToHighlight() {
     const wrap = wrapRef.current;
@@ -285,7 +292,10 @@ export default function PdfPage({ url, page, pageEnd, scanFrom, scanTo, query, l
       wrap.querySelector('.pdf-sheet.has-hit')
       || wrap.querySelector('[data-page="' + focusStart + '"]')
     );
-    if (sc && hit) sc.scrollTop = hit.offsetTop;
+    if (sc && hit) {
+      const top = hit.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop;
+      sc.scrollTop = Math.max(0, top - 4);
+    }
   }
 
   return (

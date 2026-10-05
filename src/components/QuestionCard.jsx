@@ -415,7 +415,7 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
         <ul className="q-source-books">
           {citations.map(({ row, hit, located }, i) => {
             const title = (hit && hit.title) || (located && located.book) || row.book;
-            const quote = reviewing ? usableExcerpt(row.excerpt) : '';
+            const quote = reviewing ? usableExcerpt(located && located.excerpt) : '';
             const page = located && located.chapter ? located.page : row.page;
             return (
               <li key={i}>
@@ -477,7 +477,7 @@ function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, h
                   pageEnd: (located && located.pageEnd) || row.pageEnd || (chapter && chapter.pageEnd) || 0,
                   scanFrom: located && located.scanFrom,
                   scanTo: located && located.scanTo,
-                  excerpt: row.excerpt || (ref && ref.excerpt),
+                  excerpt: (located && located.excerpt) || '',
                   book: (located && located.book) || row.book || (chapter && chapter.book) || '',
                   chapter: (located && located.chapter) || '',
                 })}
