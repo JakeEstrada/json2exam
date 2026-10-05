@@ -27,7 +27,16 @@ export function bookReferenceTabs(q, bookReading, books) {
     : (ref.book || ref.page)
       ? [{ book: ref.book, page: ref.page, pageEnd: ref.pageEnd, excerpt: ref.excerpt }]
       : [];
-  const tabs = rows.map((row) => {
+  const tabs = [];
+  if (ref.section) {
+    tabs.push({
+      kind: 'notes',
+      book: '',
+      hover: 'Chapter notes',
+      focus: { heading: ref.section, page: 0 },
+    });
+  }
+  rows.forEach((row) => {
     const located = resolveReading({ reading, books: library }, {
       book: row.book || '',
       page: row.page || 0,
@@ -37,17 +46,19 @@ export function bookReferenceTabs(q, bookReading, books) {
     });
     const bookName = (located.chapter && located.book) || row.book || '';
     const hit = bookName ? findBook(library, bookName) : null;
-    if (!hit && row.book) return null;
+    if (!hit && row.book) return;
     const title = (hit && hit.title) || located.book || row.book || '';
-    return {
+    tabs.push({
+      kind: 'book',
       book: title,
       hover: (shortBookLabel(title) || 'Book') + ' PDF reference',
       focus: openFor(row, ref, located, null),
-    };
-  }).filter(Boolean);
-  if (!tabs.length && chapter && (chapter.book || chapter.page)) {
+    });
+  });
+  if (!tabs.some((tab) => tab.kind === 'book') && chapter && (chapter.book || chapter.page)) {
     const title = chapter.book || 'Book';
     tabs.push({
+      kind: 'book',
       book: title,
       hover: (shortBookLabel(title) || 'Book') + ' PDF reference',
       focus: openFor(null, ref, null, chapter),
@@ -55,7 +66,7 @@ export function bookReferenceTabs(q, bookReading, books) {
   }
   return tabs.map((tab, i) => ({
     ...tab,
-    label: 'Ref ' + (i + 1),
+    label: 'Ref ' + (i + 1) + '.',
     color: COLORS[i % COLORS.length],
   }));
 }
@@ -65,9 +76,9 @@ export function activeReferenceIndex(tabs, focus) {
   const want = bookKey(focus.book);
   if (!want) return -1;
   const page = Number(focus.page) || 0;
-  const exact = tabs.findIndex((tab) => bookKey(tab.book) === want && Number(tab.focus.page) === page);
+  const exact = tabs.findIndex((tab) => tab.kind !== 'notes' && bookKey(tab.book) === want && Number(tab.focus.page) === page);
   if (exact >= 0) return exact;
-  return tabs.findIndex((tab) => bookKey(tab.book) === want);
+  return tabs.findIndex((tab) => tab.kind !== 'notes' && bookKey(tab.book) === want);
 }
 
 export default function RefArrows({ tabs, docked, active, onPick }) {

@@ -226,7 +226,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 14px;
+    gap: 16px;
   }
   .ref-arrows.is-docked {
     right: 75vw;
@@ -235,13 +235,16 @@
   .ref-arrow {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    height: 40px;
-    padding: 0 12px 0 10px;
+    width: 72px;
+    min-height: 88px;
+    padding: 12px 8px 10px;
     border: 1px solid var(--card-edge);
     border-right: 0;
-    border-radius: 8px 0 0 8px;
+    border-radius: 10px 0 0 10px;
     background: var(--card);
     box-shadow: -8px 0 16px var(--card-shadow);
     color: var(--ink);
@@ -255,17 +258,19 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 8px 0 8px 12px;
+    border-width: 16px 0 16px 26px;
     border-color: transparent transparent transparent var(--ref);
   }
   .ref-arrow-mark.is-in {
-    border-width: 8px 12px 8px 0;
+    border-width: 16px 26px 16px 0;
     border-color: transparent var(--ref) transparent transparent;
   }
   .ref-arrow-label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: .01em;
+    line-height: 1.1;
+    text-align: center;
   }
   .ref-arrow-tip {
     display: none;

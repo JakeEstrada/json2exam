@@ -1,10 +1,7 @@
 import { useMemo } from 'react';
 import { sameSet, KIND_LABEL } from '../lib/leitner.js';
 import { LETTERS } from '../lib/parseQuiz.js';
-import { matchReading, resolveReading } from '../lib/reading.js';
-import { findBook, shortBookLabel } from '../lib/books.js';
 import { formatTest, previewValue, runJavascript } from '../lib/runCode.js';
-import { firstSlideRange, formatSlideRange } from '../lib/slides.js';
 import { cardSpeechParts } from '../lib/speech.js';
 import { MarkdownView, MdInline } from './FileWindow.jsx';
 import CodeBlock from './CodeBlock.jsx';
@@ -25,7 +22,7 @@ const CODE_KICKER = {
   cs: 'Read this C#',
 };
 
-export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, onOpenReference, hasLecture, hasVideo, hasSlides, hasBook, voice, speechRate, codeWork, onCodeWork, bookReading, books }) {
+export default function QuestionCard({ q, order, picked, phase, onToggle, onCheck, onAssess, voice, speechRate, codeWork, onCodeWork }) {
   const reviewing = phase === 'review';
   const correct = reviewing && q.type !== 'code' && sameSet(picked, q.answers);
   const multi = q.type === 'multi';
@@ -59,7 +56,6 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         {reviewing && (
           <CodeVerdict gotIt={picked[0] === 1} explanation={q.explanation} run={codeWork && codeWork.run} />
         )}
-        <QuestionSource q={q} bookReading={bookReading} books={books} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} reviewing={reviewing} />
       </div>
     );
   }
@@ -128,7 +124,6 @@ export default function QuestionCard({ q, order, picked, phase, onToggle, onChec
         <Verdict q={q} correct={correct} />
       )}
 
-      <QuestionSource q={q} bookReading={bookReading} books={books} onOpen={onOpenReference} hasLecture={hasLecture} hasVideo={hasVideo} hasSlides={hasSlides} hasBook={hasBook} reviewing={reviewing} />
     </div>
   );
 }
@@ -343,169 +338,6 @@ function Verdict({ q, correct }) {
           </div>
         ) : null}
         <p className="moved">{correct ? 'Moved up a box.' : 'Back to box 1, you will see it again soon.'}</p>
-      </div>
-    </div>
-  );
-}
-
-function usableExcerpt(text) {
-  const s = String(text || '').replace(/\s+/g, ' ').trim();
-  if (s.length < 40) return '';
-  if (s.split(' ').length < 8) return '';
-  return s;
-}
-
-function QuestionSource({ q, bookReading, books, onOpen, hasLecture, hasVideo, hasSlides, hasBook, reviewing }) {
-  const ref = q && q.reference;
-  if (ref && ref.url) {
-    const href = String(ref.url);
-    let host = 'Open problem';
-    try {
-      host = new URL(href).hostname.replace(/^www\./, '');
-    } catch (_) { /* keep fallback label */ }
-    return (
-      <div className="q-source">
-        <p className="q-source-label">Reference</p>
-        <a className="text-link q-source-link" href={href} target="_blank" rel="noopener noreferrer">
-          Open on {host}
-        </a>
-      </div>
-    );
-  }
-  const chapter = matchReading(bookReading, ref && ref.book);
-  const lectureQuote = (ref && ref.lecture) || (ref && ref.excerpt) || (q && q.text) || '';
-  const fromLecture = firstSlideRange(lectureQuote);
-  const slideStart = (ref && ref.slide) || (fromLecture && fromLecture.start) || 0;
-  const slideLabel = formatSlideRange(
-    slideStart
-      ? { start: slideStart, end: (fromLecture && fromLecture.end) || slideStart }
-      : null
-  );
-  const canLecture = hasLecture || hasVideo || !!(ref && ref.lecture);
-  const canSlides = hasSlides || slideStart > 0;
-  const citations = (ref && ref.citations && ref.citations.length
-    ? ref.citations
-    : (ref && (ref.book || ref.page) ? [{ book: ref.book, page: ref.page, pageEnd: ref.pageEnd, excerpt: ref.excerpt }] : [])
-  ).map((row) => {
-    const located = resolveReading({ reading: bookReading || [], books: books || [] }, {
-      book: row.book || '',
-      page: row.page || 0,
-      pageEnd: row.pageEnd || 0,
-      heading: ref && ref.section,
-      excerpt: row.excerpt || (ref && ref.excerpt) || '',
-    });
-    const bookName = (located.chapter && located.book) || row.book || '';
-    return {
-      row,
-      located,
-      hit: bookName ? findBook(books || [], bookName) : null,
-    };
-  }).filter(({ row, hit }) => hit || !row.book);
-  const canBook = citations.length > 0
-    || (!(ref && ref.book) && (hasBook || !!(bookReading && bookReading.length)));
-  if (!ref || (!ref.section && !ref.excerpt && !ref.lecture && !canLecture && !canSlides && !canBook)) {
-    if (!(bookReading && bookReading.length) || !canBook) return null;
-  }
-  const chapterLabel = (ref && ref.chapter) || (chapter && chapter.chapter) || '';
-  const multiBook = citations.length > 1;
-  return (
-    <div className="q-source">
-      <p className="q-source-label">{multiBook ? 'In the books' : 'In the book'}</p>
-      {citations.length ? (
-        <ul className="q-source-books">
-          {citations.map(({ row, hit, located }, i) => {
-            const title = (hit && hit.title) || (located && located.book) || row.book;
-            const quote = reviewing ? usableExcerpt(located && located.excerpt) : '';
-            const page = located && located.chapter ? located.page : row.page;
-            return (
-              <li key={i}>
-                <p className="q-source-book">{shortBookLabel(title) || title}</p>
-                {located && located.chapter ? <p className="q-source-chapter">{located.chapter}</p> : null}
-                {page ? <p className="q-source-page">PDF page {page}</p> : null}
-                {quote ? <blockquote className="q-source-excerpt">{quote}</blockquote> : null}
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <>
-          {ref && ref.book && <p className="q-source-book">{ref.book}</p>}
-          {reviewing && usableExcerpt(ref && ref.excerpt) && (
-            <blockquote className="q-source-excerpt">{usableExcerpt(ref.excerpt)}</blockquote>
-          )}
-        </>
-      )}
-      {!citations.length && chapterLabel && <p className="q-source-chapter">{chapterLabel}</p>}
-      {ref && ref.section && <p className="q-source-notes">Notes · {ref.section}</p>}
-      {slideLabel && <p className="q-source-notes">{slideLabel}</p>}
-      <div className="q-source-actions">
-        {ref && ref.section && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ heading: ref.section, page: 0 })}>
-            Show in chapter notes
-          </button>
-        )}
-        {canLecture && onOpen && (
-          <button type="button" className="text-link" onClick={() => onOpen({ lecture: lectureQuote })}>
-            {hasVideo ? 'Show in video' : 'Show in lecture'}
-          </button>
-        )}
-        {canSlides && onOpen && (
-          <button
-            type="button"
-            className="text-link"
-            onClick={() => onOpen({
-              slide: slideStart,
-              slideEnd: fromLecture && fromLecture.end > slideStart ? fromLecture.end : 0,
-              autoSlides: !slideStart,
-              excerpt: ref && ref.excerpt,
-              lecture: lectureQuote,
-            })}
-          >
-            Show in slides
-          </button>
-        )}
-        {canBook && onOpen && (
-          citations.length
-            ? citations.map(({ row, hit, located }, i) => (
-              <button
-                key={i}
-                type="button"
-                className="text-link"
-                onClick={() => onOpen({
-                  heading: ref && ref.section,
-                  page: (located && located.page) || row.page || 0,
-                  pageEnd: (located && located.pageEnd) || row.pageEnd || (chapter && chapter.pageEnd) || 0,
-                  scanFrom: located && located.scanFrom,
-                  scanTo: located && located.scanTo,
-                  excerpt: (located && located.excerpt) || '',
-                  book: (located && located.book) || row.book || (chapter && chapter.book) || '',
-                  chapter: (located && located.chapter) || '',
-                })}
-              >
-                {citations.length > 1
-                  ? 'Open ' + shortBookLabel((hit && hit.title) || (located && located.book) || row.book)
-                  : 'Show in book'}
-              </button>
-            ))
-            : (
-              <button
-                type="button"
-                className="text-link"
-                onClick={() => onOpen({
-                  heading: ref && ref.section,
-                  page: (chapter && chapter.page) || (ref && ref.page) || 0,
-                  pageEnd: (chapter && chapter.pageEnd) || (ref && ref.pageEnd) || 0,
-                  scanFrom: chapter && chapter.page,
-                  scanTo: chapter && chapter.pageEnd,
-                  excerpt: ref && ref.excerpt,
-                  book: (chapter && chapter.book) || '',
-                  chapter: (chapter && chapter.chapter) || '',
-                })}
-              >
-                Show in book
-              </button>
-            )
-        )}
       </div>
     </div>
   );

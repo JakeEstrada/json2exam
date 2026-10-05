@@ -730,7 +730,9 @@ export default function App() {
     ? bookReferenceTabs(current.q, quiz.reading || [], quiz.books || [])
     : [];
   const refOpen = sidePane === 'book' && !paneMin;
-  const refActive = refOpen ? activeReferenceIndex(refTabs, studyFocus) : -1;
+  const refActive = sidePane === 'notes'
+    ? refTabs.findIndex((tab) => tab.kind === 'notes')
+    : (refOpen ? activeReferenceIndex(refTabs, studyFocus) : -1);
 
   return (
     <div className={shellClass}>
@@ -853,7 +855,11 @@ export default function App() {
           docked={refOpen}
           active={refActive}
           onPick={(tab, i) => {
-            if (refOpen && refActive === i) {
+            if (refActive === i) {
+              if (tab.kind === 'notes') {
+                setSidePane(null);
+                return;
+              }
               setPaneMin(true);
               return;
             }
